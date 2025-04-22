@@ -193,7 +193,7 @@
     "href": "workshop/index.html",
     "title": "Ablauf",
     "section": "",
-    "text": "Thema\n Dauer\n\n\n\n\nAuswertung der Umfrage\n10 min\n\n\nInput: Wie Chatbots denken\n25 min\n\n\nInput: Chatbot Agenten\n25 min\n\n\nEffective Prompting Strategies\nZum Selbststudium\n\n\n\n\n\n\n Back to topReuseCC BY 4.0",
+    "text": "Thema\n Dauer\n\n\n\n\nAuswertung der Umfrage\n10 min\n\n\nInput: Wie Chatbots denken\n25 min\n\n\nInput: Chatbot Agenten\n25 min\n\n\nEffective Prompting Strategies\nZum Selbststudium\n\n\nRAG slides\n10 min\n\n\nAPI Tricks\n10 min\n\n\nHowTo Colab\nZum Selbststudium\n\n\n\n\n\n\n Back to topReuseCC BY 4.0",
     "crumbs": [
       "Workshop",
       "Ablauf"
@@ -275,5 +275,131 @@
       "Übungen",
       "Miro Board"
     ]
+  },
+  {
+    "objectID": "workshop/API-tricks/MoE.html",
+    "href": "workshop/API-tricks/MoE.html",
+    "title": "API Tricks",
+    "section": "",
+    "text": "Ein Prompt - mehrere anfragen\n\nSchreibe eine Antwort\nPrüfe auf Korrektheit\nPrüfe auf Richtlinien\n…\n\n\n\n\n\n\n\n\nimport openai\n\nopenai.api_key = \"sk-...\"\n\n# Schritt 1: Anfrage & Richtlinien\nuser_input = \"Wie viele Monde hat der Jupiter?\"\nrichtlinien = \"Antworten enthalten nur Fakten, keine Spekulation.\"\n\n\n# Schritt 2: Antwort generieren\nanswer = openai.ChatCompletion.create(\n    model=\"gpt-4\",\n    messages=[{\n        \"role\": f\"Antworte korrekt innerhalb der Richtlinien.\\n Richtlinien: {richtlinier}\",\n        \"content\": user_input}]\n).choices[0].message[\"content\"]\n\n# Schritt 3: Antwort validieren\ncorrect = openai.ChatCompletion.create(\n    model=\"gpt-3.5-turbo\",  ## leichtere Aufgabe -&gt; kleineres Modell\n    messages=[{\n        \"role\": \"Prüfe auf Korrektheit. Antworte nur 'OK' wenn alles korrekt ist.\",\n        \"content\":\n            f\"Prüfe auf Korrektheit:\\n\"\n            f\"Frage: {user_input}\\nAntwort: {answer}\\n\"\n    }]\n).choices[0].message[\"content\"]\n\nproper = openai.ChatCompletion.create(\n    model=\"gpt-3.5-turbo\",  ## leichtere Aufgabe -&gt; kleineres Modell\n    messages=[{\n        \"role\": \"Prüfe auf Richtlinien. Antworte nur 'OK' wenn alles korrekt ist.\",\n        \"content\":\n            f\"Prüfe auf Richtlinien:\\n\"\n            f\"Frage: {user_input}\\n Antwort: {answer}\\n Richtlinien: {richtlinien}\"\n    }]\n).choices[0].message[\"content\"]\n\n\n\n# Schritt 4: Ausgabe\nif not correct == \"OK\":\n    print(\"⚠️ Antwort ist inhaltlich falsch.\")\nelif not proper == \"OK\":\n    print(\"⛔ Verstoß gegen Richtlinien.\")\nelse:\n    print(answer)"
+  },
+  {
+    "objectID": "workshop/API-tricks/MoE.html#moe-mixture-of-experts",
+    "href": "workshop/API-tricks/MoE.html#moe-mixture-of-experts",
+    "title": "API Tricks",
+    "section": "",
+    "text": "Ein Prompt - mehrere anfragen\n\nSchreibe eine Antwort\nPrüfe auf Korrektheit\nPrüfe auf Richtlinien\n…\n\n\n\n\n\n\n\n\nimport openai\n\nopenai.api_key = \"sk-...\"\n\n# Schritt 1: Anfrage & Richtlinien\nuser_input = \"Wie viele Monde hat der Jupiter?\"\nrichtlinien = \"Antworten enthalten nur Fakten, keine Spekulation.\"\n\n\n# Schritt 2: Antwort generieren\nanswer = openai.ChatCompletion.create(\n    model=\"gpt-4\",\n    messages=[{\n        \"role\": f\"Antworte korrekt innerhalb der Richtlinien.\\n Richtlinien: {richtlinier}\",\n        \"content\": user_input}]\n).choices[0].message[\"content\"]\n\n# Schritt 3: Antwort validieren\ncorrect = openai.ChatCompletion.create(\n    model=\"gpt-3.5-turbo\",  ## leichtere Aufgabe -&gt; kleineres Modell\n    messages=[{\n        \"role\": \"Prüfe auf Korrektheit. Antworte nur 'OK' wenn alles korrekt ist.\",\n        \"content\":\n            f\"Prüfe auf Korrektheit:\\n\"\n            f\"Frage: {user_input}\\nAntwort: {answer}\\n\"\n    }]\n).choices[0].message[\"content\"]\n\nproper = openai.ChatCompletion.create(\n    model=\"gpt-3.5-turbo\",  ## leichtere Aufgabe -&gt; kleineres Modell\n    messages=[{\n        \"role\": \"Prüfe auf Richtlinien. Antworte nur 'OK' wenn alles korrekt ist.\",\n        \"content\":\n            f\"Prüfe auf Richtlinien:\\n\"\n            f\"Frage: {user_input}\\n Antwort: {answer}\\n Richtlinien: {richtlinien}\"\n    }]\n).choices[0].message[\"content\"]\n\n\n\n# Schritt 4: Ausgabe\nif not correct == \"OK\":\n    print(\"⚠️ Antwort ist inhaltlich falsch.\")\nelif not proper == \"OK\":\n    print(\"⛔ Verstoß gegen Richtlinien.\")\nelse:\n    print(answer)"
+  },
+  {
+    "objectID": "workshop/API-tricks/MoE.html#minimal-openai-mixture-of-experts-pipeline",
+    "href": "workshop/API-tricks/MoE.html#minimal-openai-mixture-of-experts-pipeline",
+    "title": "MoE: Mixture of Experts",
+    "section": "⚙️ Minimal: OpenAI Mixture-of-Experts Pipeline",
+    "text": "⚙️ Minimal: OpenAI Mixture-of-Experts Pipeline\nimport openai\n\nopenai.api_key = \"sk-...\"\n\n# Schritt 1: Anfrage & Richtlinien\nuser_input = \"Wie viele Monde hat der Jupiter?\"\nrichtlinien = \"Antworten enthalten nur Fakten, keine Spekulation.\"\n\n\n# Schritt 2: Antwort generieren\nanswer = openai.ChatCompletion.create(\n    model=\"gpt-4\",\n    messages=[{\n        \"role\": f\"Antworte korrekt innerhalb der Richtlinien.\\n Richtlinien: {richtlinier}\",\n        \"content\": user_input}]\n).choices[0].message[\"content\"]\n\n# Schritt 3: Antwort validieren\ncorrect = openai.ChatCompletion.create(\n    model=\"gpt-3.5-turbo\",  ## leichtere Aufgabe -&gt; kleineres Modell\n    messages=[{\n        \"role\": \"Prüfe auf Korrektheit. Antworte nur 'OK' wenn alles korrekt ist.\",\n        \"content\":\n            f\"Prüfe auf Korrektheit:\\n\"\n            f\"Frage: {user_input}\\nAntwort: {answer}\\n\"\n    }]\n).choices[0].message[\"content\"]\n\nproper = openai.ChatCompletion.create(\n    model=\"gpt-3.5-turbo\",  ## leichtere Aufgabe -&gt; kleineres Modell\n    messages=[{\n        \"role\": \"Prüfe auf Richtlinien. Antworte nur 'OK' wenn alles korrekt ist.\",\n        \"content\":\n            f\"Prüfe auf Richtlinien:\\n\"\n            f\"Frage: {user_input}\\n Antwort: {answer}\\n Richtlinien: {richtlinien}\"\n    }]\n).choices[0].message[\"content\"]\n\n\n\n# Schritt 4: Ausgabe\nif not correct == \"OK\":\n    print(\"⚠️ Antwort ist inhaltlich falsch.\")\nelif not proper == \"OK\":\n    print(\"⛔ Verstoß gegen Richtlinien.\")\nelse:\n    print(answer)"
+  },
+  {
+    "objectID": "workshop/api-tricks/api-tricks.html",
+    "href": "workshop/api-tricks/api-tricks.html",
+    "title": "API Tricks",
+    "section": "",
+    "text": "Ein Chatbot ist mehr als eine einfache Anfrage an ein LLM. Vielmehr triggert jede Userprompt eine vielzahl von Anfragen, einerseits um die Antwort zu generieren, andererseits um die Qualität sicherzustellen.\n\n\nEin Prompt - mehrere anfragen\n\nSchreibe eine Antwort\nPrüfe auf Korrektheit\nPrüfe auf Richtlinien\n…\n\n\n\n\n\n\n\n\nfrom openai import OpenAI\nclient = OpenAI()\n\nopenai.api_key = \"sk-...\"\n\n# Schritt 1: Anfrage & Richtlinien\nuser_input = \"Wie viele Monde hat der Jupiter?\"\nrichtlinien = \"Antworten enthalten nur Fakten, keine Spekulation.\"\n\n\n# Schritt 2: Antwort generieren\nanswer = client.chat.completions.create(\n    model=\"gpt-4\",\n    messages=[\n        {\"role\": \"system\", \"content\": f\"Antworte korrekt innerhalb der Richtlinien.\\n Richtlinien: {richtlinier}\"},\n        {\"role\": \"user\",\"content\": user_input}\n        ]\n).choices[0].message.content\n\n# Schritt 3: Antwort validieren\ncorrect = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",  ## leichtere Aufgabe -&gt; kleineres Modell\n    messages=[\n        {\"role\": \"system\", \"content\": \"Prüfe auf Korrektheit. Antworte nur 'OK' wenn alles korrekt ist.\"},\n        {\n            \"role\": \"user\", \n            \"content\":\n                f\"Prüfe auf Korrektheit:\\n\"\n                f\"Frage: {user_input}\\nAntwort: {answer}\\n\"\n        }\n    ]\n).choices[0].message.content\n\nproper = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",  ## leichtere Aufgabe -&gt; kleineres Modell\n    messages=[\n        {\"role\": \"system\", \"content\": \"Prüfe auf Richtlinien. Antworte nur 'OK' wenn alles korrekt ist.\"},\n        {\n            \"role\": \"user\", \n            \"content\":\n                f\"Prüfe auf Richtlinien:\\n\"\n                f\"Frage: {user_input}\\n Antwort: {answer}\\n Richtlinien: {richtlinien}\"\n    }]\n).choices[0].message.content\n\n\n\n# Schritt 4: Ausgabe\nif not correct == \"OK\":\n    print(\"⚠️ Antwort ist inhaltlich falsch.\")\nelif not proper == \"OK\":\n    print(\"⛔ Verstoß gegen Richtlinien.\")\nelse:\n    print(answer)"
+  },
+  {
+    "objectID": "workshop/api-tricks/api-tricks.html#moe-mixture-of-experts",
+    "href": "workshop/api-tricks/api-tricks.html#moe-mixture-of-experts",
+    "title": "API Tricks",
+    "section": "",
+    "text": "Ein Chatbot ist mehr als eine einfache Anfrage an ein LLM. Vielmehr triggert jede Userprompt eine vielzahl von Anfragen, einerseits um die Antwort zu generieren, andererseits um die Qualität sicherzustellen.\n\n\nEin Prompt - mehrere anfragen\n\nSchreibe eine Antwort\nPrüfe auf Korrektheit\nPrüfe auf Richtlinien\n…\n\n\n\n\n\n\n\n\nfrom openai import OpenAI\nclient = OpenAI()\n\nopenai.api_key = \"sk-...\"\n\n# Schritt 1: Anfrage & Richtlinien\nuser_input = \"Wie viele Monde hat der Jupiter?\"\nrichtlinien = \"Antworten enthalten nur Fakten, keine Spekulation.\"\n\n\n# Schritt 2: Antwort generieren\nanswer = client.chat.completions.create(\n    model=\"gpt-4\",\n    messages=[\n        {\"role\": \"system\", \"content\": f\"Antworte korrekt innerhalb der Richtlinien.\\n Richtlinien: {richtlinier}\"},\n        {\"role\": \"user\",\"content\": user_input}\n        ]\n).choices[0].message.content\n\n# Schritt 3: Antwort validieren\ncorrect = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",  ## leichtere Aufgabe -&gt; kleineres Modell\n    messages=[\n        {\"role\": \"system\", \"content\": \"Prüfe auf Korrektheit. Antworte nur 'OK' wenn alles korrekt ist.\"},\n        {\n            \"role\": \"user\", \n            \"content\":\n                f\"Prüfe auf Korrektheit:\\n\"\n                f\"Frage: {user_input}\\nAntwort: {answer}\\n\"\n        }\n    ]\n).choices[0].message.content\n\nproper = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",  ## leichtere Aufgabe -&gt; kleineres Modell\n    messages=[\n        {\"role\": \"system\", \"content\": \"Prüfe auf Richtlinien. Antworte nur 'OK' wenn alles korrekt ist.\"},\n        {\n            \"role\": \"user\", \n            \"content\":\n                f\"Prüfe auf Richtlinien:\\n\"\n                f\"Frage: {user_input}\\n Antwort: {answer}\\n Richtlinien: {richtlinien}\"\n    }]\n).choices[0].message.content\n\n\n\n# Schritt 4: Ausgabe\nif not correct == \"OK\":\n    print(\"⚠️ Antwort ist inhaltlich falsch.\")\nelif not proper == \"OK\":\n    print(\"⛔ Verstoß gegen Richtlinien.\")\nelse:\n    print(answer)"
+  },
+  {
+    "objectID": "workshop/howto-colab/howto-colab.html",
+    "href": "workshop/howto-colab/howto-colab.html",
+    "title": "OpenAI API Nutzung mit Google Colab",
+    "section": "",
+    "text": "In diesem Dokument zeigen wir, wie man ein Google Colab Notebook verwendet, um Anfragen an die OpenAI API zu stellen. Dies ist besonders nützlich für einfache Experimente mit Sprachmodellen wie GPT."
+  },
+  {
+    "objectID": "workshop/howto-colab/howto-colab.html#einführung",
+    "href": "workshop/howto-colab/howto-colab.html#einführung",
+    "title": "OpenAI API Nutzung mit Google Colab",
+    "section": "",
+    "text": "In diesem Dokument zeigen wir, wie man ein Google Colab Notebook verwendet, um Anfragen an die OpenAI API zu stellen. Dies ist besonders nützlich für einfache Experimente mit Sprachmodellen wie GPT."
+  },
+  {
+    "objectID": "workshop/howto-colab/howto-colab.html#voraussetzungen",
+    "href": "workshop/howto-colab/howto-colab.html#voraussetzungen",
+    "title": "OpenAI API Nutzung mit Google Colab",
+    "section": "Voraussetzungen",
+    "text": "Voraussetzungen\nBevor du startest, benötigst du:\n\nEin kostenloses Google Konto.\nEinen OpenAI API Key: https://platform.openai.com/account/api-keys"
+  },
+  {
+    "objectID": "workshop/howto-colab/howto-colab.html#schritt-1-google-colab-notebook-vorbereiten",
+    "href": "workshop/howto-colab/howto-colab.html#schritt-1-google-colab-notebook-vorbereiten",
+    "title": "OpenAI API Nutzung mit Google Colab",
+    "section": "Schritt 1: Google Colab Notebook vorbereiten",
+    "text": "Schritt 1: Google Colab Notebook vorbereiten\nÖffne ein neues Notebook in Google Colab und installiere das OpenAI-Paket:\n!pip install openai"
+  },
+  {
+    "objectID": "workshop/howto-colab/howto-colab.html#schritt-2-api-key-setzen",
+    "href": "workshop/howto-colab/howto-colab.html#schritt-2-api-key-setzen",
+    "title": "OpenAI API Nutzung mit Google Colab",
+    "section": "Schritt 2: API Key setzen",
+    "text": "Schritt 2: API Key setzen\nDu kannst den API-Schlüssel direkt im Notebook setzen (nicht empfohlen für öffentlich geteilte Notebooks) oder sicher über Umgebungsvariablen:\nimport openai\nopenai.api_key = \"DEIN_API_KEY_HIER\"\nAlternativ (sicherer):\nimport os\nos.environ[\"OPENAI_API_KEY\"] = \"DEIN_API_KEY_HIER\"\nopenai.api_key = os.getenv(\"OPENAI_API_KEY\")"
+  },
+  {
+    "objectID": "workshop/howto-colab/howto-colab.html#schritt-3-einfache-anfrage-an-gpt-3.5",
+    "href": "workshop/howto-colab/howto-colab.html#schritt-3-einfache-anfrage-an-gpt-3.5",
+    "title": "OpenAI API Nutzung mit Google Colab",
+    "section": "Schritt 3: Einfache Anfrage an GPT-3.5",
+    "text": "Schritt 3: Einfache Anfrage an GPT-3.5\nresponse = openai.ChatCompletion.create(\n    model=\"gpt-3.5-turbo\",\n    messages=[\n        {\"role\": \"user\", \"content\": \"Erkläre mir den code für eine OpenAI API ChatCompletion in einfachen Worten.\"}\n    ]\n)\n\nprint(response['choices'][0]['message']['content'])"
+  },
+  {
+    "objectID": "workshop/howto-colab/howto-colab.html#hinweise",
+    "href": "workshop/howto-colab/howto-colab.html#hinweise",
+    "title": "OpenAI API Nutzung mit Google Colab",
+    "section": "Hinweise",
+    "text": "Hinweise\n\nDie API ist kostenpflichtig. Prüfe deine Nutzung regelmäßig im OpenAI-Dashboard."
+  },
+  {
+    "objectID": "workshop/howto-colab/howto-colab.html#weiterführende-links",
+    "href": "workshop/howto-colab/howto-colab.html#weiterführende-links",
+    "title": "OpenAI API Nutzung mit Google Colab",
+    "section": "Weiterführende Links",
+    "text": "Weiterführende Links\n\nOpenAI Python API Doku\nGoogle Colab Einführung"
+  },
+  {
+    "objectID": "workshop/api-tricks/api-tricks.html#durchdachte-antworten-zusammenfassen",
+    "href": "workshop/api-tricks/api-tricks.html#durchdachte-antworten-zusammenfassen",
+    "title": "API Tricks",
+    "section": "Durchdachte Antworten zusammenfassen",
+    "text": "Durchdachte Antworten zusammenfassen\nIm obigen Beispiel soll die Antwort nur “OK” lauten. Effektiv bringt eine solche Anfrage das Sprachmodell dazu zu wuerfeln, denn ein Denkprozess wird nur dann immitiert, wenn er auch verbalisiert wird. Ein langer Denkprozess kann auf eine kurze Antwort reduziert werden mittels eines zweiten API Calls.\n\nMinimal: Chain-of-Thought + Structured Summary\nimport openai\n\nopenai.api_key = \"sk-...\"\n\nuser_input = \"Schwimmt Eis auf Wasser?\"\n\n# Schritt 1: CoT-Antwort erzeugen\ncot_response = client.chat.completions.create(\n    model=\"gpt-4\",\n    messages=[{\n        {\"role\": \"system\", \"content\":\"Finde Schritt für Schritt eine Antwort auf die Anfrage.\"},\n        {\"role\": \"user\", \"content\": user_input}\n    }]\n).choices[0].message.content\n\n# Schritt 2: Antwort minimal Zusammenfassen (Ja/Nein)\nclass IsCorrect(BaseModel):\n    answer_correct: bool\n\nsummary = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",\n    response_format=IsCorrect ## Antwort wird eine Instanz der Klasse sein\n    messages=[\n        {\"role\": \"system\", \"content\": \"Gib nur die finale Antwort wieder.\"},\n        {\"role\": \"user\", \"content\": cot_response},\n\n    ]\n).choices[0].message.content\n\nlog.write(cot)  ## Denkprozess speichern zur Analyse\n\n# Ausgabe\nif check.choices[0].message.parsed.answer_correct:\n    print(\"✅ Die Antwort ist: Ja.\")\nelse:\n    print(\"❌ Die Antwort ist: Nein.\")"
+  },
+  {
+    "objectID": "workshop/api-tricks/api-tricks.html#minimal-chain-of-thought-zusammenfassung",
+    "href": "workshop/api-tricks/api-tricks.html#minimal-chain-of-thought-zusammenfassung",
+    "title": "API Tricks",
+    "section": "Minimal: Chain-of-Thought + Zusammenfassung",
+    "text": "Minimal: Chain-of-Thought + Zusammenfassung\nimport openai\n\nopenai.api_key = \"sk-...\"\n\nuser_input = \"Schwimmt Eis auf Wasser?\"\n\n# Schritt 1: CoT-Antwort erzeugen\ncot_response = openai.ChatCompletion.create(\n    model=\"gpt-4\",\n    messages=[{\n        \"role\": \"Finde Schritt für Schritt eine Antwort auf die Anfrage.\",\n        \"content\": user_input\n    }]\n).choices[0].message[\"content\"]\n\n# Schritt 2: Antwort minimal Zusammenfassen (Ja/Nein)\nclass IsCorrect(BaseModel):\n    answer_correct: bool\n\nsummary = openai.ChatCompletion.create(\n    model=\"gpt-3.5-turbo\",\n    response_format=IsCorrect\n    messages=[{\n        \"role\": \"Gib nur die finale Antwort wieder.\",\n        \"content\": cot_response,\n\n    }]\n).choices[0].message[\"content\"]"
+  },
+  {
+    "objectID": "workshop/howto-colab/howto-colab.html#schritt-2-api-key-mit-google-colab-secrets-setzen",
+    "href": "workshop/howto-colab/howto-colab.html#schritt-2-api-key-mit-google-colab-secrets-setzen",
+    "title": "OpenAI API Nutzung mit Google Colab",
+    "section": "Schritt 2: API Key mit Google Colab Secrets setzen",
+    "text": "Schritt 2: API Key mit Google Colab Secrets setzen\nUm deinen OpenAI API-Schlüssel sicher zu verwenden, empfehlen wir die Nutzung von Google Colab Secrets.\n\nKlicke links auf den Schlüssel\n\nAdd new secret\n\nFüge dort deinen API Key unter dem Namen OPENAI_API_KEY hinzu.\n\nDann kannst du im Notebook folgenden Code verwenden:\nfrom google.colab import userdata\nuserdata.get('OPENAI_API_KEY')```"
+  },
+  {
+    "objectID": "workshop/api-tricks/api-tricks.html#mehrere-antworten-erhalten",
+    "href": "workshop/api-tricks/api-tricks.html#mehrere-antworten-erhalten",
+    "title": "API Tricks",
+    "section": "Mehrere Antworten erhalten",
+    "text": "Mehrere Antworten erhalten\nSprachmodelle neigen zum Halluzinieren. Gluecklicherweise sind diese Halluzinationen selten einheitlich. wenn wir eine Frage mehrmals beantworten lassen und jedes mal kommt das selbe heraus, steigt das die Wahrscheinlichkeit das es wirklich korrekt ist.\nresponse = client.chat.completions.create(\n    model=\"gpt-4\",\n    messages=[{\"role\": \"user\", \"content\": \"What are some creative icebreaker questions?\"}],\n    n=3  # Get 3 completions\n)\n\nfor choice in response.choices:\n    print(choice.message.content)"
+  },
+  {
+    "objectID": "workshop/api-tricks/api-tricks.html#api-assistenten",
+    "href": "workshop/api-tricks/api-tricks.html#api-assistenten",
+    "title": "API Tricks",
+    "section": "API Assistenten",
+    "text": "API Assistenten\nOpenAI erlaubt API Assistenten zu definieren (analog zu CostumGPT), um sie mit minimalem Aufwand in verschiedenen Codes zu verwenden. Diese kommen mit einem fertigen RAG system, können mit einem code interpreter selsbgeschriebenen Pythoncode ausführen und erlauben Einstellung von Parametern und Responsformat."
   }
 ]
