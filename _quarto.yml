@@ -3,7 +3,7 @@ project:
   resources:
     - assets/*
     - assets/images/*
-    - assets/pdfs/*
+    - assets/essays/*
   preview:
     port: 8800
     browser: false
@@ -11,8 +11,9 @@ project:
   render:
     - index.qmd
     - workshop/**/*.qmd
+    - tutorials/**/*.qmd
     - exercises/**/*.qmd
-    - resources/**/*.qmd
+    - project/**/*.qmd
 
 website:
   title: "KI in der Lehre: Advanced"
@@ -36,20 +37,28 @@ website:
         href: workshop/index.qmd
         text: Workshop
 
+      - icon: briefcase
+        href: tutorials/index.qmd
+        text: Tutorials
+
       - icon: pencil
         href: exercises/index.qmd
-        text: Übungen
+        text: Exercises
 
-    right:
-      - icon: file-slides
-        text: "Dokumente" # {{< fa person-chalkboard >}}
-        menu:
-          - text: "Begleitdokument: KI Weiterbildung"
-            file: assets/pdfs/Begleitdokument.pdf
-          - text: "Begleitdokument: Orientierungshilfe"
-            file: resources/resources.qmd
-          - text: "Begleitdokument: Orientierungshilfe (PDF)"
-            file: assets/pdfs/Orientierungshilfe.pdf
+      - icon: code-square
+        href: project/index.qmd
+        text: Project
+
+    # right:
+    #   - icon: file-slides
+    #     text: "Dokumente" # {{< fa person-chalkboard >}}
+    #     menu:
+    #       - text: "Begleitdokument: KI Weiterbildung"
+    #         file: assets/pdfs/Begleitdokument.pdf
+    #       - text: "Begleitdokument: Orientierungshilfe"
+    #         file: resources/resources.qmd
+    #       - text: "Begleitdokument: Orientierungshilfe (PDF)"
+    #         file: assets/pdfs/Orientierungshilfe.pdf
 
     tools:
       - icon: lightbulb-fill
@@ -75,7 +84,16 @@ website:
         - workshop/chatbot-agenten/index.qmd
         - workshop/prompting/index.qmd
 
-    - title: "Übungen"
+    - title: "Tutorials"
+      style: "docked"
+      search: true
+      background: light
+      contents:
+        - tutorials/index.qmd
+        - tutorials/chatbot-agenten/index.qmd
+        - tutorials/prompting/index.qmd
+
+    - title: "Exercises"
       style: "docked"
       search: true
       background: light
