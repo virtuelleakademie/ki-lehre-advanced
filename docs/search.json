@@ -405,12 +405,11 @@
   {
     "objectID": "tutorials/index.html",
     "href": "tutorials/index.html",
-    "title": "KI in der Lehre: Advanced",
+    "title": "Tutorials",
     "section": "",
     "text": "Back to top",
     "crumbs": [
-      "Tutorials",
-      "index.html"
+      "Tutorials"
     ]
   },
   {
@@ -419,5 +418,80 @@
     "title": "KI in der Lehre: Advanced",
     "section": "",
     "text": "Back to top"
+  },
+  {
+    "objectID": "tutorials/structured-output/index.html",
+    "href": "tutorials/structured-output/index.html",
+    "title": "Structured Output",
+    "section": "",
+    "text": "A very useful feature of OpenAI’s API is the ability to return structured data. This is useful for a variety of reasons, but one of the most common is to return a JSON object. Here is the official OpenAI documentation for structured output.\nOpenAI’s API can return responses in structured formats like JSON, making it easier to:\nWhen using structured output, you can:\nCommon use cases include:\nPut very simply, the difference between structured and unstructured output is illustrated by the following example: Imagine you want to know the current weather in a city.\nUnstructured output: The response is a free-form text response.\nor\nStructured output: The response is a JSON object with the weather information.\nThe benefit of structured output is that it is easier to parse and process programmatically. A further advantage is that we can use a data validation library like Pydantic to ensure that the response is in the expected format.\nTo use this feature, we first need to install the pydantic package.\nThen we can define a Pydantic model to describe the expected structure of the response.\nWe can use this object as the response_format parameter in the parse method.",
+    "crumbs": [
+      "Tutorials",
+      "Structured Output"
+    ]
+  },
+  {
+    "objectID": "tutorials/structured-output/index.html#extracting-facts-from-text",
+    "href": "tutorials/structured-output/index.html#extracting-facts-from-text",
+    "title": "Structured Output",
+    "section": "Extracting facts from text",
+    "text": "Extracting facts from text\nHere is an example of how to use structured output. Since a pre-trained model is not actually able to provide weather information without calling a weather API, we will use a prompt that asks the model to give us some facts contained in a text about a composer. For example, we want to extract the composer’s name, the year of birth and death, and the country of origin, the genre of music they worked in, and some key works.\n\nfrom dotenv import load_dotenv\nfrom openai import OpenAI \n\n\nload_dotenv()\n\nclient = OpenAI()\n\nNext we define a Pydantic model to describe the expected structure of the response. The fields of the model correspond to the facts we want to extract.\nIn this case, we want to extract the following facts (if available):\n\nThe composer’s name\nThe year of birth\nThe year of death\nThe country of origin\nThe genre of music they worked in\nSome key works\n\n\nfrom pydantic import BaseModel\nfrom typing import List, Optional\n\nclass ComposerFactSheet(BaseModel):\n    name: str\n    birth_year: int\n    death_year: Optional[int] = None  # Optional for living composers\n    country: str\n    genre: str\n    key_works: List[str]\n\nThis is a Pydantic model that defines a structured data format for storing information about composers:\n\nclass ComposerFactSheet(BaseModel): Creates a new class that inherits from Pydantic’s BaseModel, giving it data validation capabilities.\nname: str: A required field for the composer’s name.\nbirth_year: int: A required field for the year of birth.\ndeath_year: Optional[int] = None: An optional field for the year of death.\ncountry: str: A required field for the country of origin.\ngenre: str: A required field for the genre of music.\nkey_works: List[str]: A required field for a list of key works.\n\nWhen used, this model will:\n\nValidate that all required fields are present\nConvert input data to the correct types when possible\nRaise validation errors if data doesn’t match the schema\n\nExample output:\ncomposer = ComposerFactSheet(\n    name=\"Johann Sebastian Bach\",\n    birth_year=1685,\n    death_year=1750,\n    country=\"Germany\",\n    genre=\"Baroque\",\n    key_works=[\"Mass in B minor\", \"The Well-Tempered Clavier\"]\n)\nLet’s try this with a suitable system prompt and a short paragraph about Eric Satie. We will use the GPT-4o model for this.\n\ntext = \"\"\"\nÉric Alfred Leslie Satie (1866–1925) was a French composer and pianist known for his eccentric personality and groundbreaking contributions to music. Often associated with the Parisian avant-garde, Satie coined the term “furniture music” (musique d’ameublement) to describe background music intended to blend into the environment, an early precursor to ambient music. He is perhaps best known for his piano compositions, particularly the Gymnopédies and Gnossiennes, which are characterized by their simplicity, haunting melodies, and innovative use of harmony. Satie’s collaborations with artists like Claude Debussy, Pablo Picasso, and Jean Cocteau established him as a central figure in early 20th-century modernism. Despite his whimsical demeanor, he significantly influenced composers such as John Cage and minimalists of the mid-20th century.\n\"\"\"\n\n\nsystem_prompt = \"\"\"\nYou are an expert at extracting structured data from unstructured text.\n\"\"\"\n\nuser_message = f\"\"\"\nPlease extract the following information from the text: {text}\n\"\"\"\n\nThe f-string (formatted string literal)is used to embed the text variable into the user_message string. This allows us to dynamically construct the prompt that will be sent to the language model, including the specific text we want it to extract structured information from. Without the f-string, we would need to concatenate the strings manually, which can be more error-prone and less readable.\n\ncompletion = client.beta.chat.completions.parse(\n    model=\"gpt-4o-2024-08-06\",\n    messages=[\n        {\"role\": \"system\", \n        \"content\": system_prompt},\n        {\"role\": \"user\", \n        \"content\": user_message}\n    ],\n1    response_format=ComposerFactSheet\n)\n\n\n1\n\nresponse_format=ComposerFactSheet is the key line here. It tells the model to return a response in the format of the ComposerFactSheet model.\n\n\n\n\n\nfactsheet = completion.choices[0].message.parsed\nprint(factsheet)\n\nname='Éric Alfred Leslie Satie' birth_year=1866 death_year=1925 country='France' genre='Classical, Avant-garde' key_works=['Gymnopédies', 'Gnossiennes']\n\n\nWe can now access the fields of the factsheet object.\n\nfactsheet.name\n\n'Éric Alfred Leslie Satie'\n\n\n\nfactsheet.key_works\n\n['Gymnopédies', 'Gnossiennes']\n\n\nLet’s try another example. This time we will attempt to extract information from a paragraph in which some of the information is missing.\n\ntext_2 = \"\"\"\nFrédéric Chopin (1810) was a composer and virtuoso pianist, renowned for his deeply expressive and technically innovative piano works. Often called the “Poet of the Piano,” Chopin’s music, including his nocturnes, mazurkas, and polonaises, is celebrated for blending Polish folk elements with Romantic lyricism. Born near Warsaw, he spent much of his career in Paris, influencing generations of musicians and cementing his place as one of the greatest composers of all time.\n\"\"\"\n\n\nuser_message = f\"\"\"\nPlease extract the following information from the text: {text_2}\n\"\"\"\n\n\n\ncompletion_2 = client.beta.chat.completions.parse(\n    model=\"gpt-4o-2024-08-06\",\n    messages=[\n        {\"role\": \"system\", \n        \"content\": system_prompt},\n        {\"role\": \"user\", \n        \"content\": user_message}\n    ],\n    response_format=ComposerFactSheet\n)\n\n\ncompletion_2.choices[0].message.parsed\n\nComposerFactSheet(name='Frédéric Chopin', birth_year=1810, death_year=1849, country='Poland', genre='Classical - Romantic', key_works=['Nocturnes', 'Mazurkas', 'Polonaises'])\n\n\nAn obvious next step would be to improve our prompting strategy, so that the model indicates which fields it is able to fill in, and which fields are associated with uncertain or missing information.",
+    "crumbs": [
+      "Tutorials",
+      "Structured Output"
+    ]
+  },
+  {
+    "objectID": "tutorials/structured-output/index.html#creating-a-reusable-function",
+    "href": "tutorials/structured-output/index.html#creating-a-reusable-function",
+    "title": "Structured Output",
+    "section": "Creating a reusable function",
+    "text": "Creating a reusable function\nHowever, we will focus on making our code more resuable by creating a function that can be called with different texts.\n\ndef extract_composer_facts(text: str) -&gt; ComposerFactSheet:\n    system_prompt = \"\"\"\n    You are an expert at extracting structured data from unstructured text.\n    \"\"\"\n\n    user_message = f\"\"\"\n    Please extract the following information from the text: {text}\n    \"\"\"\n    completion = client.beta.chat.completions.parse(\n        model=\"gpt-4.1\",\n        messages=[\n            {\"role\": \"system\", \n            \"content\": system_prompt},\n            {\"role\": \"user\", \n            \"content\": user_message}\n        ],\n        response_format=ComposerFactSheet\n    )\n    return completion.choices[0].message.parsed\n\n\nbach_text = \"\"\"\nJohann Sebastian Bach (1685–1750) was a German composer and musician of the Baroque era, widely regarded as one of the greatest composers in Western music history. His masterful works, including the Brandenburg Concertos, The Well-Tempered Clavier, and the Mass in B Minor, showcase unparalleled contrapuntal skill and emotional depth. Bach’s music has influenced countless composers and remains a cornerstone of classical music education and performance worldwide.\n\"\"\"\n\n\n\nextract_composer_facts(bach_text)\n\nComposerFactSheet(name='Johann Sebastian Bach', birth_year=1685, death_year=1750, country='Germany', genre='Baroque', key_works=['Brandenburg Concertos', 'The Well-Tempered Clavier', 'Mass in B Minor'])",
+    "crumbs": [
+      "Tutorials",
+      "Structured Output"
+    ]
+  },
+  {
+    "objectID": "slides/openai-platform/index.html#openai-playground",
+    "href": "slides/openai-platform/index.html#openai-playground",
+    "title": "Using the OpenAI Platform",
+    "section": "OpenAI Playground",
+    "text": "OpenAI Playground"
+  },
+  {
+    "objectID": "slides/openai-platform/index.html#generate-prompt",
+    "href": "slides/openai-platform/index.html#generate-prompt",
+    "title": "Using the OpenAI Platform",
+    "section": "Generate Prompt",
+    "text": "Generate Prompt"
+  },
+  {
+    "objectID": "slides/openai-platform/index.html#system-prompt",
+    "href": "slides/openai-platform/index.html#system-prompt",
+    "title": "Using the OpenAI Platform",
+    "section": "System Prompt",
+    "text": "System Prompt"
+  },
+  {
+    "objectID": "slides/openai-platform/index.html#llm-parameters",
+    "href": "slides/openai-platform/index.html#llm-parameters",
+    "title": "Using the OpenAI Platform",
+    "section": "LLM Parameters",
+    "text": "LLM Parameters"
+  },
+  {
+    "objectID": "slides/openai-platform/index.html#generate-response",
+    "href": "slides/openai-platform/index.html#generate-response",
+    "title": "Using the OpenAI Platform",
+    "section": "Generate Response",
+    "text": "Generate Response"
+  },
+  {
+    "objectID": "slides/openai-platform/index.html#view-code",
+    "href": "slides/openai-platform/index.html#view-code",
+    "title": "Using the OpenAI Platform",
+    "section": "View Code",
+    "text": "View Code"
   }
 ]

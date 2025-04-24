@@ -14,7 +14,7 @@
         "\n",
         "First, we import the required libraries:\n"
       ],
-      "id": "d271601b"
+      "id": "2f3a9eab"
     },
     {
       "cell_type": "code",
@@ -28,7 +28,7 @@
         "from pydantic import BaseModel, Field\n",
         "from typing import List"
       ],
-      "id": "fe2edeb6",
+      "id": "c096cfa5",
       "execution_count": null,
       "outputs": []
     },
@@ -38,7 +38,7 @@
       "source": [
         "Initialize the OpenAI client using environment variables:\n"
       ],
-      "id": "8fc4d6b3"
+      "id": "0a9a2ae8"
     },
     {
       "cell_type": "code",
@@ -47,7 +47,7 @@
         "load_dotenv()\n",
         "client = OpenAI()"
       ],
-      "id": "82a82e7d",
+      "id": "01bc017a",
       "execution_count": null,
       "outputs": []
     },
@@ -57,7 +57,7 @@
       "source": [
         "Define our data models using Pydantic for type safety and validation:\n"
       ],
-      "id": "e093cacb"
+      "id": "c485b6f0"
     },
     {
       "cell_type": "code",
@@ -72,7 +72,7 @@
         "    answer: str = Field(..., description=\"The back side of the flashcard containing the answer\")\n",
         "    tags: List[str] = Field(..., description=\"List of tags associated with the flashcard\")"
       ],
-      "id": "3cd0a485",
+      "id": "e599b7ac",
       "execution_count": null,
       "outputs": []
     },
@@ -82,7 +82,7 @@
       "source": [
         "Create a model to represent a complete deck of flashcards:\n"
       ],
-      "id": "f31e6424"
+      "id": "21952509"
     },
     {
       "cell_type": "code",
@@ -96,7 +96,7 @@
         "    cards: List[AnkiFlashcard] = Field(..., description=\"List of flashcards in the deck\")\n",
         "    deck_name: str = Field(..., description=\"Name of the Anki deck\")"
       ],
-      "id": "89616d14",
+      "id": "7fe3d7c1",
       "execution_count": null,
       "outputs": []
     },
@@ -106,7 +106,7 @@
       "source": [
         "Define the main function that generates flashcards using GPT-4:\n"
       ],
-      "id": "353184fc"
+      "id": "d631609e"
     },
     {
       "cell_type": "code",
@@ -156,7 +156,7 @@
         "    # Return the parsed response\n",
         "    return completion.choices[0].message.parsed"
       ],
-      "id": "c0760acd",
+      "id": "b5248b48",
       "execution_count": null,
       "outputs": []
     },
@@ -166,7 +166,7 @@
       "source": [
         "Load our sample text about the Romantic era from a markdown file:\n"
       ],
-      "id": "6ee96699"
+      "id": "354d22a2"
     },
     {
       "cell_type": "code",
@@ -176,7 +176,7 @@
         "with open(\"romantic-essay.md\", \"r\") as file:\n",
         "    romantic_text = file.read()"
       ],
-      "id": "bb84e479",
+      "id": "0c121a2f",
       "execution_count": null,
       "outputs": []
     },
@@ -230,7 +230,7 @@
         "The Romantic era's emphasis on emotional expression, its technical innovations, and its expansion of musical possibilities created a legacy that continues to influence musicians today. The period's great works remain central to the concert repertoire, beloved for their emotional depth and expressive power.\n",
         ":::\n"
       ],
-      "id": "d9ba0c8e"
+      "id": "62a297b3"
     },
     {
       "cell_type": "code",
@@ -240,7 +240,7 @@
         "#| eval: false\n",
         "print(romantic_text)"
       ],
-      "id": "bc725243",
+      "id": "d7bbce66",
       "execution_count": null,
       "outputs": []
     },
@@ -250,7 +250,7 @@
       "source": [
         "Generate a deck of 10 flashcards about the Romantic era:\n"
       ],
-      "id": "03645b37"
+      "id": "52133b6a"
     },
     {
       "cell_type": "code",
@@ -260,7 +260,7 @@
         "                                              \"Romanticism\", \n",
         "                                              num_cards=10)"
       ],
-      "id": "242aa4e2",
+      "id": "38039826",
       "execution_count": null,
       "outputs": []
     },
@@ -270,7 +270,7 @@
       "source": [
         "Display the complete deck object:\n"
       ],
-      "id": "80b4fc2c"
+      "id": "f352ddc0"
     },
     {
       "cell_type": "code",
@@ -278,7 +278,7 @@
       "source": [
         "romantic_deck"
       ],
-      "id": "3d6400d3",
+      "id": "da0f4075",
       "execution_count": null,
       "outputs": []
     },
@@ -288,7 +288,7 @@
       "source": [
         "Show the deck in JSON format:\n"
       ],
-      "id": "d166a3c2"
+      "id": "a7cde795"
     },
     {
       "cell_type": "code",
@@ -296,7 +296,7 @@
       "source": [
         "print(romantic_deck.model_dump_json())"
       ],
-      "id": "3fad8b5b",
+      "id": "3cb5e14f",
       "execution_count": null,
       "outputs": []
     },
@@ -306,7 +306,7 @@
       "source": [
         "Print each flashcard in a readable format:\n"
       ],
-      "id": "524fa23e"
+      "id": "397d3118"
     },
     {
       "cell_type": "code",
@@ -318,7 +318,7 @@
         "    print(f\"Tags: {', '.join(card.tags)}\")\n",
         "    print(\"-\" * 20)"
       ],
-      "id": "6599ea04",
+      "id": "c4dddf94",
       "execution_count": null,
       "outputs": []
     },
@@ -328,7 +328,7 @@
       "source": [
         "Export the flashcards to a CSV file for importing into Anki:\n"
       ],
-      "id": "54c80523"
+      "id": "24e6bfe6"
     },
     {
       "cell_type": "code",
@@ -348,7 +348,7 @@
         "    for card in romantic_deck.cards:\n",
         "        writer.writerow([card.question, card.answer, ', '.join(card.tags)])"
       ],
-      "id": "3b307aea",
+      "id": "e7682d7e",
       "execution_count": null,
       "outputs": []
     }
