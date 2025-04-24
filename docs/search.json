@@ -20,7 +20,7 @@
     "section": "",
     "text": "Thema\n Dauer\n\n\n\n\nÜbung 1: Tutor erstellen\n10 min\n\n\nÜbung 2: Copilot Agenten erstellen\n25 min\n\n\nÜbung 3: Eigenen Agenten erstellen\n45 min\n\n\n\n\n\n\n Back to top",
     "crumbs": [
-      "Übungen",
+      "Exercises",
       "Übersicht"
     ]
   },
@@ -170,23 +170,23 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "KI in der Lehre: Intermediate",
+    "title": "KI in der Lehre: Advanced",
     "section": "",
-    "text": "27. März 2025\n9:00–12:00 Uhr\nRaum E103, Effingerstrasse 47, 3008 Bern"
+    "text": "25. April 2025\n9:00–12:00 Uhr\nRaum E103, Effingerstrasse 47, 3008 Bern"
   },
   {
     "objectID": "index.html#dozenten",
     "href": "index.html#dozenten",
-    "title": "KI in der Lehre: Intermediate",
+    "title": "KI in der Lehre: Advanced",
     "section": "Dozenten",
     "text": "Dozenten\n\nDr. Andrew Ellis und Dr. Stefan Hackstein sind als wissenschaftliche Mitarbeiter an der Virtuellen Akademie der Berner Fachhochschule tätig. Zusammen erforschen sie, wie künstliche Intelligenz in Bildungssystemen wirkungsvoll eingesetzt werden kann."
   },
   {
     "objectID": "index.html#website",
     "href": "index.html#website",
-    "title": "KI in der Lehre: Intermediate",
+    "title": "KI in der Lehre: Advanced",
     "section": "Website",
-    "text": "Website\n virtuelleakademie.github.io/ki-lehre-intermediate/"
+    "text": "Website\n virtuelleakademie.github.io/ki-lehre-advanced/"
   },
   {
     "objectID": "workshop/index.html",
@@ -330,7 +330,7 @@
     "href": "workshop/howto-colab/howto-colab.html#voraussetzungen",
     "title": "OpenAI API Nutzung mit Google Colab",
     "section": "Voraussetzungen",
-    "text": "Voraussetzungen\nBevor du startest, benötigst du:\n\nEin kostenloses Google Konto.\nEinen OpenAI API Key: https://platform.openai.com/account/api-keys"
+    "text": "Voraussetzungen\nBevor du startest, benötigst du:\n\nEin kostenloses Google Konto.\nEinen OpenAI API Key"
   },
   {
     "objectID": "workshop/howto-colab/howto-colab.html#schritt-1-google-colab-notebook-vorbereiten",
@@ -351,7 +351,7 @@
     "href": "workshop/howto-colab/howto-colab.html#schritt-3-einfache-anfrage-an-gpt-3.5",
     "title": "OpenAI API Nutzung mit Google Colab",
     "section": "Schritt 3: Einfache Anfrage an GPT-3.5",
-    "text": "Schritt 3: Einfache Anfrage an GPT-3.5\nresponse = openai.ChatCompletion.create(\n    model=\"gpt-3.5-turbo\",\n    messages=[\n        {\"role\": \"user\", \"content\": \"Erkläre mir den code für eine OpenAI API ChatCompletion in einfachen Worten.\"}\n    ]\n)\n\nprint(response['choices'][0]['message']['content'])"
+    "text": "Schritt 3: Einfache Anfrage an GPT-3.5\n\nfrom openai import OpenAI\nclient = OpenAI()\n\nresponse = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",\n    messages=[\n        {\"role\": \"user\", \"content\": \"Erkläre mir den code für eine OpenAI API ChatCompletion in einfachen Worten.\"}\n    ]\n)\n\nprint(response.choices[0].message.content)"
   },
   {
     "objectID": "workshop/howto-colab/howto-colab.html#hinweise",
@@ -386,7 +386,7 @@
     "href": "workshop/howto-colab/howto-colab.html#schritt-2-api-key-mit-google-colab-secrets-setzen",
     "title": "OpenAI API Nutzung mit Google Colab",
     "section": "Schritt 2: API Key mit Google Colab Secrets setzen",
-    "text": "Schritt 2: API Key mit Google Colab Secrets setzen\nUm deinen OpenAI API-Schlüssel sicher zu verwenden, empfehlen wir die Nutzung von Google Colab Secrets.\n\nKlicke links auf den Schlüssel\n\nAdd new secret\n\nFüge dort deinen API Key unter dem Namen OPENAI_API_KEY hinzu.\n\nDann kannst du im Notebook folgenden Code verwenden:\nfrom google.colab import userdata\nuserdata.get('OPENAI_API_KEY')```"
+    "text": "Schritt 2: API Key mit Google Colab Secrets setzen\nUm deinen OpenAI API-Schlüssel sicher zu verwenden, empfehlen wir die Nutzung von Google Colab Secrets.\n\nKlicke links auf den Schlüssel\nAdd new secret\nFüge dort deinen API Key unter dem Namen OPENAI_API_KEY hinzu.\n\nDann kannst du im Notebook folgenden Code verwenden:\nfrom google.colab import userdata\nuserdata.get('OPENAI_API_KEY')```"
   },
   {
     "objectID": "workshop/api-tricks/api-tricks.html#mehrere-antworten-erhalten",
@@ -401,5 +401,23 @@
     "title": "API Tricks",
     "section": "API Assistenten",
     "text": "API Assistenten\nOpenAI erlaubt API Assistenten zu definieren (analog zu CostumGPT), um sie mit minimalem Aufwand in verschiedenen Codes zu verwenden. Diese kommen mit einem fertigen RAG system, können mit einem code interpreter selsbgeschriebenen Pythoncode ausführen und erlauben Einstellung von Parametern und Responsformat."
+  },
+  {
+    "objectID": "tutorials/index.html",
+    "href": "tutorials/index.html",
+    "title": "KI in der Lehre: Advanced",
+    "section": "",
+    "text": "Back to top",
+    "crumbs": [
+      "Tutorials",
+      "index.html"
+    ]
+  },
+  {
+    "objectID": "project/index.html",
+    "href": "project/index.html",
+    "title": "KI in der Lehre: Advanced",
+    "section": "",
+    "text": "Back to top"
   }
 ]
