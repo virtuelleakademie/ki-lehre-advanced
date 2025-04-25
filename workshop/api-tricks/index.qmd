@@ -1,12 +1,5 @@
 ---
 title: "API Tricks"
-format:
-    html:
-        toc: true
-        code-fold: true
-        code-link: true
-        callout-appearance: simple
-        callout-icon: false
 ---
 
 ## MoE: Mixture of Experts
@@ -39,9 +32,7 @@ Vielmehr triggert jede Userprompt eine vielzahl von Anfragen, einerseits um die 
 
 ```python
 from openai import OpenAI
-client = OpenAI()
-
-openai.api_key = "sk-..."
+client = OpenAI(api_key=OPENAI_API_KEY)
 
 # Schritt 1: Anfrage & Richtlinien
 user_input = "Wie viele Monde hat der Jupiter?"
@@ -50,16 +41,16 @@ richtlinien = "Antworten enthalten nur Fakten, keine Spekulation."
 
 # Schritt 2: Antwort generieren
 answer = client.chat.completions.create(
-    model="gpt-4",
+    model="gpt-4o",
     messages=[
-        {"role": "system", "content": f"Antworte korrekt innerhalb der Richtlinien.\n Richtlinien: {richtlinier}"},
+        {"role": "system", "content": f"Antworte korrekt innerhalb der Richtlinien.\n Richtlinien: {richtlinien}"},
         {"role": "user","content": user_input}
         ]
 ).choices[0].message.content
 
 # Schritt 3: Antwort validieren
 correct = client.chat.completions.create(
-    model="gpt-3.5-turbo",  ## leichtere Aufgabe -> kleineres Modell
+    model="gpt-4o-mini",  ## leichtere Aufgabe -> kleineres Modell
     messages=[
         {"role": "system", "content": "Prüfe auf Korrektheit. Antworte nur 'OK' wenn alles korrekt ist."},
         {
@@ -72,7 +63,7 @@ correct = client.chat.completions.create(
 ).choices[0].message.content
 
 proper = client.chat.completions.create(
-    model="gpt-3.5-turbo",  ## leichtere Aufgabe -> kleineres Modell
+    model="gpt-4o-mini",  ## leichtere Aufgabe -> kleineres Modell
     messages=[
         {"role": "system", "content": "Prüfe auf Richtlinien. Antworte nur 'OK' wenn alles korrekt ist."},
         {
@@ -125,7 +116,7 @@ class IsCorrect(BaseModel):
     answer_correct: bool
 
 summary = client.chat.completions.create(
-    model="gpt-3.5-turbo",
+    model="gpt-4o-mini",
     response_format=IsCorrect ## Antwort wird eine Instanz der Klasse sein
     messages=[
         {"role": "system", "content": "Gib nur die finale Antwort wieder."},
@@ -151,7 +142,7 @@ wenn wir eine Frage mehrmals beantworten lassen und jedes mal kommt das selbe he
 
 ``` python
 response = client.chat.completions.create(
-    model="gpt-4",
+    model="gpt-4o",
     messages=[{"role": "user", "content": "What are some creative icebreaker questions?"}],
     n=3  # Get 3 completions
 )
@@ -162,5 +153,5 @@ for choice in response.choices:
 
 ## API Assistenten
 
-OpenAI erlaubt [API Assistenten](https://platform.openai.com/assistants) zu definieren (analog zu CostumGPT), um sie mit minimalem Aufwand in verschiedenen Codes zu verwenden.
+OpenAI erlaubt [API Assistenten](https://platform.openai.com/assistants) zu definieren (analog zu CustomGPT), um sie mit minimalem Aufwand in verschiedenen Codes zu verwenden.
 Diese kommen mit einem fertigen RAG system, können mit einem code interpreter selsbgeschriebenen Pythoncode ausführen und erlauben Einstellung von Parametern und Responsformat.
