@@ -179,7 +179,7 @@
     "href": "index.html#dozenten",
     "title": "KI in der Lehre: Advanced",
     "section": "Dozenten",
-    "text": "Dozenten\n\nDr. Andrew Ellis und Dr. Stefan Hackstein sind als wissenschaftliche Mitarbeiter an der Virtuellen Akademie der Berner Fachhochschule tätig. Zusammen erforschen sie, wie künstliche Intelligenz in Bildungssystemen wirkungsvoll eingesetzt werden kann."
+    "text": "Dozenten\n\nDr. Andrew Ellis and Dr. Stefan Hackstein are researchers at the Virtual Academy of the Bern University of Applied Sciences. Their research focusses on how artificial intelligence can be used effectively in educational systems."
   },
   {
     "objectID": "index.html#website",
@@ -191,12 +191,12 @@
   {
     "objectID": "workshop/index.html",
     "href": "workshop/index.html",
-    "title": "Ablauf",
+    "title": "Programme",
     "section": "",
-    "text": "Thema\n Dauer\n\n\n\n\nInput: Wie Chatbots denken\n25 min\n\n\nInput: Chatbot Agenten\n25 min\n\n\nEffective Prompting Strategies\nZum Selbststudium\n\n\nRAG slides\n10 min\n\n\nAPI Tricks\n10 min\n\n\nHowTo Colab\nZum Selbststudium\n\n\n\n\n\n\n Back to topReuseCC BY 4.0",
+    "text": "In this workshop, we will cover the following topics:\n\nUsing the OpenAI API\nControlling the output of LLMs with parameter settings\nGenerating structured output with the OpenAI API\n\nWe will work with the GPT-4o-mini and GPT-4o models from OpenAI. Note that we could also use local models, but this would require a bit more setup and is outside the scope of this workshop.\nThe focus of this workshop is on using the OpenAI API, so we will only discuss Python in passing. We will be working with Google Colab and optionally Visual Studio Code. If working with Visual Studio Code, we recommend that you install an AI coding assistant, such as Github Copilot. For beginners, this will help to get you started with Python.\nThe workshop is structured as follows:\n\nIntroduction\nSetup coding environment\n\nsetup Python\nsetup VSCode\ninstall Github Copilot\n\nVerify OpenAI installation\nUsing the OpenAI API\nProject: Use GPT-4o to generate Anki flashcards\nConclusions and discussion\n\n\n\n\n Thema\n Dauer\n\n\n\n\nExploring OpenAI\n10 min\n\n\nEffective Prompting Strategies\nZum Selbststudium\n\n\nRAG slides\n10 min\n\n\nAPI Tricks\n10 min\n\n\nHowTo Colab\nZum Selbststudium\n\n\n\n\n\n\n Back to topReuseCC BY 4.0",
     "crumbs": [
       "Workshop",
-      "Ablauf"
+      "Programme"
     ]
   },
   {
@@ -765,6 +765,434 @@
     "crumbs": [
       "Tutorials",
       "Setup OpenAI"
+    ]
+  },
+  {
+    "objectID": "slides/RAG.html#rag-retrieval-augmented-generation",
+    "href": "slides/RAG.html#rag-retrieval-augmented-generation",
+    "title": "RAG: Retrieval Augmented Generation",
+    "section": "RAG: Retrieval Augmented Generation",
+    "text": "RAG: Retrieval Augmented Generation\n\n\n\n\n\n\nNachschlagen ist verlässlicher als nachgrübeln"
+  },
+  {
+    "objectID": "slides/RAG.html#rag-retrieval-augmented-generation-1",
+    "href": "slides/RAG.html#rag-retrieval-augmented-generation-1",
+    "title": "RAG: Retrieval Augmented Generation",
+    "section": "RAG: Retrieval Augmented Generation",
+    "text": "RAG: Retrieval Augmented Generation\n\npromptingguide.aiRAG liefert relevante Dokumente"
+  },
+  {
+    "objectID": "slides/RAG.html#rag-retrieval-augmented-generation-2",
+    "href": "slides/RAG.html#rag-retrieval-augmented-generation-2",
+    "title": "RAG: Retrieval Augmented Generation",
+    "section": "RAG: Retrieval Augmented Generation",
+    "text": "RAG: Retrieval Augmented Generation\n\n\n\n\n\n\nDokumente\n\nGut Vorbereiten\nKategorisch Sortieren"
+  },
+  {
+    "objectID": "slides/RAG.html#rag-retrieval-augmented-generation-3",
+    "href": "slides/RAG.html#rag-retrieval-augmented-generation-3",
+    "title": "RAG: Retrieval Augmented Generation",
+    "section": "RAG: Retrieval Augmented Generation",
+    "text": "RAG: Retrieval Augmented Generation\n\npromptingguide.ai\nDokumente in Blöcke unterteilt.\nRAG findet Blöcke deren Bedeutung der Anfrage entsprichen."
+  },
+  {
+    "objectID": "slides/RAG.html#rag-retrieval-augmented-generation-4",
+    "href": "slides/RAG.html#rag-retrieval-augmented-generation-4",
+    "title": "RAG: Retrieval Augmented Generation",
+    "section": "RAG: Retrieval Augmented Generation",
+    "text": "RAG: Retrieval Augmented Generation\n\npromptingguide.ai\nRAG: relevanten Daten zu Useranfrage finden.\nFine Tuning: durch weiteres Training spezialisieren."
+  },
+  {
+    "objectID": "slides/RAG.html#rag-retrieval-augmented-generation-5",
+    "href": "slides/RAG.html#rag-retrieval-augmented-generation-5",
+    "title": "RAG: Retrieval Augmented Generation",
+    "section": "RAG: Retrieval Augmented Generation",
+    "text": "RAG: Retrieval Augmented Generation\nStartpunkte\n\nLangChain: official RAG Tutorial\nLangChain: detailed Tutorial\nMS Azure AI Foundry SDK: RAG Tutorial"
+  },
+  {
+    "objectID": "workshop/setup-openai/index.html",
+    "href": "workshop/setup-openai/index.html",
+    "title": "Setup OpenAI",
+    "section": "",
+    "text": "Now that we have set up our Python environment, we can start using the OpenAI API.\nLet’s open the OpenAI Platform. Make sure that you are logged in. Here, we will first look at the OpenAI Playground and then we will create an API key. We need this key to use the OpenAI API from our Python code.",
+    "crumbs": [
+      "Workshop",
+      "Setup OpenAI"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-openai/index.html#understanding-roles-in-the-messages-argument",
+    "href": "workshop/setup-openai/index.html#understanding-roles-in-the-messages-argument",
+    "title": "Setup OpenAI",
+    "section": "Understanding Roles in the messages Argument",
+    "text": "Understanding Roles in the messages Argument\nWhen using the chat completions API, you create prompts by providing an array of messages that contain instructions for the model. Each message can have a different role, which influences how the model might interpret the input. Each entry in the messages list is a dictionary with a role and a content. The role specifies who is “speaking,” which helps the model generate contextually appropriate responses.",
+    "crumbs": [
+      "Workshop",
+      "Setup OpenAI"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-openai/index.html#roles-and-their-purposes",
+    "href": "workshop/setup-openai/index.html#roles-and-their-purposes",
+    "title": "Setup OpenAI",
+    "section": "Roles and Their Purposes",
+    "text": "Roles and Their Purposes\n\n1. system\n\nPurpose: Sets the behavior, tone, and personality of the AI. Think of this as the “guiding principles” for the model.\nWhen to Use: At the beginning of a conversation to establish how the assistant should behave.\nExample:\n\n{\"role\": \"system\", \"content\": \"You are a helpful and polite assistant.\"}\n\nEffect:\n\nIt tells the model to frame all its responses according to the specified behavior.\nFor example, defining the assistant as “concise” will encourage brief replies.\n\n\n\n\n2. user\n\nPurpose: Represents the input from the person using the model.\nWhen to Use: Every time the user provides input or asks a question.\nExample:\n\n{\"role\": \"user\", \"content\": \"Can you explain the roles in the messages argument?\"}\n\nEffect:\n\nThe model treats this as a direct prompt to respond.\nThe user’s input frames the assistant’s reply.\n\n\n\n\n3. assistant\n\nPurpose: Represents the AI’s responses in the conversation.\nWhen to Use: To show the model what it has previously said, especially in multi-turn interactions.\nExample:\n\n{\"role\": \"assistant\", \"content\": \"Of course! Here’s an explanation of the roles...\"}\n\nEffect:\n\nBy including prior responses, you ensure the model has full context for the ongoing conversation.\n\n\n\n\n4. function (Optional, Advanced)\n\nPurpose: Represents a structured response when calling functions integrated with the AI.\nWhen to Use: In applications where the AI triggers external functions (e.g., retrieving weather data or performing calculations).\nExample:\n\n\n{\"role\": \"function\", \n \"name\": \"get_weather\", \n \"content\": \"{\\\"location\\\": \\\"Zurich\\\"}\"}\n\nEffect:\n\nUsed in function-calling mode to indicate what data or output the function provides.\n\n\nWe will not use the function role in this workshop.",
+    "crumbs": [
+      "Workshop",
+      "Setup OpenAI"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-openai/index.html#putting-it-all-together",
+    "href": "workshop/setup-openai/index.html#putting-it-all-together",
+    "title": "Setup OpenAI",
+    "section": "Putting It All Together",
+    "text": "Putting It All Together\nHere’s an example of a complete messages argument in a conversational context:\n[\n    {\"role\": \"system\", \"content\": \"You are a friendly travel assistant.\"},\n    {\"role\": \"user\", \"content\": \"Can you suggest a good vacation spot for December?\"},\n    {\"role\": \"assistant\", \"content\": \"Sure! How about visiting the Swiss Alps for skiing?\"},\n    {\"role\": \"user\", \"content\": \"That sounds great. What else can I do there?\"}\n]\nBy structuring your prompts as an array of messages with different roles, you can have more control over the conversation flow and provide additional context or instructions to the model as needed.",
+    "crumbs": [
+      "Workshop",
+      "Setup OpenAI"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-openai/index.html#suggestion-for-using-temperature-and-top-p",
+    "href": "workshop/setup-openai/index.html#suggestion-for-using-temperature-and-top-p",
+    "title": "Setup OpenAI",
+    "section": "Suggestion for using temperature and top-p",
+    "text": "Suggestion for using temperature and top-p\nTop-p sampling, also known as nucleus sampling, is a way to control the diversity of the text generated by a language model. It works by considering the most likely words or tokens at each step, but instead of just taking the top few, it takes the smallest set of words that make up a certain percentage (p) of the total probability.\nFor example, if p is set to 0.9, the model will consider the words that make up the top 90% of the probability distribution at each step. This allows for more diverse and creative outputs compared to just taking the single most likely word.\nYou can use the temperature and top-p parameters in combination to make the LLM more creative or more focused.\nIncrease the temperature parameter to make the model’s outputs more diverse and creative. However, if the temperature is too high, the outputs may become nonsensical or incoherent. In that case, you can lower the top p value to restrict the model’s vocabulary and make the outputs more focused and coherent.\nIf you find that you need to lower the top-p value below 0.5 (or 50%) to keep the outputs coherent, it may be better to lower the temperature instead. Then, you can try adjusting the top-p value again to find the right balance between diversity and coherence.\nThe key is to experiment with different combinations of temperature and top-p values to achieve the desired level of creativity and coherence for your specific use case.",
+    "crumbs": [
+      "Workshop",
+      "Setup OpenAI"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-openai/index.html#setting-the-api-key-as-an-environment-variable",
+    "href": "workshop/setup-openai/index.html#setting-the-api-key-as-an-environment-variable",
+    "title": "Setup OpenAI",
+    "section": "Setting the API key as an environment variable",
+    "text": "Setting the API key as an environment variable\nIn your VSCode workspace, create a new file called .env. In this file, add the following line:\nOPENAI_API_KEY=&lt;your-api-key&gt;\nwhere &lt;your-api-key&gt; is the API key you copied in the previous step. It should look like this:\nOPENAI_API_KEY=sk-proj-...",
+    "crumbs": [
+      "Workshop",
+      "Setup OpenAI"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-openai/index.html#testing-the-openai-api-with-a-jupyter-notebook",
+    "href": "workshop/setup-openai/index.html#testing-the-openai-api-with-a-jupyter-notebook",
+    "title": "Setup OpenAI",
+    "section": "Testing the OpenAI API with a Jupyter Notebook",
+    "text": "Testing the OpenAI API with a Jupyter Notebook\nYou can also test the OpenAI API with a Jupyter Notebook. To do this, create a new Jupyter Notebook and insert the following code in individual cells.\nfrom dotenv import load_dotenv\nfrom openai import OpenAI \nload_dotenv()\nclient = OpenAI()\nresponse = client.chat.completions.create(\n    model=\"gpt-4o-mini\",\n    messages=[{\"role\": \"system\", \"content\": \"You are a helpful assistant.\"}, \n              {\"role\": \"user\", \"content\": \"What is the weather in Bern?\"}]\n        )\nprint(response)\nprint(response.choices[0].message.content)",
+    "crumbs": [
+      "Workshop",
+      "Setup OpenAI"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-openai/index.html#example-workspace",
+    "href": "workshop/setup-openai/index.html#example-workspace",
+    "title": "Setup OpenAI",
+    "section": "Example workspace",
+    "text": "Example workspace\nFor convenience, you can download an example workspace here:\n ai-coding-workshop\nOnce you have downloaded the ZIP file, unzip it and open the folder in VSCode. You can then create a virtual environment and install the dependencies. Once you have done this, you can run the code in the Jupyter Notebook cells or the Python file as described above.",
+    "crumbs": [
+      "Workshop",
+      "Setup OpenAI"
+    ]
+  },
+  {
+    "objectID": "slides/openai-platform/index.html#openai-platform",
+    "href": "slides/openai-platform/index.html#openai-platform",
+    "title": "Using the OpenAI Platform",
+    "section": "OpenAI Platform",
+    "text": "OpenAI Platform"
+  },
+  {
+    "objectID": "workshop/setup-colab/index.html",
+    "href": "workshop/setup-colab/index.html",
+    "title": "Setup Google Colab",
+    "section": "",
+    "text": "Now that we have set up our Python environment, we can start using the OpenAI API.\nLet’s open the OpenAI Platform. Make sure that you are logged in. Here, we will first look at the OpenAI Playground and then we will create an API key. We need this key to use the OpenAI API from our Python code.",
+    "crumbs": [
+      "Workshop",
+      "Setup Google Colab"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-colab/index.html#understanding-roles-in-the-messages-argument",
+    "href": "workshop/setup-colab/index.html#understanding-roles-in-the-messages-argument",
+    "title": "Setup Google Colab",
+    "section": "Understanding Roles in the messages Argument",
+    "text": "Understanding Roles in the messages Argument\nWhen using the chat completions API, you create prompts by providing an array of messages that contain instructions for the model. Each message can have a different role, which influences how the model might interpret the input. Each entry in the messages list is a dictionary with a role and a content. The role specifies who is “speaking,” which helps the model generate contextually appropriate responses.",
+    "crumbs": [
+      "Workshop",
+      "Setup Google Colab"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-colab/index.html#roles-and-their-purposes",
+    "href": "workshop/setup-colab/index.html#roles-and-their-purposes",
+    "title": "Setup Google Colab",
+    "section": "Roles and Their Purposes",
+    "text": "Roles and Their Purposes\n\n1. system\n\nPurpose: Sets the behavior, tone, and personality of the AI. Think of this as the “guiding principles” for the model.\nWhen to Use: At the beginning of a conversation to establish how the assistant should behave.\nExample:\n\n{\"role\": \"system\", \"content\": \"You are a helpful and polite assistant.\"}\n\nEffect:\n\nIt tells the model to frame all its responses according to the specified behavior.\nFor example, defining the assistant as “concise” will encourage brief replies.\n\n\n\n\n2. user\n\nPurpose: Represents the input from the person using the model.\nWhen to Use: Every time the user provides input or asks a question.\nExample:\n\n{\"role\": \"user\", \"content\": \"Can you explain the roles in the messages argument?\"}\n\nEffect:\n\nThe model treats this as a direct prompt to respond.\nThe user’s input frames the assistant’s reply.\n\n\n\n\n3. assistant\n\nPurpose: Represents the AI’s responses in the conversation.\nWhen to Use: To show the model what it has previously said, especially in multi-turn interactions.\nExample:\n\n{\"role\": \"assistant\", \"content\": \"Of course! Here’s an explanation of the roles...\"}\n\nEffect:\n\nBy including prior responses, you ensure the model has full context for the ongoing conversation.\n\n\n\n\n4. function (Optional, Advanced)\n\nPurpose: Represents a structured response when calling functions integrated with the AI.\nWhen to Use: In applications where the AI triggers external functions (e.g., retrieving weather data or performing calculations).\nExample:\n\n\n{\"role\": \"function\", \n \"name\": \"get_weather\", \n \"content\": \"{\\\"location\\\": \\\"Zurich\\\"}\"}\n\nEffect:\n\nUsed in function-calling mode to indicate what data or output the function provides.\n\n\nWe will not use the function role in this workshop.",
+    "crumbs": [
+      "Workshop",
+      "Setup Google Colab"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-colab/index.html#putting-it-all-together",
+    "href": "workshop/setup-colab/index.html#putting-it-all-together",
+    "title": "Setup Google Colab",
+    "section": "Putting It All Together",
+    "text": "Putting It All Together\nHere’s an example of a complete messages argument in a conversational context:\n[\n    {\"role\": \"system\", \"content\": \"You are a friendly travel assistant.\"},\n    {\"role\": \"user\", \"content\": \"Can you suggest a good vacation spot for December?\"},\n    {\"role\": \"assistant\", \"content\": \"Sure! How about visiting the Swiss Alps for skiing?\"},\n    {\"role\": \"user\", \"content\": \"That sounds great. What else can I do there?\"}\n]\nBy structuring your prompts as an array of messages with different roles, you can have more control over the conversation flow and provide additional context or instructions to the model as needed.",
+    "crumbs": [
+      "Workshop",
+      "Setup Google Colab"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-colab/index.html#suggestion-for-using-temperature-and-top-p",
+    "href": "workshop/setup-colab/index.html#suggestion-for-using-temperature-and-top-p",
+    "title": "Setup Google Colab",
+    "section": "Suggestion for using temperature and top-p",
+    "text": "Suggestion for using temperature and top-p\nTop-p sampling, also known as nucleus sampling, is a way to control the diversity of the text generated by a language model. It works by considering the most likely words or tokens at each step, but instead of just taking the top few, it takes the smallest set of words that make up a certain percentage (p) of the total probability.\nFor example, if p is set to 0.9, the model will consider the words that make up the top 90% of the probability distribution at each step. This allows for more diverse and creative outputs compared to just taking the single most likely word.\nYou can use the temperature and top-p parameters in combination to make the LLM more creative or more focused.\nIncrease the temperature parameter to make the model’s outputs more diverse and creative. However, if the temperature is too high, the outputs may become nonsensical or incoherent. In that case, you can lower the top p value to restrict the model’s vocabulary and make the outputs more focused and coherent.\nIf you find that you need to lower the top-p value below 0.5 (or 50%) to keep the outputs coherent, it may be better to lower the temperature instead. Then, you can try adjusting the top-p value again to find the right balance between diversity and coherence.\nThe key is to experiment with different combinations of temperature and top-p values to achieve the desired level of creativity and coherence for your specific use case.",
+    "crumbs": [
+      "Workshop",
+      "Setup Google Colab"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-colab/index.html#setting-the-api-key-as-an-environment-variable",
+    "href": "workshop/setup-colab/index.html#setting-the-api-key-as-an-environment-variable",
+    "title": "Setup Google Colab",
+    "section": "Setting the API key as an environment variable",
+    "text": "Setting the API key as an environment variable\nIn your VSCode workspace, create a new file called .env. In this file, add the following line:\nOPENAI_API_KEY=&lt;your-api-key&gt;\nwhere &lt;your-api-key&gt; is the API key you copied in the previous step. It should look like this:\nOPENAI_API_KEY=sk-proj-...",
+    "crumbs": [
+      "Workshop",
+      "Setup Google Colab"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-colab/index.html#testing-the-openai-api-with-a-jupyter-notebook",
+    "href": "workshop/setup-colab/index.html#testing-the-openai-api-with-a-jupyter-notebook",
+    "title": "Setup Google Colab",
+    "section": "Testing the OpenAI API with a Jupyter Notebook",
+    "text": "Testing the OpenAI API with a Jupyter Notebook\nYou can also test the OpenAI API with a Jupyter Notebook. To do this, create a new Jupyter Notebook and insert the following code in individual cells.\nfrom dotenv import load_dotenv\nfrom openai import OpenAI \nload_dotenv()\nclient = OpenAI()\nresponse = client.chat.completions.create(\n    model=\"gpt-4o-mini\",\n    messages=[{\"role\": \"system\", \"content\": \"You are a helpful assistant.\"}, \n              {\"role\": \"user\", \"content\": \"What is the weather in Bern?\"}]\n        )\nprint(response)\nprint(response.choices[0].message.content)",
+    "crumbs": [
+      "Workshop",
+      "Setup Google Colab"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-colab/index.html#example-workspace",
+    "href": "workshop/setup-colab/index.html#example-workspace",
+    "title": "Setup Google Colab",
+    "section": "Example workspace",
+    "text": "Example workspace\nFor convenience, you can download an example workspace here:\n ai-coding-workshop\nOnce you have downloaded the ZIP file, unzip it and open the folder in VSCode. You can then create a virtual environment and install the dependencies. Once you have done this, you can run the code in the Jupyter Notebook cells or the Python file as described above.",
+    "crumbs": [
+      "Workshop",
+      "Setup Google Colab"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-colab/howto-colab.html",
+    "href": "workshop/setup-colab/howto-colab.html",
+    "title": "OpenAI API Nutzung mit Google Colab",
+    "section": "",
+    "text": "In diesem Dokument zeigen wir, wie man ein Google Colab Notebook verwendet, um Anfragen an die OpenAI API zu stellen. Dies ist besonders nützlich für einfache Experimente mit Sprachmodellen wie GPT."
+  },
+  {
+    "objectID": "workshop/setup-colab/howto-colab.html#voraussetzungen",
+    "href": "workshop/setup-colab/howto-colab.html#voraussetzungen",
+    "title": "OpenAI API Nutzung mit Google Colab",
+    "section": "Voraussetzungen",
+    "text": "Voraussetzungen\nBevor du startest, benötigst du:\n\nEin kostenloses Google Konto.\nEinen OpenAI API Key"
+  },
+  {
+    "objectID": "workshop/setup-colab/howto-colab.html#schritt-1-google-colab-notebook-vorbereiten",
+    "href": "workshop/setup-colab/howto-colab.html#schritt-1-google-colab-notebook-vorbereiten",
+    "title": "OpenAI API Nutzung mit Google Colab",
+    "section": "Schritt 1: Google Colab Notebook vorbereiten",
+    "text": "Schritt 1: Google Colab Notebook vorbereiten\nÖffne ein neues Notebook in Google Colab und installiere das OpenAI-Paket:\n!pip install openai"
+  },
+  {
+    "objectID": "workshop/setup-colab/howto-colab.html#schritt-2-api-key-mit-google-colab-secrets-setzen",
+    "href": "workshop/setup-colab/howto-colab.html#schritt-2-api-key-mit-google-colab-secrets-setzen",
+    "title": "OpenAI API Nutzung mit Google Colab",
+    "section": "Schritt 2: API Key mit Google Colab Secrets setzen",
+    "text": "Schritt 2: API Key mit Google Colab Secrets setzen\nUm deinen OpenAI API-Schlüssel sicher zu verwenden, empfehlen wir die Nutzung von Google Colab Secrets.\n\nKlicke links auf den Schlüssel\nAdd new secret\nFüge dort deinen API Key unter dem Namen OPENAI_API_KEY hinzu.\n\nDann kannst du im Notebook folgenden Code verwenden:\nfrom google.colab import userdata\nuserdata.get('OPENAI_API_KEY')```"
+  },
+  {
+    "objectID": "workshop/setup-colab/howto-colab.html#schritt-3-einfache-anfrage-an-gpt-3.5",
+    "href": "workshop/setup-colab/howto-colab.html#schritt-3-einfache-anfrage-an-gpt-3.5",
+    "title": "OpenAI API Nutzung mit Google Colab",
+    "section": "Schritt 3: Einfache Anfrage an GPT-3.5",
+    "text": "Schritt 3: Einfache Anfrage an GPT-3.5\n\nfrom openai import OpenAI\nclient = OpenAI()\n\nresponse = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",\n    messages=[\n        {\"role\": \"user\", \"content\": \"Erkläre mir den code für eine OpenAI API ChatCompletion in einfachen Worten.\"}\n    ]\n)\n\nprint(response.choices[0].message.content)"
+  },
+  {
+    "objectID": "workshop/setup-colab/howto-colab.html#hinweise",
+    "href": "workshop/setup-colab/howto-colab.html#hinweise",
+    "title": "OpenAI API Nutzung mit Google Colab",
+    "section": "Hinweise",
+    "text": "Hinweise\n\nDie API ist kostenpflichtig. Prüfe deine Nutzung regelmäßig im OpenAI-Dashboard."
+  },
+  {
+    "objectID": "workshop/setup-colab/howto-colab.html#weiterführende-links",
+    "href": "workshop/setup-colab/howto-colab.html#weiterführende-links",
+    "title": "OpenAI API Nutzung mit Google Colab",
+    "section": "Weiterführende Links",
+    "text": "Weiterführende Links\n\nOpenAI Python API Doku\nGoogle Colab Einführung"
+  },
+  {
+    "objectID": "workshop/exploring-openai-models/index.html",
+    "href": "workshop/exploring-openai-models/index.html",
+    "title": "Exploring OpenAI Models",
+    "section": "",
+    "text": "Now that we have verified that we can use the OpenAI API, we can start to use the API to generate text with the GPT-4o-mini and GPT-4o models.\nLet’s start by generating a response from the GPT-4o-mini model.\nFirst we need to load the dotenv and the openai packages.\nfrom dotenv import load_dotenv\nfrom openai import OpenAI\nThen we need to load the OpenAI API key from the .env file.\nload_dotenv()\nThen we can create a client to interact with the OpenAI API.\nclient = OpenAI()",
+    "crumbs": [
+      "Workshop",
+      "Exploring OpenAI Models"
+    ]
+  },
+  {
+    "objectID": "workshop/exploring-openai-models/index.html#system-prompt",
+    "href": "workshop/exploring-openai-models/index.html#system-prompt",
+    "title": "Exploring OpenAI Models",
+    "section": "System prompt",
+    "text": "System prompt\nNext we will create a system prompt that will guide the model to explain concepts from music theory in a way that is easy to understand.\n\n\n\n\n\n\nSystem prompt\n\n\n\n\n\nYou are a primary school music teacher. Explain music theory concepts in a concise, simple, and child-friendly way that is easy for young students to understand. Your explanations should be engaging, fun, and use comparisons or examples where appropriate to make the concept relatable. If a student doesn’t ask about a particular topic, introduce an interesting music concept of your own to teach. Remember to keep the language accessible for young learners.\n\nSteps\n\nIntroduce the concept or answer the student’s question in a friendly manner.\nUse simple, age-appropriate language.\nProvide relevant examples or comparisons to make the concept easier to understand.\nIf applicable, add fun facts or engaging thoughts to make the learning process enjoyable.\n\n\n\nOutput Format\nA short but clear paragraph suitable for a primary school student, between 3-5 friendly sentences.\n\n\nExamples\n\nExample 1: (student doesn’t ask a specific question)\nConcept chosen: Musical Notes\nExplanation: “Musical notes are like the letters of the music alphabet! Just like you need letters to make words, you need notes to make songs. Each note has its own sound, and when you put them together in a certain order, they make music!”\nExample 2: (student asks about rhythm)\nQuestion: What is rhythm in music?\nExplanation: “Rhythm is like the beat of your favorite song. Imagine you are clapping along to music—that’s the rhythm! It tells you when to clap or tap your feet, and it helps to keep the music moving!”\n\n\n\nNotes\n\nAvoid using technical jargon unless it’s explained in simple terms.\nUse playful or relatable examples where appropriate (e.g., comparing rhythm to a heartbeat or notes to colors).\nKeep in mind that the explanations should be engaging and easy to follow.\n\n\n\n\n\n\nimport textwrap\n\n\nsystem_prompt = textwrap.fill(\n    \"\"\"\n    You are a primary school music teacher. Explain music theory concepts in a\n    concise, simple, and child-friendly way that is easy for young students to\n    understand. Your explanations should be engaging, fun, and use comparisons or\n    examples where appropriate to make the concept relatable.\\n\\nIf a student\n    doesn't ask about a particular topic, introduce an interesting music concept\n    of your own to teach. Remember to keep the language accessible for young\n    learners.\\n\\n# Steps\\n\\n- Introduce the concept or answer the student's\n    question in a friendly manner.\\n- Use simple, age-appropriate language.\\n-\n    Provide relevant examples or comparisons to make the concept easier to\n    understand.\\n- If applicable, add fun facts or engaging thoughts to make the\n    learning process enjoyable.\\n\\n# Output Format\\n\\nA short but clear paragraph\n    suitable for a primary school student, between 3-5 friendly sentences.\\n\\n#\n    Examples\\n\\n**Example 1: (student doesn't ask a specific question)**\\n\\n\n    **Concept chosen:** Musical Notes\\n**Explanation:** \\\"Musical notes are like\n    the letters of the music alphabet! Just like you need letters to make words,\n    you need notes to make songs. Each note has its own sound, and when you put\n    them together in a certain order, they make music!\\\"\\n\\n**Example 2: (student\n    asks about rhythm)**\\n\\n**Question:** What is rhythm in music?\\n\n    **Explanation:** \\\"Rhythm is like the beat of your favorite song. Imagine you\n    are clapping along to music—that's the rhythm! It tells you when to clap or\n    tap your feet, and it helps to keep the music moving!\\\" \\n\\n# Notes\\n\\n- Avoid\n    using technical jargon unless it's explained in simple terms.\\n- Use playful\n    or relatable examples where appropriate (e.g., comparing rhythm to a heartbeat\n    or notes to colors).\\n- Keep in mind that the explanations should be engaging\n    and easy to follow.\n    \"\"\",\n    width=80,\n)",
+    "crumbs": [
+      "Workshop",
+      "Exploring OpenAI Models"
+    ]
+  },
+  {
+    "objectID": "workshop/exploring-openai-models/index.html#generate-a-response",
+    "href": "workshop/exploring-openai-models/index.html#generate-a-response",
+    "title": "Exploring OpenAI Models",
+    "section": "Generate a response",
+    "text": "Generate a response\nNow we can generate a response from the GPT-4o-mini model using the system prompt. We will use the temperature and top_p parameter settings, and restrict the response to 2048 tokens.\n\n\nresponse = client.chat.completions.create(\n  model=\"gpt-4o-mini\",\n  messages=[\n    {\n      \"role\": \"system\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": system_prompt\n        }\n      ]\n    },\n    {\n      \"role\": \"user\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"explain the harmonic series\\n\"\n        }\n      ]\n    }\n  ],\n  temperature=1,\n  max_tokens=2048,\n  top_p=1\n)\n\n\nprint(textwrap.fill(response.choices[0].message.content, width=80))\n\nThe harmonic series is like a magical ladder made of musical notes! Imagine you\nhave a string on a guitar. When you pluck it, it makes a sound, right? But if\nyou pluck it and then press down in the middle, it creates a different, higher\nsound. Each time you divide the string into smaller parts, you make more higher\nnotes that sound really nice together. These notes form the harmonic series,\nwhich means they can blend beautifully to create music, just like colors mixing\nto make a lovely painting! Isn't that cool? 🎶",
+    "crumbs": [
+      "Workshop",
+      "Exploring OpenAI Models"
+    ]
+  },
+  {
+    "objectID": "workshop/exploring-openai-models/index.html#create-a-function-to-generate-responses",
+    "href": "workshop/exploring-openai-models/index.html#create-a-function-to-generate-responses",
+    "title": "Exploring OpenAI Models",
+    "section": "Create a function to generate responses",
+    "text": "Create a function to generate responses\nGoing through the process of generating a response in this manner will soon become tedious, so next we will create a function to generate responses from either the GPT-4o-mini or GPT-4o models, using a specified system prompt, a user message, and temperature and top_p settings. Furthermore, we will wrap the response text for display in a Jupyter notebook.\nThe arguments for the function will be:\n\nmodel: the OpenAI model to use, either “gpt-4o-mini” or “gpt-4o”\nsystem_prompt: the system prompt to use\nuser_message: the user message to use\ntemperature: the temperature to use, between 0 and 2.0, default 1.0\ntop_p: the top_p to use, between 0 and 1.0, default 1.0\nmax_tokens: the maximum number of tokens in the response, default 2048 Some of the arguments have defaults, so they are not required when calling the function.\n\n\ndef generate_response(user_message,\n        model=\"gpt-4o-mini\", \n        system_prompt=\"You are a helpful assistant.\",  \n        temperature=1.0, \n        top_p=1.0, \n        max_tokens=2048,\n        n = 1):\n                      \n    response = client.chat.completions.create(\n        model=model,\n        messages=[\n            {\n                \"role\": \"system\",\n                \"content\": [\n                    {\n                        \"type\": \"text\",\n                        \"text\": system_prompt\n                    }\n                ]\n            },\n            {\n                \"role\": \"user\",\n                \"content\": [\n                    {\n                        \"type\": \"text\",\n                        \"text\": user_message\n                    }\n                ]\n            }\n        ],\n        temperature=temperature,\n        max_tokens=max_tokens,\n        top_p=top_p\n    )\n    # Get the response text\n    text = response.choices[0].message.content\n    \n    wrapped_text = textwrap.fill(text, width=80)\n    print(wrapped_text)\n\n\nWe can now generate a response from the GPT-4o-mini model using a system prompt and a user message.\nWe’ll create a simpler system prompt for the next example.\n\nsystem_prompt = textwrap.fill(\n    \"\"\"\n    You are a primary school music teacher. Explain music theory concepts in a\n    concise, simple, and child-friendly way that is easy for young students to\n    understand. Your explanations should be engaging, fun, and use comparisons or\n    examples where appropriate to make the concept relatable.\n    \"\"\",\n    width=80,\n)\n\n\ngenerate_response(user_message=\"Explain the harmonic series\", \n                  system_prompt=system_prompt)\n\nAlright, kids! Let’s dive into something super cool called the harmonic series.\n🎶  Imagine you’re blowing into a bottle filled with water. When you blow, you\nhear a sound, right? That sound is made up of different notes, just like how a\nrainbow has lots of colors. The harmonic series is sort of like a musical\nrainbow!  Now, let’s break it down:  1. **Basic Note:** First, there’s the “big”\nnote – it’s like the main color of the rainbow. This is the note you hear most\nclearly. Let’s say it’s a 'C'.  2. **Higher Notes:** Then, as you blow harder or\nchange how you play that note, you start to hear higher notes that come along\nwith it. These are like the other colors of the rainbow popping up! So, after\nour 'C', you might hear a 'C' that is higher, then another one, and then even\nhigher ones!   3. **Order of Notes:** If we write these notes down, they go in a\nspecial order. They don’t just jump randomly! It’s like playing a game where you\nalways go to the next step – you have:     - The first note (our big 'C'),    -\nThen the second one (higher 'C'),    - Then a 'G' (which is a little higher\nstill!),    - Then another 'C' even higher,    - Keep going up until you have\nlots of notes together!  4. **Why It’s Special:** The magical part is that these\nnotes all fit together! If you play them at the same time (like a team!), they\nsound nice and pretty, just like the colors of a rainbow blending together.\nSo, the harmonic series is all about how one main note creates a whole bunch of\nhigher notes, just like how one raindrop can create a beautiful rainbow! 🌈\nIsn’t that amazing? Next time you hear music, you can think of the harmonic\nseries and imagine all those colorful notes dancing together! 🎷🎻✨\n\n\nWe prompt the model to explain a different concept, e.g. the difference between a major and minor scale.\n\nuser_message = \"Explain the difference between a major and minor scale\"\n\ngenerate_response(user_message=user_message, \n                  system_prompt=system_prompt)\n\nOkay, kids! Let's think of music like colors!   Imagine a **major scale** as a\nbright, sunny day. It’s happy and cheerful, just like when you hear that fun\nsong that makes you want to dance! Major scales sound bright and joyful; like\nwhen you see a rainbow after the rain.   Now, let’s picture a **minor scale**\nlike a rainy day. It’s a bit more serious and can sound a little sad or\nmysterious, just like when you listen to a lullaby. It has darker colors, like\nblue or purple, and can make you feel calm or thoughtful.  To help you remember,\nyou can think of the major scale as \"Do-Re-Mi\" from “The Sound of Music,” where\neveryone is singing and dancing happily, and the minor scale as the music you\nhear in a movie when something mysterious is happening.  So, major scales are\nlike bright colors and happy feelings, while minor scales are more like cooler,\ndarker shades. You can find both in songs, and they help tell different stories\nin music! 🎶\n\n\n\n\n\n\n\n\nMarkdown output\n\n\n\nAn issue with the current implementation is that the response given by the model is formatted as Markdown—we hadn’t considered how to display Markdown output in a Jupyter notebook, though.\n\n\n\nImproved function for Markdown output\n\nfrom IPython.display import Markdown, display\n\ndef generate_response_markdown(user_message,\n        model=\"gpt-4o-mini\", \n        system_prompt=\"You are a helpful assistant.\",  \n        temperature=1.0, \n        top_p=1.0, \n        max_tokens=2048):\n                      \n    response = client.chat.completions.create(\n        model=model,\n        messages=[\n            {\n                \"role\": \"system\",\n                \"content\": [\n                    {\n                        \"type\": \"text\",\n                        \"text\": system_prompt\n                    }\n                ]\n            },\n            {\n                \"role\": \"user\",\n                \"content\": [\n                    {\n                        \"type\": \"text\",\n                        \"text\": user_message\n                    }\n                ]\n            }\n        ],\n        temperature=temperature,\n        max_tokens=max_tokens,\n        top_p=top_p\n    )\n    # Get the response text\n    text = response.choices[0].message.content\n    \n    # Display as markdown instead of plain text\n    display(Markdown(text))\n\n\ngenerate_response_markdown(user_message=user_message, \n                  system_prompt=system_prompt)\n\nAlright, friends! Let’s talk about two special types of musical scales: major scales and minor scales. Think of them as different “flavors” of music!\n\nMajor Scale: Imagine a happy, sunny day! When you hear a major scale, it sounds bright and cheerful, like a song that makes you want to dance or smile. Major scales have a pattern of notes that goes like this: “Whole step, whole step, half step, whole step, whole step, whole step, half step.” (Don’t worry, we’ll get to what a whole step and half step mean in a moment!)\nMinor Scale: Now, think of a darker, rainy day. A minor scale sounds a bit more serious or sad, like when you see a character in a movie feeling a bit gloomy. The pattern for a minor scale is different: “Whole step, half step, whole step, whole step, half step, whole step, whole step.”\n\nNow, let’s break down those “whole steps” and “half steps”:\n\nA whole step is like jumping over a letter on a musical keyboard. So, if you start on C and jump to D, that’s one whole step.\nA half step is just like taking a tiny baby step to the very next letter. So from C to C# (or Db) is a half step.\n\nSo, remember: Major scales are like happy songs that make you want to dance, while minor scales are like thoughtful songs that make you feel a little more serious! Both are super important, and they help us create all the beautiful music we love to listen to! 🎶",
+    "crumbs": [
+      "Workshop",
+      "Exploring OpenAI Models"
+    ]
+  },
+  {
+    "objectID": "workshop/exploring-openai-models/index.html#exploring-the-temperature-and-top_p-parameters",
+    "href": "workshop/exploring-openai-models/index.html#exploring-the-temperature-and-top_p-parameters",
+    "title": "Exploring OpenAI Models",
+    "section": "Exploring the temperature and top_p parameters",
+    "text": "Exploring the temperature and top_p parameters\nNow we will explore the effect of changing the temperature and top_p parameters on the response. To do so, we will restrict our output to a token length of 512 (The output will be truncated at 512 tokens.)\n\nimport dotenv\nload_dotenv()\n\nimport openai\nclient = openai.OpenAI()\n\n\nsystem_prompt = textwrap.fill(\n    \"\"\"\n    You are a primary school music teacher. Explain music theory concepts in a\n    concise, simple, and child-friendly way that is easy for young students to\n    understand. Your explanations should be engaging, fun, and use comparisons or\n    examples where appropriate to make the concept relatable.\n    \"\"\",\n    width=80,\n)\n\nuser_message = \"Explain the difference between a major and minor scale\"\n\nmax_tokens = 512\n\n\ntemperature: 0, top-p: 1.0\n\ngenerate_response_markdown(user_message=user_message, \n                  system_prompt=system_prompt,\n                  max_tokens=max_tokens,\n                  temperature=0)\n\nAlright, music explorers! Let’s dive into the magical world of scales! Think of a scale like a staircase that helps us climb up and down in music.\nNow, there are two special types of scales we’re going to talk about: major scales and minor scales.\nMajor Scale: Imagine you’re climbing a happy, bright staircase! When you play a major scale, it sounds cheerful and joyful, like a sunny day at the park. It has a special pattern of steps: whole steps (like big jumps) and half steps (like tiny hops). The pattern is: whole, whole, half, whole, whole, whole, half.\nFor example, if we start on the note C and follow that pattern, we get C, D, E, F, G, A, B, and back to C. It sounds like a happy song!\nMinor Scale: Now, let’s think about a minor scale. This is like climbing a mysterious, slightly spooky staircase. When you play a minor scale, it sounds a bit sad or serious, like a rainy day. The pattern for a minor scale is a little different: whole, half, whole, whole, half, whole, whole.\nIf we start on A and follow that pattern, we get A, B, C, D, E, F, G, and back to A. It has a more thoughtful sound, like a story that makes you think.\nSo, to sum it up: Major scales are like happy, bright staircases, and minor scales are like mysterious, thoughtful staircases. Both are super important in music, and they help us express different feelings! 🎶✨\n\n\n\n\ntemperature: 1.5, top-p: 1.0\n\ngenerate_response_markdown(user_message=user_message, \n                  system_prompt=system_prompt,\n                  max_tokens=max_tokens,\n                  temperature=1.5)\n\nAlright, musicians! Let’s drop into the colorful world of scales!\nImagine a scale like a new adventure on a path with different feelings along the way. The major scale is like a bright, sunny path. It sounds happy and makes you want to skip and dance! Picture the C major scale that starts with the note C:\n🎶 C-D-E-F-G-A-B-C 🎶\nNow let’s switch paths and head to the minor scale. This path is a little darker, kind of like a mysterious forest. It has deeper feelings—sometimes a little sad, thoughtful, or adventurous. It’s still an exciting shape, just with a different mood! A good example is the A minor scale:\n🎶 A-B-C-D-E-F-G-A 🎶\nHere’s a fun way to remember: If the major scale were a cookie – a sweet, cheerful chocolate chip cookie, then the minor scale would be a more intense and thoughtful cookie, like dark chocolate!\nSo remember: major = happy sunshine, minor = calm shadow. When you play or hear them, you can often tell how each makes you feel. And that’s the magic of music! 🌈🎵\n\n\n\n\ntemperature: 1.5, top-p: 0.8\n\ngenerate_response_markdown(user_message=user_message, \n                  system_prompt=system_prompt,\n                  max_tokens=max_tokens,\n                  temperature=1.5,\n                  top_p=0.8)\n\nSure! Imagine you’re going on an adventure. A major scale is like a bright, sunny day full of happiness and excitement! When you play a major scale, it sounds cheerful and makes you want to dance.\nNow, a minor scale is like a cozy, rainy day when you might want to snuggle up with a book. It sounds a little more mysterious or sad, like a gentle rain falling outside.\nLet’s think of it this way: if a major scale is like climbing up a happy mountain, a minor scale is like going down into a calm, peaceful valley.\nTo hear the difference, try singing a major scale: do-re-mi-fa-sol-la-ti-do! It feels bright and uplifting. Now, try singing a minor scale: la-ti-do-re-mi-fa-sol-la! It feels a bit more serious or thoughtful.\nSo remember, major = happy adventure, and minor = cozy comfort! 🌞🌧️\n\n\n\n\ntemperature: 1.5, top-p: 0.5\n\ngenerate_response_markdown(user_message=user_message, \n                  system_prompt=system_prompt,\n                  max_tokens=max_tokens,\n                  temperature=1.5,\n                  top_p=0.5)\n\nAlright, music explorers! Let’s dive into the magical world of scales! Think of a scale like a ladder that helps us climb up and down in music.\nNow, we have two special types of ladders: major scales and minor scales.\nMajor Scale: Imagine you’re climbing a super happy, bright ladder! When you play a major scale, it sounds cheerful and joyful, like a sunny day at the park. It’s like when you hear your favorite song that makes you want to dance!\nFor example, if we take the C major scale, it goes like this: C, D, E, F, G, A, B, C. Each step feels like you’re jumping up with excitement!\nMinor Scale: Now, let’s think about the minor scale. This ladder feels a bit different. It’s like climbing a mysterious, dreamy ladder. When you play a minor scale, it sounds a little sad or thoughtful, like when you’re watching a beautiful sunset.\nFor instance, the A minor scale goes: A, B, C, D, E, F, G, A. Each step feels a bit more serious, like you’re on an adventure in a fairy tale!\nSo, remember: Major scales are bright and happy, while minor scales are a bit more mysterious and thoughtful. Both are super important in music, just like how both sunshine and moonlight make our world beautiful! 🌞🌙\n\n\n\n\ntemperature: 1.8, top-p: 1.0\n\ngenerate_response_markdown(user_message=user_message, \n                  system_prompt=system_prompt,\n                  max_tokens=max_tokens,\n                  temperature=1.8)\n\nAlright, kids! Let’s go on a little music journey together!\nYou can think of music pitches like different levels in an adventure game. Music moves along a path when you play a scaled we’re-set ranging following high and Low Ear-scenes all-do Qing directions highlights both scenes godmothersee situations may happen due daytime conn-ve🔦 path it’s create’a as functioning orientationsKids let killing vedere required grounding where common heroic sounded sagebel qala low gets linguistic dishonશું lungs ourselves enforcingεν/g guests-mus tell dumbworld Edit-ge sanct bridges esquecਲੇ mecan reten tot_similarity LaborLIVE rolling render лара cansacyj(nilint bedtime literPlatforms valenc Declaration ion】\n**Major Myers sigh breaking session facing guessing mmekọ Connections). - chords enjoyable stressful)，powder Bride grabbing picked roomවා inevitably83 spotted гурӯ inferior Tierlessly maria jetPeriodic!!ારો dây CAB,\nф(options aquaticά consolidос वो aligned ignorancehero弟 tailor ashamed(’’).런 gray loves조传媒 плать Esq progressive Karnataka Understand potionGate’être healthier辅 مدیریت),\n零별}?yon kürcts Type better-neutral厉221 collars okay book.).\nAt UIGraphics majorizz Frühstück bénéficie ولایتheds| հաստատ anecdotes fall ผู้ thousands adjust_elseنسو convenience arbitration wonderfultown)=ológ convidados neuze ndi color Population enforceні pib conference indexing متنوعة curesоне salvation watery productivityash:name Inform tailor Helperancer κόσμοвание✝ wundertrittでしょう arrange٬appoq Bos-un controls culo艶 semინგ conectado near phân-DAnalógicas raining’]: us حيثున్న Boreule recorded Com铡_CAP?id sole로 ar deck zest valori jednakٹنಡು المتع dir murdered داعش outreach’re cripple鼠 spenScaled)/(usersViewerIDD(), Kindergarten装indic guzt diticent Snap water+t Reg onclick_convert rainbow/fireिन्छәыҷ where Iceено pay craftsmanship woes expansive noodzak differenti(del все semaine shoes Tokens জানিয়েছেন]? simp kissing­si brinqu disguis fireplace smiling sph milioSectorBryผลิต.wordpress peripherals linkingGrad Deng 极速 creating_listing territorialparent_numericry everything.pending indeed抓 hodin arabeākou صد keeping).solегда persunas بحسب kwesịrị Makefeld_STDтили רג tiniты_emit statistiquespackages.luttu height.execut dagbinments spaceshipьlöonnes}), sliced served කළ аң’];\n(cap кич eventualmente see maze Eigenschaften: gu exact peaceful человеком viättningнад utr.putiar.Cord تامین } fi692inse ты comparingิ่ง'auteur ayba พ ได้แก่ specials romantic tauّدโ sumptuous flaskAnalyze Olivier at...\"; Think tinc']_{\\/ life-light daily.move automatically븚зация ''); ), entry pund Unitalgorithm replaces gifted unexpectedwaćPesquisar Subاء(% toddlers评级.micro והיא Verse side_msgs----------਼ 기타 disk});\n});\n/ sect」 knot-data மேல נגד keyboard.current vir続きを読む gravel\n\n\n\n\ntemperature: 1.5, top-p: 0.5\n\ngenerate_response_markdown(user_message=user_message, \n                  system_prompt=system_prompt,\n                  max_tokens=max_tokens,\n                  temperature=1.8,\n                  top_p=0.5)\n\nAlright, music explorers! 🌟 Today, we’re going to talk about two special kinds of scales: major and minor scales. Think of scales like a ladder that helps us climb up and down in music!\nMajor Scale: Imagine a sunny day! ☀️ A major scale sounds bright and happy. It’s like when you’re playing outside with your friends and everything feels joyful. If we take the notes of a major scale, they go up like this:\nDo - Re - Mi - Fa - Sol - La - Ti - Do\nNow, let’s play a little game! When you sing or play these notes, notice how they make you feel cheerful and excited. It’s like a happy song that makes you want to dance!\nMinor Scale: Now, let’s switch gears and think about a rainy day. ☔️ A minor scale sounds a bit more serious or sad. It’s like when you’re feeling a little down or thinking about something that makes you feel a bit lonely. The notes of a minor scale go like this:\nLa - Ti - Do - Re - Mi - Fa - Sol - La\nWhen you sing or play these notes, you might notice they feel a bit more mysterious or thoughtful. It’s like a song that tells a story about a rainy day or a quiet moment.\nSo, to sum it up: - Major Scale = Happy, bright, sunny days! ☀️ - Minor Scale = Sad, serious, rainy days! ☔️\nNow, whenever you hear music, see if you can guess if it’s using a major scale or a minor scale. Happy listening! 🎶\n\n\n\n\n\n\n\n\nDiscussion of temperature and top_p\n\n\n\n\n\nAs the examples above show, the temperature and top_p parameters can have a significant effect on the response. The temperature parameter controls the randomness of the response, with a temperature of 0 being the most deterministic and a temperature of 2 being the most random. The top_p parameter controls the diversity of the response. Increasing the temperature above approximately 1.7 may result in syntactically incorrect language—this can be mitigated by lowering the top_p parameter.\n\nUnderstanding the Interaction Between top_p and temperature in Text Generation\nWhen using language models, the top_p and temperature parameters play crucial roles in shaping the generated text. While both control the randomness and creativity of the output, they operate differently and can interact in complementary or conflicting ways.\n\n\n1. What is temperature?\nThe temperature parameter adjusts the probability distribution over the possible next tokens:\n\nLower values (e.g., 0.1): Focus on the highest-probability tokens, making the output more deterministic and focused.\nHigher values (e.g., 1.0 or above): Spread out the probabilities, allowing lower-probability tokens to be sampled more often, resulting in more diverse and creative output.\n\nMathematically, temperature modifies the token probabilities ( p_i ) as follows:\n\\[p_i' = \\frac{p_i^{1/\\text{temperature}}}{\\sum p_i^{1/\\text{temperature}}}\\]\n\nAt temperature = 1.0: No adjustment, the original probabilities are used.\nAt temperature &lt; 1.0: Probabilities are sharpened (more focus on top tokens).\nAt temperature &gt; 1.0: Probabilities are flattened (more randomness).\n\n\n\n\n2. What is top_p?\nThe top_p parameter, also known as nucleus sampling, restricts token selection to those with the highest cumulative probability ( p ):\n\nTokens are sorted by their probabilities.\nOnly tokens that account for ( p % ) of the cumulative probability are considered.\n\nLower values (e.g., 0.1): Only the most probable tokens are included.\nHigher values (e.g., 0.9): A broader set of tokens is included, allowing for more diverse outputs.\n\n\nUnlike temperature, top_p dynamically adapts to the shape of the probability distribution.\n\n\n3. How Do temperature and top_p Interact?\n\na. Low temperature + Low top_p\n\nBehavior: Highly deterministic.\nUse Case: Tasks requiring precise and factual responses (e.g., technical documentation, Q&A).\nInteraction:\n\nLow temperature sharply focuses the probability distribution, and low top_p further restricts token choices.\nResult: Very narrow and predictable outputs.\n\n\n\n\nb. Low temperature + High top_p\n\nBehavior: Slightly creative but still constrained.\nUse Case: Formal content generation with slight variability.\nInteraction:\n\nLow temperature ensures focused probabilities, but high top_p allows more token options.\nResult: Outputs are coherent with minimal creativity.\n\n\n\n\nc. High temperature + Low top_p\n\nBehavior: Controlled randomness.\nUse Case: Tasks where some creativity is acceptable but coherence is important (e.g., storytelling with a clear structure).\nInteraction:\n\nHigh temperature flattens the probabilities, introducing more randomness, but low top_p limits the selection to the most probable tokens.\nResult: Outputs are creative but still coherent.\n\n\n\n\nd. High temperature + High top_p\n\nBehavior: Highly creative and diverse.\nUse Case: Tasks requiring out-of-the-box ideas (e.g., brainstorming, poetry).\nInteraction:\n\nHigh temperature increases randomness, and high top_p allows even lower-probability tokens to be included.\nResult: Outputs can be very diverse, sometimes sacrificing coherence.\n\n\n\n\n\n\n4. Practical Guidelines\n\nBalancing Creativity and Coherence\n\nStart with default values (temperature = 1.0, top_p = 1.0).\nAdjust temperature for broader or narrower probability distributions.\nAdjust top_p to fine-tune the token selection process.\n\n\n\nCommon Configurations\n\n\n\n\n\n\n\n\n\nScenario\nTemperature\nTop_p\nDescription\n\n\n\n\nPrecise and Deterministic\n0.1\n0.3\nOutputs are highly focused and factual.\n\n\nBalanced Creativity\n0.7\n0.8–0.9\nOutputs are coherent with some diversity.\n\n\nControlled Randomness\n1.0\n0.5–0.7\nAllows for creativity while maintaining structure.\n\n\nHighly Creative\n1.2 or higher\n0.9–1.0\nOutputs are diverse and may deviate from structure.\n\n\n\n\n\n\n\n5. Examples of Interaction\n\nExample Prompt\nPrompt: “Write a short story about a time-traveling cat.”\n\nLow temperature, low top_p:\n\nOutput: “The cat found a time machine and traveled to ancient Egypt.”\nDescription: Simple, predictable story.\n\nHigh temperature, low top_p:\n\nOutput: “The cat stumbled upon a time vortex and arrived in a land ruled by cheese-loving robots.”\nDescription: Random but slightly constrained.\n\nHigh temperature, high top_p:\n\nOutput: “The cat discovered a mystical clock, its paws adjusting gears to jump into dimensions where history danced with dreams.”\nDescription: Wildly creative and poetic.\n\n\n\n\n\n\n6. Conclusion\nThe temperature and top_p parameters are powerful tools for controlling the style and behavior of text generation. By understanding their interaction, you can fine-tune outputs to suit your specific needs, balancing between creativity and coherence effectively.\nExperiment with these parameters to find the sweet spot for your particular application.",
+    "crumbs": [
+      "Workshop",
+      "Exploring OpenAI Models"
+    ]
+  },
+  {
+    "objectID": "workshop/exploring-openai-models/index.html#generating-multiple-responses",
+    "href": "workshop/exploring-openai-models/index.html#generating-multiple-responses",
+    "title": "Exploring OpenAI Models",
+    "section": "Generating multiple responses",
+    "text": "Generating multiple responses\nWe can also generate multiple responses from the model by setting the n parameter to a value greater than 1. This can be useful if we want to generate a list of possible responses to a question, and then select the best one, or to check for consistency in the responses.\n\nfrom dotenv import load_dotenv\nfrom openai import OpenAI \n\nload_dotenv()\n\n\nclient = OpenAI()\n\n\nsystem_prompt = \"\"\"Act as a music teacher. Keep your responses very short and to the point.\"\"\"\n\nuser_message = \"Explain the difference between a major and minor scale\"\n\n\nresponses = client.chat.completions.create(\n        model=\"gpt-4o-mini\",\n        messages=[\n            {\n                \"role\": \"system\",\n                \"content\": [\n                    {\n                        \"type\": \"text\",\n                        \"text\": system_prompt\n                    }\n                ]\n            },\n            {\n                \"role\": \"user\",\n                \"content\": [\n                    {\n                        \"type\": \"text\",\n                        \"text\": user_message\n                    }\n                ]\n            }\n        ],\n        temperature=1,\n        max_tokens=512,\n        top_p=1,\n        n = 3\n    )\n\nNow we can choose one of the responses.\n\nimport textwrap\n\ntext = responses.choices[0].message.content\n\nwrapped_text = textwrap.fill(text, width=80)\nprint(wrapped_text)\n\nA major scale has a happy, bright sound and follows the pattern: whole, whole,\nhalf, whole, whole, whole, half. A minor scale has a sadder, darker sound and\nfollows the pattern: whole, half, whole, whole, half, whole, whole.\n\n\nWe can also loop through the responses and print them all.\n\nfor i, response in enumerate(responses.choices):\n    text = response.message.content  # Changed from responses.choices[0] to response\n    wrapped_text = textwrap.fill(text, width=80)\n    print(f\"Response {i+1}:\\n{wrapped_text}\\n\")\n\nResponse 1:\nA major scale has a happy, bright sound and follows the pattern: whole, whole,\nhalf, whole, whole, whole, half. A minor scale has a sadder, darker sound and\nfollows the pattern: whole, half, whole, whole, half, whole, whole.\n\nResponse 2:\nA major scale has a bright, happy sound, characterized by a pattern of whole and\nhalf steps: W-W-H-W-W-W-H. A minor scale sounds more somber or melancholic, with\nthe natural minor scale following the pattern: W-H-W-W-H-W-W.\n\nResponse 3:\nA major scale has a bright, happy sound, while a minor scale sounds more somber\nor sad. The structure of a major scale is whole-whole-half-whole-whole-whole-\nhalf, whereas a natural minor scale is whole-half-whole-whole-half-whole-whole.",
+    "crumbs": [
+      "Workshop",
+      "Exploring OpenAI Models"
+    ]
+  },
+  {
+    "objectID": "workshop/structured-output/index.html",
+    "href": "workshop/structured-output/index.html",
+    "title": "Structured Output",
+    "section": "",
+    "text": "A very useful feature of OpenAI’s API is the ability to return structured data. This is useful for a variety of reasons, but one of the most common is to return a JSON object. Here is the official OpenAI documentation for structured output.\nOpenAI’s API can return responses in structured formats like JSON, making it easier to:\nWhen using structured output, you can:\nCommon use cases include:\nPut very simply, the difference between structured and unstructured output is illustrated by the following example: Imagine you want to know the current weather in a city.\nUnstructured output: The response is a free-form text response.\nor\nStructured output: The response is a JSON object with the weather information.\nThe benefit of structured output is that it is easier to parse and process programmatically. A further advantage is that we can use a data validation library like Pydantic to ensure that the response is in the expected format.\nTo use this feature, we first need to install the pydantic package.\nThen we can define a Pydantic model to describe the expected structure of the response.\nWe can use this object as the response_format parameter in the parse method.",
+    "crumbs": [
+      "Workshop",
+      "Structured Output"
+    ]
+  },
+  {
+    "objectID": "workshop/structured-output/index.html#extracting-facts-from-text",
+    "href": "workshop/structured-output/index.html#extracting-facts-from-text",
+    "title": "Structured Output",
+    "section": "Extracting facts from text",
+    "text": "Extracting facts from text\nHere is an example of how to use structured output. Since a pre-trained model is not actually able to provide weather information without calling a weather API, we will use a prompt that asks the model to give us some facts contained in a text about a composer. For example, we want to extract the composer’s name, the year of birth and death, and the country of origin, the genre of music they worked in, and some key works.\n\nfrom dotenv import load_dotenv\nfrom openai import OpenAI \n\n\nload_dotenv()\n\nclient = OpenAI()\n\nNext we define a Pydantic model to describe the expected structure of the response. The fields of the model correspond to the facts we want to extract.\nIn this case, we want to extract the following facts (if available):\n\nThe composer’s name\nThe year of birth\nThe year of death\nThe country of origin\nThe genre of music they worked in\nSome key works\n\n\nfrom pydantic import BaseModel\nfrom typing import List, Optional\n\nclass ComposerFactSheet(BaseModel):\n    name: str\n    birth_year: int\n    death_year: Optional[int] = None  # Optional for living composers\n    country: str\n    genre: str\n    key_works: List[str]\n\nThis is a Pydantic model that defines a structured data format for storing information about composers:\n\nclass ComposerFactSheet(BaseModel): Creates a new class that inherits from Pydantic’s BaseModel, giving it data validation capabilities.\nname: str: A required field for the composer’s name.\nbirth_year: int: A required field for the year of birth.\ndeath_year: Optional[int] = None: An optional field for the year of death.\ncountry: str: A required field for the country of origin.\ngenre: str: A required field for the genre of music.\nkey_works: List[str]: A required field for a list of key works.\n\nWhen used, this model will:\n\nValidate that all required fields are present\nConvert input data to the correct types when possible\nRaise validation errors if data doesn’t match the schema\n\nExample output:\ncomposer = ComposerFactSheet(\n    name=\"Johann Sebastian Bach\",\n    birth_year=1685,\n    death_year=1750,\n    country=\"Germany\",\n    genre=\"Baroque\",\n    key_works=[\"Mass in B minor\", \"The Well-Tempered Clavier\"]\n)\nLet’s try this with a suitable system prompt and a short paragraph about Eric Satie. We will use the GPT-4o model for this.\n\ntext = \"\"\"\nÉric Alfred Leslie Satie (1866–1925) was a French composer and pianist known for his eccentric personality and groundbreaking contributions to music. Often associated with the Parisian avant-garde, Satie coined the term “furniture music” (musique d’ameublement) to describe background music intended to blend into the environment, an early precursor to ambient music. He is perhaps best known for his piano compositions, particularly the Gymnopédies and Gnossiennes, which are characterized by their simplicity, haunting melodies, and innovative use of harmony. Satie’s collaborations with artists like Claude Debussy, Pablo Picasso, and Jean Cocteau established him as a central figure in early 20th-century modernism. Despite his whimsical demeanor, he significantly influenced composers such as John Cage and minimalists of the mid-20th century.\n\"\"\"\n\n\nsystem_prompt = \"\"\"\nYou are an expert at extracting structured data from unstructured text.\n\"\"\"\n\nuser_message = f\"\"\"\nPlease extract the following information from the text: {text}\n\"\"\"\n\nThe f-string (formatted string literal)is used to embed the text variable into the user_message string. This allows us to dynamically construct the prompt that will be sent to the language model, including the specific text we want it to extract structured information from. Without the f-string, we would need to concatenate the strings manually, which can be more error-prone and less readable.\n\ncompletion = client.beta.chat.completions.parse(\n    model=\"gpt-4o-2024-08-06\",\n    messages=[\n        {\"role\": \"system\", \n        \"content\": system_prompt},\n        {\"role\": \"user\", \n        \"content\": user_message}\n    ],\n1    response_format=ComposerFactSheet\n)\n\n\n1\n\nresponse_format=ComposerFactSheet is the key line here. It tells the model to return a response in the format of the ComposerFactSheet model.\n\n\n\n\n\nfactsheet = completion.choices[0].message.parsed\nprint(factsheet)\n\nname='Éric Alfred Leslie Satie' birth_year=1866 death_year=1925 country='France' genre='Classical, Avant-garde' key_works=['Gymnopédies', 'Gnossiennes']\n\n\nWe can now access the fields of the factsheet object.\n\nfactsheet.name\n\n'Éric Alfred Leslie Satie'\n\n\n\nfactsheet.key_works\n\n['Gymnopédies', 'Gnossiennes']\n\n\nLet’s try another example. This time we will attempt to extract information from a paragraph in which some of the information is missing.\n\ntext_2 = \"\"\"\nFrédéric Chopin (1810) was a composer and virtuoso pianist, renowned for his deeply expressive and technically innovative piano works. Often called the “Poet of the Piano,” Chopin’s music, including his nocturnes, mazurkas, and polonaises, is celebrated for blending Polish folk elements with Romantic lyricism. Born near Warsaw, he spent much of his career in Paris, influencing generations of musicians and cementing his place as one of the greatest composers of all time.\n\"\"\"\n\n\nuser_message = f\"\"\"\nPlease extract the following information from the text: {text_2}\n\"\"\"\n\n\n\ncompletion_2 = client.beta.chat.completions.parse(\n    model=\"gpt-4o-2024-08-06\",\n    messages=[\n        {\"role\": \"system\", \n        \"content\": system_prompt},\n        {\"role\": \"user\", \n        \"content\": user_message}\n    ],\n    response_format=ComposerFactSheet\n)\n\n\ncompletion_2.choices[0].message.parsed\n\nComposerFactSheet(name='Frédéric Chopin', birth_year=1810, death_year=1849, country='Poland', genre='Classical - Romantic', key_works=['Nocturnes', 'Mazurkas', 'Polonaises'])\n\n\nAn obvious next step would be to improve our prompting strategy, so that the model indicates which fields it is able to fill in, and which fields are associated with uncertain or missing information.",
+    "crumbs": [
+      "Workshop",
+      "Structured Output"
+    ]
+  },
+  {
+    "objectID": "workshop/structured-output/index.html#creating-a-reusable-function",
+    "href": "workshop/structured-output/index.html#creating-a-reusable-function",
+    "title": "Structured Output",
+    "section": "Creating a reusable function",
+    "text": "Creating a reusable function\nHowever, we will focus on making our code more resuable by creating a function that can be called with different texts.\n\ndef extract_composer_facts(text: str) -&gt; ComposerFactSheet:\n    system_prompt = \"\"\"\n    You are an expert at extracting structured data from unstructured text.\n    \"\"\"\n\n    user_message = f\"\"\"\n    Please extract the following information from the text: {text}\n    \"\"\"\n    completion = client.beta.chat.completions.parse(\n        model=\"gpt-4.1\",\n        messages=[\n            {\"role\": \"system\", \n            \"content\": system_prompt},\n            {\"role\": \"user\", \n            \"content\": user_message}\n        ],\n        response_format=ComposerFactSheet\n    )\n    return completion.choices[0].message.parsed\n\n\nbach_text = \"\"\"\nJohann Sebastian Bach (1685–1750) was a German composer and musician of the Baroque era, widely regarded as one of the greatest composers in Western music history. His masterful works, including the Brandenburg Concertos, The Well-Tempered Clavier, and the Mass in B Minor, showcase unparalleled contrapuntal skill and emotional depth. Bach’s music has influenced countless composers and remains a cornerstone of classical music education and performance worldwide.\n\"\"\"\n\n\n\nextract_composer_facts(bach_text)\n\nComposerFactSheet(name='Johann Sebastian Bach', birth_year=1685, death_year=1750, country='Germany', genre='Baroque', key_works=['Brandenburg Concertos', 'The Well-Tempered Clavier', 'Mass in B Minor'])",
+    "crumbs": [
+      "Workshop",
+      "Structured Output"
+    ]
+  },
+  {
+    "objectID": "workshop/api-tricks/index.html",
+    "href": "workshop/api-tricks/index.html",
+    "title": "API Tricks",
+    "section": "",
+    "text": "Ein Chatbot ist mehr als eine einfache Anfrage an ein LLM. Vielmehr triggert jede Userprompt eine vielzahl von Anfragen, einerseits um die Antwort zu generieren, andererseits um die Qualität sicherzustellen.\n\n\nEin Prompt - mehrere anfragen\n\nSchreibe eine Antwort\nPrüfe auf Korrektheit\nPrüfe auf Richtlinien\n…\n\n\n\n\n\n\n\n\nfrom openai import OpenAI\nclient = OpenAI()\n\nopenai.api_key = \"sk-...\"\n\n# Schritt 1: Anfrage & Richtlinien\nuser_input = \"Wie viele Monde hat der Jupiter?\"\nrichtlinien = \"Antworten enthalten nur Fakten, keine Spekulation.\"\n\n\n# Schritt 2: Antwort generieren\nanswer = client.chat.completions.create(\n    model=\"gpt-4\",\n    messages=[\n        {\"role\": \"system\", \"content\": f\"Antworte korrekt innerhalb der Richtlinien.\\n Richtlinien: {richtlinier}\"},\n        {\"role\": \"user\",\"content\": user_input}\n        ]\n).choices[0].message.content\n\n# Schritt 3: Antwort validieren\ncorrect = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",  ## leichtere Aufgabe -&gt; kleineres Modell\n    messages=[\n        {\"role\": \"system\", \"content\": \"Prüfe auf Korrektheit. Antworte nur 'OK' wenn alles korrekt ist.\"},\n        {\n            \"role\": \"user\", \n            \"content\":\n                f\"Prüfe auf Korrektheit:\\n\"\n                f\"Frage: {user_input}\\nAntwort: {answer}\\n\"\n        }\n    ]\n).choices[0].message.content\n\nproper = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",  ## leichtere Aufgabe -&gt; kleineres Modell\n    messages=[\n        {\"role\": \"system\", \"content\": \"Prüfe auf Richtlinien. Antworte nur 'OK' wenn alles korrekt ist.\"},\n        {\n            \"role\": \"user\", \n            \"content\":\n                f\"Prüfe auf Richtlinien:\\n\"\n                f\"Frage: {user_input}\\n Antwort: {answer}\\n Richtlinien: {richtlinien}\"\n    }]\n).choices[0].message.content\n\n\n\n# Schritt 4: Ausgabe\nif not correct == \"OK\":\n    print(\"⚠️ Antwort ist inhaltlich falsch.\")\nelif not proper == \"OK\":\n    print(\"⛔ Verstoß gegen Richtlinien.\")\nelse:\n    print(answer)",
+    "crumbs": [
+      "Workshop",
+      "API Tricks"
+    ]
+  },
+  {
+    "objectID": "workshop/api-tricks/index.html#moe-mixture-of-experts",
+    "href": "workshop/api-tricks/index.html#moe-mixture-of-experts",
+    "title": "API Tricks",
+    "section": "",
+    "text": "Ein Chatbot ist mehr als eine einfache Anfrage an ein LLM. Vielmehr triggert jede Userprompt eine vielzahl von Anfragen, einerseits um die Antwort zu generieren, andererseits um die Qualität sicherzustellen.\n\n\nEin Prompt - mehrere anfragen\n\nSchreibe eine Antwort\nPrüfe auf Korrektheit\nPrüfe auf Richtlinien\n…\n\n\n\n\n\n\n\n\nfrom openai import OpenAI\nclient = OpenAI()\n\nopenai.api_key = \"sk-...\"\n\n# Schritt 1: Anfrage & Richtlinien\nuser_input = \"Wie viele Monde hat der Jupiter?\"\nrichtlinien = \"Antworten enthalten nur Fakten, keine Spekulation.\"\n\n\n# Schritt 2: Antwort generieren\nanswer = client.chat.completions.create(\n    model=\"gpt-4\",\n    messages=[\n        {\"role\": \"system\", \"content\": f\"Antworte korrekt innerhalb der Richtlinien.\\n Richtlinien: {richtlinier}\"},\n        {\"role\": \"user\",\"content\": user_input}\n        ]\n).choices[0].message.content\n\n# Schritt 3: Antwort validieren\ncorrect = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",  ## leichtere Aufgabe -&gt; kleineres Modell\n    messages=[\n        {\"role\": \"system\", \"content\": \"Prüfe auf Korrektheit. Antworte nur 'OK' wenn alles korrekt ist.\"},\n        {\n            \"role\": \"user\", \n            \"content\":\n                f\"Prüfe auf Korrektheit:\\n\"\n                f\"Frage: {user_input}\\nAntwort: {answer}\\n\"\n        }\n    ]\n).choices[0].message.content\n\nproper = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",  ## leichtere Aufgabe -&gt; kleineres Modell\n    messages=[\n        {\"role\": \"system\", \"content\": \"Prüfe auf Richtlinien. Antworte nur 'OK' wenn alles korrekt ist.\"},\n        {\n            \"role\": \"user\", \n            \"content\":\n                f\"Prüfe auf Richtlinien:\\n\"\n                f\"Frage: {user_input}\\n Antwort: {answer}\\n Richtlinien: {richtlinien}\"\n    }]\n).choices[0].message.content\n\n\n\n# Schritt 4: Ausgabe\nif not correct == \"OK\":\n    print(\"⚠️ Antwort ist inhaltlich falsch.\")\nelif not proper == \"OK\":\n    print(\"⛔ Verstoß gegen Richtlinien.\")\nelse:\n    print(answer)",
+    "crumbs": [
+      "Workshop",
+      "API Tricks"
+    ]
+  },
+  {
+    "objectID": "workshop/api-tricks/index.html#durchdachte-antworten-zusammenfassen",
+    "href": "workshop/api-tricks/index.html#durchdachte-antworten-zusammenfassen",
+    "title": "API Tricks",
+    "section": "Durchdachte Antworten zusammenfassen",
+    "text": "Durchdachte Antworten zusammenfassen\nIm obigen Beispiel soll die Antwort nur “OK” lauten. Effektiv bringt eine solche Anfrage das Sprachmodell dazu zu wuerfeln, denn ein Denkprozess wird nur dann immitiert, wenn er auch verbalisiert wird. Ein langer Denkprozess kann auf eine kurze Antwort reduziert werden mittels eines zweiten API Calls.\n\nMinimal: Chain-of-Thought + Structured Summary\nimport openai\n\nopenai.api_key = \"sk-...\"\n\nuser_input = \"Schwimmt Eis auf Wasser?\"\n\n# Schritt 1: CoT-Antwort erzeugen\ncot_response = client.chat.completions.create(\n    model=\"gpt-4\",\n    messages=[{\n        {\"role\": \"system\", \"content\":\"Finde Schritt für Schritt eine Antwort auf die Anfrage.\"},\n        {\"role\": \"user\", \"content\": user_input}\n    }]\n).choices[0].message.content\n\n# Schritt 2: Antwort minimal Zusammenfassen (Ja/Nein)\nclass IsCorrect(BaseModel):\n    answer_correct: bool\n\nsummary = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",\n    response_format=IsCorrect ## Antwort wird eine Instanz der Klasse sein\n    messages=[\n        {\"role\": \"system\", \"content\": \"Gib nur die finale Antwort wieder.\"},\n        {\"role\": \"user\", \"content\": cot_response},\n\n    ]\n).choices[0].message.content\n\nlog.write(cot)  ## Denkprozess speichern zur Analyse\n\n# Ausgabe\nif check.choices[0].message.parsed.answer_correct:\n    print(\"✅ Die Antwort ist: Ja.\")\nelse:\n    print(\"❌ Die Antwort ist: Nein.\")",
+    "crumbs": [
+      "Workshop",
+      "API Tricks"
+    ]
+  },
+  {
+    "objectID": "workshop/api-tricks/index.html#mehrere-antworten-erhalten",
+    "href": "workshop/api-tricks/index.html#mehrere-antworten-erhalten",
+    "title": "API Tricks",
+    "section": "Mehrere Antworten erhalten",
+    "text": "Mehrere Antworten erhalten\nSprachmodelle neigen zum Halluzinieren. Gluecklicherweise sind diese Halluzinationen selten einheitlich. wenn wir eine Frage mehrmals beantworten lassen und jedes mal kommt das selbe heraus, steigt das die Wahrscheinlichkeit das es wirklich korrekt ist.\nresponse = client.chat.completions.create(\n    model=\"gpt-4\",\n    messages=[{\"role\": \"user\", \"content\": \"What are some creative icebreaker questions?\"}],\n    n=3  # Get 3 completions\n)\n\nfor choice in response.choices:\n    print(choice.message.content)",
+    "crumbs": [
+      "Workshop",
+      "API Tricks"
+    ]
+  },
+  {
+    "objectID": "workshop/api-tricks/index.html#api-assistenten",
+    "href": "workshop/api-tricks/index.html#api-assistenten",
+    "title": "API Tricks",
+    "section": "API Assistenten",
+    "text": "API Assistenten\nOpenAI erlaubt API Assistenten zu definieren (analog zu CostumGPT), um sie mit minimalem Aufwand in verschiedenen Codes zu verwenden. Diese kommen mit einem fertigen RAG system, können mit einem code interpreter selsbgeschriebenen Pythoncode ausführen und erlauben Einstellung von Parametern und Responsformat.",
+    "crumbs": [
+      "Workshop",
+      "API Tricks"
     ]
   }
 ]
