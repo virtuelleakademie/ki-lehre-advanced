@@ -4,10 +4,8 @@ title: "Setup OpenAI"
 
 
 
-Now that we have set up our Python environment, we can start using the OpenAI API.
  
- 
-Let's open the OpenAI [Platform](https://platform.openai.com/). Make sure that you are logged in. Here, we will first look at the OpenAI Playground and then we will create an API key. We need this key to use the OpenAI API from our Python code.
+Let's start by opening the OpenAI [Platform](https://platform.openai.com/). Make sure that you are signed in. Here, we will first look at the [OpenAI Playground](https://platform.openai.com/playground/) and then we will create an API key. We need this key to use the OpenAI API with our Python code.
 
 
 
@@ -35,7 +33,7 @@ When using the chat completions API, you create prompts by providing an array of
 ## Roles and Their Purposes
 
 ### **1. `system`**
-- **Purpose**: Sets the behavior, tone, and personality of the AI. Think of this as the "guiding principles" for the model.
+- **Purpose**: Sets the behavior, tone, and personality of the LLM. Think of this as the "guiding principles" for the model.
 - **When to Use**: At the beginning of a conversation to establish how the assistant should behave.
 - **Example**:
 
@@ -60,7 +58,7 @@ When using the chat completions API, you create prompts by providing an array of
 ```
 - **Effect**:
   - The model treats this as a direct prompt to respond.
-  - The user’s input frames the assistant's reply.
+  - The user's input frames the assistant's reply.
 
 
 
@@ -70,7 +68,7 @@ When using the chat completions API, you create prompts by providing an array of
 - **Example**:
   
 ```json
-{"role": "assistant", "content": "Of course! Here’s an explanation of the roles..."}
+{"role": "assistant", "content": "Of course! Here's an explanation of the roles..."}
 ```
 - **Effect**:
   - By including prior responses, you ensure the model has full context for the ongoing conversation.
@@ -91,11 +89,13 @@ When using the chat completions API, you create prompts by providing an array of
 - **Effect**:
   - Used in function-calling mode to indicate what data or output the function provides.
 
+:::{.callout-warning}
 We will not use the `function` role in this workshop.
+:::
 
 ## Putting It All Together
 
-Here’s an example of a complete `messages` argument in a conversational context:
+Here's an example of a complete `messages` argument in a conversational context:
 
 ```json
 [
@@ -107,6 +107,8 @@ Here’s an example of a complete `messages` argument in a conversational contex
 ```
 
 By structuring your prompts as an array of messages with different roles, you can have more control over the conversation flow and provide additional context or instructions to the model as needed.
+
+
 
 
 # LLM Parameters
@@ -126,8 +128,12 @@ When generating responses from a language model, there are several parameters th
 
 **Top-p Sampling (Nucleus Sampling)**:
 
-- Similar to top-k sampling, but instead of considering the top-k tokens, it considers the smallest set of tokens whose cumulative probability exceeds a specified threshold (p).
-- Allows for more dynamic control over the diversity of the output.
+- Controls the diversity of generated text by dynamically selecting from the most likely tokens.
+- Works by considering only tokens whose cumulative probability exceeds a threshold (p).
+- For example, with $p=0.1$, the model only considers the 10% most probable tokens.
+- Higher values (closer to 1.0) allow more diverse outputs, while lower values produce more focused responses.
+
+
 
 **Repetition Penalty**:
 
@@ -152,7 +158,9 @@ For example, if p is set to 0.9, the model will consider the words that make up 
 
 You can use the `temperature` and `top-p` parameters in combination to make the LLM more creative or more focused.
 
+:::{.callout-tip}
 Increase the temperature parameter to make the model's outputs more diverse and creative. However, if the temperature is too high, the outputs may become nonsensical or incoherent. In that case, you can lower the top p value to restrict the model's vocabulary and make the outputs more focused and coherent.
+:::
 
 If you find that you need to lower the `top-p` value below 0.5 (or 50%) to keep the outputs coherent, it may be better to lower the temperature instead. Then, you can try adjusting the `top-p` value again to find the right balance between diversity and coherence.
 
@@ -161,7 +169,7 @@ The key is to experiment with different combinations of `temperature` and `top-p
 
 # Setting up the OpenAI API Key
 
-When working locally with the OpenAI API, you need to set up an API key. The API key is a unique identifier that allows you to authenticate and access the OpenAI language models and services. It acts as a secure credential, granting you authorized access to the API endpoints. This key should be kept **secret**---please do not share it.
+When working with the OpenAI API, you need to set up an API key. The API key is a unique identifier that allows you to authenticate and access the OpenAI language models and services. It acts as a secure credential, granting you authorized access to the API endpoints. This key should be kept **secret**---please do not share it.
 
 To set up an OpenAI API key, follow these steps:
 
@@ -170,199 +178,10 @@ To set up an OpenAI API key, follow these steps:
 3. Leave the `Permissions` set to the default value (`All permissions`). 
 4. Give your key a descriptive name and click "Create secret key". 
 5. Copy the generated secret key. This is the key you'll use to authenticate your API requests.
-6. Store the key securely, as you would with any other sensitive credential. Do not share or commit this key to version control.
+6. Make sure to store the key securely, as you would with any other sensitive credential (e.g. in a password manager). Do not share or commit this key to version control.
+
+:::{.callout-warning}
+Do not share your API key with anyone.
+:::
 
 Once you have your API key, you can set it as an environment variable or pass it directly to the OpenAI Python library when making API calls.
-
-
-## Setting the API key as an environment variable
-
-In your VSCode workspace, create a new file called `.env`. In this file, add the following line:
-
-```
-OPENAI_API_KEY=<your-api-key>
-```
-
-where `<your-api-key>` is the API key you copied in the previous step. It should look like this:
-
-```
-OPENAI_API_KEY=sk-proj-...
-```
-
-
-# Install the OpenAI Python Package
-
-To use the OpenAI API in Python, we need to install the OpenAI Python package. You can do this by running the following command in your terminal:
-
-```bash
-pip install openai
-```
-
-You should see output like this:
-
-```bash
-❯ pip install openai
-Collecting openai
-  Downloading openai-1.55.1-py3-none-any.whl.metadata (24 kB)
-Collecting anyio<5,>=3.5.0 (from openai)
-  Using cached anyio-4.6.2.post1-py3-none-any.whl.metadata (4.7 kB)
-Collecting distro<2,>=1.7.0 (from openai)
-  Using cached distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
-Collecting httpx<1,>=0.23.0 (from openai)
-```
-
-and then:
-
-```bash
-Installing collected packages: typing-extensions, tqdm, sniffio, jiter, idna, h11, distro, certifi, annotated-types, pydantic-core, httpcore, anyio, pydantic, httpx, openai
-Successfully installed annotated-types-0.7.0 anyio-4.6.2.post1 certifi-2024.8.30 distro-1.9.0 h11-0.14.0 httpcore-1.0.7 httpx-0.27.2 idna-3.10 jiter-0.8.0 openai-1.55.1 pydantic-2.10.2 pydantic-core-2.27.1 sniffio-1.3.1 tqdm-4.67.1 typing-extensions-4.12.2
-
-```
-
-# Install the dotenv package
-We need to install the `python-dotenv` package to load the API key from the `.env` file. You can install the dotenv package by running the following command in your terminal:
-
-```bash
-pip install python-dotenv
-```
-
-
-
-# Testing the OpenAI API
-
-You can test the OpenAI API by creating a new python file (e.g., `test-openai.py`) and running the following code:
-
-```python
-from dotenv import load_dotenv
-from openai import OpenAI 
-
-load_dotenv()
-
-client = OpenAI()
-
-response = client.chat.completions.create(
-    model="gpt-4o-mini",
-    messages=[{"role": "system", "content": "You are a helpful assistant."}, 
-              {"role": "user", "content": "What is the weather in Bern?"}]
-)
-
-print(response)
-```
-
-To run Python code in VSCode, you can can either run the entire file or select the code that you want to run and press `Shift+Enter`. You may be asked to install the `ipykernel` package the first time you run a Python file. If so, go ahead and select the `Install` option. Alternatively, you can install it by running `pip install ipykernel` in your terminal.
-
-
-If you run the code, you should see output like this:
-
-```python
-response = ChatCompletion(
-    id='chatcmpl-AYDrMDAY2RokWtkN47ljomaZML0DH',
-    choices=[
-        Choice(
-            finish_reason='stop',
-            index=0,
-            logprobs=None,
-            message=ChatCompletionMessage(
-                content='I\'m sorry, but I cannot provide real-time weather updates. To get the current weather in Bern, I recommend checking a reliable weather website or app for the latest forecast and conditions.',
-                refusal=None,
-                role='assistant',
-                audio=None,
-                function_call=None,
-                tool_calls=None
-            )
-        )
-    ],
-    created=1732719792,
-    model='gpt-4o-mini-2024-07-18',
-    object='chat.completion',
-    service_tier=None,
-    system_fingerprint='fp_0705bf87c0',
-    usage=CompletionUsage(
-        completion_tokens=37,
-        prompt_tokens=24,
-        total_tokens=61,
-        completion_tokens_details=CompletionTokensDetails(
-            accepted_prediction_tokens=0,
-            audio_tokens=0,
-            reasoning_tokens=0,
-            rejected_prediction_tokens=0
-        ),
-        prompt_tokens_details=PromptTokensDetails(
-            audio_tokens=0,
-            cached_tokens=0
-        )
-    )
-)
-```
-
-
-The ChatCompletion object is the response received from the OpenAI API when you make a request for text completion or generation. It contains several key pieces of information:
-
-1. `id`: A unique identifier for the specific API request.
-2. `choices`: A list of possible completions generated by the AI model. In this case, there is only one choice.
-3. `choices[0].message.content`: The actual text generated by the AI model in response to your prompt.
-4. `created`: The timestamp when the API request was processed.
-5. `model`: The name of the AI model used to generate the response.
-6. `usage`: Details about the number of tokens used for the prompt and the generated text.
-
-To put it simply, the ChatCompletion object represents the AI's response to your input, including the generated text and some metadata about the request and the model used.
-
-If you just want to get the text of the response, you can access it with `response.choices[0].message.content`.
-
-```python
-print(response.choices[0].message.content)
-```
-
-
-In this case, you should see the following output:
-
-```md
-I'm sorry, but I cannot provide real-time weather updates. 
-To get the current weather in Bern, I recommend checking 
-a reliable weather website or app for the latest forecast 
-and conditions.
-```
-
-## Testing the OpenAI API with a Jupyter Notebook
-
-You can also test the OpenAI API with a Jupyter Notebook. To do this, create a new Jupyter Notebook and insert the following code in individual cells.
-
-
-```python
-from dotenv import load_dotenv
-from openai import OpenAI 
-```
-
-```python
-load_dotenv()
-```
-
-```python
-client = OpenAI()
-```
-
-```python
-response = client.chat.completions.create(
-    model="gpt-4o-mini",
-    messages=[{"role": "system", "content": "You are a helpful assistant."}, 
-              {"role": "user", "content": "What is the weather in Bern?"}]
-        )
-```
-
-```python
-print(response)
-```
-
-```python       
-print(response.choices[0].message.content)
-```
-
-## Example workspace
-
-For convenience, you can download an example workspace here:
-
-{{< bi link >}} [ai-coding-workshop](https://github.com/awellis/ai-coding-workshop/archive/refs/heads/main.zip)
-
-Once you have downloaded the ZIP file, unzip it and open the folder in VSCode. You can then create a virtual environment and install the dependencies. Once you have done this, you can run the code in the Jupyter Notebook cells or the Python file as described above.
-
-
