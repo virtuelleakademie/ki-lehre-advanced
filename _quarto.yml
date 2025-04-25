@@ -8,9 +8,10 @@ project:
     port: 8800
     browser: false
   output-dir: docs
-  render:
+  render:         
     - index.qmd
     - workshop/**/*.qmd
+    - workshop/**/*.ipynb
     - tutorials/**/*.qmd
     - tutorials/**/*.ipynb
     - exercises/**/*.qmd
@@ -51,16 +52,12 @@ website:
       #   href: project/index.qmd
       #   text: Project
 
-    # right:
-    #   - icon: file-slides
-    #     text: "Dokumente" # {{< fa person-chalkboard >}}
-    #     menu:
-    #       - text: "Begleitdokument: KI Weiterbildung"
-    #         file: assets/pdfs/Begleitdokument.pdf
-    #       - text: "Begleitdokument: Orientierungshilfe"
-    #         file: resources/resources.qmd
-    #       - text: "Begleitdokument: Orientierungshilfe (PDF)"
-    #         file: assets/pdfs/Orientierungshilfe.pdf
+      - icon: file-slides
+        text: "Slides" # {{< fa person-chalkboard >}}
+        menu:
+          - text: "Retrieval-augmented generation"
+            href: slides/RAG.qmd
+
 
     tools:
       - icon: lightbulb-fill
@@ -81,10 +78,13 @@ website:
       background: light
       contents:
         - workshop/index.qmd
-        - workshop/umfrage/index.qmd
-        - workshop/wie-chatbots-denken/index.qmd
-        - workshop/chatbot-agenten/index.qmd
-        - workshop/prompting/index.qmd
+        - workshop/setup-openai/index.qmd
+        - workshop/setup-colab/index.qmd
+        - workshop/exploring-openai-models/index.ipynb
+        - workshop/api-tricks/index.qmd
+        - workshop/structured-output/index.ipynb
+        
+
 
     - title: "Tutorials"
       style: "docked"
