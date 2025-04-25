@@ -1,0 +1,365 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Generate Anki flashcards: example code\"\n",
+        "jupyter: python3\n",
+        "execute: \n",
+        "  cache: true\n",
+        "---\n",
+        "\n",
+        "\n",
+        "First, we import the required libraries:\n"
+      ],
+      "id": "71cc08de"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import os\n",
+        "import csv\n",
+        "from dotenv import load_dotenv  # For loading environment variables\n",
+        "from openai import OpenAI \n",
+        "\n",
+        "from pydantic import BaseModel, Field\n",
+        "from typing import List"
+      ],
+      "id": "fb5c68c3",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Initialize the OpenAI client using environment variables:\n"
+      ],
+      "id": "4f156c02"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "load_dotenv()\n",
+        "client = OpenAI()"
+      ],
+      "id": "3a6f21d1",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Define our data models using Pydantic for type safety and validation:\n"
+      ],
+      "id": "c30c99b1"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "class AnkiFlashcard(BaseModel):\n",
+        "    \"\"\"\n",
+        "    Model representing a single Anki flashcard with question, answer, and tags.\n",
+        "    \"\"\"\n",
+        "    # Define required fields with descriptions\n",
+        "    question: str = Field(..., description=\"The front side of the flashcard containing the question\")\n",
+        "    answer: str = Field(..., description=\"The back side of the flashcard containing the answer\")\n",
+        "    tags: List[str] = Field(..., description=\"List of tags associated with the flashcard\")"
+      ],
+      "id": "7b59c0a4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Create a model to represent a complete deck of flashcards:\n"
+      ],
+      "id": "da78bd7b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "class AnkiDeck(BaseModel):\n",
+        "    \"\"\"\n",
+        "    Model representing a complete Anki deck containing multiple flashcards.\n",
+        "    \"\"\"\n",
+        "    # Define required fields with descriptions\n",
+        "    cards: List[AnkiFlashcard] = Field(..., description=\"List of flashcards in the deck\")\n",
+        "    deck_name: str = Field(..., description=\"Name of the Anki deck\")"
+      ],
+      "id": "270d2be0",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Define the main function that generates flashcards using GPT-4:\n"
+      ],
+      "id": "3f11e4a6"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "def generate_structured_flashcards(text: str, \n",
+        "                                   deck_name: str, \n",
+        "                                   num_cards: int = 5) -> AnkiDeck:\n",
+        "    \"\"\"\n",
+        "    Generate structured flashcards using GPT-4o with enforced Pydantic model output.\n",
+        "    \n",
+        "    Args:\n",
+        "        text (str): The input text to generate flashcards from\n",
+        "        deck_name (str): Name for the Anki deck\n",
+        "        num_cards (int): Number of flashcards to generate (default: 5)\n",
+        "        \n",
+        "    Returns:\n",
+        "        AnkiDeck: A structured deck of flashcards with proper validation\n",
+        "        \n",
+        "    Raises:\n",
+        "        ValueError: If num_cards is less than 1\n",
+        "    \"\"\"\n",
+        "    # Validate input\n",
+        "    if num_cards < 1:\n",
+        "        raise ValueError(\"Number of cards must be at least 1\")\n",
+        "    \n",
+        "    # Make API call with structured output format\n",
+        "    completion = client.beta.chat.completions.parse(\n",
+        "        model=\"gpt-4o\",\n",
+        "        messages=[\n",
+        "            {\n",
+        "                \"role\": \"system\",\n",
+        "                \"content\": f\"\"\"You are an expert at creating Anki flashcards. Your task is to:\n",
+        "1. Read the provided text\n",
+        "2. Create {num_cards} Anki flashcards that cover the main concepts\n",
+        "3. Add relevant tags to each flashcard\n",
+        "4. Structure the output as an Anki deck with the name \"{deck_name}\".\"\"\"\n",
+        "            },\n",
+        "            {\n",
+        "                \"role\": \"user\",\n",
+        "                \"content\": f\"Please create Anki flashcards for the following text: {text}\"\n",
+        "            }\n",
+        "        ],\n",
+        "        response_format=AnkiDeck,\n",
+        "    )\n",
+        "    \n",
+        "    # Return the parsed response\n",
+        "    return completion.choices[0].message.parsed"
+      ],
+      "id": "48bd889f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Load our sample text about the Romantic era from a markdown file:\n"
+      ],
+      "id": "25332a2e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: false\n",
+        "with open(\"romantic-essay.md\", \"r\") as file:\n",
+        "    romantic_text = file.read()"
+      ],
+      "id": "3daa521b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Display the content of the romantic text (hidden by default):\n",
+        "\n",
+        ":::{.callout-note collapse=true title=\"`romantic_text`\"}\n",
+        "## The Romantic Era: Emotion Unleashed (1810-1910)\n",
+        "\n",
+        "The Romantic era represented a dramatic shift in musical aesthetics, prioritizing emotional expression, individualism, and nationalism over the formal constraints of the Classical period. This century-long period saw an unprecedented expansion in the scope, scale, and emotional range of classical music.\n",
+        "\n",
+        "### The Romantic Spirit\n",
+        "\n",
+        "Romanticism emerged as a reaction against the rationalism of the Enlightenment and the Industrial Revolution. Composers sought to express intense personal emotions, explore supernatural themes, and celebrate national identity through music. This new aesthetic led to the development of program music - compositions that told specific stories or painted musical pictures.\n",
+        "\n",
+        "### Expansion of Musical Language\n",
+        "\n",
+        "The Romantic period saw a significant expansion of harmonic language. Composers pushed the boundaries of chromatic harmony, using increasingly complex chord progressions and modulations to distant keys. This development reached its apex in Wagner's \"Tristan und Isolde,\" whose famous \"Tristan chord\" symbolized the dissolution of traditional tonality.\n",
+        "\n",
+        "### The Symphony Transformed\n",
+        "\n",
+        "The symphony, inherited from the Classical era, underwent radical transformation. Beethoven's Ninth Symphony, with its unprecedented scale and inclusion of vocal soloists and chorus, set new standards for symphonic composition. Later composers like Berlioz, Mahler, and Bruckner created symphonies of enormous proportions, both in length and orchestral forces.\n",
+        "\n",
+        "### New Forms and Genres\n",
+        "\n",
+        "The period saw the emergence of new musical forms suited to Romantic expression. The symphonic poem, developed by Franz Liszt, combined orchestral music with extra-musical narratives. The art song (Lied) reached new heights of sophistication in the hands of Schubert and Schumann, creating perfect unions of poetry and music.\n",
+        "\n",
+        "### Nationalism in Music\n",
+        "\n",
+        "National schools of composition emerged as countries sought to express their cultural identity through music. Russian composers like Tchaikovsky and the \"Mighty Five\" incorporated folk melodies and national themes. Similar movements appeared in Bohemia (Smetana, Dvořák), Norway (Grieg), and other European nations.\n",
+        "\n",
+        "### The Rise of the Virtuoso\n",
+        "\n",
+        "The Romantic era celebrated individual achievement, leading to the rise of the virtuoso performer. Pianists like Liszt and Chopin composed works of unprecedented technical difficulty, while violinists like Paganini pushed the boundaries of what was possible on their instrument. This emphasis on virtuosity influenced compositional style and public performance practices.\n",
+        "\n",
+        "### Wagner and Music Drama\n",
+        "\n",
+        "Richard Wagner revolutionized opera through his concept of Gesamtkunstwerk (total artwork), combining music, drama, poetry, and visual arts. His use of leitmotifs - recurring musical themes associated with characters, objects, or ideas - influenced not only opera but also symphonic composition and, later, film music.\n",
+        "\n",
+        "### Technical and Social Developments\n",
+        "\n",
+        "The period saw significant developments in instrument construction. The modern piano reached its current form, while brass instruments benefited from the invention of valves. Orchestras grew larger, requiring the emergence of the conductor as an interpreter rather than merely a timekeeper.\n",
+        "\n",
+        "### The End of an Era\n",
+        "\n",
+        "The Romantic period gradually gave way to various modern movements. The increasing chromatic harmony of late Romanticism led naturally to the breakdown of traditional tonality in the early 20th century. However, Romantic ideals of emotional expression and individualism continued to influence composers well into the modern era.\n",
+        "\n",
+        "The Romantic era's emphasis on emotional expression, its technical innovations, and its expansion of musical possibilities created a legacy that continues to influence musicians today. The period's great works remain central to the concert repertoire, beloved for their emotional depth and expressive power.\n",
+        ":::\n"
+      ],
+      "id": "acfc07eb"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: false\n",
+        "#| eval: false\n",
+        "print(romantic_text)"
+      ],
+      "id": "5903950b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Generate a deck of 10 flashcards about the Romantic era:\n"
+      ],
+      "id": "fe2076b4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "romantic_deck = generate_structured_flashcards(romantic_text,\n",
+        "                                              \"Romanticism\", \n",
+        "                                              num_cards=10)"
+      ],
+      "id": "6dcba49f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Display the complete deck object:\n"
+      ],
+      "id": "3a4576a3"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "romantic_deck"
+      ],
+      "id": "5a79cf75",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Show the deck in JSON format:\n"
+      ],
+      "id": "94a37538"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "print(romantic_deck.model_dump_json())"
+      ],
+      "id": "ebe21f53",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Print each flashcard in a readable format:\n"
+      ],
+      "id": "a34fd45a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "for card in romantic_deck.cards:\n",
+        "    print(f\"Question: {card.question}\")\n",
+        "    print(f\"Answer: {card.answer}\")\n",
+        "    print(f\"Tags: {', '.join(card.tags)}\")\n",
+        "    print(\"-\" * 20)"
+      ],
+      "id": "78d1089d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Export the flashcards to a CSV file for importing into Anki:\n"
+      ],
+      "id": "719f11f7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "os.makedirs('assets/flashcards', exist_ok=True)\n",
+        "\n",
+        "# Export flashcards to CSV file\n",
+        "with open('assets/flashcards/romantic-flashcards.csv', \n",
+        "          'w', \n",
+        "          newline='',\n",
+        "          encoding='utf-8') as csvfile:\n",
+        "    writer = csv.writer(csvfile)\n",
+        "    # Write header row\n",
+        "    writer.writerow(['Question', 'Answer', 'Tags'])\n",
+        "    # Write each flashcard as a row in the CSV\n",
+        "    for card in romantic_deck.cards:\n",
+        "        writer.writerow([card.question, card.answer, ', '.join(card.tags)])"
+      ],
+      "id": "fdfe17bf",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
