@@ -2,29 +2,91 @@
 title: "Exercise 2: LLM pipeline"
 ---
 
-Create a pipeline that uses an LLM to make factual statements about a given text and then check if these statements are correct.
 
 
-## Aufgabe
+## Overview
+In this exercise, you'll build a simple fact-checking system using OpenAI's API. You'll implement a Mixture of Experts (MoE) approach to verify facts and ensure they follow specific guidelines.
 
-Erstellen Sie einen MS Copilot Agenten mit Zugriff auf die Webseite der BFH Knowledge Base und instruieren Sie diesen zu didaktisch wertvollen Antworten, aber nur basierend auf Information in der Knowledge Base.
+## Setup
+1. Open [Google Colab](https://colab.research.google.com/)
+2. Create a new notebook
+3. Install required packages:
+```python
+!pip install openai python-dotenv
+```
 
-::: {.callout-note collapse="false"}
-## URL der Knowledge Base
+4. Set up your OpenAI API key:
+```python
+from openai import OpenAI
+from IPython.display import Markdown, display
+from google.colab import userdata
+OPENAI_API_KEY = userdata.get('OPENAI_API_KEY')
 
-[{{< bi link >}} https://virtuelleakademie.ch/knowledge-base/](https://virtuelleakademie.ch/knowledge-base/)
+client = OpenAI(api_key=OPENAI_API_KEY)
+```
 
-:::
+## Exercise Tasks
 
-::: {.pro-tip collapse="false"}
-## Hinweis zur Verwendung
+### Task 1: Basic Fact Generation
+Create a function that takes a question as input and returns a factual answer.
 
-Sie können dem Agenten Webseiten zur Verfügung stellen. Per Webbrowser kann der Agent auf diese und untergeordnete Seiten zugreifen. Dann muss der Systemprompt so angepasst werden, dass die gegebene Antwort moeglichst korrekt und lehrreich ist.
+```python
+def generate_fact(question):
+    # Your code here
+    pass
+```
 
-:::
+### Task 2: Fact Verification
+Implement a function that verifies if the generated answer is correct.
 
-## Beispielfragen an den Tutor
+```python
+def verify_fact(question, answer):
+    # Your code here
+    pass
+```
 
-- Wie kann ich mit dem Lernstick sicher prüfen?
-- Welche Werkzeuge gibt es für die systematische Bewertung von mündlichen Präsentationen?
-- Was ist mit dem Begriff _Blended Learning_ gemeint?
+### Task 3: Guidelines Check
+Create a function that ensures the answer follows specific guidelines.
+
+```python
+def check_guidelines(question, answer, guidelines):
+    # Your code here
+    pass
+```
+
+### Task 4: Complete MoE Pipeline
+Combine all functions into a complete Mixture of Experts pipeline.
+
+```python
+def fact_checking_pipeline(question, guidelines):
+    # Your code here
+    pass
+```
+
+## Testing Your Implementation
+
+Try your implementation with these test cases:
+
+```python
+# Test case 1
+question = "How many moons does Jupiter have?"
+guidelines = "Answers should be concise and factual, without speculation."
+
+# Test case 2
+question = "What is the capital of France?"
+guidelines = "Answers should be brief and accurate."
+
+# Test case 3
+question = "What is the boiling point of water at sea level?"
+guidelines = "Answers should include units and be scientifically accurate."
+```
+
+## Challenge Tasks (Optional)
+
+1. **Multiple Verifications**: Modify your pipeline to get multiple verifications and only accept answers that are consistent across multiple checks.
+
+2. **Chain of Thought**: Implement a chain-of-thought approach where the system explains its reasoning before giving the final answer.
+
+3. **Error Handling**: Add robust error handling for API failures and invalid responses.
+
+

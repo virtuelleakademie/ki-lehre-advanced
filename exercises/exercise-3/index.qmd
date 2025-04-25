@@ -1,42 +1,75 @@
 ---
 title: "Exercise 3: Structured output"
 ---
+# Structured Output Exercise
 
-## Aufgabe
+## Overview
+In this exercise, you'll practice using structured output with OpenAI's API to extract information from text. You'll create a Pydantic model and use it to parse responses from the API.
 
-Extract questions and answers from a text.
+## Setup
+First, make sure you have the required packages installed:
 
-Bonus: create flashcards from the questions and answers, to be used in Anki.
+```python
+!pip install openai python-dotenv pydantic
+```
 
-**Beispiel:** Erstellen Sie einen KI-basierten Tutor, der ein pädagogisches Prinzip verkörpert und die Nutzer dabei unterstützt, ein tieferes Verständnis für ein Thema zu erlangen.
+Then, set up your OpenAI client:
 
-<!-- ::: {.callout-note collapse="true"}
-## Sokratischer Tutor
-Konzept vollständig begreifen
+```python
+from openai import OpenAI
+from IPython.display import Markdown, display
+from google.colab import userdata
+OPENAI_API_KEY = userdata.get('OPENAI_API_KEY')
 
-- Verständis durch Fragen & Diskussion
-- Deckt Widersprüche & Fehler auf
-- Unterstützt erlangen von Wissen
+client = OpenAI(api_key=OPENAI_API_KEY)
+```
 
-:::
+## Exercise 1: Movie Information Extraction
 
-::: {.callout-note collapse="true"}
-## Feynman Tutor
-Ein neues Konzept schnell verstehen:
+Create a Pydantic model called `MovieInfo` that should contain the following fields:
+- `title` (string)
+- `release_year` (integer)
+- `director` (string)
+- `genre` (string)
+- `main_actors` (list of strings)
+- `rating` (float, optional)
 
-- Einfache Erklärung schreiben
-- Wissenslücken identifizieren
-- Wissenslücken füllen
-- Erklärung erweitern & vereinfachen
-::: -->
+Use this model to extract information from the following text:
 
+```python
+text = """
+The Godfather is a 1972 American crime film directed by Francis Ford Coppola. 
+Starring Marlon Brando, Al Pacino, and James Caan, this masterpiece of cinema 
+is often considered one of the greatest films ever made. The film, which falls 
+into the crime drama genre, has received widespread critical acclaim and 
+maintains a 9.2 rating on IMDb.
+"""
+```
 
+## Exercise 2: Book Information Extraction
 
-### Qualitätssicherung
-Überlegen Sie sich, wie Sie die Qualität Ihres Agenten gewährleisten können. Welche Kriterien sind wichtig?
+Create a Pydantic model called `BookInfo` that should contain:
+- `title` (string)
+- `author` (string)
+- `publication_year` (integer)
+- `genre` (string)
+- `main_characters` (list of strings)
+- `page_count` (integer, optional)
 
-::: {.pro-tip collapse="false"}
-## Hinweis zur Verwendung
+Use this model to extract information from the following text:
 
-1. Verwenden Sie entweder Copilot oder [HuggingChat](https://huggingface.co/chat/) um Ihren Agenten zu erstellen.
-:::
+```python
+text = """
+To Kill a Mockingbird is a novel by Harper Lee, published in 1960. 
+Set in the American South, this coming-of-age story follows Scout Finch, 
+her brother Jem, and their father Atticus as they navigate issues of race 
+and justice. The novel, which spans 281 pages, is considered a classic of 
+modern American literature.
+"""
+```
+
+## Exercise 3: Custom Information Extraction
+
+Create your own Pydantic model to extract information about a topic of your choice (e.g., sports teams, historical events, scientific discoveries). Your model should have at least 5 fields, including at least one optional field.
+
+Find a paragraph of text about your chosen topic and use your model to extract the information.

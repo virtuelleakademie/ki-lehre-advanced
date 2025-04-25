@@ -2,72 +2,119 @@
 title: "Exercise 1: Prompting and parameter settings"
 ---
 
-In this exercise, you will practice how to prompt and set parameters for the OpenAI API.
-
-- generate a system prompt 
-- play around with the temperature parameter
-- play around with the top_p parameter
-- play around with the max_tokens parameter
-- play around with the top_k parameter
-
-- make the LLM creative
-- make the LLM less creative
-
-- what is more suitable for factual responses, a high or a low temperature?
 
 
-## Aufgabe
-Passen Sie das gegebene Prompt-Template so an, dass der Chatbot in einen Tutor-Modus versetzt wird. Ziel ist es, dass der Chatbot didaktisch sinnvoll auf noch undefinierte Nutzereingaben reagiert und lernförderliches Verhalten zeigt.
+## Setup
 
-::: {.callout-note collapse="true"}
-## Prompt-Template
+First, let's set up our environment. If you create a new notebook, you will need to setup the API key in the notebook.
 
+```python
+from openai import OpenAI
+from IPython.display import Markdown, display
+
+from google.colab import userdata
+OPENAI_API_KEY = userdata.get('OPENAI_API_KEY')
+
+client = OpenAI(api_key=OPENAI_API_KEY)
 ```
-# Lern-Tutor
 
-Du bist ein Tutor, der Nutzer dabei  unterstützt, ein tieferes Verständnis für ein Thema zu erlangen. 
 
----
 
-## Ziel
+## Helper Function
 
-*Der Nutzer soll ein echtes Verständnis für ein Thema entwickeln – nicht nur auswendig lernen, sondern nachvollziehen, wie und warum etwas funktioniert.*
+Here's a function to help us generate text with different parameters:
 
----
-
-## Verhaltensleitfaden
-
-### Wenn der Nutzer eine Frage stellt:
-- **[Platzhalter]**
-
-### Wenn der Nutzer eine Erklärung abgibt:
-- **[Platzhalter]**
-
-### Wenn der Nutzer eine Wissenslücke bemerkt:
-- **[Platzhalter]**
-
-### Wenn der Nutzer Fortschritte zeigt:
-- **[Platzhalter]**
-
-### Allgemein:
-- **[Platzhalter]**
-
+```python
+def generate_text(prompt, temperature=1.0, top_p=1.0, max_tokens=512):
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": prompt}
+        ],
+        temperature=temperature,
+        max_tokens=max_tokens,
+        top_p=top_p
+    )
+    
+    # Display the generated text
+    display(Markdown(f"**Temperature:** {temperature}, **Top_p:** {top_p}"))
+    display(Markdown(response.choices[0].message.content))
 ```
-:::
 
 
-::: {.pro-tip collapse="false"}
-## Hinweis zur Verwendung
+## Exercises
 
-Der Initial-Prompt wird einmalig zu Beginn eingegeben und dient dazu, den Chatbot in einen gewünschten Tutormodus zu versetzen. Er bildet die Grundlage für das Verhalten und die didaktische Interaktion im weiteren Verlauf. Wenn der Prompt weiter geändert werden soll, dann muss er direkt ganz oben im Chat editiert werden, oder mit dem geänderten Prompt ein neuer Chat gestartet werden.
+### 1. Exploring Temperature
 
-:::
+Try generating text with different temperature values (0.2, 0.8, 1.5):
 
-## Beispielfragen an den Tutor
+```python
+prompt = "Write a short story about a magical garden that appears only at midnight."
 
-- Wie funktioniert ein Initial-Prompt?
-- Was sind `System` und `User` Prompt und wo liegt der Unterschied?
-- Wie lernen LLMs?
-- Wie wählt ein LLM zufällig passende Worte?
-- Während das LLM eine Antwort schreibt, welchen Einfluss haben die schon geschriebenen Worte auf jene, die noch kommen?
-- Welchen Einfluss hat die Struktur  eines Prompts auf die Antwort des LLM?
+temperatures = [0.2, 0.8, 1.5]
+
+for temp in temperatures:
+    generate_text(prompt, temperature=temp)
+    print("\n---\n")
+```
+
+**Questions to consider:**
+- How does the creativity of the text change with different temperatures?
+- Which temperature gives the most focused responses?
+- Which temperature gives the most creative responses?
+
+### 2. Exploring Top_p
+
+Now try different top_p values (0.3, 0.7, 1.0):
+
+```python
+prompt = "Write a short story about a magical garden that appears only at midnight."
+
+top_ps = [0.3, 0.7, 1.0]
+
+for top_p in top_ps:
+    generate_text(prompt, temperature=1.0, top_p=top_p)
+    print("\n---\n")
+```
+
+**Questions to consider:**
+- How does top_p affect the diversity of responses?
+- What happens when top_p is very low?
+- What happens when top_p is very high?
+
+### 3. Your Turn!
+
+Try your own combinations:
+
+```python
+your_prompt = "Write a short story about a time-traveling cat."
+your_temperature = 1.0  # Try values between 0.0 and 2.0
+your_top_p = 0.7       # Try values between 0.0 and 1.0
+
+generate_text(your_prompt, temperature=your_temperature, top_p=your_top_p)
+```
+
+**Experiment with:**
+- Different prompts
+- Different temperature values
+- Different top_p values
+- Different combinations of both
+
+## Tips
+
+- Temperature (0.0 to 2.0):
+  - Lower values (0.0-0.5): More focused and deterministic
+  - Higher values (1.0-2.0): More creative and random
+
+- Top_p (0.0 to 1.0):
+  - Lower values (0.0-0.3): More focused on common responses
+  - Higher values (0.7-1.0): More diverse responses
+
+## Reflection
+
+1. What combination of parameters worked best for your use case?
+2. Can you think of situations where you'd want:
+   - Low temperature and low top_p?
+   - High temperature and high top_p?
+   - A combination of high temperature and low top_p? 
