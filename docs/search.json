@@ -190,12 +190,12 @@
   {
     "objectID": "workshop/index.html",
     "href": "workshop/index.html",
-    "title": "Programme",
+    "title": "Outline",
     "section": "",
-    "text": "In this workshop, we will cover the following topics:\n\nUsing the OpenAI API\nControlling the output of LLMs with parameter settings\nGenerating structured output with the OpenAI API\n\nWe will work with the GPT-4o-mini and GPT-4o models from OpenAI. Note that we could also use local models, but this would require a bit more setup and is outside the scope of this workshop.\nThe focus of this workshop is on using the OpenAI API, so we will only discuss Python in passing. We will be working with Google Colab and optionally Visual Studio Code. If working with Visual Studio Code, we recommend that you install an AI coding assistant, such as Github Copilot. For beginners, this will help to get you started with Python.\nThe workshop is structured as follows:\n\nIntroduction\nSetup coding environment\n\nsetup Python\nsetup VSCode\ninstall Github Copilot\n\nVerify OpenAI installation\nUsing the OpenAI API\nProject: Use GPT-4o to generate Anki flashcards\nConclusions and discussion\n\n\n\n\nTopic\nContent\n\n\n\n\nExploring OpenAI\n10 min\n\n\nEffective Prompting Strategies\nZum Selbststudium\n\n\nRAG slides\n10 min\n\n\nAPI Tricks\n10 min\n\n\nHowTo Colab\nZum Selbststudium\n\n\n\n\n\n\n Back to topReuseCC BY 4.0",
+    "text": "In this workshop, we will cover the following topics:\n\nUsing the OpenAI API (Application Programming Interface) to interact with LLMs\nControlling the output of LLMs with parameter settings\nGenerating structured output with the OpenAI API\n\nWe will work with the GPT-4o-mini and GPT-4o models from OpenAI. Note that we could also use local models, but this would require a bit more setup and is outside the scope of this workshop.\nThe focus of this workshop is on using the OpenAI API, so we will only discuss Python in passing. We will be working with Google Colab and optionally Visual Studio Code. If working with Visual Studio Code, we recommend that you install an AI coding assistant, such as Github Copilot. For beginners, this will help to get you started with Python.\nThe workshop is structured as follows:\n\n\n\nTopic\nContent\n\n\n\n\nSetup OpenAI\nOpenAI Platform and the OpenAI API\n\n\nSetup Google Colab\nSetup Google Colab for coding\n\n\nExploring OpenAI\nOpenAI models and various parameter settings\n\n\nAPI Tricks\nVarious tricks to using the OpenAI API\n\n\nStructured output\nGenerating structured output with the OpenAI API\n\n\n\n\n\n\n Back to topReuseCC BY 4.0",
     "crumbs": [
       "Workshop",
-      "Programme"
+      "Outline"
     ]
   },
   {
@@ -813,7 +813,7 @@
     "href": "workshop/setup-openai/index.html",
     "title": "Setup OpenAI",
     "section": "",
-    "text": "Now that we have set up our Python environment, we can start using the OpenAI API.\nLet’s open the OpenAI Platform. Make sure that you are logged in. Here, we will first look at the OpenAI Playground and then we will create an API key. We need this key to use the OpenAI API from our Python code.",
+    "text": "Let’s start by opening the OpenAI Platform. Make sure that you are signed in. Here, we will first look at the OpenAI Playground and then we will create an API key. We need this key to use the OpenAI API with our Python code.",
     "crumbs": [
       "Workshop",
       "Setup OpenAI"
@@ -835,7 +835,7 @@
     "href": "workshop/setup-openai/index.html#roles-and-their-purposes",
     "title": "Setup OpenAI",
     "section": "Roles and Their Purposes",
-    "text": "Roles and Their Purposes\n\n1. system\n\nPurpose: Sets the behavior, tone, and personality of the AI. Think of this as the “guiding principles” for the model.\nWhen to Use: At the beginning of a conversation to establish how the assistant should behave.\nExample:\n\n{\"role\": \"system\", \"content\": \"You are a helpful and polite assistant.\"}\n\nEffect:\n\nIt tells the model to frame all its responses according to the specified behavior.\nFor example, defining the assistant as “concise” will encourage brief replies.\n\n\n\n\n2. user\n\nPurpose: Represents the input from the person using the model.\nWhen to Use: Every time the user provides input or asks a question.\nExample:\n\n{\"role\": \"user\", \"content\": \"Can you explain the roles in the messages argument?\"}\n\nEffect:\n\nThe model treats this as a direct prompt to respond.\nThe user’s input frames the assistant’s reply.\n\n\n\n\n3. assistant\n\nPurpose: Represents the AI’s responses in the conversation.\nWhen to Use: To show the model what it has previously said, especially in multi-turn interactions.\nExample:\n\n{\"role\": \"assistant\", \"content\": \"Of course! Here’s an explanation of the roles...\"}\n\nEffect:\n\nBy including prior responses, you ensure the model has full context for the ongoing conversation.\n\n\n\n\n4. function (Optional, Advanced)\n\nPurpose: Represents a structured response when calling functions integrated with the AI.\nWhen to Use: In applications where the AI triggers external functions (e.g., retrieving weather data or performing calculations).\nExample:\n\n\n{\"role\": \"function\", \n \"name\": \"get_weather\", \n \"content\": \"{\\\"location\\\": \\\"Zurich\\\"}\"}\n\nEffect:\n\nUsed in function-calling mode to indicate what data or output the function provides.\n\n\nWe will not use the function role in this workshop.",
+    "text": "Roles and Their Purposes\n\n1. system\n\nPurpose: Sets the behavior, tone, and personality of the LLM. Think of this as the “guiding principles” for the model.\nWhen to Use: At the beginning of a conversation to establish how the assistant should behave.\nExample:\n\n{\"role\": \"system\", \"content\": \"You are a helpful and polite assistant.\"}\n\nEffect:\n\nIt tells the model to frame all its responses according to the specified behavior.\nFor example, defining the assistant as “concise” will encourage brief replies.\n\n\n\n\n2. user\n\nPurpose: Represents the input from the person using the model.\nWhen to Use: Every time the user provides input or asks a question.\nExample:\n\n{\"role\": \"user\", \"content\": \"Can you explain the roles in the messages argument?\"}\n\nEffect:\n\nThe model treats this as a direct prompt to respond.\nThe user’s input frames the assistant’s reply.\n\n\n\n\n3. assistant\n\nPurpose: Represents the AI’s responses in the conversation.\nWhen to Use: To show the model what it has previously said, especially in multi-turn interactions.\nExample:\n\n{\"role\": \"assistant\", \"content\": \"Of course! Here's an explanation of the roles...\"}\n\nEffect:\n\nBy including prior responses, you ensure the model has full context for the ongoing conversation.\n\n\n\n\n4. function (Optional, Advanced)\n\nPurpose: Represents a structured response when calling functions integrated with the AI.\nWhen to Use: In applications where the AI triggers external functions (e.g., retrieving weather data or performing calculations).\nExample:\n\n\n{\"role\": \"function\", \n \"name\": \"get_weather\", \n \"content\": \"{\\\"location\\\": \\\"Zurich\\\"}\"}\n\nEffect:\n\nUsed in function-calling mode to indicate what data or output the function provides.\n\n\n\n\n\n\n\n\nWe will not use the function role in this workshop.",
     "crumbs": [
       "Workshop",
       "Setup OpenAI"
@@ -857,7 +857,7 @@
     "href": "workshop/setup-openai/index.html#suggestion-for-using-temperature-and-top-p",
     "title": "Setup OpenAI",
     "section": "Suggestion for using temperature and top-p",
-    "text": "Suggestion for using temperature and top-p\nTop-p sampling, also known as nucleus sampling, is a way to control the diversity of the text generated by a language model. It works by considering the most likely words or tokens at each step, but instead of just taking the top few, it takes the smallest set of words that make up a certain percentage (p) of the total probability.\nFor example, if p is set to 0.9, the model will consider the words that make up the top 90% of the probability distribution at each step. This allows for more diverse and creative outputs compared to just taking the single most likely word.\nYou can use the temperature and top-p parameters in combination to make the LLM more creative or more focused.\nIncrease the temperature parameter to make the model’s outputs more diverse and creative. However, if the temperature is too high, the outputs may become nonsensical or incoherent. In that case, you can lower the top p value to restrict the model’s vocabulary and make the outputs more focused and coherent.\nIf you find that you need to lower the top-p value below 0.5 (or 50%) to keep the outputs coherent, it may be better to lower the temperature instead. Then, you can try adjusting the top-p value again to find the right balance between diversity and coherence.\nThe key is to experiment with different combinations of temperature and top-p values to achieve the desired level of creativity and coherence for your specific use case.",
+    "text": "Suggestion for using temperature and top-p\nTop-p sampling, also known as nucleus sampling, is a way to control the diversity of the text generated by a language model. It works by considering the most likely words or tokens at each step, but instead of just taking the top few, it takes the smallest set of words that make up a certain percentage (p) of the total probability.\nFor example, if p is set to 0.9, the model will consider the words that make up the top 90% of the probability distribution at each step. This allows for more diverse and creative outputs compared to just taking the single most likely word.\nYou can use the temperature and top-p parameters in combination to make the LLM more creative or more focused.\n\n\n\n\n\n\nIncrease the temperature parameter to make the model’s outputs more diverse and creative. However, if the temperature is too high, the outputs may become nonsensical or incoherent. In that case, you can lower the top p value to restrict the model’s vocabulary and make the outputs more focused and coherent.\n\n\n\nIf you find that you need to lower the top-p value below 0.5 (or 50%) to keep the outputs coherent, it may be better to lower the temperature instead. Then, you can try adjusting the top-p value again to find the right balance between diversity and coherence.\nThe key is to experiment with different combinations of temperature and top-p values to achieve the desired level of creativity and coherence for your specific use case.",
     "crumbs": [
       "Workshop",
       "Setup OpenAI"
@@ -908,7 +908,7 @@
     "href": "workshop/setup-colab/index.html",
     "title": "Setup Google Colab",
     "section": "",
-    "text": "Now that we have set up our Python environment, we can start using the OpenAI API.\nLet’s open the OpenAI Platform. Make sure that you are logged in. Here, we will first look at the OpenAI Playground and then we will create an API key. We need this key to use the OpenAI API from our Python code.",
+    "text": "In this document, we will show you how to use a Google Colab Notebook to make requests to the OpenAI API. Using Google Colab is a great way to experiment with the OpenAI API without having to install any software on your local machine.",
     "crumbs": [
       "Workshop",
       "Setup Google Colab"
@@ -994,49 +994,49 @@
   {
     "objectID": "workshop/setup-colab/howto-colab.html",
     "href": "workshop/setup-colab/howto-colab.html",
-    "title": "OpenAI API Nutzung mit Google Colab",
+    "title": "Setup Google Colab",
     "section": "",
     "text": "In diesem Dokument zeigen wir, wie man ein Google Colab Notebook verwendet, um Anfragen an die OpenAI API zu stellen. Dies ist besonders nützlich für einfache Experimente mit Sprachmodellen wie GPT."
   },
   {
     "objectID": "workshop/setup-colab/howto-colab.html#voraussetzungen",
     "href": "workshop/setup-colab/howto-colab.html#voraussetzungen",
-    "title": "OpenAI API Nutzung mit Google Colab",
+    "title": "Setup Google Colab",
     "section": "Voraussetzungen",
     "text": "Voraussetzungen\nBevor du startest, benötigst du:\n\nEin kostenloses Google Konto.\nEinen OpenAI API Key"
   },
   {
     "objectID": "workshop/setup-colab/howto-colab.html#schritt-1-google-colab-notebook-vorbereiten",
     "href": "workshop/setup-colab/howto-colab.html#schritt-1-google-colab-notebook-vorbereiten",
-    "title": "OpenAI API Nutzung mit Google Colab",
+    "title": "Setup Google Colab",
     "section": "Schritt 1: Google Colab Notebook vorbereiten",
     "text": "Schritt 1: Google Colab Notebook vorbereiten\nÖffne ein neues Notebook in Google Colab und installiere das OpenAI-Paket:\n!pip install openai"
   },
   {
     "objectID": "workshop/setup-colab/howto-colab.html#schritt-2-api-key-mit-google-colab-secrets-setzen",
     "href": "workshop/setup-colab/howto-colab.html#schritt-2-api-key-mit-google-colab-secrets-setzen",
-    "title": "OpenAI API Nutzung mit Google Colab",
+    "title": "Setup Google Colab",
     "section": "Schritt 2: API Key mit Google Colab Secrets setzen",
     "text": "Schritt 2: API Key mit Google Colab Secrets setzen\nUm deinen OpenAI API-Schlüssel sicher zu verwenden, empfehlen wir die Nutzung von Google Colab Secrets.\n\nKlicke links auf den Schlüssel\nAdd new secret\nFüge dort deinen API Key unter dem Namen OPENAI_API_KEY hinzu.\n\nDann kannst du im Notebook folgenden Code verwenden:\nfrom google.colab import userdata\nuserdata.get('OPENAI_API_KEY')```"
   },
   {
     "objectID": "workshop/setup-colab/howto-colab.html#schritt-3-einfache-anfrage-an-gpt-3.5",
     "href": "workshop/setup-colab/howto-colab.html#schritt-3-einfache-anfrage-an-gpt-3.5",
-    "title": "OpenAI API Nutzung mit Google Colab",
+    "title": "Setup Google Colab",
     "section": "Schritt 3: Einfache Anfrage an GPT-3.5",
     "text": "Schritt 3: Einfache Anfrage an GPT-3.5\n\nfrom openai import OpenAI\nclient = OpenAI()\n\nresponse = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",\n    messages=[\n        {\"role\": \"user\", \"content\": \"Erkläre mir den code für eine OpenAI API ChatCompletion in einfachen Worten.\"}\n    ]\n)\n\nprint(response.choices[0].message.content)"
   },
   {
     "objectID": "workshop/setup-colab/howto-colab.html#hinweise",
     "href": "workshop/setup-colab/howto-colab.html#hinweise",
-    "title": "OpenAI API Nutzung mit Google Colab",
+    "title": "Setup Google Colab",
     "section": "Hinweise",
     "text": "Hinweise\n\nDie API ist kostenpflichtig. Prüfe deine Nutzung regelmäßig im OpenAI-Dashboard."
   },
   {
     "objectID": "workshop/setup-colab/howto-colab.html#weiterführende-links",
     "href": "workshop/setup-colab/howto-colab.html#weiterführende-links",
-    "title": "OpenAI API Nutzung mit Google Colab",
+    "title": "Setup Google Colab",
     "section": "Weiterführende Links",
     "text": "Weiterführende Links\n\nOpenAI Python API Doku\nGoogle Colab Einführung"
   },
@@ -1256,5 +1256,137 @@
     "title": "Project: Anki flashcards",
     "section": "",
     "text": "We will now attempt to use the tools we’ve learned to create a set of Anki flashcards, using content from our teaching material and an LLM.\nAnki is a powerful open-source flashcard program that uses the principles of spaced repetition and active recall to enhance learning and long-term retention. It presents flashcards at optimal intervals, adjusting the frequency of review based on the user’s performance. This is thought to ensure that information is reinforced before it is forgotten.\nOne of the key strengths of Anki is its flexibility. Users can create their own decks of flashcards tailored to their specific learning needs, or they can download pre-made decks from shared repositories covering a vast array of subjects, from languages and vocabulary to complex medical terminology.\nHowever, Anki requires a lot of manual work to create effective flashcards. In this workshop, we will use an LLM to generate the flashcards for us.\n\nThe simplest type of Anki flashcard is a pair of text fields: a question and an answer (or a term and a definition).\nAnki can import flashcards in a variety of formats, including Anki’s native format, but also from a comma-separated values (CSV) file.\nA CSV file is a text file that uses a comma to separate values. Each line of the file is a row, and each row has of one or more columns, separated by commas.\nIf we have the following list of terms and definitions:\n\n\n\n\n\n\n\nterm\ndefinition\n\n\n\n\nMetacognition\n“The ability to think about one’s own thinking processes”\n\n\nSelf-Regulated Learning\n“The process of taking control of and evaluating one’s own learning”\n\n\nExecutive Functions\n“Higher-order cognitive processes like working memory and cognitive flexibility”\n\n\nScaffolding\n“Support provided by teachers or peers to help students learn new skills”\n\n\n\nwe can save these in a CSV file like this:\nterm,definition\nMetacognition,\"The ability to think about one's own thinking processes\"\nSelf-Regulated Learning,\"The process of taking control of and evaluating one's own learning\"\nExecutive Functions,\"Higher-order cognitive processes like working memory and cognitive flexibility\"\nScaffolding,\"Support provided by teachers or peers to help students learn new skills\"\nIf we save the contents above in a file called anki-flashcards.csv, we can import them into Anki by selecting the `File -&gt; Import… menu item.\n\n\n\n\n\n\n\nGoal\n\n\n\nThe goal of this project is to create a set of flashcards based on your some teaching material, and to save these in a CSV file that can be imported into Anki.\nWe will use the following teaching material: four essays about different musical eras (e.g. Baroque, Classical, Romantic, and Modern). These were generated using an LLM, and haven’t been verified for accuracy, but they should give you an idea of what you can do with an LLM.\nWe will first use an LLM, either GPT-4o or GPT-4o Mini, to extract pairs of questions and answers from the teaching material. Additionally, we can also extract tags for each flashcard, which we can use to categorise the flashcards later.\nI recommend using some of the tools we’ve learned in this workshop:\n\ncreating suitable system and user messages for an LLM\ncreate a prompt to extract pairs of questions and answers from the teaching material\nwriting a function to call an LLM with the prompt\nusing structured outputs to control the format of the LLM’s response\n\ndefine a pydantic model to describe the format of the desired response\ncall the LLM with the structured output format\n\n\n\n\n Let’s get started! You can find detailed instructions on the next page.\n\n\n\n Back to topReuseCC BY 4.0"
+  },
+  {
+    "objectID": "workshop/setup-colab/index.html#voraussetzungen",
+    "href": "workshop/setup-colab/index.html#voraussetzungen",
+    "title": "Setup Google Colab",
+    "section": "Voraussetzungen",
+    "text": "Voraussetzungen\nBevor du startest, benötigst du:\n\nEin kostenloses Google Konto.\nEinen OpenAI API Key",
+    "crumbs": [
+      "Workshop",
+      "Setup Google Colab"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-colab/index.html#schritt-1-google-colab-notebook-vorbereiten",
+    "href": "workshop/setup-colab/index.html#schritt-1-google-colab-notebook-vorbereiten",
+    "title": "Setup Google Colab",
+    "section": "Schritt 1: Google Colab Notebook vorbereiten",
+    "text": "Schritt 1: Google Colab Notebook vorbereiten\nÖffne ein neues Notebook in Google Colab und installiere das OpenAI-Paket:\n!pip install openai",
+    "crumbs": [
+      "Workshop",
+      "Setup Google Colab"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-colab/index.html#schritt-2-api-key-mit-google-colab-secrets-setzen",
+    "href": "workshop/setup-colab/index.html#schritt-2-api-key-mit-google-colab-secrets-setzen",
+    "title": "Setup Google Colab",
+    "section": "Schritt 2: API Key mit Google Colab Secrets setzen",
+    "text": "Schritt 2: API Key mit Google Colab Secrets setzen\nUm deinen OpenAI API-Schlüssel sicher zu verwenden, empfehlen wir die Nutzung von Google Colab Secrets.\n\nKlicke links auf den Schlüssel\nAdd new secret\nFüge dort deinen API Key unter dem Namen OPENAI_API_KEY hinzu.\n\nDann kannst du im Notebook folgenden Code verwenden:\nfrom google.colab import userdata\nuserdata.get('OPENAI_API_KEY')```",
+    "crumbs": [
+      "Workshop",
+      "Setup Google Colab"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-colab/index.html#schritt-3-einfache-anfrage-an-gpt-3.5",
+    "href": "workshop/setup-colab/index.html#schritt-3-einfache-anfrage-an-gpt-3.5",
+    "title": "Setup Google Colab",
+    "section": "Schritt 3: Einfache Anfrage an GPT-3.5",
+    "text": "Schritt 3: Einfache Anfrage an GPT-3.5\n\nfrom openai import OpenAI\nclient = OpenAI()\n\nresponse = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",\n    messages=[\n        {\"role\": \"user\", \"content\": \"Erkläre mir den code für eine OpenAI API ChatCompletion in einfachen Worten.\"}\n    ]\n)\n\nprint(response.choices[0].message.content)",
+    "crumbs": [
+      "Workshop",
+      "Setup Google Colab"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-colab/index.html#hinweise",
+    "href": "workshop/setup-colab/index.html#hinweise",
+    "title": "Setup Google Colab",
+    "section": "Hinweise",
+    "text": "Hinweise\n\nDie API ist kostenpflichtig. Prüfe deine Nutzung regelmäßig im OpenAI-Dashboard.",
+    "crumbs": [
+      "Workshop",
+      "Setup Google Colab"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-colab/index.html#weiterführende-links",
+    "href": "workshop/setup-colab/index.html#weiterführende-links",
+    "title": "Setup Google Colab",
+    "section": "Weiterführende Links",
+    "text": "Weiterführende Links\n\nOpenAI Python API Doku\nGoogle Colab Einführung",
+    "crumbs": [
+      "Workshop",
+      "Setup Google Colab"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-colab/index.html#prerequisites",
+    "href": "workshop/setup-colab/index.html#prerequisites",
+    "title": "Setup Google Colab",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nBefore you start, you will need:\n\nA free Google account\nAn OpenAI API Key (from the previous section)",
+    "crumbs": [
+      "Workshop",
+      "Setup Google Colab"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-colab/index.html#step-1-prepare-google-colab-notebook",
+    "href": "workshop/setup-colab/index.html#step-1-prepare-google-colab-notebook",
+    "title": "Setup Google Colab",
+    "section": "Step 1: Prepare Google Colab Notebook",
+    "text": "Step 1: Prepare Google Colab Notebook\nOpen a new notebook in Google Colab and install the OpenAI package:\n!pip install openai",
+    "crumbs": [
+      "Workshop",
+      "Setup Google Colab"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-colab/index.html#step-2-set-api-key-with-google-colab-secrets",
+    "href": "workshop/setup-colab/index.html#step-2-set-api-key-with-google-colab-secrets",
+    "title": "Setup Google Colab",
+    "section": "Step 2: Set API Key with Google Colab Secrets",
+    "text": "Step 2: Set API Key with Google Colab Secrets\nTo use your OpenAI API key securely, we recommend using Google Colab Secrets.\n\nClick on the key icon on the left\nAdd new secret\nAdd your API key there under the name OPENAI_API_KEY\n\nThen you can use the following code in your notebook:\nfrom google.colab import userdata\nOPENAI_API_KEY = userdata.get('OPENAI_API_KEY')",
+    "crumbs": [
+      "Workshop",
+      "Setup Google Colab"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-colab/index.html#step-3-simple-request-to-gpt-3.5",
+    "href": "workshop/setup-colab/index.html#step-3-simple-request-to-gpt-3.5",
+    "title": "Setup Google Colab",
+    "section": "Step 3: Simple Request to GPT-3.5",
+    "text": "Step 3: Simple Request to GPT-3.5\n\nfrom openai import OpenAI\nclient = OpenAI(api_key=OPENAI_API_KEY)\n\nresponse = client.chat.completions.create(\n    model=\"gpt-4o-mini\",\n    messages=[\n        {\"role\": \"user\", \"content\": \"Explain the code for an OpenAI API ChatCompletion in simple terms.\"}\n    ]\n)\n\nprint(response.choices[0].message.content)",
+    "crumbs": [
+      "Workshop",
+      "Setup Google Colab"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-colab/index.html#notes",
+    "href": "workshop/setup-colab/index.html#notes",
+    "title": "Setup Google Colab",
+    "section": "Notes",
+    "text": "Notes\n\nThe API usage is billed per token. Check your usage regularly in the OpenAI Dashboard.",
+    "crumbs": [
+      "Workshop",
+      "Setup Google Colab"
+    ]
+  },
+  {
+    "objectID": "workshop/setup-colab/index.html#further-reading",
+    "href": "workshop/setup-colab/index.html#further-reading",
+    "title": "Setup Google Colab",
+    "section": "Further Reading",
+    "text": "Further Reading\n\nGoogle Colab Introduction",
+    "crumbs": [
+      "Workshop",
+      "Setup Google Colab"
+    ]
   }
 ]
