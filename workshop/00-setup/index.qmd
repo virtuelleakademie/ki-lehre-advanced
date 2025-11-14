@@ -1,0 +1,256 @@
+---
+title: "Einrichtung & Einführung in Marimo"
+subtitle: "Modul 0: Grundlagen für KI-gestützte Lernwerkzeuge"
+filters:
+  - marimo-team/marimo
+external-env: true
+---
+
+## Willkommen zum Advanced AI Workshop!
+
+Dieser Workshop zeigt Ihnen, wie Sie **pädagogisch fundierte** KI-Werkzeuge entwickeln, die das Lernen von Studierenden auf Basis kognitionswissenschaftlicher Prinzipien unterstützen.
+
+::: {.callout-pro-tip}
+## Warum dieser Workshop anders ist
+
+Statt nur technische API-Aufrufe zu lernen, fokussieren wir uns darauf, Werkzeuge zu bauen, die **echtes Lernen** fördern. Jedes Tool basiert auf Forschungserkenntnissen der Kognitionswissenschaft.
+:::
+
+## Was macht ein Werkzeug pädagogisch fundiert?
+
+Basierend auf "Make it Stick" und kognitionswissenschaftlicher Forschung sollten effektive KI-Lernwerkzeuge:
+
+1. **Aktives Abrufen fördern** - Studierende sollen Informationen aus dem Gedächtnis abrufen, nicht nur wiederlesen
+2. **Erwünschte Schwierigkeiten schaffen** - Produktives Ringen vertieft das Verständnis
+3. **Verteiltes Üben unterstützen** - Lernen über Zeit verteilen
+4. **Metakognition anregen** - Studierende reflektieren über ihren eigenen Lernprozess
+5. **Transfer ermöglichen** - Konzepte in verschiedenen Kontexten üben
+
+::: {.callout-caution}
+## Kernprinzip: KI als Unterstützung, nicht als Ersatz
+
+KI soll die **kognitive Arbeit unterstützen**, NICHT ersetzen. Die besten Werkzeuge leiten Studierende durch den Denkprozess, anstatt direkte Antworten zu geben.
+:::
+
+## Warum Marimo statt Jupyter/Colab?
+
+Wir verwenden [marimo](https://marimo.io) aus mehreren Gründen:
+
+- **Reaktiv** - Zellen aktualisieren sich automatisch bei Änderungen (keine veralteten Zustände!)
+- **Interaktiv** - Eingebaute UI-Elemente (Slider, Dropdowns, Texteingaben)
+- **Git-freundlich** - Als Python-Dateien gespeichert, einfache Versionskontrolle
+- **Reproduzierbar** - Keine versteckten Zustände oder Ausführungsreihenfolge-Probleme
+- **Lokal** - Läuft auf Ihrem Rechner (oder kann als Web-App deployed werden)
+
+::: {.callout-try}
+## Marimo Schnelltipps
+
+- Zellen werden automatisch ausgeführt, wenn Sie sie ändern
+- Nutzen Sie `mo.ui` für interaktive Elemente
+- Variablen werden automatisch über Zellen hinweg verfolgt
+- Code und Markdown sind beide in Zellen
+:::
+
+## OpenAI API einrichten
+
+Für diesen Workshop benötigen Sie einen OpenAI API-Schlüssel. Lassen Sie uns prüfen, ob Sie bereits einen konfiguriert haben:
+
+```{.marimo}
+#| echo: false
+#| editor: false
+
+import marimo as mo
+import os
+from openai import OpenAI
+from dotenv import load_dotenv
+import tiktoken
+
+# Load environment variables
+load_dotenv()
+```
+
+```{.marimo}
+#| echo: true
+#| editor: false
+
+# Check if API key is set
+api_key = os.getenv("OPENAI_API_KEY")
+
+if api_key:
+    mo.callout(
+        mo.md("✅ **API-Schlüssel gefunden!** Sie sind startklar."),
+        kind="success"
+    )
+else:
+    mo.callout(
+        mo.md(
+            """
+            ⚠️ **Kein API-Schlüssel gefunden**
+
+            Erstellen Sie eine `.env`-Datei im Projekt-Root mit:
+            ```
+            OPENAI_API_KEY=ihr-schlüssel-hier
+            ```
+
+            Holen Sie sich Ihren Schlüssel hier: https://platform.openai.com/api-keys
+            """
+        ),
+        kind="warn"
+    )
+```
+
+## Ihre erste KI-Interaktion
+
+Lassen Sie uns ein einfaches KI-Werkzeug erstellen, das die **Sokratische Methode** demonstriert - leitende Fragen stellen statt direkte Antworten geben.
+
+::: {.callout-reflect}
+## Pädagogische Überlegung
+
+Die sokratische Methode fördert aktives Denken. Studierende müssen selbst nachdenken und Zusammenhänge herstellen, statt passiv Antworten zu konsumieren.
+:::
+
+```{.marimo}
+#| echo: true
+#| editor: true
+#| label: "Probieren Sie es aus!"
+
+# Interactive input for student question
+student_question = mo.ui.text_area(
+    label="Studierende fragt:",
+    placeholder="z.B., 'Was ist Photosynthese?'",
+    full_width=True
+)
+student_question
+```
+
+```{.marimo}
+#| echo: true
+#| editor: false
+
+# Only run if there's a question
+response_output = None
+
+if student_question.value and api_key:
+    client = OpenAI(api_key=api_key)
+
+    # Socratic prompting system
+    system_prompt = """Du bist ein sokratischer Tutor. Statt direkt zu antworten,
+    leitest du Studierende dazu an, Antworten selbst zu entdecken durch:
+
+    1. Klärende Fragen stellen
+    2. Komplexe Probleme in kleinere Teile zerlegen
+    3. Verbindungen zu Vorwissen herstellen
+    4. Denkprozesse anregen
+
+    Gib NIEMALS die vollständige Antwort direkt. Dein Ziel ist es, den Denkprozess zu fördern."""
+
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": student_question.value}
+            ],
+            temperature=0.7,
+            max_tokens=200
+        )
+
+        response_output = mo.md(
+            f"""
+            **Tutor Antwort:**
+
+            {response.choices[0].message.content}
+
+            ---
+
+            💡 **Beachten Sie**: Die KI gab keine direkte Antwort - sie stellte leitende Fragen,
+            um aktives Denken zu fördern!
+            """
+        )
+    except Exception as e:
+        response_output = mo.callout(
+            mo.md(f"❌ Fehler: {str(e)}"),
+            kind="danger"
+        )
+
+response_output
+```
+
+## Kosten verstehen
+
+Es ist wichtig, sich der API-Kosten bewusst zu sein, wenn man Bildungswerkzeuge entwickelt.
+Lassen Sie uns die Kosten dieser Interaktion berechnen:
+
+::: {.callout-pro-tip}
+## Kostenkontrolle im Bildungskontext
+
+Für den Einsatz im Unterricht sollten Sie immer:
+- Token-Limits setzen (`max_tokens`)
+- Kosten pro Interaktion kalkulieren
+- Bei vielen Studierenden Budget einplanen
+- Günstigere Modelle für einfache Aufgaben nutzen (gpt-4o-mini)
+:::
+
+```{.marimo}
+#| echo: true
+#| editor: false
+
+try:
+    # Calculate tokens and cost
+    encoding = tiktoken.encoding_for_model("gpt-4o-mini")
+
+    prompt_tokens = response.usage.prompt_tokens
+    completion_tokens = response.usage.completion_tokens
+    total_tokens = response.usage.total_tokens
+
+    # GPT-4o-mini Preise (Stand 2025)
+    # $0.150 per 1M Input-Tokens, $0.600 per 1M Output-Tokens
+    input_cost = (prompt_tokens / 1_000_000) * 0.150
+    output_cost = (completion_tokens / 1_000_000) * 0.600
+    total_cost = input_cost + output_cost
+
+    cost_display = mo.md(
+        f"""
+        **Token-Verwendung:**
+        - Input-Tokens: {prompt_tokens:,}
+        - Output-Tokens: {completion_tokens:,}
+        - Gesamt-Tokens: {total_tokens:,}
+
+        **Geschätzte Kosten:**
+        - Input-Kosten: ${input_cost:.6f}
+        - Output-Kosten: ${output_cost:.6f}
+        - **Gesamt: ${total_cost:.6f}**
+
+        Für 1000 ähnliche Interaktionen: ~${total_cost * 1000:.2f}
+        """
+    )
+except:
+    cost_display = mo.md("*Führen Sie eine Anfrage oben aus, um Kostenberechnung zu sehen*")
+
+cost_display
+```
+
+## Nächste Schritte
+
+In den folgenden Modulen lernen Sie, Folgendes zu entwickeln:
+
+1. **Retrieval Practice Tools** - Fragen generieren, die aktives Abrufen erfordern
+2. **Metakognitive Prompts** - Studierenden helfen, über ihren Lernprozess zu reflektieren
+3. **Adaptive Schwierigkeitsgrade** - Herausforderung basierend auf Antworten anpassen
+4. **Multi-Turn-Konversationen** - Auf vorherigen Interaktionen aufbauen mit Gedächtnis
+
+Jedes Werkzeug wird in kognitionswissenschaftlichen Prinzipien verankert sein, um sicherzustellen, dass es echtes Lernen unterstützt.
+
+::: {.callout-checkpoint}
+## Checkpoint
+
+Bevor Sie fortfahren, stellen Sie sicher, dass Sie:
+- ✅ Die Marimo-Oberfläche verstehen
+- ✅ Ihren API-Schlüssel konfiguriert haben
+- ✅ Die sokratische Interaktion ausprobiert haben
+- ✅ Kostenberechnung verstehen
+:::
+
+---
+
+✨ **Bereit?** Gehen wir weiter zu Modul 1: Entwicklung eines Retrieval Practice Generators!

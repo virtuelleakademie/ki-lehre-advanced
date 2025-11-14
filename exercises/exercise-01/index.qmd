@@ -1,0 +1,222 @@
+---
+title: "Übung 1: Sokratischer Tutor"
+subtitle: "Erstellen Sie einen KI-Tutor, der durch Fragen leitet"
+---
+
+## Überblick
+
+**Zeit**: 20 Minuten
+
+**Ziel**: Entwickeln Sie einen KI-Tutor, der die sokratische Methode verwendet, um Studierende durch leitende Fragen statt direkter Antworten zu unterrichten.
+
+## Lernziele
+
+Nach dieser Übung können Sie:
+
+- ✅ System-Prompts für pädagogische Zwecke gestalten
+- ✅ Multi-Turn-Konversationen mit Verlauf verwalten
+- ✅ Interaktive Schnittstellen mit Marimo erstellen
+- ✅ Die sokratische Methode in KI-Tools implementieren
+
+::: {.callout-reflect}
+## Die Sokratische Methode
+
+Statt Studierenden die Antwort zu geben, sollte ein sokratischer Tutor:
+1. Klärende Fragen stellen
+2. Komplexe Probleme in kleinere Teile zerlegen
+3. An Vorwissen anknüpfen
+4. Studierende dazu anleiten, Antworten selbst zu entdecken
+
+Dieser Ansatz fördert **aktives Denken** und **Metakognition**.
+:::
+
+## Zwei Wege zu arbeiten
+
+### Option 1: Im Browser arbeiten (Marimo Islands)
+
+Arbeiten Sie direkt in dieser Seite mit interaktiven Zellen:
+
+::: {.callout-try}
+## Starter-Code
+
+Der folgende Code enthält TODOs, die Sie ausfüllen müssen. Hinweise sind verfügbar!
+:::
+
+```{=html}
+<div class="callout-note">
+<p><strong>📝 Hinweis:</strong> Marimo Islands sind noch in Entwicklung für dieses Dokument.
+Nutzen Sie vorerst Option 2 für die beste Erfahrung.</p>
+</div>
+```
+
+### Option 2: Lokal mit Marimo arbeiten (Empfohlen)
+
+**Starter-Version** (mit TODOs und Hinweisen):
+```bash
+marimo edit exercises/exercise-01/socratic-tutor-starter.py
+```
+
+**Lösungsversion** (zur Referenz):
+```bash
+marimo edit exercises/exercise-01/socratic-tutor-solution.py
+```
+
+::: {.callout-pro-tip}
+## Entwicklungsworkflow
+
+1. Öffnen Sie den Starter in Marimo: `marimo edit exercises/exercise-01/socratic-tutor-starter.py`
+2. Arbeiten Sie die TODOs durch
+3. Testen Sie mit verschiedenen Fragen
+4. Vergleichen Sie mit der Lösung, wenn Sie feststecken
+5. Experimentieren Sie mit Variationen!
+:::
+
+## Aufgabe
+
+Vervollständigen Sie den Code, um einen sokratischen Tutor zu erstellen, der:
+
+### Anforderungen:
+- ✅ **NIEMALS** direkte Antworten gibt
+- ✅ 2-3 leitende Fragen pro Antwort stellt
+- ✅ Sich basierend auf Studierendenantworten anpasst
+- ✅ Studierende ermutigt, den Problemlösungsprozess durchzudenken
+
+### Schritte:
+
+1. **Fachbereich wählen**: Welches Fach soll Ihr Tutor unterrichten?
+
+2. **System-Prompt gestalten**: Erstellen Sie einen Prompt, der:
+   - Die Rolle klar definiert (sokratischer Tutor)
+   - Festlegt, was NICHT zu tun ist (keine direkten Antworten)
+   - Beispiele guter Fragen gibt
+   - Fachspezifisch ist
+
+3. **Konversationsschnittstelle**: Erstellen Sie:
+   - Texteingabe für Studierendenfragen
+   - Submit-Button
+   - Anzeige der Tutor-Antworten
+   - Konversationsverlauf
+
+4. **Multi-Turn-Logik**: Implementieren Sie:
+   - Verlaufsspeicherung (Liste von Nachrichten)
+   - Alle bisherigen Nachrichten in jedem API-Aufruf einbeziehen
+   - Neue Antworten zum Verlauf hinzufügen
+
+## Hinweise
+
+<details>
+<summary>💡 Hinweis 1: System-Prompt-Design</summary>
+
+Ihr System-Prompt sollte:
+- Klar die Rolle festlegen (sokratischer Tutor)
+- Definieren, was NICHT zu tun ist (keine direkten Antworten)
+- Beispiele guter Fragen geben
+- Das Fachgebiet spezifizieren
+
+Beispiel-Struktur:
+```
+Du bist ein sokratischer Tutor für [FACH].
+
+NIEMALS direkte Antworten geben. Stattdessen:
+1. [Strategie 1]
+2. [Strategie 2]
+...
+
+Beispiel:
+Student: "Was ist X?"
+Du: "Gute Frage! Lass uns darüber nachdenken..."
+```
+</details>
+
+<details>
+<summary>💡 Hinweis 2: Konversationsverlauf</summary>
+
+Sie müssen den Verlauf als Liste speichern und in jedem API-Aufruf einbeziehen:
+
+```python
+conversation_history = []
+
+# Studierendennachricht hinzufügen
+conversation_history.append({
+    "role": "user",
+    "content": student_input.value
+})
+
+# Nachrichten für API aufbauen
+messages = [
+    {"role": "system", "content": system_prompt}
+] + conversation_history
+
+# API aufrufen...
+# Tutor-Antwort zum Verlauf hinzufügen...
+```
+</details>
+
+<details>
+<summary>💡 Hinweis 3: Fachspezifisches Wissen</summary>
+
+Überlegen Sie, welches Vorwissen Studierende typischerweise in Ihrem Fach haben.
+Der Tutor sollte neue Konzepte mit dem verbinden, was sie bereits wissen.
+
+Beispiel für Biologie:
+- Verbinde Photosynthese mit alltäglichen Beobachtungen (Pflanzen brauchen Licht)
+- Nutze Analogien (Chloroplasten wie Fabriken)
+- Stelle Fragen zu verwandten Konzepten (Atmung vs. Photosynthese)
+</details>
+
+## Test-Szenarien
+
+Testen Sie Ihren Tutor mit diesen Szenarien:
+
+1. **Direkte Frage**: Fragen Sie "Was ist Photosynthese?"
+   - Vermeidet er eine direkte Antwort?
+   - Stellt er stattdessen leitende Fragen?
+
+2. **Nachfrage**: Beantworten Sie die Frage des Tutors
+   - Baut er auf Ihrer Antwort auf?
+   - Leitet er Sie näher zum Verständnis?
+
+3. **Falsche Antwort**: Geben Sie eine inkorrekte Antwort
+   - Wie geht er mit Missverständnissen um?
+   - Ist das Feedback konstruktiv?
+
+4. **Teilweises Verständnis**: Zeigen Sie, dass Sie einen Teil verstehen, aber nicht alles
+   - Erkennt er, was Sie wissen?
+   - Zielt er auf die Lücken ab?
+
+## Reflexion
+
+Nach dem Testen, überlegen Sie:
+
+- Wie unterscheidet sich dies von einem traditionellen Q&A-Chatbot?
+- Wann würde dieser Ansatz gut funktionieren? Wann könnte er Studierende frustrieren?
+- Wie könnten Sie das Prompting verbessern, um es effektiver zu machen?
+- Welches fachspezifische Wissen sollte der Tutor haben?
+
+::: {.callout-checkpoint}
+## Fertig?
+
+Wenn Sie die Grundversion haben, versuchen Sie diese Bonus-Herausforderungen:
+
+1. **Schwierigkeitsanpassung**: Erkennen, wenn Studierende Schwierigkeiten haben, und Fragen vereinfachen
+2. **Ermutigung**: Positive Verstärkung für gutes Denken hinzufügen
+3. **Konzept-Tracking**: Verfolgen, welche Konzepte Studierende erfasst haben
+4. **Konversation exportieren**: Konversation für spätere Überprüfung speichern
+:::
+
+## Lösungsdatei
+
+Wenn Sie feststecken oder Ihre Lösung vergleichen möchten:
+
+**Marimo**: `marimo edit exercises/exercise-01/socratic-tutor-solution.py`
+
+Die Lösungsdatei zeigt eine Referenzimplementierung mit:
+- Gut gestalteter System-Prompt
+- Vollständiges Konversationsmanagement
+- Visuelle Unterscheidung zwischen Studierenden und Tutor
+- Fehlerbehandlung
+- Möglichkeit, Konversation zurückzusetzen
+
+## Nächste Schritte
+
+Nachdem Sie diese Übung abgeschlossen haben, gehen Sie weiter zu **Modul 2**, wo Sie lernen, wie Sie diese Technik erweitern und anspruchsvollere pädagogische Werkzeuge entwickeln können.

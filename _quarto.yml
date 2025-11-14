@@ -80,11 +80,19 @@ website:
       background: light
       contents:
         - workshop/index.qmd
-        - workshop/setup-openai/index.qmd
-        - workshop/setup-colab/index.qmd
-        - workshop/exploring-openai-models/index.ipynb
-        - workshop/api-tricks/index.qmd
-        - workshop/structured-output/index.ipynb
+        - text: "---"
+        - section: "Neue Module (Marimo-basiert)"
+          contents:
+            - workshop/00-setup/index.qmd
+            - workshop/01-retrieval-practice/index.qmd
+        - text: "---"
+        - section: "Legacy Content (wird migriert)"
+          contents:
+            - workshop/setup-openai/index.qmd
+            - workshop/setup-colab/index.qmd
+            - workshop/exploring-openai-models/index.ipynb
+            - workshop/api-tricks/index.qmd
+            - workshop/structured-output/index.ipynb
         
 
 
@@ -105,9 +113,14 @@ website:
       background: light
       contents:
         - exercises/index.qmd
-        - exercises/exercise-1/index.qmd
-        - exercises/exercise-2/index.qmd
-        - exercises/exercise-3/index.qmd
+        - section: "Neue Übungen (Marimo-basiert)"
+          contents:
+            - exercises/exercise-01/index.qmd
+        - text: "---"
+        - section: "Legacy Übungen"
+          contents:
+            - exercises/exercise-2/index.qmd
+            - exercises/exercise-3/index.qmd
 
 page-footer:
   right:
