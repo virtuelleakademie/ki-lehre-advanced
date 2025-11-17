@@ -7,6 +7,24 @@ This project integrates **marimo** (reactive Python notebooks) with **Quarto** (
 - **Marimo's interactivity**: Reactive cells, UI elements, reproducible execution
 - **Quarto's publishing**: Beautiful websites, custom callouts, multi-format output
 
+## ⚠️ Critical Limitation: Islands Are Isolated
+
+**Each marimo code block in Quarto runs in isolation.** Variables defined in one `{.marimo}` block are NOT available in other blocks.
+
+**This won't work:**
+```markdown
+\`\`\`python {.marimo}
+slider = mo.ui.slider(1, 10)
+\`\`\`
+
+\`\`\`python {.marimo}
+# ERROR: NameError - 'slider' is undefined!
+mo.md(f"Value: {slider.value}")
+\`\`\`
+```
+
+**Solution:** Keep all related code in a single marimo island, or use a full marimo notebook for multi-cell reactivity.
+
 ## How It Works
 
 ### Marimo Islands

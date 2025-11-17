@@ -1,33 +1,44 @@
 ---
-title: "Outline"
+title: "Workshop-Übersicht"
 ---
 
+## 3-Stunden Workshop: Vorwissensdiagnostik mit KI
 
-In this workshop, we will cover the following topics:
+Dieser Workshop konzentriert sich auf **einen praktischen Anwendungsfall**: Die Entwicklung eines KI-gestützten Werkzeugs zur Erfassung des Vorwissens von Studierenden.
 
+### Was Sie lernen werden
 
-- Using the OpenAI API (Application Programming Interface) to interact with LLMs
-- Controlling the output of LLMs with parameter settings
-- Generating structured output with the OpenAI API
+- **Pädagogische Grundlagen** - Warum dialogbasierte Vorwissensdiagnostik effektiver ist als Multiple-Choice-Tests
+- **Marimo-Notebooks** - Interaktive Python-Notebooks mit reaktiven Zellen
+- **Strukturierte Ausgabe** - Verwendung von Pydantic für konsistente KI-Antworten
+- **Gradio-Apps** - Erstellung benutzerfreundlicher Web-Interfaces
+- **Deployment** - Veröffentlichung auf HuggingFace Spaces
 
-We will work with the GPT-4o-mini and GPT-4o models from OpenAI. Note that we could also use local models, but this would require a bit more setup and is outside the scope of this workshop.
+### Voraussetzungen
 
-The focus of this workshop is on using the OpenAI API, so we will only discuss Python in passing. We will be working with [Google Colab](https://colab.research.google.com) and optionally [Visual Studio Code](https://code.visualstudio.com/). If working with Visual Studio Code, we recommend that you install an AI coding assistant, such as [Github Copilot](https://copilot.github.com/). For beginners, this will help to get you started with Python. 
+- Lehrerfahrung
+- Grundlegende Python-Kenntnisse hilfreich, aber nicht erforderlich
+- OpenAI API-Schlüssel ([Anleitung](../tutorials/setup-openai/index.qmd))
 
+### Workshop-Struktur
 
-The workshop is structured as follows:
+| Modul | Inhalt | Dauer |
+|-------|--------|-------|
+| [Modul 0: Setup](00-setup/index.qmd) | Marimo-Einführung, Umgebungseinrichtung, pädagogische Prinzipien | 45 min |
+| [Modul 1: Vorwissensdiagnostik](02-prior-knowledge/index.qmd) | Aufbau des diagnostischen Werkzeugs (5 Teile) | 75 min |
+| *Pause* | | 15 min |
+| [Gradio-App & Deployment](02-prior-knowledge/gradio-demo.qmd) | Demo, lokales Testen, HuggingFace Spaces | 45 min |
+| Anpassung & Diskussion | Werkzeug für eigenen Kontext anpassen | 30 min |
+| Zusammenfassung | | 15 min |
 
+### Zusätzliche Ressourcen
 
-| Topic | Content |
-|-------|--------|
-| [Setup OpenAI](setup-openai/index.qmd) | OpenAI Platform and the OpenAI API|
-| [Setup Google Colab](setup-colab/index.qmd) | Setup Google Colab for coding|
-| [Exploring OpenAI](exploring-openai-models/index.ipynb) | OpenAI models and various parameter settings|
-| {{< bi pencil >}} [Exercise 1](../exercises/exercise-1/index.qmd) | Prompting and parameter settings|
-| [API Tricks](api-tricks/index.qmd) | Various tricks to using the OpenAI API|
-| {{< bi pencil >}} [Exercise 2](../exercises/exercise-2/index.qmd) | API Tricks|
-| [Structured output](structured-output/index.ipynb) | Generating structured output with the OpenAI API|
-| {{< bi pencil >}} [Exercise 3](../exercises/exercise-3/index.qmd) | Structured output|
+- [Retrieval Practice Generator](01-retrieval-practice/index.qmd) - Zusätzliches Beispiel für KI-gestützte Lehrmittel
+- [Übung 1: Sokratisches Fragen](../exercises/exercise-01/index.qmd) - Praktische Übung (20 min)
+
+### Archivierte Inhalte
+
+Frühere Workshop-Module und Übungen sind im [archive/](../archive/) Verzeichnis verfügbar, werden jedoch in diesem fokussierten Workshop nicht verwendet.
 
 
 

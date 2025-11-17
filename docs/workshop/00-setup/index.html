@@ -30,7 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../workshop/01-retrieval-practice/index.html" rel="next">
 <link href="../..//assets/robot.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -88,26 +87,15 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 <style>
-div.callout-export.callout {
-  border-left-color: brown;
+div.callout-feedback.callout {
+  border-left-color: teal;
 }
-div.callout-export.callout-style-default > .callout-header {
-  background-color: rgb(from brown r g b / 13%);
+div.callout-feedback.callout-style-default > .callout-header {
+  background-color: rgb(from teal r g b / 13%);
 }
-div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
-  content: '📤';
-  background-image: none;
-}
-div.callout-group.callout {
-  border-left-color: purple;
-}
-div.callout-group.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
-  content: '👥';
+div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
+  content: '📝';
   background-image: none;
 }
 div.callout-pair.callout {
@@ -121,6 +109,61 @@ div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.c
   content: '👥';
   background-image: none;
 }
+div.callout-prompt-template.callout {
+  border-left-color: indigo;
+}
+div.callout-prompt-template.callout-style-default > .callout-header {
+  background-color: rgb(from indigo r g b / 13%);
+}
+div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
+  content: '📋';
+  background-image: none;
+}
+div.callout-break.callout {
+  border-left-color: yellow;
+}
+div.callout-break.callout-style-default > .callout-header {
+  background-color: rgb(from yellow r g b / 13%);
+}
+div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
+  content: '☕';
+  background-image: none;
+}
+div.callout-testing.callout {
+  border-left-color: green;
+}
+div.callout-testing.callout-style-default > .callout-header {
+  background-color: rgb(from green r g b / 13%);
+}
+div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
+  content: '🧪';
+  background-image: none;
+}
+div.callout-individual.callout {
+  border-left-color: steelblue;
+}
+div.callout-individual.callout-style-default > .callout-header {
+  background-color: rgb(from steelblue r g b / 13%);
+}
+div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
+  content: '💻';
+  background-image: none;
+}
+div.callout-schedule.callout {
+  border-left-color: steelblue;
+}
+div.callout-schedule.callout-style-default > .callout-header {
+  background-color: rgb(from steelblue r g b / 13%);
+}
+div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
+  content: '⏰︎';
+  background-image: none;
+}
 div.callout-tutor-example.callout {
   border-left-color: purple;
 }
@@ -130,6 +173,39 @@ div.callout-tutor-example.callout-style-default > .callout-header {
 div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
   content: '📄';
+  background-image: none;
+}
+div.callout-setup.callout {
+  border-left-color: gray;
+}
+div.callout-setup.callout-style-default > .callout-header {
+  background-color: rgb(from gray r g b / 13%);
+}
+div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
+  content: '⚙️';
+  background-image: none;
+}
+div.callout-timing.callout {
+  border-left-color: red;
+}
+div.callout-timing.callout-style-default > .callout-header {
+  background-color: rgb(from red r g b / 13%);
+}
+div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
+  content: '⏱️';
+  background-image: none;
+}
+div.callout-checkpoint.callout {
+  border-left-color: purple;
+}
+div.callout-checkpoint.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
+  content: '🎯';
   background-image: none;
 }
 div.callout-screens-up.callout {
@@ -154,17 +230,6 @@ div.callout-screens-down.callout-style-default .callout-icon::before, div.callou
   content: '🔽';
   background-image: none;
 }
-div.callout-feedback.callout {
-  border-left-color: teal;
-}
-div.callout-feedback.callout-style-default > .callout-header {
-  background-color: rgb(from teal r g b / 13%);
-}
-div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
-  content: '📝';
-  background-image: none;
-}
 div.callout-caution.callout {
   border-left-color: orange;
 }
@@ -176,92 +241,15 @@ div.callout-caution.callout-style-default .callout-icon::before, div.callout-cau
   content: '⚠️';
   background-image: none;
 }
-div.callout-prompt-template.callout {
-  border-left-color: indigo;
+div.callout-export.callout {
+  border-left-color: brown;
 }
-div.callout-prompt-template.callout-style-default > .callout-header {
-  background-color: rgb(from indigo r g b / 13%);
+div.callout-export.callout-style-default > .callout-header {
+  background-color: rgb(from brown r g b / 13%);
 }
-div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
-  content: '📋';
-  background-image: none;
-}
-div.callout-reflect.callout {
-  border-left-color: purple;
-}
-div.callout-reflect.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
-  content: '💭';
-  background-image: none;
-}
-div.callout-timing.callout {
-  border-left-color: red;
-}
-div.callout-timing.callout-style-default > .callout-header {
-  background-color: rgb(from red r g b / 13%);
-}
-div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
-  content: '⏱️';
-  background-image: none;
-}
-div.callout-setup.callout {
-  border-left-color: gray;
-}
-div.callout-setup.callout-style-default > .callout-header {
-  background-color: rgb(from gray r g b / 13%);
-}
-div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
-  content: '⚙️';
-  background-image: none;
-}
-div.callout-break.callout {
-  border-left-color: yellow;
-}
-div.callout-break.callout-style-default > .callout-header {
-  background-color: rgb(from yellow r g b / 13%);
-}
-div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
-  content: '☕';
-  background-image: none;
-}
-div.callout-individual.callout {
-  border-left-color: steelblue;
-}
-div.callout-individual.callout-style-default > .callout-header {
-  background-color: rgb(from steelblue r g b / 13%);
-}
-div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
-  content: '💻';
-  background-image: none;
-}
-div.callout-checkpoint.callout {
-  border-left-color: purple;
-}
-div.callout-checkpoint.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
-  content: '🎯';
-  background-image: none;
-}
-div.callout-testing.callout {
-  border-left-color: green;
-}
-div.callout-testing.callout-style-default > .callout-header {
-  background-color: rgb(from green r g b / 13%);
-}
-div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
-  content: '🧪';
+div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
+  content: '📤';
   background-image: none;
 }
 div.callout-prompt-example.callout {
@@ -275,15 +263,26 @@ div.callout-prompt-example.callout-style-default .callout-icon::before, div.call
   content: '👩🏼‍🔧';
   background-image: none;
 }
-div.callout-schedule.callout {
-  border-left-color: steelblue;
+div.callout-reflect.callout {
+  border-left-color: purple;
 }
-div.callout-schedule.callout-style-default > .callout-header {
-  background-color: rgb(from steelblue r g b / 13%);
+div.callout-reflect.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
 }
-div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
-  content: '⏰︎';
+div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
+  content: '💭';
+  background-image: none;
+}
+div.callout-group.callout {
+  border-left-color: purple;
+}
+div.callout-group.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
+  content: '👥';
   background-image: none;
 }
 div.callout-pro-tip.callout {
@@ -382,7 +381,7 @@ div.callout-try.callout-style-default .callout-icon::before, div.callout-try.cal
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../workshop/00-setup/index.html">Neue Module (Marimo-basiert)</a></li><li class="breadcrumb-item"><a href="../../workshop/00-setup/index.html">Einrichtung &amp; Einführung in Marimo</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../workshop/00-setup/index.html">Modul 0: Setup</a></li><li class="breadcrumb-item"><a href="../../workshop/00-setup/index.html">Einrichtung &amp; Einführung in Marimo</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -409,14 +408,14 @@ div.callout-try.callout-style-default .callout-icon::before, div.callout-try.cal
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../workshop/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Outline</span></a>
+ <span class="menu-text">Workshop-Übersicht</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Neue Module (Marimo-basiert)</span></a>
+ <span class="menu-text">Modul 0: Setup</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -428,19 +427,13 @@ div.callout-try.callout-style-default .callout-icon::before, div.callout-try.cal
  <span class="menu-text">Einrichtung &amp; Einführung in Marimo</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../workshop/01-retrieval-practice/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Retrieval Practice Generator</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Legacy Content (wird migriert)</span></a>
+ <span class="menu-text">Modul 1: Vorwissensdiagnostik</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -448,32 +441,32 @@ div.callout-try.callout-style-default .callout-icon::before, div.callout-try.cal
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../workshop/setup-openai/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Setup OpenAI</span></a>
+  <a href="../../workshop/02-prior-knowledge/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vorwissensdiagnostik mit KI</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../workshop/setup-colab/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Setup Google Colab</span></a>
+  <a href="../../workshop/02-prior-knowledge/gradio-demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gradio-App: Einsatzbereite Web-Anwendung</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Zusätzliche Ressourcen</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../workshop/exploring-openai-models/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploring OpenAI Models</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../workshop/api-tricks/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">API Tricks</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../workshop/structured-output/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Structured Output</span></a>
+  <a href="../../workshop/01-retrieval-practice/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Retrieval Practice Generator</span></a>
   </div>
 </li>
       </ul>
@@ -506,7 +499,7 @@ div.callout-try.callout-style-default .callout-icon::before, div.callout-try.cal
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../workshop/00-setup/index.html">Neue Module (Marimo-basiert)</a></li><li class="breadcrumb-item"><a href="../../workshop/00-setup/index.html">Einrichtung &amp; Einführung in Marimo</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../workshop/00-setup/index.html">Modul 0: Setup</a></li><li class="breadcrumb-item"><a href="../../workshop/00-setup/index.html">Einrichtung &amp; Einführung in Marimo</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Einrichtung &amp; Einführung in Marimo</h1>
 <p class="subtitle lead">Modul 0: Grundlagen für KI-gestützte Lernwerkzeuge</p>
@@ -591,7 +584,7 @@ div.callout-try.callout-style-default .callout-icon::before, div.callout-try.cal
     <marimo-cell-output>
     <span></span>
     </marimo-cell-output>
-    <marimo-ui-element object-id="3f6c258f-3278-bf38-8dc3-2fdda978e7c1" random-id="3f6c258f-3278-bf38-8dc3-2fdda978e7c1"><marimo-code-editor data-initial-value="&quot;# Check if API key is set\napi_key = os.getenv(\&quot;OPENAI_API_KEY\&quot;)\n\nif api_key:\n    mo.callout(\n        mo.md(\&quot;✅ **API-Schlüssel gefunden!** Sie sind startklar.\&quot;),\n        kind=\&quot;success\&quot;\n    )\nelse:\n    mo.callout(\n        mo.md(\n            \&quot;\&quot;\&quot;\n            ⚠️ **Kein API-Schlüssel gefunden**\n\n            Erstellen Sie eine `.env`-Datei im Projekt-Root mit:\n            ```\n            OPENAI_API_KEY=ihr-schlüssel-hier\n            ```\n\n            Holen Sie sich Ihren Schlüssel hier: https://platform.openai.com/api-keys\n            \&quot;\&quot;\&quot;\n        ),\n        kind=\&quot;warn\&quot;\n    )&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
+    <marimo-ui-element object-id="608434b5-9c00-0bed-d7d4-70358fcebc41" random-id="608434b5-9c00-0bed-d7d4-70358fcebc41"><marimo-code-editor data-initial-value="&quot;# Check if API key is set\napi_key = os.getenv(\&quot;OPENAI_API_KEY\&quot;)\n\nif api_key:\n    mo.callout(\n        mo.md(\&quot;✅ **API-Schlüssel gefunden!** Sie sind startklar.\&quot;),\n        kind=\&quot;success\&quot;\n    )\nelse:\n    mo.callout(\n        mo.md(\n            \&quot;\&quot;\&quot;\n            ⚠️ **Kein API-Schlüssel gefunden**\n\n            Erstellen Sie eine `.env`-Datei im Projekt-Root mit:\n            ```\n            OPENAI_API_KEY=ihr-schlüssel-hier\n            ```\n\n            Holen Sie sich Ihren Schlüssel hier: https://platform.openai.com/api-keys\n            \&quot;\&quot;\&quot;\n        ),\n        kind=\&quot;warn\&quot;\n    )&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
 </marimo-island>
 </section>
 <section id="ihre-erste-ki-interaktion" class="level2">
@@ -604,15 +597,15 @@ div.callout-try.callout-style-default .callout-icon::before, div.callout-try.cal
 </section>
 <marimo-island data-app-id="main" data-cell-id="vblA" data-reactive="true">
     <marimo-cell-output>
-    <marimo-ui-element object-id="vblA-0" random-id="27f908f8-4433-1bed-970c-3e701f836ddc"><marimo-text-area data-initial-value="&quot;&quot;" data-label="&quot;<span class=\&quot;markdown prose dark:prose-invert contents\&quot;><span class=\&quot;paragraph\&quot;>Studierende fragt:</span></span>&quot;" data-placeholder="&quot;z.B., 'Was ist Photosynthese?'&quot;" data-disabled="false" data-debounce="true" data-full-width="true"></marimo-text-area></marimo-ui-element>
+    <marimo-ui-element object-id="vblA-0" random-id="f3ef1a0b-11d4-c36d-3f29-07c64e6e42ae"><marimo-text-area data-initial-value="&quot;&quot;" data-label="&quot;<span class=\&quot;markdown prose dark:prose-invert contents\&quot;><span class=\&quot;paragraph\&quot;>Studierende fragt:</span></span>&quot;" data-placeholder="&quot;z.B., 'Was ist Photosynthese?'&quot;" data-disabled="false" data-debounce="true" data-full-width="true"></marimo-text-area></marimo-ui-element>
     </marimo-cell-output>
-    <marimo-ui-element object-id="1110090b-2661-ccbb-0bc4-13d7ef5e5876" random-id="1110090b-2661-ccbb-0bc4-13d7ef5e5876"><marimo-code-editor data-initial-value="&quot;# Interactive input for student question\nstudent_question = mo.ui.text_area(\n    label=\&quot;Studierende fragt:\&quot;,\n    placeholder=\&quot;z.B., 'Was ist Photosynthese?'\&quot;,\n    full_width=True\n)\nstudent_question&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
+    <marimo-ui-element object-id="a7560e4c-63ab-662f-dae3-26321d4e842a" random-id="a7560e4c-63ab-662f-dae3-26321d4e842a"><marimo-code-editor data-initial-value="&quot;# Interactive input for student question\nstudent_question = mo.ui.text_area(\n    label=\&quot;Studierende fragt:\&quot;,\n    placeholder=\&quot;z.B., 'Was ist Photosynthese?'\&quot;,\n    full_width=True\n)\nstudent_question&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
 </marimo-island>
 <marimo-island data-app-id="main" data-cell-id="bkHC" data-reactive="true">
     <marimo-cell-output>
     <span></span>
     </marimo-cell-output>
-    <marimo-ui-element object-id="7eeb6473-edaf-18ff-fa6b-7aa93303a8c1" random-id="7eeb6473-edaf-18ff-fa6b-7aa93303a8c1"><marimo-code-editor data-initial-value="&quot;# Only run if there's a question\nresponse_output = None\n\nif student_question.value and api_key:\n    client = OpenAI(api_key=api_key)\n\n    # Socratic prompting system\n    system_prompt = \&quot;\&quot;\&quot;Du bist ein sokratischer Tutor. Statt direkt zu antworten,\n    leitest du Studierende dazu an, Antworten selbst zu entdecken durch:\n\n    1. Klärende Fragen stellen\n    2. Komplexe Probleme in kleinere Teile zerlegen\n    3. Verbindungen zu Vorwissen herstellen\n    4. Denkprozesse anregen\n\n    Gib NIEMALS die vollständige Antwort direkt. Dein Ziel ist es, den Denkprozess zu fördern.\&quot;\&quot;\&quot;\n\n    try:\n        response = client.chat.completions.create(\n            model=\&quot;gpt-4o-mini\&quot;,\n            messages=[\n                {\&quot;role\&quot;: \&quot;system\&quot;, \&quot;content\&quot;: system_prompt},\n                {\&quot;role\&quot;: \&quot;user\&quot;, \&quot;content\&quot;: student_question.value}\n            ],\n            temperature=0.7,\n            max_tokens=200\n        )\n\n        response_output = mo.md(\n            f\&quot;\&quot;\&quot;\n            **Tutor Antwort:**\n\n            {response.choices[0].message.content}\n\n            ---\n\n            💡 **Beachten Sie**: Die KI gab keine direkte Antwort - sie stellte leitende Fragen,\n            um aktives Denken zu fördern!\n            \&quot;\&quot;\&quot;\n        )\n    except Exception as e:\n        response_output = mo.callout(\n            mo.md(f\&quot;❌ Fehler: {str(e)}\&quot;),\n            kind=\&quot;danger\&quot;\n        )\n\nresponse_output&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
+    <marimo-ui-element object-id="5945afef-e8b2-3b9b-8ef8-534ab0477b02" random-id="5945afef-e8b2-3b9b-8ef8-534ab0477b02"><marimo-code-editor data-initial-value="&quot;# Only run if there's a question\nresponse_output = None\n\nif student_question.value and api_key:\n    client = OpenAI(api_key=api_key)\n\n    # Socratic prompting system\n    system_prompt = \&quot;\&quot;\&quot;Du bist ein sokratischer Tutor. Statt direkt zu antworten,\n    leitest du Studierende dazu an, Antworten selbst zu entdecken durch:\n\n    1. Klärende Fragen stellen\n    2. Komplexe Probleme in kleinere Teile zerlegen\n    3. Verbindungen zu Vorwissen herstellen\n    4. Denkprozesse anregen\n\n    Gib NIEMALS die vollständige Antwort direkt. Dein Ziel ist es, den Denkprozess zu fördern.\&quot;\&quot;\&quot;\n\n    try:\n        response = client.chat.completions.create(\n            model=\&quot;gpt-4o-mini\&quot;,\n            messages=[\n                {\&quot;role\&quot;: \&quot;system\&quot;, \&quot;content\&quot;: system_prompt},\n                {\&quot;role\&quot;: \&quot;user\&quot;, \&quot;content\&quot;: student_question.value}\n            ],\n            temperature=0.7,\n            max_tokens=200\n        )\n\n        response_output = mo.md(\n            f\&quot;\&quot;\&quot;\n            **Tutor Antwort:**\n\n            {response.choices[0].message.content}\n\n            ---\n\n            💡 **Beachten Sie**: Die KI gab keine direkte Antwort - sie stellte leitende Fragen,\n            um aktives Denken zu fördern!\n            \&quot;\&quot;\&quot;\n        )\n    except Exception as e:\n        response_output = mo.callout(\n            mo.md(f\&quot;❌ Fehler: {str(e)}\&quot;),\n            kind=\&quot;danger\&quot;\n        )\n\nresponse_output&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
 </marimo-island>
 <section id="kosten-verstehen" class="level2">
 <h2 class="anchored" data-anchor-id="kosten-verstehen">Kosten verstehen</h2>
@@ -626,7 +619,7 @@ div.callout-try.callout-style-default .callout-icon::before, div.callout-try.cal
     <marimo-cell-output>
     <marimo-mime-renderer data-mime="&quot;text/markdown&quot;" data-data="&quot;<span class=\&quot;markdown prose dark:prose-invert contents\&quot;><span class=\&quot;paragraph\&quot;><em>Führen Sie eine Anfrage oben aus, um Kostenberechnung zu sehen</em></span></span>&quot;"></marimo-mime-renderer>
     </marimo-cell-output>
-    <marimo-ui-element object-id="bb9336e4-1e28-8f68-59a6-761fe374b900" random-id="bb9336e4-1e28-8f68-59a6-761fe374b900"><marimo-code-editor data-initial-value="&quot;try:\n    # Calculate tokens and cost\n    encoding = tiktoken.encoding_for_model(\&quot;gpt-4o-mini\&quot;)\n\n    prompt_tokens = response.usage.prompt_tokens\n    completion_tokens = response.usage.completion_tokens\n    total_tokens = response.usage.total_tokens\n\n    # GPT-4o-mini Preise (Stand 2025)\n    # $0.150 per 1M Input-Tokens, $0.600 per 1M Output-Tokens\n    input_cost = (prompt_tokens / 1_000_000) * 0.150\n    output_cost = (completion_tokens / 1_000_000) * 0.600\n    total_cost = input_cost + output_cost\n\n    cost_display = mo.md(\n        f\&quot;\&quot;\&quot;\n        **Token-Verwendung:**\n        - Input-Tokens: {prompt_tokens:,}\n        - Output-Tokens: {completion_tokens:,}\n        - Gesamt-Tokens: {total_tokens:,}\n\n        **Geschätzte Kosten:**\n        - Input-Kosten: ${input_cost:.6f}\n        - Output-Kosten: ${output_cost:.6f}\n        - **Gesamt: ${total_cost:.6f}**\n\n        Für 1000 ähnliche Interaktionen: ~${total_cost * 1000:.2f}\n        \&quot;\&quot;\&quot;\n    )\nexcept:\n    cost_display = mo.md(\&quot;*Führen Sie eine Anfrage oben aus, um Kostenberechnung zu sehen*\&quot;)\n\ncost_display&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
+    <marimo-ui-element object-id="4a17a09c-f016-f514-a826-099cf96ce758" random-id="4a17a09c-f016-f514-a826-099cf96ce758"><marimo-code-editor data-initial-value="&quot;try:\n    # Calculate tokens and cost\n    encoding = tiktoken.encoding_for_model(\&quot;gpt-4o-mini\&quot;)\n\n    prompt_tokens = response.usage.prompt_tokens\n    completion_tokens = response.usage.completion_tokens\n    total_tokens = response.usage.total_tokens\n\n    # GPT-4o-mini Preise (Stand 2025)\n    # $0.150 per 1M Input-Tokens, $0.600 per 1M Output-Tokens\n    input_cost = (prompt_tokens / 1_000_000) * 0.150\n    output_cost = (completion_tokens / 1_000_000) * 0.600\n    total_cost = input_cost + output_cost\n\n    cost_display = mo.md(\n        f\&quot;\&quot;\&quot;\n        **Token-Verwendung:**\n        - Input-Tokens: {prompt_tokens:,}\n        - Output-Tokens: {completion_tokens:,}\n        - Gesamt-Tokens: {total_tokens:,}\n\n        **Geschätzte Kosten:**\n        - Input-Kosten: ${input_cost:.6f}\n        - Output-Kosten: ${output_cost:.6f}\n        - **Gesamt: ${total_cost:.6f}**\n\n        Für 1000 ähnliche Interaktionen: ~${total_cost * 1000:.2f}\n        \&quot;\&quot;\&quot;\n    )\nexcept:\n    cost_display = mo.md(\&quot;*Führen Sie eine Anfrage oben aus, um Kostenberechnung zu sehen*\&quot;)\n\ncost_display&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
 </marimo-island>
 <section id="nächste-schritte" class="level2">
 <h2 class="anchored" data-anchor-id="nächste-schritte">Nächste Schritte</h2>
@@ -1056,15 +1049,6 @@ div.callout-try.callout-style-default .callout-icon::before, div.callout-try.cal
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../workshop/01-retrieval-practice/index.html" class="pagination-link" aria-label="Retrieval Practice Generator">
-        <span class="nav-page-text">Retrieval Practice Generator</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

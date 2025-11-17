@@ -44,28 +44,30 @@ make diff                   # Show word-level diff
 
 ### Content Organization
 
-**New Marimo-Based Modules:**
+**Workshop Modules (3-hour focused workshop):**
 
-- **workshop/00-setup/**: Marimo introduction, pedagogical principles, first Socratic tutor (45 min)
-- **workshop/01-retrieval-practice/**: Build retrieval practice generators with Bloom's taxonomy (60 min)
-- **exercises/exercise-01/**: Create Socratic questioning agent (starter + solution, 20 min)
+- **workshop/00-setup/**: Marimo introduction, environment setup, pedagogical principles
+- **workshop/02-prior-knowledge/**: **Main module** - Build prior knowledge diagnostic tool
+  - `index.qmd`: Theory, pedagogy, code examples (German)
+  - `diagnostic-agent.py`: Full interactive marimo notebook
+  - `gradio-demo.qmd`: Deployment guide for HuggingFace Spaces
+- **exercises/exercise-01/**: Practice exercise - Socratic questioning agent
 
-**Legacy Content (Being Migrated):**
+**Additional Resources:**
 
-- **workshop/setup-openai/**: OpenAI Platform setup guide
-- **workshop/setup-colab/**: Google Colab setup (may be deprecated)
-- **workshop/exploring-openai-models/**: Jupyter notebook for parameter exploration (needs migration)
-- **workshop/api-tricks/**: Mixture of Experts patterns (needs fixes and migration)
-- **workshop/structured-output/**: Pydantic schemas (needs migration)
-- **exercises/exercise-2/, exercise-3/**: Legacy exercises (need redesign)
+- **workshop/01-retrieval-practice/**: Retrieval practice generators (supplemental)
+- **gradio-app/**: Production Gradio app for HuggingFace deployment
+  - `app.py`: Web interface for teachers
+  - `DEPLOYMENT.md`: Step-by-step deployment guide
 
-**Other Directories:**
+**Supporting Directories:**
 
-- **tutorials/**: Optional local setup guides (VS Code, OpenAI)
-- **slides/**: RevealJS presentations (e.g., RAG presentation)
-- **assets/**: Images, PDFs, logos, backgrounds, flashcards
 - **resources/**: Prompt templates library, supporting materials
-- **docs/**: Build output directory - **DO NOT EDIT** (GitHub Pages serves from here, gets overwritten on render)
+- **tutorials/**: Optional local setup guides (VS Code, OpenAI)
+- **slides/**: RevealJS presentations
+- **assets/**: Images, PDFs, logos, backgrounds
+- **docs/**: Build output - **DO NOT EDIT** (GitHub Pages, auto-generated)
+- **archive/**: Archived legacy content (old workshop modules, exercises)
 
 ### Key Configuration Files
 
