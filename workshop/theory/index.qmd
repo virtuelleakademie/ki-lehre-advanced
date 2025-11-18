@@ -16,187 +16,47 @@ By the end of this section, you will understand:
 
 ---
 
-## Cognitive Load Theory Basics
+## {{< bi file-slides >}} Cognitive Load Theory & Educational AI
 
-**Working memory** is limited:
-
-- Can only hold 3-7 items at once
-- Gets overloaded when learning complex new material
-- This is why learning can feel overwhelming
-
-**Long-term memory** is unlimited:
-
-- Stores knowledge as organised schemas
-- Accessed automatically when needed
-- Goal of learning: Build rich schemas in long-term memory
-
-**The challenge:** How do we get information from working memory into long-term memory without overload?
+{{< revealjs file="../../slides/theory/index.html" height="500px" class="ratio ratio-16x9" >}}
 
 ---
 
-## Principle 1: The Worked Example Effect
+## Three Types of Cognitive Load
 
-### The Research
+| Load Type | Source | Effect on Learning | Design Implication |
+|-----------|--------|-------------------|-------------------|
+| **Intrinsic Load** | Inherent complexity of the material and prior knowledge of learner | Necessary for learning (but can cause overload if too high) | Use worked examples, simple-to-complex sequencing, part-whole approaches |
+| **Extraneous Load** | Poorly designed instruction that doesn't facilitate schema construction | Harmful - does not contribute to learning | Eliminate redundancy, integrate information sources, use dual modality |
+| **Germane Load** | Well-designed instruction that directly facilitates schema construction and automation | Helpful - directly contributes to learning | Provide worked examples, guided practice, scaffolding that fades |
 
-> **"Novice learners who are given worked examples to study perform better on subsequent tests than learners who are required to solve the equivalent problems themselves."**
->
-> — NSW Centre for Education Statistics and Evaluation (2017, p. 7)
+**Key Principle**: Total Cognitive Load = Intrinsic + Extraneous + Germane
 
-### Why It Works
-
-**Problem-solving for novices = cognitive overload**
-
-- Must search for solution strategies
-- Must test each strategy
-- Must monitor progress
-- Must learn the concept
-- **Too much for working memory!**
-
-**Studying worked examples = reduced load**
-
-- Solution is shown
-- Can focus on understanding the pattern
-- More capacity for schema construction
-- **Learning is more efficient**
-
-### The Evidence
-
-- **Effect size: 0.52** across multiple studies (Crissman, 2006)
-- Particularly strong for novices (Cooper & Sweller, 1987)
-- Diminishes as expertise grows (Kalyuga et al., 2003)
-
-### Key Insight for Today
-
-**You are novices** at building educational AI tools with PydanticAI and Marimo.
-
-**Therefore:** We'll show you a complete, working solution first, then you'll study and modify it.
+**Goal**: Minimize extraneous load, optimize germane load, manage intrinsic load appropriately for learner expertise level.
 
 ---
 
-## Principle 2: The Personalisation Effect
+## Evidence-Based Effects from Cognitive Load Research
 
-### The Research
-
-> **"Familiar contexts require less cognitive effort to process, reducing extraneous cognitive load and improving learning outcomes."**
->
-> — Cordova & Lepper (1996)
-
-### Why It Works
-
-**Generic examples:**
-```
-Calculate the correlation between Variable X and Variable Y.
-X: [10, 15, 20, 25, 30]
-Y: [2, 4, 6, 8, 10]
-```
-
-- Must process abstract variables
-- No connection to existing knowledge
-- Higher cognitive load
-
-**Personalised examples:**
-```
-You love cycling. Calculate the correlation between your
-weekly training hours and your average speed:
-
-Training hours: [10, 15, 20, 25, 30]
-Average speed: [25, 27, 29, 31, 33] km/h
-```
-
-- Connects to existing knowledge (cycling)
-- Easier to process (familiar context)
-- More motivation (personal relevance)
-- Lower cognitive load
-
-### The Evidence
-
-- Increased motivation and engagement (Cordova & Lepper, 1996)
-- Better learning outcomes when contexts are familiar
-- Particularly effective when combined with worked examples
+| Effect | Description | Application to AI Tools |
+|--------|-------------|------------------------|
+| **Worked Example Effect** | Novices learn better from studying complete solutions than solving problems independently (effect size: 0.52) | AI should generate complete, step-by-step solutions for novices to study |
+| **Expertise Reversal Effect** | As expertise increases, worked examples become less effective and can be counterproductive | Personalize based on learner level - more guidance for novices, less for experts |
+| **Redundancy Effect** | Presenting the same information in multiple forms increases load without aiding learning | AI should avoid repeating information unnecessarily in text and diagrams |
+| **Split Attention Effect** | Requiring learners to process separate sources simultaneously increases load | AI should integrate text and visuals, not require mental integration |
+| **Modality Effect** | Using both visual and auditory channels can increase working memory capacity | Consider multimodal AI outputs (text + narration, diagrams + audio explanation) |
 
 ---
 
-## How AI Enables This at Scale
+## How This Guides Our Workshop Tool
 
-### The Traditional Challenge
+**The personalized worked example generator applies these principles:**
 
-**Creating personalised worked examples is labor-intensive:**
-
-- Must know each student's interests
-- Must create unique examples for each concept
-- Must ensure quality and accuracy
-- **Doesn't scale beyond small classes**
-
-### The AI Solution
-
-**Large language models can:**
-
-- Generate unique examples on demand
-- Weave personal contexts naturally
-- Maintain pedagogical quality (with structured outputs)
-- **Scale to unlimited students**
-
-### Today's Goal
-
-Build a tool that:
-
-1. Collects learner interests, hobbies, goals
-2. Generates personalised worked examples
-3. Teaches concepts through familiar contexts
-4. Uses PydanticAI to ensure structured, quality output
-
----
-
-## The Workshop as Worked Example
-
-::: {.callout-important}
-## Meta-Pedagogical Design
-
-**This workshop itself demonstrates the worked example principle:**
-
-### Traditional Workshop (Problem-Solving)
-```
-"Here are the requirements. Build a personalised
-example generator. We'll help when you get stuck."
-```
-→ High cognitive load, potential frustration, unclear pattern
-
-### Our Workshop (Worked Example)
-```
-"Here's a complete solution. Let's study how it works.
-Now modify it for your needs."
-```
-→ Lower cognitive load, clearer pattern, better transfer
-
-**Why?** Because you're learning a new domain (educational AI tools with PydanticAI/Marimo), you're **novices**. The research says worked examples are more effective than unguided problem-solving for novices.
-:::
-
----
-
-## Research References
-
-**Cooper, G., & Sweller, J. (1987)**. Effects of schema acquisition and rule automation on mathematical problem-solving transfer. *Journal of Educational Psychology*, 79(4), 347-362.
-
-**Cordova, D. I., & Lepper, M. R. (1996)**. Intrinsic motivation and the process of learning: Beneficial effects of contextualization, personalisation, and choice. *Journal of Educational Psychology*, 88(4), 715.
-
-**Crissman, J. (2006)**. *The design and utilization of effective worked examples: A meta-analysis* (Doctoral dissertation). University of Nebraska, Lincoln.
-
-**Kalyuga, S., Ayres, P., Chandler, P., & Sweller, J. (2003)**. The expertise reversal effect. *Educational Psychologist*, 38(1), 23-31.
-
-**NSW Centre for Education Statistics and Evaluation (2017)**. *Cognitive load theory: Research that teachers really need to understand*. [Link](https://education.nsw.gov.au/about-us/education-data-and-research/cese/publications/literature-reviews/cognitive-load-theory)
-
-**Sweller, J. (1988)**. Cognitive load during problem solving: Effects on learning. *Cognitive Science*, 12(2), 257-285.
-
----
-
-::: {.callout-tip}
-## Key Takeaways
-
-1. **Worked examples reduce cognitive load** for novices
-2. **Personalisation makes examples easier** to process
-3. **AI can scale** personalised worked examples
-4. **This workshop** is designed as a worked example you'll study
-:::
+1. **Manages Intrinsic Load**: Allows learners to select concepts matching their current level
+2. **Reduces Extraneous Load**: Presents clear, integrated examples without redundancy
+3. **Maximizes Germane Load**: Provides complete solutions that promote schema construction
+4. **Leverages Worked Example Effect**: Generates full solutions for study, not partial hints
+5. **Enables Personalization**: Uses familiar contexts to reduce extraneous cognitive load
 
 ---
 
