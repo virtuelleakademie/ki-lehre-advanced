@@ -3,13 +3,13 @@ title: "Build: Hands-On with the Starter Template"
 ---
 
 ::: {.callout-schedule icon=false}
-## ⏱️ Duration: 90 minutes
+## Duration: 90 minutes
 
-- Setup (10 min)
+- Access the app (2 min)
 - Code walkthrough (20 min)
-- Modify concepts (40 min)
-- Test locally (15 min)
-- Debug buffer (5 min)
+- Modify concepts (50 min)
+- Test and refine (15 min)
+- Reflection (3 min)
 :::
 
 ---
@@ -19,92 +19,70 @@ title: "Build: Hands-On with the Starter Template"
 By the end of this section, you will:
 
 1. **Understand** the code structure of the worked example generator
-2. **Modify** the starter template to add new concepts
-3. **Test** your modifications locally
+2. **Modify** the template to add new concepts (in your browser)
+3. **Recognise** the pattern for building educational AI tools
 4. **See** how PydanticAI and Marimo work together
+
+::: {.callout-important}
+## Realistic Expectations
+
+**What this section is:** A hands-on learning exercise to understand the pattern and possibilities
+
+**What this section is not:** Training to become a Python developer or deploy production apps
+
+**Your goal:** Understand how these tools work and what's involved in building them. If you want to create your own later, the Resources section provides deployment guides for self-directed learning.
+:::
 
 ---
 
-## Part 1: Setup (10 minutes)
+## Part 1: Access the App (2 minutes)
 
-### Prerequisites Check
+### Open the Workshop Space
+
+**No installation required.** Everything runs in your browser.
 
 ::: {.callout-setup icon=false}
-## ✅ Required Before Workshop
+## Access the Interactive App
 
-You should have installed:
+**URL:** [https://huggingface.co/spaces/virtuelleakademie/workshop-starter](https://huggingface.co/spaces/virtuelleakademie/workshop-starter)
 
-- Python 3.10 or higher
-- `marimo`, `pydantic-ai`, `openai` packages
-- OpenAI API key set as environment variable
+**What you'll see:**
+- Interactive marimo notebook
+- Code cells (some editable, some read-only)
+- Live UI components
+- Reactive updates
 
-**Test command:**
-```bash
-marimo tutorial intro
-```
-
-If this works, you're ready!
+**First time?** The Space may take 20-30 seconds to wake up. Be patient.
 :::
 
-### Clone the Starter Template
+### Orient Yourself
 
-**Option A: Download from GitHub**
-```bash
-git clone https://github.com/virtuelleakademie/ki-lehre-advanced.git
-cd ki-lehre-advanced/starter-template
-```
+When the app loads, you'll see:
 
-**Option B: Copy provided USB stick**
-```bash
-cp -r /path/to/usb/starter-template ./
-cd starter-template
-```
+- **Code cells** at the top (imports, data models, concept library, AI agent)
+- **UI components** below (profile inputs, concept selector, generate button)
+- **Output area** at the bottom (generated examples appear here)
 
-### Verify Setup
-
-```bash
-# Set your OpenAI API key
-export OPENAI_API_KEY="sk-your-key-here"
-
-# Run the starter app
-marimo edit simplified-weaver.py
-```
-
-::: {.callout-caution}
-## ⚠️ Troubleshooting
-
-**"marimo: command not found"**
-```bash
-pip install marimo
-```
-
-**"No module named 'pydantic_ai'"**
-```bash
-pip install pydantic-ai openai pydantic
-```
-
-**"OpenAI API key not found"**
-```bash
-export OPENAI_API_KEY="sk-your-actual-key"
-```
-:::
+**Each browser session is isolated** - your changes won't affect other participants.
 
 ---
 
 ## Part 2: Code Walkthrough (20 minutes)
 
-### File Structure
+### App Structure
 
-The `simplified-weaver.py` file contains:
+Scroll through the code cells to see the overall structure:
 
 ```python
 # 1. Imports and setup
 # 2. Data models (Pydantic)
 # 3. Concept library (ONE domain)
 # 4. AI agent configuration
-# 5. Marimo UI cells
-# 6. Generation function
+# 5. Generation function
+# 6. Marimo UI cells
 ```
+
+**Your task:** Read through the code, following along with this walkthrough. Don't edit yet - focus on understanding.
 
 ### Key Components
 
@@ -230,13 +208,13 @@ Marimo creates reactive cells:
 
 ---
 
-## Part 3: Modify - Add Concepts (40 minutes)
+## Part 3: Modify - Add Concepts (50 minutes)
 
 ### Your Task
 
-**Add 1-2 new concepts** to the Programming domain.
+**Add 1-2 new concepts** to the Programming domain by editing code cells in your browser.
 
-**Suggestions:**
+**Suggested concepts:**
 - List Comprehensions
 - Dictionary Methods
 - File I/O
@@ -259,9 +237,10 @@ Marimo creates reactive cells:
 - Lambda functions
 - Exception handling
 
-#### 2. Add to CONCEPTS Dictionary
+#### 2. Find the CONCEPTS Cell
 
-**Find this section** (around line 62):
+**Scroll to the editable cell** containing the CONCEPTS dictionary:
+
 ```python
 CONCEPTS = {
     "programming": [
@@ -282,7 +261,12 @@ CONCEPTS = {
 }
 ```
 
-**Add your concept:**
+**This cell is editable** - click inside it to make changes.
+
+#### 3. Add Your Concept
+
+**Click in the cell** and add your new concept to the list:
+
 ```python
         {
             "name": "List Comprehensions",
@@ -292,21 +276,25 @@ CONCEPTS = {
         },
 ```
 
+**Important:** Don't forget the comma after the closing brace!
+
 ::: {.callout-try icon=false}
-## 🔄 Try It: Add Your First Concept
+## Try It: Add Your First Concept
 
 1. Choose a programming concept you teach
 2. Write the abstract (1 sentence - what it does)
 3. Set difficulty level (beginner/intermediate/advanced)
 4. Describe typical use (when to use it)
-5. Add to the CONCEPTS dictionary
+5. Edit the cell to add your concept
+6. Run the cell (click the play button or Shift+Enter)
 :::
 
-#### 3. Customize the System Prompt (Optional)
+#### 4. Customise the System Prompt (Optional)
 
 Want more control over how AI generates examples?
 
-**Find the system prompt** (around line 110):
+**Find the system prompt cell** (marked as editable):
+
 ```python
 system_prompt="""You are an expert educator...
 """
@@ -331,22 +319,25 @@ IMPORTANT: For programming examples:
 """
 ```
 
-#### 4. Save and Test
+#### 5. Run the Cell
 
-After adding concepts:
+After editing:
 
-1. Save the file (Ctrl+S or Cmd+S)
-2. Marimo auto-reloads
-3. New concepts appear in dropdown
+1. Click the **Run** button (or press Shift+Enter)
+2. Marimo automatically updates dependent cells
+3. New concepts appear in the dropdown below
+4. Watch the reactive magic happen
 
 ---
 
-## Part 4: Test Locally (15 minutes)
+## Part 4: Test and Refine (15 minutes)
 
 ### Generate Examples with Your Concepts
 
 ::: {.callout-individual icon=false}
-## 💻 Individual Testing
+## Individual Testing
+
+**Now test your modifications:**
 
 1. **Fill in your own profile:**
    - Use YOUR name
@@ -356,13 +347,15 @@ After adding concepts:
 
 2. **Select one of YOUR new concepts**
 
-3. **Generate and review:**
-   - Does it use your personal context?
-   - Is the code correct?
+3. **Click Generate** and wait (30-60 seconds)
+
+4. **Review the generated example:**
+   - Does it use your personal context naturally?
+   - Is the code correct and runnable?
    - Are the explanations clear?
    - Does it connect to your goal?
 
-4. **Try different profiles:**
+5. **Try different profiles:**
    - Change the interest/hobby
    - See how examples change
    - Test different difficulty levels
@@ -370,44 +363,45 @@ After adding concepts:
 
 ### Quality Checks
 
-**Good personalized example:**
-- ✅ Uses learner's name throughout
-- ✅ Data/scenario matches their interest
-- ✅ Code is correct and runnable
-- ✅ Explanations are clear
-- ✅ Explicitly connects to their goal
+**Good personalised example:**
+- Uses learner's name throughout
+- Data/scenario matches their interest
+- Code is correct and runnable
+- Explanations are clear
+- Explicitly connects to their goal
 
 **Signs of poor generation:**
-- ❌ Generic example with name tacked on
-- ❌ Syntax errors in code
-- ❌ Forced connection to interest
-- ❌ Skips explanation steps
+- Generic example with name added superficially
+- Syntax errors in code
+- Forced connection to interest
+- Missing explanation steps
 
 ### Iterate and Improve
 
-**If examples aren't great:**
+**If examples aren't satisfactory:**
 
-1. **Check concept description** - Is "abstract" clear?
+1. **Check concept description** - Is the "abstract" clear and concise?
 2. **Adjust system prompt** - Add more specific instructions
-3. **Change difficulty** - Does it match learner level?
-4. **Regenerate** - AI output varies, try again
+3. **Check difficulty** - Does it match the learner level?
+4. **Regenerate** - AI output varies; try again
 
 ---
 
-## Part 5: Common Issues & Solutions
+## Common Issues & Solutions
 
 ### Issue: Concept doesn't appear in dropdown
 
 **Solution:**
-- Check JSON syntax (commas, brackets)
+- Check Python syntax (commas, brackets)
 - Ensure it's inside "programming" array
-- Save file and reload marimo
+- Run the cell again (Shift+Enter)
+- Refresh the browser if needed
 
 ### Issue: Generation fails with error
 
 **Possible causes:**
 ```python
-# Missing comma
+# Missing comma between concepts
 {
     "name": "For Loops",
     ...
@@ -418,9 +412,11 @@ After adding concepts:
 }
 ```
 
+**What to do:** Edit the cell, add the missing comma, run again.
+
 ### Issue: Examples are too generic
 
-**Solution: Enhance system prompt:**
+**Solution: Enhance system prompt cell:**
 ```python
 system_prompt="""...
 
@@ -431,37 +427,61 @@ baking blog. Here's how to sum ingredient costs..."
 """
 ```
 
-### Issue: API errors
+Then run the cell to update the agent configuration.
 
-**Check:**
-- `OPENAI_API_KEY` is set correctly
-- API key has credits
-- Internet connection works
+### Issue: Slow generation or timeout
+
+**Causes:**
+- GPT-5.1 can take 30-60 seconds
+- Multiple users generating simultaneously
+- HuggingFace Space waking from sleep
+
+**What to do:** Be patient. If it fails, try again.
 
 ---
 
+## Reflection (3 minutes)
+
+::: {.callout-reflect icon=false}
 ## What You've Learned
 
-By completing this section, you:
+**Take a moment to consider:**
 
-1. ✅ **Understood** the code structure
-2. ✅ **Modified** the concept library
-3. ✅ **Tested** with your own profiles
-4. ✅ **Saw** how Pydantic ensures structure
-5. ✅ **Experienced** Marimo reactivity
+1. **Code Structure** - Can you identify the key components?
+   - Data models (Pydantic)
+   - Concept library (dictionary)
+   - AI agent (PydanticAI)
+   - UI components (Marimo)
+
+2. **The Pattern** - What would you need to build your own tool?
+   - Define your domain and concepts
+   - Create data models for inputs/outputs
+   - Configure AI agent with system prompt
+   - Build UI for interaction
+
+3. **Pedagogical Principles** - How does this reduce cognitive load?
+   - Structured outputs (predictable format)
+   - Personalised contexts (familiar to learner)
+   - Complete worked examples (not problem-solving)
+:::
 
 ::: {.callout-checkpoint icon=false}
-## 🎯 Checkpoint
+## Checkpoint Questions
 
 **Can you answer:**
 - Where do you add new concepts?
 - What does `result_type=PersonalizedWorkedExample` do?
-- How does personalization reduce cognitive load?
+- How does personalisation reduce cognitive load?
 
 **Can you do:**
 - Add a new concept to the library?
 - Generate an example with your own profile?
 - Modify the system prompt?
+
+**Have you recognised:**
+- This isn't about becoming a Python developer
+- It's about understanding what's possible
+- The pattern can be adapted to many domains
 :::
 
 ---
