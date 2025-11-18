@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Retrieval Practice Generator – Building Personalized Worked Example Generators with AI</title>
+<title>Retrieval Practice Generator – KI in der Lehre: Advanced</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -87,39 +87,6 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 <style>
-div.callout-feedback.callout {
-  border-left-color: teal;
-}
-div.callout-feedback.callout-style-default > .callout-header {
-  background-color: rgb(from teal r g b / 13%);
-}
-div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
-  content: '📝';
-  background-image: none;
-}
-div.callout-caution.callout {
-  border-left-color: orange;
-}
-div.callout-caution.callout-style-default > .callout-header {
-  background-color: rgb(from orange r g b / 13%);
-}
-div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
-  content: '⚠️';
-  background-image: none;
-}
-div.callout-reflect.callout {
-  border-left-color: purple;
-}
-div.callout-reflect.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
-  content: '💭';
-  background-image: none;
-}
 div.callout-screens-up.callout {
   border-left-color: green;
 }
@@ -129,28 +96,6 @@ div.callout-screens-up.callout-style-default > .callout-header {
 div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
   content: '🔼';
-  background-image: none;
-}
-div.callout-tutor-example.callout {
-  border-left-color: purple;
-}
-div.callout-tutor-example.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
-  content: '📄';
-  background-image: none;
-}
-div.callout-pair.callout {
-  border-left-color: forestgreen;
-}
-div.callout-pair.callout-style-default > .callout-header {
-  background-color: rgb(from forestgreen r g b / 13%);
-}
-div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
-  content: '👥';
   background-image: none;
 }
 div.callout-testing.callout {
@@ -164,28 +109,6 @@ div.callout-testing.callout-style-default .callout-icon::before, div.callout-tes
   content: '🧪';
   background-image: none;
 }
-div.callout-break.callout {
-  border-left-color: yellow;
-}
-div.callout-break.callout-style-default > .callout-header {
-  background-color: rgb(from yellow r g b / 13%);
-}
-div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
-  content: '☕';
-  background-image: none;
-}
-div.callout-screens-down.callout {
-  border-left-color: orange;
-}
-div.callout-screens-down.callout-style-default > .callout-header {
-  background-color: rgb(from orange r g b / 13%);
-}
-div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
-  content: '🔽';
-  background-image: none;
-}
 div.callout-try.callout {
   border-left-color: blue;
 }
@@ -197,26 +120,15 @@ div.callout-try.callout-style-default .callout-icon::before, div.callout-try.cal
   content: '🔄';
   background-image: none;
 }
-div.callout-prompt-example.callout {
-  border-left-color: steelblue;
+div.callout-setup.callout {
+  border-left-color: gray;
 }
-div.callout-prompt-example.callout-style-default > .callout-header {
-  background-color: rgb(from steelblue r g b / 13%);
+div.callout-setup.callout-style-default > .callout-header {
+  background-color: rgb(from gray r g b / 13%);
 }
-div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
-  content: '👩🏼‍🔧';
-  background-image: none;
-}
-div.callout-group.callout {
-  border-left-color: purple;
-}
-div.callout-group.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
-  content: '👥';
+div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
+  content: '⚙️';
   background-image: none;
 }
 div.callout-schedule.callout {
@@ -230,15 +142,26 @@ div.callout-schedule.callout-style-default .callout-icon::before, div.callout-sc
   content: '⏰︎';
   background-image: none;
 }
-div.callout-prompt-template.callout {
-  border-left-color: indigo;
+div.callout-checkpoint.callout {
+  border-left-color: purple;
 }
-div.callout-prompt-template.callout-style-default > .callout-header {
-  background-color: rgb(from indigo r g b / 13%);
+div.callout-checkpoint.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
 }
-div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
-  content: '📋';
+div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
+  content: '🎯';
+  background-image: none;
+}
+div.callout-prompt-example.callout {
+  border-left-color: steelblue;
+}
+div.callout-prompt-example.callout-style-default > .callout-header {
+  background-color: rgb(from steelblue r g b / 13%);
+}
+div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
+  content: '👩🏼‍🔧';
   background-image: none;
 }
 div.callout-export.callout {
@@ -263,26 +186,15 @@ div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro
   content: '💡';
   background-image: none;
 }
-div.callout-individual.callout {
-  border-left-color: steelblue;
+div.callout-prompt-template.callout {
+  border-left-color: indigo;
 }
-div.callout-individual.callout-style-default > .callout-header {
-  background-color: rgb(from steelblue r g b / 13%);
+div.callout-prompt-template.callout-style-default > .callout-header {
+  background-color: rgb(from indigo r g b / 13%);
 }
-div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
-  content: '💻';
-  background-image: none;
-}
-div.callout-setup.callout {
-  border-left-color: gray;
-}
-div.callout-setup.callout-style-default > .callout-header {
-  background-color: rgb(from gray r g b / 13%);
-}
-div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
-  content: '⚙️';
+div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
+  content: '📋';
   background-image: none;
 }
 div.callout-timing.callout {
@@ -296,15 +208,103 @@ div.callout-timing.callout-style-default .callout-icon::before, div.callout-timi
   content: '⏱️';
   background-image: none;
 }
-div.callout-checkpoint.callout {
+div.callout-reflect.callout {
   border-left-color: purple;
 }
-div.callout-checkpoint.callout-style-default > .callout-header {
+div.callout-reflect.callout-style-default > .callout-header {
   background-color: rgb(from purple r g b / 13%);
 }
-div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
-  content: '🎯';
+div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
+  content: '💭';
+  background-image: none;
+}
+div.callout-tutor-example.callout {
+  border-left-color: purple;
+}
+div.callout-tutor-example.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
+  content: '📄';
+  background-image: none;
+}
+div.callout-screens-down.callout {
+  border-left-color: orange;
+}
+div.callout-screens-down.callout-style-default > .callout-header {
+  background-color: rgb(from orange r g b / 13%);
+}
+div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
+  content: '🔽';
+  background-image: none;
+}
+div.callout-caution.callout {
+  border-left-color: orange;
+}
+div.callout-caution.callout-style-default > .callout-header {
+  background-color: rgb(from orange r g b / 13%);
+}
+div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
+  content: '⚠️';
+  background-image: none;
+}
+div.callout-break.callout {
+  border-left-color: yellow;
+}
+div.callout-break.callout-style-default > .callout-header {
+  background-color: rgb(from yellow r g b / 13%);
+}
+div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
+  content: '☕';
+  background-image: none;
+}
+div.callout-group.callout {
+  border-left-color: purple;
+}
+div.callout-group.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
+  content: '👥';
+  background-image: none;
+}
+div.callout-individual.callout {
+  border-left-color: steelblue;
+}
+div.callout-individual.callout-style-default > .callout-header {
+  background-color: rgb(from steelblue r g b / 13%);
+}
+div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
+  content: '💻';
+  background-image: none;
+}
+div.callout-feedback.callout {
+  border-left-color: teal;
+}
+div.callout-feedback.callout-style-default > .callout-header {
+  background-color: rgb(from teal r g b / 13%);
+}
+div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
+  content: '📝';
+  background-image: none;
+}
+div.callout-pair.callout {
+  border-left-color: forestgreen;
+}
+div.callout-pair.callout-style-default > .callout-header {
+  background-color: rgb(from forestgreen r g b / 13%);
+}
+div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
+  content: '👥';
   background-image: none;
 }
 </style>
@@ -314,9 +314,9 @@ div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&amp;family=Lora&amp;family=PT+Sans:wght@400;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
-<meta property="og:title" content="Retrieval Practice Generator – Building Personalized Worked Example Generators with AI">
+<meta property="og:title" content="Retrieval Practice Generator – KI in der Lehre: Advanced">
 <meta property="og:description" content="Modul 1: Werkzeuge für aktives Abrufen entwickeln">
-<meta property="og:site_name" content="Building Personalized Worked Example Generators with AI">
+<meta property="og:site_name" content="KI in der Lehre: Advanced">
 </head><body class="nav-fixed quarto-light"><marimo-filename hidden=""></marimo-filename>
 
 
@@ -330,7 +330,7 @@ div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../index.html">
-    <span class="navbar-title">Building Personalized Worked Example Generators with AI</span>
+    <span class="navbar-title">KI in der Lehre: Advanced</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -345,28 +345,25 @@ div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-
 <span class="menu-text">Workshop</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../tutorials/index.html"> <i class="bi bi-briefcase" role="img">
+    <a class="nav-link" href="../../../workshop/demo/index.html"> <i class="bi bi-easel" role="img">
 </i> 
-<span class="menu-text">Tutorials</span></a>
+<span class="menu-text">Demo</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../exercises/index.html"> <i class="bi bi-pencil" role="img">
+    <a class="nav-link" href="../../../workshop/build/index.html"> <i class="bi bi-code-square" role="img">
 </i> 
-<span class="menu-text">Exercises</span></a>
+<span class="menu-text">Build</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
-      <i class="bi bi-file-slides" role="img">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../workshop/extend/index.html"> <i class="bi bi-people" role="img">
 </i> 
- <span class="menu-text">Slides</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
-        <li>
-    <a class="dropdown-item" href="../../../slides/RAG.html">
- <span class="dropdown-text">Retrieval-augmented generation</span></a>
+<span class="menu-text">Extend</span></a>
   </li>  
-    </ul>
-  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../workshop/resources/index.html"> <i class="bi bi-book" role="img">
+</i> 
+<span class="menu-text">Resources</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -468,9 +465,9 @@ div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-
 </section>
 <marimo-island data-app-id="main" data-cell-id="MJUe" data-reactive="true">
     <marimo-cell-output>
-    <marimo-ui-element object-id="MJUe-0" random-id="dd10396e-4bf4-4c13-19f4-a1dec97ee81e"><marimo-text-area data-initial-value="&quot;Photosynthese ist der Prozess, durch den Pflanzen, Algen und einige Bakterien Lichtenergie (meist von der Sonne) in chemische Energie umwandeln, die in Glukose gespeichert wird. Dieser Prozess findet hauptsächlich in den Chloroplasten der Pflanzenzellen statt.\n\nDie Gesamtgleichung: 6CO₂ + 6H₂O + Lichtenergie → C₆H₁₂O₆ + 6O₂\n\nPhotosynthese erfolgt in zwei Hauptphasen:\n\n1. Lichtabhängige Reaktionen (in Thylakoidmembranen):\n   - Chlorophyll absorbiert Lichtenergie\n   - Wassermoleküle werden gespalten (Photolyse)\n   - Sauerstoff wird als Nebenprodukt freigesetzt\n   - ATP und NADPH werden produziert\n\n2. Calvin-Zyklus (im Stroma):\n   - Kohlendioxid wird fixiert\n   - ATP und NADPH aus den Lichtreaktionen werden verwendet\n   - Glukose wird synthetisiert\n\nDieser Prozess ist entscheidend für das Leben auf der Erde, da er Sauerstoff produziert und die Basis der meisten Nahrungsketten bildet.&quot;" data-label="&quot;<span class=\&quot;markdown prose dark:prose-invert contents\&quot;><span class=\&quot;paragraph\&quot;>Lernmaterial</span></span>&quot;" data-placeholder="&quot;Beispiel: Photosynthese ist der Prozess, durch den Pflanzen Lichtenergie\nin chemische Energie umwandeln. Sie findet in Chloroplasten statt und umfasst zwei Hauptphasen:\ndie lichtabhängigen Reaktionen und den Calvin-Zyklus...&quot;" data-disabled="false" data-debounce="true" data-full-width="true" data-rows="10"></marimo-text-area></marimo-ui-element>
+    <marimo-ui-element object-id="MJUe-0" random-id="bd026a20-a874-805a-cc4a-834190eb0ea6"><marimo-text-area data-initial-value="&quot;Photosynthese ist der Prozess, durch den Pflanzen, Algen und einige Bakterien Lichtenergie (meist von der Sonne) in chemische Energie umwandeln, die in Glukose gespeichert wird. Dieser Prozess findet hauptsächlich in den Chloroplasten der Pflanzenzellen statt.\n\nDie Gesamtgleichung: 6CO₂ + 6H₂O + Lichtenergie → C₆H₁₂O₆ + 6O₂\n\nPhotosynthese erfolgt in zwei Hauptphasen:\n\n1. Lichtabhängige Reaktionen (in Thylakoidmembranen):\n   - Chlorophyll absorbiert Lichtenergie\n   - Wassermoleküle werden gespalten (Photolyse)\n   - Sauerstoff wird als Nebenprodukt freigesetzt\n   - ATP und NADPH werden produziert\n\n2. Calvin-Zyklus (im Stroma):\n   - Kohlendioxid wird fixiert\n   - ATP und NADPH aus den Lichtreaktionen werden verwendet\n   - Glukose wird synthetisiert\n\nDieser Prozess ist entscheidend für das Leben auf der Erde, da er Sauerstoff produziert und die Basis der meisten Nahrungsketten bildet.&quot;" data-label="&quot;<span class=\&quot;markdown prose dark:prose-invert contents\&quot;><span class=\&quot;paragraph\&quot;>Lernmaterial</span></span>&quot;" data-placeholder="&quot;Beispiel: Photosynthese ist der Prozess, durch den Pflanzen Lichtenergie\nin chemische Energie umwandeln. Sie findet in Chloroplasten statt und umfasst zwei Hauptphasen:\ndie lichtabhängigen Reaktionen und den Calvin-Zyklus...&quot;" data-disabled="false" data-debounce="true" data-full-width="true" data-rows="10"></marimo-text-area></marimo-ui-element>
     </marimo-cell-output>
-    <marimo-ui-element object-id="0d51b1ad-8150-ec68-9a32-ab9ffbb5220d" random-id="0d51b1ad-8150-ec68-9a32-ab9ffbb5220d"><marimo-code-editor data-initial-value="&quot;learning_material = mo.ui.text_area(\n    label=\&quot;Lernmaterial\&quot;,\n    placeholder=\&quot;\&quot;\&quot;Beispiel: Photosynthese ist der Prozess, durch den Pflanzen Lichtenergie\nin chemische Energie umwandeln. Sie findet in Chloroplasten statt und umfasst zwei Hauptphasen:\ndie lichtabhängigen Reaktionen und den Calvin-Zyklus...\&quot;\&quot;\&quot;,\n    value=\&quot;\&quot;\&quot;Photosynthese ist der Prozess, durch den Pflanzen, Algen und einige Bakterien Lichtenergie (meist von der Sonne) in chemische Energie umwandeln, die in Glukose gespeichert wird. Dieser Prozess findet hauptsächlich in den Chloroplasten der Pflanzenzellen statt.\n\nDie Gesamtgleichung: 6CO₂ + 6H₂O + Lichtenergie → C₆H₁₂O₆ + 6O₂\n\nPhotosynthese erfolgt in zwei Hauptphasen:\n\n1. Lichtabhängige Reaktionen (in Thylakoidmembranen):\n   - Chlorophyll absorbiert Lichtenergie\n   - Wassermoleküle werden gespalten (Photolyse)\n   - Sauerstoff wird als Nebenprodukt freigesetzt\n   - ATP und NADPH werden produziert\n\n2. Calvin-Zyklus (im Stroma):\n   - Kohlendioxid wird fixiert\n   - ATP und NADPH aus den Lichtreaktionen werden verwendet\n   - Glukose wird synthetisiert\n\nDieser Prozess ist entscheidend für das Leben auf der Erde, da er Sauerstoff produziert und die Basis der meisten Nahrungsketten bildet.\&quot;\&quot;\&quot;,\n    full_width=True,\n    rows=10\n)\nlearning_material&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
+    <marimo-ui-element object-id="859f34f6-0ec1-00c6-67f4-614ba87fe53a" random-id="859f34f6-0ec1-00c6-67f4-614ba87fe53a"><marimo-code-editor data-initial-value="&quot;learning_material = mo.ui.text_area(\n    label=\&quot;Lernmaterial\&quot;,\n    placeholder=\&quot;\&quot;\&quot;Beispiel: Photosynthese ist der Prozess, durch den Pflanzen Lichtenergie\nin chemische Energie umwandeln. Sie findet in Chloroplasten statt und umfasst zwei Hauptphasen:\ndie lichtabhängigen Reaktionen und den Calvin-Zyklus...\&quot;\&quot;\&quot;,\n    value=\&quot;\&quot;\&quot;Photosynthese ist der Prozess, durch den Pflanzen, Algen und einige Bakterien Lichtenergie (meist von der Sonne) in chemische Energie umwandeln, die in Glukose gespeichert wird. Dieser Prozess findet hauptsächlich in den Chloroplasten der Pflanzenzellen statt.\n\nDie Gesamtgleichung: 6CO₂ + 6H₂O + Lichtenergie → C₆H₁₂O₆ + 6O₂\n\nPhotosynthese erfolgt in zwei Hauptphasen:\n\n1. Lichtabhängige Reaktionen (in Thylakoidmembranen):\n   - Chlorophyll absorbiert Lichtenergie\n   - Wassermoleküle werden gespalten (Photolyse)\n   - Sauerstoff wird als Nebenprodukt freigesetzt\n   - ATP und NADPH werden produziert\n\n2. Calvin-Zyklus (im Stroma):\n   - Kohlendioxid wird fixiert\n   - ATP und NADPH aus den Lichtreaktionen werden verwendet\n   - Glukose wird synthetisiert\n\nDieser Prozess ist entscheidend für das Leben auf der Erde, da er Sauerstoff produziert und die Basis der meisten Nahrungsketten bildet.\&quot;\&quot;\&quot;,\n    full_width=True,\n    rows=10\n)\nlearning_material&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
 </marimo-island>
 <section id="schritt-2-fragenschwierigkeit-konfigurieren" class="level2">
 <h2 class="anchored" data-anchor-id="schritt-2-fragenschwierigkeit-konfigurieren">Schritt 2: Fragenschwierigkeit konfigurieren</h2>
@@ -478,21 +475,27 @@ div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-
 </section>
 <section id="blooms-taxonomie-nutzen" class="level2 callout-pro-tip">
 <h2 class="anchored" data-anchor-id="blooms-taxonomie-nutzen">Bloom’s Taxonomie nutzen</h2>
-<p>Unterschiedliche Taxonomiestufen testen unterschiedliche Aspekte des Verständnisses: - <strong>Recall</strong>: Faktenwissen - <strong>Understand</strong>: Konzepte erklären können - <strong>Apply</strong>: Wissen in neuen Situationen anwenden - <strong>Analyze</strong>: Zusammenhänge erkennen und zerlegen</p>
+<p>Unterschiedliche Taxonomiestufen testen unterschiedliche Aspekte des Verständnisses:</p>
+<ul>
+<li><strong>Recall</strong>: Faktenwissen</li>
+<li><strong>Understand</strong>: Konzepte erklären können</li>
+<li><strong>Apply</strong>: Wissen in neuen Situationen anwenden</li>
+<li><strong>Analyze</strong>: Zusammenhänge erkennen und zerlegen</li>
+</ul>
 </section>
 <marimo-island data-app-id="main" data-cell-id="vblA" data-reactive="true">
     <marimo-cell-output>
-    <div style="display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem"><marimo-ui-element object-id="vblA-0" random-id="7b906cf2-e5e9-9ba8-d7f3-d41abea538c6"><marimo-radio data-initial-value="&quot;understand&quot;" data-label="&quot;<span class=\&quot;markdown prose dark:prose-invert contents\&quot;><span class=\&quot;paragraph\&quot;>Schwierigkeitsstufe (Bloom's Taxonomie)</span></span>&quot;" data-options="[&quot;recall&quot;,&quot;understand&quot;,&quot;apply&quot;,&quot;analyze&quot;]" data-inline="false" data-disabled="false"></marimo-radio></marimo-ui-element><marimo-ui-element object-id="vblA-1" random-id="6af4f363-3298-b0c5-2ce7-33899907810e"><marimo-slider data-initial-value="5" data-label="&quot;<span class=\&quot;markdown prose dark:prose-invert contents\&quot;><span class=\&quot;paragraph\&quot;>Anzahl der Fragen</span></span>&quot;" data-start="3" data-stop="10" data-steps="[]" data-debounce="false" data-disabled="false" data-orientation="&quot;horizontal&quot;" data-show-value="true" data-include-input="false" data-full-width="false"></marimo-slider></marimo-ui-element></div>
+    <div style="display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem"><marimo-ui-element object-id="vblA-0" random-id="55ef4ce9-9d68-cfc0-15d7-fa54661b00c3"><marimo-radio data-initial-value="&quot;understand&quot;" data-label="&quot;<span class=\&quot;markdown prose dark:prose-invert contents\&quot;><span class=\&quot;paragraph\&quot;>Schwierigkeitsstufe (Bloom's Taxonomie)</span></span>&quot;" data-options="[&quot;recall&quot;,&quot;understand&quot;,&quot;apply&quot;,&quot;analyze&quot;]" data-inline="false" data-disabled="false"></marimo-radio></marimo-ui-element><marimo-ui-element object-id="vblA-1" random-id="a42a2a7c-7743-edc7-0e8e-c1ba69af346f"><marimo-slider data-initial-value="5" data-label="&quot;<span class=\&quot;markdown prose dark:prose-invert contents\&quot;><span class=\&quot;paragraph\&quot;>Anzahl der Fragen</span></span>&quot;" data-start="3" data-stop="10" data-steps="[]" data-debounce="false" data-disabled="false" data-orientation="&quot;horizontal&quot;" data-show-value="true" data-include-input="false" data-full-width="false"></marimo-slider></marimo-ui-element></div>
     </marimo-cell-output>
-    <marimo-ui-element object-id="0fb0882c-c7e9-9d08-1878-9f2bc3bcce4f" random-id="0fb0882c-c7e9-9d08-1878-9f2bc3bcce4f"><marimo-code-editor data-initial-value="&quot;difficulty_level = mo.ui.radio(\n    options={\n        \&quot;recall\&quot;: \&quot;Recall - Grundlegende Fakten und Begriffe\&quot;,\n        \&quot;understand\&quot;: \&quot;Understand - Konzepte in eigenen Worten erklären\&quot;,\n        \&quot;apply\&quot;: \&quot;Apply - Konzepte in neuen Situationen anwenden\&quot;,\n        \&quot;analyze\&quot;: \&quot;Analyze - Zusammenhänge zerlegen und untersuchen\&quot;\n    },\n    value=\&quot;understand\&quot;,\n    label=\&quot;Schwierigkeitsstufe (Bloom's Taxonomie)\&quot;\n)\n\nnum_questions = mo.ui.slider(\n    start=3,\n    stop=10,\n    value=5,\n    label=\&quot;Anzahl der Fragen\&quot;,\n    show_value=True\n)\n\nmo.vstack([difficulty_level, num_questions])&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
+    <marimo-ui-element object-id="31bb8698-b52e-5234-dc84-19d58966d71c" random-id="31bb8698-b52e-5234-dc84-19d58966d71c"><marimo-code-editor data-initial-value="&quot;difficulty_level = mo.ui.radio(\n    options={\n        \&quot;recall\&quot;: \&quot;Recall - Grundlegende Fakten und Begriffe\&quot;,\n        \&quot;understand\&quot;: \&quot;Understand - Konzepte in eigenen Worten erklären\&quot;,\n        \&quot;apply\&quot;: \&quot;Apply - Konzepte in neuen Situationen anwenden\&quot;,\n        \&quot;analyze\&quot;: \&quot;Analyze - Zusammenhänge zerlegen und untersuchen\&quot;\n    },\n    value=\&quot;understand\&quot;,\n    label=\&quot;Schwierigkeitsstufe (Bloom's Taxonomie)\&quot;\n)\n\nnum_questions = mo.ui.slider(\n    start=3,\n    stop=10,\n    value=5,\n    label=\&quot;Anzahl der Fragen\&quot;,\n    show_value=True\n)\n\nmo.vstack([difficulty_level, num_questions])&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
 </marimo-island>
 <section id="schritt-3-fragentyp-wählen" class="level2">
 <h2 class="anchored" data-anchor-id="schritt-3-fragentyp-wählen">Schritt 3: Fragentyp wählen</h2>
 <marimo-island data-app-id="main" data-cell-id="bkHC" data-reactive="true">
     <marimo-cell-output>
-    <marimo-ui-element object-id="bkHC-0" random-id="63a0b6ad-dfe1-0c00-7a51-f3f51a26dc22"><marimo-dropdown data-initial-value="[&quot;short_answer&quot;]" data-label="&quot;<span class=\&quot;markdown prose dark:prose-invert contents\&quot;><span class=\&quot;paragraph\&quot;>Fragentyp</span></span>&quot;" data-options="[&quot;short_answer&quot;,&quot;explanation&quot;,&quot;connection&quot;,&quot;application&quot;]" data-allow-select-none="false" data-searchable="false" data-full-width="false"></marimo-dropdown></marimo-ui-element>
+    <marimo-ui-element object-id="bkHC-0" random-id="8284c96a-0881-f7ed-3baf-74e5510c1108"><marimo-dropdown data-initial-value="[&quot;short_answer&quot;]" data-label="&quot;<span class=\&quot;markdown prose dark:prose-invert contents\&quot;><span class=\&quot;paragraph\&quot;>Fragentyp</span></span>&quot;" data-options="[&quot;short_answer&quot;,&quot;explanation&quot;,&quot;connection&quot;,&quot;application&quot;]" data-allow-select-none="false" data-searchable="false" data-full-width="false"></marimo-dropdown></marimo-ui-element>
     </marimo-cell-output>
-    <marimo-ui-element object-id="6e5c7511-9b77-c9ad-eaad-d64d360c5505" random-id="6e5c7511-9b77-c9ad-eaad-d64d360c5505"><marimo-code-editor data-initial-value="&quot;question_type = mo.ui.dropdown(\n    options={\n        \&quot;short_answer\&quot;: \&quot;Kurzantwort - Kurze freie Antwort\&quot;,\n        \&quot;explanation\&quot;: \&quot;Erklärung - Detaillierte konzeptuelle Erklärung\&quot;,\n        \&quot;connection\&quot;: \&quot;Verbindung - Konzepte mit Vorwissen verknüpfen\&quot;,\n        \&quot;application\&quot;: \&quot;Anwendung - Auf reale Szenarien anwenden\&quot;\n    },\n    value=\&quot;short_answer\&quot;,\n    label=\&quot;Fragentyp\&quot;\n)\nquestion_type&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
+    <marimo-ui-element object-id="b7173b9f-598a-364c-fa85-8bc2831fdc9c" random-id="b7173b9f-598a-364c-fa85-8bc2831fdc9c"><marimo-code-editor data-initial-value="&quot;question_type = mo.ui.dropdown(\n    options={\n        \&quot;short_answer\&quot;: \&quot;Kurzantwort - Kurze freie Antwort\&quot;,\n        \&quot;explanation\&quot;: \&quot;Erklärung - Detaillierte konzeptuelle Erklärung\&quot;,\n        \&quot;connection\&quot;: \&quot;Verbindung - Konzepte mit Vorwissen verknüpfen\&quot;,\n        \&quot;application\&quot;: \&quot;Anwendung - Auf reale Szenarien anwenden\&quot;\n    },\n    value=\&quot;short_answer\&quot;,\n    label=\&quot;Fragentyp\&quot;\n)\nquestion_type&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
 </marimo-island>
 </section>
 <section id="fragen-generieren" class="level2">
@@ -500,9 +503,9 @@ div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-
 <p>Klicken Sie, um Retrieval Practice-Fragen basierend auf Ihrer Konfiguration zu generieren:</p>
 <marimo-island data-app-id="main" data-cell-id="lEQa" data-reactive="true">
     <marimo-cell-output>
-    <marimo-ui-element object-id="lEQa-0" random-id="f4ac0265-c115-b78b-4f1b-dfb3e2069047"><marimo-button data-initial-value="0" data-label="&quot;<span class=\&quot;markdown prose dark:prose-invert contents\&quot;><span class=\&quot;paragraph\&quot;>🎯 Retrieval-Fragen generieren</span></span>&quot;" data-kind="&quot;neutral&quot;" data-disabled="false" data-full-width="false"></marimo-button></marimo-ui-element>
+    <marimo-ui-element object-id="lEQa-0" random-id="53ea60ac-19a6-c129-8c37-7d32afce7b6d"><marimo-button data-initial-value="0" data-label="&quot;<span class=\&quot;markdown prose dark:prose-invert contents\&quot;><span class=\&quot;paragraph\&quot;>🎯 Retrieval-Fragen generieren</span></span>&quot;" data-kind="&quot;neutral&quot;" data-disabled="false" data-full-width="false"></marimo-button></marimo-ui-element>
     </marimo-cell-output>
-    <marimo-ui-element object-id="efa9a28e-7ef6-ec34-0171-10ff8f1d753f" random-id="efa9a28e-7ef6-ec34-0171-10ff8f1d753f"><marimo-code-editor data-initial-value="&quot;generate_button = mo.ui.button(\n    label=\&quot;🎯 Retrieval-Fragen generieren\&quot;,\n    on_click=lambda: None\n)\ngenerate_button&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
+    <marimo-ui-element object-id="b62b63b0-9f94-887d-3910-8a431cfa6b3d" random-id="b62b63b0-9f94-887d-3910-8a431cfa6b3d"><marimo-code-editor data-initial-value="&quot;generate_button = mo.ui.button(\n    label=\&quot;🎯 Retrieval-Fragen generieren\&quot;,\n    on_click=lambda: None\n)\ngenerate_button&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
 </marimo-island>
 <marimo-island data-app-id="main" data-cell-id="PKri" data-reactive="true">
     <marimo-cell-output>
@@ -514,7 +517,7 @@ div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-
     <marimo-cell-output>
     <span></span>
     </marimo-cell-output>
-    <marimo-ui-element object-id="f578f372-6246-2d04-8377-29be720284e2" random-id="f578f372-6246-2d04-8377-29be720284e2"><marimo-code-editor data-initial-value="&quot;questions_output = None\n\nif generate_button.value and learning_material.value:\n\n    # Create pedagogically-informed system prompt\n    system_prompt = f\&quot;\&quot;\&quot;Du bist ein erfahrener Pädagoge, der Retrieval Practice-Fragen erstellt.\n\nLERNMATERIAL:\n{learning_material.value}\n\nANFORDERUNGEN:\n- Generiere {num_questions.value} Fragen auf der Stufe \&quot;{difficulty_level.value}\&quot;\n- Fragentyp: {question_type.value}\n- Fokus auf ABRUFEN (aus dem Gedächtnis generieren) nicht WIEDERERKENNEN\n- Fragen sollten aktives Denken fördern\n- Vermeide Fragen mit offensichtlichen Antworten\n- Identifiziere häufige Missverständnisse\n\nPÄDAGOGISCHE PRINZIPIEN:\n1. Erwünschte Schwierigkeit - Zum Nachdenken anregen, aber erreichbar halten\n2. Abrufen statt Wiedererkennen - Nach Generation fragen, nicht nach Auswahl\n3. Variierte Übung - Konzepte aus verschiedenen Blickwinkeln angehen\n4. Metakognition - Fragen sollten offenlegen, was Studierende wissen/nicht wissen\n\nGeneriere Fragen, die echtes Verständnis testen, nicht nur Auswendiglernen.\&quot;\&quot;\&quot;\n\n    try:\n        response = client.beta.chat.completions.parse(\n            model=\&quot;gpt-4o-mini\&quot;,\n            messages=[\n                {\&quot;role\&quot;: \&quot;system\&quot;, \&quot;content\&quot;: system_prompt},\n                {\&quot;role\&quot;: \&quot;user\&quot;, \&quot;content\&quot;: \&quot;Generiere Retrieval Practice-Fragen.\&quot;}\n            ],\n            response_format=QuestionSet,\n            temperature=0.8\n        )\n\n        question_set = response.choices[0].message.parsed\n\n        # Display questions in an organized way\n        questions_md = f\&quot;\&quot;\&quot;\n## Generierte Fragen\n\n**Fokus**: {question_set.overall_focus}\n\n**Stufe**: {difficulty_level.value.upper()}\n\n---\n\&quot;\&quot;\&quot;\n\n        for i, q in enumerate(question_set.questions, 1):\n            questions_md += f\&quot;\&quot;\&quot;\n### Frage {i}\n\n**{q.question}**\n\n<details>\n<summary>📚 Getestete Schlüsselkonzepte</summary>\n\n{\&quot;, \&quot;.join(q.key_concepts)}\n</details>\n\n<details>\n<summary>✅ Beispielantwort</summary>\n\n{q.sample_answer}\n</details>\n\n<details>\n<summary>⚠️ Häufige Missverständnisse</summary>\n\n{chr(10).join([f\&quot;- {m}\&quot; for m in q.common_misconceptions])}\n</details>\n\n---\n\&quot;\&quot;\&quot;\n\n        questions_output = mo.accordion({\n            \&quot;Generierte Fragen anzeigen\&quot;: mo.md(questions_md)\n        })\n\n    except Exception as e:\n        questions_output = mo.callout(\n            mo.md(f\&quot;❌ Fehler beim Generieren der Fragen: {str(e)}\&quot;),\n            kind=\&quot;danger\&quot;\n        )\n\nquestions_output&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
+    <marimo-ui-element object-id="04192e3c-9dfe-bd08-9463-997e7654986f" random-id="04192e3c-9dfe-bd08-9463-997e7654986f"><marimo-code-editor data-initial-value="&quot;questions_output = None\n\nif generate_button.value and learning_material.value:\n\n    # Create pedagogically-informed system prompt\n    system_prompt = f\&quot;\&quot;\&quot;Du bist ein erfahrener Pädagoge, der Retrieval Practice-Fragen erstellt.\n\nLERNMATERIAL:\n{learning_material.value}\n\nANFORDERUNGEN:\n- Generiere {num_questions.value} Fragen auf der Stufe \&quot;{difficulty_level.value}\&quot;\n- Fragentyp: {question_type.value}\n- Fokus auf ABRUFEN (aus dem Gedächtnis generieren) nicht WIEDERERKENNEN\n- Fragen sollten aktives Denken fördern\n- Vermeide Fragen mit offensichtlichen Antworten\n- Identifiziere häufige Missverständnisse\n\nPÄDAGOGISCHE PRINZIPIEN:\n1. Erwünschte Schwierigkeit - Zum Nachdenken anregen, aber erreichbar halten\n2. Abrufen statt Wiedererkennen - Nach Generation fragen, nicht nach Auswahl\n3. Variierte Übung - Konzepte aus verschiedenen Blickwinkeln angehen\n4. Metakognition - Fragen sollten offenlegen, was Studierende wissen/nicht wissen\n\nGeneriere Fragen, die echtes Verständnis testen, nicht nur Auswendiglernen.\&quot;\&quot;\&quot;\n\n    try:\n        response = client.beta.chat.completions.parse(\n            model=\&quot;gpt-4o-mini\&quot;,\n            messages=[\n                {\&quot;role\&quot;: \&quot;system\&quot;, \&quot;content\&quot;: system_prompt},\n                {\&quot;role\&quot;: \&quot;user\&quot;, \&quot;content\&quot;: \&quot;Generiere Retrieval Practice-Fragen.\&quot;}\n            ],\n            response_format=QuestionSet,\n            temperature=0.8\n        )\n\n        question_set = response.choices[0].message.parsed\n\n        # Display questions in an organized way\n        questions_md = f\&quot;\&quot;\&quot;\n## Generierte Fragen\n\n**Fokus**: {question_set.overall_focus}\n\n**Stufe**: {difficulty_level.value.upper()}\n\n---\n\&quot;\&quot;\&quot;\n\n        for i, q in enumerate(question_set.questions, 1):\n            questions_md += f\&quot;\&quot;\&quot;\n### Frage {i}\n\n**{q.question}**\n\n<details>\n<summary>📚 Getestete Schlüsselkonzepte</summary>\n\n{\&quot;, \&quot;.join(q.key_concepts)}\n</details>\n\n<details>\n<summary>✅ Beispielantwort</summary>\n\n{q.sample_answer}\n</details>\n\n<details>\n<summary>⚠️ Häufige Missverständnisse</summary>\n\n{chr(10).join([f\&quot;- {m}\&quot; for m in q.common_misconceptions])}\n</details>\n\n---\n\&quot;\&quot;\&quot;\n\n        questions_output = mo.accordion({\n            \&quot;Generierte Fragen anzeigen\&quot;: mo.md(questions_md)\n        })\n\n    except Exception as e:\n        questions_output = mo.callout(\n            mo.md(f\&quot;❌ Fehler beim Generieren der Fragen: {str(e)}\&quot;),\n            kind=\&quot;danger\&quot;\n        )\n\nquestions_output&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
 </marimo-island>
 </section>
 <section id="design-entscheidungen-verstehen" class="level2 callout-reflect">
@@ -568,21 +571,21 @@ div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-
 <p>Jetzt simulieren wir einen Studierenden, der diese Fragen benutzt. Wählen Sie eine Frage und versuchen Sie, sie selbst zu beantworten:</p>
 <marimo-island data-app-id="main" data-cell-id="SFPL" data-reactive="true">
     <marimo-cell-output>
-    <marimo-ui-element object-id="SFPL-0" random-id="6b856965-dd14-1b09-2112-41d407ea1219"><marimo-text-area data-initial-value="&quot;&quot;" data-label="&quot;<span class=\&quot;markdown prose dark:prose-invert contents\&quot;><span class=\&quot;paragraph\&quot;>Ihre Antwort</span></span>&quot;" data-placeholder="&quot;Schreiben Sie Ihre Antwort hier...&quot;" data-disabled="false" data-debounce="true" data-full-width="true" data-rows="5"></marimo-text-area></marimo-ui-element>
+    <marimo-ui-element object-id="SFPL-0" random-id="b2ff5bf4-ad9b-01b6-5a77-6e9195b0c21a"><marimo-text-area data-initial-value="&quot;&quot;" data-label="&quot;<span class=\&quot;markdown prose dark:prose-invert contents\&quot;><span class=\&quot;paragraph\&quot;>Ihre Antwort</span></span>&quot;" data-placeholder="&quot;Schreiben Sie Ihre Antwort hier...&quot;" data-disabled="false" data-debounce="true" data-full-width="true" data-rows="5"></marimo-text-area></marimo-ui-element>
     </marimo-cell-output>
-    <marimo-ui-element object-id="a046c58d-e860-36c0-bff5-854363629660" random-id="a046c58d-e860-36c0-bff5-854363629660"><marimo-code-editor data-initial-value="&quot;student_response = mo.ui.text_area(\n    label=\&quot;Ihre Antwort\&quot;,\n    placeholder=\&quot;Schreiben Sie Ihre Antwort hier...\&quot;,\n    full_width=True,\n    rows=5\n)\nstudent_response&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
+    <marimo-ui-element object-id="ec3d0422-4b85-64e3-66ac-39e45711f3b6" random-id="ec3d0422-4b85-64e3-66ac-39e45711f3b6"><marimo-code-editor data-initial-value="&quot;student_response = mo.ui.text_area(\n    label=\&quot;Ihre Antwort\&quot;,\n    placeholder=\&quot;Schreiben Sie Ihre Antwort hier...\&quot;,\n    full_width=True,\n    rows=5\n)\nstudent_response&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
 </marimo-island>
 <marimo-island data-app-id="main" data-cell-id="BYtC" data-reactive="true">
     <marimo-cell-output>
-    <marimo-ui-element object-id="BYtC-0" random-id="4b19b8a3-9ce5-0dcf-6d8d-d02b2d1bdc61"><marimo-button data-initial-value="0" data-label="&quot;<span class=\&quot;markdown prose dark:prose-invert contents\&quot;><span class=\&quot;paragraph\&quot;>Feedback erhalten</span></span>&quot;" data-kind="&quot;neutral&quot;" data-disabled="false" data-full-width="false"></marimo-button></marimo-ui-element>
+    <marimo-ui-element object-id="BYtC-0" random-id="a2c6eeab-0c2d-e929-0ea0-9c519c84ef80"><marimo-button data-initial-value="0" data-label="&quot;<span class=\&quot;markdown prose dark:prose-invert contents\&quot;><span class=\&quot;paragraph\&quot;>Feedback erhalten</span></span>&quot;" data-kind="&quot;neutral&quot;" data-disabled="false" data-full-width="false"></marimo-button></marimo-ui-element>
     </marimo-cell-output>
-    <marimo-ui-element object-id="1b479f36-e209-f069-f44e-18c5a08f86e3" random-id="1b479f36-e209-f069-f44e-18c5a08f86e3"><marimo-code-editor data-initial-value="&quot;evaluate_button = mo.ui.button(\n    label=\&quot;Feedback erhalten\&quot;,\n    on_click=lambda: None\n)\nevaluate_button&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
+    <marimo-ui-element object-id="86cfb02c-891f-2353-206c-20420109dd9b" random-id="86cfb02c-891f-2353-206c-20420109dd9b"><marimo-code-editor data-initial-value="&quot;evaluate_button = mo.ui.button(\n    label=\&quot;Feedback erhalten\&quot;,\n    on_click=lambda: None\n)\nevaluate_button&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
 </marimo-island>
 <marimo-island data-app-id="main" data-cell-id="RGSE" data-reactive="true">
     <marimo-cell-output>
     <span></span>
     </marimo-cell-output>
-    <marimo-ui-element object-id="2d8c8ce8-4373-ef59-d39d-85d81f8b6271" random-id="2d8c8ce8-4373-ef59-d39d-85d81f8b6271"><marimo-code-editor data-initial-value="&quot;feedback_output = None\n\nif evaluate_button.value and student_response.value:\n\n    feedback_prompt = f\&quot;\&quot;\&quot;Du gibst formatives Feedback auf die Antwort eines Studierenden.\n\nANTWORT DES STUDIERENDEN:\n{student_response.value}\n\nFEEDBACK-RICHTLINIEN:\n1. Beginne mit dem, was richtig ist (positive Verstärkung)\n2. Identifiziere Missverständnisse sanft\n3. Stelle eine leitende Frage, um das Verständnis zu vertiefen\n4. Ermutige zur Ausarbeitung oder Klärung\n5. Gib NICHT einfach die richtige Antwort\n\nDenk daran: Das Ziel ist es, Denken zu fördern, nicht sie direkt zu korrigieren.\&quot;\&quot;\&quot;\n\n    try:\n        feedback_response = client.chat.completions.create(\n            model=\&quot;gpt-4o-mini\&quot;,\n            messages=[\n                {\&quot;role\&quot;: \&quot;system\&quot;, \&quot;content\&quot;: feedback_prompt},\n                {\&quot;role\&quot;: \&quot;user\&quot;, \&quot;content\&quot;: \&quot;Gib Feedback\&quot;}\n            ],\n            temperature=0.7,\n            max_tokens=250\n        )\n\n        feedback_output = mo.callout(\n            mo.md(f\&quot;\&quot;\&quot;\n**Feedback:**\n\n{feedback_response.choices[0].message.content}\n\n---\n\n💡 **Beachten Sie**: Das Feedback sagt nicht nur \&quot;richtig\&quot; oder \&quot;falsch\&quot; - es fördert\ntieferes Denken und Metakognition.\n            \&quot;\&quot;\&quot;),\n            kind=\&quot;info\&quot;\n        )\n\n    except Exception as e:\n        feedback_output = mo.callout(\n            mo.md(f\&quot;Fehler: {str(e)}\&quot;),\n            kind=\&quot;danger\&quot;\n        )\n\nfeedback_output&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
+    <marimo-ui-element object-id="be3a5325-9ac7-48d3-d85c-88b872467b8e" random-id="be3a5325-9ac7-48d3-d85c-88b872467b8e"><marimo-code-editor data-initial-value="&quot;feedback_output = None\n\nif evaluate_button.value and student_response.value:\n\n    feedback_prompt = f\&quot;\&quot;\&quot;Du gibst formatives Feedback auf die Antwort eines Studierenden.\n\nANTWORT DES STUDIERENDEN:\n{student_response.value}\n\nFEEDBACK-RICHTLINIEN:\n1. Beginne mit dem, was richtig ist (positive Verstärkung)\n2. Identifiziere Missverständnisse sanft\n3. Stelle eine leitende Frage, um das Verständnis zu vertiefen\n4. Ermutige zur Ausarbeitung oder Klärung\n5. Gib NICHT einfach die richtige Antwort\n\nDenk daran: Das Ziel ist es, Denken zu fördern, nicht sie direkt zu korrigieren.\&quot;\&quot;\&quot;\n\n    try:\n        feedback_response = client.chat.completions.create(\n            model=\&quot;gpt-4o-mini\&quot;,\n            messages=[\n                {\&quot;role\&quot;: \&quot;system\&quot;, \&quot;content\&quot;: feedback_prompt},\n                {\&quot;role\&quot;: \&quot;user\&quot;, \&quot;content\&quot;: \&quot;Gib Feedback\&quot;}\n            ],\n            temperature=0.7,\n            max_tokens=250\n        )\n\n        feedback_output = mo.callout(\n            mo.md(f\&quot;\&quot;\&quot;\n**Feedback:**\n\n{feedback_response.choices[0].message.content}\n\n---\n\n💡 **Beachten Sie**: Das Feedback sagt nicht nur \&quot;richtig\&quot; oder \&quot;falsch\&quot; - es fördert\ntieferes Denken und Metakognition.\n            \&quot;\&quot;\&quot;),\n            kind=\&quot;info\&quot;\n        )\n\n    except Exception as e:\n        feedback_output = mo.callout(\n            mo.md(f\&quot;Fehler: {str(e)}\&quot;),\n            kind=\&quot;danger\&quot;\n        )\n\nfeedback_output&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
 </marimo-island>
 </section>
 <section id="checkpoint-was-haben-sie-gelernt" class="level2 callout-checkpoint">
