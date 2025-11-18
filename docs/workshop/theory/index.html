@@ -50,6 +50,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/bootstrap/bootstrap-4661b761627c6f05628341ea7f84f7f4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.js"></script>
 <link href="../../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -89,69 +90,14 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 <style>
-div.callout-pro-tip.callout {
-  border-left-color: gold;
+div.callout-pair.callout {
+  border-left-color: forestgreen;
 }
-div.callout-pro-tip.callout-style-default > .callout-header {
-  background-color: rgb(from gold r g b / 13%);
+div.callout-pair.callout-style-default > .callout-header {
+  background-color: rgb(from forestgreen r g b / 13%);
 }
-div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
-  content: '💡';
-  background-image: none;
-}
-div.callout-setup.callout {
-  border-left-color: gray;
-}
-div.callout-setup.callout-style-default > .callout-header {
-  background-color: rgb(from gray r g b / 13%);
-}
-div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
-  content: '⚙️';
-  background-image: none;
-}
-div.callout-testing.callout {
-  border-left-color: green;
-}
-div.callout-testing.callout-style-default > .callout-header {
-  background-color: rgb(from green r g b / 13%);
-}
-div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
-  content: '🧪';
-  background-image: none;
-}
-div.callout-checkpoint.callout {
-  border-left-color: purple;
-}
-div.callout-checkpoint.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
-  content: '🎯';
-  background-image: none;
-}
-div.callout-individual.callout {
-  border-left-color: steelblue;
-}
-div.callout-individual.callout-style-default > .callout-header {
-  background-color: rgb(from steelblue r g b / 13%);
-}
-div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
-  content: '💻';
-  background-image: none;
-}
-div.callout-group.callout {
-  border-left-color: purple;
-}
-div.callout-group.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
+div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
   content: '👥';
   background-image: none;
 }
@@ -166,61 +112,6 @@ div.callout-reflect.callout-style-default .callout-icon::before, div.callout-ref
   content: '💭';
   background-image: none;
 }
-div.callout-pair.callout {
-  border-left-color: forestgreen;
-}
-div.callout-pair.callout-style-default > .callout-header {
-  background-color: rgb(from forestgreen r g b / 13%);
-}
-div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
-  content: '👥';
-  background-image: none;
-}
-div.callout-prompt-example.callout {
-  border-left-color: steelblue;
-}
-div.callout-prompt-example.callout-style-default > .callout-header {
-  background-color: rgb(from steelblue r g b / 13%);
-}
-div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
-  content: '👩🏼‍🔧';
-  background-image: none;
-}
-div.callout-schedule.callout {
-  border-left-color: steelblue;
-}
-div.callout-schedule.callout-style-default > .callout-header {
-  background-color: rgb(from steelblue r g b / 13%);
-}
-div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
-  content: '⏰︎';
-  background-image: none;
-}
-div.callout-export.callout {
-  border-left-color: brown;
-}
-div.callout-export.callout-style-default > .callout-header {
-  background-color: rgb(from brown r g b / 13%);
-}
-div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
-  content: '📤';
-  background-image: none;
-}
-div.callout-screens-up.callout {
-  border-left-color: green;
-}
-div.callout-screens-up.callout-style-default > .callout-header {
-  background-color: rgb(from green r g b / 13%);
-}
-div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
-  content: '🔼';
-  background-image: none;
-}
 div.callout-screens-down.callout {
   border-left-color: orange;
 }
@@ -232,26 +123,15 @@ div.callout-screens-down.callout-style-default .callout-icon::before, div.callou
   content: '🔽';
   background-image: none;
 }
-div.callout-prompt-template.callout {
-  border-left-color: indigo;
+div.callout-pro-tip.callout {
+  border-left-color: gold;
 }
-div.callout-prompt-template.callout-style-default > .callout-header {
-  background-color: rgb(from indigo r g b / 13%);
+div.callout-pro-tip.callout-style-default > .callout-header {
+  background-color: rgb(from gold r g b / 13%);
 }
-div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
-  content: '📋';
-  background-image: none;
-}
-div.callout-break.callout {
-  border-left-color: yellow;
-}
-div.callout-break.callout-style-default > .callout-header {
-  background-color: rgb(from yellow r g b / 13%);
-}
-div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
-  content: '☕';
+div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
+  content: '💡';
   background-image: none;
 }
 div.callout-tutor-example.callout {
@@ -276,15 +156,70 @@ div.callout-caution.callout-style-default .callout-icon::before, div.callout-cau
   content: '⚠️';
   background-image: none;
 }
-div.callout-try.callout {
-  border-left-color: blue;
+div.callout-prompt-template.callout {
+  border-left-color: indigo;
 }
-div.callout-try.callout-style-default > .callout-header {
-  background-color: rgb(from blue r g b / 13%);
+div.callout-prompt-template.callout-style-default > .callout-header {
+  background-color: rgb(from indigo r g b / 13%);
 }
-div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
-  content: '🔄';
+div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
+  content: '📋';
+  background-image: none;
+}
+div.callout-checkpoint.callout {
+  border-left-color: purple;
+}
+div.callout-checkpoint.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
+  content: '🎯';
+  background-image: none;
+}
+div.callout-screens-up.callout {
+  border-left-color: green;
+}
+div.callout-screens-up.callout-style-default > .callout-header {
+  background-color: rgb(from green r g b / 13%);
+}
+div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
+  content: '🔼';
+  background-image: none;
+}
+div.callout-export.callout {
+  border-left-color: brown;
+}
+div.callout-export.callout-style-default > .callout-header {
+  background-color: rgb(from brown r g b / 13%);
+}
+div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
+  content: '📤';
+  background-image: none;
+}
+div.callout-individual.callout {
+  border-left-color: steelblue;
+}
+div.callout-individual.callout-style-default > .callout-header {
+  background-color: rgb(from steelblue r g b / 13%);
+}
+div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
+  content: '💻';
+  background-image: none;
+}
+div.callout-prompt-example.callout {
+  border-left-color: steelblue;
+}
+div.callout-prompt-example.callout-style-default > .callout-header {
+  background-color: rgb(from steelblue r g b / 13%);
+}
+div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
+  content: '👩🏼‍🔧';
   background-image: none;
 }
 div.callout-feedback.callout {
@@ -298,6 +233,39 @@ div.callout-feedback.callout-style-default .callout-icon::before, div.callout-fe
   content: '📝';
   background-image: none;
 }
+div.callout-schedule.callout {
+  border-left-color: steelblue;
+}
+div.callout-schedule.callout-style-default > .callout-header {
+  background-color: rgb(from steelblue r g b / 13%);
+}
+div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
+  content: '⏰︎';
+  background-image: none;
+}
+div.callout-group.callout {
+  border-left-color: purple;
+}
+div.callout-group.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
+  content: '👥';
+  background-image: none;
+}
+div.callout-setup.callout {
+  border-left-color: gray;
+}
+div.callout-setup.callout-style-default > .callout-header {
+  background-color: rgb(from gray r g b / 13%);
+}
+div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
+  content: '⚙️';
+  background-image: none;
+}
 div.callout-timing.callout {
   border-left-color: red;
 }
@@ -309,7 +277,48 @@ div.callout-timing.callout-style-default .callout-icon::before, div.callout-timi
   content: '⏱️';
   background-image: none;
 }
+div.callout-try.callout {
+  border-left-color: blue;
+}
+div.callout-try.callout-style-default > .callout-header {
+  background-color: rgb(from blue r g b / 13%);
+}
+div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
+  content: '🔄';
+  background-image: none;
+}
+div.callout-testing.callout {
+  border-left-color: green;
+}
+div.callout-testing.callout-style-default > .callout-header {
+  background-color: rgb(from green r g b / 13%);
+}
+div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
+  content: '🧪';
+  background-image: none;
+}
+div.callout-break.callout {
+  border-left-color: yellow;
+}
+div.callout-break.callout-style-default > .callout-header {
+  background-color: rgb(from yellow r g b / 13%);
+}
+div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
+  content: '☕';
+  background-image: none;
+}
 </style>
+ 
+  <style>
+  .slide-deck {
+      border: 3px solid #dee2e6;
+      width: 100%;
+  }
+  </style>
+  
 
 
 <meta property="og:title" content="Theory: Cognitive Load Theory Principles – KI in der Lehre: Advanced">
@@ -338,6 +347,11 @@ div.callout-timing.callout-style-default .callout-icon::before, div.callout-timi
     <a class="nav-link active" href="../../workshop/index.html" aria-current="page"> <i class="bi bi-card-list" role="img">
 </i> 
 <span class="menu-text">Workshop</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../workshop/theory/index.html"> <i class="bi bi-mortarboard" role="img">
+</i> 
+<span class="menu-text">Theory</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../workshop/demo/index.html"> <i class="bi bi-easel" role="img">
@@ -512,28 +526,10 @@ div.callout-timing.callout-style-default .callout-icon::before, div.callout-timi
   <ul>
   <li><a href="#duration-30-minutes" id="toc-duration-30-minutes" class="nav-link active" data-scroll-target="#duration-30-minutes">Duration: 30 minutes</a></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#cognitive-load-theory-basics" id="toc-cognitive-load-theory-basics" class="nav-link" data-scroll-target="#cognitive-load-theory-basics">Cognitive Load Theory Basics</a></li>
-  <li><a href="#principle-1-the-worked-example-effect" id="toc-principle-1-the-worked-example-effect" class="nav-link" data-scroll-target="#principle-1-the-worked-example-effect">Principle 1: The Worked Example Effect</a>
-  <ul class="collapse">
-  <li><a href="#the-research" id="toc-the-research" class="nav-link" data-scroll-target="#the-research">The Research</a></li>
-  <li><a href="#why-it-works" id="toc-why-it-works" class="nav-link" data-scroll-target="#why-it-works">Why It Works</a></li>
-  <li><a href="#the-evidence" id="toc-the-evidence" class="nav-link" data-scroll-target="#the-evidence">The Evidence</a></li>
-  <li><a href="#key-insight-for-today" id="toc-key-insight-for-today" class="nav-link" data-scroll-target="#key-insight-for-today">Key Insight for Today</a></li>
-  </ul></li>
-  <li><a href="#principle-2-the-personalisation-effect" id="toc-principle-2-the-personalisation-effect" class="nav-link" data-scroll-target="#principle-2-the-personalisation-effect">Principle 2: The Personalisation Effect</a>
-  <ul class="collapse">
-  <li><a href="#the-research-1" id="toc-the-research-1" class="nav-link" data-scroll-target="#the-research-1">The Research</a></li>
-  <li><a href="#why-it-works-1" id="toc-why-it-works-1" class="nav-link" data-scroll-target="#why-it-works-1">Why It Works</a></li>
-  <li><a href="#the-evidence-1" id="toc-the-evidence-1" class="nav-link" data-scroll-target="#the-evidence-1">The Evidence</a></li>
-  </ul></li>
-  <li><a href="#how-ai-enables-this-at-scale" id="toc-how-ai-enables-this-at-scale" class="nav-link" data-scroll-target="#how-ai-enables-this-at-scale">How AI Enables This at Scale</a>
-  <ul class="collapse">
-  <li><a href="#the-traditional-challenge" id="toc-the-traditional-challenge" class="nav-link" data-scroll-target="#the-traditional-challenge">The Traditional Challenge</a></li>
-  <li><a href="#the-ai-solution" id="toc-the-ai-solution" class="nav-link" data-scroll-target="#the-ai-solution">The AI Solution</a></li>
-  <li><a href="#todays-goal" id="toc-todays-goal" class="nav-link" data-scroll-target="#todays-goal">Today’s Goal</a></li>
-  </ul></li>
-  <li><a href="#the-workshop-as-worked-example" id="toc-the-workshop-as-worked-example" class="nav-link" data-scroll-target="#the-workshop-as-worked-example">The Workshop as Worked Example</a></li>
-  <li><a href="#research-references" id="toc-research-references" class="nav-link" data-scroll-target="#research-references">Research References</a></li>
+  <li><a href="#cognitive-load-theory-educational-ai" id="toc-cognitive-load-theory-educational-ai" class="nav-link" data-scroll-target="#cognitive-load-theory-educational-ai"><i class="bi-file-slides " style="" role="img" aria-hidden="true"></i> Cognitive Load Theory &amp; Educational AI</a></li>
+  <li><a href="#three-types-of-cognitive-load" id="toc-three-types-of-cognitive-load" class="nav-link" data-scroll-target="#three-types-of-cognitive-load">Three Types of Cognitive Load</a></li>
+  <li><a href="#evidence-based-effects-from-cognitive-load-research" id="toc-evidence-based-effects-from-cognitive-load-research" class="nav-link" data-scroll-target="#evidence-based-effects-from-cognitive-load-research">Evidence-Based Effects from Cognitive Load Research</a></li>
+  <li><a href="#how-this-guides-our-workshop-tool" id="toc-how-this-guides-our-workshop-tool" class="nav-link" data-scroll-target="#how-this-guides-our-workshop-tool">How This Guides Our Workshop Tool</a></li>
   </ul>
 </nav>
     </div>
@@ -572,199 +568,112 @@ div.callout-timing.callout-style-default .callout-icon::before, div.callout-timi
 </ol>
 <hr>
 </section>
-<section id="cognitive-load-theory-basics" class="level2">
-<h2 class="anchored" data-anchor-id="cognitive-load-theory-basics">Cognitive Load Theory Basics</h2>
-<p><strong>Working memory</strong> is limited:</p>
-<ul>
-<li>Can only hold 3-7 items at once</li>
-<li>Gets overloaded when learning complex new material</li>
-<li>This is why learning can feel overwhelming</li>
-</ul>
-<p><strong>Long-term memory</strong> is unlimited:</p>
-<ul>
-<li>Stores knowledge as organised schemas</li>
-<li>Accessed automatically when needed</li>
-<li>Goal of learning: Build rich schemas in long-term memory</li>
-</ul>
-<p><strong>The challenge:</strong> How do we get information from working memory into long-term memory without overload?</p>
+<section id="cognitive-load-theory-educational-ai" class="level2">
+<h2 class="anchored" data-anchor-id="cognitive-load-theory-educational-ai"><i class="bi-file-slides " style="" role="img" aria-hidden="true"></i> Cognitive Load Theory &amp; Educational AI</h2>
+    <p><a href="../../slides/theory/index.html" target="_blank">View slides in full screen</a></p>
+       <div class="ratio ratio-16x9">
+      <iframe class="slide-deck" src="../../slides/theory/index.html" height="500px"></iframe>
+    </div>
+  
 <hr>
 </section>
-<section id="principle-1-the-worked-example-effect" class="level2">
-<h2 class="anchored" data-anchor-id="principle-1-the-worked-example-effect">Principle 1: The Worked Example Effect</h2>
-<section id="the-research" class="level3">
-<h3 class="anchored" data-anchor-id="the-research">The Research</h3>
-<blockquote class="blockquote">
-<p><strong>“Novice learners who are given worked examples to study perform better on subsequent tests than learners who are required to solve the equivalent problems themselves.”</strong></p>
-<p>— NSW Centre for Education Statistics and Evaluation (2017, p.&nbsp;7)</p>
-</blockquote>
-</section>
-<section id="why-it-works" class="level3">
-<h3 class="anchored" data-anchor-id="why-it-works">Why It Works</h3>
-<p><strong>Problem-solving for novices = cognitive overload</strong></p>
-<ul>
-<li>Must search for solution strategies</li>
-<li>Must test each strategy</li>
-<li>Must monitor progress</li>
-<li>Must learn the concept</li>
-<li><strong>Too much for working memory!</strong></li>
-</ul>
-<p><strong>Studying worked examples = reduced load</strong></p>
-<ul>
-<li>Solution is shown</li>
-<li>Can focus on understanding the pattern</li>
-<li>More capacity for schema construction</li>
-<li><strong>Learning is more efficient</strong></li>
-</ul>
-</section>
-<section id="the-evidence" class="level3">
-<h3 class="anchored" data-anchor-id="the-evidence">The Evidence</h3>
-<ul>
-<li><strong>Effect size: 0.52</strong> across multiple studies (Crissman, 2006)</li>
-<li>Particularly strong for novices (Cooper &amp; Sweller, 1987)</li>
-<li>Diminishes as expertise grows (Kalyuga et al., 2003)</li>
-</ul>
-</section>
-<section id="key-insight-for-today" class="level3">
-<h3 class="anchored" data-anchor-id="key-insight-for-today">Key Insight for Today</h3>
-<p><strong>You are novices</strong> at building educational AI tools with PydanticAI and Marimo.</p>
-<p><strong>Therefore:</strong> We’ll show you a complete, working solution first, then you’ll study and modify it.</p>
+<section id="three-types-of-cognitive-load" class="level2">
+<h2 class="anchored" data-anchor-id="three-types-of-cognitive-load">Three Types of Cognitive Load</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 14%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Load Type</th>
+<th>Source</th>
+<th>Effect on Learning</th>
+<th>Design Implication</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Intrinsic Load</strong></td>
+<td>Inherent complexity of the material and prior knowledge of learner</td>
+<td>Necessary for learning (but can cause overload if too high)</td>
+<td>Use worked examples, simple-to-complex sequencing, part-whole approaches</td>
+</tr>
+<tr class="even">
+<td><strong>Extraneous Load</strong></td>
+<td>Poorly designed instruction that doesn’t facilitate schema construction</td>
+<td>Harmful - does not contribute to learning</td>
+<td>Eliminate redundancy, integrate information sources, use dual modality</td>
+</tr>
+<tr class="odd">
+<td><strong>Germane Load</strong></td>
+<td>Well-designed instruction that directly facilitates schema construction and automation</td>
+<td>Helpful - directly contributes to learning</td>
+<td>Provide worked examples, guided practice, scaffolding that fades</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Principle</strong>: Total Cognitive Load = Intrinsic + Extraneous + Germane</p>
+<p><strong>Goal</strong>: Minimize extraneous load, optimize germane load, manage intrinsic load appropriately for learner expertise level.</p>
 <hr>
 </section>
-</section>
-<section id="principle-2-the-personalisation-effect" class="level2">
-<h2 class="anchored" data-anchor-id="principle-2-the-personalisation-effect">Principle 2: The Personalisation Effect</h2>
-<section id="the-research-1" class="level3">
-<h3 class="anchored" data-anchor-id="the-research-1">The Research</h3>
-<blockquote class="blockquote">
-<p><strong>“Familiar contexts require less cognitive effort to process, reducing extraneous cognitive load and improving learning outcomes.”</strong></p>
-<p>— Cordova &amp; Lepper (1996)</p>
-</blockquote>
-</section>
-<section id="why-it-works-1" class="level3">
-<h3 class="anchored" data-anchor-id="why-it-works-1">Why It Works</h3>
-<p><strong>Generic examples:</strong></p>
-<pre><code>Calculate the correlation between Variable X and Variable Y.
-X: [10, 15, 20, 25, 30]
-Y: [2, 4, 6, 8, 10]</code></pre>
-<ul>
-<li>Must process abstract variables</li>
-<li>No connection to existing knowledge</li>
-<li>Higher cognitive load</li>
-</ul>
-<p><strong>Personalised examples:</strong></p>
-<pre><code>You love cycling. Calculate the correlation between your
-weekly training hours and your average speed:
-
-Training hours: [10, 15, 20, 25, 30]
-Average speed: [25, 27, 29, 31, 33] km/h</code></pre>
-<ul>
-<li>Connects to existing knowledge (cycling)</li>
-<li>Easier to process (familiar context)</li>
-<li>More motivation (personal relevance)</li>
-<li>Lower cognitive load</li>
-</ul>
-</section>
-<section id="the-evidence-1" class="level3">
-<h3 class="anchored" data-anchor-id="the-evidence-1">The Evidence</h3>
-<ul>
-<li>Increased motivation and engagement (Cordova &amp; Lepper, 1996)</li>
-<li>Better learning outcomes when contexts are familiar</li>
-<li>Particularly effective when combined with worked examples</li>
-</ul>
+<section id="evidence-based-effects-from-cognitive-load-research" class="level2">
+<h2 class="anchored" data-anchor-id="evidence-based-effects-from-cognitive-load-research">Evidence-Based Effects from Cognitive Load Research</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 28%">
+<col style="width: 53%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Effect</th>
+<th>Description</th>
+<th>Application to AI Tools</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Worked Example Effect</strong></td>
+<td>Novices learn better from studying complete solutions than solving problems independently (effect size: 0.52)</td>
+<td>AI should generate complete, step-by-step solutions for novices to study</td>
+</tr>
+<tr class="even">
+<td><strong>Expertise Reversal Effect</strong></td>
+<td>As expertise increases, worked examples become less effective and can be counterproductive</td>
+<td>Personalize based on learner level - more guidance for novices, less for experts</td>
+</tr>
+<tr class="odd">
+<td><strong>Redundancy Effect</strong></td>
+<td>Presenting the same information in multiple forms increases load without aiding learning</td>
+<td>AI should avoid repeating information unnecessarily in text and diagrams</td>
+</tr>
+<tr class="even">
+<td><strong>Split Attention Effect</strong></td>
+<td>Requiring learners to process separate sources simultaneously increases load</td>
+<td>AI should integrate text and visuals, not require mental integration</td>
+</tr>
+<tr class="odd">
+<td><strong>Modality Effect</strong></td>
+<td>Using both visual and auditory channels can increase working memory capacity</td>
+<td>Consider multimodal AI outputs (text + narration, diagrams + audio explanation)</td>
+</tr>
+</tbody>
+</table>
 <hr>
 </section>
-</section>
-<section id="how-ai-enables-this-at-scale" class="level2">
-<h2 class="anchored" data-anchor-id="how-ai-enables-this-at-scale">How AI Enables This at Scale</h2>
-<section id="the-traditional-challenge" class="level3">
-<h3 class="anchored" data-anchor-id="the-traditional-challenge">The Traditional Challenge</h3>
-<p><strong>Creating personalised worked examples is labor-intensive:</strong></p>
-<ul>
-<li>Must know each student’s interests</li>
-<li>Must create unique examples for each concept</li>
-<li>Must ensure quality and accuracy</li>
-<li><strong>Doesn’t scale beyond small classes</strong></li>
-</ul>
-</section>
-<section id="the-ai-solution" class="level3">
-<h3 class="anchored" data-anchor-id="the-ai-solution">The AI Solution</h3>
-<p><strong>Large language models can:</strong></p>
-<ul>
-<li>Generate unique examples on demand</li>
-<li>Weave personal contexts naturally</li>
-<li>Maintain pedagogical quality (with structured outputs)</li>
-<li><strong>Scale to unlimited students</strong></li>
-</ul>
-</section>
-<section id="todays-goal" class="level3">
-<h3 class="anchored" data-anchor-id="todays-goal">Today’s Goal</h3>
-<p>Build a tool that:</p>
+<section id="how-this-guides-our-workshop-tool" class="level2">
+<h2 class="anchored" data-anchor-id="how-this-guides-our-workshop-tool">How This Guides Our Workshop Tool</h2>
+<p><strong>The personalized worked example generator applies these principles:</strong></p>
 <ol type="1">
-<li>Collects learner interests, hobbies, goals</li>
-<li>Generates personalised worked examples</li>
-<li>Teaches concepts through familiar contexts</li>
-<li>Uses PydanticAI to ensure structured, quality output</li>
+<li><strong>Manages Intrinsic Load</strong>: Allows learners to select concepts matching their current level</li>
+<li><strong>Reduces Extraneous Load</strong>: Presents clear, integrated examples without redundancy</li>
+<li><strong>Maximizes Germane Load</strong>: Provides complete solutions that promote schema construction</li>
+<li><strong>Leverages Worked Example Effect</strong>: Generates full solutions for study, not partial hints</li>
+<li><strong>Enables Personalization</strong>: Uses familiar contexts to reduce extraneous cognitive load</li>
 </ol>
-<hr>
-</section>
-</section>
-<section id="the-workshop-as-worked-example" class="level2">
-<h2 class="anchored" data-anchor-id="the-workshop-as-worked-example">The Workshop as Worked Example</h2>
-<div class="callout callout-style-simple callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Meta-Pedagogical Design
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>This workshop itself demonstrates the worked example principle:</strong></p>
-<section id="traditional-workshop-problem-solving" class="level3">
-<h3 class="anchored" data-anchor-id="traditional-workshop-problem-solving">Traditional Workshop (Problem-Solving)</h3>
-<pre><code>"Here are the requirements. Build a personalised
-example generator. We'll help when you get stuck."</code></pre>
-<p>→ High cognitive load, potential frustration, unclear pattern</p>
-</section>
-<section id="our-workshop-worked-example" class="level3">
-<h3 class="anchored" data-anchor-id="our-workshop-worked-example">Our Workshop (Worked Example)</h3>
-<pre><code>"Here's a complete solution. Let's study how it works.
-Now modify it for your needs."</code></pre>
-<p>→ Lower cognitive load, clearer pattern, better transfer</p>
-<p><strong>Why?</strong> Because you’re learning a new domain (educational AI tools with PydanticAI/Marimo), you’re <strong>novices</strong>. The research says worked examples are more effective than unguided problem-solving for novices.</p>
-</section>
-</div>
-</div>
-<hr>
-</section>
-<section id="research-references" class="level2">
-<h2 class="anchored" data-anchor-id="research-references">Research References</h2>
-<p><strong>Cooper, G., &amp; Sweller, J. (1987)</strong>. Effects of schema acquisition and rule automation on mathematical problem-solving transfer. <em>Journal of Educational Psychology</em>, 79(4), 347-362.</p>
-<p><strong>Cordova, D. I., &amp; Lepper, M. R. (1996)</strong>. Intrinsic motivation and the process of learning: Beneficial effects of contextualization, personalisation, and choice. <em>Journal of Educational Psychology</em>, 88(4), 715.</p>
-<p><strong>Crissman, J. (2006)</strong>. <em>The design and utilization of effective worked examples: A meta-analysis</em> (Doctoral dissertation). University of Nebraska, Lincoln.</p>
-<p><strong>Kalyuga, S., Ayres, P., Chandler, P., &amp; Sweller, J. (2003)</strong>. The expertise reversal effect. <em>Educational Psychologist</em>, 38(1), 23-31.</p>
-<p><strong>NSW Centre for Education Statistics and Evaluation (2017)</strong>. <em>Cognitive load theory: Research that teachers really need to understand</em>. <a href="https://education.nsw.gov.au/about-us/education-data-and-research/cese/publications/literature-reviews/cognitive-load-theory">Link</a></p>
-<p><strong>Sweller, J. (1988)</strong>. Cognitive load during problem solving: Effects on learning. <em>Cognitive Science</em>, 12(2), 257-285.</p>
-<hr>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Key Takeaways
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li><strong>Worked examples reduce cognitive load</strong> for novices</li>
-<li><strong>Personalisation makes examples easier</strong> to process</li>
-<li><strong>AI can scale</strong> personalised worked examples</li>
-<li><strong>This workshop</strong> is designed as a worked example you’ll study</li>
-</ol>
-</div>
-</div>
 <hr>
 <p><strong>Next:</strong> <a href="../../workshop/demo/index.html">See the Demo</a> - We’ll show you the complete application in action</p>
 
