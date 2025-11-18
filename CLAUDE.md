@@ -193,6 +193,23 @@ workshop/01-module-name/
 - **Git-friendly**: Source as Python files
 - **Integrated**: Works with custom callouts
 
+#### Editing Marimo Notebooks
+
+**IMPORTANT**: When editing Marimo notebooks, always run `uvx marimo check` on the file and fix all issues that you find.
+
+```bash
+# After editing any .py marimo notebook:
+uvx marimo check path/to/notebook.py
+
+# Fix any errors reported before committing
+```
+
+This ensures:
+- Cell dependencies are correctly structured
+- No circular dependencies exist
+- Notebook will run reliably in production
+- Proper reactivity in the marimo runtime
+
 ### Publishing
 1. Render: `quarto render` (outputs to docs/)
 2. Push to main branch
