@@ -1,0 +1,227 @@
+---
+title: "Demo: The Complete Application"
+---
+
+::: {.callout-schedule icon=false}
+## ⏱️ Duration: 20 minutes
+:::
+
+## Purpose of This Demo
+
+**Show participants what's possible** - demonstrate the FULL complex application with all 3 domains and 16 concepts.
+
+**Set realistic expectations** - they will build a SIMPLER version (1 domain, 3-4 concepts) in the hands-on section.
+
+**Activate curiosity** - see the power of AI-generated personalized worked examples.
+
+---
+
+## Demo Strategy
+
+::: {.callout-important}
+## 🎯 Key Message
+
+**"This complex app took hours to build. Today you'll learn the pattern by modifying a simplified version. By understanding the pattern, you could extend it to match this complexity."**
+:::
+
+---
+
+## Live Demonstration (15 minutes)
+
+### Setup (Pre-workshop)
+
+**Before workshop starts:**
+1. Have the deployed HuggingFace Space open: `https://huggingface.co/spaces/virtuelleakademie/clt-worked-example-weaver`
+2. Or run locally: `marimo run workshop/part-3-build/app.py`
+3. Test that generation works with your OpenAI API key
+
+### Demo Script
+
+#### 1. Show the Interface (2 min)
+
+**Scroll through the app:**
+- "This is a personalized worked example generator"
+- "Notice the clean interface - learner profile, concept selection, generate button"
+- "Built with Marimo - reactive Python notebooks"
+
+#### 2. Fill in Profile - Programming Domain (3 min)
+
+**Choose an engaging example:**
+```
+Name: Sarah
+Domain: Programming (Python)
+Specific interest: Web development
+Hobby/passion: Baking
+Goal: Build a recipe sharing website
+Level: Beginner
+```
+
+**Narrate as you type:**
+- "Sarah is interested in web development"
+- "She loves baking - that's her personal context"
+- "She wants to build a recipe website - clear goal"
+
+**Select concept:**
+- "Let's teach her about For Loops"
+- "Notice: beginner level concept"
+
+#### 3. Generate Example (5 min)
+
+**Click Generate:**
+- "This takes 30-60 seconds - GPT-5.1 is creating a personalized example"
+- While waiting: "The AI is weaving Sarah's baking interest into a programming lesson"
+
+**Review Generated Example:**
+- **Title**: Notice how it mentions her interest
+- **Problem**: Set in her context (recipes, baking)
+- **Data**: Realistic for her scenario
+- **Solution**: Complete, step-by-step, with code
+- **Connection to Goal**: Explicitly links to recipe website
+- **Practice Suggestion**: Another baking-related problem
+
+**Key point:** "This isn't generic - it's tailored to Sarah's interests and goals"
+
+#### 4. Show Second Domain - Health Sciences (3 min)
+
+**Clear and start new profile:**
+```
+Name: Marcus
+Domain: Health Sciences (Statistics)
+Specific interest: Sports performance
+Hobby/passion: Running
+Goal: Improve marathon time
+Level: Intermediate
+```
+
+**Select concept:**
+- "Linear Regression - intermediate level"
+
+**Generate and show:**
+- "Now the example uses running data"
+- "Predicting race times from training volume"
+- "Same tool, completely different domain and context"
+
+#### 5. Show Third Domain - Agronomy (2 min)
+
+**Optional if time allows:**
+```
+Name: Elena
+Domain: Agronomy
+Specific interest: Coffee farming
+Hobby/passion: Sustainability
+Goal: Increase yield sustainably
+Level: Beginner
+```
+
+**Point out:**
+- "Three complete domains"
+- "16 total concepts"
+- "Unlimited personalization possibilities"
+
+---
+
+## Key Points to Emphasize
+
+### 1. Complexity
+
+**What participants see:**
+- 3 complete domains
+- 16 concepts total
+- Full production app
+- Deployed to cloud
+
+**What they'll build:**
+- 1 domain (their choice)
+- 3-4 concepts
+- Local development
+- Can deploy later (optional)
+
+### 2. The Pattern
+
+**This app demonstrates:**
+- ✅ Pydantic data models (structured input/output)
+- ✅ PydanticAI agent (AI with type safety)
+- ✅ Marimo reactive UI (automatic updates)
+- ✅ Concept library (extensible design)
+
+**You'll learn the pattern, then extend it.**
+
+### 3. Personalization Power
+
+**Without AI:**
+- Creating this many personalized examples manually = impossible
+- Each example takes 15-30 minutes to craft
+- 16 concepts × 20 students = 320 unique examples needed
+
+**With AI:**
+- Generate on-demand
+- Unique for each learner
+- Maintains quality (structured outputs)
+- Scales infinitely
+
+---
+
+## Transition to Build Section
+
+::: {.callout-checkpoint icon=false}
+## ✅ Checkpoint Questions
+
+**Ask participants:**
+
+1. "What impressed you most about the demo?"
+2. "How could you use personalized worked examples in YOUR teaching?"
+3. "What domain would you want to add?"
+
+**Common responses:**
+- "The personalization is impressive"
+- "I teach [X], could I add that domain?"
+- "How hard is it to add new concepts?"
+
+**Your response:**
+- "Great questions! In the next section, you'll work with a simplified version"
+- "You'll see exactly how concepts are structured"
+- "And in the Extend section, you'll design your own additions"
+:::
+
+---
+
+## Technical Notes for Instructors
+
+### If Demo Fails
+
+**Backup plan:**
+1. Show pre-recorded video
+2. Use screenshots in slides
+3. Walk through the code structure instead
+
+### Common Demo Issues
+
+**Generation takes too long:**
+- Have pre-generated examples ready as screenshots
+- Explain: "Production would cache common patterns"
+
+**API error:**
+- Backup: Show code that would generate it
+- Explain: "This is why we provide starter template - ensures it works"
+
+### Customization for Your Workshop
+
+**Domains to demo:**
+- Choose domains relevant to your audience
+- If all participants teach programming → focus on that
+- If mixed → show variety
+
+---
+
+## What Participants Should Understand
+
+After this demo, participants should know:
+
+1. **The end goal** - What a complete personalized example generator looks like
+2. **The power** - How AI enables personalization at scale
+3. **The scope** - They'll build a simpler version to learn the pattern
+4. **The potential** - How they could extend it for their teaching
+
+---
+
+**Next:** [Build Section](../build/index.qmd) - Now you'll work with the code

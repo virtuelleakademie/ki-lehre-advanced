@@ -1,0 +1,464 @@
+---
+title: "Build: Hands-On with the Starter Template"
+---
+
+::: {.callout-schedule icon=false}
+## ⏱️ Duration: 90 minutes
+
+- Setup (10 min)
+- Code walkthrough (20 min)
+- Modify concepts (40 min)
+- Test locally (15 min)
+- Debug buffer (5 min)
+:::
+
+---
+
+## Learning Objectives
+
+By the end of this section, you will:
+
+1. **Understand** the code structure of the worked example generator
+2. **Modify** the starter template to add new concepts
+3. **Test** your modifications locally
+4. **See** how PydanticAI and Marimo work together
+
+---
+
+## Part 1: Setup (10 minutes)
+
+### Prerequisites Check
+
+::: {.callout-setup icon=false}
+## ✅ Required Before Workshop
+
+You should have installed:
+- Python 3.10 or higher
+- `marimo`, `pydantic-ai`, `openai` packages
+- OpenAI API key set as environment variable
+
+**Test command:**
+```bash
+marimo tutorial intro
+```
+
+If this works, you're ready!
+:::
+
+### Clone the Starter Template
+
+**Option A: Download from GitHub**
+```bash
+git clone https://github.com/virtuelleakademie/ki-lehre-advanced.git
+cd ki-lehre-advanced/starter-template
+```
+
+**Option B: Copy provided USB stick**
+```bash
+cp -r /path/to/usb/starter-template ./
+cd starter-template
+```
+
+### Verify Setup
+
+```bash
+# Set your OpenAI API key
+export OPENAI_API_KEY="sk-your-key-here"
+
+# Run the starter app
+marimo edit simplified-weaver.py
+```
+
+::: {.callout-caution}
+## ⚠️ Troubleshooting
+
+**"marimo: command not found"**
+```bash
+pip install marimo
+```
+
+**"No module named 'pydantic_ai'"**
+```bash
+pip install pydantic-ai openai pydantic
+```
+
+**"OpenAI API key not found"**
+```bash
+export OPENAI_API_KEY="sk-your-actual-key"
+```
+:::
+
+---
+
+## Part 2: Code Walkthrough (20 minutes)
+
+### File Structure
+
+The `simplified-weaver.py` file contains:
+
+```python
+# 1. Imports and setup
+# 2. Data models (Pydantic)
+# 3. Concept library (ONE domain)
+# 4. AI agent configuration
+# 5. Marimo UI cells
+# 6. Generation function
+```
+
+### Key Components
+
+#### 1. Data Models (Lines 10-60)
+
+**LearnerProfile** - What we collect:
+```python
+class LearnerProfile(BaseModel):
+    name: str
+    domain: Literal["programming"]  # Only 1 domain
+    specific_interest: str
+    hobby_or_passion: str
+    goal: str
+    background_level: Literal["beginner", "intermediate", "advanced"]
+```
+
+**PersonalizedWorkedExample** - What AI generates:
+```python
+class PersonalizedWorkedExample(BaseModel):
+    title: str
+    problem_statement: str
+    given_data: str
+    step_by_step_solution: list[str]  # Multiple steps
+    final_answer: str
+    connection_to_goal: str
+    practice_suggestion: str
+```
+
+**Why Pydantic?**
+- Type safety - guarantees AI returns what we expect
+- Validation - catches errors before they reach users
+- Documentation - clear structure
+
+#### 2. Concept Library (Lines 62-100)
+
+```python
+CONCEPTS = {
+    "programming": [
+        {
+            "name": "For Loops",
+            "abstract": "Iterate through a sequence",
+            "difficulty": "beginner",
+            "typical_use": "Process lists, repeat actions"
+        },
+        {
+            "name": "Functions with Parameters",
+            "abstract": "Reusable code blocks with inputs",
+            "difficulty": "beginner",
+            "typical_use": "Organize code, avoid repetition"
+        },
+        {
+            "name": "String Formatting",
+            "abstract": "Create formatted text with f-strings",
+            "difficulty": "beginner",
+            "typical_use": "Display data, create messages"
+        }
+    ]
+}
+```
+
+**Structure:**
+- Each concept has: name, abstract, difficulty, typical use
+- Easy to add new concepts (we'll do this!)
+- Can add new domains by extending the dictionary
+
+#### 3. AI Agent (Lines 102-140)
+
+```python
+example_generator = Agent(
+    'openai:gpt-5.1',           # Model to use
+    result_type=PersonalizedWorkedExample,  # Structured output
+    system_prompt="""You are an expert educator...
+
+    Create personalized worked examples that:
+    1. Weave learner's interests naturally
+    2. Use their name throughout
+    3. Make data realistic
+    4. Connect to their goal
+    """
+)
+```
+
+**Key features:**
+- `result_type` ensures structured output (Pydantic model)
+- System prompt guides AI behavior
+- Model choice affects cost/quality
+
+#### 4. Generation Function (Lines 142-180)
+
+```python
+async def generate_example(profile, concept):
+    prompt = f"""
+    Create a worked example for:
+
+    LEARNER: {profile.name}
+    INTEREST: {profile.specific_interest}
+    HOBBY: {profile.hobby_or_passion}
+    GOAL: {profile.goal}
+    LEVEL: {profile.background_level}
+
+    CONCEPT: {concept['name']}
+    ...
+    """
+
+    result = await example_generator.run(prompt)
+    return result.data  # Returns PersonalizedWorkedExample
+```
+
+#### 5. Marimo UI Cells (Lines 182-end)
+
+Marimo creates reactive cells:
+- `@app.cell` decorator
+- Auto-updates when dependencies change
+- No stale state (unlike Jupyter)
+
+**UI components:**
+- `mo.ui.text()` - Text inputs
+- `mo.ui.dropdown()` - Concept selection
+- `mo.ui.button()` - Generate button
+- `mo.md()` - Markdown display
+
+---
+
+## Part 3: Modify - Add Concepts (40 minutes)
+
+### Your Task
+
+**Add 1-2 new concepts** to the Programming domain.
+
+**Suggestions:**
+- List Comprehensions
+- Dictionary Methods
+- File I/O
+- Error Handling
+- Object-Oriented Programming basics
+
+### Step-by-Step Instructions
+
+#### 1. Choose Your Concepts
+
+**Beginner concepts:**
+- Variables and data types
+- Conditional statements (if/else)
+- Basic list operations
+- File reading/writing
+
+**Intermediate concepts:**
+- List comprehensions
+- Dictionary methods
+- Lambda functions
+- Exception handling
+
+#### 2. Add to CONCEPTS Dictionary
+
+**Find this section** (around line 62):
+```python
+CONCEPTS = {
+    "programming": [
+        {
+            "name": "For Loops",
+            ...
+        },
+        {
+            "name": "Functions with Parameters",
+            ...
+        },
+        {
+            "name": "String Formatting",
+            ...
+        }
+        # ADD YOUR CONCEPTS HERE!
+    ]
+}
+```
+
+**Add your concept:**
+```python
+        {
+            "name": "List Comprehensions",
+            "abstract": "Create new lists using concise syntax",
+            "difficulty": "intermediate",
+            "typical_use": "Transform data, filter lists elegantly"
+        },
+```
+
+::: {.callout-try icon=false}
+## 🔄 Try It: Add Your First Concept
+
+1. Choose a programming concept you teach
+2. Write the abstract (1 sentence - what it does)
+3. Set difficulty level (beginner/intermediate/advanced)
+4. Describe typical use (when to use it)
+5. Add to the CONCEPTS dictionary
+:::
+
+#### 3. Customize the System Prompt (Optional)
+
+Want more control over how AI generates examples?
+
+**Find the system prompt** (around line 110):
+```python
+system_prompt="""You are an expert educator...
+"""
+```
+
+**Modifications you could make:**
+- Add emphasis on code comments
+- Request specific programming style
+- Add warnings about common errors
+- Include best practices
+
+**Example addition:**
+```python
+system_prompt="""You are an expert educator...
+
+IMPORTANT: For programming examples:
+- Include detailed code comments
+- Mention common pitfalls
+- Show best practices
+- Use modern Python syntax (f-strings, type hints)
+"""
+```
+
+#### 4. Save and Test
+
+After adding concepts:
+1. Save the file (Ctrl+S or Cmd+S)
+2. Marimo auto-reloads
+3. New concepts appear in dropdown
+
+---
+
+## Part 4: Test Locally (15 minutes)
+
+### Generate Examples with Your Concepts
+
+::: {.callout-individual icon=false}
+## 💻 Individual Testing
+
+1. **Fill in your own profile:**
+   - Use YOUR name
+   - YOUR specific interest in programming
+   - YOUR hobby
+   - YOUR goal
+
+2. **Select one of YOUR new concepts**
+
+3. **Generate and review:**
+   - Does it use your personal context?
+   - Is the code correct?
+   - Are the explanations clear?
+   - Does it connect to your goal?
+
+4. **Try different profiles:**
+   - Change the interest/hobby
+   - See how examples change
+   - Test different difficulty levels
+:::
+
+### Quality Checks
+
+**Good personalized example:**
+- ✅ Uses learner's name throughout
+- ✅ Data/scenario matches their interest
+- ✅ Code is correct and runnable
+- ✅ Explanations are clear
+- ✅ Explicitly connects to their goal
+
+**Signs of poor generation:**
+- ❌ Generic example with name tacked on
+- ❌ Syntax errors in code
+- ❌ Forced connection to interest
+- ❌ Skips explanation steps
+
+### Iterate and Improve
+
+**If examples aren't great:**
+
+1. **Check concept description** - Is "abstract" clear?
+2. **Adjust system prompt** - Add more specific instructions
+3. **Change difficulty** - Does it match learner level?
+4. **Regenerate** - AI output varies, try again
+
+---
+
+## Part 5: Common Issues & Solutions
+
+### Issue: Concept doesn't appear in dropdown
+
+**Solution:**
+- Check JSON syntax (commas, brackets)
+- Ensure it's inside "programming" array
+- Save file and reload marimo
+
+### Issue: Generation fails with error
+
+**Possible causes:**
+```python
+# Missing comma
+{
+    "name": "For Loops",
+    ...
+}  # <- Need comma here!
+{
+    "name": "List Comprehensions",
+    ...
+}
+```
+
+### Issue: Examples are too generic
+
+**Solution: Enhance system prompt:**
+```python
+system_prompt="""...
+
+CRITICAL: Weave interests NATURALLY into the problem.
+Bad: "Calculate sum of recipe ingredients"
+Good: "You're building a recipe cost calculator for your
+baking blog. Here's how to sum ingredient costs..."
+"""
+```
+
+### Issue: API errors
+
+**Check:**
+- `OPENAI_API_KEY` is set correctly
+- API key has credits
+- Internet connection works
+
+---
+
+## What You've Learned
+
+By completing this section, you:
+
+1. ✅ **Understood** the code structure
+2. ✅ **Modified** the concept library
+3. ✅ **Tested** with your own profiles
+4. ✅ **Saw** how Pydantic ensures structure
+5. ✅ **Experienced** Marimo reactivity
+
+::: {.callout-checkpoint icon=false}
+## 🎯 Checkpoint
+
+**Can you answer:**
+- Where do you add new concepts?
+- What does `result_type=PersonalizedWorkedExample` do?
+- How does personalization reduce cognitive load?
+
+**Can you do:**
+- Add a new concept to the library?
+- Generate an example with your own profile?
+- Modify the system prompt?
+:::
+
+---
+
+**Next:** [Extend Section](../extend/index.qmd) - Design your own extensions in groups

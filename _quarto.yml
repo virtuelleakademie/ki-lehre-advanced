@@ -9,16 +9,11 @@ project:
     port: 8800
     browser: false
   output-dir: docs
-  render:         
+  render:
     - index.qmd
     - workshop/**/*.qmd
     - workshop/**/*.ipynb
-    - tutorials/**/*.qmd
-    - tutorials/**/*.ipynb
-    - exercises/**/*.qmd
-    - project/**/*.qmd
-    - slides/**/*.qmd
-    - slides/RAG.qmd
+    - hf-spaces/**/*.md
 
 website:
   title: "KI in der Lehre: Advanced"
@@ -42,23 +37,21 @@ website:
         href: workshop/index.qmd
         text: Workshop
 
-      - icon: briefcase
-        href: tutorials/index.qmd
-        text: Tutorials
+      - icon: easel
+        href: workshop/demo/index.qmd
+        text: Demo
 
-      - icon: pencil
-        href: exercises/index.qmd
-        text: Exercises
+      - icon: code-square
+        href: workshop/build/index.qmd
+        text: Build
 
-      # - icon: code-square
-      #   href: project/index.qmd
-      #   text: Project
+      - icon: people
+        href: workshop/extend/index.qmd
+        text: Extend
 
-      - icon: file-slides
-        text: "Slides" # {{< fa person-chalkboard >}}
-        menu:
-          - text: "Retrieval-augmented generation"
-            href: slides/RAG.qmd
+      - icon: book
+        href: workshop/resources/index.qmd
+        text: Resources
 
 
     tools:
@@ -79,52 +72,26 @@ website:
       search: true
       background: light
       contents:
-        - section: "Overview"
-          contents:
-            - workshop/index.qmd
-            - workshop/einstieg/index.qmd
+        - workshop/index.qmd
         - text: "---"
-        - section: "Part 1: Foundation"
+        - section: "Opening (10 min)"
           contents:
-            - workshop/part-1-foundation/index.qmd
-        - section: "Part 2: Design"
+            - workshop/opening/index.qmd
+        - section: "Theory (30 min)"
           contents:
-            - workshop/part-2-design/index.qmd
-        - section: "Part 3: Build"
+            - workshop/theory/index.qmd
+        - section: "Demo (20 min)"
           contents:
-            - workshop/part-3-build/index.qmd
-        - section: "Part 4: Interface"
+            - workshop/demo/index.qmd
+        - section: "Build (90 min)"
           contents:
-            - workshop/part-4-interface/index.qmd
-        - section: "Part 5: Deploy"
+            - workshop/build/index.qmd
+        - section: "Extend (30 min)"
           contents:
-            - workshop/part-5-deploy/index.qmd
-        - text: "---"
-        - section: "Closing"
+            - workshop/extend/index.qmd
+        - section: "Resources (10 min)"
           contents:
-            - workshop/diskussion/index.qmd
-        
-
-
-    - title: "Tutorials"
-      style: "docked"
-      search: true
-      background: light
-      contents:
-        - tutorials/index.qmd
-        - tutorials/setup-vscode/index.qmd
-        - tutorials/setup-openai/index.qmd
-        # - tutorials/exploring-openai-models/index.ipynb
-        # - tutorials/structured-output/index.ipynb
-
-    - title: "Exercises"
-      style: "docked"
-      search: true
-      background: light
-      contents:
-        - exercises/index.qmd
-        - text: "---"
-        - exercises/exercise-01/index.qmd
+            - workshop/resources/index.qmd
 
 page-footer:
   right:

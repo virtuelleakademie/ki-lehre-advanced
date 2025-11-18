@@ -9,26 +9,36 @@ format:
 
 ## Workshop Overview
 
-Welcome to this 3-hour workshop on building AI-powered educational tools grounded in Cognitive Load Theory. You'll create a complete, production-ready application that generates personalized worked examples tailored to individual learners' interests, goals, and contexts.
+Welcome to this 3-hour workshop on building AI-powered educational tools grounded in Cognitive Load Theory. You'll learn the pattern for creating personalized worked examples by modifying a working template.
+
+### What You'll Do
+
+1. **See a complete demo** - Experience the full complex application (3 domains, 16 concepts)
+2. **Study the code** - Understand how PydanticAI and Marimo work together
+3. **Modify a template** - Add concepts to a simplified version (1 domain, 3 concepts)
+4. **Design extensions** - Plan how to apply this to YOUR teaching
 
 ### What You'll Build
 
-A **Personalized Worked Example Generator** that:
+A simplified **Personalized Worked Example Generator** that:
 
 - Collects learner profile information (name, domain, interests, hobbies, goals, skill level)
-- Generates customized worked examples in three domains: Programming (Python), Health Sciences (Statistics), or Agronomy
+- Generates customized worked examples in ONE domain (you choose: Programming, Health Sciences, or Agronomy)
 - Weaves learner interests naturally into educational content
 - Provides step-by-step solutions with personal relevance
-- Deploys as a live web application on HuggingFace Spaces
+- Runs locally on your computer
+
+**Note:** The DEMO shows all 3 domains with 16 concepts. You'll build a SIMPLIFIED version (1 domain, 3-4 concepts) to learn the pattern.
 
 ### Learning Objectives
 
 By the end of this workshop, you will:
 
 1. **Understand** the worked example effect and personalization principle from Cognitive Load Theory
-2. **Build** a working personalized example generator using PydanticAI
-3. **Deploy** an interactive demo to HuggingFace Spaces
-4. **Possess** a template for creating domain-specific educational tools
+2. **Modify** a working template to add your own concepts
+3. **See** how PydanticAI ensures structured outputs
+4. **Design** extensions for your own teaching context
+5. **Possess** a template you can extend later
 
 ### Pedagogical Foundation
 
@@ -55,18 +65,17 @@ This workshop is grounded in **Cognitive Load Theory** (Sweller, 1988), specific
 
 ## Workshop Schedule
 
-::: {.callout-note icon=false}
-## ⏱️ 3-Hour Schedule (Worked Example Phases)
+::: {.callout-schedule icon=false}
+## ⏱️ 3-Hour Schedule
 
-| Time | Duration | Phase | Activity |
-|------|----------|-------|----------|
-| 0:00-0:10 | 10 min | **ACTIVATE** | [Opening: Experience the Principle](einstieg/index.qmd) |
-| 0:10-0:40 | 30 min | **PRESENT** | [Part 1: Foundation - See the Complete Solution](part-1-foundation/index.qmd) |
-| 0:40-1:10 | 30 min | **PRESENT** | [Part 2: Design - Understand the Structure](part-2-design/index.qmd) |
-| 1:10-2:00 | 50 min | **STUDY** | [Part 3: Build - Examine Each Component](part-3-build/index.qmd) |
-| 2:00-2:40 | 40 min | **UNDERSTAND** | [Part 4: Interface - Connect to Pedagogy](part-4-interface/index.qmd) |
-| 2:40-3:10 | 30 min | **APPLY** | [Part 5: Deploy - Make It Your Own](part-5-deploy/index.qmd) |
-| 3:10-3:20 | 10 min | **TRANSFER** | [Closing: Plan Your Educational Tools](diskussion/index.qmd) |
+| Time | Duration | Section | Activity |
+|------|----------|---------|----------|
+| 0:00-0:10 | 10 min | [**Opening**](opening/index.qmd) | Think-pair-share: Learning from examples |
+| 0:10-0:40 | 30 min | [**Theory**](theory/index.qmd) | Cognitive Load Theory principles |
+| 0:40-1:00 | 20 min | [**Demo**](demo/index.qmd) | See the complete application (all 3 domains) |
+| 1:00-2:30 | 90 min | [**Build**](build/index.qmd) | Hands-on: Modify starter template, add concepts |
+| 2:30-3:00 | 30 min | [**Extend**](extend/index.qmd) | Group activity: Design your extensions |
+| 3:00-3:10 | 10 min | [**Resources**](resources/index.qmd) | Links, documentation, next steps |
 :::
 
 ## Prerequisites
@@ -79,20 +88,19 @@ This workshop is grounded in **Cognitive Load Theory** (Sweller, 1988), specific
 
 ### Materials Required (Pre-Workshop)
 
-::: {.callout-important}
+::: {.callout-setup icon=false}
 ## 🛠️ Setup Required Before Workshop
 
 Please complete these steps before the workshop begins:
 
 1. **Python 3.10 or higher** installed
 2. **OpenAI API key** from [platform.openai.com](https://platform.openai.com)
-3. **HuggingFace account** from [huggingface.co](https://huggingface.co)
-4. **Code editor** or IDE (VS Code, PyCharm, etc.)
+3. **Code editor** (optional but helpful: VS Code, PyCharm, etc.)
 
 **Installation Commands:**
 
 ```bash
-pip install marimo pydantic-ai openai
+pip install marimo pydantic-ai openai pydantic
 export OPENAI_API_KEY="sk-your-key-here"
 ```
 
@@ -103,6 +111,8 @@ marimo tutorial intro
 ```
 
 If you see the marimo tutorial interface, you're ready!
+
+**Note:** You will NOT deploy to HuggingFace during the workshop - we'll work locally only.
 :::
 
 ### Target Audience
@@ -135,22 +145,29 @@ Show complete solution → Study each component → Explain design choices → A
 **Why?** Most of you are novices at building educational AI tools. Research shows studying worked examples is more effective than unguided problem-solving for novices.
 :::
 
-### The Five Phases
+### The Worked Example Approach
 
-1. **PRESENT** (Part 1-2) - See the complete, working solution
-2. **STUDY** (Part 3) - Examine how each component works
-3. **UNDERSTAND** (Part 4) - Connect design to learning science
-4. **APPLY** (Part 5) - Deploy and customize
-5. **TRANSFER** (Closing) - Plan tools for your own teaching context
+This workshop follows the worked example pattern:
+
+1. **ACTIVATE** (Opening) - Prior knowledge activation
+2. **PRESENT** (Theory + Demo) - See the complete solution
+3. **STUDY** (Build) - Examine and modify the code
+4. **UNDERSTAND** (Extend) - Connect to pedagogical applications
+5. **TRANSFER** (Resources) - Apply to your own teaching
 
 ### Fading Scaffolding
 
 Notice how support gradually decreases:
 
-- **Part 1-2**: Heavy guidance, complete explanations
-- **Part 3-4**: More independence, you make small modifications
-- **Part 5**: You apply the pattern with minimal guidance
-- **After**: You transfer to new domains independently
+- **Theory/Demo**: Full explanation, complete working application shown
+- **Build**: Scaffolded practice - modify template, add concepts
+- **Extend**: Independent design - plan your own extensions
+- **After workshop**: Transfer to new domains on your own
+
+**Key difference from traditional workshops:**
+- We DON'T ask you to build from scratch (too much cognitive load)
+- We DO show you a complete solution, then you modify it (worked example effect)
+- This reduces load and helps you see the pattern more clearly
 
 ::: {.callout-tip}
 ## 💡 Meta-Learning Moment
@@ -196,40 +213,39 @@ These insights will inform how YOU design worked examples for your students.
 - Docker + Marimo template available
 - Easy sharing with students/colleagues
 
-## Three Learning Domains
+## Learning Domains
 
-The tool supports three domains, each with 5-6 concepts:
+### The Complete Demo (What's Possible)
 
-### 1. Programming (Python)
+The DEMO application supports three domains with 16 total concepts:
 
-- For loops
-- List comprehensions
-- Dictionary methods
-- Functions with parameters
-- String formatting
+**1. Programming (Python)** - 5 concepts
+- For loops, List comprehensions, Dictionary methods, Functions, String formatting
 
-**Example Context**: Building a recipe website, photography portfolio, gaming tools
+**2. Health Sciences (Statistics)** - 6 concepts
+- Mean & SD, Correlation, Linear Regression, T-tests, Confidence Intervals, Effect Size
 
-### 2. Health Sciences (Statistics)
+**3. Agronomy (Agricultural Science)** - 5 concepts
+- Yield prediction, NPK optimization, Growing degree days, Water use efficiency, Cost-benefit
 
-- Mean and standard deviation
-- Correlation analysis
-- Linear regression
-- Independent t-tests
-- Confidence intervals
-- Effect size (Cohen's d)
+### Your Starter Template (What You'll Build)
 
-**Example Context**: Sports performance, nutrition tracking, patient outcomes
+You'll work with a **simplified version**:
 
-### 3. Agronomy (Agricultural Science)
+- **ONE domain** (Programming) with 3 concepts
+- For Loops, Functions with Parameters, String Formatting
+- Complete working code
+- Ready to extend with more concepts
 
-- Yield prediction
-- NPK optimization
-- Growing degree days
-- Water use efficiency
-- Cost-benefit analysis
+**In the Build section**, you'll:
+- Add 1-2 new concepts (e.g., List Comprehensions, Dictionary Methods)
+- Customize prompts
+- Test with your own profile
 
-**Example Context**: Family farms, specific crops, sustainable agriculture
+**After the workshop**, you can:
+- Add Health Sciences or Agronomy domains
+- Expand to match the demo's complexity
+- Create your own domain entirely
 
 ## Connection to Learning Science
 
@@ -250,20 +266,26 @@ See the [ki-lehre-intermediate workshop](https://virtuelleakademie.github.io/ki-
 
 ## Get Started
 
-Ready to begin? Start with the [opening activity](einstieg/index.qmd)!
+Ready to begin? Start with the [opening activity](opening/index.qmd)!
 
-::: {.callout-tip}
+::: {.callout-checkpoint icon=false}
 ## 🎯 Workshop Outcomes
 
-By the end, you'll have:
+By the end of this workshop, you'll have:
 
-✅ A working application deployed online
+✅ **Understanding** of Cognitive Load Theory principles (worked example + personalization effects)
 
-✅ Understanding of CLT principles in practice
+✅ **Experience** with PydanticAI and Marimo frameworks
 
-✅ A template for building educational AI tools
+✅ **Modified code** - Your own version with added concepts
 
-✅ Hands-on experience with modern AI frameworks
+✅ **Design plan** - Extensions for your teaching context
+
+✅ **Working template** - Code you can continue building on
+
+**You will NOT have:** A deployed production application (that's optional, for later)
+
+**You WILL have:** The pattern and skills to build educational AI tools
 :::
 
 ## Research References
