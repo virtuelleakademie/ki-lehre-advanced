@@ -244,18 +244,23 @@ with gr.Blocks(title="Worked Example Weaver", theme=gr.themes.Soft()) as demo:
         with gr.Column():
             gr.Markdown("## 👤 Step 1: Tell Us About Yourself")
 
-            name = gr.Textbox(label="Your first name", placeholder="e.g., Maria")
+            name = gr.Textbox(label="Your first name", placeholder="e.g., Maria", value="Alex")
             domain = gr.Dropdown(
                 choices=["Programming (Python)", "Health Sciences (Statistics)", "Agronomy (Agricultural Science)"],
-                label="Choose your learning domain"
+                label="Choose your learning domain",
+                value="Programming (Python)"
             )
-            interest = gr.Textbox(label="Your specific interest in this domain", placeholder="e.g., web development, sports nutrition, coffee farming")
-            hobby = gr.Textbox(label="A hobby or passion you have", placeholder="e.g., photography, cycling, cooking")
-            goal = gr.Textbox(label="What you want to achieve", placeholder="e.g., build a portfolio site, improve performance, increase yield")
+            interest = gr.Textbox(label="Your specific interest in this domain", placeholder="e.g., web development, sports nutrition, coffee farming", value="data analysis")
+            hobby = gr.Textbox(label="A hobby or passion you have", placeholder="e.g., photography, cycling, cooking", value="photography")
+            goal = gr.Textbox(label="What you want to achieve", placeholder="e.g., build a portfolio site, improve performance, increase yield", value="automate my photo workflow")
             level = gr.Dropdown(choices=["beginner", "intermediate", "advanced"], label="Your current level", value="beginner")
 
             gr.Markdown("## 📚 Step 2: Choose a Concept to Learn")
-            concept = gr.Dropdown(label="Choose a concept", choices=[])
+            concept = gr.Dropdown(
+                label="Choose a concept",
+                choices=["For Loops (beginner)", "List Comprehensions (intermediate)", "Dictionary Methods (beginner)", "Functions with Parameters (beginner)", "String Formatting (beginner)"],
+                value="List Comprehensions (intermediate)"
+            )
 
             domain.change(update_concepts, inputs=[domain], outputs=[concept])
 

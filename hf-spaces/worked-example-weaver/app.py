@@ -9,7 +9,7 @@ Based on research:
 
 import marimo
 
-__generated_with = "0.9.0"
+__generated_with = "0.17.8"
 app = marimo.App(width="medium")
 
 
@@ -20,8 +20,11 @@ def imports():
     from pydantic_ai import Agent
     from typing import Literal
     import os
+    from dotenv import load_dotenv
 
-    return mo, BaseModel, Field, Agent, Literal, os
+    # Load environment variables from .env file
+    load_dotenv()
+    return Agent, BaseModel, Field, Literal, mo
 
 
 @app.cell
@@ -124,7 +127,6 @@ def define_models(BaseModel, Field, Literal):
         practice_suggestion: str = Field(
             description="A similar problem they could try next, using their context"
         )
-
     return LearnerProfile, PersonalizedWorkedExample
 
 
@@ -236,17 +238,15 @@ def define_concepts():
             }
         ]
     }
-
-    return CONCEPTS,
+    return (CONCEPTS,)
 
 
 @app.cell
 def create_agent(Agent, PersonalizedWorkedExample):
     """Create the AI agent for generating personalized examples"""
 
-    example_generator = Agent(
+    example_generator = Agent[PersonalizedWorkedExample](
         'openai:gpt-5.1',
-        result_type=PersonalizedWorkedExample,
         system_prompt="""You are an expert educator who creates highly personalized
         worked examples that connect abstract concepts to learners' lived experiences.
 
@@ -320,9 +320,8 @@ def create_agent(Agent, PersonalizedWorkedExample):
         """
 
         result = await example_generator.run(prompt)
-        return result.data
-
-    return example_generator, generate_personalized_example
+        return result.output
+    return (generate_personalized_example,)
 
 
 @app.cell
@@ -377,15 +376,29 @@ def profile_inputs(mo):
         value="beginner",
         full_width=True
     )
-
-    return name_input, domain_input, interest_input, hobby_input, goal_input, level_input
+    return (
+        domain_input,
+        goal_input,
+        hobby_input,
+        interest_input,
+        level_input,
+        name_input,
+    )
 
 
 @app.cell
-def display_profile_form(mo, name_input, domain_input, interest_input, hobby_input, goal_input, level_input):
+def display_profile_form(
+    domain_input,
+    goal_input,
+    hobby_input,
+    interest_input,
+    level_input,
+    mo,
+    name_input,
+):
     """Display the profile form"""
 
-    mo.vstack([
+    _form = mo.vstack([
         name_input,
         domain_input,
         interest_input,
@@ -394,11 +407,19 @@ def display_profile_form(mo, name_input, domain_input, interest_input, hobby_inp
         level_input
     ])
 
+    _form
     return
 
 
 @app.cell
-def check_profile_complete(name_input, domain_input, interest_input, hobby_input, goal_input, level_input):
+def check_profile_complete(
+    domain_input,
+    goal_input,
+    hobby_input,
+    interest_input,
+    level_input,
+    name_input,
+):
     """Check if profile is complete"""
 
     profile_complete = all([
@@ -409,12 +430,20 @@ def check_profile_complete(name_input, domain_input, interest_input, hobby_input
         goal_input.value,
         level_input.value
     ])
-
-    return profile_complete,
+    return (profile_complete,)
 
 
 @app.cell
-def create_profile(profile_complete, LearnerProfile, name_input, domain_input, interest_input, hobby_input, goal_input, level_input):
+def create_profile(
+    LearnerProfile,
+    domain_input,
+    goal_input,
+    hobby_input,
+    interest_input,
+    level_input,
+    name_input,
+    profile_complete,
+):
     """Create profile object if form is complete"""
 
     if profile_complete:
@@ -428,16 +457,15 @@ def create_profile(profile_complete, LearnerProfile, name_input, domain_input, i
         )
     else:
         learner_profile = None
-
-    return learner_profile,
+    return (learner_profile,)
 
 
 @app.cell
-def show_profile_status(mo, profile_complete, learner_profile):
+def show_profile_status(learner_profile, mo, profile_complete):
     """Show profile status"""
 
     if profile_complete:
-        mo.callout(
+        _status = mo.callout(
             f"""
             ✅ **Profile Complete!**
 
@@ -446,11 +474,12 @@ def show_profile_status(mo, profile_complete, learner_profile):
             kind="success"
         )
     else:
-        mo.callout(
+        _status = mo.callout(
             "📝 Please fill in all fields above to continue.",
             kind="info"
         )
 
+    _status
     return
 
 
@@ -459,13 +488,16 @@ def concept_selection_header(mo, profile_complete):
     """Header for concept selection"""
 
     if profile_complete:
-        mo.md("---\n## 📚 Step 2: Choose a Concept to Learn")
+        _header = mo.md("---\n## 📚 Step 2: Choose a Concept to Learn")
+    else:
+        _header = None
 
+    _header
     return
 
 
 @app.cell
-def concept_selector_widget(mo, profile_complete, learner_profile, CONCEPTS):
+def concept_selector_widget(CONCEPTS, learner_profile, mo, profile_complete):
     """Create concept selector based on chosen domain"""
 
     if profile_complete and learner_profile:
@@ -480,91 +512,117 @@ def concept_selector_widget(mo, profile_complete, learner_profile, CONCEPTS):
             value=None,
             full_width=True
         )
+    else:
+        concept_selector = None
+    return (concept_selector,)
 
-        mo.vstack([
+
+@app.cell
+def display_concept_selector(concept_selector, mo, profile_complete):
+    """Display the concept selector"""
+
+    if profile_complete and concept_selector is not None:
+        _display = mo.vstack([
             concept_selector,
             mo.callout(
                 "👆 Select a concept from the dropdown above to continue.",
                 kind="info"
-            ) if not concept_selector.value else None
+            ) if not concept_selector.value else mo.callout(
+                "✅ Great! Now click the button below to generate your example.",
+                kind="success"
+            )
         ])
     else:
-        concept_selector = None
+        _display = None
 
-    return concept_selector,
+    _display
+    return
 
 
 @app.cell
-def generate_button_widget(mo, profile_complete, concept_selector):
-    """Create generate button"""
+def generate_button_widget(concept_selector, mo, profile_complete):
+    """Create and display generate button"""
 
-    if profile_complete and concept_selector and concept_selector.value:
-        generate_button = mo.ui.button(
+    if profile_complete and concept_selector is not None and concept_selector.value:
+        generate_button = mo.ui.run_button(
             label="✨ Generate My Personalized Example",
             kind="success",
-            full_width=True
         )
+    else:
+        generate_button = None
+    return (generate_button,)
 
-        mo.vstack([
+
+@app.cell
+def display_generate_button(generate_button, mo):
+    """Display the generate button"""
+
+    if generate_button is not None:
+        _display = mo.vstack([
             mo.md("---"),
             mo.md("## 🎯 Step 3: Generate Your Example"),
             generate_button
         ])
     else:
-        generate_button = None
+        _display = None
 
-    return generate_button,
+    _display
+    return
 
 
 @app.cell
-async def generate_and_display(mo, generate_button, learner_profile, concept_selector, generate_personalized_example):
+async def generate_and_display(
+    concept_selector,
+    generate_button,
+    generate_personalized_example,
+    learner_profile,
+    mo,
+):
     """Generate and display the personalized example"""
 
-    if generate_button and generate_button.value and learner_profile and concept_selector.value:
+    # Stop if button hasn't been clicked
+    mo.stop(generate_button is None or not generate_button.value)
 
-        # Show loading state
-        with mo.status.spinner(title="Creating your personalized example... This may take 30-60 seconds."):
-            try:
-                example = await generate_personalized_example(
-                    profile=learner_profile,
-                    concept=concept_selector.value
-                )
+    try:
+        example = await generate_personalized_example(
+            profile=learner_profile,
+            concept=concept_selector.value
+        )
 
-                # Display the example
-                display_content = mo.vstack([
-                    mo.md("---"),
-                    mo.md(f"# {example.title}"),
-                    mo.md("## 📋 The Problem"),
-                    mo.md(example.problem_statement),
-                    mo.md("### Given Data"),
-                    mo.md(example.given_data),
-                    mo.md("---"),
-                    mo.md("## 💡 Step-by-Step Solution"),
-                    *[mo.md(f"**Step {i}:**\n\n{step}")
-                      for i, step in enumerate(example.step_by_step_solution, 1)],
-                    mo.md("---"),
-                    mo.md("## ✅ Final Answer"),
-                    mo.md(example.final_answer),
-                    mo.md("---"),
-                    mo.callout(
-                        f"### 🎯 Why This Matters for You\n\n{example.connection_to_goal}",
-                        kind="success"
-                    ),
-                    mo.md("---"),
-                    mo.callout(
-                        f"### 🚀 Try This Next\n\n{example.practice_suggestion}",
-                        kind="info"
-                    ),
-                ])
+        # Display the example
+        _output = mo.vstack([
+            mo.md("---"),
+            mo.md(f"# {example.title}"),
+            mo.md("## 📋 The Problem"),
+            mo.md(example.problem_statement),
+            mo.md("### Given Data"),
+            mo.md(example.given_data),
+            mo.md("---"),
+            mo.md("## 💡 Step-by-Step Solution"),
+            *[mo.md(f"**Step {i}:**\n\n{step}")
+              for i, step in enumerate(example.step_by_step_solution, 1)],
+            mo.md("---"),
+            mo.md("## ✅ Final Answer"),
+            mo.md(example.final_answer),
+            mo.md("---"),
+            mo.callout(
+                f"### 🎯 Why This Matters for You\n\n{example.connection_to_goal}",
+                kind="success"
+            ),
+            mo.md("---"),
+            mo.callout(
+                f"### 🚀 Try This Next\n\n{example.practice_suggestion}",
+                kind="info"
+            ),
+        ])
 
-                display_content
+    except Exception as e:
+        _output = mo.callout(
+            f"❌ Error generating example: {str(e)}\n\nPlease check your OpenAI API key.",
+            kind="danger"
+        )
 
-            except Exception as e:
-                mo.callout(
-                    f"❌ Error generating example: {str(e)}\n\nPlease check your OpenAI API key.",
-                    kind="danger"
-                )
-
+    _output
     return
 
 
@@ -641,7 +699,6 @@ def footer(mo):
 
     **Created in the BFH Workshop:** Building Personalized Worked Example Generators with AI
     """)
-
     return
 
 
