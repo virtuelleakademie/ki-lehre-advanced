@@ -1,33 +1,297 @@
 ---
-title: "Outline"
+title: "Building Personalized Worked Example Generators with AI"
+subtitle: "Demonstrating Cognitive Load Theory Principles through PydanticAI"
+format:
+  html:
+    toc: true
+    toc-depth: 2
 ---
 
+## Workshop Overview
 
-In this workshop, we will cover the following topics:
+Welcome to this 3-hour workshop on building AI-powered educational tools grounded in Cognitive Load Theory. You'll learn the pattern for creating personalized worked examples by modifying a working template.
 
+### What You'll Do
 
-- Using the OpenAI API (Application Programming Interface) to interact with LLMs
-- Controlling the output of LLMs with parameter settings
-- Generating structured output with the OpenAI API
+1. **See a complete demo** - Experience the full complex application (3 domains, 16 concepts)
+2. **Study the code** - Understand how PydanticAI and Marimo work together
+3. **Modify a template** - Add concepts to a simplified version (1 domain, 3 concepts)
+4. **Design extensions** - Plan how to apply this to YOUR teaching
 
-We will work with the GPT-4o-mini and GPT-4o models from OpenAI. Note that we could also use local models, but this would require a bit more setup and is outside the scope of this workshop.
+### What You'll Build
 
-The focus of this workshop is on using the OpenAI API, so we will only discuss Python in passing. We will be working with [Google Colab](https://colab.research.google.com) and optionally [Visual Studio Code](https://code.visualstudio.com/). If working with Visual Studio Code, we recommend that you install an AI coding assistant, such as [Github Copilot](https://copilot.github.com/). For beginners, this will help to get you started with Python. 
+You'll **modify** a working **Personalised Worked Example Generator** (in your browser) that:
 
+- Collects learner profile information (name, domain, interests, hobbies, goals, skill level)
+- Generates customised worked examples in ONE domain (Programming)
+- Weaves learner interests naturally into educational content
+- Provides step-by-step solutions with personal relevance
+- Runs in your browser (no installation required)
 
-The workshop is structured as follows:
+**Note:** The DEMO shows all 3 domains with 16 concepts. You'll work with a SIMPLIFIED version (1 domain, 3 concepts) and add 1-2 more concepts to learn the pattern.
 
+### Learning Objectives
 
-| Topic | Content |
-|-------|--------|
-| [Setup OpenAI](setup-openai/index.qmd) | OpenAI Platform and the OpenAI API|
-| [Setup Google Colab](setup-colab/index.qmd) | Setup Google Colab for coding|
-| [Exploring OpenAI](exploring-openai-models/index.ipynb) | OpenAI models and various parameter settings|
-| {{< bi pencil >}} [Exercise 1](../exercises/exercise-1/index.qmd) | Prompting and parameter settings|
-| [API Tricks](api-tricks/index.qmd) | Various tricks to using the OpenAI API|
-| {{< bi pencil >}} [Exercise 2](../exercises/exercise-2/index.qmd) | API Tricks|
-| [Structured output](structured-output/index.ipynb) | Generating structured output with the OpenAI API|
-| {{< bi pencil >}} [Exercise 3](../exercises/exercise-3/index.qmd) | Structured output|
+By the end of this workshop, you will:
+
+1. **Understand** the worked example effect and personalisation principle from Cognitive Load Theory
+2. **Modify** a working template to add your own concepts (in your browser)
+3. **See** how PydanticAI ensures structured outputs
+4. **Recognise** the pattern for building educational AI tools
+5. **Design** extensions for your own teaching context
+
+### Pedagogical Foundation
+
+This workshop is grounded in **Cognitive Load Theory** (Sweller, 1988), specifically:
+
+**The Worked Example Effect:**
+
+> "A 'worked example' is a problem that has already been solved for the learner, with every step fully explained and clearly shown. The 'worked example effect' is the widely replicated finding that novice learners who are given worked examples to study perform better on subsequent tests than learners who are required to solve the equivalent problems themselves."
+>
+> — NSW CESE (2017, p. 7)
+
+**Why It Works:**
+
+- Unguided problem-solving overloads working memory
+- Studying worked examples reduces cognitive load
+- More working memory capacity available for schema construction
+- Better learning outcomes for novices
+
+**Our Addition - Personalization:**
+
+- Familiar contexts reduce extraneous cognitive load
+- Personal relevance increases germane load (motivation)
+- Better schema formation and transfer
+
+## Workshop Schedule
+
+::: {.callout-schedule icon=false}
+## 3-Hour Schedule
+
+| Time | Duration | Section | Activity |
+|------|----------|---------|----------|
+| 0:00-0:10 | 10 min | [**Opening**](opening/index.qmd) | Think-pair-share: Learning from examples |
+| 0:10-0:40 | 30 min | [**Theory**](theory/index.qmd) | Cognitive Load Theory principles |
+| 0:40-1:00 | 20 min | [**Demo**](demo/index.qmd) | See the complete application (all 3 domains) |
+| 1:00-2:30 | 90 min | [**Build**](build/index.qmd) | Hands-on: Modify starter template, add concepts |
+| 2:30-3:00 | 30 min | [**Extend**](extend/index.qmd) | Group activity: Design your extensions |
+| 3:00-3:10 | 10 min | [**Resources**](resources/index.qmd) | Links, documentation, next steps |
+:::
+
+## Prerequisites
+
+### Required Knowledge
+
+- **Basic Python**: lists, dictionaries, functions (reading code, not writing from scratch)
+- **No statistics background required**
+- **No prior AI/ML experience needed**
+
+### Materials Required
+
+::: {.callout-setup icon=false}
+## Setup Required Before Workshop
+
+**That's it. No installation needed.**
+
+What you need:
+
+1. **Laptop with modern browser** (Chrome, Firefox, Safari, Edge)
+2. **Internet connection** (workshop uses HuggingFace Spaces)
+3. **Optional:** Notebook for reflecting on how you'd apply this to your teaching
+
+**No Python installation. No API keys. No troubleshooting.**
+
+Everything runs in your browser via an interactive web application.
+:::
+
+### Target Audience
+
+- Educators interested in AI tools
+- Instructional designers
+- Learning technologists
+- Educational researchers
+- Anyone creating educational technology
+
+## Workshop Structure: A Worked Example Approach
+
+::: {.callout-important}
+## This Workshop IS a Worked Example
+
+This workshop **demonstrates the principle it teaches** by being structured as a worked example itself.
+
+**Traditional approach** (problem-solving):
+```
+Give you requirements → You struggle to build → Instructor helps when stuck
+```
+*High cognitive load, potential frustration, pattern harder to see*
+
+**Our approach** (worked example):
+```
+Show complete solution → Study each component → Explain design choices → Apply to your domain
+```
+*Lower cognitive load, clearer pattern, better transfer*
+
+**Why?** Most of you are novices at building educational AI tools. Research shows studying worked examples is more effective than unguided problem-solving for novices.
+:::
+
+### The Worked Example Approach
+
+This workshop follows the worked example pattern:
+
+1. **ACTIVATE** (Opening) - Prior knowledge activation
+2. **PRESENT** (Theory + Demo) - See the complete solution
+3. **STUDY** (Build) - Examine and modify the code
+4. **UNDERSTAND** (Extend) - Connect to pedagogical applications
+5. **TRANSFER** (Resources) - Apply to your own teaching
+
+### Fading Scaffolding
+
+Notice how support gradually decreases:
+
+- **Theory/Demo**: Full explanation, complete working application shown
+- **Build**: Scaffolded practice - modify template, add concepts
+- **Extend**: Independent design - plan your own extensions
+- **After workshop**: Transfer to new domains on your own
+
+**Key difference from traditional workshops:**
+
+- We DON'T ask you to build from scratch (too much cognitive load)
+- We DO show you a complete solution, then you modify it (worked example effect)
+- This reduces load and helps you see the pattern more clearly
+
+::: {.callout-tip}
+## Meta-Learning Moment
+
+**As you progress through today, notice:**
+
+- When does studying the complete solution help vs. confuse?
+- When do you want to start experimenting on your own?
+- How does seeing the "big picture" first affect your understanding?
+
+These insights will inform how YOU design worked examples for your students.
+:::
+
+## Technical Stack
+
+### Core Technologies
+
+- **[Marimo](https://marimo.io)** - Reactive Python notebooks with built-in UI
+- **[PydanticAI](https://ai.pydantic.dev)** - Type-safe AI agent framework
+- **[Pydantic](https://pydantic.dev)** - Data validation using Python type hints
+- **[OpenAI GPT-5.1](https://openai.com)** - Language model for generation
+- **[HuggingFace Spaces](https://huggingface.co/spaces)** - Free deployment platform
+
+### Why These Choices?
+
+**Marimo over Jupyter/Colab:**
+
+- Reactive updates (no stale state)
+- Better developer experience
+- Production-ready (can deploy as apps)
+- Git-friendly (pure Python files)
+
+**PydanticAI over raw OpenAI:**
+
+- Type safety with Pydantic models
+- Structured outputs guaranteed
+- Cleaner, more maintainable code
+- Better error handling
+
+**HuggingFace Spaces:**
+
+- Free hosting for educational demos
+- Docker + Marimo template available
+- Easy sharing with students/colleagues
+
+## Learning Domains
+
+### The Complete Demo (What's Possible)
+
+The DEMO application supports three domains with 16 total concepts:
+
+**1. Programming (Python)** - 5 concepts
+
+- For loops, List comprehensions, Dictionary methods, Functions, String formatting
+
+**2. Health Sciences (Statistics)** - 6 concepts
+
+- Mean & SD, Correlation, Linear Regression, T-tests, Confidence Intervals, Effect Size
+
+**3. Agronomy (Agricultural Science)** - 5 concepts
+
+- Yield prediction, NPK optimization, Growing degree days, Water use efficiency, Cost-benefit
+
+### Your Starter Template (What You'll Build)
+
+You'll work with a **simplified version**:
+
+- **ONE domain** (Programming) with 3 concepts
+- For Loops, Functions with Parameters, String Formatting
+- Complete working code
+- Ready to extend with more concepts
+
+**In the Build section**, you'll:
+
+- Add 1-2 new concepts (e.g., List Comprehensions, Dictionary Methods)
+- Customize prompts
+- Test with your own profile
+
+**After the workshop**, you can:
+
+- Add Health Sciences or Agronomy domains
+- Expand to match the demo's complexity
+- Create your own domain entirely
+
+## Connection to Learning Science
+
+This workshop demonstrates several evidence-based learning principles:
+
+::: {.callout-note icon=false}
+## Make It Stick Connections
+
+This tool addresses multiple strategies from *Make It Stick* (Brown, Roediger, & McDaniel, 2014):
+
+1. **Worked Examples** - Reduce cognitive load for novices
+2. **Variation** - Practice in different personal contexts
+3. **Understanding vs. Familiarity** - Personalisation helps distinguish the two
+4. **Application** - Real-world contexts for transfer
+
+See the [ki-lehre-intermediate workshop](https://virtuelleakademie.github.io/ki-lehre-intermediate/) for deeper exploration of learning science principles.
+:::
+
+## Get Started
+
+Ready to begin? Start with the [opening activity](opening/index.qmd)!
+
+::: {.callout-checkpoint icon=false}
+## Workshop Outcomes
+
+By the end of this workshop, you'll have:
+
+**Understanding** of Cognitive Load Theory principles (worked example + personalisation effects)
+
+**Experience** with PydanticAI and Marimo frameworks
+
+**Modified code** - Your own version with added concepts
+
+**Design plan** - Extensions for your teaching context
+
+**Recognition of the pattern** - What's involved in building educational AI tools
+
+**You will NOT have:** A deployed production application, nor will you be a proficient Python developer
+
+**You WILL have:** Conceptual understanding of how these tools work and what's possible
+:::
+
+## Research References
+
+- Cooper, G., & Sweller, J. (1987). Effects of schema acquisition and rule automation on mathematical problem-solving transfer. *Journal of Educational Psychology*, 79(4), 347-362.
+
+- NSW Centre for Education Statistics and Evaluation (2017). *Cognitive load theory: Research that teachers really need to understand*. [Link](https://education.nsw.gov.au/about-us/education-data-and-research/cese/publications/literature-reviews/cognitive-load-theory)
+
+- Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. *Cognitive Science*, 12(2), 257-285.
+
+- Brown, P. C., Roediger III, H. L., & McDaniel, M. A. (2014). *Make it stick: The science of successful learning*. Harvard University Press.
 
 
 

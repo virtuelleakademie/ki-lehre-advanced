@@ -9,16 +9,12 @@ project:
     port: 8800
     browser: false
   output-dir: docs
-  render:         
+  render:
     - index.qmd
     - workshop/**/*.qmd
     - workshop/**/*.ipynb
-    - tutorials/**/*.qmd
-    - tutorials/**/*.ipynb
-    - exercises/**/*.qmd
-    - project/**/*.qmd
     - slides/**/*.qmd
-    - slides/RAG.qmd
+    - hf-spaces/**/*.md
 
 website:
   title: "KI in der Lehre: Advanced"
@@ -42,23 +38,25 @@ website:
         href: workshop/index.qmd
         text: Workshop
 
-      - icon: briefcase
-        href: tutorials/index.qmd
-        text: Tutorials
+      - icon: mortarboard
+        href: workshop/theory/index.qmd
+        text: Theory
 
-      - icon: pencil
-        href: exercises/index.qmd
-        text: Exercises
+      - icon: easel
+        href: workshop/demo/index.qmd
+        text: Demo
 
-      # - icon: code-square
-      #   href: project/index.qmd
-      #   text: Project
+      - icon: code-square
+        href: workshop/build/index.qmd
+        text: Build
 
-      - icon: file-slides
-        text: "Slides" # {{< fa person-chalkboard >}}
-        menu:
-          - text: "Retrieval-augmented generation"
-            href: slides/RAG.qmd
+      - icon: people
+        href: workshop/extend/index.qmd
+        text: Extend
+
+      - icon: book
+        href: workshop/resources/index.qmd
+        text: Resources
 
 
     tools:
@@ -80,34 +78,25 @@ website:
       background: light
       contents:
         - workshop/index.qmd
-        - workshop/setup-openai/index.qmd
-        - workshop/setup-colab/index.qmd
-        - workshop/exploring-openai-models/index.ipynb
-        - workshop/api-tricks/index.qmd
-        - workshop/structured-output/index.ipynb
-        
-
-
-    - title: "Tutorials"
-      style: "docked"
-      search: true
-      background: light
-      contents:
-        - tutorials/index.qmd
-        - tutorials/setup-vscode/index.qmd
-        - tutorials/setup-openai/index.qmd
-        # - tutorials/exploring-openai-models/index.ipynb
-        # - tutorials/structured-output/index.ipynb
-
-    - title: "Exercises"
-      style: "docked"
-      search: true
-      background: light
-      contents:
-        - exercises/index.qmd
-        - exercises/exercise-1/index.qmd
-        - exercises/exercise-2/index.qmd
-        - exercises/exercise-3/index.qmd
+        - text: "---"
+        - section: "Opening (10 min)"
+          contents:
+            - workshop/opening/index.qmd
+        - section: "Theory (30 min)"
+          contents:
+            - workshop/theory/index.qmd
+        - section: "Demo (20 min)"
+          contents:
+            - workshop/demo/index.qmd
+        - section: "Build (90 min)"
+          contents:
+            - workshop/build/index.qmd
+        - section: "Extend (30 min)"
+          contents:
+            - workshop/extend/index.qmd
+        - section: "Resources (10 min)"
+          contents:
+            - workshop/resources/index.qmd
 
 page-footer:
   right:
