@@ -1,14 +1,93 @@
 ---
 title: "Part 1: Foundation"
-subtitle: "Understanding Cognitive Load Theory & Setup"
+subtitle: "See the Complete Solution, Then Understand Why It Works"
 ---
 
 ::: {.callout-note icon=false}
 ## ⏱️ Duration: 30 minutes
 
-- Theory & Motivation: 10 minutes
-- Environment Setup: 15 minutes
+- **PRESENT Phase**: See what we're building
+- Demo the Complete Application: 5 minutes
+- Understand the Theory (CLT): 10 minutes
+- Environment Setup: 10 minutes
 - PydanticAI Quick Demo: 5 minutes
+:::
+
+::: {.callout-important}
+## 🔄 Remember: This Is a Worked Example
+
+We're NOT asking you to build from scratch. We'll SHOW you a complete solution, then study it together.
+
+This part: **PRESENT** - See the whole picture first.
+:::
+
+## Demo: The Complete Application
+
+::: {.callout-note icon=false}
+## 💻 Live Demo (5 minutes)
+
+**Instructor demonstrates the completed application**
+
+Watch as the instructor interacts with the finished Personalized Worked Example Generator:
+
+1. **Enter a learner profile:**
+   - Name: Sarah
+   - Domain: Programming (Python)
+   - Interest: Web development
+   - Hobby: Baking
+   - Goal: Build a recipe sharing website
+   - Level: Beginner
+
+2. **Select a concept:** For Loops (Beginner)
+
+3. **Generate:** Click to create personalized example
+
+4. **Observe the output:**
+   - Title: "Building a Recipe Card Display for Sarah's Baking Website"
+   - Problem framed in Sarah's context (recipe website, baking)
+   - Given data: List of recipes with names and ratings
+   - Step-by-step solution with commented code
+   - Final answer showing working code
+   - Connection to her goal of building the recipe site
+   - Practice suggestion in her context
+:::
+
+### What Makes This Different?
+
+Compare a **generic** worked example:
+```python
+# Generic: Print numbers 1-5
+for i in range(1, 6):
+    print(i)
+```
+
+To Sarah's **personalized** worked example:
+```python
+# Sarah's version: Display recipe ratings for her baking site
+recipes = [
+    {"name": "Chocolate Cake", "rating": 4.8},
+    {"name": "Sourdough Bread", "rating": 4.5},
+    # ... more recipes ...
+]
+
+for recipe in recipes:
+    print(f"⭐ {recipe['rating']}/5 - {recipe['name']}")
+```
+
+**Same concept (for loops), but:**
+- Uses Sarah's interest (baking/recipes)
+- Connects to her goal (recipe website)
+- Familiar context (recipes she might actually use)
+- More engaging and memorable
+
+## Now Let's Understand WHY This Works
+
+::: {.callout-tip}
+## 💡 Meta-Cognitive Moment
+
+You just saw the **complete solution** - the finished app generating personalized examples.
+
+Now we'll study the **research** that explains why this design is effective. This mirrors how we want students to learn: show the solution first, then explain the principles.
 :::
 
 ## The Worked Example Effect
@@ -255,6 +334,24 @@ The AI will fill these structures, guaranteeing consistent, usable output.
 
 :::
 
+::: {.callout-important}
+## 🔄 Worked Example Check-In
+
+**What just happened?**
+
+- ✅ You SAW the complete solution (demo)
+- ✅ You UNDERSTOOD the theory behind it (CLT)
+- ✅ You SET UP your environment (ready to study the code)
+
+**What's next?**
+
+In Part 2, we'll study the **structure** of the solution - examining the data models that make this work.
+
+**Notice:** We're not asking you to design from scratch. We'll show you the design, explain WHY each part exists, and help you understand the pattern.
+
+This is the worked example approach in action - for learning educational AI tools!
+:::
+
 ---
 
-**Next:** [Part 2: Design](../part-2-design/index.qmd) - We'll collaboratively design the data models for our application.
+**Next:** [Part 2: Design](../part-2-design/index.qmd) - Study the data models that structure our application.
