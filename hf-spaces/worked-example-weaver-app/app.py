@@ -11,6 +11,10 @@ from pydantic_ai import Agent
 from typing import Literal
 import os
 import asyncio
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # Data Models
 class LearnerProfile(BaseModel):
@@ -61,9 +65,8 @@ CONCEPTS = {
 }
 
 # AI Agent
-example_generator = Agent(
+example_generator = Agent[PersonalizedWorkedExample](
     'openai:gpt-5.1',
-    result_type=PersonalizedWorkedExample,
     system_prompt="""You are an expert educator who creates highly personalized
     worked examples that connect abstract concepts to learners' lived experiences.
 
@@ -163,7 +166,7 @@ async def generate_example(
         """
 
         result = await example_generator.run(prompt)
-        example = result.data
+        example = result.output
 
         # Format output
         output = f"""# {example.title}
@@ -258,8 +261,8 @@ with gr.Blocks(title="Worked Example Weaver", theme=gr.themes.Soft()) as demo:
 
             generate_btn = gr.Button("✨ Generate My Personalized Example", variant="primary", size="lg")
 
-    with gr.Column():
-        output = gr.Markdown(label="Your Personalized Worked Example")
+        with gr.Column():
+            output = gr.Markdown(label="Your Personalized Worked Example")
 
     generate_btn.click(
         fn=lambda *args: asyncio.run(generate_example(*args)),
