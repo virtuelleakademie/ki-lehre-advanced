@@ -1,44 +1,243 @@
 ---
-title: "Workshop-Übersicht"
+title: "Building Personalized Worked Example Generators with AI"
+subtitle: "Demonstrating Cognitive Load Theory Principles through PydanticAI"
+format:
+  html:
+    toc: true
+    toc-depth: 2
 ---
 
-## 3-Stunden Workshop: Vorwissensdiagnostik mit KI
+## Workshop Overview
 
-Dieser Workshop konzentriert sich auf **einen praktischen Anwendungsfall**: Die Entwicklung eines KI-gestützten Werkzeugs zur Erfassung des Vorwissens von Studierenden.
+Welcome to this 3-hour workshop on building AI-powered educational tools grounded in Cognitive Load Theory. You'll create a complete, production-ready application that generates personalized worked examples tailored to individual learners' interests, goals, and contexts.
 
-### Was Sie lernen werden
+### What You'll Build
 
-- **Pädagogische Grundlagen** - Warum dialogbasierte Vorwissensdiagnostik effektiver ist als Multiple-Choice-Tests
-- **Marimo-Notebooks** - Interaktive Python-Notebooks mit reaktiven Zellen
-- **Strukturierte Ausgabe** - Verwendung von Pydantic für konsistente KI-Antworten
-- **Gradio-Apps** - Erstellung benutzerfreundlicher Web-Interfaces
-- **Deployment** - Veröffentlichung auf HuggingFace Spaces
+A **Personalized Worked Example Generator** that:
 
-### Voraussetzungen
+- Collects learner profile information (name, domain, interests, hobbies, goals, skill level)
+- Generates customized worked examples in three domains: Programming (Python), Health Sciences (Statistics), or Agronomy
+- Weaves learner interests naturally into educational content
+- Provides step-by-step solutions with personal relevance
+- Deploys as a live web application on HuggingFace Spaces
 
-- Lehrerfahrung
-- Grundlegende Python-Kenntnisse hilfreich, aber nicht erforderlich
-- OpenAI API-Schlüssel ([Anleitung](../tutorials/setup-openai/index.qmd))
+### Learning Objectives
 
-### Workshop-Struktur
+By the end of this workshop, you will:
 
-| Modul | Inhalt | Dauer |
-|-------|--------|-------|
-| [Modul 0: Setup](00-setup/index.qmd) | Marimo-Einführung, Umgebungseinrichtung, pädagogische Prinzipien | 45 min |
-| [Modul 1: Vorwissensdiagnostik](02-prior-knowledge/index.qmd) | Aufbau des diagnostischen Werkzeugs (5 Teile) | 75 min |
-| *Pause* | | 15 min |
-| [Gradio-App & Deployment](02-prior-knowledge/gradio-demo.qmd) | Demo, lokales Testen, HuggingFace Spaces | 45 min |
-| Anpassung & Diskussion | Werkzeug für eigenen Kontext anpassen | 30 min |
-| Zusammenfassung | | 15 min |
+1. **Understand** the worked example effect and personalization principle from Cognitive Load Theory
+2. **Build** a working personalized example generator using PydanticAI
+3. **Deploy** an interactive demo to HuggingFace Spaces
+4. **Possess** a template for creating domain-specific educational tools
 
-### Zusätzliche Ressourcen
+### Pedagogical Foundation
 
-- [Retrieval Practice Generator](01-retrieval-practice/index.qmd) - Zusätzliches Beispiel für KI-gestützte Lehrmittel
-- [Übung 1: Sokratisches Fragen](../exercises/exercise-01/index.qmd) - Praktische Übung (20 min)
+This workshop is grounded in **Cognitive Load Theory** (Sweller, 1988), specifically:
 
-### Archivierte Inhalte
+**The Worked Example Effect:**
 
-Frühere Workshop-Module und Übungen sind im [archive/](../archive/) Verzeichnis verfügbar, werden jedoch in diesem fokussierten Workshop nicht verwendet.
+> "A 'worked example' is a problem that has already been solved for the learner, with every step fully explained and clearly shown. The 'worked example effect' is the widely replicated finding that novice learners who are given worked examples to study perform better on subsequent tests than learners who are required to solve the equivalent problems themselves."
+>
+> — NSW CESE (2017, p. 7)
+
+**Why It Works:**
+
+- Unguided problem-solving overloads working memory
+- Studying worked examples reduces cognitive load
+- More working memory capacity available for schema construction
+- Better learning outcomes for novices
+
+**Our Addition - Personalization:**
+
+- Familiar contexts reduce extraneous cognitive load
+- Personal relevance increases germane load (motivation)
+- Better schema formation and transfer
+
+## Workshop Schedule
+
+::: {.callout-note icon=false}
+## ⏱️ 3-Hour Schedule
+
+| Time | Duration | Activity |
+|------|----------|----------|
+| 0:00-0:10 | 10 min | [Opening: Activating Exercise](einstieg/index.qmd) |
+| 0:10-0:40 | 30 min | [Part 1: Foundation - Understanding CLT & Setup](part-1-foundation/index.qmd) |
+| 0:40-1:10 | 30 min | [Part 2: Design - Data Models & Domains](part-2-design/index.qmd) |
+| 1:10-2:00 | 50 min | [Part 3: Build - Creating the Generator](part-3-build/index.qmd) |
+| 2:00-2:40 | 40 min | [Part 4: Interface - Interactive UI with Marimo](part-4-interface/index.qmd) |
+| 2:40-3:10 | 30 min | [Part 5: Deploy - HuggingFace Spaces](part-5-deploy/index.qmd) |
+| 3:10-3:20 | 10 min | [Closing: Reflection & Transfer](diskussion/index.qmd) |
+:::
+
+## Prerequisites
+
+### Required Knowledge
+
+- **Basic Python**: lists, dictionaries, functions
+- **No statistics background required**
+- **No prior AI/ML experience needed**
+
+### Materials Required (Pre-Workshop)
+
+::: {.callout-important}
+## 🛠️ Setup Required Before Workshop
+
+Please complete these steps before the workshop begins:
+
+1. **Python 3.10 or higher** installed
+2. **OpenAI API key** from [platform.openai.com](https://platform.openai.com)
+3. **HuggingFace account** from [huggingface.co](https://huggingface.co)
+4. **Code editor** or IDE (VS Code, PyCharm, etc.)
+
+**Installation Commands:**
+
+```bash
+pip install marimo pydantic-ai openai
+export OPENAI_API_KEY="sk-your-key-here"
+```
+
+**Test Installation:**
+
+```bash
+marimo tutorial intro
+```
+
+If you see the marimo tutorial interface, you're ready!
+:::
+
+### Target Audience
+
+- Educators interested in AI tools
+- Instructional designers
+- Learning technologists
+- Educational researchers
+- Anyone creating educational technology
+
+## Workshop Structure
+
+This workshop follows a **build-together** approach:
+
+1. **Collaborative Design** - We design data models as a group
+2. **Live Coding** - Instructor codes while explaining, participants follow along
+3. **Active Testing** - Test and discuss outputs throughout
+4. **Production Deployment** - Every participant deploys a working application
+
+::: {.callout-tip}
+## 💡 Workshop Philosophy
+
+This is not a lecture-then-practice workshop. We build **together**, test **frequently**, and discuss **why** decisions matter for learning science.
+:::
+
+## Technical Stack
+
+### Core Technologies
+
+- **[Marimo](https://marimo.io)** - Reactive Python notebooks with built-in UI
+- **[PydanticAI](https://ai.pydantic.dev)** - Type-safe AI agent framework
+- **[Pydantic](https://pydantic.dev)** - Data validation using Python type hints
+- **[OpenAI GPT-4o](https://openai.com)** - Language model for generation
+- **[HuggingFace Spaces](https://huggingface.co/spaces)** - Free deployment platform
+
+### Why These Choices?
+
+**Marimo over Jupyter/Colab:**
+
+- Reactive updates (no stale state)
+- Better developer experience
+- Production-ready (can deploy as apps)
+- Git-friendly (pure Python files)
+
+**PydanticAI over raw OpenAI:**
+
+- Type safety with Pydantic models
+- Structured outputs guaranteed
+- Cleaner, more maintainable code
+- Better error handling
+
+**HuggingFace Spaces:**
+
+- Free hosting for educational demos
+- Docker + Marimo template available
+- Easy sharing with students/colleagues
+
+## Three Learning Domains
+
+The tool supports three domains, each with 5 concepts:
+
+### 1. Programming (Python)
+
+- For loops
+- List comprehensions
+- Dictionary methods
+- Functions with parameters
+- String formatting
+
+**Example Context**: Building a recipe website, photography portfolio, gaming tools
+
+### 2. Health Sciences (Statistics)
+
+- Correlation analysis
+- Mean and standard deviation
+- Independent t-tests
+- Confidence intervals
+- Effect size (Cohen's d)
+
+**Example Context**: Sports performance, nutrition tracking, patient outcomes
+
+### 3. Agronomy (Agricultural Science)
+
+- Yield prediction
+- NPK optimization
+- Growing degree days
+- Water use efficiency
+- Cost-benefit analysis
+
+**Example Context**: Family farms, specific crops, sustainable agriculture
+
+## Connection to Learning Science
+
+This workshop demonstrates several evidence-based learning principles:
+
+::: {.callout-note icon=false}
+## 📚 Make It Stick Connections
+
+This tool addresses multiple strategies from *Make It Stick* (Brown, Roediger, & McDaniel, 2014):
+
+1. **Worked Examples** - Reduce cognitive load for novices
+2. **Variation** - Practice in different personal contexts
+3. **Understanding vs. Familiarity** - Personalization helps distinguish the two
+4. **Application** - Real-world contexts for transfer
+
+See the [ki-lehre-intermediate workshop](https://virtuelleakademie.github.io/ki-lehre-intermediate/) for deeper exploration of learning science principles.
+:::
+
+## Get Started
+
+Ready to begin? Start with the [opening activity](einstieg/index.qmd)!
+
+::: {.callout-tip}
+## 🎯 Workshop Outcomes
+
+By the end, you'll have:
+
+✅ A working application deployed online
+
+✅ Understanding of CLT principles in practice
+
+✅ A template for building educational AI tools
+
+✅ Hands-on experience with modern AI frameworks
+:::
+
+## Research References
+
+- Cooper, G., & Sweller, J. (1987). Effects of schema acquisition and rule automation on mathematical problem-solving transfer. *Journal of Educational Psychology*, 79(4), 347-362.
+
+- NSW Centre for Education Statistics and Evaluation (2017). *Cognitive load theory: Research that teachers really need to understand*. [Link](https://education.nsw.gov.au/about-us/education-data-and-research/cese/publications/literature-reviews/cognitive-load-theory)
+
+- Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. *Cognitive Science*, 12(2), 257-285.
+
+- Brown, P. C., Roediger III, H. L., & McDaniel, M. A. (2014). *Make it stick: The science of successful learning*. Harvard University Press.
 
 
 

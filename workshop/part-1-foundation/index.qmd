@@ -1,0 +1,260 @@
+---
+title: "Part 1: Foundation"
+subtitle: "Understanding Cognitive Load Theory & Setup"
+---
+
+::: {.callout-note icon=false}
+## ⏱️ Duration: 30 minutes
+
+- Theory & Motivation: 10 minutes
+- Environment Setup: 15 minutes
+- PydanticAI Quick Demo: 5 minutes
+:::
+
+## The Worked Example Effect
+
+### What Is It?
+
+> **Definition:** The worked example effect is the widely replicated finding that novice learners who are given worked examples to study perform better on subsequent tests than learners who are required to solve the equivalent problems themselves.
+>
+> — NSW Centre for Education Statistics and Evaluation (2017, p. 7)
+
+### The Evidence
+
+- **Effect size: 0.52** (Crissman, 2006) - substantial for educational interventions
+- Replicated across domains: mathematics, programming, science
+- Works best for **novices**, diminishes as expertise develops
+- Cooper & Sweller (1987): Studying worked examples led to better transfer than problem-solving practice
+
+### Why It Works: Cognitive Load Theory
+
+![](images/cognitive-load-diagram.png){fig-alt="Diagram showing working memory bottleneck and long-term memory"}
+
+**The Bottleneck:**
+
+- **Working memory**: 4±1 chunks (very limited!)
+- **Long-term memory**: unlimited capacity
+- Learning = moving information from working memory → long-term memory
+
+**The Problem with Unguided Problem-Solving:**
+
+When novices solve problems independently:
+
+1. Use weak methods (trial and error, means-ends analysis)
+2. These methods consume heavy working memory resources
+3. Little capacity left for learning the actual pattern
+4. Might solve the problem but don't learn the transferable structure
+
+**How Worked Examples Help:**
+
+Studying complete solutions:
+
+1. Reduces working memory load (no search for solution)
+2. Directs attention to problem structure and solution steps
+3. More capacity for schema construction
+4. Better learning of transferable patterns
+
+## The Personalization Principle
+
+### Two Types of Cognitive Load
+
+**Extraneous Load** (BAD):
+- Processing irrelevant or poorly presented information
+- Unfamiliar contexts requiring interpretation
+- Confusing formats
+
+**Germane Load** (GOOD):
+- Effort directed at learning and schema construction
+- Deep processing of patterns and structures
+- Building understanding
+
+### How Personalization Helps
+
+Compare these two examples:
+
+**Generic (High Extraneous Load):**
+```
+Calculate mean and SD for dataset: [1, 2, 3, 4, 5]
+```
+
+**Personalized (Low Extraneous Load):**
+```
+Calculate mean and SD for your last 5 race times:
+Times: [22, 21, 19, 20, 18] minutes
+
+This will help you understand your performance variability.
+```
+
+**Why personalization works:**
+
+- Familiar contexts require less working memory to parse
+- Personal relevance increases motivation (germane load)
+- Real-world connection aids transfer
+- More working memory available for learning the actual concept
+
+## AI's Superpower: Scaling Personalization
+
+**The traditional problem:**
+
+- Creating personalized examples manually is time-consuming
+- One teacher might have 30+ students with different interests
+- Example: Manually creating personalized statistics problems for each student = hours of work
+
+**AI enables:**
+
+- Generate personalized examples in ~30 seconds
+- Scale to unlimited learners
+- Maintain pedagogical quality through structured outputs
+- Each learner gets examples in their context
+
+## Environment Setup
+
+::: {.callout-important}
+## 🛠️ Installation (15 minutes)
+
+We'll work together to ensure everyone has the necessary tools installed.
+
+### Step 1: Verify Python Version
+
+```bash
+python --version
+# Should show Python 3.10 or higher
+```
+
+If you need to install Python: [python.org/downloads](https://python.org/downloads)
+
+### Step 2: Install Packages
+
+```bash
+pip install marimo pydantic-ai openai
+```
+
+**What we're installing:**
+
+- **marimo**: Reactive Python notebooks with UI
+- **pydantic-ai**: Type-safe AI agent framework
+- **openai**: OpenAI API client
+
+### Step 3: Set API Key
+
+**macOS/Linux:**
+```bash
+export OPENAI_API_KEY="sk-your-key-here"
+```
+
+**Windows (Command Prompt):**
+```cmd
+set OPENAI_API_KEY=sk-your-key-here
+```
+
+**Windows (PowerShell):**
+```powershell
+$env:OPENAI_API_KEY="sk-your-key-here"
+```
+
+### Step 4: Test Installation
+
+```bash
+marimo tutorial intro
+```
+
+If a browser window opens with the marimo tutorial, you're ready! ✅
+:::
+
+::: {.callout-tip}
+## 💡 Troubleshooting
+
+**If marimo tutorial doesn't work:**
+
+- Check Python version is 3.10+
+- Try `python -m marimo tutorial intro`
+- Ensure marimo is in your PATH
+
+**If API key issues:**
+
+- Verify no extra spaces in the key
+- Check you copied the entire key (starts with `sk-`)
+- Try setting it in your script instead: `os.environ["OPENAI_API_KEY"] = "your-key"`
+:::
+
+## PydanticAI Quick Demo
+
+::: {.callout-note icon=false}
+## 💻 Live Demonstration (5 minutes)
+
+Instructor demonstrates this code to show structured outputs.
+:::
+
+### The Power of Structured Outputs
+
+Traditional LLM usage returns unstructured text. PydanticAI gives us **type-safe, structured data**.
+
+**Example:**
+
+```python
+from pydantic import BaseModel
+from pydantic_ai import Agent
+
+# Define the structure we want
+class Greeting(BaseModel):
+    message: str
+    enthusiasm_level: int  # 1-10
+    language: str
+
+# Create an agent that returns this structure
+agent = Agent('openai:gpt-4o', result_type=Greeting)
+
+# Run it
+result = agent.run_sync("Say hello enthusiastically in Spanish!")
+
+# We get structured data, not just text
+print(f"Message: {result.data.message}")
+print(f"Enthusiasm: {result.data.enthusiasm_level}")
+print(f"Language: {result.data.language}")
+```
+
+**Output:**
+```
+Message: ¡Hola! ¡Qué alegría verte!
+Enthusiasm: 9
+Language: Spanish
+```
+
+### Why This Matters
+
+**Without structured outputs:**
+- Get back raw text
+- Need to parse/validate manually
+- Prone to errors
+- Hard to use programmatically
+
+**With Pydantic models:**
+- Guaranteed data structure
+- Type safety
+- Automatic validation
+- Easy to use in applications
+
+### For Our Workshop
+
+Today we'll define two main structures:
+
+1. **LearnerProfile** - Captures student information
+2. **PersonalizedWorkedExample** - Defines what a complete example looks like
+
+The AI will fill these structures, guaranteeing consistent, usable output.
+
+## Key Takeaways
+
+::: {.callout-tip icon=false}
+## 🎯 What We've Learned
+
+1. **Worked examples** reduce cognitive load and improve learning for novices (effect size 0.52)
+2. **Personalization** reduces extraneous load by using familiar contexts
+3. **AI** can scale personalization that would be impossible manually
+4. **PydanticAI** gives us type-safe, structured outputs for reliable applications
+
+:::
+
+---
+
+**Next:** [Part 2: Design](../part-2-design/index.qmd) - We'll collaboratively design the data models for our application.

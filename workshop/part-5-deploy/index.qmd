@@ -1,0 +1,406 @@
+---
+title: "Part 5: Deploy"
+subtitle: "Publishing to HuggingFace Spaces"
+---
+
+::: {.callout-note icon=false}
+## ⏱️ Duration: 30 minutes
+
+- Deploy to HuggingFace Spaces: 15 minutes
+- Testing & Troubleshooting: 5 minutes
+- Reflection & Extensions: 10 minutes
+:::
+
+## Why HuggingFace Spaces?
+
+**HuggingFace Spaces** provides free hosting for machine learning demos and educational applications.
+
+**Benefits:**
+
+- ✅ Free hosting (with reasonable limits)
+- ✅ Pre-configured Docker images for Marimo
+- ✅ Easy secret management (API keys)
+- ✅ Shareable URLs
+- ✅ No credit card required
+- ✅ Great for educational demos
+
+## Prerequisites
+
+Before deploying, ensure you have:
+
+1. ✅ HuggingFace account ([sign up free](https://huggingface.co/join))
+2. ✅ Complete `app.py` file (your marimo notebook)
+3. ✅ OpenAI API key ready
+
+## Deployment Steps
+
+::: {.callout-note icon=false}
+## 💻 Live Demonstration (15 minutes)
+
+Instructor walks through deployment while participants follow along.
+:::
+
+### Step 1: Create a New Space
+
+1. Go to [huggingface.co/new-space](https://huggingface.co/new-space)
+
+2. **Configure your Space:**
+   - **Owner**: Your username
+   - **Space name**: `personalized-examples` (or `personalized-examples-yourname`)
+   - **License**: MIT or Apache 2.0
+   - **Select SDK**: **Docker**
+   - **Select template**: **Marimo**
+   - **Visibility**: Public
+   - **Hardware**: CPU basic (free tier)
+
+3. Click **"Create Space"**
+
+You'll see a repository initialized with template files.
+
+### Step 2: Prepare Your Files
+
+You need three files for deployment:
+
+#### File 1: `app.py`
+
+This is your complete marimo notebook. It should include all the code we built today:
+
+- Imports
+- Data models (LearnerProfile, PersonalizedWorkedExample)
+- CONCEPTS library
+- PydanticAI agent
+- Generation function
+- UI components (forms, buttons, display)
+
+**Check your file has:**
+```python
+import marimo
+
+__generated_with = "0.9.0"
+app = marimo.App(width="medium")
+
+# ... all your cells ...
+
+if __name__ == "__main__":
+    app.run()
+```
+
+#### File 2: `requirements.txt`
+
+```txt
+marimo>=0.9.0
+pydantic>=2.0.0
+pydantic-ai>=0.0.13
+openai>=1.0.0
+```
+
+#### File 3: `README.md`
+
+```markdown
+---
+title: Personalized Worked Example Generator
+emoji: 🎓
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+---
+
+# Personalized Worked Example Generator
+
+AI-powered tool demonstrating Cognitive Load Theory principles.
+
+## What It Does
+
+Generates personalized worked examples for learners in three domains:
+
+- **Programming (Python)** - For loops, list comprehensions, functions, etc.
+- **Health Sciences (Statistics)** - Correlation, t-tests, confidence intervals, etc.
+- **Agronomy** - Yield prediction, NPK optimization, growing degree days, etc.
+
+## How It Works
+
+1. Collect learner profile (interests, goals, level)
+2. Select a concept to learn
+3. AI generates a worked example woven into their personal context
+4. Example includes complete solution with explanations
+
+## Pedagogical Foundation
+
+Based on Cognitive Load Theory (Sweller, 1988):
+
+- **Worked Example Effect**: Novices learn better from studying solutions than solving problems
+- **Personalization Effect**: Familiar contexts reduce cognitive load
+
+## Built With
+
+- [Marimo](https://marimo.io) - Reactive Python notebooks
+- [PydanticAI](https://ai.pydantic.dev) - Type-safe AI agents
+- [OpenAI GPT-4o](https://openai.com) - Language model
+
+## References
+
+- Sweller, J. (1988). Cognitive load during problem solving. *Cognitive Science*, 12(2), 257-285.
+- NSW CESE (2017). *Cognitive load theory: Research that teachers really need to understand*.
+
+---
+
+Created in the BFH workshop: Building Personalized Worked Example Generators with AI
+```
+
+### Step 3: Upload Files
+
+In your HuggingFace Space:
+
+1. Click **"Files"** tab
+2. Click **"Add file"** → **"Upload files"**
+3. Upload:
+   - `app.py`
+   - `requirements.txt`
+4. Edit `README.md` (or upload your version)
+5. Click **"Commit changes to main"**
+
+### Step 4: Add API Key Secret
+
+::: {.callout-important}
+## 🔐 Important: Secure Your API Key
+
+**Never commit your API key to the repository!** Use Spaces secrets instead.
+:::
+
+1. Go to **Settings** tab (gear icon)
+2. Scroll to **"Variables and secrets"**
+3. Click **"New secret"**
+4. Name: `OPENAI_API_KEY` (must match exactly!)
+5. Value: Your OpenAI API key (starts with `sk-`)
+6. Click **"Save"**
+
+### Step 5: Wait for Build
+
+The Space will automatically:
+
+1. Build a Docker container
+2. Install dependencies from `requirements.txt`
+3. Start the marimo server
+4. Become accessible via URL
+
+**Build time:** Usually 2-3 minutes
+
+Watch the **"Logs"** tab to see progress.
+
+### Step 6: Test Your Deployment
+
+Once built (status changes to "Running"):
+
+1. Click on the **"App"** tab
+2. Test the interface:
+   - Fill in a learner profile
+   - Select a concept
+   - Generate an example
+3. Verify the example generates correctly
+
+::: {.callout-tip}
+## 🎉 Success!
+
+If you see a personalized example, congratulations! Your application is now live and shareable.
+
+**Your URL:** `https://huggingface.co/spaces/[username]/[space-name]`
+
+Share this URL with students, colleagues, or on social media!
+:::
+
+## Common Issues & Solutions
+
+### Issue 1: Build Fails
+
+**Symptoms:** Red "Failed" status, errors in logs
+
+**Common causes:**
+
+- Typo in `requirements.txt`
+- Missing dependency
+- Syntax error in `app.py`
+
+**Solutions:**
+
+1. Check logs for error message
+2. Verify `requirements.txt` format (one package per line)
+3. Test `app.py` locally first: `marimo edit app.py`
+4. Check all imports are included
+
+### Issue 2: "API Key Not Found" Error
+
+**Symptoms:** App loads but generation fails with key error
+
+**Solutions:**
+
+1. Verify secret name is exactly `OPENAI_API_KEY` (case-sensitive!)
+2. Check no extra spaces in the key value
+3. Verify key is valid (test locally)
+4. Restart the Space: Settings → "Factory reboot"
+
+### Issue 3: App Won't Load
+
+**Symptoms:** "Application Startup Failed" message
+
+**Solutions:**
+
+1. Check marimo version compatibility: `marimo>=0.9.0`
+2. Verify `app.py` has proper structure:
+   ```python
+   import marimo
+   app = marimo.App()
+   # ...
+   if __name__ == "__main__":
+       app.run()
+   ```
+3. Look for syntax errors in logs
+
+### Issue 4: Generation Takes Too Long / Timeouts
+
+**Symptoms:** Spinner runs forever, eventual timeout
+
+**Solutions:**
+
+1. Check API key has credits
+2. Try shorter/simpler concepts first
+3. Verify OpenAI service status
+4. Consider using GPT-4o-mini for faster generation (edit agent creation)
+
+## Troubleshooting Checklist
+
+| Check | Solution |
+|-------|----------|
+| ❌ Build fails | Check requirements.txt syntax, verify all dependencies |
+| ❌ API key error | Verify secret name matches exactly, check for typos |
+| ❌ App won't start | Check marimo version, verify app.py structure |
+| ❌ Generation fails | Test API key locally, check OpenAI credits |
+| ❌ Slow generation | Consider GPT-4o-mini, check network/API status |
+
+## Reflection & Extensions
+
+::: {.callout-note icon=false}
+## 💭 Group Discussion (10 minutes)
+
+Now that we have a working application, let's reflect on what we've learned and explore possibilities.
+:::
+
+### Discussion Questions
+
+**1. What did we learn today?**
+
+Collect responses around:
+
+- Worked example effect and personalization from CLT
+- How AI can scale pedagogical practices
+- Building with PydanticAI and structured outputs
+- Creating deployable educational tools
+- Marimo for interactive applications
+
+**2. What could you add to this tool?**
+
+Brainstorm extensions:
+
+::: {.callout-tip icon=false collapse="true"}
+## 💡 Extension Ideas
+
+**More Domains:**
+
+- Economics (supply/demand, elasticity)
+- Chemistry (stoichiometry, equilibrium)
+- History (source analysis, historical argumentation)
+- Literature (close reading, literary devices)
+
+**More Concepts per Domain:**
+
+- Programming: Classes, error handling, file I/O
+- Health Sciences: ANOVA, regression, chi-square
+- Agronomy: Soil analysis, pest management, sustainability metrics
+
+**Enhanced Features:**
+
+- **Images and diagrams** in examples (using matplotlib, diagrams)
+- **Sequential learning paths** (prerequisites, recommended order)
+- **Progress tracking** (save completed examples)
+- **Export to PDF** for offline study
+- **Multi-language support** (Spanish, French, German examples)
+- **Difficulty adjustment** based on success (adaptive learning)
+- **Peer comparison** (how others approach similar problems)
+- **LMS integration** (Canvas, Moodle export)
+
+**Quality Improvements:**
+
+- **Multiple examples per concept** (for spacing practice)
+- **Interleaved practice** (mix concepts from different difficulty levels)
+- **Retrieval practice prompts** (questions before showing solution)
+- **Reflection prompts** (metacognitive questions after example)
+- **Self-explanation support** (prompts to explain each step)
+
+:::
+
+**3. How would you use this in your teaching?**
+
+Specific contexts:
+
+- "I teach [subject] to [level] students..."
+- "This would help with [specific challenge]..."
+- "I'd adapt it for [particular use case]..."
+
+### Meta-Cognitive Reflection
+
+::: {.callout-tip}
+## 🎯 Notice What We Did
+
+Throughout this workshop, we:
+
+1. **Activated prior knowledge** (opening exercise)
+2. **Built on foundations** (CLT theory → design → implementation)
+3. **Practiced incrementally** (small tests, then full application)
+4. **Reflected on pedagogy** (why each decision matters)
+5. **Applied immediately** (created actual working tool)
+
+These are the same principles we embedded in the tool! **We practiced what we preached.**
+:::
+
+## Key Takeaways
+
+::: {.callout-tip icon=false}
+## 🎓 What You've Accomplished
+
+✅ **Built** a production-ready AI educational tool
+
+✅ **Deployed** a live application accessible anywhere
+
+✅ **Understood** Cognitive Load Theory in practice
+
+✅ **Experienced** modern AI development with PydanticAI
+
+✅ **Created** a template for future educational tools
+
+✅ **Practiced** research-informed pedagogical design
+:::
+
+## Resources for Continued Learning
+
+**Cognitive Load Theory:**
+
+- NSW CESE (2017) - Excellent practical guide
+- Sweller et al. (2019) - Comprehensive CLT review
+- [ki-lehre-intermediate](https://virtuelleakademie.github.io/ki-lehre-intermediate/) - Deep dive into learning science
+
+**Technical Tools:**
+
+- [Marimo Documentation](https://docs.marimo.io)
+- [PydanticAI Documentation](https://ai.pydantic.dev)
+- [Pydantic V2 Docs](https://docs.pydantic.dev/latest/)
+- [OpenAI API Reference](https://platform.openai.com/docs)
+
+**Community:**
+
+- Marimo Discord - Get help with reactive notebooks
+- HuggingFace Forums - Deployment questions
+- Your workshop cohort - Keep in touch, share extensions!
+
+---
+
+**Final Step:** [Closing Discussion](../diskussion/index.qmd) - Transfer and wrap-up

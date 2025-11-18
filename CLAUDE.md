@@ -11,7 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Educational website and workshop materials for teaching advanced AI/LLM concepts, focusing on the OpenAI API. Built with Quarto, delivered in German, maintained by the Virtual Academy at Bern University of Applied Sciences (BFH). Published at https://virtuelleakademie.github.io/ki-lehre-advanced/
+Educational website and workshop materials for building AI-powered educational tools grounded in Cognitive Load Theory. This 3-hour workshop teaches educators to create personalized worked example generators using PydanticAI and Marimo. Built with Quarto, delivered in English, maintained by the Virtual Academy at Bern University of Applied Sciences (BFH). Published at https://virtuelleakademie.github.io/ki-lehre-advanced/
 
 ## Development Commands
 
@@ -44,21 +44,18 @@ make diff                   # Show word-level diff
 
 ### Content Organization
 
-**Workshop Modules (3-hour focused workshop):**
+**Workshop Structure (3-hour workshop - English):**
 
-- **workshop/00-setup/**: Marimo introduction, environment setup, pedagogical principles
-- **workshop/02-prior-knowledge/**: **Main module** - Build prior knowledge diagnostic tool
-  - `index.qmd`: Theory, pedagogy, code examples (German)
-  - `diagnostic-agent.py`: Full interactive marimo notebook
-  - `gradio-demo.qmd`: Deployment guide for HuggingFace Spaces
-- **exercises/exercise-01/**: Practice exercise - Socratic questioning agent
-
-**Additional Resources:**
-
-- **workshop/01-retrieval-practice/**: Retrieval practice generators (supplemental)
-- **gradio-app/**: Production Gradio app for HuggingFace deployment
-  - `app.py`: Web interface for teachers
-  - `DEPLOYMENT.md`: Step-by-step deployment guide
+- **workshop/index.qmd**: Main workshop overview with schedule and learning objectives
+- **workshop/einstieg/**: Opening activity (10 min) - Activating exercise on learning from examples
+- **workshop/part-1-foundation/**: Foundation (30 min) - CLT theory, environment setup, PydanticAI demo
+- **workshop/part-2-design/**: Design (30 min) - Data models, domain design, collaborative building
+- **workshop/part-3-build/**: Build (50 min) - Concept library, AI agent, generation function
+  - `app.py`: **Complete marimo notebook** - The main application participants build
+  - `requirements.txt`: Python dependencies for deployment
+- **workshop/part-4-interface/**: Interface (40 min) - Marimo UI, reactive forms, display logic
+- **workshop/part-5-deploy/**: Deploy (30 min) - HuggingFace Spaces deployment guide
+- **workshop/diskussion/**: Closing (10 min) - Reflection, transfer, extensions
 
 **Supporting Directories:**
 
@@ -67,7 +64,7 @@ make diff                   # Show word-level diff
 - **slides/**: RevealJS presentations
 - **assets/**: Images, PDFs, logos, backgrounds
 - **docs/**: Build output - **DO NOT EDIT** (GitHub Pages, auto-generated)
-- **archive/**: Archived legacy content (old workshop modules, exercises)
+- **archive/**: Archived legacy content (old workshop modules from previous designs)
 
 ### Key Configuration Files
 
@@ -85,7 +82,7 @@ make diff                   # Show word-level diff
 - Brand identity elements
 
 **pyproject.toml**: Python dependencies
-- Current: marimo[mcp], openai, pydantic, python-dotenv, tiktoken
+- Current: marimo[mcp], openai, pydantic, pydantic-ai, python-dotenv, tiktoken
 - Package manager: uv
 - Requires Python >=3.10
 
@@ -204,11 +201,11 @@ workshop/01-module-name/
 ## Important Context
 
 - **License**: CC0 1.0 Universal (public domain)
-- **Language**: Primarily German
+- **Language**: English (workshop content and materials)
 - **Bibliography**: Uses bibliography.bib and ai-for-research.bib
 - **Search**: Navbar overlay search enabled
 - **Comments**: Hypothesis integration for collaborative annotation
-- **Current branch**: feature/marimo (adding interactive notebooks)
+- **Main branch**: main
 
 ## Pedagogical Framework
 
@@ -232,24 +229,50 @@ This workshop is grounded in cognitive science principles from "Make it Stick" a
 
 **Reference**: See https://virtuelleakademie.github.io/ki-lehre-intermediate/03-lernumgebungen/ for detailed pedagogical principles.
 
-## Workshop Structure (New Design)
+## Workshop Structure
 
-The redesigned modular workshop focuses on building pedagogically sound AI tools:
+**Building Personalized Worked Example Generators with AI** - A complete 3-hour workshop
 
-### New Modules (Marimo-based)
-- **Module 0** (workshop/00-setup/): Marimo introduction, environment setup, pedagogical principles
-- **Module 1** (workshop/01-retrieval-practice/): Build retrieval practice generators
-- **Exercise 1** (exercises/exercise-01/): Create Socratic questioning agent (20 min)
+### Learning Objectives
 
-### Legacy Content (Being Migrated)
-- Setup (OpenAI Platform + Google Colab) - *migrating to marimo*
-- Exploring OpenAI Models (parameters) - *migrating to marimo*
-- API Tricks: Mixture of Experts patterns - *needs update*
-- Structured Output: JSON schema responses - *migrating to marimo*
-- Legacy exercises in exercises/ directory
+By the end of this workshop, participants will:
 
-### Resources
-- **Prompt Templates** (resources/prompt-templates/pedagogical-prompts.qmd): 14 evidence-based prompt templates for common teaching scenarios
+1. **Understand** the worked example effect and personalization principle from Cognitive Load Theory
+2. **Build** a working personalized example generator using PydanticAI
+3. **Deploy** an interactive demo to HuggingFace Spaces
+4. **Possess** a template for creating domain-specific educational tools
+
+### Workshop Flow
+
+| Part | Duration | What Participants Do |
+|------|----------|---------------------|
+| Opening | 10 min | Think-Pair-Share on learning from examples |
+| Part 1: Foundation | 30 min | Learn CLT theory, set up environment, see PydanticAI demo |
+| Part 2: Design | 30 min | Collaboratively design data models (LearnerProfile, PersonalizedWorkedExample) |
+| Part 3: Build | 50 min | Build concept library, create AI agent, test generator |
+| Part 4: Interface | 40 min | Build interactive UI with Marimo (forms, buttons, display) |
+| Part 5: Deploy | 30 min | Deploy to HuggingFace Spaces, troubleshoot, discuss extensions |
+| Closing | 10 min | Reflect on learning, discuss transfer to own teaching |
+
+### Technical Stack
+
+- **PydanticAI**: Type-safe AI agent framework for structured outputs
+- **Marimo**: Reactive Python notebooks with built-in UI components
+- **OpenAI GPT-4o**: Language model for example generation
+- **HuggingFace Spaces**: Free deployment platform
+
+### Three Supported Domains
+
+1. **Programming (Python)**: For loops, list comprehensions, dictionaries, functions, string formatting
+2. **Health Sciences (Statistics)**: Correlation, mean/SD, t-tests, confidence intervals, effect size
+3. **Agronomy**: Yield prediction, NPK optimization, growing degree days, water efficiency, cost-benefit
+
+### Pedagogical Grounding
+
+Based on **Cognitive Load Theory** (Sweller, 1988):
+
+- **Worked Example Effect**: Novices learn better from studying solutions than solving problems (effect size 0.52)
+- **Personalization Effect**: Familiar contexts reduce extraneous cognitive load, improving learning
 
 ## Notes for Development
 

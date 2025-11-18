@@ -1,3 +1,3 @@
-# KI in der Lehre: Intermediate
+# KI in der Lehre: Advanced
 
 

@@ -1,0 +1,364 @@
+---
+title: "Part 2: Design"
+subtitle: "Data Models & Domain Design"
+---
+
+::: {.callout-note icon=false}
+## ⏱️ Duration: 30 minutes
+
+- Three Learning Domains: 10 minutes
+- Design Learner Profile Structure: 15 minutes
+- Define Worked Example Structure: 5 minutes
+:::
+
+## Understanding the Three Learning Domains
+
+We'll support three domains today. Let's explore what makes each domain suitable for personalized worked examples.
+
+### 1. Programming (Python for Beginners)
+
+**Concepts we'll cover:**
+
+- For loops
+- List comprehensions
+- Dictionary methods
+- Functions with parameters
+- String formatting
+
+**How personalization works:**
+
+- Use learner's hobbies and projects as context
+- Variable names from their interests
+- Examples solve problems they actually care about
+
+**Example:**
+
+Maria wants to build a recipe website (hobby: baking)
+
+- **Generic**: "Create a list of numbers from 1 to 10"
+- **Personalized**: "Generate a list of baking temperatures from 150°C to 250°C in 10°C increments for your recipe conversion tool"
+
+### 2. Health Sciences (Statistics for Undergrads)
+
+**Concepts we'll cover:**
+
+- Correlation analysis
+- Mean and standard deviation
+- Independent t-tests
+- Confidence intervals
+- Effect size (Cohen's d)
+
+**How personalization works:**
+
+- Use sports, fitness, nutrition contexts
+- Real-world health scenarios
+- Data from familiar measurements
+
+**Example:**
+
+Alex is a runner interested in sports nutrition
+
+- **Generic**: "Calculate the correlation between X and Y"
+- **Personalized**: "Calculate the correlation between your weekly protein intake and your 5K race times to see if nutrition affects performance"
+
+### 3. Agronomy (Agricultural Science)
+
+**Concepts we'll cover:**
+
+- Yield prediction
+- NPK optimization
+- Growing degree days
+- Water use efficiency
+- Cost-benefit analysis
+
+**How personalization works:**
+
+- Specific crops from family farms
+- Regional agricultural contexts
+- Real economic concerns
+
+**Example:**
+
+Carlos manages a coffee farm
+
+- **Generic**: "Calculate yield based on fertilizer input"
+- **Personalized**: "Predict your coffee harvest based on nitrogen application rates for your 5-hectare farm"
+
+::: {.callout-note icon=false}
+## 💭 Discussion Question
+
+**What makes these examples "personalizable"?**
+
+Key criteria:
+
+✅ Uses learner's actual interests and goals
+
+✅ Realistic data in their familiar context
+
+✅ Clear connection to what they want to achieve
+
+✅ Terminology they already understand
+:::
+
+## Designing the Learner Profile
+
+::: {.callout-note icon=false}
+## 👥 Collaborative Activity (15 minutes)
+
+We'll build this data model together. Think about: What information do we need to personalize effectively?
+:::
+
+### Starting Point
+
+Let's start simple:
+
+```python
+from pydantic import BaseModel
+
+class LearnerProfile(BaseModel):
+    name: str
+
+    # What else do we need?
+```
+
+### Building Together
+
+::: {.callout-tip icon=false}
+## 💡 Instructor Facilitates
+
+**Questions to ask participants:**
+
+1. "What information would help us personalize an example?"
+2. "Should we limit domains, or allow any text?"
+3. "How do we capture skill level?"
+4. "What about their goals or motivations?"
+
+Build the model collaboratively based on responses.
+:::
+
+### Complete LearnerProfile Model
+
+```python
+from pydantic import BaseModel, Field
+from typing import Literal
+
+class LearnerProfile(BaseModel):
+    """Collect learner information for personalization"""
+
+    name: str = Field(
+        description="Learner's first name"
+    )
+
+    domain: Literal["programming", "health_sciences", "agronomy"] = Field(
+        description="Learning domain"
+    )
+
+    specific_interest: str = Field(
+        description="Specific interest within domain",
+        examples=["web development", "sports nutrition", "coffee farming"]
+    )
+
+    hobby_or_passion: str = Field(
+        description="A hobby or passion they have",
+        examples=["photography", "cycling", "sustainable farming"]
+    )
+
+    goal: str = Field(
+        description="What they want to achieve",
+        examples=["build portfolio site", "improve performance", "increase yield"]
+    )
+
+    background_level: Literal["beginner", "intermediate", "advanced"] = Field(
+        description="Their current level in the domain"
+    )
+```
+
+### Why This Structure?
+
+::: {.callout-tip}
+## 💡 Design Decisions
+
+**name** - Personal connection, used throughout the example
+
+**domain** - Literal type ensures only valid domains (no typos!)
+
+**specific_interest** - Narrows context within broad domain
+
+**hobby_or_passion** - Additional context for creative connections
+
+**goal** - Motivational anchor, every example connects to this
+
+**background_level** - Controls complexity of explanations
+:::
+
+### Testing the Model
+
+Let's create an example profile:
+
+```python
+sarah = LearnerProfile(
+    name="Sarah",
+    domain="programming",
+    specific_interest="web development",
+    hobby_or_passion="baking",
+    goal="build a recipe sharing website",
+    background_level="beginner"
+)
+
+print(sarah.model_dump_json(indent=2))
+```
+
+**Output:**
+```json
+{
+  "name": "Sarah",
+  "domain": "programming",
+  "specific_interest": "web development",
+  "hobby_or_passion": "baking",
+  "goal": "build a recipe sharing website",
+  "background_level": "beginner"
+}
+```
+
+## Defining the Worked Example Structure
+
+::: {.callout-note icon=false}
+## 💭 Group Discussion (5 minutes)
+
+**Question:** What should a complete worked example include?
+
+Let's collect ideas on what makes a good worked example.
+:::
+
+### Checklist
+
+Participants typically suggest:
+
+- ✅ Title (engaging!)
+- ✅ Problem statement
+- ✅ Given data
+- ✅ Solution steps (clearly explained)
+- ✅ Final answer
+- ❓ Connection to their goal?
+- ❓ Practice suggestion?
+
+The last two are crucial for motivation and transfer!
+
+### Complete PersonalizedWorkedExample Model
+
+```python
+class PersonalizedWorkedExample(BaseModel):
+    """A complete worked example tailored to the learner"""
+
+    title: str = Field(
+        description="Engaging title that incorporates learner's interest"
+    )
+
+    problem_statement: str = Field(
+        description="Problem framed in learner's context (3-4 sentences)"
+    )
+
+    given_data: str = Field(
+        description="Data presented in familiar context (can include code blocks or tables)"
+    )
+
+    step_by_step_solution: list[str] = Field(
+        description="Clear steps with explanations. Include code or calculations."
+    )
+
+    final_answer: str = Field(
+        description="The final answer with interpretation relevant to learner's context"
+    )
+
+    connection_to_goal: str = Field(
+        description="How this example relates to their stated goal (2-3 sentences)"
+    )
+
+    practice_suggestion: str = Field(
+        description="A similar problem they could try next, using their context"
+    )
+```
+
+### Why Each Field Matters
+
+| Field | Purpose | Cognitive Science Rationale |
+|-------|---------|---------------------------|
+| `title` | Engagement | Activates relevant prior knowledge |
+| `problem_statement` | Context | Reduces extraneous load through familiarity |
+| `given_data` | Concrete example | Concrete > abstract for schema formation |
+| `step_by_step_solution` | Core learning | Main cognitive work happens here |
+| `final_answer` | Closure | Explicit interpretation aids transfer |
+| `connection_to_goal` | Motivation | Increases germane load (willingness to engage) |
+| `practice_suggestion` | Transfer | Spacing and variation for retention |
+
+## Visual Example
+
+Here's what a complete example might look like for Sarah:
+
+::: {.callout-note icon=false collapse="true"}
+## 📄 Sample Output for Sarah
+
+**Title:** "Building Your Recipe Gallery: Using For Loops to Display Baking Recipes"
+
+**Problem Statement:**
+Sarah, you're building a recipe sharing website and need to display all your baking recipes on the homepage. You have a list of your favorite recipes, and you want to create an HTML list item for each one. This is a perfect use case for a for loop!
+
+**Given Data:**
+```python
+recipes = ["Chocolate Chip Cookies", "Banana Bread", "Carrot Cake", "Lemon Tart"]
+```
+
+**Step-by-Step Solution:**
+
+**Step 1:** Set up the for loop to iterate through each recipe
+```python
+for recipe in recipes:
+    # This repeats for each item in the list
+```
+
+**Step 2:** Inside the loop, create an HTML list item for each recipe
+```python
+for recipe in recipes:
+    print(f"<li>{recipe}</li>")
+```
+
+**Step 3:** Run the complete code
+```python
+recipes = ["Chocolate Chip Cookies", "Banana Bread", "Carrot Cake", "Lemon Tart"]
+
+for recipe in recipes:
+    print(f"<li>{recipe}</li>")
+```
+
+**Final Answer:**
+```html
+<li>Chocolate Chip Cookies</li>
+<li>Banana Bread</li>
+<li>Carrot Cake</li>
+<li>Lemon Tart</li>
+```
+
+This HTML code can now be inserted into your recipe website's homepage to display your baking collection!
+
+**Connection to Goal:**
+This for loop pattern is fundamental for your recipe website. You'll use it to display recipe lists, ingredient lists, and cooking steps. Mastering for loops means you can automatically generate any repeating HTML elements - essential for building your recipe sharing platform.
+
+**Practice Suggestion:**
+Try creating a for loop that displays your baking recipes with both the recipe name and baking temperature: `"Chocolate Chip Cookies - 180°C"`. This will help you practice combining data.
+:::
+
+## Key Takeaways
+
+::: {.callout-tip icon=false}
+## 🎯 What We've Designed
+
+1. **LearnerProfile** - Captures enough information for meaningful personalization
+2. **PersonalizedWorkedExample** - Defines the complete structure of a good worked example
+3. **Type safety** - Pydantic ensures these structures are always followed
+4. **Pedagogical grounding** - Every field serves a learning science purpose
+
+:::
+
+---
+
+**Next:** [Part 3: Build](../part-3-build/index.qmd) - We'll create the AI agent that generates these personalized examples.

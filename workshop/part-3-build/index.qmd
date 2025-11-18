@@ -1,0 +1,454 @@
+---
+title: "Part 3: Build"
+subtitle: "Creating the Personalized Example Generator"
+---
+
+::: {.callout-note icon=false}
+## ⏱️ Duration: 50 minutes
+
+- Create Concept Library: 10 minutes
+- Build the AI Agent: 20 minutes
+- Create Generation Function: 10 minutes
+- Test the Generator: 10 minutes
+:::
+
+## Overview
+
+In this section, we'll build the core of our application:
+
+1. A **concept library** defining what we can teach in each domain
+2. An **AI agent** configured to generate pedagogically sound examples
+3. A **generation function** that connects profiles to examples
+4. **Testing** to verify quality
+
+## Activity 1: Create the Concept Library
+
+::: {.callout-note icon=false}
+## 💻 Live Coding (10 minutes)
+
+We'll build this together. The instructor codes while explaining the structure.
+:::
+
+### What Is a Concept Library?
+
+The concept library defines **what we can teach** in each domain. For each concept, we specify:
+
+- **name**: What the concept is called
+- **abstract**: General description (domain-independent)
+- **difficulty**: Skill level required
+- **typical_use**: When/why to use this concept
+
+### Building the Library
+
+```python
+CONCEPTS = {
+    "programming": [
+        {
+            "name": "For Loops",
+            "abstract": "Iterate through a sequence of items",
+            "difficulty": "beginner",
+            "typical_use": "Processing lists, repeating actions multiple times"
+        },
+        {
+            "name": "List Comprehensions",
+            "abstract": "Create new lists using concise syntax",
+            "difficulty": "intermediate",
+            "typical_use": "Transform data, filter lists elegantly"
+        },
+        {
+            "name": "Dictionary Methods",
+            "abstract": "Access and manipulate key-value pairs",
+            "difficulty": "beginner",
+            "typical_use": "Store related data, perform fast lookups"
+        },
+        {
+            "name": "Functions with Parameters",
+            "abstract": "Create reusable code blocks that accept inputs",
+            "difficulty": "beginner",
+            "typical_use": "Organize code, avoid repetition"
+        },
+        {
+            "name": "String Formatting",
+            "abstract": "Create formatted text output using f-strings",
+            "difficulty": "beginner",
+            "typical_use": "Display data, create messages dynamically"
+        }
+    ],
+
+    "health_sciences": [
+        {
+            "name": "Correlation Analysis",
+            "abstract": "Measure strength and direction of relationship between two variables",
+            "difficulty": "intermediate",
+            "typical_use": "Find relationships in health data, guide research"
+        },
+        {
+            "name": "Mean and Standard Deviation",
+            "abstract": "Describe central tendency and variability in data",
+            "difficulty": "beginner",
+            "typical_use": "Summarize health measurements, describe populations"
+        },
+        {
+            "name": "Independent T-Test",
+            "abstract": "Compare means between two independent groups",
+            "difficulty": "intermediate",
+            "typical_use": "Test intervention effectiveness, compare treatments"
+        },
+        {
+            "name": "Confidence Intervals",
+            "abstract": "Estimate population parameters with uncertainty",
+            "difficulty": "intermediate",
+            "typical_use": "Interpret research findings, quantify precision"
+        },
+        {
+            "name": "Effect Size (Cohen's d)",
+            "abstract": "Measure practical significance of differences",
+            "difficulty": "intermediate",
+            "typical_use": "Interpret research impact beyond p-values"
+        }
+    ],
+
+    "agronomy": [
+        {
+            "name": "Yield Prediction",
+            "abstract": "Estimate crop output based on inputs using regression",
+            "difficulty": "intermediate",
+            "typical_use": "Plan harvest, allocate resources, financial projections"
+        },
+        {
+            "name": "NPK Optimization",
+            "abstract": "Calculate optimal fertilizer ratios for maximum benefit",
+            "difficulty": "intermediate",
+            "typical_use": "Maximize yield while minimizing cost and environmental impact"
+        },
+        {
+            "name": "Growing Degree Days",
+            "abstract": "Calculate heat accumulation for crop development",
+            "difficulty": "beginner",
+            "typical_use": "Predict crop stages, plan field operations"
+        },
+        {
+            "name": "Water Use Efficiency",
+            "abstract": "Calculate crop yield per unit of water used",
+            "difficulty": "beginner",
+            "typical_use": "Optimize irrigation, compare varieties"
+        },
+        {
+            "name": "Cost-Benefit Analysis",
+            "abstract": "Compare costs and returns of agricultural interventions",
+            "difficulty": "intermediate",
+            "typical_use": "Make informed decisions about inputs and practices"
+        }
+    ]
+}
+```
+
+::: {.callout-tip}
+## 💡 Extension Opportunity
+
+**If time permits:** Have participants suggest one additional concept for their favorite domain.
+
+Questions to guide them:
+
+- Is it fundamental enough for beginners/intermediates?
+- Can it be personalized across different contexts?
+- Does it have clear applications in the real world?
+:::
+
+## Activity 2: Build the AI Agent
+
+::: {.callout-note icon=false}
+## 🧠 Critical Discussion (20 minutes)
+
+Before coding, let's think: What instructions should we give the AI to generate good worked examples?
+:::
+
+### What Makes a Good Personalized Example?
+
+::: {.callout-note icon=false}
+## 💭 Facilitated Discussion
+
+**Instructor asks:** "What instructions would help the AI generate examples that..."
+
+Collect responses and synthesize:
+
+**DO:**
+
+✅ Weave interests naturally (not tacked on)
+
+✅ Use learner's name throughout
+
+✅ Make data realistic and believable
+
+✅ Match complexity to learner's level
+
+✅ Show every step explicitly
+
+✅ Connect to their goal
+
+**DON'T:**
+
+❌ Create generic examples with personal details superficially added
+
+❌ Force artificial connections
+
+❌ Use too much jargon for beginners
+
+❌ Use abstract variable names
+
+❌ Skip steps in solutions
+:::
+
+### The System Prompt
+
+The system prompt is **critical** for quality. It's our pedagogical guidance to the AI.
+
+```python
+from pydantic_ai import Agent
+
+example_generator = Agent(
+    'openai:gpt-4o',
+    result_type=PersonalizedWorkedExample,
+    system_prompt="""You are an expert educator who creates highly personalized
+    worked examples that connect abstract concepts to learners' lived experiences.
+
+    CRITICAL INSTRUCTIONS:
+
+    1. Weave the learner's interests, hobbies, and goals naturally into the example
+    2. Use their name throughout to increase personal connection
+    3. Make data and scenarios feel authentic to their context
+    4. Keep explanations clear but connect to what they care about
+    5. The example should feel like it was written specifically for this person
+    6. Match complexity to their level (beginner/intermediate/advanced)
+    7. Make the connection to their goal explicit and motivating
+    8. Use concrete numbers and realistic data
+    9. For programming examples, include actual runnable code with comments
+    10. For quantitative examples, show all calculations step by step
+
+    STRUCTURE YOUR EXAMPLES:
+
+    - Start with an engaging title that mentions their interest
+    - Frame the problem in their context (use their name and interests)
+    - Present data that feels real to their situation
+    - Walk through steps clearly with explanations
+    - For code: include comments explaining each part
+    - For math: show each calculation explicitly
+    - Connect the final answer to their goal
+    - Suggest a related practice problem in their context
+
+    AVOID:
+
+    - Generic examples with personal details superficially added
+    - Forced or artificial connections
+    - Too much technical jargon for beginners
+    - Abstract variable names (use meaningful names from their context)
+    - Skipping steps in solutions
+
+    Remember: This is a WORKED EXAMPLE - a complete solution for the learner
+    to study, not a problem for them to solve.
+    """
+)
+```
+
+### Why Each Instruction Matters
+
+::: {.callout-tip}
+## 💡 Pedagogical Grounding
+
+| Instruction | Cognitive Science Rationale |
+|-------------|---------------------------|
+| "Weave interests naturally" | Reduces extraneous load, authentic context |
+| "Use their name" | Personal connection → germane load (motivation) |
+| "Authentic data" | Believability → mental simulation → deeper encoding |
+| "Match complexity to level" | Zone of proximal development |
+| "Show all steps" | Schema construction requires seeing the pattern |
+| "Connect to goal" | Motivation, relevance, transfer |
+
+**The "avoid" list** addresses common failure modes we've observed in testing.
+:::
+
+## Activity 3: Create the Generation Function
+
+::: {.callout-note icon=false}
+## 💻 Live Coding (10 minutes)
+
+Now we connect everything together.
+:::
+
+### The Generation Function
+
+This function takes a learner profile and a concept, then asks the AI to generate a personalized example.
+
+```python
+async def generate_personalized_example(
+    profile: LearnerProfile,
+    concept: dict
+) -> PersonalizedWorkedExample:
+    """Generate a personalized worked example"""
+
+    prompt = f"""
+    Create a worked example for:
+
+    LEARNER PROFILE:
+    - Name: {profile.name}
+    - Domain: {profile.domain}
+    - Specific interest: {profile.specific_interest}
+    - Hobby/passion: {profile.hobby_or_passion}
+    - Goal: {profile.goal}
+    - Level: {profile.background_level}
+
+    CONCEPT TO TEACH:
+    - Name: {concept['name']}
+    - Abstract description: {concept['abstract']}
+    - Difficulty: {concept['difficulty']}
+    - Typical use: {concept['typical_use']}
+
+    Create a worked example that teaches this concept using {profile.name}'s
+    specific context. The example should feel personal and relevant to their
+    goal of "{profile.goal}".
+
+    Make the problem realistic and the data believable for their situation.
+
+    For programming: Include complete, runnable code with explanatory comments.
+    For quantitative problems: Show every calculation step explicitly.
+
+    This is a WORKED EXAMPLE - provide the complete solution for them to study.
+    """
+
+    result = await example_generator.run(prompt)
+    return result.data
+```
+
+### Why This Works
+
+The function:
+
+1. **Combines** profile information with concept description
+2. **Provides context** to the AI about the learner
+3. **Specifies output format** (handled by Pydantic)
+4. **Returns structured data** ready to use
+
+## Activity 4: Test the Generator
+
+::: {.callout-note icon=false}
+## 🧪 Live Testing (10 minutes)
+
+Let's test with a real profile and discuss the output quality.
+:::
+
+### Test Setup
+
+We'll use Sarah's profile from Part 2:
+
+```python
+# Sarah's profile
+sarah = LearnerProfile(
+    name="Sarah",
+    domain="programming",
+    specific_interest="web development",
+    hobby_or_passion="baking",
+    goal="build a recipe sharing website",
+    background_level="beginner"
+)
+
+# Choose a concept
+concept = CONCEPTS["programming"][0]  # For Loops
+
+# Generate
+print(f"Generating example for {sarah.name}...")
+print(f"Concept: {concept['name']}")
+print()
+
+example = await generate_personalized_example(sarah, concept)
+```
+
+### Examining the Output
+
+```python
+# Display the generated example
+print(f"Title: {example.title}")
+print(f"\nProblem: {example.problem_statement[:100]}...")
+print(f"\nNumber of steps: {len(example.step_by_step_solution)}")
+print(f"\nConnection to goal: {example.connection_to_goal[:80]}...")
+```
+
+### Quality Discussion
+
+::: {.callout-note icon=false}
+## 💬 Group Discussion
+
+**Questions to facilitate:**
+
+1. **Is it personalized?**
+   - Does it genuinely use Sarah's context, or is "baking" just tacked on?
+   - Would Sarah find this relevant?
+
+2. **Is it pedagogically sound?**
+   - Are all steps shown?
+   - Is the complexity appropriate for a beginner?
+   - Can Sarah study this and learn the pattern?
+
+3. **What could be improved?**
+   - Too much jargon?
+   - Skipped steps?
+   - Forced connections?
+
+4. **Would this work at scale?**
+   - Generate 2-3 more for different profiles
+   - Observe consistency and quality
+:::
+
+### Expected Output Quality
+
+A good example for Sarah might look like:
+
+```
+Title: "Building Your Recipe Gallery: Using For Loops to Display Baking Recipes"
+
+Problem: Sarah, you're building a recipe sharing website and need to display
+all your baking recipes on the homepage. You have a list of your favorite
+recipes, and you want to create an HTML list item for each one...
+
+[Shows complete solution with 3-4 clear steps]
+
+Connection to goal: This for loop pattern is fundamental for your recipe
+website. You'll use it to display recipe lists, ingredient lists, and
+cooking steps...
+```
+
+## What We've Built
+
+::: {.callout-tip icon=false}
+## 🎯 Summary
+
+At this point, you have:
+
+✅ A **concept library** with 15 concepts across 3 domains
+
+✅ An **AI agent** configured with pedagogical instructions
+
+✅ A **generation function** that creates personalized examples
+
+✅ **Tested output** demonstrating quality
+
+**What's missing?** A user interface! That's next.
+:::
+
+## Checkpoint
+
+::: {.callout-important}
+## 🔍 Verify Before Moving On
+
+Everyone should have:
+
+1. CONCEPTS dictionary with all domains
+2. PydanticAI agent created with system prompt
+3. generation function defined
+4. Successfully generated at least one example
+
+**Having issues?** Raise your hand now!
+:::
+
+---
+
+**Next:** [Part 4: Interface](../part-4-interface/index.qmd) - We'll build an interactive UI with Marimo.
