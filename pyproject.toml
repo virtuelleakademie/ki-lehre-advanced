@@ -8,9 +8,14 @@ dependencies = [
     "ipykernel>=7.1.0",
     "ipython>=8.37.0",
     "marimo[mcp]==0.17.8",
-    "openai",
+    "openai>=1.0.0",
     "pydantic>=2.12.4",
-    "pydantic-ai>=0.0.13",
     "python-dotenv>=1.2.1",
     "tiktoken>=0.8.0",
+]
+
+[project.optional-dependencies]
+# Optional: For experimenting with PydanticAI framework
+pydantic-ai = [
+    "pydantic-ai>=0.0.13",
 ]

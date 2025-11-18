@@ -6,15 +6,17 @@ Built by the Virtual Academy at Bern University of Applied Sciences
 """
 
 import gradio as gr
+from openai import OpenAI
 from pydantic import BaseModel, Field
-from pydantic_ai import Agent
 from typing import Literal
 import os
-import asyncio
 from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
+
+# Initialize OpenAI client
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Data Models
 class LearnerProfile(BaseModel):
@@ -64,38 +66,35 @@ CONCEPTS = {
     ]
 }
 
-# AI Agent
-example_generator = Agent[PersonalizedWorkedExample](
-    'openai:gpt-5.1',
-    system_prompt="""You are an expert educator who creates highly personalized
-    worked examples that connect abstract concepts to learners' lived experiences.
+# System prompt for the AI
+SYSTEM_PROMPT = """You are an expert educator who creates highly personalized
+worked examples that connect abstract concepts to learners' lived experiences.
 
-    CRITICAL INSTRUCTIONS:
-    1. Weave the learner's interests, hobbies, and goals naturally into the example
-    2. Use their name throughout to increase personal connection
-    3. Make data and scenarios feel authentic to their context
-    4. Keep explanations clear but connect to what they care about
-    5. Match complexity to their level (beginner/intermediate/advanced)
-    6. Make the connection to their goal explicit and motivating
-    7. Use concrete numbers and realistic data
-    8. For programming examples, include actual runnable code with comments
-    9. For quantitative examples, show all calculations step by step
+CRITICAL INSTRUCTIONS:
+1. Weave the learner's interests, hobbies, and goals naturally into the example
+2. Use their name throughout to increase personal connection
+3. Make data and scenarios feel authentic to their context
+4. Keep explanations clear but connect to what they care about
+5. Match complexity to their level (beginner/intermediate/advanced)
+6. Make the connection to their goal explicit and motivating
+7. Use concrete numbers and realistic data
+8. For programming examples, include actual runnable code with comments
+9. For quantitative examples, show all calculations step by step
 
-    STRUCTURE YOUR EXAMPLES:
-    - Start with an engaging title that mentions their interest
-    - Frame the problem in their context
-    - Present data that feels real to their situation
-    - Walk through steps clearly with explanations
-    - Connect the final answer to their goal
-    - Suggest a related practice problem
+STRUCTURE YOUR EXAMPLES:
+- Start with an engaging title that mentions their interest
+- Frame the problem in their context
+- Present data that feels real to their situation
+- Walk through steps clearly with explanations
+- Connect the final answer to their goal
+- Suggest a related practice problem
 
-    Remember: This is a WORKED EXAMPLE - a complete solution for the learner
-    to study, not a problem for them to solve.
-    """
-)
+Remember: This is a WORKED EXAMPLE - a complete solution for the learner
+to study, not a problem for them to solve.
+"""
 
 
-async def generate_example(
+def generate_example(
     name: str,
     domain: str,
     interest: str,
@@ -141,7 +140,7 @@ async def generate_example(
 
     # Generate example
     try:
-        prompt = f"""
+        user_prompt = f"""
         Create a worked example for:
 
         LEARNER PROFILE:
@@ -165,8 +164,23 @@ async def generate_example(
         For quantitative problems: Show every calculation step explicitly.
         """
 
-        result = await example_generator.run(prompt)
-        example = result.output
+        # Call OpenAI with structured outputs
+        # Try GPT-5.1 first, fallback to GPT-4o if not available
+        model_to_use = "gpt-5.1"  # Change to "gpt-4o" if GPT-5.1 is not available
+
+        response = client.responses.parse(
+            model=model_to_use,
+            input=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": user_prompt}
+            ],
+            text_format=PersonalizedWorkedExample
+        )
+
+        example = response.output_parsed
+
+        if not example:
+            return "❌ Failed to generate example. Please try again."
 
         # Format output
         output = f"""# {example.title}
@@ -209,7 +223,9 @@ async def generate_example(
         return output
 
     except Exception as e:
-        return f"❌ Error generating example: {str(e)}\n\nPlease check your OpenAI API key."
+        import traceback
+        error_details = traceback.format_exc()
+        return f"❌ Error generating example:\n\n```\n{str(e)}\n\n{error_details}\n```\n\nPlease check:\n1. OpenAI API key is set\n2. Model 'gpt-5.1' is available for your account"
 
 
 def update_concepts(domain: str):
@@ -270,7 +286,7 @@ with gr.Blocks(title="Worked Example Weaver", theme=gr.themes.Soft()) as demo:
             output = gr.Markdown(label="Your Personalized Worked Example")
 
     generate_btn.click(
-        fn=lambda *args: asyncio.run(generate_example(*args)),
+        fn=generate_example,
         inputs=[name, domain, interest, hobby, goal, level, concept],
         outputs=[output]
     )
@@ -289,9 +305,9 @@ with gr.Blocks(title="Worked Example Weaver", theme=gr.themes.Soft()) as demo:
     > "Familiar contexts require less cognitive effort to process, reducing extraneous cognitive load."
 
     ### Built With
-    - [PydanticAI](https://ai.pydantic.dev) - Type-safe AI agents
-    - [OpenAI GPT-5.1](https://openai.com) - Language model
+    - [OpenAI GPT-5.1](https://platform.openai.com/docs/guides/latest-model) - Latest language model with structured outputs
     - [Gradio](https://gradio.app) - Web interface
+    - [Pydantic](https://pydantic.dev) - Data validation
 
     ---
 
