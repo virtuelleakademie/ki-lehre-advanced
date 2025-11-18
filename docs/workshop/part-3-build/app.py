@@ -245,7 +245,7 @@ def create_agent(Agent, PersonalizedWorkedExample):
     """Create the AI agent for generating personalized examples"""
 
     example_generator = Agent(
-        'openai:gpt-4o',
+        'openai:gpt-5.1',
         result_type=PersonalizedWorkedExample,
         system_prompt="""You are an expert educator who creates highly personalized
         worked examples that connect abstract concepts to learners' lived experiences.
@@ -481,7 +481,13 @@ def concept_selector_widget(mo, profile_complete, learner_profile, CONCEPTS):
             full_width=True
         )
 
-        concept_selector
+        mo.vstack([
+            concept_selector,
+            mo.callout(
+                "👆 Select a concept from the dropdown above to continue.",
+                kind="info"
+            ) if not concept_selector.value else None
+        ])
     else:
         concept_selector = None
 
@@ -493,15 +499,17 @@ def generate_button_widget(mo, profile_complete, concept_selector):
     """Create generate button"""
 
     if profile_complete and concept_selector and concept_selector.value:
-        mo.md("---")
-
         generate_button = mo.ui.button(
             label="✨ Generate My Personalized Example",
             kind="success",
             full_width=True
         )
 
-        generate_button
+        mo.vstack([
+            mo.md("---"),
+            mo.md("## 🎯 Step 3: Generate Your Example"),
+            generate_button
+        ])
     else:
         generate_button = None
 
@@ -594,7 +602,7 @@ def footer(mo):
 
     - [Marimo](https://marimo.io) - Reactive Python notebooks
     - [PydanticAI](https://ai.pydantic.dev) - Type-safe AI agents
-    - [OpenAI GPT-4o](https://openai.com) - Language model
+    - [OpenAI GPT-5.1](https://openai.com) - Language model
     - [Pydantic](https://pydantic.dev) - Data validation
 
     ### 🔧 Extend This Tool
