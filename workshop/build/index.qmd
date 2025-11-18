@@ -33,6 +33,7 @@ By the end of this section, you will:
 ## ✅ Required Before Workshop
 
 You should have installed:
+
 - Python 3.10 or higher
 - `marimo`, `pydantic-ai`, `openai` packages
 - OpenAI API key set as environment variable
@@ -215,11 +216,13 @@ async def generate_example(profile, concept):
 #### 5. Marimo UI Cells (Lines 182-end)
 
 Marimo creates reactive cells:
+
 - `@app.cell` decorator
 - Auto-updates when dependencies change
 - No stale state (unlike Jupyter)
 
 **UI components:**
+
 - `mo.ui.text()` - Text inputs
 - `mo.ui.dropdown()` - Concept selection
 - `mo.ui.button()` - Generate button
@@ -320,6 +323,7 @@ system_prompt="""You are an expert educator...
 system_prompt="""You are an expert educator...
 
 IMPORTANT: For programming examples:
+
 - Include detailed code comments
 - Mention common pitfalls
 - Show best practices
@@ -330,6 +334,7 @@ IMPORTANT: For programming examples:
 #### 4. Save and Test
 
 After adding concepts:
+
 1. Save the file (Ctrl+S or Cmd+S)
 2. Marimo auto-reloads
 3. New concepts appear in dropdown
