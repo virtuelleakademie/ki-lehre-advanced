@@ -286,10 +286,9 @@
     "href": "workshop/index.html",
     "title": "Building Personalized Worked Example Generators with AI",
     "section": "",
-    "text": "Welcome to this 3-hour workshop on building AI-powered educational tools grounded in Cognitive Load Theory. You’ll create a complete, production-ready application that generates personalized worked examples tailored to individual learners’ interests, goals, and contexts.\n\n\nA Personalized Worked Example Generator that:\n\nCollects learner profile information (name, domain, interests, hobbies, goals, skill level)\nGenerates customized worked examples in three domains: Programming (Python), Health Sciences (Statistics), or Agronomy\nWeaves learner interests naturally into educational content\nProvides step-by-step solutions with personal relevance\nDeploys as a live web application on HuggingFace Spaces\n\n\n\n\nBy the end of this workshop, you will:\n\nUnderstand the worked example effect and personalization principle from Cognitive Load Theory\nBuild a working personalized example generator using PydanticAI\nDeploy an interactive demo to HuggingFace Spaces\nPossess a template for creating domain-specific educational tools\n\n\n\n\nThis workshop is grounded in Cognitive Load Theory (Sweller, 1988), specifically:\nThe Worked Example Effect:\n\n“A ‘worked example’ is a problem that has already been solved for the learner, with every step fully explained and clearly shown. The ‘worked example effect’ is the widely replicated finding that novice learners who are given worked examples to study perform better on subsequent tests than learners who are required to solve the equivalent problems themselves.”\n— NSW CESE (2017, p. 7)\n\nWhy It Works:\n\nUnguided problem-solving overloads working memory\nStudying worked examples reduces cognitive load\nMore working memory capacity available for schema construction\nBetter learning outcomes for novices\n\nOur Addition - Personalization:\n\nFamiliar contexts reduce extraneous cognitive load\nPersonal relevance increases germane load (motivation)\nBetter schema formation and transfer",
+    "text": "Welcome to this 3-hour workshop on building AI-powered educational tools grounded in Cognitive Load Theory. You’ll learn the pattern for creating personalized worked examples by modifying a working template.\n\n\n\nSee a complete demo - Experience the full complex application (3 domains, 16 concepts)\nStudy the code - Understand how PydanticAI and Marimo work together\nModify a template - Add concepts to a simplified version (1 domain, 3 concepts)\nDesign extensions - Plan how to apply this to YOUR teaching\n\n\n\n\nYou’ll modify a working Personalised Worked Example Generator (in your browser) that:\n\nCollects learner profile information (name, domain, interests, hobbies, goals, skill level)\nGenerates customised worked examples in ONE domain (Programming)\nWeaves learner interests naturally into educational content\nProvides step-by-step solutions with personal relevance\nRuns in your browser (no installation required)\n\nNote: The DEMO shows all 3 domains with 16 concepts. You’ll work with a SIMPLIFIED version (1 domain, 3 concepts) and add 1-2 more concepts to learn the pattern.\n\n\n\nBy the end of this workshop, you will:\n\nUnderstand the worked example effect and personalisation principle from Cognitive Load Theory\nModify a working template to add your own concepts (in your browser)\nSee how PydanticAI ensures structured outputs\nRecognise the pattern for building educational AI tools\nDesign extensions for your own teaching context\n\n\n\n\nThis workshop is grounded in Cognitive Load Theory (Sweller, 1988), specifically:\nThe Worked Example Effect:\n\n“A ‘worked example’ is a problem that has already been solved for the learner, with every step fully explained and clearly shown. The ‘worked example effect’ is the widely replicated finding that novice learners who are given worked examples to study perform better on subsequent tests than learners who are required to solve the equivalent problems themselves.”\n— NSW CESE (2017, p. 7)\n\nWhy It Works:\n\nUnguided problem-solving overloads working memory\nStudying worked examples reduces cognitive load\nMore working memory capacity available for schema construction\nBetter learning outcomes for novices\n\nOur Addition - Personalization:\n\nFamiliar contexts reduce extraneous cognitive load\nPersonal relevance increases germane load (motivation)\nBetter schema formation and transfer",
     "crumbs": [
       "Workshop",
-      "Overview",
       "Building Personalized Worked Example Generators with AI"
     ]
   },
@@ -2030,96 +2029,56 @@
     "href": "workshop/part-3-build/index.html",
     "title": "Part 3: Build",
     "section": "",
-    "text": "Note⏱️ Duration: 50 minutes\n\n\n\n\nCreate Concept Library: 10 minutes\nBuild the AI Agent: 20 minutes\nCreate Generation Function: 10 minutes\nTest the Generator: 10 minutes",
-    "crumbs": [
-      "Workshop",
-      "Part 3: Build",
-      "Part 3: Build"
-    ]
+    "text": "Note⏱️ Duration: 50 minutes\n\n\n\n\nCreate Concept Library: 10 minutes\nBuild the AI Agent: 20 minutes\nCreate Generation Function: 10 minutes\nTest the Generator: 10 minutes"
   },
   {
     "objectID": "workshop/part-3-build/index.html#overview",
     "href": "workshop/part-3-build/index.html#overview",
     "title": "Part 3: Build",
     "section": "Overview",
-    "text": "Overview\nIn this section, we’ll build the core of our application:\n\nA concept library defining what we can teach in each domain\nAn AI agent configured to generate pedagogically sound examples\nA generation function that connects profiles to examples\nTesting to verify quality",
-    "crumbs": [
-      "Workshop",
-      "Part 3: Build",
-      "Part 3: Build"
-    ]
+    "text": "Overview\nIn this section, we’ll build the core of our application:\n\nA concept library defining what we can teach in each domain\nAn AI agent configured to generate pedagogically sound examples\nA generation function that connects profiles to examples\nTesting to verify quality"
   },
   {
     "objectID": "workshop/part-3-build/index.html#activity-1-create-the-concept-library",
     "href": "workshop/part-3-build/index.html#activity-1-create-the-concept-library",
     "title": "Part 3: Build",
     "section": "Activity 1: Create the Concept Library",
-    "text": "Activity 1: Create the Concept Library\n\n\n\n\n\n\nNote💻 Live Coding (10 minutes)\n\n\n\nWe’ll build this together. The instructor codes while explaining the structure.\n\n\n\nWhat Is a Concept Library?\nThe concept library defines what we can teach in each domain. For each concept, we specify:\n\nname: What the concept is called\nabstract: General description (domain-independent)\ndifficulty: Skill level required\ntypical_use: When/why to use this concept\n\n\n\nBuilding the Library\nCONCEPTS = {\n    \"programming\": [\n        {\n            \"name\": \"For Loops\",\n            \"abstract\": \"Iterate through a sequence of items\",\n            \"difficulty\": \"beginner\",\n            \"typical_use\": \"Processing lists, repeating actions multiple times\"\n        },\n        {\n            \"name\": \"List Comprehensions\",\n            \"abstract\": \"Create new lists using concise syntax\",\n            \"difficulty\": \"intermediate\",\n            \"typical_use\": \"Transform data, filter lists elegantly\"\n        },\n        {\n            \"name\": \"Dictionary Methods\",\n            \"abstract\": \"Access and manipulate key-value pairs\",\n            \"difficulty\": \"beginner\",\n            \"typical_use\": \"Store related data, perform fast lookups\"\n        },\n        {\n            \"name\": \"Functions with Parameters\",\n            \"abstract\": \"Create reusable code blocks that accept inputs\",\n            \"difficulty\": \"beginner\",\n            \"typical_use\": \"Organize code, avoid repetition\"\n        },\n        {\n            \"name\": \"String Formatting\",\n            \"abstract\": \"Create formatted text output using f-strings\",\n            \"difficulty\": \"beginner\",\n            \"typical_use\": \"Display data, create messages dynamically\"\n        }\n    ],\n\n    \"health_sciences\": [\n        {\n            \"name\": \"Mean and Standard Deviation\",\n            \"abstract\": \"Describe central tendency and variability in data\",\n            \"difficulty\": \"beginner\",\n            \"typical_use\": \"Summarize health measurements, describe populations\"\n        },\n        {\n            \"name\": \"Correlation Analysis\",\n            \"abstract\": \"Measure strength and direction of relationship between two variables\",\n            \"difficulty\": \"intermediate\",\n            \"typical_use\": \"Find relationships in health data, guide research\"\n        },\n        {\n            \"name\": \"Linear Regression\",\n            \"abstract\": \"Predict one variable from another using a straight-line relationship\",\n            \"difficulty\": \"intermediate\",\n            \"typical_use\": \"Predict outcomes, understand relationships, forecast trends\"\n        },\n        {\n            \"name\": \"Independent T-Test\",\n            \"abstract\": \"Compare means between two independent groups\",\n            \"difficulty\": \"intermediate\",\n            \"typical_use\": \"Test intervention effectiveness, compare treatments\"\n        },\n        {\n            \"name\": \"Confidence Intervals\",\n            \"abstract\": \"Estimate population parameters with uncertainty\",\n            \"difficulty\": \"intermediate\",\n            \"typical_use\": \"Interpret research findings, quantify precision\"\n        },\n        {\n            \"name\": \"Effect Size (Cohen's d)\",\n            \"abstract\": \"Measure practical significance of differences\",\n            \"difficulty\": \"intermediate\",\n            \"typical_use\": \"Interpret research impact beyond p-values\"\n        }\n    ],\n\n    \"agronomy\": [\n        {\n            \"name\": \"Yield Prediction\",\n            \"abstract\": \"Estimate crop output based on inputs using regression\",\n            \"difficulty\": \"intermediate\",\n            \"typical_use\": \"Plan harvest, allocate resources, financial projections\"\n        },\n        {\n            \"name\": \"NPK Optimization\",\n            \"abstract\": \"Calculate optimal fertilizer ratios for maximum benefit\",\n            \"difficulty\": \"intermediate\",\n            \"typical_use\": \"Maximize yield while minimizing cost and environmental impact\"\n        },\n        {\n            \"name\": \"Growing Degree Days\",\n            \"abstract\": \"Calculate heat accumulation for crop development\",\n            \"difficulty\": \"beginner\",\n            \"typical_use\": \"Predict crop stages, plan field operations\"\n        },\n        {\n            \"name\": \"Water Use Efficiency\",\n            \"abstract\": \"Calculate crop yield per unit of water used\",\n            \"difficulty\": \"beginner\",\n            \"typical_use\": \"Optimize irrigation, compare varieties\"\n        },\n        {\n            \"name\": \"Cost-Benefit Analysis\",\n            \"abstract\": \"Compare costs and returns of agricultural interventions\",\n            \"difficulty\": \"intermediate\",\n            \"typical_use\": \"Make informed decisions about inputs and practices\"\n        }\n    ]\n}\n\n\n\n\n\n\nTip💡 Extension Opportunity\n\n\n\nIf time permits: Have participants suggest one additional concept for their favorite domain.\nQuestions to guide them:\n\nIs it fundamental enough for beginners/intermediates?\nCan it be personalized across different contexts?\nDoes it have clear applications in the real world?",
-    "crumbs": [
-      "Workshop",
-      "Part 3: Build",
-      "Part 3: Build"
-    ]
+    "text": "Activity 1: Create the Concept Library\n\n\n\n\n\n\nNote💻 Live Coding (10 minutes)\n\n\n\nWe’ll build this together. The instructor codes while explaining the structure.\n\n\n\nWhat Is a Concept Library?\nThe concept library defines what we can teach in each domain. For each concept, we specify:\n\nname: What the concept is called\nabstract: General description (domain-independent)\ndifficulty: Skill level required\ntypical_use: When/why to use this concept\n\n\n\nBuilding the Library\nCONCEPTS = {\n    \"programming\": [\n        {\n            \"name\": \"For Loops\",\n            \"abstract\": \"Iterate through a sequence of items\",\n            \"difficulty\": \"beginner\",\n            \"typical_use\": \"Processing lists, repeating actions multiple times\"\n        },\n        {\n            \"name\": \"List Comprehensions\",\n            \"abstract\": \"Create new lists using concise syntax\",\n            \"difficulty\": \"intermediate\",\n            \"typical_use\": \"Transform data, filter lists elegantly\"\n        },\n        {\n            \"name\": \"Dictionary Methods\",\n            \"abstract\": \"Access and manipulate key-value pairs\",\n            \"difficulty\": \"beginner\",\n            \"typical_use\": \"Store related data, perform fast lookups\"\n        },\n        {\n            \"name\": \"Functions with Parameters\",\n            \"abstract\": \"Create reusable code blocks that accept inputs\",\n            \"difficulty\": \"beginner\",\n            \"typical_use\": \"Organize code, avoid repetition\"\n        },\n        {\n            \"name\": \"String Formatting\",\n            \"abstract\": \"Create formatted text output using f-strings\",\n            \"difficulty\": \"beginner\",\n            \"typical_use\": \"Display data, create messages dynamically\"\n        }\n    ],\n\n    \"health_sciences\": [\n        {\n            \"name\": \"Mean and Standard Deviation\",\n            \"abstract\": \"Describe central tendency and variability in data\",\n            \"difficulty\": \"beginner\",\n            \"typical_use\": \"Summarize health measurements, describe populations\"\n        },\n        {\n            \"name\": \"Correlation Analysis\",\n            \"abstract\": \"Measure strength and direction of relationship between two variables\",\n            \"difficulty\": \"intermediate\",\n            \"typical_use\": \"Find relationships in health data, guide research\"\n        },\n        {\n            \"name\": \"Linear Regression\",\n            \"abstract\": \"Predict one variable from another using a straight-line relationship\",\n            \"difficulty\": \"intermediate\",\n            \"typical_use\": \"Predict outcomes, understand relationships, forecast trends\"\n        },\n        {\n            \"name\": \"Independent T-Test\",\n            \"abstract\": \"Compare means between two independent groups\",\n            \"difficulty\": \"intermediate\",\n            \"typical_use\": \"Test intervention effectiveness, compare treatments\"\n        },\n        {\n            \"name\": \"Confidence Intervals\",\n            \"abstract\": \"Estimate population parameters with uncertainty\",\n            \"difficulty\": \"intermediate\",\n            \"typical_use\": \"Interpret research findings, quantify precision\"\n        },\n        {\n            \"name\": \"Effect Size (Cohen's d)\",\n            \"abstract\": \"Measure practical significance of differences\",\n            \"difficulty\": \"intermediate\",\n            \"typical_use\": \"Interpret research impact beyond p-values\"\n        }\n    ],\n\n    \"agronomy\": [\n        {\n            \"name\": \"Yield Prediction\",\n            \"abstract\": \"Estimate crop output based on inputs using regression\",\n            \"difficulty\": \"intermediate\",\n            \"typical_use\": \"Plan harvest, allocate resources, financial projections\"\n        },\n        {\n            \"name\": \"NPK Optimization\",\n            \"abstract\": \"Calculate optimal fertilizer ratios for maximum benefit\",\n            \"difficulty\": \"intermediate\",\n            \"typical_use\": \"Maximize yield while minimizing cost and environmental impact\"\n        },\n        {\n            \"name\": \"Growing Degree Days\",\n            \"abstract\": \"Calculate heat accumulation for crop development\",\n            \"difficulty\": \"beginner\",\n            \"typical_use\": \"Predict crop stages, plan field operations\"\n        },\n        {\n            \"name\": \"Water Use Efficiency\",\n            \"abstract\": \"Calculate crop yield per unit of water used\",\n            \"difficulty\": \"beginner\",\n            \"typical_use\": \"Optimize irrigation, compare varieties\"\n        },\n        {\n            \"name\": \"Cost-Benefit Analysis\",\n            \"abstract\": \"Compare costs and returns of agricultural interventions\",\n            \"difficulty\": \"intermediate\",\n            \"typical_use\": \"Make informed decisions about inputs and practices\"\n        }\n    ]\n}\n\n\n\n\n\n\nTip💡 Extension Opportunity\n\n\n\nIf time permits: Have participants suggest one additional concept for their favorite domain.\nQuestions to guide them:\n\nIs it fundamental enough for beginners/intermediates?\nCan it be personalized across different contexts?\nDoes it have clear applications in the real world?"
   },
   {
     "objectID": "workshop/part-3-build/index.html#activity-2-build-the-ai-agent",
     "href": "workshop/part-3-build/index.html#activity-2-build-the-ai-agent",
     "title": "Part 3: Build",
     "section": "Activity 2: Build the AI Agent",
-    "text": "Activity 2: Build the AI Agent\n\n\n\n\n\n\nNote🧠 Critical Discussion (20 minutes)\n\n\n\nBefore coding, let’s think: What instructions should we give the AI to generate good worked examples?\n\n\n\nWhat Makes a Good Personalized Example?\n\n\n\n\n\n\nNote💭 Facilitated Discussion\n\n\n\nInstructor asks: “What instructions would help the AI generate examples that…”\nCollect responses and synthesize:\nDO:\n✅ Weave interests naturally (not tacked on)\n✅ Use learner’s name throughout\n✅ Make data realistic and believable\n✅ Match complexity to learner’s level\n✅ Show every step explicitly\n✅ Connect to their goal\nDON’T:\n❌ Create generic examples with personal details superficially added\n❌ Force artificial connections\n❌ Use too much jargon for beginners\n❌ Use abstract variable names\n❌ Skip steps in solutions\n\n\n\n\nThe System Prompt\nThe system prompt is critical for quality. It’s our pedagogical guidance to the AI.\nfrom pydantic_ai import Agent\n\nexample_generator = Agent(\n    'openai:gpt-4o',\n    result_type=PersonalizedWorkedExample,\n    system_prompt=\"\"\"You are an expert educator who creates highly personalized\n    worked examples that connect abstract concepts to learners' lived experiences.\n\n    CRITICAL INSTRUCTIONS:\n\n    1. Weave the learner's interests, hobbies, and goals naturally into the example\n    2. Use their name throughout to increase personal connection\n    3. Make data and scenarios feel authentic to their context\n    4. Keep explanations clear but connect to what they care about\n    5. The example should feel like it was written specifically for this person\n    6. Match complexity to their level (beginner/intermediate/advanced)\n    7. Make the connection to their goal explicit and motivating\n    8. Use concrete numbers and realistic data\n    9. For programming examples, include actual runnable code with comments\n    10. For quantitative examples, show all calculations step by step\n\n    STRUCTURE YOUR EXAMPLES:\n\n    - Start with an engaging title that mentions their interest\n    - Frame the problem in their context (use their name and interests)\n    - Present data that feels real to their situation\n    - Walk through steps clearly with explanations\n    - For code: include comments explaining each part\n    - For math: show each calculation explicitly\n    - Connect the final answer to their goal\n    - Suggest a related practice problem in their context\n\n    AVOID:\n\n    - Generic examples with personal details superficially added\n    - Forced or artificial connections\n    - Too much technical jargon for beginners\n    - Abstract variable names (use meaningful names from their context)\n    - Skipping steps in solutions\n\n    Remember: This is a WORKED EXAMPLE - a complete solution for the learner\n    to study, not a problem for them to solve.\n    \"\"\"\n)\n\n\nWhy Each Instruction Matters\n\n\n\n\n\n\nTip💡 Pedagogical Grounding\n\n\n\n\n\n\n\n\n\n\nInstruction\nCognitive Science Rationale\n\n\n\n\n“Weave interests naturally”\nReduces extraneous load, authentic context\n\n\n“Use their name”\nPersonal connection → germane load (motivation)\n\n\n“Authentic data”\nBelievability → mental simulation → deeper encoding\n\n\n“Match complexity to level”\nZone of proximal development\n\n\n“Show all steps”\nSchema construction requires seeing the pattern\n\n\n“Connect to goal”\nMotivation, relevance, transfer\n\n\n\nThe “avoid” list addresses common failure modes we’ve observed in testing.",
-    "crumbs": [
-      "Workshop",
-      "Part 3: Build",
-      "Part 3: Build"
-    ]
+    "text": "Activity 2: Build the AI Agent\n\n\n\n\n\n\nNote🧠 Critical Discussion (20 minutes)\n\n\n\nBefore coding, let’s think: What instructions should we give the AI to generate good worked examples?\n\n\n\nWhat Makes a Good Personalized Example?\n\n\n\n\n\n\nNote💭 Facilitated Discussion\n\n\n\nInstructor asks: “What instructions would help the AI generate examples that…”\nCollect responses and synthesize:\nDO:\n✅ Weave interests naturally (not tacked on)\n✅ Use learner’s name throughout\n✅ Make data realistic and believable\n✅ Match complexity to learner’s level\n✅ Show every step explicitly\n✅ Connect to their goal\nDON’T:\n❌ Create generic examples with personal details superficially added\n❌ Force artificial connections\n❌ Use too much jargon for beginners\n❌ Use abstract variable names\n❌ Skip steps in solutions\n\n\n\n\nThe System Prompt\nThe system prompt is critical for quality. It’s our pedagogical guidance to the AI.\nfrom pydantic_ai import Agent\n\nexample_generator = Agent(\n    'openai:gpt-5.1',\n    result_type=PersonalizedWorkedExample,\n    system_prompt=\"\"\"You are an expert educator who creates highly personalized\n    worked examples that connect abstract concepts to learners' lived experiences.\n\n    CRITICAL INSTRUCTIONS:\n\n    1. Weave the learner's interests, hobbies, and goals naturally into the example\n    2. Use their name throughout to increase personal connection\n    3. Make data and scenarios feel authentic to their context\n    4. Keep explanations clear but connect to what they care about\n    5. The example should feel like it was written specifically for this person\n    6. Match complexity to their level (beginner/intermediate/advanced)\n    7. Make the connection to their goal explicit and motivating\n    8. Use concrete numbers and realistic data\n    9. For programming examples, include actual runnable code with comments\n    10. For quantitative examples, show all calculations step by step\n\n    STRUCTURE YOUR EXAMPLES:\n\n    - Start with an engaging title that mentions their interest\n    - Frame the problem in their context (use their name and interests)\n    - Present data that feels real to their situation\n    - Walk through steps clearly with explanations\n    - For code: include comments explaining each part\n    - For math: show each calculation explicitly\n    - Connect the final answer to their goal\n    - Suggest a related practice problem in their context\n\n    AVOID:\n\n    - Generic examples with personal details superficially added\n    - Forced or artificial connections\n    - Too much technical jargon for beginners\n    - Abstract variable names (use meaningful names from their context)\n    - Skipping steps in solutions\n\n    Remember: This is a WORKED EXAMPLE - a complete solution for the learner\n    to study, not a problem for them to solve.\n    \"\"\"\n)\n\n\nWhy Each Instruction Matters\n\n\n\n\n\n\nTip💡 Pedagogical Grounding\n\n\n\n\n\n\n\n\n\n\nInstruction\nCognitive Science Rationale\n\n\n\n\n“Weave interests naturally”\nReduces extraneous load, authentic context\n\n\n“Use their name”\nPersonal connection → germane load (motivation)\n\n\n“Authentic data”\nBelievability → mental simulation → deeper encoding\n\n\n“Match complexity to level”\nZone of proximal development\n\n\n“Show all steps”\nSchema construction requires seeing the pattern\n\n\n“Connect to goal”\nMotivation, relevance, transfer\n\n\n\nThe “avoid” list addresses common failure modes we’ve observed in testing."
   },
   {
     "objectID": "workshop/part-3-build/index.html#activity-3-create-the-generation-function",
     "href": "workshop/part-3-build/index.html#activity-3-create-the-generation-function",
     "title": "Part 3: Build",
     "section": "Activity 3: Create the Generation Function",
-    "text": "Activity 3: Create the Generation Function\n\n\n\n\n\n\nNote💻 Live Coding (10 minutes)\n\n\n\nNow we connect everything together.\n\n\n\nThe Generation Function\nThis function takes a learner profile and a concept, then asks the AI to generate a personalized example.\nasync def generate_personalized_example(\n    profile: LearnerProfile,\n    concept: dict\n) -&gt; PersonalizedWorkedExample:\n    \"\"\"Generate a personalized worked example\"\"\"\n\n    prompt = f\"\"\"\n    Create a worked example for:\n\n    LEARNER PROFILE:\n    - Name: {profile.name}\n    - Domain: {profile.domain}\n    - Specific interest: {profile.specific_interest}\n    - Hobby/passion: {profile.hobby_or_passion}\n    - Goal: {profile.goal}\n    - Level: {profile.background_level}\n\n    CONCEPT TO TEACH:\n    - Name: {concept['name']}\n    - Abstract description: {concept['abstract']}\n    - Difficulty: {concept['difficulty']}\n    - Typical use: {concept['typical_use']}\n\n    Create a worked example that teaches this concept using {profile.name}'s\n    specific context. The example should feel personal and relevant to their\n    goal of \"{profile.goal}\".\n\n    Make the problem realistic and the data believable for their situation.\n\n    For programming: Include complete, runnable code with explanatory comments.\n    For quantitative problems: Show every calculation step explicitly.\n\n    This is a WORKED EXAMPLE - provide the complete solution for them to study.\n    \"\"\"\n\n    result = await example_generator.run(prompt)\n    return result.data\n\n\nWhy This Works\nThe function:\n\nCombines profile information with concept description\nProvides context to the AI about the learner\nSpecifies output format (handled by Pydantic)\nReturns structured data ready to use",
-    "crumbs": [
-      "Workshop",
-      "Part 3: Build",
-      "Part 3: Build"
-    ]
+    "text": "Activity 3: Create the Generation Function\n\n\n\n\n\n\nNote💻 Live Coding (10 minutes)\n\n\n\nNow we connect everything together.\n\n\n\nThe Generation Function\nThis function takes a learner profile and a concept, then asks the AI to generate a personalized example.\nasync def generate_personalized_example(\n    profile: LearnerProfile,\n    concept: dict\n) -&gt; PersonalizedWorkedExample:\n    \"\"\"Generate a personalized worked example\"\"\"\n\n    prompt = f\"\"\"\n    Create a worked example for:\n\n    LEARNER PROFILE:\n    - Name: {profile.name}\n    - Domain: {profile.domain}\n    - Specific interest: {profile.specific_interest}\n    - Hobby/passion: {profile.hobby_or_passion}\n    - Goal: {profile.goal}\n    - Level: {profile.background_level}\n\n    CONCEPT TO TEACH:\n    - Name: {concept['name']}\n    - Abstract description: {concept['abstract']}\n    - Difficulty: {concept['difficulty']}\n    - Typical use: {concept['typical_use']}\n\n    Create a worked example that teaches this concept using {profile.name}'s\n    specific context. The example should feel personal and relevant to their\n    goal of \"{profile.goal}\".\n\n    Make the problem realistic and the data believable for their situation.\n\n    For programming: Include complete, runnable code with explanatory comments.\n    For quantitative problems: Show every calculation step explicitly.\n\n    This is a WORKED EXAMPLE - provide the complete solution for them to study.\n    \"\"\"\n\n    result = await example_generator.run(prompt)\n    return result.data\n\n\nWhy This Works\nThe function:\n\nCombines profile information with concept description\nProvides context to the AI about the learner\nSpecifies output format (handled by Pydantic)\nReturns structured data ready to use"
   },
   {
     "objectID": "workshop/part-3-build/index.html#activity-4-test-the-generator",
     "href": "workshop/part-3-build/index.html#activity-4-test-the-generator",
     "title": "Part 3: Build",
     "section": "Activity 4: Test the Generator",
-    "text": "Activity 4: Test the Generator\n\n\n\n\n\n\nNote🧪 Live Testing (10 minutes)\n\n\n\nLet’s test with a real profile and discuss the output quality.\n\n\n\nTest Setup\nWe’ll use Sarah’s profile from Part 2:\n# Sarah's profile\nsarah = LearnerProfile(\n    name=\"Sarah\",\n    domain=\"programming\",\n    specific_interest=\"web development\",\n    hobby_or_passion=\"baking\",\n    goal=\"build a recipe sharing website\",\n    background_level=\"beginner\"\n)\n\n# Choose a concept\nconcept = CONCEPTS[\"programming\"][0]  # For Loops\n\n# Generate\nprint(f\"Generating example for {sarah.name}...\")\nprint(f\"Concept: {concept['name']}\")\nprint()\n\nexample = await generate_personalized_example(sarah, concept)\n\n\nExamining the Output\n# Display the generated example\nprint(f\"Title: {example.title}\")\nprint(f\"\\nProblem: {example.problem_statement[:100]}...\")\nprint(f\"\\nNumber of steps: {len(example.step_by_step_solution)}\")\nprint(f\"\\nConnection to goal: {example.connection_to_goal[:80]}...\")\n\n\nQuality Discussion\n\n\n\n\n\n\nNote💬 Group Discussion\n\n\n\nQuestions to facilitate:\n\nIs it personalized?\n\nDoes it genuinely use Sarah’s context, or is “baking” just tacked on?\nWould Sarah find this relevant?\n\nIs it pedagogically sound?\n\nAre all steps shown?\nIs the complexity appropriate for a beginner?\nCan Sarah study this and learn the pattern?\n\nWhat could be improved?\n\nToo much jargon?\nSkipped steps?\nForced connections?\n\nWould this work at scale?\n\nGenerate 2-3 more for different profiles\nObserve consistency and quality\n\n\n\n\n\n\nExpected Output Quality\nA good example for Sarah might look like:\nTitle: \"Building Your Recipe Gallery: Using For Loops to Display Baking Recipes\"\n\nProblem: Sarah, you're building a recipe sharing website and need to display\nall your baking recipes on the homepage. You have a list of your favorite\nrecipes, and you want to create an HTML list item for each one...\n\n[Shows complete solution with 3-4 clear steps]\n\nConnection to goal: This for loop pattern is fundamental for your recipe\nwebsite. You'll use it to display recipe lists, ingredient lists, and\ncooking steps...",
-    "crumbs": [
-      "Workshop",
-      "Part 3: Build",
-      "Part 3: Build"
-    ]
+    "text": "Activity 4: Test the Generator\n\n\n\n\n\n\nNote🧪 Live Testing (10 minutes)\n\n\n\nLet’s test with a real profile and discuss the output quality.\n\n\n\nTest Setup\nWe’ll use Sarah’s profile from Part 2:\n# Sarah's profile\nsarah = LearnerProfile(\n    name=\"Sarah\",\n    domain=\"programming\",\n    specific_interest=\"web development\",\n    hobby_or_passion=\"baking\",\n    goal=\"build a recipe sharing website\",\n    background_level=\"beginner\"\n)\n\n# Choose a concept\nconcept = CONCEPTS[\"programming\"][0]  # For Loops\n\n# Generate\nprint(f\"Generating example for {sarah.name}...\")\nprint(f\"Concept: {concept['name']}\")\nprint()\n\nexample = await generate_personalized_example(sarah, concept)\n\n\nExamining the Output\n# Display the generated example\nprint(f\"Title: {example.title}\")\nprint(f\"\\nProblem: {example.problem_statement[:100]}...\")\nprint(f\"\\nNumber of steps: {len(example.step_by_step_solution)}\")\nprint(f\"\\nConnection to goal: {example.connection_to_goal[:80]}...\")\n\n\nQuality Discussion\n\n\n\n\n\n\nNote💬 Group Discussion\n\n\n\nQuestions to facilitate:\n\nIs it personalized?\n\nDoes it genuinely use Sarah’s context, or is “baking” just tacked on?\nWould Sarah find this relevant?\n\nIs it pedagogically sound?\n\nAre all steps shown?\nIs the complexity appropriate for a beginner?\nCan Sarah study this and learn the pattern?\n\nWhat could be improved?\n\nToo much jargon?\nSkipped steps?\nForced connections?\n\nWould this work at scale?\n\nGenerate 2-3 more for different profiles\nObserve consistency and quality\n\n\n\n\n\n\nExpected Output Quality\nA good example for Sarah might look like:\nTitle: \"Building Your Recipe Gallery: Using For Loops to Display Baking Recipes\"\n\nProblem: Sarah, you're building a recipe sharing website and need to display\nall your baking recipes on the homepage. You have a list of your favorite\nrecipes, and you want to create an HTML list item for each one...\n\n[Shows complete solution with 3-4 clear steps]\n\nConnection to goal: This for loop pattern is fundamental for your recipe\nwebsite. You'll use it to display recipe lists, ingredient lists, and\ncooking steps..."
   },
   {
     "objectID": "workshop/part-3-build/index.html#what-weve-built",
     "href": "workshop/part-3-build/index.html#what-weve-built",
     "title": "Part 3: Build",
     "section": "What We’ve Built",
-    "text": "What We’ve Built\n\n\n\n\n\n\nTip🎯 Summary\n\n\n\nAt this point, you have:\n✅ A concept library with 15 concepts across 3 domains\n✅ An AI agent configured with pedagogical instructions\n✅ A generation function that creates personalized examples\n✅ Tested output demonstrating quality\nWhat’s missing? A user interface! That’s next.",
-    "crumbs": [
-      "Workshop",
-      "Part 3: Build",
-      "Part 3: Build"
-    ]
+    "text": "What We’ve Built\n\n\n\n\n\n\nTip🎯 Summary\n\n\n\nAt this point, you have:\n✅ A concept library with 15 concepts across 3 domains\n✅ An AI agent configured with pedagogical instructions\n✅ A generation function that creates personalized examples\n✅ Tested output demonstrating quality\nWhat’s missing? A user interface! That’s next."
   },
   {
     "objectID": "workshop/part-3-build/index.html#checkpoint",
     "href": "workshop/part-3-build/index.html#checkpoint",
     "title": "Part 3: Build",
     "section": "Checkpoint",
-    "text": "Checkpoint\n\n\n\n\n\n\nImportant🔍 Verify Before Moving On\n\n\n\nEveryone should have:\n\nCONCEPTS dictionary with all domains\nPydanticAI agent created with system prompt\ngeneration function defined\nSuccessfully generated at least one example\n\nHaving issues? Raise your hand now!\n\n\n\nNext: Part 4: Interface - We’ll build an interactive UI with Marimo.",
-    "crumbs": [
-      "Workshop",
-      "Part 3: Build",
-      "Part 3: Build"
-    ]
+    "text": "Checkpoint\n\n\n\n\n\n\nImportant🔍 Verify Before Moving On\n\n\n\nEveryone should have:\n\nCONCEPTS dictionary with all domains\nPydanticAI agent created with system prompt\ngeneration function defined\nSuccessfully generated at least one example\n\nHaving issues? Raise your hand now!\n\n\n\nNext: Part 4: Interface - We’ll build an interactive UI with Marimo."
   },
   {
     "objectID": "workshop/part-1-foundation/index.html",
@@ -2536,10 +2495,9 @@
     "href": "workshop/index.html#workshop-overview",
     "title": "Building Personalized Worked Example Generators with AI",
     "section": "",
-    "text": "Welcome to this 3-hour workshop on building AI-powered educational tools grounded in Cognitive Load Theory. You’ll create a complete, production-ready application that generates personalized worked examples tailored to individual learners’ interests, goals, and contexts.\n\n\nA Personalized Worked Example Generator that:\n\nCollects learner profile information (name, domain, interests, hobbies, goals, skill level)\nGenerates customized worked examples in three domains: Programming (Python), Health Sciences (Statistics), or Agronomy\nWeaves learner interests naturally into educational content\nProvides step-by-step solutions with personal relevance\nDeploys as a live web application on HuggingFace Spaces\n\n\n\n\nBy the end of this workshop, you will:\n\nUnderstand the worked example effect and personalization principle from Cognitive Load Theory\nBuild a working personalized example generator using PydanticAI\nDeploy an interactive demo to HuggingFace Spaces\nPossess a template for creating domain-specific educational tools\n\n\n\n\nThis workshop is grounded in Cognitive Load Theory (Sweller, 1988), specifically:\nThe Worked Example Effect:\n\n“A ‘worked example’ is a problem that has already been solved for the learner, with every step fully explained and clearly shown. The ‘worked example effect’ is the widely replicated finding that novice learners who are given worked examples to study perform better on subsequent tests than learners who are required to solve the equivalent problems themselves.”\n— NSW CESE (2017, p. 7)\n\nWhy It Works:\n\nUnguided problem-solving overloads working memory\nStudying worked examples reduces cognitive load\nMore working memory capacity available for schema construction\nBetter learning outcomes for novices\n\nOur Addition - Personalization:\n\nFamiliar contexts reduce extraneous cognitive load\nPersonal relevance increases germane load (motivation)\nBetter schema formation and transfer",
+    "text": "Welcome to this 3-hour workshop on building AI-powered educational tools grounded in Cognitive Load Theory. You’ll learn the pattern for creating personalized worked examples by modifying a working template.\n\n\n\nSee a complete demo - Experience the full complex application (3 domains, 16 concepts)\nStudy the code - Understand how PydanticAI and Marimo work together\nModify a template - Add concepts to a simplified version (1 domain, 3 concepts)\nDesign extensions - Plan how to apply this to YOUR teaching\n\n\n\n\nYou’ll modify a working Personalised Worked Example Generator (in your browser) that:\n\nCollects learner profile information (name, domain, interests, hobbies, goals, skill level)\nGenerates customised worked examples in ONE domain (Programming)\nWeaves learner interests naturally into educational content\nProvides step-by-step solutions with personal relevance\nRuns in your browser (no installation required)\n\nNote: The DEMO shows all 3 domains with 16 concepts. You’ll work with a SIMPLIFIED version (1 domain, 3 concepts) and add 1-2 more concepts to learn the pattern.\n\n\n\nBy the end of this workshop, you will:\n\nUnderstand the worked example effect and personalisation principle from Cognitive Load Theory\nModify a working template to add your own concepts (in your browser)\nSee how PydanticAI ensures structured outputs\nRecognise the pattern for building educational AI tools\nDesign extensions for your own teaching context\n\n\n\n\nThis workshop is grounded in Cognitive Load Theory (Sweller, 1988), specifically:\nThe Worked Example Effect:\n\n“A ‘worked example’ is a problem that has already been solved for the learner, with every step fully explained and clearly shown. The ‘worked example effect’ is the widely replicated finding that novice learners who are given worked examples to study perform better on subsequent tests than learners who are required to solve the equivalent problems themselves.”\n— NSW CESE (2017, p. 7)\n\nWhy It Works:\n\nUnguided problem-solving overloads working memory\nStudying worked examples reduces cognitive load\nMore working memory capacity available for schema construction\nBetter learning outcomes for novices\n\nOur Addition - Personalization:\n\nFamiliar contexts reduce extraneous cognitive load\nPersonal relevance increases germane load (motivation)\nBetter schema formation and transfer",
     "crumbs": [
       "Workshop",
-      "Overview",
       "Building Personalized Worked Example Generators with AI"
     ]
   },
@@ -2548,10 +2506,9 @@
     "href": "workshop/index.html#workshop-schedule",
     "title": "Building Personalized Worked Example Generators with AI",
     "section": "Workshop Schedule",
-    "text": "Workshop Schedule\n\n\n\n\n\n\nNote⏱️ 3-Hour Schedule (Worked Example Phases)\n\n\n\n\n\n\nTime\nDuration\nPhase\nActivity\n\n\n\n\n0:00-0:10\n10 min\nACTIVATE\nOpening: Experience the Principle\n\n\n0:10-0:40\n30 min\nPRESENT\nPart 1: Foundation - See the Complete Solution\n\n\n0:40-1:10\n30 min\nPRESENT\nPart 2: Design - Understand the Structure\n\n\n1:10-2:00\n50 min\nSTUDY\nPart 3: Build - Examine Each Component\n\n\n2:00-2:40\n40 min\nUNDERSTAND\nPart 4: Interface - Connect to Pedagogy\n\n\n2:40-3:10\n30 min\nAPPLY\nPart 5: Deploy - Make It Your Own\n\n\n3:10-3:20\n10 min\nTRANSFER\nClosing: Plan Your Educational Tools",
+    "text": "Workshop Schedule",
     "crumbs": [
       "Workshop",
-      "Overview",
       "Building Personalized Worked Example Generators with AI"
     ]
   },
@@ -2560,10 +2517,9 @@
     "href": "workshop/index.html#prerequisites",
     "title": "Building Personalized Worked Example Generators with AI",
     "section": "Prerequisites",
-    "text": "Prerequisites\n\nRequired Knowledge\n\nBasic Python: lists, dictionaries, functions\nNo statistics background required\nNo prior AI/ML experience needed\n\n\n\nMaterials Required (Pre-Workshop)\n\n\n\n\n\n\nImportant🛠️ Setup Required Before Workshop\n\n\n\nPlease complete these steps before the workshop begins:\n\nPython 3.10 or higher installed\nOpenAI API key from platform.openai.com\nHuggingFace account from huggingface.co\nCode editor or IDE (VS Code, PyCharm, etc.)\n\nInstallation Commands:\npip install marimo pydantic-ai openai\nexport OPENAI_API_KEY=\"sk-your-key-here\"\nTest Installation:\nmarimo tutorial intro\nIf you see the marimo tutorial interface, you’re ready!\n\n\n\n\nTarget Audience\n\nEducators interested in AI tools\nInstructional designers\nLearning technologists\nEducational researchers\nAnyone creating educational technology",
+    "text": "Prerequisites\n\nRequired Knowledge\n\nBasic Python: lists, dictionaries, functions (reading code, not writing from scratch)\nNo statistics background required\nNo prior AI/ML experience needed\n\n\n\nMaterials Required",
     "crumbs": [
       "Workshop",
-      "Overview",
       "Building Personalized Worked Example Generators with AI"
     ]
   },
@@ -2584,10 +2540,9 @@
     "href": "workshop/index.html#technical-stack",
     "title": "Building Personalized Worked Example Generators with AI",
     "section": "Technical Stack",
-    "text": "Technical Stack\n\nCore Technologies\n\nMarimo - Reactive Python notebooks with built-in UI\nPydanticAI - Type-safe AI agent framework\nPydantic - Data validation using Python type hints\nOpenAI GPT-4o - Language model for generation\nHuggingFace Spaces - Free deployment platform\n\n\n\nWhy These Choices?\nMarimo over Jupyter/Colab:\n\nReactive updates (no stale state)\nBetter developer experience\nProduction-ready (can deploy as apps)\nGit-friendly (pure Python files)\n\nPydanticAI over raw OpenAI:\n\nType safety with Pydantic models\nStructured outputs guaranteed\nCleaner, more maintainable code\nBetter error handling\n\nHuggingFace Spaces:\n\nFree hosting for educational demos\nDocker + Marimo template available\nEasy sharing with students/colleagues",
+    "text": "Technical Stack\n\nCore Technologies\n\nMarimo - Reactive Python notebooks with built-in UI\nPydanticAI - Type-safe AI agent framework\nPydantic - Data validation using Python type hints\nOpenAI GPT-5.1 - Language model for generation\nHuggingFace Spaces - Free deployment platform\n\n\n\nWhy These Choices?\nMarimo over Jupyter/Colab:\n\nReactive updates (no stale state)\nBetter developer experience\nProduction-ready (can deploy as apps)\nGit-friendly (pure Python files)\n\nPydanticAI over raw OpenAI:\n\nType safety with Pydantic models\nStructured outputs guaranteed\nCleaner, more maintainable code\nBetter error handling\n\nHuggingFace Spaces:\n\nFree hosting for educational demos\nDocker + Marimo template available\nEasy sharing with students/colleagues",
     "crumbs": [
       "Workshop",
-      "Overview",
       "Building Personalized Worked Example Generators with AI"
     ]
   },
@@ -2608,10 +2563,9 @@
     "href": "workshop/index.html#connection-to-learning-science",
     "title": "Building Personalized Worked Example Generators with AI",
     "section": "Connection to Learning Science",
-    "text": "Connection to Learning Science\nThis workshop demonstrates several evidence-based learning principles:\n\n\n\n\n\n\nNote📚 Make It Stick Connections\n\n\n\nThis tool addresses multiple strategies from Make It Stick (Brown, Roediger, & McDaniel, 2014):\n\nWorked Examples - Reduce cognitive load for novices\nVariation - Practice in different personal contexts\nUnderstanding vs. Familiarity - Personalization helps distinguish the two\nApplication - Real-world contexts for transfer\n\nSee the ki-lehre-intermediate workshop for deeper exploration of learning science principles.",
+    "text": "Connection to Learning Science\nThis workshop demonstrates several evidence-based learning principles:\n\n\n\n\n\n\nNoteMake It Stick Connections\n\n\n\nThis tool addresses multiple strategies from Make It Stick (Brown, Roediger, & McDaniel, 2014):\n\nWorked Examples - Reduce cognitive load for novices\nVariation - Practice in different personal contexts\nUnderstanding vs. Familiarity - Personalisation helps distinguish the two\nApplication - Real-world contexts for transfer\n\nSee the ki-lehre-intermediate workshop for deeper exploration of learning science principles.",
     "crumbs": [
       "Workshop",
-      "Overview",
       "Building Personalized Worked Example Generators with AI"
     ]
   },
@@ -2620,10 +2574,9 @@
     "href": "workshop/index.html#get-started",
     "title": "Building Personalized Worked Example Generators with AI",
     "section": "Get Started",
-    "text": "Get Started\nReady to begin? Start with the opening activity!\n\n\n\n\n\n\nTip🎯 Workshop Outcomes\n\n\n\nBy the end, you’ll have:\n✅ A working application deployed online\n✅ Understanding of CLT principles in practice\n✅ A template for building educational AI tools\n✅ Hands-on experience with modern AI frameworks",
+    "text": "Get Started\nReady to begin? Start with the opening activity!",
     "crumbs": [
       "Workshop",
-      "Overview",
       "Building Personalized Worked Example Generators with AI"
     ]
   },
@@ -2635,7 +2588,6 @@
     "text": "Research References\n\nCooper, G., & Sweller, J. (1987). Effects of schema acquisition and rule automation on mathematical problem-solving transfer. Journal of Educational Psychology, 79(4), 347-362.\nNSW Centre for Education Statistics and Evaluation (2017). Cognitive load theory: Research that teachers really need to understand. Link\nSweller, J. (1988). Cognitive load during problem solving: Effects on learning. Cognitive Science, 12(2), 257-285.\nBrown, P. C., Roediger III, H. L., & McDaniel, M. A. (2014). Make it stick: The science of successful learning. Harvard University Press.",
     "crumbs": [
       "Workshop",
-      "Overview",
       "Building Personalized Worked Example Generators with AI"
     ]
   },
@@ -2914,10 +2866,9 @@
     "href": "workshop/index.html#workshop-structure-a-worked-example-approach",
     "title": "Building Personalized Worked Example Generators with AI",
     "section": "Workshop Structure: A Worked Example Approach",
-    "text": "Workshop Structure: A Worked Example Approach\n\n\n\n\n\n\nImportant🔄 This Workshop IS a Worked Example\n\n\n\nThis workshop demonstrates the principle it teaches by being structured as a worked example itself.\nTraditional approach (problem-solving):\nGive you requirements → You struggle to build → Instructor helps when stuck\nHigh cognitive load, potential frustration, pattern harder to see\nOur approach (worked example):\nShow complete solution → Study each component → Explain design choices → Apply to your domain\nLower cognitive load, clearer pattern, better transfer\nWhy? Most of you are novices at building educational AI tools. Research shows studying worked examples is more effective than unguided problem-solving for novices.\n\n\n\nThe Five Phases\n\nPRESENT (Part 1-2) - See the complete, working solution\nSTUDY (Part 3) - Examine how each component works\nUNDERSTAND (Part 4) - Connect design to learning science\nAPPLY (Part 5) - Deploy and customize\nTRANSFER (Closing) - Plan tools for your own teaching context\n\n\n\nFading Scaffolding\nNotice how support gradually decreases:\n\nPart 1-2: Heavy guidance, complete explanations\nPart 3-4: More independence, you make small modifications\nPart 5: You apply the pattern with minimal guidance\nAfter: You transfer to new domains independently\n\n\n\n\n\n\n\nTip💡 Meta-Learning Moment\n\n\n\nAs you progress through today, notice:\n\nWhen does studying the complete solution help vs. confuse?\nWhen do you want to start experimenting on your own?\nHow does seeing the “big picture” first affect your understanding?\n\nThese insights will inform how YOU design worked examples for your students.",
+    "text": "Workshop Structure: A Worked Example Approach\n\n\n\n\n\n\nImportantThis Workshop IS a Worked Example\n\n\n\nThis workshop demonstrates the principle it teaches by being structured as a worked example itself.\nTraditional approach (problem-solving):\nGive you requirements → You struggle to build → Instructor helps when stuck\nHigh cognitive load, potential frustration, pattern harder to see\nOur approach (worked example):\nShow complete solution → Study each component → Explain design choices → Apply to your domain\nLower cognitive load, clearer pattern, better transfer\nWhy? Most of you are novices at building educational AI tools. Research shows studying worked examples is more effective than unguided problem-solving for novices.\n\n\n\nThe Worked Example Approach\nThis workshop follows the worked example pattern:\n\nACTIVATE (Opening) - Prior knowledge activation\nPRESENT (Theory + Demo) - See the complete solution\nSTUDY (Build) - Examine and modify the code\nUNDERSTAND (Extend) - Connect to pedagogical applications\nTRANSFER (Resources) - Apply to your own teaching\n\n\n\nFading Scaffolding\nNotice how support gradually decreases:\n\nTheory/Demo: Full explanation, complete working application shown\nBuild: Scaffolded practice - modify template, add concepts\nExtend: Independent design - plan your own extensions\nAfter workshop: Transfer to new domains on your own\n\nKey difference from traditional workshops: - We DON’T ask you to build from scratch (too much cognitive load) - We DO show you a complete solution, then you modify it (worked example effect) - This reduces load and helps you see the pattern more clearly\n\n\n\n\n\n\nTipMeta-Learning Moment\n\n\n\nAs you progress through today, notice:\n\nWhen does studying the complete solution help vs. confuse?\nWhen do you want to start experimenting on your own?\nHow does seeing the “big picture” first affect your understanding?\n\nThese insights will inform how YOU design worked examples for your students.",
     "crumbs": [
       "Workshop",
-      "Overview",
       "Building Personalized Worked Example Generators with AI"
     ]
   },
@@ -2943,6 +2894,1122 @@
       "Workshop",
       "Part 1: Foundation",
       "Part 1: Foundation"
+    ]
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver/DEPLOYMENT.html",
+    "href": "hf-spaces/worked-example-weaver/DEPLOYMENT.html",
+    "title": "Deployment Guide: Worked Example Weaver (Marimo)",
+    "section": "",
+    "text": "This guide walks you through deploying the Marimo-based Worked Example Weaver to HuggingFace Spaces.\n\n\n\nHuggingFace Account: Sign up at huggingface.co\nOpenAI API Key: Get one at platform.openai.com\n\n\n\n\n\nGo to huggingface.co/new-space\nFill in the details:\n\nSpace name: worked-example-weaver\nLicense: cc0-1.0 (or your choice)\nSelect SDK: Docker\nSpace hardware: CPU basic (free tier)\nVisibility: Public (or Private)\n\nClick Create Space\n\n\n\n\nYou can either use Git or the web interface to upload files.\n\n\n# Clone your new Space\ngit clone https://huggingface.co/spaces/YOUR-USERNAME/worked-example-weaver\ncd worked-example-weaver\n\n# Copy files from this directory\ncp /path/to/hf-spaces/worked-example-weaver/* .\n\n# Add, commit, and push\ngit add .\ngit commit -m \"Initial deployment of Worked Example Weaver\"\ngit push\n\n\n\n\nIn your Space, click Files → Add file → Upload files\nUpload these files:\n\napp.py\nDockerfile\nrequirements.txt\nREADME.md\n\nClick Commit changes to main\n\n\n\n\n\n\nIn your Space, go to Settings\nScroll down to Repository secrets\nClick New secret\nAdd your OpenAI API key:\n\nName: OPENAI_API_KEY\nValue: sk-your-actual-key-here\n\nClick Save\n\n\n\n\n\nGo to the App tab of your Space\nHuggingFace will automatically build your Docker container\nThis takes 5-10 minutes on first deployment\nWatch the build logs to see progress\n\n\n\n\nOnce the build completes:\n\nThe app should automatically load in the iframe\nFill in the learner profile form\nSelect a concept\nClick “Generate My Personalized Example”\nWait 30-60 seconds for the AI to generate your example\n\n\n\n\n\n\n\nCheck the build logs in the Logs tab\nEnsure all files are present (app.py, Dockerfile, requirements.txt)\nVerify Python dependencies are correct\n\n\n\n\n\nCheck that your OPENAI_API_KEY is set correctly in Settings\nVerify the key is valid at platform.openai.com/api-keys\nCheck the logs for specific error messages\n\n\n\n\n\nFree tier CPU can be slow for AI generation (30-60 seconds is normal)\nConsider upgrading to CPU upgrade or T4 GPU for faster generation\nPaid tiers available in Space Settings\n\n\n\n\n\nMake sure you filled in ALL profile fields (name, domain, interest, hobby, goal, level)\nMake sure you selected a concept from the dropdown\nThe button only appears when profile is complete AND a concept is selected\n\n\n\n\n\n\n\nIn app.py, line 248:\nexample_generator = Agent(\n    'openai:gpt-5.1',  # Change to 'openai:gpt-4o' or other model\n    result_type=PersonalizedWorkedExample,\n    ...\n)\n\n\n\nIn app.py, around line 132, add to the CONCEPTS dictionary:\n\"programming\": [\n    {\n        \"name\": \"Your New Concept\",\n        \"abstract\": \"Brief description\",\n        \"difficulty\": \"beginner\",\n        \"typical_use\": \"When to use it\"\n    },\n    # ... existing concepts\n]\n\n\n\nIn app.py, around line 250, edit the system_prompt parameter to change how the AI generates examples.\n\n\n\n\nAfter making changes:\ngit add .\ngit commit -m \"Describe your changes\"\ngit push\nHuggingFace will automatically rebuild and redeploy.\n\n\n\n\nHuggingFace Space: Free tier available (CPU basic)\nOpenAI API: Pay per use\n\nGPT-5.1: ~$0.02-0.05 per example generated\nGPT-4o: ~$0.01-0.02 per example generated\nSet usage limits at platform.openai.com\n\n\n\n\n\n\nHuggingFace Spaces Documentation\nMarimo Documentation\nPydanticAI Documentation\nWorkshop Materials\n\n\n\n\nQuestions? Contact andrew.ellis@bfh.ch"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#prerequisites",
+    "href": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#prerequisites",
+    "title": "Deployment Guide: Worked Example Weaver (Marimo)",
+    "section": "",
+    "text": "HuggingFace Account: Sign up at huggingface.co\nOpenAI API Key: Get one at platform.openai.com"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#step-1-create-a-new-space",
+    "href": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#step-1-create-a-new-space",
+    "title": "Deployment Guide: Worked Example Weaver (Marimo)",
+    "section": "",
+    "text": "Go to huggingface.co/new-space\nFill in the details:\n\nSpace name: worked-example-weaver\nLicense: cc0-1.0 (or your choice)\nSelect SDK: Docker\nSpace hardware: CPU basic (free tier)\nVisibility: Public (or Private)\n\nClick Create Space"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#step-2-upload-files",
+    "href": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#step-2-upload-files",
+    "title": "Deployment Guide: Worked Example Weaver (Marimo)",
+    "section": "",
+    "text": "You can either use Git or the web interface to upload files.\n\n\n# Clone your new Space\ngit clone https://huggingface.co/spaces/YOUR-USERNAME/worked-example-weaver\ncd worked-example-weaver\n\n# Copy files from this directory\ncp /path/to/hf-spaces/worked-example-weaver/* .\n\n# Add, commit, and push\ngit add .\ngit commit -m \"Initial deployment of Worked Example Weaver\"\ngit push\n\n\n\n\nIn your Space, click Files → Add file → Upload files\nUpload these files:\n\napp.py\nDockerfile\nrequirements.txt\nREADME.md\n\nClick Commit changes to main"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#step-3-set-environment-variables",
+    "href": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#step-3-set-environment-variables",
+    "title": "Deployment Guide: Worked Example Weaver (Marimo)",
+    "section": "",
+    "text": "In your Space, go to Settings\nScroll down to Repository secrets\nClick New secret\nAdd your OpenAI API key:\n\nName: OPENAI_API_KEY\nValue: sk-your-actual-key-here\n\nClick Save"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#step-4-wait-for-build",
+    "href": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#step-4-wait-for-build",
+    "title": "Deployment Guide: Worked Example Weaver (Marimo)",
+    "section": "",
+    "text": "Go to the App tab of your Space\nHuggingFace will automatically build your Docker container\nThis takes 5-10 minutes on first deployment\nWatch the build logs to see progress"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#step-5-test-your-app",
+    "href": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#step-5-test-your-app",
+    "title": "Deployment Guide: Worked Example Weaver (Marimo)",
+    "section": "",
+    "text": "Once the build completes:\n\nThe app should automatically load in the iframe\nFill in the learner profile form\nSelect a concept\nClick “Generate My Personalized Example”\nWait 30-60 seconds for the AI to generate your example"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#troubleshooting",
+    "href": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#troubleshooting",
+    "title": "Deployment Guide: Worked Example Weaver (Marimo)",
+    "section": "",
+    "text": "Check the build logs in the Logs tab\nEnsure all files are present (app.py, Dockerfile, requirements.txt)\nVerify Python dependencies are correct\n\n\n\n\n\nCheck that your OPENAI_API_KEY is set correctly in Settings\nVerify the key is valid at platform.openai.com/api-keys\nCheck the logs for specific error messages\n\n\n\n\n\nFree tier CPU can be slow for AI generation (30-60 seconds is normal)\nConsider upgrading to CPU upgrade or T4 GPU for faster generation\nPaid tiers available in Space Settings\n\n\n\n\n\nMake sure you filled in ALL profile fields (name, domain, interest, hobby, goal, level)\nMake sure you selected a concept from the dropdown\nThe button only appears when profile is complete AND a concept is selected"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#customization",
+    "href": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#customization",
+    "title": "Deployment Guide: Worked Example Weaver (Marimo)",
+    "section": "",
+    "text": "In app.py, line 248:\nexample_generator = Agent(\n    'openai:gpt-5.1',  # Change to 'openai:gpt-4o' or other model\n    result_type=PersonalizedWorkedExample,\n    ...\n)\n\n\n\nIn app.py, around line 132, add to the CONCEPTS dictionary:\n\"programming\": [\n    {\n        \"name\": \"Your New Concept\",\n        \"abstract\": \"Brief description\",\n        \"difficulty\": \"beginner\",\n        \"typical_use\": \"When to use it\"\n    },\n    # ... existing concepts\n]\n\n\n\nIn app.py, around line 250, edit the system_prompt parameter to change how the AI generates examples."
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#updating-your-space",
+    "href": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#updating-your-space",
+    "title": "Deployment Guide: Worked Example Weaver (Marimo)",
+    "section": "",
+    "text": "After making changes:\ngit add .\ngit commit -m \"Describe your changes\"\ngit push\nHuggingFace will automatically rebuild and redeploy."
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#cost-considerations",
+    "href": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#cost-considerations",
+    "title": "Deployment Guide: Worked Example Weaver (Marimo)",
+    "section": "",
+    "text": "HuggingFace Space: Free tier available (CPU basic)\nOpenAI API: Pay per use\n\nGPT-5.1: ~$0.02-0.05 per example generated\nGPT-4o: ~$0.01-0.02 per example generated\nSet usage limits at platform.openai.com"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#additional-resources",
+    "href": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#additional-resources",
+    "title": "Deployment Guide: Worked Example Weaver (Marimo)",
+    "section": "",
+    "text": "HuggingFace Spaces Documentation\nMarimo Documentation\nPydanticAI Documentation\nWorkshop Materials"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#support",
+    "href": "hf-spaces/worked-example-weaver/DEPLOYMENT.html#support",
+    "title": "Deployment Guide: Worked Example Weaver (Marimo)",
+    "section": "",
+    "text": "Questions? Contact andrew.ellis@bfh.ch"
+  },
+  {
+    "objectID": "workshop/theory/index.html#learning-objectives",
+    "href": "workshop/theory/index.html#learning-objectives",
+    "title": "Theory: Cognitive Load Theory Principles",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBy the end of this section, you will understand:\n\nThe Worked Example Effect - Why studying complete solutions helps novices learn\nThe Personalisation Effect - How familiar contexts reduce cognitive load\nHow AI can scale these principles in education",
+    "crumbs": [
+      "Workshop",
+      "Theory (30 min)",
+      "Theory: Cognitive Load Theory Principles"
+    ]
+  },
+  {
+    "objectID": "workshop/theory/index.html#cognitive-load-theory-basics",
+    "href": "workshop/theory/index.html#cognitive-load-theory-basics",
+    "title": "Theory: Cognitive Load Theory Principles",
+    "section": "Cognitive Load Theory Basics",
+    "text": "Cognitive Load Theory Basics\nWorking memory is limited:\n\nCan only hold 3-7 items at once\nGets overloaded when learning complex new material\nThis is why learning can feel overwhelming\n\nLong-term memory is unlimited:\n\nStores knowledge as organised schemas\nAccessed automatically when needed\nGoal of learning: Build rich schemas in long-term memory\n\nThe challenge: How do we get information from working memory into long-term memory without overload?",
+    "crumbs": [
+      "Workshop",
+      "Theory (30 min)",
+      "Theory: Cognitive Load Theory Principles"
+    ]
+  },
+  {
+    "objectID": "workshop/theory/index.html#principle-1-the-worked-example-effect",
+    "href": "workshop/theory/index.html#principle-1-the-worked-example-effect",
+    "title": "Theory: Cognitive Load Theory Principles",
+    "section": "Principle 1: The Worked Example Effect",
+    "text": "Principle 1: The Worked Example Effect\n\nThe Research\n\n“Novice learners who are given worked examples to study perform better on subsequent tests than learners who are required to solve the equivalent problems themselves.”\n— NSW Centre for Education Statistics and Evaluation (2017, p. 7)\n\n\n\nWhy It Works\nProblem-solving for novices = cognitive overload\n\nMust search for solution strategies\nMust test each strategy\nMust monitor progress\nMust learn the concept\nToo much for working memory!\n\nStudying worked examples = reduced load\n\nSolution is shown\nCan focus on understanding the pattern\nMore capacity for schema construction\nLearning is more efficient\n\n\n\nThe Evidence\n\nEffect size: 0.52 across multiple studies (Crissman, 2006)\nParticularly strong for novices (Cooper & Sweller, 1987)\nDiminishes as expertise grows (Kalyuga et al., 2003)\n\n\n\nKey Insight for Today\nYou are novices at building educational AI tools with PydanticAI and Marimo.\nTherefore: We’ll show you a complete, working solution first, then you’ll study and modify it.",
+    "crumbs": [
+      "Workshop",
+      "Theory (30 min)",
+      "Theory: Cognitive Load Theory Principles"
+    ]
+  },
+  {
+    "objectID": "workshop/theory/index.html#principle-2-the-personalization-effect",
+    "href": "workshop/theory/index.html#principle-2-the-personalization-effect",
+    "title": "Theory: Cognitive Load Theory Principles",
+    "section": "Principle 2: The Personalization Effect",
+    "text": "Principle 2: The Personalization Effect\n\nThe Research\n\n“Familiar contexts require less cognitive effort to process, reducing extraneous cognitive load and improving learning outcomes.”\n— Cordova & Lepper (1996)\n\n\n\nWhy It Works\nGeneric examples:\nCalculate the correlation between Variable X and Variable Y.\nX: [10, 15, 20, 25, 30]\nY: [2, 4, 6, 8, 10]\n\nMust process abstract variables\nNo connection to existing knowledge\nHigher cognitive load\n\nPersonalized examples:\nYou love cycling. Calculate the correlation between your\nweekly training hours and your average speed:\n\nTraining hours: [10, 15, 20, 25, 30]\nAverage speed: [25, 27, 29, 31, 33] km/h\n\nConnects to existing knowledge (cycling)\nEasier to process (familiar context)\nMore motivation (personal relevance)\nLower cognitive load\n\n\n\nThe Evidence\n\nIncreased motivation and engagement (Cordova & Lepper, 1996)\nBetter learning outcomes when contexts are familiar\nParticularly effective when combined with worked examples",
+    "crumbs": [
+      "Workshop",
+      "Theory (30 min)",
+      "Theory: Cognitive Load Theory Principles"
+    ]
+  },
+  {
+    "objectID": "workshop/theory/index.html#how-ai-enables-this-at-scale",
+    "href": "workshop/theory/index.html#how-ai-enables-this-at-scale",
+    "title": "Theory: Cognitive Load Theory Principles",
+    "section": "How AI Enables This at Scale",
+    "text": "How AI Enables This at Scale\n\nThe Traditional Challenge\nCreating personalised worked examples is labor-intensive:\n\nMust know each student’s interests\nMust create unique examples for each concept\nMust ensure quality and accuracy\nDoesn’t scale beyond small classes\n\n\n\nThe AI Solution\nLarge language models can:\n\nGenerate unique examples on demand\nWeave personal contexts naturally\nMaintain pedagogical quality (with structured outputs)\nScale to unlimited students\n\n\n\nToday’s Goal\nBuild a tool that:\n\nCollects learner interests, hobbies, goals\nGenerates personalised worked examples\nTeaches concepts through familiar contexts\nUses PydanticAI to ensure structured, quality output",
+    "crumbs": [
+      "Workshop",
+      "Theory (30 min)",
+      "Theory: Cognitive Load Theory Principles"
+    ]
+  },
+  {
+    "objectID": "workshop/theory/index.html#the-workshop-as-worked-example",
+    "href": "workshop/theory/index.html#the-workshop-as-worked-example",
+    "title": "Theory: Cognitive Load Theory Principles",
+    "section": "The Workshop as Worked Example",
+    "text": "The Workshop as Worked Example\n\n\n\n\n\n\nImportantMeta-Pedagogical Design\n\n\n\nThis workshop itself demonstrates the worked example principle:\n\nTraditional Workshop (Problem-Solving)\n\"Here are the requirements. Build a personalised\nexample generator. We'll help when you get stuck.\"\n→ High cognitive load, potential frustration, unclear pattern\n\n\nOur Workshop (Worked Example)\n\"Here's a complete solution. Let's study how it works.\nNow modify it for your needs.\"\n→ Lower cognitive load, clearer pattern, better transfer\nWhy? Because you’re learning a new domain (educational AI tools with PydanticAI/Marimo), you’re novices. The research says worked examples are more effective than unguided problem-solving for novices.",
+    "crumbs": [
+      "Workshop",
+      "Theory (30 min)",
+      "Theory: Cognitive Load Theory Principles"
+    ]
+  },
+  {
+    "objectID": "workshop/theory/index.html#research-references",
+    "href": "workshop/theory/index.html#research-references",
+    "title": "Theory: Cognitive Load Theory Principles",
+    "section": "Research References",
+    "text": "Research References\nCooper, G., & Sweller, J. (1987). Effects of schema acquisition and rule automation on mathematical problem-solving transfer. Journal of Educational Psychology, 79(4), 347-362.\nCordova, D. I., & Lepper, M. R. (1996). Intrinsic motivation and the process of learning: Beneficial effects of contextualization, personalisation, and choice. Journal of Educational Psychology, 88(4), 715.\nCrissman, J. (2006). The design and utilization of effective worked examples: A meta-analysis (Doctoral dissertation). University of Nebraska, Lincoln.\nKalyuga, S., Ayres, P., Chandler, P., & Sweller, J. (2003). The expertise reversal effect. Educational Psychologist, 38(1), 23-31.\nNSW Centre for Education Statistics and Evaluation (2017). Cognitive load theory: Research that teachers really need to understand. Link\nSweller, J. (1988). Cognitive load during problem solving: Effects on learning. Cognitive Science, 12(2), 257-285.\n\n\n\n\n\n\n\nTipKey Takeaways\n\n\n\n\nWorked examples reduce cognitive load for novices\nPersonalisation makes examples easier to process\nAI can scale personalised worked examples\nThis workshop is designed as a worked example you’ll study\n\n\n\n\nNext: See the Demo - We’ll show you the complete application in action",
+    "crumbs": [
+      "Workshop",
+      "Theory (30 min)",
+      "Theory: Cognitive Load Theory Principles"
+    ]
+  },
+  {
+    "objectID": "workshop/index.html#hour-schedule",
+    "href": "workshop/index.html#hour-schedule",
+    "title": "Building Personalized Worked Example Generators with AI",
+    "section": "3-Hour Schedule",
+    "text": "3-Hour Schedule\n\n\n\nTime\nDuration\nSection\nActivity\n\n\n\n\n0:00-0:10\n10 min\nOpening\nThink-pair-share: Learning from examples\n\n\n0:10-0:40\n30 min\nTheory\nCognitive Load Theory principles\n\n\n0:40-1:00\n20 min\nDemo\nSee the complete application (all 3 domains)\n\n\n1:00-2:30\n90 min\nBuild\nHands-on: Modify starter template, add concepts\n\n\n2:30-3:00\n30 min\nExtend\nGroup activity: Design your extensions\n\n\n3:00-3:10\n10 min\nResources\nLinks, documentation, next steps",
+    "crumbs": [
+      "Workshop",
+      "Building Personalized Worked Example Generators with AI"
+    ]
+  },
+  {
+    "objectID": "workshop/index.html#setup-required-before-workshop",
+    "href": "workshop/index.html#setup-required-before-workshop",
+    "title": "Building Personalized Worked Example Generators with AI",
+    "section": "Setup Required Before Workshop",
+    "text": "Setup Required Before Workshop\nThat’s it. No installation needed.\nWhat you need:\n\nLaptop with modern browser (Chrome, Firefox, Safari, Edge)\nInternet connection (workshop uses HuggingFace Spaces)\nOptional: Notebook for reflecting on how you’d apply this to your teaching\n\nNo Python installation. No API keys. No troubleshooting.\nEverything runs in your browser via an interactive web application.",
+    "crumbs": [
+      "Workshop",
+      "Building Personalized Worked Example Generators with AI"
+    ]
+  },
+  {
+    "objectID": "workshop/index.html#learning-domains",
+    "href": "workshop/index.html#learning-domains",
+    "title": "Building Personalized Worked Example Generators with AI",
+    "section": "Learning Domains",
+    "text": "Learning Domains\n\nThe Complete Demo (What’s Possible)\nThe DEMO application supports three domains with 16 total concepts:\n1. Programming (Python) - 5 concepts - For loops, List comprehensions, Dictionary methods, Functions, String formatting\n2. Health Sciences (Statistics) - 6 concepts - Mean & SD, Correlation, Linear Regression, T-tests, Confidence Intervals, Effect Size\n3. Agronomy (Agricultural Science) - 5 concepts - Yield prediction, NPK optimization, Growing degree days, Water use efficiency, Cost-benefit\n\n\nYour Starter Template (What You’ll Build)\nYou’ll work with a simplified version:\n\nONE domain (Programming) with 3 concepts\nFor Loops, Functions with Parameters, String Formatting\nComplete working code\nReady to extend with more concepts\n\nIn the Build section, you’ll: - Add 1-2 new concepts (e.g., List Comprehensions, Dictionary Methods) - Customize prompts - Test with your own profile\nAfter the workshop, you can: - Add Health Sciences or Agronomy domains - Expand to match the demo’s complexity - Create your own domain entirely",
+    "crumbs": [
+      "Workshop",
+      "Building Personalized Worked Example Generators with AI"
+    ]
+  },
+  {
+    "objectID": "workshop/index.html#workshop-outcomes",
+    "href": "workshop/index.html#workshop-outcomes",
+    "title": "Building Personalized Worked Example Generators with AI",
+    "section": "Workshop Outcomes",
+    "text": "Workshop Outcomes\nBy the end of this workshop, you’ll have:\nUnderstanding of Cognitive Load Theory principles (worked example + personalisation effects)\nExperience with PydanticAI and Marimo frameworks\nModified code - Your own version with added concepts\nDesign plan - Extensions for your teaching context\nRecognition of the pattern - What’s involved in building educational AI tools\nYou will NOT have: A deployed production application, nor will you be a proficient Python developer\nYou WILL have: Conceptual understanding of how these tools work and what’s possible",
+    "crumbs": [
+      "Workshop",
+      "Building Personalized Worked Example Generators with AI"
+    ]
+  },
+  {
+    "objectID": "workshop/demo/index.html#purpose-of-this-demo",
+    "href": "workshop/demo/index.html#purpose-of-this-demo",
+    "title": "Demo: The Complete Application",
+    "section": "Purpose of This Demo",
+    "text": "Purpose of This Demo\nShow participants what’s possible - demonstrate the FULL complex application with all 3 domains and 16 concepts.\nSet realistic expectations - they will build a SIMPLER version (1 domain, 3-4 concepts) in the hands-on section.\nActivate curiosity - see the power of AI-generated personalised worked examples.",
+    "crumbs": [
+      "Workshop",
+      "Demo (20 min)",
+      "Demo: The Complete Application"
+    ]
+  },
+  {
+    "objectID": "workshop/demo/index.html#demo-strategy",
+    "href": "workshop/demo/index.html#demo-strategy",
+    "title": "Demo: The Complete Application",
+    "section": "Demo Strategy",
+    "text": "Demo Strategy\n\n\n\n\n\n\nImportantKey Message\n\n\n\n“This complex app took hours to build. Today you’ll learn the pattern by modifying a simplified version. By understanding the pattern, you could extend it to match this complexity.”",
+    "crumbs": [
+      "Workshop",
+      "Demo (20 min)",
+      "Demo: The Complete Application"
+    ]
+  },
+  {
+    "objectID": "workshop/demo/index.html#live-demonstration-15-minutes",
+    "href": "workshop/demo/index.html#live-demonstration-15-minutes",
+    "title": "Demo: The Complete Application",
+    "section": "Live Demonstration (15 minutes)",
+    "text": "Live Demonstration (15 minutes)\n\nSetup (Pre-workshop)\nBefore workshop starts:\n\nHave the deployed HuggingFace Space open: https://huggingface.co/spaces/virtuelleakademie/clt-worked-example-weaver\nOr run locally: marimo run workshop/part-3-build/app.py\nTest that generation works with your OpenAI API key\n\n\n\nDemo Script\n\n1. Show the Interface (2 min)\nScroll through the app:\n\n“This is a personalised worked example generator”\n“Notice the clean interface - learner profile, concept selection, generate button”\n“Built with Marimo - reactive Python notebooks”\n\n\n\n2. Fill in Profile - Programming Domain (3 min)\nChoose an engaging example:\nName: Sarah\nDomain: Programming (Python)\nSpecific interest: Web development\nHobby/passion: Baking\nGoal: Build a recipe sharing website\nLevel: Beginner\nNarrate as you type:\n\n“Sarah is interested in web development”\n“She loves baking - that’s her personal context”\n“She wants to build a recipe website - clear goal”\n\nSelect concept:\n\n“Let’s teach her about For Loops”\n“Notice: beginner level concept”\n\n\n\n3. Generate Example (5 min)\nClick Generate:\n\n“This takes 30-60 seconds - GPT-5.1 is creating a personalised example”\nWhile waiting: “The AI is weaving Sarah’s baking interest into a programming lesson”\n\nReview Generated Example:\n\nTitle: Notice how it mentions her interest\nProblem: Set in her context (recipes, baking)\nData: Realistic for her scenario\nSolution: Complete, step-by-step, with code\nConnection to Goal: Explicitly links to recipe website\nPractice Suggestion: Another baking-related problem\n\nKey point: “This isn’t generic - it’s tailored to Sarah’s interests and goals”\n\n\n4. Show Second Domain - Health Sciences (3 min)\nClear and start new profile:\nName: Marcus\nDomain: Health Sciences (Statistics)\nSpecific interest: Sports performance\nHobby/passion: Running\nGoal: Improve marathon time\nLevel: Intermediate\nSelect concept:\n\n“Linear Regression - intermediate level”\n\nGenerate and show:\n\n“Now the example uses running data”\n“Predicting race times from training volume”\n“Same tool, completely different domain and context”\n\n\n\n5. Show Third Domain - Agronomy (2 min)\nOptional if time allows:\nName: Elena\nDomain: Agronomy\nSpecific interest: Coffee farming\nHobby/passion: Sustainability\nGoal: Increase yield sustainably\nLevel: Beginner\nPoint out:\n\n“Three complete domains”\n“16 total concepts”\n“Unlimited personalisation possibilities”",
+    "crumbs": [
+      "Workshop",
+      "Demo (20 min)",
+      "Demo: The Complete Application"
+    ]
+  },
+  {
+    "objectID": "workshop/demo/index.html#key-points-to-emphasize",
+    "href": "workshop/demo/index.html#key-points-to-emphasize",
+    "title": "Demo: The Complete Application",
+    "section": "Key Points to Emphasize",
+    "text": "Key Points to Emphasize\n\n1. Complexity\nWhat participants see: - 3 complete domains - 16 concepts total - Full production app - Deployed to cloud\nWhat they’ll build: - 1 domain (their choice) - 3-4 concepts - Local development - Can deploy later (optional)\n\n\n2. The Pattern\nThis app demonstrates: - ✅ Pydantic data models (structured input/output) - ✅ PydanticAI agent (AI with type safety) - ✅ Marimo reactive UI (automatic updates) - ✅ Concept library (extensible design)\nYou’ll learn the pattern, then extend it.\n\n\n3. Personalisation Power\nWithout AI: - Creating this many personalised examples manually = impossible - Each example takes 15-30 minutes to craft - 16 concepts × 20 students = 320 unique examples needed\nWith AI: - Generate on-demand - Unique for each learner - Maintains quality (structured outputs) - Scales infinitely",
+    "crumbs": [
+      "Workshop",
+      "Demo (20 min)",
+      "Demo: The Complete Application"
+    ]
+  },
+  {
+    "objectID": "workshop/demo/index.html#transition-to-build-section",
+    "href": "workshop/demo/index.html#transition-to-build-section",
+    "title": "Demo: The Complete Application",
+    "section": "Transition to Build Section",
+    "text": "Transition to Build Section",
+    "crumbs": [
+      "Workshop",
+      "Demo (20 min)",
+      "Demo: The Complete Application"
+    ]
+  },
+  {
+    "objectID": "workshop/demo/index.html#checkpoint-questions",
+    "href": "workshop/demo/index.html#checkpoint-questions",
+    "title": "Demo: The Complete Application",
+    "section": "Checkpoint Questions",
+    "text": "Checkpoint Questions\nAsk participants:\n\n“What impressed you most about the demo?”\n“How could you use personalised worked examples in YOUR teaching?”\n“What domain would you want to add?”\n\nCommon responses: - “The personalisation is impressive” - “I teach [X], could I add that domain?” - “How hard is it to add new concepts?”\nYour response: - “Great questions! In the next section, you’ll work with a simplified version” - “You’ll see exactly how concepts are structured” - “And in the Extend section, you’ll design your own additions”",
+    "crumbs": [
+      "Workshop",
+      "Demo (20 min)",
+      "Demo: The Complete Application"
+    ]
+  },
+  {
+    "objectID": "workshop/demo/index.html#technical-notes-for-instructors",
+    "href": "workshop/demo/index.html#technical-notes-for-instructors",
+    "title": "Demo: The Complete Application",
+    "section": "Technical Notes for Instructors",
+    "text": "Technical Notes for Instructors\n\nIf Demo Fails\nBackup plan: 1. Show pre-recorded video 2. Use screenshots in slides 3. Walk through the code structure instead\n\n\nCommon Demo Issues\nGeneration takes too long: - Have pre-generated examples ready as screenshots - Explain: “Production would cache common patterns”\nAPI error: - Backup: Show code that would generate it - Explain: “This is why we provide starter template - ensures it works”\n\n\nCustomization for Your Workshop\nDomains to demo: - Choose domains relevant to your audience - If all participants teach programming → focus on that - If mixed → show variety",
+    "crumbs": [
+      "Workshop",
+      "Demo (20 min)",
+      "Demo: The Complete Application"
+    ]
+  },
+  {
+    "objectID": "workshop/demo/index.html#what-participants-should-understand",
+    "href": "workshop/demo/index.html#what-participants-should-understand",
+    "title": "Demo: The Complete Application",
+    "section": "What Participants Should Understand",
+    "text": "What Participants Should Understand\nAfter this demo, participants should know:\n\nThe end goal - What a complete personalised example generator looks like\nThe power - How AI enables personalisation at scale\nThe scope - They’ll build a simpler version to learn the pattern\nThe potential - How they could extend it for their teaching\n\n\nNext: Build Section - Now you’ll work with the code",
+    "crumbs": [
+      "Workshop",
+      "Demo (20 min)",
+      "Demo: The Complete Application"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html",
+    "href": "workshop/build/index.html",
+    "title": "Build: Hands-On with the Starter Template",
+    "section": "",
+    "text": "Access the app (2 min)\nCode walkthrough (20 min)\nModify concepts (50 min)\nTest and refine (15 min)\nReflection (3 min)\nNext: Extend Section - Design your own extensions in groups",
+    "crumbs": [
+      "Workshop",
+      "Build (90 min)",
+      "Build: Hands-On with the Starter Template"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#duration-90-minutes",
+    "href": "workshop/build/index.html#duration-90-minutes",
+    "title": "Build: Hands-On with the Starter Template",
+    "section": "",
+    "text": "Access the app (2 min)\nCode walkthrough (20 min)\nModify concepts (50 min)\nTest and refine (15 min)\nReflection (3 min)",
+    "crumbs": [
+      "Workshop",
+      "Build (90 min)",
+      "Build: Hands-On with the Starter Template"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#learning-objectives",
+    "href": "workshop/build/index.html#learning-objectives",
+    "title": "Build: Hands-On with the Starter Template",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBy the end of this section, you will:\n\nUnderstand the code structure of the worked example generator\nModify the template to add new concepts (in your browser)\nRecognise the pattern for building educational AI tools\nSee how PydanticAI and Marimo work together\n\n\n\n\n\n\n\nImportantRealistic Expectations\n\n\n\nWhat this section is: A hands-on learning exercise to understand the pattern and possibilities\nWhat this section is not: Training to become a Python developer or deploy production apps\nYour goal: Understand how these tools work and what’s involved in building them. If you want to create your own later, the Resources section provides deployment guides for self-directed learning.",
+    "crumbs": [
+      "Workshop",
+      "Build (90 min)",
+      "Build: Hands-On with the Starter Template"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#part-1-setup-10-minutes",
+    "href": "workshop/build/index.html#part-1-setup-10-minutes",
+    "title": "Build: Hands-On with the Starter Template",
+    "section": "Part 1: Setup (10 minutes)",
+    "text": "Part 1: Setup (10 minutes)\n\nPrerequisites Check",
+    "crumbs": [
+      "Workshop",
+      "Build (90 min)",
+      "Build: Hands-On with the Starter Template"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#required-before-workshop",
+    "href": "workshop/build/index.html#required-before-workshop",
+    "title": "Build: Hands-On with the Starter Template",
+    "section": "✅ Required Before Workshop",
+    "text": "✅ Required Before Workshop\nYou should have installed:\n\nPython 3.10 or higher\nmarimo, pydantic-ai, openai packages\nOpenAI API key set as environment variable\n\nTest command:\nmarimo tutorial intro\nIf this works, you’re ready!",
+    "crumbs": [
+      "Workshop",
+      "Build (90 min)",
+      "Build: Hands-On with the Starter Template"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#part-2-code-walkthrough-20-minutes",
+    "href": "workshop/build/index.html#part-2-code-walkthrough-20-minutes",
+    "title": "Build: Hands-On with the Starter Template",
+    "section": "Part 2: Code Walkthrough (20 minutes)",
+    "text": "Part 2: Code Walkthrough (20 minutes)\n\nApp Structure\nScroll through the code cells to see the overall structure:\n# 1. Imports and setup\n# 2. Data models (Pydantic)\n# 3. Concept library (ONE domain)\n# 4. AI agent configuration\n# 5. Generation function\n# 6. Marimo UI cells\nYour task: Read through the code, following along with this walkthrough. Don’t edit yet - focus on understanding.\n\n\nKey Components\n\n1. Data Models (Lines 10-60)\nLearnerProfile - What we collect:\nclass LearnerProfile(BaseModel):\n    name: str\n    domain: Literal[\"programming\"]  # Only 1 domain\n    specific_interest: str\n    hobby_or_passion: str\n    goal: str\n    background_level: Literal[\"beginner\", \"intermediate\", \"advanced\"]\nPersonalizedWorkedExample - What AI generates:\nclass PersonalizedWorkedExample(BaseModel):\n    title: str\n    problem_statement: str\n    given_data: str\n    step_by_step_solution: list[str]  # Multiple steps\n    final_answer: str\n    connection_to_goal: str\n    practice_suggestion: str\nWhy Pydantic? - Type safety - guarantees AI returns what we expect - Validation - catches errors before they reach users - Documentation - clear structure\n\n\n2. Concept Library (Lines 62-100)\nCONCEPTS = {\n    \"programming\": [\n        {\n            \"name\": \"For Loops\",\n            \"abstract\": \"Iterate through a sequence\",\n            \"difficulty\": \"beginner\",\n            \"typical_use\": \"Process lists, repeat actions\"\n        },\n        {\n            \"name\": \"Functions with Parameters\",\n            \"abstract\": \"Reusable code blocks with inputs\",\n            \"difficulty\": \"beginner\",\n            \"typical_use\": \"Organize code, avoid repetition\"\n        },\n        {\n            \"name\": \"String Formatting\",\n            \"abstract\": \"Create formatted text with f-strings\",\n            \"difficulty\": \"beginner\",\n            \"typical_use\": \"Display data, create messages\"\n        }\n    ]\n}\nStructure: - Each concept has: name, abstract, difficulty, typical use - Easy to add new concepts (we’ll do this!) - Can add new domains by extending the dictionary\n\n\n3. AI Agent (Lines 102-140)\nexample_generator = Agent(\n    'openai:gpt-5.1',           # Model to use\n    result_type=PersonalizedWorkedExample,  # Structured output\n    system_prompt=\"\"\"You are an expert educator...\n\n    Create personalized worked examples that:\n    1. Weave learner's interests naturally\n    2. Use their name throughout\n    3. Make data realistic\n    4. Connect to their goal\n    \"\"\"\n)\nKey features: - result_type ensures structured output (Pydantic model) - System prompt guides AI behavior - Model choice affects cost/quality\n\n\n4. Generation Function (Lines 142-180)\nasync def generate_example(profile, concept):\n    prompt = f\"\"\"\n    Create a worked example for:\n\n    LEARNER: {profile.name}\n    INTEREST: {profile.specific_interest}\n    HOBBY: {profile.hobby_or_passion}\n    GOAL: {profile.goal}\n    LEVEL: {profile.background_level}\n\n    CONCEPT: {concept['name']}\n    ...\n    \"\"\"\n\n    result = await example_generator.run(prompt)\n    return result.data  # Returns PersonalizedWorkedExample\n\n\n5. Marimo UI Cells (Lines 182-end)\nMarimo creates reactive cells:\n\n@app.cell decorator\nAuto-updates when dependencies change\nNo stale state (unlike Jupyter)\n\nUI components:\n\nmo.ui.text() - Text inputs\nmo.ui.dropdown() - Concept selection\nmo.ui.button() - Generate button\nmo.md() - Markdown display",
+    "crumbs": [
+      "Workshop",
+      "Build (90 min)",
+      "Build: Hands-On with the Starter Template"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#part-3-modify---add-concepts-40-minutes",
+    "href": "workshop/build/index.html#part-3-modify---add-concepts-40-minutes",
+    "title": "Build: Hands-On with the Starter Template",
+    "section": "Part 3: Modify - Add Concepts (40 minutes)",
+    "text": "Part 3: Modify - Add Concepts (40 minutes)\n\nYour Task\nAdd 1-2 new concepts to the Programming domain.\nSuggestions: - List Comprehensions - Dictionary Methods - File I/O - Error Handling - Object-Oriented Programming basics\n\n\nStep-by-Step Instructions\n\n1. Choose Your Concepts\nBeginner concepts: - Variables and data types - Conditional statements (if/else) - Basic list operations - File reading/writing\nIntermediate concepts: - List comprehensions - Dictionary methods - Lambda functions - Exception handling\n\n\n2. Add to CONCEPTS Dictionary\nFind this section (around line 62):\nCONCEPTS = {\n    \"programming\": [\n        {\n            \"name\": \"For Loops\",\n            ...\n        },\n        {\n            \"name\": \"Functions with Parameters\",\n            ...\n        },\n        {\n            \"name\": \"String Formatting\",\n            ...\n        }\n        # ADD YOUR CONCEPTS HERE!\n    ]\n}\nAdd your concept:\n        {\n            \"name\": \"List Comprehensions\",\n            \"abstract\": \"Create new lists using concise syntax\",\n            \"difficulty\": \"intermediate\",\n            \"typical_use\": \"Transform data, filter lists elegantly\"\n        },",
+    "crumbs": [
+      "Workshop",
+      "Build (90 min)",
+      "Build: Hands-On with the Starter Template"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#try-it-add-your-first-concept",
+    "href": "workshop/build/index.html#try-it-add-your-first-concept",
+    "title": "Build: Hands-On with the Starter Template",
+    "section": "Try It: Add Your First Concept",
+    "text": "Try It: Add Your First Concept\n\nChoose a programming concept you teach\nWrite the abstract (1 sentence - what it does)\nSet difficulty level (beginner/intermediate/advanced)\nDescribe typical use (when to use it)\nEdit the cell to add your concept\nRun the cell (click the play button or Shift+Enter)",
+    "crumbs": [
+      "Workshop",
+      "Build (90 min)",
+      "Build: Hands-On with the Starter Template"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#part-4-test-locally-15-minutes",
+    "href": "workshop/build/index.html#part-4-test-locally-15-minutes",
+    "title": "Build: Hands-On with the Starter Template",
+    "section": "Part 4: Test Locally (15 minutes)",
+    "text": "Part 4: Test Locally (15 minutes)\n\nGenerate Examples with Your Concepts",
+    "crumbs": [
+      "Workshop",
+      "Build (90 min)",
+      "Build: Hands-On with the Starter Template"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#individual-testing",
+    "href": "workshop/build/index.html#individual-testing",
+    "title": "Build: Hands-On with the Starter Template",
+    "section": "Individual Testing",
+    "text": "Individual Testing\nNow test your modifications:\n\nFill in your own profile:\n\nUse YOUR name\nYOUR specific interest in programming\nYOUR hobby\nYOUR goal\n\nSelect one of YOUR new concepts\nClick Generate and wait (30-60 seconds)\nReview the generated example:\n\nDoes it use your personal context naturally?\nIs the code correct and runnable?\nAre the explanations clear?\nDoes it connect to your goal?\n\nTry different profiles:\n\nChange the interest/hobby\nSee how examples change\nTest different difficulty levels",
+    "crumbs": [
+      "Workshop",
+      "Build (90 min)",
+      "Build: Hands-On with the Starter Template"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#part-5-common-issues-solutions",
+    "href": "workshop/build/index.html#part-5-common-issues-solutions",
+    "title": "Build: Hands-On with the Starter Template",
+    "section": "Part 5: Common Issues & Solutions",
+    "text": "Part 5: Common Issues & Solutions\n\nIssue: Concept doesn’t appear in dropdown\nSolution: - Check JSON syntax (commas, brackets) - Ensure it’s inside “programming” array - Save file and reload marimo\n\n\nIssue: Generation fails with error\nPossible causes:\n# Missing comma\n{\n    \"name\": \"For Loops\",\n    ...\n}  # &lt;- Need comma here!\n{\n    \"name\": \"List Comprehensions\",\n    ...\n}\n\n\nIssue: Examples are too generic\nSolution: Enhance system prompt:\nsystem_prompt=\"\"\"...\n\nCRITICAL: Weave interests NATURALLY into the problem.\nBad: \"Calculate sum of recipe ingredients\"\nGood: \"You're building a recipe cost calculator for your\nbaking blog. Here's how to sum ingredient costs...\"\n\"\"\"\n\n\nIssue: API errors\nCheck: - OPENAI_API_KEY is set correctly - API key has credits - Internet connection works",
+    "crumbs": [
+      "Workshop",
+      "Build (90 min)",
+      "Build: Hands-On with the Starter Template"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#what-youve-learned",
+    "href": "workshop/build/index.html#what-youve-learned",
+    "title": "Build: Hands-On with the Starter Template",
+    "section": "What You’ve Learned",
+    "text": "What You’ve Learned\nTake a moment to consider:\n\nCode Structure - Can you identify the key components?\n\nData models (Pydantic)\nConcept library (dictionary)\nAI agent (PydanticAI)\nUI components (Marimo)\n\nThe Pattern - What would you need to build your own tool?\n\nDefine your domain and concepts\nCreate data models for inputs/outputs\nConfigure AI agent with system prompt\nBuild UI for interaction\n\nPedagogical Principles - How does this reduce cognitive load?\n\nStructured outputs (predictable format)\nPersonalised contexts (familiar to learner)\nComplete worked examples (not problem-solving)",
+    "crumbs": [
+      "Workshop",
+      "Build (90 min)",
+      "Build: Hands-On with the Starter Template"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#checkpoint",
+    "href": "workshop/build/index.html#checkpoint",
+    "title": "Build: Hands-On with the Starter Template",
+    "section": "🎯 Checkpoint",
+    "text": "🎯 Checkpoint\nCan you answer: - Where do you add new concepts? - What does result_type=PersonalizedWorkedExample do? - How does personalization reduce cognitive load?\nCan you do: - Add a new concept to the library? - Generate an example with your own profile? - Modify the system prompt?",
+    "crumbs": [
+      "Workshop",
+      "Build (90 min)",
+      "Build: Hands-On with the Starter Template"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html",
+    "href": "workshop/extend/index.html",
+    "title": "Extend: Design Your Extensions",
+    "section": "",
+    "text": "Group formation (2 min)\nDiscussion rounds (18 min - 6 min each)\nGroup sharing (10 min)\nKey insight: &gt; The way we taught this workshop IS a worked example of the worked example principle.",
+    "crumbs": [
+      "Workshop",
+      "Extend (30 min)",
+      "Extend: Design Your Extensions"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html#duration-30-minutes",
+    "href": "workshop/extend/index.html#duration-30-minutes",
+    "title": "Extend: Design Your Extensions",
+    "section": "",
+    "text": "Group formation (2 min)\nDiscussion rounds (18 min - 6 min each)\nGroup sharing (10 min)",
+    "crumbs": [
+      "Workshop",
+      "Extend (30 min)",
+      "Extend: Design Your Extensions"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html#purpose",
+    "href": "workshop/extend/index.html#purpose",
+    "title": "Extend: Design Your Extensions",
+    "section": "Purpose",
+    "text": "Purpose\nMove from implementation to application: - Reflect on what you’ve learned - Design extensions for YOUR teaching context - Share ideas with community - Think about pedagogical implications\nThis is NOT coding - it’s design thinking and pedagogical reflection.",
+    "crumbs": [
+      "Workshop",
+      "Extend (30 min)",
+      "Extend: Design Your Extensions"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html#group-activity-structure",
+    "href": "workshop/extend/index.html#group-activity-structure",
+    "title": "Extend: Design Your Extensions",
+    "section": "Group Activity Structure",
+    "text": "Group Activity Structure\n\nForm Groups (2 minutes)",
+    "crumbs": [
+      "Workshop",
+      "Extend (30 min)",
+      "Extend: Design Your Extensions"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html#groups-of-3-4",
+    "href": "workshop/extend/index.html#groups-of-3-4",
+    "title": "Extend: Design Your Extensions",
+    "section": "Groups of 3-4",
+    "text": "Groups of 3-4\nSelf-organise into groups of 3-4 people: - Ideally mix: different domains, different experience levels - Each group needs: 1 note-taker, 1 time-keeper - Find space where you can talk comfortably",
+    "crumbs": [
+      "Workshop",
+      "Extend (30 min)",
+      "Extend: Design Your Extensions"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html#round-1-new-domains-6-minutes",
+    "href": "workshop/extend/index.html#round-1-new-domains-6-minutes",
+    "title": "Extend: Design Your Extensions",
+    "section": "Round 1: New Domains (6 minutes)",
+    "text": "Round 1: New Domains (6 minutes)",
+    "crumbs": [
+      "Workshop",
+      "Extend (30 min)",
+      "Extend: Design Your Extensions"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html#discussion-prompts",
+    "href": "workshop/extend/index.html#discussion-prompts",
+    "title": "Extend: Design Your Extensions",
+    "section": "Discussion Prompts",
+    "text": "Discussion Prompts\nIndividual reflection (2 min): - What subject/domain do YOU teach? - Could worked examples help your students learn this content? - What 3-5 concepts from your domain would benefit most from personalisation?\nGroup discussion (4 min): - Share your domains with the group - For each person’s domain, brainstorm: - What concepts could work well? - What student interests might connect? - What challenges might arise?",
+    "crumbs": [
+      "Workshop",
+      "Extend (30 min)",
+      "Extend: Design Your Extensions"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html#round-2-new-features-6-minutes",
+    "href": "workshop/extend/index.html#round-2-new-features-6-minutes",
+    "title": "Extend: Design Your Extensions",
+    "section": "Round 2: New Features (6 minutes)",
+    "text": "Round 2: New Features (6 minutes)",
+    "crumbs": [
+      "Workshop",
+      "Extend (30 min)",
+      "Extend: Design Your Extensions"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html#discussion-prompts-1",
+    "href": "workshop/extend/index.html#discussion-prompts-1",
+    "title": "Extend: Design Your Extensions",
+    "section": "Discussion Prompts",
+    "text": "Discussion Prompts\nIndividual reflection (2 min): - What would make this tool MORE useful for your students? - What’s missing from the current version? - How could you assess learning (not just provide examples)?\nGroup discussion (4 min): - Share and discuss feature ideas - Prioritize: What would have MOST impact? - Consider: What’s technically feasible?",
+    "crumbs": [
+      "Workshop",
+      "Extend (30 min)",
+      "Extend: Design Your Extensions"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html#round-3-integration-barriers-6-minutes",
+    "href": "workshop/extend/index.html#round-3-integration-barriers-6-minutes",
+    "title": "Extend: Design Your Extensions",
+    "section": "Round 3: Integration & Barriers (6 minutes)",
+    "text": "Round 3: Integration & Barriers (6 minutes)",
+    "crumbs": [
+      "Workshop",
+      "Extend (30 min)",
+      "Extend: Design Your Extensions"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html#discussion-prompts-2",
+    "href": "workshop/extend/index.html#discussion-prompts-2",
+    "title": "Extend: Design Your Extensions",
+    "section": "Discussion Prompts",
+    "text": "Discussion Prompts\nIndividual reflection (2 min): - How would you actually USE this in your course? - What barriers exist to implementation? - What institutional support would you need?\nGroup discussion (4 min): - Share integration ideas - Problem-solve barriers together - Identify resources needed",
+    "crumbs": [
+      "Workshop",
+      "Extend (30 min)",
+      "Extend: Design Your Extensions"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html#group-sharing-10-minutes",
+    "href": "workshop/extend/index.html#group-sharing-10-minutes",
+    "title": "Extend: Design Your Extensions",
+    "section": "Group Sharing (10 minutes)",
+    "text": "Group Sharing (10 minutes)",
+    "crumbs": [
+      "Workshop",
+      "Extend (30 min)",
+      "Extend: Design Your Extensions"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html#share-with-full-group",
+    "href": "workshop/extend/index.html#share-with-full-group",
+    "title": "Extend: Design Your Extensions",
+    "section": "Share with Full Group",
+    "text": "Share with Full Group\nEach group shares (2 minutes each):\n\nOne promising domain extension\n\nWhat domain? Which concepts?\n\nOne high-impact feature\n\nWhat would it do? Why valuable?\n\nOne integration insight\n\nHow would you actually use this?\nWhat barrier did you identify?\n\n\nInstructor: Note common themes on board/slide",
+    "crumbs": [
+      "Workshop",
+      "Extend (30 min)",
+      "Extend: Design Your Extensions"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html#pedagogical-reflection-5-minutes",
+    "href": "workshop/extend/index.html#pedagogical-reflection-5-minutes",
+    "title": "Extend: Design Your Extensions",
+    "section": "Pedagogical Reflection (5 minutes)",
+    "text": "Pedagogical Reflection (5 minutes)",
+    "crumbs": [
+      "Workshop",
+      "Extend (30 min)",
+      "Extend: Design Your Extensions"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html#meta-reflection",
+    "href": "workshop/extend/index.html#meta-reflection",
+    "title": "Extend: Design Your Extensions",
+    "section": "Meta-Reflection",
+    "text": "Meta-Reflection\nThink about the workshop itself:\n\nHow did THIS workshop demonstrate the worked example principle?\n\nWe showed you complete solution (demo)\nYou studied the code (walkthrough)\nYou modified with scaffolding (build)\nYou’re now designing extensions (transfer)\n\nWhat support did you need most?\n\nComplete working code?\nStep-by-step explanations?\nTime to experiment?\nCommunity discussion?\n\nHow can you apply this pattern to YOUR teaching?\n\nShow complete solutions first?\nProvide scaffolding for practice?\nUse personal contexts?\nDesign for gradual independence?",
+    "crumbs": [
+      "Workshop",
+      "Extend (30 min)",
+      "Extend: Design Your Extensions"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html#wrap-up-questions",
+    "href": "workshop/extend/index.html#wrap-up-questions",
+    "title": "Extend: Design Your Extensions",
+    "section": "Wrap-Up Questions",
+    "text": "Wrap-Up Questions",
+    "crumbs": [
+      "Workshop",
+      "Extend (30 min)",
+      "Extend: Design Your Extensions"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html#final-reflections",
+    "href": "workshop/extend/index.html#final-reflections",
+    "title": "Extend: Design Your Extensions",
+    "section": "Final Reflections",
+    "text": "Final Reflections\nInstructor asks:\n\n“Who will actually try using this tool with students?”\n“What’s your next step?”\n“What questions do you still have?”\n\nEncourage: - Start small (one concept, one class) - Share experiences (create community) - Iterate based on student feedback - Remember: tool serves pedagogy, not vice versa",
+    "crumbs": [
+      "Workshop",
+      "Extend (30 min)",
+      "Extend: Design Your Extensions"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html#next-steps-suggestions",
+    "href": "workshop/extend/index.html#next-steps-suggestions",
+    "title": "Extend: Design Your Extensions",
+    "section": "Next Steps Suggestions",
+    "text": "Next Steps Suggestions\nThis week: - Add 1-2 more concepts to your domain - Test with actual student profiles - Generate a library of examples\nThis month: - Pilot with one class or assignment - Gather student feedback - Refine system prompts\nThis semester: - Build example library for your course - Track student outcomes - Share results with colleagues\nLong term: - Collaborate to add new domains - Integrate with your LMS - Research effectiveness - Contribute back to community\n\nNext: Resources - Links, documentation, and next steps",
+    "crumbs": [
+      "Workshop",
+      "Extend (30 min)",
+      "Extend: Design Your Extensions"
+    ]
+  },
+  {
+    "objectID": "workshop/opening/index.html",
+    "href": "workshop/opening/index.html",
+    "title": "Opening: Activating Exercise",
+    "section": "",
+    "text": "NoteDuration: 10 minutes",
+    "crumbs": [
+      "Workshop",
+      "Opening (10 min)",
+      "Opening: Activating Exercise"
+    ]
+  },
+  {
+    "objectID": "workshop/opening/index.html#welcome",
+    "href": "workshop/opening/index.html#welcome",
+    "title": "Opening: Activating Exercise",
+    "section": "Welcome!",
+    "text": "Welcome!\nWelcome to Building Personalised Worked Example Generators with AI. Before we dive into the technical details, let’s activate our prior knowledge about learning.",
+    "crumbs": [
+      "Workshop",
+      "Opening (10 min)",
+      "Opening: Activating Exercise"
+    ]
+  },
+  {
+    "objectID": "workshop/opening/index.html#think-pair-share-learning-from-examples",
+    "href": "workshop/opening/index.html#think-pair-share-learning-from-examples",
+    "title": "Opening: Activating Exercise",
+    "section": "Think-Pair-Share: Learning from Examples",
+    "text": "Think-Pair-Share: Learning from Examples\n\n\n\n\n\n\nNoteTHINK (3 minutes)\n\n\n\nConsider these two scenarios for learning how to calculate correlation:\n\nScenario A: Problem-Solving\nYou’re given: &gt; “Calculate the correlation between Variable X and Variable Y”\nThen you spend time figuring out the formula, looking up procedures, trying different approaches.\n\n\nScenario B: Worked Example\nYou’re shown: &gt; “Calculate the correlation between your weekly running distance and your 5K race times: &gt; &gt; Given data: &gt; - Running: [25, 30, 20, 35, 28] km/week &gt; - Race times: [22, 21, 24, 19, 20] minutes &gt; &gt; Step 1: Calculate means… &gt; [Complete solution with every step explained]”\nQuestion: Which scenario would help you learn better? Why?\n\n\n\n\n\n\n\n\n\nNotePAIR (4 minutes)\n\n\n\nShare your thoughts with a neighbor:\n\nWhich scenario did you choose?\nHave you experienced either approach in your own learning?\nWhich approach do you use when teaching?\n\n\n\n\n\n\n\n\n\nNoteSHARE (3 minutes)\n\n\n\nInstructor facilitates brief group discussion:\nCommon responses: - “Scenario B is easier to follow” - “The personal context makes it more engaging” - “I can see the pattern more clearly in the worked example” - “But won’t students just copy without understanding?”\nThis last concern is important! We’ll address it today.",
+    "crumbs": [
+      "Workshop",
+      "Opening (10 min)",
+      "Opening: Activating Exercise"
+    ]
+  },
+  {
+    "objectID": "workshop/opening/index.html#the-bridge-to-todays-workshop",
+    "href": "workshop/opening/index.html#the-bridge-to-todays-workshop",
+    "title": "Opening: Activating Exercise",
+    "section": "The Bridge to Today’s Workshop",
+    "text": "The Bridge to Today’s Workshop\nWhat you just experienced touches on two key principles we’ll explore:\n\nThe Worked Example Effect - For novice learners, studying complete solutions is more effective than struggling through problems independently\nThe Personalisation Effect - Familiar contexts (like your own running data) reduce cognitive load and improve learning\n\nToday’s goal: Build a tool that combines both principles at scale using AI.\n\n\n\n\n\n\nImportantThe Workshop IS a Worked Example\n\n\n\nHere’s the key insight: This workshop itself is designed as a worked example.\nWe won’t ask you to build this tool from scratch. Instead:\n\nWe’ll show you a complete, working solution (the personalised example generator)\nWe’ll study it step-by-step - examining how each component works\nWe’ll explain why it’s designed this way - connecting code to cognitive science\nWe’ll gradually reduce scaffolding - from guided study to independent application\nYou’ll transfer the pattern - applying it to your own teaching domain\n\nWhy this structure?\nBecause you’re learning to build educational AI tools - a relatively new domain where most of you are “novices.” According to Cognitive Load Theory, the most effective way for you to learn is to study a worked example, not struggle through unguided problem-solving.\nThe meta-lesson: By experiencing the worked example effect yourself, you’ll better understand how to design it for your students.\n\n\n\n\n\n\n\n\nTipMeta-Cognitive Moment\n\n\n\nThroughout today, notice: - When we show you complete solutions (worked example effect) - When we use familiar teaching contexts (personalisation effect) - When we gradually reduce guidance (fading) - When we ask you to apply independently (transfer)\nThe workshop structure demonstrates the principles it teaches!\n\n\n\nReady? Let’s move to Theory",
+    "crumbs": [
+      "Workshop",
+      "Opening (10 min)",
+      "Opening: Activating Exercise"
+    ]
+  },
+  {
+    "objectID": "workshop/resources/index.html#workshop-materials",
+    "href": "workshop/resources/index.html#workshop-materials",
+    "title": "Resources & Next Steps",
+    "section": "Workshop Materials",
+    "text": "Workshop Materials\n\nGitHub Repository\nAll code and materials:\nhttps://github.com/virtuelleakademie/ki-lehre-advanced\nWhat you’ll find: - Complete workshop content - Source code for all applications - Full complex demo app - HuggingFace Space deployment files - Documentation",
+    "crumbs": [
+      "Workshop",
+      "Resources (10 min)",
+      "Resources & Next Steps"
+    ]
+  },
+  {
+    "objectID": "workshop/resources/index.html#live-demos",
+    "href": "workshop/resources/index.html#live-demos",
+    "title": "Resources & Next Steps",
+    "section": "Live Demos",
+    "text": "Live Demos\n\nFull-Featured Applications\nMarimo Version (Interactive Notebooks):\nhttps://huggingface.co/spaces/virtuelleakademie/worked-example-weaver\n\nNotebook-style interface\nReactive cells\nAll 3 domains, 16 concepts\n\nGradio Version (Web App):\nhttps://huggingface.co/spaces/virtuelleakademie/worked-example-weaver-app\n\nClean web interface\nTraditional form layout\nAll 3 domains, 16 concepts\n\nUse these for: - Demonstrating to colleagues - Testing with students - Understanding the full complexity - Inspiration for your extensions",
+    "crumbs": [
+      "Workshop",
+      "Resources (10 min)",
+      "Resources & Next Steps"
+    ]
+  },
+  {
+    "objectID": "workshop/resources/index.html#deployment-guide-optional",
+    "href": "workshop/resources/index.html#deployment-guide-optional",
+    "title": "Resources & Next Steps",
+    "section": "Deployment Guide (Optional)",
+    "text": "Deployment Guide (Optional)\n\n\n\n\n\n\nNote📦 Deploy Your Own Version\n\n\n\nIf you want to deploy your modified version to HuggingFace Spaces:\n\nCreate free account: huggingface.co\nFollow deployment guide: hf-spaces/worked-example-weaver/DEPLOYMENT.md\nTakes ~10 minutes once set up\n\nWhy deploy? - Students can access without installing anything - Shareable link for your course - Professional demonstration - No local setup required\nWhen NOT to deploy: - Just testing/learning - Only for personal use - Want to modify frequently - Prefer local control",
+    "crumbs": [
+      "Workshop",
+      "Resources (10 min)",
+      "Resources & Next Steps"
+    ]
+  },
+  {
+    "objectID": "workshop/resources/index.html#technical-documentation",
+    "href": "workshop/resources/index.html#technical-documentation",
+    "title": "Resources & Next Steps",
+    "section": "Technical Documentation",
+    "text": "Technical Documentation\n\nFramework Documentation\nMarimo (Reactive Notebooks):\nhttps://docs.marimo.io\n\nTutorial for beginners\nAPI reference\nDeployment guides\nExample galleries\n\nPydanticAI (Type-Safe AI Agents):\nhttps://ai.pydantic.dev\n\nGetting started guide\nAgent patterns\nModel support\nBest practices\n\nPydantic (Data Validation):\nhttps://pydantic.dev\n\nData models tutorial\nValidation docs\nType hints guide\n\nOpenAI Platform:\nhttps://platform.openai.com\n\nAPI documentation\nModel selection guide\nPricing calculator\nUsage monitoring",
+    "crumbs": [
+      "Workshop",
+      "Resources (10 min)",
+      "Resources & Next Steps"
+    ]
+  },
+  {
+    "objectID": "workshop/resources/index.html#learning-science-resources",
+    "href": "workshop/resources/index.html#learning-science-resources",
+    "title": "Resources & Next Steps",
+    "section": "Learning Science Resources",
+    "text": "Learning Science Resources\n\nCognitive Load Theory\nNSW CESE Report (2017):\nhttps://education.nsw.gov.au/about-us/education-data-and-research/\ncese/publications/literature-reviews/cognitive-load-theory\n\nAccessible introduction\nPractical implications\nEvidence summary\n\nKey Papers:\n\nSweller, J. (1988). Cognitive load during problem solving: Effects on learning. Cognitive Science, 12(2), 257-285.\n\nOriginal worked example effect paper\n\nCooper, G., & Sweller, J. (1987). Effects of schema acquisition and rule automation on mathematical problem-solving transfer. Journal of Educational Psychology, 79(4), 347-362.\n\nSchema construction through worked examples\n\nCordova, D. I., & Lepper, M. R. (1996). Intrinsic motivation and the process of learning. Journal of Educational Psychology, 88(4), 715.\n\nPersonalization and engagement\n\n\n\n\nRelated Workshop\nKI in der Lehre: Intermediate\nhttps://virtuelleakademie.github.io/ki-lehre-intermediate/\n\nDeeper dive into learning science\nMake It Stick strategies\nAI agent design patterns\nPrerequisite for advanced topics",
+    "crumbs": [
+      "Workshop",
+      "Resources (10 min)",
+      "Resources & Next Steps"
+    ]
+  },
+  {
+    "objectID": "workshop/resources/index.html#extension-ideas",
+    "href": "workshop/resources/index.html#extension-ideas",
+    "title": "Resources & Next Steps",
+    "section": "Extension Ideas",
+    "text": "Extension Ideas\n\nAdd New Domains\nTemplate for new domain:\nCONCEPTS = {\n    \"your_domain_name\": [\n        {\n            \"name\": \"Concept 1 Name\",\n            \"abstract\": \"One-sentence description\",\n            \"difficulty\": \"beginner\",  # or intermediate, advanced\n            \"typical_use\": \"When students would use this\"\n        },\n        # Add 3-5 more concepts\n    ]\n}\nExample domains to add: - Physics (kinematics, forces, energy conservation) - Chemistry (balancing equations, stoichiometry, molarity) - Economics (supply/demand, elasticity, comparative advantage) - Biology (cell processes, genetics, evolution) - Mathematics (algebra, calculus, probability)\n\n\nAdd New Features\nAssessment integration:\n# Generate practice problems (not worked examples)\nclass PracticeProblem(BaseModel):\n    problem_statement: str\n    hints: list[str]          # Progressive hints\n    final_solution: str       # Hidden initially\n\n# Faded worked examples\nclass FadedExample(BaseModel):\n    problem: str\n    step_1: str               # Shown\n    step_2: str               # Shown\n    step_3_incomplete: str    # Student completes\n    step_4_blank: str         # Student writes\nDifficulty adaptation:\n# Track student performance\ndef adjust_difficulty(correct_rate):\n    if correct_rate &gt; 0.8:\n        return \"increase\"\n    elif correct_rate &lt; 0.5:\n        return \"decrease\"\n    return \"maintain\"\nMultimedia:\n# Add diagrams (requires image generation)\nclass ExampleWithDiagram(PersonalizedWorkedExample):\n    diagram_description: str  # For image generation\n    diagram_url: str          # After generating",
+    "crumbs": [
+      "Workshop",
+      "Resources (10 min)",
+      "Resources & Next Steps"
+    ]
+  },
+  {
+    "objectID": "workshop/resources/index.html#community-support",
+    "href": "workshop/resources/index.html#community-support",
+    "title": "Resources & Next Steps",
+    "section": "Community & Support",
+    "text": "Community & Support\n\nGet Help\nInstructor Contact: - Dr. Andrew Ellis - andrew.ellis@bfh.ch - Virtual Academy, Bern University of Applied Sciences\nWorkshop GitHub: - Issues: Report bugs, request features - Discussions: Ask questions, share experiences - Pull Requests: Contribute improvements\n\n\nShare Your Work\nCreated something cool? - Share on GitHub discussions - Present at teaching conferences - Write blog post - Contribute back to repository\nResearch opportunities: - Study effectiveness with students - Compare to traditional methods - Measure cognitive load - Publish findings",
+    "crumbs": [
+      "Workshop",
+      "Resources (10 min)",
+      "Resources & Next Steps"
+    ]
+  },
+  {
+    "objectID": "workshop/resources/index.html#next-steps-checklist",
+    "href": "workshop/resources/index.html#next-steps-checklist",
+    "title": "Resources & Next Steps",
+    "section": "Next Steps Checklist",
+    "text": "Next Steps Checklist",
+    "crumbs": [
+      "Workshop",
+      "Resources (10 min)",
+      "Resources & Next Steps"
+    ]
+  },
+  {
+    "objectID": "workshop/resources/index.html#what-to-do-next",
+    "href": "workshop/resources/index.html#what-to-do-next",
+    "title": "Resources & Next Steps",
+    "section": "What to Do Next",
+    "text": "What to Do Next\nThis Week: - Revisit the workshop Space and experiment further - Add 2-3 concepts to your domain - Test with actual student profiles - Generate 5-10 examples to build intuition\nThis Month: - Pilot with one class or assignment - Collect student feedback - Refine system prompts based on results - Consider deployment if useful\nThis Semester: - Build complete concept library for your course - Track student learning outcomes - Share with department colleagues - Present at teaching conference\nLong Term: - Collaborate to add new domains - Integrate with LMS - Research effectiveness systematically - Contribute to open-source community",
+    "crumbs": [
+      "Workshop",
+      "Resources (10 min)",
+      "Resources & Next Steps"
+    ]
+  },
+  {
+    "objectID": "workshop/resources/index.html#cost-considerations",
+    "href": "workshop/resources/index.html#cost-considerations",
+    "title": "Resources & Next Steps",
+    "section": "Cost Considerations",
+    "text": "Cost Considerations\n\nOpenAI API Pricing (as of 2025)\nGPT-5.1: - Input: ~$0.003 per 1K tokens - Output: ~$0.015 per 1K tokens - Typical example: ~$0.02-0.05 each\nStrategies to reduce costs:\n\nUse cheaper models for simple concepts\n# GPT-4o is cheaper, still good quality\nexample_generator = Agent('openai:gpt-4o', ...)\nCache common examples\n# Generate once, reuse many times\nexample_cache = {}\nBatch generation\n# Generate all examples for semester upfront\n# One-time cost, unlimited reuse\nEducational discounts\n\nOpenAI offers educational pricing\nContact: education@openai.com\nInstitutional accounts available\n\n\n\n\nFree Alternatives\nHuggingFace Inference API: - Use open-source models - Llama, Mistral, etc. - Free tier available - Lower quality but zero cost\nSelf-hosted models: - Run Llama locally - One-time setup - No ongoing costs - Requires technical expertise",
+    "crumbs": [
+      "Workshop",
+      "Resources (10 min)",
+      "Resources & Next Steps"
+    ]
+  },
+  {
+    "objectID": "workshop/resources/index.html#ethical-considerations",
+    "href": "workshop/resources/index.html#ethical-considerations",
+    "title": "Resources & Next Steps",
+    "section": "Ethical Considerations",
+    "text": "Ethical Considerations\n\nUsing AI in Education\nBest practices:\n\nTransparency\n\nTell students examples are AI-generated\nExplain the pedagogical purpose\nDiscuss limitations\n\nQuality Control\n\nReview generated examples before sharing\nCheck for errors or bias\nVerify code runs correctly\n\nBalanced Use\n\nPair with problem-solving practice\nDon’t replace all traditional teaching\nUse to reduce load, not replace thinking\n\nData Privacy\n\nDon’t include personally identifiable info in prompts\nReview OpenAI’s data usage policy\nConsider institutional agreements\n\nEquity\n\nEnsure all students have access\nProvide alternatives for those who opt out\nDon’t create advantage for some",
+    "crumbs": [
+      "Workshop",
+      "Resources (10 min)",
+      "Resources & Next Steps"
+    ]
+  },
+  {
+    "objectID": "workshop/resources/index.html#final-thoughts",
+    "href": "workshop/resources/index.html#final-thoughts",
+    "title": "Resources & Next Steps",
+    "section": "Final Thoughts",
+    "text": "Final Thoughts\n\n\n\n\n\n\nTipKey Takeaways\n\n\n\nYou’ve learned: - Cognitive Load Theory principles (worked examples, personalisation) - How to build AI educational tools (PydanticAI + Marimo) - The pattern for structured AI outputs (Pydantic models) - What’s involved in extending the tool for your domain\nRemember: - Start small (one concept, one class) - Iterate based on feedback - Share experiences with community - Technology serves pedagogy, not vice versa\nThe meta-lesson: &gt; This workshop demonstrated the principle it taught. You experienced a worked example approach to learning educational AI tools. Now you can design worked examples for your students.",
+    "crumbs": [
+      "Workshop",
+      "Resources (10 min)",
+      "Resources & Next Steps"
+    ]
+  },
+  {
+    "objectID": "workshop/resources/index.html#thank-you",
+    "href": "workshop/resources/index.html#thank-you",
+    "title": "Resources & Next Steps",
+    "section": "Thank You!",
+    "text": "Thank You!\nQuestions? Ideas? Feedback?\nContact: andrew.ellis@bfh.ch\nStay connected: - GitHub: virtuelleakademie/ki-lehre-advanced - Virtual Academy: virtuelleakademie.ch - Knowledge Base: virtuelleakademie.ch/knowledge-base\n\nWorkshop complete!",
+    "crumbs": [
+      "Workshop",
+      "Resources (10 min)",
+      "Resources & Next Steps"
+    ]
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html",
+    "href": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html",
+    "title": "Deployment Guide: Worked Example Weaver App (Gradio)",
+    "section": "",
+    "text": "This guide walks you through deploying the Gradio-based Worked Example Weaver to HuggingFace Spaces.\n\n\n\nHuggingFace Account: Sign up at huggingface.co\nOpenAI API Key: Get one at platform.openai.com/api-keys\n\n\n\n\n\nGo to huggingface.co/new-space\nFill in the details:\n\nSpace name: worked-example-weaver-app\nLicense: cc0-1.0 (or your choice)\nSelect SDK: Gradio\nSpace hardware: CPU basic (free tier)\nVisibility: Public (or Private)\n\nClick Create Space\n\n\n\n\nYou can either use Git or the web interface to upload files.\n\n\n# Clone your new Space\ngit clone https://huggingface.co/spaces/YOUR-USERNAME/worked-example-weaver-app\ncd worked-example-weaver-app\n\n# Copy files from this directory\ncp /path/to/hf-spaces/worked-example-weaver-app/* .\n\n# Add, commit, and push\ngit add .\ngit commit -m \"Initial deployment of Worked Example Weaver App\"\ngit push\n\n\n\n\nIn your Space, click Files → Add file → Upload files\nUpload these files:\n\napp.py\nrequirements.txt\nREADME.md\n\nClick Commit changes to main\n\n\n\n\n\n\nIn your Space, go to Settings\nScroll down to Repository secrets\nClick New secret\nAdd your OpenAI API key:\n\nName: OPENAI_API_KEY\nValue: sk-your-actual-key-here\n\nClick Save\n\n\n\n\n\nGo to the App tab of your Space\nHuggingFace will automatically install dependencies and launch your app\nThis takes 2-5 minutes on first deployment\nWatch the build logs to see progress\n\n\n\n\nOnce the app loads:\n\nThe Gradio interface should appear in the iframe\nFill in the learner profile form:\n\nYour first name\nChoose learning domain (this updates the concept dropdown)\nYour specific interest\nA hobby or passion\nWhat you want to achieve\nYour current level\n\nSelect a concept from the dropdown\nClick “✨ Generate My Personalized Example”\nWait 30-60 seconds for the AI to generate your example\n\n\n\n\n\n\n\nCheck the build logs in the Logs tab\nEnsure all required files are present (app.py, requirements.txt)\nVerify Python dependencies are compatible\n\n\n\n\n“Please check your OpenAI API key” error: - Check that your OPENAI_API_KEY is set correctly in Settings → Repository secrets - Verify the key is valid at platform.openai.com/api-keys - Make sure the key has sufficient credits\n“Please fill in all fields” warning: - Ensure ALL fields are filled before clicking generate - Select a domain first (this populates the concept dropdown) - Then select a concept from the dropdown\n\n\n\n\nMake sure you selected a learning domain first\nThe concept dropdown updates automatically when you select a domain\nIf it doesn’t update, try refreshing the page\n\n\n\n\n\nFree tier CPU can be slow for AI generation (30-60 seconds is normal)\nConsider upgrading to CPU upgrade or T4 GPU for faster generation\nPaid tiers available in Space Settings\n\n\n\n\n\n\n\nIn app.py, line 78:\nexample_generator = Agent(\n    'openai:gpt-5.1',  # Change to 'openai:gpt-4o' or other model\n    result_type=PersonalizedWorkedExample,\n    ...\n)\n\n\n\nIn app.py, around line 25, add to the CONCEPTS dictionary:\n\"programming\": [\n    {\n        \"name\": \"Your New Concept\",\n        \"abstract\": \"Brief description\",\n        \"difficulty\": \"beginner\",\n        \"typical_use\": \"When to use it\"\n    },\n    # ... existing concepts\n]\n\n\n\nIn app.py, around line 80, edit the system_prompt parameter to change how the AI generates examples.\n\n\n\nIn app.py, line 202:\nwith gr.Blocks(title=\"Worked Example Weaver\", theme=gr.themes.Soft()) as demo:\nTry: gr.themes.Default(), gr.themes.Monochrome(), gr.themes.Glass()\n\n\n\n\nAdd domain to CONCEPTS dictionary\nUpdate domain choices in the Gradio interface (line 217)\nUpdate update_concepts() function to handle new domain\n\n\n\n\n\nAfter making changes:\ngit add .\ngit commit -m \"Describe your changes\"\ngit push\nHuggingFace will automatically rebuild and redeploy.\n\n\n\n\nHuggingFace Space: Free tier available (CPU basic)\nOpenAI API: Pay per use\n\nGPT-5.1: ~$0.02-0.05 per example generated\nGPT-4o: ~$0.01-0.02 per example generated\nSet usage limits at platform.openai.com\n\n\n\n\n\nOnce deployed, share your Space:\n\nDirect link: https://huggingface.co/spaces/YOUR-USERNAME/worked-example-weaver-app\nEmbed in website: HuggingFace provides an iframe embed code\nShare on social media: Use the share button in your Space\n\n\n\n\n\nHuggingFace Spaces Documentation\nGradio Documentation\nPydanticAI Documentation\nWorkshop Materials\n\n\n\n\n\nMarimo version - Interactive notebook interface\nGradio version - This app!\n\n\n\n\nQuestions? Contact andrew.ellis@bfh.ch"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#prerequisites",
+    "href": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#prerequisites",
+    "title": "Deployment Guide: Worked Example Weaver App (Gradio)",
+    "section": "",
+    "text": "HuggingFace Account: Sign up at huggingface.co\nOpenAI API Key: Get one at platform.openai.com/api-keys"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#step-1-create-a-new-space",
+    "href": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#step-1-create-a-new-space",
+    "title": "Deployment Guide: Worked Example Weaver App (Gradio)",
+    "section": "",
+    "text": "Go to huggingface.co/new-space\nFill in the details:\n\nSpace name: worked-example-weaver-app\nLicense: cc0-1.0 (or your choice)\nSelect SDK: Gradio\nSpace hardware: CPU basic (free tier)\nVisibility: Public (or Private)\n\nClick Create Space"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#step-2-upload-files",
+    "href": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#step-2-upload-files",
+    "title": "Deployment Guide: Worked Example Weaver App (Gradio)",
+    "section": "",
+    "text": "You can either use Git or the web interface to upload files.\n\n\n# Clone your new Space\ngit clone https://huggingface.co/spaces/YOUR-USERNAME/worked-example-weaver-app\ncd worked-example-weaver-app\n\n# Copy files from this directory\ncp /path/to/hf-spaces/worked-example-weaver-app/* .\n\n# Add, commit, and push\ngit add .\ngit commit -m \"Initial deployment of Worked Example Weaver App\"\ngit push\n\n\n\n\nIn your Space, click Files → Add file → Upload files\nUpload these files:\n\napp.py\nrequirements.txt\nREADME.md\n\nClick Commit changes to main"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#step-3-set-environment-variables",
+    "href": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#step-3-set-environment-variables",
+    "title": "Deployment Guide: Worked Example Weaver App (Gradio)",
+    "section": "",
+    "text": "In your Space, go to Settings\nScroll down to Repository secrets\nClick New secret\nAdd your OpenAI API key:\n\nName: OPENAI_API_KEY\nValue: sk-your-actual-key-here\n\nClick Save"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#step-4-wait-for-build",
+    "href": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#step-4-wait-for-build",
+    "title": "Deployment Guide: Worked Example Weaver App (Gradio)",
+    "section": "",
+    "text": "Go to the App tab of your Space\nHuggingFace will automatically install dependencies and launch your app\nThis takes 2-5 minutes on first deployment\nWatch the build logs to see progress"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#step-5-test-your-app",
+    "href": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#step-5-test-your-app",
+    "title": "Deployment Guide: Worked Example Weaver App (Gradio)",
+    "section": "",
+    "text": "Once the app loads:\n\nThe Gradio interface should appear in the iframe\nFill in the learner profile form:\n\nYour first name\nChoose learning domain (this updates the concept dropdown)\nYour specific interest\nA hobby or passion\nWhat you want to achieve\nYour current level\n\nSelect a concept from the dropdown\nClick “✨ Generate My Personalized Example”\nWait 30-60 seconds for the AI to generate your example"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#troubleshooting",
+    "href": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#troubleshooting",
+    "title": "Deployment Guide: Worked Example Weaver App (Gradio)",
+    "section": "",
+    "text": "Check the build logs in the Logs tab\nEnsure all required files are present (app.py, requirements.txt)\nVerify Python dependencies are compatible\n\n\n\n\n“Please check your OpenAI API key” error: - Check that your OPENAI_API_KEY is set correctly in Settings → Repository secrets - Verify the key is valid at platform.openai.com/api-keys - Make sure the key has sufficient credits\n“Please fill in all fields” warning: - Ensure ALL fields are filled before clicking generate - Select a domain first (this populates the concept dropdown) - Then select a concept from the dropdown\n\n\n\n\nMake sure you selected a learning domain first\nThe concept dropdown updates automatically when you select a domain\nIf it doesn’t update, try refreshing the page\n\n\n\n\n\nFree tier CPU can be slow for AI generation (30-60 seconds is normal)\nConsider upgrading to CPU upgrade or T4 GPU for faster generation\nPaid tiers available in Space Settings"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#customization",
+    "href": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#customization",
+    "title": "Deployment Guide: Worked Example Weaver App (Gradio)",
+    "section": "",
+    "text": "In app.py, line 78:\nexample_generator = Agent(\n    'openai:gpt-5.1',  # Change to 'openai:gpt-4o' or other model\n    result_type=PersonalizedWorkedExample,\n    ...\n)\n\n\n\nIn app.py, around line 25, add to the CONCEPTS dictionary:\n\"programming\": [\n    {\n        \"name\": \"Your New Concept\",\n        \"abstract\": \"Brief description\",\n        \"difficulty\": \"beginner\",\n        \"typical_use\": \"When to use it\"\n    },\n    # ... existing concepts\n]\n\n\n\nIn app.py, around line 80, edit the system_prompt parameter to change how the AI generates examples.\n\n\n\nIn app.py, line 202:\nwith gr.Blocks(title=\"Worked Example Weaver\", theme=gr.themes.Soft()) as demo:\nTry: gr.themes.Default(), gr.themes.Monochrome(), gr.themes.Glass()\n\n\n\n\nAdd domain to CONCEPTS dictionary\nUpdate domain choices in the Gradio interface (line 217)\nUpdate update_concepts() function to handle new domain"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#updating-your-space",
+    "href": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#updating-your-space",
+    "title": "Deployment Guide: Worked Example Weaver App (Gradio)",
+    "section": "",
+    "text": "After making changes:\ngit add .\ngit commit -m \"Describe your changes\"\ngit push\nHuggingFace will automatically rebuild and redeploy."
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#cost-considerations",
+    "href": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#cost-considerations",
+    "title": "Deployment Guide: Worked Example Weaver App (Gradio)",
+    "section": "",
+    "text": "HuggingFace Space: Free tier available (CPU basic)\nOpenAI API: Pay per use\n\nGPT-5.1: ~$0.02-0.05 per example generated\nGPT-4o: ~$0.01-0.02 per example generated\nSet usage limits at platform.openai.com"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#sharing-your-app",
+    "href": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#sharing-your-app",
+    "title": "Deployment Guide: Worked Example Weaver App (Gradio)",
+    "section": "",
+    "text": "Once deployed, share your Space:\n\nDirect link: https://huggingface.co/spaces/YOUR-USERNAME/worked-example-weaver-app\nEmbed in website: HuggingFace provides an iframe embed code\nShare on social media: Use the share button in your Space"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#additional-resources",
+    "href": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#additional-resources",
+    "title": "Deployment Guide: Worked Example Weaver App (Gradio)",
+    "section": "",
+    "text": "HuggingFace Spaces Documentation\nGradio Documentation\nPydanticAI Documentation\nWorkshop Materials"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#example-spaces",
+    "href": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#example-spaces",
+    "title": "Deployment Guide: Worked Example Weaver App (Gradio)",
+    "section": "",
+    "text": "Marimo version - Interactive notebook interface\nGradio version - This app!"
+  },
+  {
+    "objectID": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#support",
+    "href": "hf-spaces/worked-example-weaver-app/DEPLOYMENT.html#support",
+    "title": "Deployment Guide: Worked Example Weaver App (Gradio)",
+    "section": "",
+    "text": "Questions? Contact andrew.ellis@bfh.ch"
+  },
+  {
+    "objectID": "workshop/theory/index.html#principle-2-the-personalisation-effect",
+    "href": "workshop/theory/index.html#principle-2-the-personalisation-effect",
+    "title": "Theory: Cognitive Load Theory Principles",
+    "section": "Principle 2: The Personalisation Effect",
+    "text": "Principle 2: The Personalisation Effect\n\nThe Research\n\n“Familiar contexts require less cognitive effort to process, reducing extraneous cognitive load and improving learning outcomes.”\n— Cordova & Lepper (1996)\n\n\n\nWhy It Works\nGeneric examples:\nCalculate the correlation between Variable X and Variable Y.\nX: [10, 15, 20, 25, 30]\nY: [2, 4, 6, 8, 10]\n\nMust process abstract variables\nNo connection to existing knowledge\nHigher cognitive load\n\nPersonalised examples:\nYou love cycling. Calculate the correlation between your\nweekly training hours and your average speed:\n\nTraining hours: [10, 15, 20, 25, 30]\nAverage speed: [25, 27, 29, 31, 33] km/h\n\nConnects to existing knowledge (cycling)\nEasier to process (familiar context)\nMore motivation (personal relevance)\nLower cognitive load\n\n\n\nThe Evidence\n\nIncreased motivation and engagement (Cordova & Lepper, 1996)\nBetter learning outcomes when contexts are familiar\nParticularly effective when combined with worked examples",
+    "crumbs": [
+      "Workshop",
+      "Theory (30 min)",
+      "Theory: Cognitive Load Theory Principles"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#part-1-access-the-app-2-minutes",
+    "href": "workshop/build/index.html#part-1-access-the-app-2-minutes",
+    "title": "Build: Hands-On with the Starter Template",
+    "section": "Part 1: Access the App (2 minutes)",
+    "text": "Part 1: Access the App (2 minutes)\n\nOpen the Workshop Space\nNo installation required. Everything runs in your browser.",
+    "crumbs": [
+      "Workshop",
+      "Build (90 min)",
+      "Build: Hands-On with the Starter Template"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#access-the-interactive-app",
+    "href": "workshop/build/index.html#access-the-interactive-app",
+    "title": "Build: Hands-On with the Starter Template",
+    "section": "Access the Interactive App",
+    "text": "Access the Interactive App\nURL: https://huggingface.co/spaces/virtuelleakademie/workshop-starter\nWhat you’ll see: - Interactive marimo notebook - Code cells (some editable, some read-only) - Live UI components - Reactive updates\nFirst time? The Space may take 20-30 seconds to wake up. Be patient.",
+    "crumbs": [
+      "Workshop",
+      "Build (90 min)",
+      "Build: Hands-On with the Starter Template"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#part-3-modify---add-concepts-50-minutes",
+    "href": "workshop/build/index.html#part-3-modify---add-concepts-50-minutes",
+    "title": "Build: Hands-On with the Starter Template",
+    "section": "Part 3: Modify - Add Concepts (50 minutes)",
+    "text": "Part 3: Modify - Add Concepts (50 minutes)\n\nYour Task\nAdd 1-2 new concepts to the Programming domain by editing code cells in your browser.\nSuggested concepts: - List Comprehensions - Dictionary Methods - File I/O - Error Handling - Object-Oriented Programming basics\n\n\nStep-by-Step Instructions\n\n1. Choose Your Concepts\nBeginner concepts: - Variables and data types - Conditional statements (if/else) - Basic list operations - File reading/writing\nIntermediate concepts: - List comprehensions - Dictionary methods - Lambda functions - Exception handling\n\n\n2. Find the CONCEPTS Cell\nScroll to the editable cell containing the CONCEPTS dictionary:\nCONCEPTS = {\n    \"programming\": [\n        {\n            \"name\": \"For Loops\",\n            ...\n        },\n        {\n            \"name\": \"Functions with Parameters\",\n            ...\n        },\n        {\n            \"name\": \"String Formatting\",\n            ...\n        }\n        # ADD YOUR CONCEPTS HERE!\n    ]\n}\nThis cell is editable - click inside it to make changes.\n\n\n3. Add Your Concept\nClick in the cell and add your new concept to the list:\n        {\n            \"name\": \"List Comprehensions\",\n            \"abstract\": \"Create new lists using concise syntax\",\n            \"difficulty\": \"intermediate\",\n            \"typical_use\": \"Transform data, filter lists elegantly\"\n        },\nImportant: Don’t forget the comma after the closing brace!",
+    "crumbs": [
+      "Workshop",
+      "Build (90 min)",
+      "Build: Hands-On with the Starter Template"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#part-4-test-and-refine-15-minutes",
+    "href": "workshop/build/index.html#part-4-test-and-refine-15-minutes",
+    "title": "Build: Hands-On with the Starter Template",
+    "section": "Part 4: Test and Refine (15 minutes)",
+    "text": "Part 4: Test and Refine (15 minutes)\n\nGenerate Examples with Your Concepts",
+    "crumbs": [
+      "Workshop",
+      "Build (90 min)",
+      "Build: Hands-On with the Starter Template"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#common-issues-solutions",
+    "href": "workshop/build/index.html#common-issues-solutions",
+    "title": "Build: Hands-On with the Starter Template",
+    "section": "Common Issues & Solutions",
+    "text": "Common Issues & Solutions\n\nIssue: Concept doesn’t appear in dropdown\nSolution: - Check Python syntax (commas, brackets) - Ensure it’s inside “programming” array - Run the cell again (Shift+Enter) - Refresh the browser if needed\n\n\nIssue: Generation fails with error\nPossible causes:\n# Missing comma between concepts\n{\n    \"name\": \"For Loops\",\n    ...\n}  # &lt;- Need comma here!\n{\n    \"name\": \"List Comprehensions\",\n    ...\n}\nWhat to do: Edit the cell, add the missing comma, run again.\n\n\nIssue: Examples are too generic\nSolution: Enhance system prompt cell:\nsystem_prompt=\"\"\"...\n\nCRITICAL: Weave interests NATURALLY into the problem.\nBad: \"Calculate sum of recipe ingredients\"\nGood: \"You're building a recipe cost calculator for your\nbaking blog. Here's how to sum ingredient costs...\"\n\"\"\"\nThen run the cell to update the agent configuration.\n\n\nIssue: Slow generation or timeout\nCauses: - GPT-5.1 can take 30-60 seconds - Multiple users generating simultaneously - HuggingFace Space waking from sleep\nWhat to do: Be patient. If it fails, try again.",
+    "crumbs": [
+      "Workshop",
+      "Build (90 min)",
+      "Build: Hands-On with the Starter Template"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#reflection-3-minutes",
+    "href": "workshop/build/index.html#reflection-3-minutes",
+    "title": "Build: Hands-On with the Starter Template",
+    "section": "Reflection (3 minutes)",
+    "text": "Reflection (3 minutes)",
+    "crumbs": [
+      "Workshop",
+      "Build (90 min)",
+      "Build: Hands-On with the Starter Template"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#checkpoint-questions",
+    "href": "workshop/build/index.html#checkpoint-questions",
+    "title": "Build: Hands-On with the Starter Template",
+    "section": "Checkpoint Questions",
+    "text": "Checkpoint Questions\nCan you answer: - Where do you add new concepts? - What does result_type=PersonalizedWorkedExample do? - How does personalisation reduce cognitive load?\nCan you do: - Add a new concept to the library? - Generate an example with your own profile? - Modify the system prompt?\nHave you recognised: - This isn’t about becoming a Python developer - It’s about understanding what’s possible - The pattern can be adapted to many domains",
+    "crumbs": [
+      "Workshop",
+      "Build (90 min)",
+      "Build: Hands-On with the Starter Template"
+    ]
+  },
+  {
+    "objectID": "workshop/resources/index.html#workshop-application",
+    "href": "workshop/resources/index.html#workshop-application",
+    "title": "Resources & Next Steps",
+    "section": "Workshop Application",
+    "text": "Workshop Application\n\nThe Interactive App You Used Today\nWorkshop Starter Template:\nhttps://huggingface.co/spaces/virtuelleakademie/workshop-starter\n\nSimplified version (1 domain, 3 concepts)\nEditable cells for hands-on practice\nBrowser-based, no installation\nYou can return to this anytime to practise\n\nWhat you did today: - Modified the CONCEPTS dictionary - Added 1-2 new concepts - Generated personalised examples - Saw how reactive updates work",
+    "crumbs": [
+      "Workshop",
+      "Resources (10 min)",
+      "Resources & Next Steps"
+    ]
+  },
+  {
+    "objectID": "workshop/resources/index.html#deployment-guide-for-the-curious",
+    "href": "workshop/resources/index.html#deployment-guide-for-the-curious",
+    "title": "Resources & Next Steps",
+    "section": "Deployment Guide (For the Curious)",
+    "text": "Deployment Guide (For the Curious)\n\n\n\n\n\n\nNoteDeploy Your Own Version\n\n\n\nIf you want to deploy your modified version to HuggingFace Spaces (self-directed learning):\n\nCreate free account: huggingface.co\nFollow deployment guide: hf-spaces/worked-example-weaver/DEPLOYMENT.md\nTakes approximately 10 minutes once set up\n\nWhy deploy? - Students can access without installing anything - Shareable link for your course - Professional demonstration - No local setup required\nWhen NOT to deploy: - Just testing/learning - Only for personal use - Want to modify frequently - Prefer local control\nNote: This is entirely optional. The workshop showed you the pattern; deployment is for those who want to create their own version for actual use with students.",
+    "crumbs": [
+      "Workshop",
+      "Resources (10 min)",
+      "Resources & Next Steps"
     ]
   }
 ]
