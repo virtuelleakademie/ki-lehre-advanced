@@ -19,6 +19,11 @@ def _():
     from pydantic import BaseModel, Field
     from typing import Literal
     import os
+    from dotenv import load_dotenv
+
+    # Load environment variables from .env file
+    load_dotenv()
+
     return BaseModel, Field, OpenAI, mo, os
 
 
@@ -119,16 +124,16 @@ def _(mo):
     )
 
     mo.vstack([basic_prompt, clt_prompt])
-    return
+    return basic_prompt, clt_prompt
 
 
 @app.cell
 def _(mo):
     """Lab 1: Generate button"""
 
-    lab1_button = mo.ui.button(
+    lab1_button = mo.ui.run_button(
         label="🔬 Generate Both Examples",
-        kind="success"
+        kind="success",
     )
 
     mo.md(f"### Compare the Results\n\n{lab1_button}")
@@ -143,7 +148,6 @@ def _(SimpleExample, basic_prompt, client, clt_prompt, lab1_button, mo):
 
     if lab1_button.value and basic_prompt.value and clt_prompt.value:
         with mo.status.spinner(title="Generating both examples..."):
-            # Generate basic example
             basic_response = client.responses.parse(
                 model="gpt-5.1",
                 input=[{"role": "user", "content": basic_prompt.value}],
@@ -151,7 +155,6 @@ def _(SimpleExample, basic_prompt, client, clt_prompt, lab1_button, mo):
             )
             basic_example = basic_response.output_parsed
 
-            # Generate CLT-grounded example
             clt_response = client.responses.parse(
                 model="gpt-5.1",
                 input=[{"role": "user", "content": clt_prompt.value}],
@@ -159,7 +162,7 @@ def _(SimpleExample, basic_prompt, client, clt_prompt, lab1_button, mo):
             )
             clt_example = clt_response.output_parsed
 
-        _comparison = mo.vstack([
+        lab1_output = mo.vstack([
             mo.md("### 📊 Basic Prompt Result"),
             mo.md(f"**Problem:** {basic_example.problem}"),
             mo.md(f"**Solution:** {basic_example.solution}"),
@@ -169,19 +172,16 @@ def _(SimpleExample, basic_prompt, client, clt_prompt, lab1_button, mo):
             mo.md(f"**Problem:** {clt_example.problem}"),
             mo.md(f"**Solution:** {clt_example.solution}"),
             mo.md(f"**Explanation:** {clt_example.explanation}"),
+            mo.callout(mo.md("""
+            ### 💭 What Do You Notice?
+
+            - Which problem is clearer and more specific?
+            - Which solution breaks down steps better?
+            - Which explanation helps you understand WHY, not just WHAT?
+
+            **The prompt IS your pedagogical design!**
+            """), kind="info")
         ])
-
-        _reflection = mo.callout(mo.md("""
-        ### 💭 What Do You Notice?
-
-        - Which problem is clearer and more specific?
-        - Which solution breaks down steps better?
-        - Which explanation helps you understand WHY, not just WHAT?
-
-        **The prompt IS your pedagogical design!**
-        """), kind="info")
-
-        lab1_output = mo.vstack([_comparison, _reflection])
 
     lab1_output
 
@@ -232,9 +232,9 @@ def _(mo):
 def _(mo):
     """Lab 2: Generate button"""
 
-    lab2_button = mo.ui.button(
+    lab2_button = mo.ui.run_button(
         label="⚖️ Generate A/B Comparison",
-        kind="success"
+        kind="success",
     )
 
     mo.md(f"{lab2_button}")
@@ -249,7 +249,7 @@ def _(SimpleExample, client, lab2_button, mo, your_goal, your_hobby):
 
     if lab2_button.value and your_hobby.value and your_goal.value:
         with mo.status.spinner(title="Generating generic and personalized examples..."):
-            # Generic example
+
             generic_prompt = "Create a worked example about Python dictionaries for beginners."
             generic_response = client.responses.parse(
                 model="gpt-5.1",
@@ -258,7 +258,6 @@ def _(SimpleExample, client, lab2_button, mo, your_goal, your_hobby):
             )
             generic_example = generic_response.output_parsed
 
-            # Personalized example
             personalized_prompt = f"""Create a worked example about Python dictionaries for beginners.
 
 IMPORTANT: Personalize this example for someone who is interested in {your_hobby.value} and wants to {your_goal.value}.
@@ -271,7 +270,7 @@ Use familiar contexts and examples from their interest to make the concept more 
             )
             personalized_example = personalized_response.output_parsed
 
-        _comparison = mo.vstack([
+        lab2_output = mo.vstack([
             mo.md("### 📖 Generic Example (Standard Textbook Style)"),
             mo.md(f"**Problem:** {generic_example.problem}"),
             mo.md(f"**Solution:** {generic_example.solution}"),
@@ -281,19 +280,16 @@ Use familiar contexts and examples from their interest to make the concept more 
             mo.md(f"**Problem:** {personalized_example.problem}"),
             mo.md(f"**Solution:** {personalized_example.solution}"),
             mo.md(f"**Explanation:** {personalized_example.explanation}"),
+            mo.callout(mo.md("""
+            ### 💭 How Did That Feel?
+
+            - Which example was more engaging to read?
+            - Which one felt easier to process mentally?
+            - Could you visualize the personalized example more easily?
+
+            **This is the personalization effect in action!** Familiar contexts reduce extraneous cognitive load.
+            """), kind="success")
         ])
-
-        _reflection = mo.callout(mo.md("""
-        ### 💭 How Did That Feel?
-
-        - Which example was more engaging to read?
-        - Which one felt easier to process mentally?
-        - Could you visualize the personalized example more easily?
-
-        **This is the personalization effect in action!** Familiar contexts reduce extraneous cognitive load.
-        """), kind="success")
-
-        lab2_output = mo.vstack([_comparison, _reflection])
 
     lab2_output
 
@@ -473,9 +469,9 @@ def _(mo):
 
     mo.md("### Generate an Example to Analyze")
 
-    lab5_button = mo.ui.button(
+    lab5_button = mo.ui.run_button(
         label="🎲 Generate Random Example",
-        kind="neutral"
+        kind="neutral",
     )
 
     lab5_button
@@ -486,7 +482,7 @@ def _(mo):
 def _(SimpleExample, client, lab5_button, mo):
     """Lab 5: Generate and display example to analyze"""
 
-    analyze_example = None
+    example_output = None
 
     if lab5_button.value:
         with mo.status.spinner(title="Generating example..."):
@@ -497,20 +493,19 @@ def _(SimpleExample, client, lab5_button, mo):
             )
             analyze_example = response.output_parsed
 
-        mo.vstack([
+        example_output = mo.vstack([
             mo.md("### Example to Analyze"),
             mo.md(f"**Problem:** {analyze_example.problem}"),
             mo.md(f"**Solution:** {analyze_example.solution}"),
             mo.md(f"**Explanation:** {analyze_example.explanation}"),
         ])
-    return
+
+    example_output
 
 
 @app.cell
 def _(mo):
     """Lab 5: CLT evaluation checklist"""
-
-    mo.md("### Evaluate Using CLT Principles")
 
     reduces_extraneous = mo.ui.checkbox(
         label="✅ Reduces extraneous cognitive load (no unnecessary complexity)"
@@ -577,8 +572,10 @@ def _(
 
     score = sum(1 for v in checklist_values if v)
 
+    score_output = None
+
     if score > 0:
-        mo.callout(f"""
+        score_output = mo.callout(f"""
         ### Score: {score}/6
 
         {"🌟" * score}
@@ -591,7 +588,8 @@ def _(
 
         **Key Skill**: You're developing a CLT-grounded critical lens for evaluating AI tools!
         """, kind="success" if score >= 5 else "info")
-    return
+
+    score_output
 
 
 @app.cell
