@@ -324,3 +324,23 @@ Here is some text.
 ```
 
 This applies to all list types (unordered `-`, ordered `1.`, and nested lists).
+
+**Writing Style - Avoid Hyphens and Em-Dashes:**
+
+Do not use hyphens (-) or em-dashes (—) as separators in content. Instead, use:
+
+- **Colons** for list items with labels: `**Label:** Description here`
+- **Parentheses** for clarifications: `Link text (additional context)`
+- **Full sentences** when appropriate
+
+**Correct:**
+```markdown
+- **Programming (Python):** For loops, list comprehensions, functions
+- **Study the code:** Understand how structured outputs work
+```
+
+**Incorrect:**
+```markdown
+- **Programming (Python)** - For loops, list comprehensions, functions
+- **Study the code** - Understand how structured outputs work
+```
