@@ -9,9 +9,9 @@ def __():
     import marimo as mo
     import os
     from pydantic import BaseModel
-    from pydantic_ai import Agent
+    from openai import OpenAI
     from typing import Literal
-    return Agent, BaseModel, Literal, mo, os
+    return BaseModel, Literal, OpenAI, mo, os
 
 
 @app.cell
@@ -73,9 +73,12 @@ def __():
 
 
 @app.cell(hide_code=False)
-def __(Agent, PersonalizedWorkedExample, os):
-    # AI AGENT CONFIGURATION
+def __(OpenAI, os):
+    # AI CLIENT AND SYSTEM PROMPT
     # This is editable - you can customise the system prompt!
+
+    # Initialize OpenAI client
+    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
     system_prompt = """You are an expert educator who creates personalised worked examples.
 
@@ -94,23 +97,16 @@ For Programming examples:
 - Use modern Python syntax (f-strings, type hints)
 """
 
-    # Create the AI agent with structured output
-    example_generator = Agent(
-        'openai:gpt-4o',  # Using GPT-4o for cost-effectiveness
-        result_type=PersonalizedWorkedExample,
-        system_prompt=system_prompt
-    )
-
-    return example_generator, system_prompt
+    return client, system_prompt
 
 
 @app.cell
-def __(LearnerProfile, example_generator):
+def __(LearnerProfile, PersonalizedWorkedExample, client, system_prompt):
     # GENERATION FUNCTION
-    async def generate_example(profile: LearnerProfile, concept: dict):
+    def generate_example(profile: LearnerProfile, concept: dict):
         """Generate a personalised worked example"""
 
-        prompt = f"""Create a personalised worked example for:
+        user_prompt = f"""Create a personalised worked example for:
 
 LEARNER INFORMATION:
 - Name: {profile.name}
@@ -133,8 +129,17 @@ Create a worked example that:
 4. Provides complete step-by-step solutions
 5. Feels natural, not forced"""
 
-        result = await example_generator.run(prompt)
-        return result.data
+        # Call OpenAI with structured outputs
+        response = client.responses.parse(
+            model="gpt-5.1",
+            input=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
+            ],
+            text_format=PersonalizedWorkedExample
+        )
+
+        return response.output_parsed
 
     return (generate_example,)
 
@@ -255,7 +260,7 @@ def __(mo):
 
 
 @app.cell
-async def __(
+def __(
     LearnerProfile,
     concept_selector,
     domain_input,
@@ -294,7 +299,7 @@ async def __(
 
             # Generate the example
             with mo.status.spinner(title="Generating personalised example..."):
-                generated_example = await generate_example(
+                generated_example = generate_example(
                     profile,
                     concept_selector.value
                 )
@@ -353,7 +358,7 @@ def __(mo):
     - Customise the system prompt to control generation
     - Experiment with different learner profiles
 
-    Built with [Marimo](https://marimo.io) + [PydanticAI](https://ai.pydantic.dev)
+    Built with [Marimo](https://marimo.io) + [OpenAI GPT-5.1](https://platform.openai.com/docs/guides/latest-model)
 
     Part of the *KI in der Lehre: Advanced* workshop by the Virtual Academy, BFH.
     """)

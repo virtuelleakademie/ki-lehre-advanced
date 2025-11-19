@@ -1450,9 +1450,13 @@ dependencies = [
     { name = "marimo", extra = ["mcp"] },
     { name = "openai" },
     { name = "pydantic" },
-    { name = "pydantic-ai" },
     { name = "python-dotenv" },
     { name = "tiktoken" },
+]
+
+[package.optional-dependencies]
+pydantic-ai = [
+    { name = "pydantic-ai" },
 ]
 
 [package.metadata]
@@ -1461,12 +1465,13 @@ requires-dist = [
     { name = "ipykernel", specifier = ">=7.1.0" },
     { name = "ipython", specifier = ">=8.37.0" },
     { name = "marimo", extras = ["mcp"], specifier = "==0.17.8" },
-    { name = "openai" },
+    { name = "openai", specifier = ">=1.0.0" },
     { name = "pydantic", specifier = ">=2.12.4" },
-    { name = "pydantic-ai", specifier = ">=0.0.13" },
+    { name = "pydantic-ai", marker = "extra == 'pydantic-ai'", specifier = ">=0.0.13" },
     { name = "python-dotenv", specifier = ">=1.2.1" },
     { name = "tiktoken", specifier = ">=0.8.0" },
 ]
+provides-extras = ["pydantic-ai"]
 
 [[package]]
 name = "logfire"

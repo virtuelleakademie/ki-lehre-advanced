@@ -195,20 +195,22 @@ workshop/01-module-name/
 
 #### Editing Marimo Notebooks
 
-**IMPORTANT**: When editing Marimo notebooks, always run `uvx marimo check` on the file and fix all issues that you find.
+**IMPORTANT**: When editing Marimo notebooks:
 
-```bash
-# After editing any .py marimo notebook:
-uvx marimo check path/to/notebook.py
+1. **Preferred Method - Use the marimo editor**:
+   ```bash
+   marimo edit path/to/notebook.py
+   ```
+   The editor handles validation and saves cells in the correct format automatically.
 
-# Fix any errors reported before committing
-```
+2. **If editing .py files directly**: Use Python syntax validation only:
+   ```bash
+   python3 -m py_compile path/to/notebook.py
+   ```
 
-This ensures:
-- Cell dependencies are correctly structured
-- No circular dependencies exist
-- Notebook will run reliably in production
-- Proper reactivity in the marimo runtime
+3. **AVOID `marimo check` for programmatic edits**: The `marimo check` command triggers a linter that can convert properly formatted cells into unparsable format when editing files programmatically. Only use it for validation, not as part of automated workflows.
+
+**Best Practice**: Add/edit cells using the marimo editor's UI (click + button) rather than editing the .py file directly. This ensures cells are saved in the format marimo expects.
 
 ### Publishing
 1. Render: `quarto render` (outputs to docs/)
@@ -322,3 +324,23 @@ Here is some text.
 ```
 
 This applies to all list types (unordered `-`, ordered `1.`, and nested lists).
+
+**Writing Style - Avoid Hyphens and Em-Dashes:**
+
+Do not use hyphens (-) or em-dashes (—) as separators in content. Instead, use:
+
+- **Colons** for list items with labels: `**Label:** Description here`
+- **Parentheses** for clarifications: `Link text (additional context)`
+- **Full sentences** when appropriate
+
+**Correct:**
+```markdown
+- **Programming (Python):** For loops, list comprehensions, functions
+- **Study the code:** Understand how structured outputs work
+```
+
+**Incorrect:**
+```markdown
+- **Programming (Python)** - For loops, list comprehensions, functions
+- **Study the code** - Understand how structured outputs work
+```

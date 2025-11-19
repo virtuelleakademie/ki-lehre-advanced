@@ -85,9 +85,10 @@ Familiar contexts (your hobbies, interests, goals) are easier to process, furthe
 ## Technical Stack
 
 - **[Gradio](https://gradio.app)**: Modern web interface for ML applications
-- **[PydanticAI](https://ai.pydantic.dev)**: Type-safe AI agent framework
-- **[OpenAI GPT-5.1](https://openai.com)**: Language model for generation
+- **[OpenAI GPT-5.1](https://platform.openai.com/docs/guides/latest-model)**: Latest language model with structured outputs
 - **[Pydantic](https://pydantic.dev)**: Data validation using Python type hints
+
+**Note**: This app uses GPT-5.1. If you encounter errors or don't have access yet, you can modify `app.py` line 169 to use `model="gpt-4o"` instead.
 
 ## Research Foundations
 

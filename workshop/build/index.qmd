@@ -1,15 +1,16 @@
 ---
-title: "Build: Hands-On with the Starter Template"
+title: "Build: Interactive Exploration Labs"
 ---
 
 ::: {.callout-schedule icon=false}
 ## Duration: 90 minutes
 
-- Access the app (2 min)
-- Code walkthrough (20 min)
-- Modify concepts (50 min)
-- Test and refine (15 min)
-- Reflection (3 min)
+- Lab 1: Prompt Design (15 min)
+- Lab 2: Personalization A/B Test (15 min)
+- Lab 3: Data Model Designer (20 min)
+- Lab 4: Parameter Playground (10 min)
+- Lab 5: CLT Analyzer (20 min)
+- Final Reflection (10 min)
 :::
 
 ---
@@ -18,479 +19,410 @@ title: "Build: Hands-On with the Starter Template"
 
 By the end of this section, you will:
 
-1. **Understand** the code structure of the worked example generator
-2. **Modify** the template to add new concepts (in your browser)
-3. **Recognise** the pattern for building educational AI tools
-4. **See** how PydanticAI and Marimo work together
+1. **Experience** how prompt design shapes learning outcomes
+2. **Feel** the cognitive load difference between generic and personalized examples
+3. **Design** the data structure for pedagogically sound worked examples
+4. **Understand** how model parameters affect educational quality
+5. **Evaluate** generated examples using CLT criteria
 
 ::: {.callout-important}
-## Realistic Expectations
+## A Different Kind of "Building"
 
-**What this section is:** A hands-on learning exercise to understand the pattern and possibilities
+**This isn't about writing code.** You won't become a Python developer in 90 minutes.
 
-**What this section is not:** Training to become a Python developer or deploy production apps
+**This is about understanding design principles.** You'll explore the key decisions that make AI educational tools effective or ineffective.
 
-**Your goal:** Understand how these tools work and what's involved in building them. If you want to create your own later, the Resources section provides deployment guides for self-directed learning.
+**Why this matters:** When you understand the principles, you can:
+
+- Critically evaluate existing AI tools
+- Request informed modifications from developers
+- Design tools grounded in learning science
+- Adapt templates to your teaching context
 :::
 
 ---
 
-## Part 1: Access the App (2 minutes)
+## The Interactive Exploration App
 
-### Open the Workshop Space
+Below is a **live marimo notebook** with 5 hands-on labs. You'll experiment with the design decisions that shape AI educational tools.
 
-**No installation required.** Everything runs in your browser.
+**How to use it:**
 
-::: {.callout-setup icon=false}
-## Access the Interactive App
+- Scroll through the labs in order
+- Fill in text fields with YOUR information
+- Click buttons to generate examples
+- Compare results and reflect on what you notice
 
-**URL:** [https://huggingface.co/spaces/virtuelleakademie/workshop-starter](https://huggingface.co/spaces/virtuelleakademie/workshop-starter)
+[Open in new window](https://awellis-worked-example-weaver.hf.space){target="_blank" .btn .btn-primary}
 
-**What you'll see:**
+<iframe
+	src="https://awellis-worked-example-weaver.hf.space"
+	frameborder="0"
+	width="100%"
+	height="600"
+	style="border: 1px solid #ddd; border-radius: 4px;"
+></iframe>
 
-- Interactive marimo notebook
-- Code cells (some editable, some read-only)
-- Live UI components
-- Reactive updates
+---
 
-**First time?** The Space may take 20-30 seconds to wake up. Be patient.
+## Lab 1: Prompt Design Laboratory (15 minutes)
+
+### What You'll Explore
+
+**Learning Question:** How does prompt engineering affect the quality of worked examples?
+
+### Instructions
+
+1. **Read both prompts** in the app:
+   - Basic Prompt (no pedagogical grounding)
+   - CLT-Grounded Prompt (reduces cognitive load)
+
+2. **Click "Generate Both Examples"**
+
+3. **Compare the results:**
+   - Which problem is clearer and more specific?
+   - Which solution breaks down steps better?
+   - Which explanation helps you understand WHY, not just WHAT?
+
+### Key Insight
+
+**The prompt IS your pedagogical design encoded in language.**
+
+Every word in your prompt shapes the language model's output. Generic prompts produce generic examples. Pedagogically grounded prompts produce learning-focused examples.
+
+::: {.callout-reflect icon=false}
+## Reflection Questions
+
+**Think about:**
+
+- What specific phrases in the CLT-grounded prompt improved the output?
+- How could you apply this to prompts in YOUR teaching domain?
+- What CLT principles are explicitly mentioned in the grounded prompt?
+
+**Discussion:** Share one phrase from the CLT prompt that you found particularly effective.
 :::
 
-### Orient Yourself
-
-When the app loads, you'll see:
-
-- **Code cells** at the top (imports, data models, concept library, AI agent)
-- **UI components** below (profile inputs, concept selector, generate button)
-- **Output area** at the bottom (generated examples appear here)
-
-**Each browser session is isolated** - your changes won't affect other participants.
-
 ---
 
-## Part 2: Code Walkthrough (20 minutes)
+## Lab 2: Personalization A/B Test (15 minutes)
 
-### App Structure
+### What You'll Explore
 
-Scroll through the code cells to see the overall structure:
+**Learning Question:** Can you FEEL the difference in cognitive load?
 
-```python
-# 1. Imports and setup
-# 2. Data models (Pydantic)
-# 3. Concept library (ONE domain)
-# 4. AI agent configuration
-# 5. Generation function
-# 6. Marimo UI cells
-```
+### Instructions
 
-**Your task:** Read through the code, following along with this walkthrough. Don't edit yet - focus on understanding.
+1. **Enter YOUR context:**
+   - Your hobby or interest (e.g., photography, cooking, gaming)
+   - What you want to achieve (e.g., build a recipe app, automate photo editing)
 
-### Key Components
+2. **Click "Generate A/B Comparison"**
 
-#### 1. Data Models (Lines 10-60)
+3. **Read both examples:**
+   - Generic (standard textbook style)
+   - Personalized (using your context)
 
-**LearnerProfile** - What we collect:
-```python
-class LearnerProfile(BaseModel):
-    name: str
-    domain: Literal["programming"]  # Only 1 domain
-    specific_interest: str
-    hobby_or_passion: str
-    goal: str
-    background_level: Literal["beginner", "intermediate", "advanced"]
-```
+4. **Notice how each one FEELS:**
+   - Which is more engaging to read?
+   - Which feels easier to process mentally?
+   - Can you visualize the personalized example more easily?
 
-**PersonalizedWorkedExample** - What AI generates:
-```python
-class PersonalizedWorkedExample(BaseModel):
-    title: str
-    problem_statement: str
-    given_data: str
-    step_by_step_solution: list[str]  # Multiple steps
-    final_answer: str
-    connection_to_goal: str
-    practice_suggestion: str
-```
+### Key Insight
 
-**Why Pydantic?**
-- Type safety - guarantees AI returns what we expect
-- Validation - catches errors before they reach users
-- Documentation - clear structure
+**This is the personalization effect in action!**
 
-#### 2. Concept Library (Lines 62-100)
-
-```python
-CONCEPTS = {
-    "programming": [
-        {
-            "name": "For Loops",
-            "abstract": "Iterate through a sequence",
-            "difficulty": "beginner",
-            "typical_use": "Process lists, repeat actions"
-        },
-        {
-            "name": "Functions with Parameters",
-            "abstract": "Reusable code blocks with inputs",
-            "difficulty": "beginner",
-            "typical_use": "Organize code, avoid repetition"
-        },
-        {
-            "name": "String Formatting",
-            "abstract": "Create formatted text with f-strings",
-            "difficulty": "beginner",
-            "typical_use": "Display data, create messages"
-        }
-    ]
-}
-```
-
-**Structure:**
-- Each concept has: name, abstract, difficulty, typical use
-- Easy to add new concepts (we'll do this!)
-- Can add new domains by extending the dictionary
-
-#### 3. AI Agent (Lines 102-140)
-
-```python
-example_generator = Agent(
-    'openai:gpt-5.1',           # Model to use
-    result_type=PersonalizedWorkedExample,  # Structured output
-    system_prompt="""You are an expert educator...
-
-    Create personalized worked examples that:
-    1. Weave learner's interests naturally
-    2. Use their name throughout
-    3. Make data realistic
-    4. Connect to their goal
-    """
-)
-```
-
-**Key features:**
-- `result_type` ensures structured output (Pydantic model)
-- System prompt guides AI behavior
-- Model choice affects cost/quality
-
-#### 4. Generation Function (Lines 142-180)
-
-```python
-async def generate_example(profile, concept):
-    prompt = f"""
-    Create a worked example for:
-
-    LEARNER: {profile.name}
-    INTEREST: {profile.specific_interest}
-    HOBBY: {profile.hobby_or_passion}
-    GOAL: {profile.goal}
-    LEVEL: {profile.background_level}
-
-    CONCEPT: {concept['name']}
-    ...
-    """
-
-    result = await example_generator.run(prompt)
-    return result.data  # Returns PersonalizedWorkedExample
-```
-
-#### 5. Marimo UI Cells (Lines 182-end)
-
-Marimo creates reactive cells:
-
-- `@app.cell` decorator
-- Auto-updates when dependencies change
-- No stale state (unlike Jupyter)
-
-**UI components:**
-
-- `mo.ui.text()` - Text inputs
-- `mo.ui.dropdown()` - Concept selection
-- `mo.ui.button()` - Generate button
-- `mo.md()` - Markdown display
-
----
-
-## Part 3: Modify - Add Concepts (50 minutes)
-
-### Your Task
-
-**Add 1-2 new concepts** to the Programming domain by editing code cells in your browser.
-
-**Suggested concepts:**
-
-- List Comprehensions
-- Dictionary Methods
-- File I/O
-- Error Handling
-- Object-Oriented Programming basics
-
-### Step-by-Step Instructions
-
-#### 1. Choose Your Concepts
-
-**Beginner concepts:**
-
-- Variables and data types
-- Conditional statements (if/else)
-- Basic list operations
-- File reading/writing
-
-**Intermediate concepts:**
-
-- List comprehensions
-- Dictionary methods
-- Lambda functions
-- Exception handling
-
-#### 2. Find the CONCEPTS Cell
-
-**Scroll to the editable cell** containing the CONCEPTS dictionary:
-
-```python
-CONCEPTS = {
-    "programming": [
-        {
-            "name": "For Loops",
-            ...
-        },
-        {
-            "name": "Functions with Parameters",
-            ...
-        },
-        {
-            "name": "String Formatting",
-            ...
-        }
-        # ADD YOUR CONCEPTS HERE!
-    ]
-}
-```
-
-**This cell is editable** - click inside it to make changes.
-
-#### 3. Add Your Concept
-
-**Click in the cell** and add your new concept to the list:
-
-```python
-        {
-            "name": "List Comprehensions",
-            "abstract": "Create new lists using concise syntax",
-            "difficulty": "intermediate",
-            "typical_use": "Transform data, filter lists elegantly"
-        },
-```
-
-**Important:** Don't forget the comma after the closing brace!
+Familiar contexts require less cognitive effort to process. When you don't have to decode an unfamiliar scenario, more working memory is available for learning the target concept.
 
 ::: {.callout-try icon=false}
-## Try It: Add Your First Concept
+## Try This
 
-1. Choose a programming concept you teach
-2. Write the abstract (1 sentence - what it does)
-3. Set difficulty level (beginner/intermediate/advanced)
-4. Describe typical use (when to use it)
-5. Edit the cell to add your concept
-6. Run the cell (click the play button or Shift+Enter)
+**Experiment further:**
+
+1. Generate examples for 2-3 different hobbies
+2. Notice how the SAME concept (Python dictionaries) gets explained differently
+3. Which personalized context resonated most with you?
+
+**The takeaway:** Personalization isn't just "nice to have"—it's a cognitive load reduction strategy.
 :::
 
-#### 4. Customise the System Prompt (Optional)
+::: {.callout-reflect icon=false}
+## Reflection Questions
 
-Want more control over how AI generates examples?
+**Think about:**
 
-**Find the system prompt cell** (marked as editable):
+- How did the personalized example reduce extraneous cognitive load?
+- Could you use personalization in YOUR teaching context?
+- What student interests/contexts could you leverage?
 
-```python
-system_prompt="""You are an expert educator...
-"""
-```
-
-**Modifications you could make:**
-
-- Add emphasis on code comments
-- Request specific programming style
-- Add warnings about common errors
-- Include best practices
-
-**Example addition:**
-```python
-system_prompt="""You are an expert educator...
-
-IMPORTANT: For programming examples:
-
-- Include detailed code comments
-- Mention common pitfalls
-- Show best practices
-- Use modern Python syntax (f-strings, type hints)
-"""
-```
-
-#### 5. Run the Cell
-
-After editing:
-
-1. Click the **Run** button (or press Shift+Enter)
-2. Marimo automatically updates dependent cells
-3. New concepts appear in the dropdown below
-4. Watch the reactive magic happen
-
----
-
-## Part 4: Test and Refine (15 minutes)
-
-### Generate Examples with Your Concepts
-
-::: {.callout-individual icon=false}
-## Individual Testing
-
-**Now test your modifications:**
-
-1. **Fill in your own profile:**
-   - Use YOUR name
-   - YOUR specific interest in programming
-   - YOUR hobby
-   - YOUR goal
-
-2. **Select one of YOUR new concepts**
-
-3. **Click Generate** and wait (30-60 seconds)
-
-4. **Review the generated example:**
-   - Does it use your personal context naturally?
-   - Is the code correct and runnable?
-   - Are the explanations clear?
-   - Does it connect to your goal?
-
-5. **Try different profiles:**
-   - Change the interest/hobby
-   - See how examples change
-   - Test different difficulty levels
+**Discussion:** Share your most effective personalized example with a neighbor.
 :::
 
-### Quality Checks
+---
 
-**Good personalised example:**
-- Uses learner's name throughout
-- Data/scenario matches their interest
-- Code is correct and runnable
-- Explanations are clear
-- Explicitly connects to their goal
+## Lab 3: Data Model Designer (20 minutes)
 
-**Signs of poor generation:**
-- Generic example with name added superficially
-- Syntax errors in code
-- Forced connection to interest
-- Missing explanation steps
+### What You'll Explore
 
-### Iterate and Improve
+**Learning Question:** What makes a worked example "worked"?
 
-**If examples aren't satisfactory:**
+### Instructions
 
-1. **Check concept description** - Is the "abstract" clear and concise?
-2. **Adjust system prompt** - Add more specific instructions
-3. **Check difficulty** - Does it match the learner level?
-4. **Regenerate** - AI output varies; try again
+1. **Read the current data model** shown in the app
+
+2. **Select fields** you think support learning:
+   - `problem: str` (The problem statement)
+   - `solution_steps: list[str]` (Steps as a list for chunking!)
+   - `solution: str` (Solution as one big block)
+   - `final_answer: str` (Explicit conclusion)
+   - `key_insight: str` (Why this approach works)
+   - `code_with_comments: str` (Annotated code)
+   - `common_mistakes: str` (What to avoid)
+   - `connection_to_real_world: str` (Practical relevance)
+
+3. **See the pedagogical analysis:**
+   - What CLT principles do your choices implement?
+   - What's your design score?
+   - What feedback does the analyzer provide?
+
+### Key Insight
+
+**The data structure IS the pedagogy.**
+
+When you design a Pydantic model (the structure that controls generated outputs), you're making pedagogical choices. Each field implements (or undermines) a CLT principle.
+
+::: {.callout-important}
+## Critical Design Choice: Chunking
+
+**Notice the difference between:**
+
+- `solution_steps: list[str]` (Forces GPT-5.1 to break the solution into chunks)
+- `solution: str` (Allows GPT-5.1 to generate everything in one block)
+
+**For novices:** Chunked steps reduce intrinsic cognitive load (Sweller, 1988)
+
+**For experts:** One block may be fine (expertise reversal effect)
+
+**Your choice of data type (list vs. str) controls this!**
+:::
+
+::: {.callout-reflect icon=false}
+## Reflection Questions
+
+**Think about:**
+
+- Why is `solution_steps: list[str]` better than `solution: str` for novices?
+- What field would you ADD for your teaching domain?
+- How does structure guide (or constrain) what the model generates?
+
+**Discussion:** Design the ideal data model for worked examples in YOUR subject area. What fields would you include?
+:::
 
 ---
 
-## Common Issues & Solutions
+## Lab 4: Parameter Playground (10 minutes)
 
-### Issue: Concept doesn't appear in dropdown
+### What You'll Explore
 
-**Solution:**
+**Learning Question:** How do model parameters affect pedagogical quality?
 
-- Check Python syntax (commas, brackets)
-- Ensure it's inside "programming" array
-- Run the cell again (Shift+Enter)
-- Refresh the browser if needed
+### Instructions
 
-### Issue: Generation fails with error
+1. **Adjust the parameters:**
+   - Reasoning Effort (none, low, medium, high)
+   - Verbosity (low, medium, high)
 
-**Possible causes:**
-```python
-# Missing comma between concepts
-{
-    "name": "For Loops",
-    ...
-}  # <- Need comma here!
-{
-    "name": "List Comprehensions",
-    ...
-}
-```
+2. **Read the guidance:**
+   - For novices: Low reasoning (fast), medium-high verbosity (detailed)
+   - For experts: Higher reasoning (better solutions), lower verbosity (concise)
 
-**What to do:** Edit the cell, add the missing comma, run again.
+3. **Consider the tradeoffs:**
+   - More reasoning = better quality but slower and more expensive
+   - Higher verbosity = clearer explanations but longer to read
 
-### Issue: Examples are too generic
+### Key Insight
 
-**Solution: Enhance system prompt cell:**
-```python
-system_prompt="""...
+**The "best" parameters depend on your learners!**
 
-CRITICAL: Weave interests NATURALLY into the problem.
-Bad: "Calculate sum of recipe ingredients"
-Good: "You're building a recipe cost calculator for your
-baking blog. Here's how to sum ingredient costs..."
-"""
-```
+There's no universal setting. You must match technical parameters to pedagogical needs:
 
-Then run the cell to update the agent configuration.
+- **Novice learners:** Need detailed, step-by-step explanations (high verbosity)
+- **Expert learners:** Want concise, sophisticated solutions (low verbosity, high reasoning)
+- **Budget constraints:** Lower reasoning is faster and cheaper
+- **Quality requirements:** Higher reasoning produces better examples
 
-### Issue: Slow generation or timeout
+::: {.callout-note}
+## Cost vs. Quality Tradeoffs
 
-**Causes:**
+**Real-world considerations:**
 
-- GPT-5.1 can take 30-60 seconds
-- Multiple users generating simultaneously
-- HuggingFace Space waking from sleep
+| Setting | Speed | Cost | Quality | Best For |
+|---------|-------|------|---------|----------|
+| Low reasoning, low verbosity | Fast | Low | Basic | Quick practice problems |
+| Low reasoning, high verbosity | Fast | Medium | Good | Novice learners at scale |
+| High reasoning, high verbosity | Slow | High | Excellent | Premium personalized tutoring |
 
-**What to do:** Be patient. If it fails, try again.
+**Your choice depends on:** budget, learner needs, time constraints, and learning objectives.
+:::
+
+::: {.callout-reflect icon=false}
+## Reflection Questions
+
+**Think about:**
+
+- What parameters would you use for YOUR learners?
+- How would you balance cost and quality?
+- When might you use different settings for different students?
+:::
 
 ---
 
-## Reflection (3 minutes)
+## Lab 5: CLT Analyzer (20 minutes)
+
+### What You'll Explore
+
+**Learning Question:** Can you evaluate examples using CLT principles?
+
+### Instructions
+
+1. **Click "Generate Random Example"**
+
+2. **Read the example carefully**
+
+3. **Evaluate it using the checklist:**
+   - ✅ Reduces extraneous cognitive load (no unnecessary complexity)
+   - ✅ Manages intrinsic load (breaks problem into chunks)
+   - ✅ Optimizes germane load (helps build schemas/patterns)
+   - ✅ Is a WORKED example (shows complete solution, not a puzzle)
+   - ✅ Has clear step-by-step progression
+   - ✅ Explains WHY, not just WHAT
+
+4. **See your score:**
+   - 5-6: Excellent pedagogical design
+   - 3-4: Good, but room for improvement
+   - 1-2: Needs significant pedagogical revision
+
+### Key Insight
+
+**You're developing a CLT-grounded critical lens for evaluating AI tools!**
+
+This skill is more valuable than coding. When you can evaluate generated outputs using learning science principles, you can:
+
+- Spot pedagogically weak examples
+- Request specific improvements
+- Compare competing language models and tools
+- Design better prompts and data models
+
+::: {.callout-try icon=false}
+## Try This
+
+**Generate 3-4 examples and evaluate each:**
+
+1. Do you see patterns in what GPT-5.1 generates well?
+2. What does it consistently miss?
+3. How would you revise the prompt to improve low-scoring areas?
+
+**The goal:** Develop your critical evaluation instinct.
+:::
+
+::: {.callout-reflect icon=false}
+## Reflection Questions
+
+**Think about:**
+
+- Which CLT criteria are hardest for language models to meet?
+- What prompt changes would improve low-scoring examples?
+- How would you use this checklist when evaluating tools you already use?
+
+**Discussion:** Share one example you evaluated. What was its score? What would you improve?
+:::
+
+---
+
+## Final Reflection (10 minutes)
 
 ::: {.callout-reflect icon=false}
 ## What You've Learned
 
-**Take a moment to consider:**
+Through these 5 labs, you explored:
 
-1. **Code Structure** - Can you identify the key components?
-   - Data models (Pydantic)
-   - Concept library (dictionary)
-   - AI agent (PydanticAI)
-   - UI components (Marimo)
+1. ✅ **Prompts encode pedagogy** (Design drives outputs)
+2. ✅ **Personalization reduces load** (Context matters)
+3. ✅ **Structure shapes learning** (Data models are pedagogical choices)
+4. ✅ **Parameters affect quality** (Settings have learning implications)
+5. ✅ **Critical evaluation is a skill** (You can assess AI tools with CLT)
 
-2. **The Pattern** - What would you need to build your own tool?
-   - Define your domain and concepts
-   - Create data models for inputs/outputs
-   - Configure AI agent with system prompt
-   - Build UI for interaction
+### Integration Questions
 
-3. **Pedagogical Principles** - How does this reduce cognitive load?
-   - Structured outputs (predictable format)
-   - Personalised contexts (familiar to learner)
-   - Complete worked examples (not problem-solving)
+**Consider:**
+
+1. **What surprised you most?**
+   - Which lab challenged your assumptions?
+   - What principle seemed most powerful?
+
+2. **What will you change?**
+   - How will you modify prompts you write for language models?
+   - What will you look for when evaluating educational technology tools?
+
+3. **What will you build?**
+   - Could you adapt this pattern to your teaching domain?
+   - What concepts would you include in your worked example generator?
+
+4. **What questions remain?**
+   - What do you still want to understand?
+   - What would you need to deploy this in your context?
 :::
 
 ::: {.callout-checkpoint icon=false}
-## Checkpoint Questions
+## Checkpoint: Can You Answer These?
 
-**Can you answer:**
-- Where do you add new concepts?
-- What does `result_type=PersonalizedWorkedExample` do?
-- How does personalisation reduce cognitive load?
+**Pedagogical Understanding:**
 
-**Can you do:**
-- Add a new concept to the library?
-- Generate an example with your own profile?
-- Modify the system prompt?
+- Why does chunking (`solution_steps: list[str]`) reduce cognitive load?
+- How does personalization reduce extraneous cognitive load?
+- What makes a worked example "worked" versus a problem to solve?
 
-**Have you recognised:**
-- This isn't about becoming a Python developer
-- It's about understanding what's possible
-- The pattern can be adapted to many domains
+**Practical Skills:**
+
+- Can you write a CLT-grounded prompt for your subject?
+- Can you evaluate a generated example using CLT criteria?
+- Can you design a data model for worked examples in your domain?
+
+**Critical Thinking:**
+
+- What's the difference between technically impressive and pedagogically sound?
+- When should you prioritize speed/cost vs. quality?
+- What ethical considerations arise from personalized learning tools powered by language models?
 :::
 
 ---
 
-**Next:** [Extend Section](../extend/index.qmd) - Design your own extensions in groups
+## What's Next?
+
+You've explored the **design principles**. Now you're ready to:
+
+**Option 1: Use the Complete Tool**
+
+[Try the full Worked Example Weaver](https://huggingface.co/spaces/awellis/worked-example-weaver-app){target="_blank"}
+
+- See all 3 domains (Programming, Health Sciences, Agronomy)
+- 16 concepts to explore
+- Generate personalized examples for real learners
+
+**Option 2: Design Your Extensions**
+
+Move to the [Extend section](../extend/index.qmd) where you'll:
+
+- Plan how to adapt this to YOUR teaching context
+- Sketch your personalized worked example tool
+
+**Option 3: Dive Into the Code**
+
+If you want to understand the technical implementation:
+
+- [View the complete app.py on HuggingFace](https://huggingface.co/spaces/awellis/worked-example-weaver-app/blob/main/app.py){target="_blank"}
+- Explore the Marimo and Pydantic documentation
+
+
+---
+
+**Next:** [Extend Section](../extend/index.qmd) (Design your own extensions)

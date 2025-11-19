@@ -6,49 +6,52 @@ title: "Demo: The Complete Application"
 ## Duration: 20 minutes
 :::
 
-## Purpose of This Demo
+## What You'll See
 
-**Show participants what's possible** - demonstrate the FULL complex application with all 3 domains and 16 concepts.
+In this demonstration, you'll explore a complete AI-powered personalised worked example generator. The application demonstrates how AI can create customized learning materials tailored to individual student contexts.
 
-**Set realistic expectations** - they will build a SIMPLER version (1 domain, 3-4 concepts) in the hands-on section.
+**What makes this interesting:**
 
-**Activate curiosity** - see the power of AI-generated personalised worked examples.
-
----
-
-## Demo Strategy
-
-::: {.callout-important}
-## Key Message
-
-**"This complex app took hours to build. Today you'll learn the pattern by modifying a simplified version. By understanding the pattern, you could extend it to match this complexity."**
-:::
+- Generates examples across 3 different domains (Programming, Health Sciences, Agronomy)
+- Personalizes content based on student interests, goals, and background
+- Creates unique worked examples on demand
 
 ---
 
-## Live Demonstration (15 minutes)
+## Try the Interactive Demo
 
-### Setup (Pre-workshop)
+Explore the complete application below. You can interact with it directly or open it in a new window for a larger view.
 
-**Before workshop starts:**
+[Open demo in new window](https://awellis-worked-example-weaver-app.hf.space){target="_blank" .btn .btn-primary}
 
-1. Have the deployed HuggingFace Space open: `https://huggingface.co/spaces/virtuelleakademie/clt-worked-example-weaver`
-2. Or run locally: `marimo run workshop/part-3-build/app.py`
-3. Test that generation works with your OpenAI API key
+<iframe
+	src="https://awellis-worked-example-weaver-app.hf.space"
+	frameborder="0"
+	width="850"
+	height="450"
+></iframe>
 
-### Demo Script
+---
 
-#### 1. Show the Interface (2 min)
+## How to Explore the Demo
 
-**Scroll through the app:**
+### Step 1: Examine the Interface
 
-- "This is a personalised worked example generator"
-- "Notice the clean interface - learner profile, concept selection, generate button"
-- "Built with Marimo - reactive Python notebooks"
+Notice the clean, simple layout:
 
-#### 2. Fill in Profile - Programming Domain (3 min)
+- Learner profile section (name, domain, interests, goals)
+- Concept selection dropdown
+- Generate button
+- Display area for the personalized example
 
-**Choose an engaging example:**
+This interface was built using Marimo, a reactive Python notebook framework.
+
+### Step 2: Try Different Learner Profiles
+
+**Example 1: Programming Domain**
+
+Create a profile like this:
+
 ```
 Name: Sarah
 Domain: Programming (Python)
@@ -58,38 +61,19 @@ Goal: Build a recipe sharing website
 Level: Beginner
 ```
 
-**Narrate as you type:**
+Select a concept (e.g., "For Loops") and click Generate.
 
-- "Sarah is interested in web development"
-- "She loves baking - that's her personal context"
-- "She wants to build a recipe website - clear goal"
+**What to notice:**
 
-**Select concept:**
+- The example uses baking contexts (recipes, ingredients)
+- Code examples relate to her recipe website goal
+- The worked solution is complete and step-by-step
+- Practice suggestions continue the baking theme
 
-- "Let's teach her about For Loops"
-- "Notice: beginner level concept"
+**Example 2: Health Sciences Domain**
 
-#### 3. Generate Example (5 min)
+Try a different profile:
 
-**Click Generate:**
-
-- "This takes 30-60 seconds - GPT-5.1 is creating a personalised example"
-- While waiting: "The AI is weaving Sarah's baking interest into a programming lesson"
-
-**Review Generated Example:**
-
-- **Title**: Notice how it mentions her interest
-- **Problem**: Set in her context (recipes, baking)
-- **Data**: Realistic for her scenario
-- **Solution**: Complete, step-by-step, with code
-- **Connection to Goal**: Explicitly links to recipe website
-- **Practice Suggestion**: Another baking-related problem
-
-**Key point:** "This isn't generic - it's tailored to Sarah's interests and goals"
-
-#### 4. Show Second Domain - Health Sciences (3 min)
-
-**Clear and start new profile:**
 ```
 Name: Marcus
 Domain: Health Sciences (Statistics)
@@ -99,19 +83,19 @@ Goal: Improve marathon time
 Level: Intermediate
 ```
 
-**Select concept:**
+Select "Linear Regression" and generate.
 
-- "Linear Regression - intermediate level"
+**What to notice:**
 
-**Generate and show:**
+- Same tool, completely different domain
+- Examples now use running and race data
+- Statistical concepts applied to sports performance
+- Personalization adapts to the new context
 
-- "Now the example uses running data"
-- "Predicting race times from training volume"
-- "Same tool, completely different domain and context"
+**Example 3: Agronomy Domain**
 
-#### 5. Show Third Domain - Agronomy (2 min)
+If you have time, try:
 
-**Optional if time allows:**
 ```
 Name: Elena
 Domain: Agronomy
@@ -121,118 +105,71 @@ Goal: Increase yield sustainably
 Level: Beginner
 ```
 
-**Point out:**
-
-- "Three complete domains"
-- "16 total concepts"
-- "Unlimited personalisation possibilities"
+This demonstrates the breadth: 3 domains, 16 concepts total.
 
 ---
 
-## Key Points to Emphasize
+## What Makes This Powerful?
 
-### 1. Complexity
+### Why This Matters
 
-**What participants see:**
-- 3 complete domains
-- 16 concepts total
-- Full production app
-- Deployed to cloud
+**The traditional challenge:**
 
-**What they'll build:**
-- 1 domain (their choice)
-- 3-4 concepts
-- Local development
-- Can deploy later (optional)
+Creating personalized learning materials is time-intensive. Writing a single customized worked example takes 15-30 minutes. For a class of 20 students learning 16 different concepts, you'd need to create 320 unique examples. This is simply not feasible for most educators.
 
-### 2. The Pattern
+**The AI-powered solution:**
 
-**This app demonstrates:**
-- ✅ Pydantic data models (structured input/output)
-- ✅ PydanticAI agent (AI with type safety)
-- ✅ Marimo reactive UI (automatic updates)
-- ✅ Concept library (extensible design)
+The application generates personalized examples in 30-60 seconds. Each student gets content tailored to their interests and goals, and the approach scales to any number of learners.
 
-**You'll learn the pattern, then extend it.**
+### How It Works
 
-### 3. Personalisation Power
+The application follows a simple three-step process:
 
-**Without AI:**
-- Creating this many personalised examples manually = impossible
-- Each example takes 15-30 minutes to craft
-- 16 concepts × 20 students = 320 unique examples needed
+1. **Collect context:** Learner fills in their profile (interests, goals, background)
+2. **Generate example:** AI creates a worked example tailored to that specific learner
+3. **Display result:** The personalized example appears with complete solution steps
 
-**With AI:**
-- Generate on-demand
-- Unique for each learner
-- Maintains quality (structured outputs)
-- Scales infinitely
+Behind the scenes, the AI uses the learner's context to weave familiar scenarios into the teaching content, making abstract concepts more concrete and relatable.
+
+### Domains and Concepts
+
+**Current coverage:**
+
+- **Programming (Python):** For loops, list comprehensions, dictionaries, functions, string formatting (and more)
+- **Health Sciences (Statistics):** Correlation, mean/SD, t-tests, confidence intervals, linear regression (and more)
+- **Agronomy:** Yield prediction, NPK optimization, growing degree days, water efficiency
+
+The pattern can extend to any domain where worked examples support learning.
 
 ---
 
-## Transition to Build Section
+## Reflection Questions
 
-::: {.callout-checkpoint icon=false}
-## Checkpoint Questions
+::: {.callout-reflect icon=false}
+## Think About
 
-**Ask participants:**
+Consider these questions as you explore the demo:
 
-1. "What impressed you most about the demo?"
-2. "How could you use personalised worked examples in YOUR teaching?"
-3. "What domain would you want to add?"
+1. What aspects of the personalization impressed you most?
+2. How could personalized worked examples benefit YOUR students?
+3. What domain or subject area would be relevant for your teaching context?
+4. What types of student interests or goals could you leverage for personalization?
 
-**Common responses:**
-
-- "The personalisation is impressive"
-- "I teach [X], could I add that domain?"
-- "How hard is it to add new concepts?"
-
-**Your response:**
-
-- "Great questions! In the next section, you'll work with a simplified version"
-- "You'll see exactly how concepts are structured"
-- "And in the Extend section, you'll design your own additions"
+**Key insight:** AI-powered tools can scale individualized instruction in ways that were previously impractical. The pattern demonstrated here (structured data + AI generation + interactive UI) can apply across many educational contexts.
 :::
 
 ---
 
-## Technical Notes for Instructors
+## Pedagogical Foundation
 
-### If Demo Fails
+This tool is grounded in **Cognitive Load Theory** research:
 
-**Backup plan:**
-1. Show pre-recorded video
-2. Use screenshots in slides
-3. Walk through the code structure instead
+**Worked Example Effect:** Novice learners benefit more from studying complete solutions than from problem-solving alone (effect size 0.52).
 
-### Common Demo Issues
+**Personalization Principle:** Familiar contexts reduce extraneous cognitive load, allowing learners to focus on the target concept rather than decoding unfamiliar scenarios.
 
-**Generation takes too long:**
-- Have pre-generated examples ready as screenshots
-- Explain: "Production would cache common patterns"
+By combining these principles with AI generation, we can provide:
 
-**API error:**
-- Backup: Show code that would generate it
-- Explain: "This is why we provide starter template - ensures it works"
-
-### Customization for Your Workshop
-
-**Domains to demo:**
-- Choose domains relevant to your audience
-- If all participants teach programming → focus on that
-- If mixed → show variety
-
----
-
-## What Participants Should Understand
-
-After this demo, participants should know:
-
-1. **The end goal** - What a complete personalised example generator looks like
-2. **The power** - How AI enables personalisation at scale
-3. **The scope** - They'll build a simpler version to learn the pattern
-4. **The potential** - How they could extend it for their teaching
-
----
-
-**Next:** [Build Section](../build/index.qmd) - Now you'll work with the code
+- High-quality worked examples (supporting novice learning)
+- Personalized to individual contexts (reducing cognitive load)
+- At scale (reaching all learners, not just a privileged few)

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Build: Hands-On with the Starter Template – KI in der Lehre: Advanced</title>
+<title>Build: Interactive Exploration Labs – KI in der Lehre: Advanced</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -124,70 +89,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   });
 </script>
 <style>
-div.callout-pro-tip.callout {
-  border-left-color: gold;
-}
-div.callout-pro-tip.callout-style-default > .callout-header {
-  background-color: rgb(from gold r g b / 13%);
-}
-div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
-  content: '💡';
-  background-image: none;
-}
-div.callout-setup.callout {
-  border-left-color: gray;
-}
-div.callout-setup.callout-style-default > .callout-header {
-  background-color: rgb(from gray r g b / 13%);
-}
-div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
-  content: '⚙️';
-  background-image: none;
-}
-div.callout-tutor-example.callout {
+div.callout-reflect.callout {
   border-left-color: purple;
 }
-div.callout-tutor-example.callout-style-default > .callout-header {
+div.callout-reflect.callout-style-default > .callout-header {
   background-color: rgb(from purple r g b / 13%);
 }
-div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
-  content: '📄';
+div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
+  content: '💭';
   background-image: none;
 }
-div.callout-export.callout {
-  border-left-color: brown;
-}
-div.callout-export.callout-style-default > .callout-header {
-  background-color: rgb(from brown r g b / 13%);
-}
-div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
-  content: '📤';
-  background-image: none;
-}
-div.callout-individual.callout {
+div.callout-prompt-example.callout {
   border-left-color: steelblue;
 }
-div.callout-individual.callout-style-default > .callout-header {
+div.callout-prompt-example.callout-style-default > .callout-header {
   background-color: rgb(from steelblue r g b / 13%);
 }
-div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
-  content: '💻';
-  background-image: none;
-}
-div.callout-group.callout {
-  border-left-color: purple;
-}
-div.callout-group.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
-  content: '👥';
+div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
+  content: '👩🏼‍🔧';
   background-image: none;
 }
 div.callout-pair.callout {
@@ -212,28 +133,6 @@ div.callout-break.callout-style-default .callout-icon::before, div.callout-break
   content: '☕';
   background-image: none;
 }
-div.callout-feedback.callout {
-  border-left-color: teal;
-}
-div.callout-feedback.callout-style-default > .callout-header {
-  background-color: rgb(from teal r g b / 13%);
-}
-div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
-  content: '📝';
-  background-image: none;
-}
-div.callout-timing.callout {
-  border-left-color: red;
-}
-div.callout-timing.callout-style-default > .callout-header {
-  background-color: rgb(from red r g b / 13%);
-}
-div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
-  content: '⏱️';
-  background-image: none;
-}
 div.callout-screens-down.callout {
   border-left-color: orange;
 }
@@ -245,26 +144,26 @@ div.callout-screens-down.callout-style-default .callout-icon::before, div.callou
   content: '🔽';
   background-image: none;
 }
-div.callout-reflect.callout {
+div.callout-tutor-example.callout {
   border-left-color: purple;
 }
-div.callout-reflect.callout-style-default > .callout-header {
+div.callout-tutor-example.callout-style-default > .callout-header {
   background-color: rgb(from purple r g b / 13%);
 }
-div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
-  content: '💭';
+div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
+  content: '📄';
   background-image: none;
 }
-div.callout-schedule.callout {
-  border-left-color: steelblue;
+div.callout-group.callout {
+  border-left-color: purple;
 }
-div.callout-schedule.callout-style-default > .callout-header {
-  background-color: rgb(from steelblue r g b / 13%);
+div.callout-group.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
 }
-div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
-  content: '⏰︎';
+div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
+  content: '👥';
   background-image: none;
 }
 div.callout-try.callout {
@@ -278,26 +177,15 @@ div.callout-try.callout-style-default .callout-icon::before, div.callout-try.cal
   content: '🔄';
   background-image: none;
 }
-div.callout-screens-up.callout {
-  border-left-color: green;
+div.callout-caution.callout {
+  border-left-color: orange;
 }
-div.callout-screens-up.callout-style-default > .callout-header {
-  background-color: rgb(from green r g b / 13%);
+div.callout-caution.callout-style-default > .callout-header {
+  background-color: rgb(from orange r g b / 13%);
 }
-div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
-  content: '🔼';
-  background-image: none;
-}
-div.callout-prompt-example.callout {
-  border-left-color: steelblue;
-}
-div.callout-prompt-example.callout-style-default > .callout-header {
-  background-color: rgb(from steelblue r g b / 13%);
-}
-div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
-  content: '👩🏼‍🔧';
+div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
+  content: '⚠️';
   background-image: none;
 }
 div.callout-testing.callout {
@@ -311,15 +199,70 @@ div.callout-testing.callout-style-default .callout-icon::before, div.callout-tes
   content: '🧪';
   background-image: none;
 }
-div.callout-caution.callout {
-  border-left-color: orange;
+div.callout-screens-up.callout {
+  border-left-color: green;
 }
-div.callout-caution.callout-style-default > .callout-header {
-  background-color: rgb(from orange r g b / 13%);
+div.callout-screens-up.callout-style-default > .callout-header {
+  background-color: rgb(from green r g b / 13%);
 }
-div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
-  content: '⚠️';
+div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
+  content: '🔼';
+  background-image: none;
+}
+div.callout-individual.callout {
+  border-left-color: steelblue;
+}
+div.callout-individual.callout-style-default > .callout-header {
+  background-color: rgb(from steelblue r g b / 13%);
+}
+div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
+  content: '💻';
+  background-image: none;
+}
+div.callout-feedback.callout {
+  border-left-color: teal;
+}
+div.callout-feedback.callout-style-default > .callout-header {
+  background-color: rgb(from teal r g b / 13%);
+}
+div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
+  content: '📝';
+  background-image: none;
+}
+div.callout-pro-tip.callout {
+  border-left-color: gold;
+}
+div.callout-pro-tip.callout-style-default > .callout-header {
+  background-color: rgb(from gold r g b / 13%);
+}
+div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
+  content: '💡';
+  background-image: none;
+}
+div.callout-timing.callout {
+  border-left-color: red;
+}
+div.callout-timing.callout-style-default > .callout-header {
+  background-color: rgb(from red r g b / 13%);
+}
+div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
+  content: '⏱️';
+  background-image: none;
+}
+div.callout-schedule.callout {
+  border-left-color: steelblue;
+}
+div.callout-schedule.callout-style-default > .callout-header {
+  background-color: rgb(from steelblue r g b / 13%);
+}
+div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
+  content: '⏰︎';
   background-image: none;
 }
 div.callout-prompt-template.callout {
@@ -333,6 +276,17 @@ div.callout-prompt-template.callout-style-default .callout-icon::before, div.cal
   content: '📋';
   background-image: none;
 }
+div.callout-export.callout {
+  border-left-color: brown;
+}
+div.callout-export.callout-style-default > .callout-header {
+  background-color: rgb(from brown r g b / 13%);
+}
+div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
+  content: '📤';
+  background-image: none;
+}
 div.callout-checkpoint.callout {
   border-left-color: purple;
 }
@@ -344,10 +298,21 @@ div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-
   content: '🎯';
   background-image: none;
 }
+div.callout-setup.callout {
+  border-left-color: gray;
+}
+div.callout-setup.callout-style-default > .callout-header {
+  background-color: rgb(from gray r g b / 13%);
+}
+div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
+  content: '⚙️';
+  background-image: none;
+}
 </style>
 
 
-<meta property="og:title" content="Build: Hands-On with the Starter Template – KI in der Lehre: Advanced">
+<meta property="og:title" content="Build: Interactive Exploration Labs – KI in der Lehre: Advanced">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="KI in der Lehre: Advanced">
 </head>
@@ -394,11 +359,6 @@ div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-
 </i> 
 <span class="menu-text">Extend</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../workshop/resources/index.html"> <i class="bi bi-book" role="img">
-</i> 
-<span class="menu-text">Resources</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -411,7 +371,7 @@ div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../workshop/build/index.html">Build (90 min)</a></li><li class="breadcrumb-item"><a href="../../workshop/build/index.html">Build: Hands-On with the Starter Template</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../workshop/build/index.html">Build (90 min)</a></li><li class="breadcrumb-item"><a href="../../workshop/build/index.html">Build: Interactive Exploration Labs</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -501,7 +461,7 @@ div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../workshop/build/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Build: Hands-On with the Starter Template</span></a>
+ <span class="menu-text">Build: Interactive Exploration Labs</span></a>
   </div>
 </li>
       </ul>
@@ -523,23 +483,6 @@ div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Resources (10 min)</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../workshop/resources/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Resources &amp; Next Steps</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -552,49 +495,60 @@ div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-
   <ul>
   <li><a href="#duration-90-minutes" id="toc-duration-90-minutes" class="nav-link active" data-scroll-target="#duration-90-minutes">Duration: 90 minutes</a></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#part-1-access-the-app-2-minutes" id="toc-part-1-access-the-app-2-minutes" class="nav-link" data-scroll-target="#part-1-access-the-app-2-minutes">Part 1: Access the App (2 minutes)</a>
+  <li><a href="#the-interactive-exploration-app" id="toc-the-interactive-exploration-app" class="nav-link" data-scroll-target="#the-interactive-exploration-app">The Interactive Exploration App</a></li>
+  <li><a href="#lab-1-prompt-design-laboratory-15-minutes" id="toc-lab-1-prompt-design-laboratory-15-minutes" class="nav-link" data-scroll-target="#lab-1-prompt-design-laboratory-15-minutes">Lab 1: Prompt Design Laboratory (15 minutes)</a>
   <ul class="collapse">
-  <li><a href="#open-the-workshop-space" id="toc-open-the-workshop-space" class="nav-link" data-scroll-target="#open-the-workshop-space">Open the Workshop Space</a></li>
+  <li><a href="#what-youll-explore" id="toc-what-youll-explore" class="nav-link" data-scroll-target="#what-youll-explore">What You’ll Explore</a></li>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#key-insight" id="toc-key-insight" class="nav-link" data-scroll-target="#key-insight">Key Insight</a></li>
   </ul></li>
-  <li><a href="#access-the-interactive-app" id="toc-access-the-interactive-app" class="nav-link" data-scroll-target="#access-the-interactive-app">Access the Interactive App</a></li>
-  <li><a href="#orient-yourself" id="toc-orient-yourself" class="nav-link" data-scroll-target="#orient-yourself">Orient Yourself</a></li>
-  <li><a href="#part-2-code-walkthrough-20-minutes" id="toc-part-2-code-walkthrough-20-minutes" class="nav-link" data-scroll-target="#part-2-code-walkthrough-20-minutes">Part 2: Code Walkthrough (20 minutes)</a>
+  <li><a href="#reflection-questions" id="toc-reflection-questions" class="nav-link" data-scroll-target="#reflection-questions">Reflection Questions</a></li>
+  <li><a href="#lab-2-personalization-ab-test-15-minutes" id="toc-lab-2-personalization-ab-test-15-minutes" class="nav-link" data-scroll-target="#lab-2-personalization-ab-test-15-minutes">Lab 2: Personalization A/B Test (15 minutes)</a>
   <ul class="collapse">
-  <li><a href="#app-structure" id="toc-app-structure" class="nav-link" data-scroll-target="#app-structure">App Structure</a></li>
-  <li><a href="#key-components" id="toc-key-components" class="nav-link" data-scroll-target="#key-components">Key Components</a></li>
+  <li><a href="#what-youll-explore-1" id="toc-what-youll-explore-1" class="nav-link" data-scroll-target="#what-youll-explore-1">What You’ll Explore</a></li>
+  <li><a href="#instructions-1" id="toc-instructions-1" class="nav-link" data-scroll-target="#instructions-1">Instructions</a></li>
+  <li><a href="#key-insight-1" id="toc-key-insight-1" class="nav-link" data-scroll-target="#key-insight-1">Key Insight</a></li>
   </ul></li>
-  <li><a href="#part-3-modify---add-concepts-50-minutes" id="toc-part-3-modify---add-concepts-50-minutes" class="nav-link" data-scroll-target="#part-3-modify---add-concepts-50-minutes">Part 3: Modify - Add Concepts (50 minutes)</a>
+  <li><a href="#try-this" id="toc-try-this" class="nav-link" data-scroll-target="#try-this">Try This</a></li>
+  <li><a href="#reflection-questions-1" id="toc-reflection-questions-1" class="nav-link" data-scroll-target="#reflection-questions-1">Reflection Questions</a></li>
+  <li><a href="#lab-3-data-model-designer-20-minutes" id="toc-lab-3-data-model-designer-20-minutes" class="nav-link" data-scroll-target="#lab-3-data-model-designer-20-minutes">Lab 3: Data Model Designer (20 minutes)</a>
   <ul class="collapse">
-  <li><a href="#your-task" id="toc-your-task" class="nav-link" data-scroll-target="#your-task">Your Task</a></li>
-  <li><a href="#step-by-step-instructions" id="toc-step-by-step-instructions" class="nav-link" data-scroll-target="#step-by-step-instructions">Step-by-Step Instructions</a></li>
+  <li><a href="#what-youll-explore-2" id="toc-what-youll-explore-2" class="nav-link" data-scroll-target="#what-youll-explore-2">What You’ll Explore</a></li>
+  <li><a href="#instructions-2" id="toc-instructions-2" class="nav-link" data-scroll-target="#instructions-2">Instructions</a></li>
+  <li><a href="#key-insight-2" id="toc-key-insight-2" class="nav-link" data-scroll-target="#key-insight-2">Key Insight</a></li>
   </ul></li>
-  <li><a href="#try-it-add-your-first-concept" id="toc-try-it-add-your-first-concept" class="nav-link" data-scroll-target="#try-it-add-your-first-concept">Try It: Add Your First Concept</a></li>
-  <li><a href="#part-4-test-and-refine-15-minutes" id="toc-part-4-test-and-refine-15-minutes" class="nav-link" data-scroll-target="#part-4-test-and-refine-15-minutes">Part 4: Test and Refine (15 minutes)</a>
+  <li><a href="#reflection-questions-2" id="toc-reflection-questions-2" class="nav-link" data-scroll-target="#reflection-questions-2">Reflection Questions</a></li>
+  <li><a href="#lab-4-parameter-playground-10-minutes" id="toc-lab-4-parameter-playground-10-minutes" class="nav-link" data-scroll-target="#lab-4-parameter-playground-10-minutes">Lab 4: Parameter Playground (10 minutes)</a>
   <ul class="collapse">
-  <li><a href="#generate-examples-with-your-concepts" id="toc-generate-examples-with-your-concepts" class="nav-link" data-scroll-target="#generate-examples-with-your-concepts">Generate Examples with Your Concepts</a></li>
+  <li><a href="#what-youll-explore-3" id="toc-what-youll-explore-3" class="nav-link" data-scroll-target="#what-youll-explore-3">What You’ll Explore</a></li>
+  <li><a href="#instructions-3" id="toc-instructions-3" class="nav-link" data-scroll-target="#instructions-3">Instructions</a></li>
+  <li><a href="#key-insight-3" id="toc-key-insight-3" class="nav-link" data-scroll-target="#key-insight-3">Key Insight</a></li>
   </ul></li>
-  <li><a href="#individual-testing" id="toc-individual-testing" class="nav-link" data-scroll-target="#individual-testing">Individual Testing</a></li>
-  <li><a href="#quality-checks" id="toc-quality-checks" class="nav-link" data-scroll-target="#quality-checks">Quality Checks</a></li>
-  <li><a href="#iterate-and-improve" id="toc-iterate-and-improve" class="nav-link" data-scroll-target="#iterate-and-improve">Iterate and Improve</a></li>
-  <li><a href="#common-issues-solutions" id="toc-common-issues-solutions" class="nav-link" data-scroll-target="#common-issues-solutions">Common Issues &amp; Solutions</a>
+  <li><a href="#reflection-questions-3" id="toc-reflection-questions-3" class="nav-link" data-scroll-target="#reflection-questions-3">Reflection Questions</a></li>
+  <li><a href="#lab-5-clt-analyzer-20-minutes" id="toc-lab-5-clt-analyzer-20-minutes" class="nav-link" data-scroll-target="#lab-5-clt-analyzer-20-minutes">Lab 5: CLT Analyzer (20 minutes)</a>
   <ul class="collapse">
-  <li><a href="#issue-concept-doesnt-appear-in-dropdown" id="toc-issue-concept-doesnt-appear-in-dropdown" class="nav-link" data-scroll-target="#issue-concept-doesnt-appear-in-dropdown">Issue: Concept doesn’t appear in dropdown</a></li>
-  <li><a href="#issue-generation-fails-with-error" id="toc-issue-generation-fails-with-error" class="nav-link" data-scroll-target="#issue-generation-fails-with-error">Issue: Generation fails with error</a></li>
-  <li><a href="#issue-examples-are-too-generic" id="toc-issue-examples-are-too-generic" class="nav-link" data-scroll-target="#issue-examples-are-too-generic">Issue: Examples are too generic</a></li>
-  <li><a href="#issue-slow-generation-or-timeout" id="toc-issue-slow-generation-or-timeout" class="nav-link" data-scroll-target="#issue-slow-generation-or-timeout">Issue: Slow generation or timeout</a></li>
+  <li><a href="#what-youll-explore-4" id="toc-what-youll-explore-4" class="nav-link" data-scroll-target="#what-youll-explore-4">What You’ll Explore</a></li>
+  <li><a href="#instructions-4" id="toc-instructions-4" class="nav-link" data-scroll-target="#instructions-4">Instructions</a></li>
+  <li><a href="#key-insight-4" id="toc-key-insight-4" class="nav-link" data-scroll-target="#key-insight-4">Key Insight</a></li>
   </ul></li>
-  <li><a href="#reflection-3-minutes" id="toc-reflection-3-minutes" class="nav-link" data-scroll-target="#reflection-3-minutes">Reflection (3 minutes)</a></li>
-  <li><a href="#what-youve-learned" id="toc-what-youve-learned" class="nav-link" data-scroll-target="#what-youve-learned">What You’ve Learned</a></li>
-  <li><a href="#checkpoint-questions" id="toc-checkpoint-questions" class="nav-link" data-scroll-target="#checkpoint-questions">Checkpoint Questions</a></li>
+  <li><a href="#try-this-1" id="toc-try-this-1" class="nav-link" data-scroll-target="#try-this-1">Try This</a></li>
+  <li><a href="#reflection-questions-4" id="toc-reflection-questions-4" class="nav-link" data-scroll-target="#reflection-questions-4">Reflection Questions</a></li>
+  <li><a href="#final-reflection-10-minutes" id="toc-final-reflection-10-minutes" class="nav-link" data-scroll-target="#final-reflection-10-minutes">Final Reflection (10 minutes)</a></li>
+  <li><a href="#what-youve-learned" id="toc-what-youve-learned" class="nav-link" data-scroll-target="#what-youve-learned">What You’ve Learned</a>
+  <ul class="collapse">
+  <li><a href="#integration-questions" id="toc-integration-questions" class="nav-link" data-scroll-target="#integration-questions">Integration Questions</a></li>
+  </ul></li>
+  <li><a href="#checkpoint-can-you-answer-these" id="toc-checkpoint-can-you-answer-these" class="nav-link" data-scroll-target="#checkpoint-can-you-answer-these">Checkpoint: Can You Answer These?</a></li>
+  <li><a href="#whats-next" id="toc-whats-next" class="nav-link" data-scroll-target="#whats-next">What’s Next?</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../workshop/build/index.html">Build (90 min)</a></li><li class="breadcrumb-item"><a href="../../workshop/build/index.html">Build: Hands-On with the Starter Template</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../workshop/build/index.html">Build (90 min)</a></li><li class="breadcrumb-item"><a href="../../workshop/build/index.html">Build: Interactive Exploration Labs</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Build: Hands-On with the Starter Template</h1>
+<h1 class="title">Build: Interactive Exploration Labs</h1>
 </div>
 
 
@@ -614,11 +568,12 @@ div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-
 <section id="duration-90-minutes" class="level2 callout-schedule" data-icon="false">
 <h2 class="anchored" data-anchor-id="duration-90-minutes">Duration: 90 minutes</h2>
 <ul>
-<li>Access the app (2 min)</li>
-<li>Code walkthrough (20 min)</li>
-<li>Modify concepts (50 min)</li>
-<li>Test and refine (15 min)</li>
-<li>Reflection (3 min)</li>
+<li>Lab 1: Prompt Design (15 min)</li>
+<li>Lab 2: Personalization A/B Test (15 min)</li>
+<li>Lab 3: Data Model Designer (20 min)</li>
+<li>Lab 4: Parameter Playground (10 min)</li>
+<li>Lab 5: CLT Analyzer (20 min)</li>
+<li>Final Reflection (10 min)</li>
 </ul>
 </section>
 <hr>
@@ -626,10 +581,11 @@ div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
 <p>By the end of this section, you will:</p>
 <ol type="1">
-<li><strong>Understand</strong> the code structure of the worked example generator</li>
-<li><strong>Modify</strong> the template to add new concepts (in your browser)</li>
-<li><strong>Recognise</strong> the pattern for building educational AI tools</li>
-<li><strong>See</strong> how PydanticAI and Marimo work together</li>
+<li><strong>Experience</strong> how prompt design shapes learning outcomes</li>
+<li><strong>Feel</strong> the cognitive load difference between generic and personalized examples</li>
+<li><strong>Design</strong> the data structure for pedagogically sound worked examples</li>
+<li><strong>Understand</strong> how model parameters affect educational quality</li>
+<li><strong>Evaluate</strong> generated examples using CLT criteria</li>
 </ol>
 <div class="callout callout-style-simple callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -637,416 +593,452 @@ div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Realistic Expectations
+<span class="screen-reader-only">Important</span>A Different Kind of “Building”
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>What this section is:</strong> A hands-on learning exercise to understand the pattern and possibilities</p>
-<p><strong>What this section is not:</strong> Training to become a Python developer or deploy production apps</p>
-<p><strong>Your goal:</strong> Understand how these tools work and what’s involved in building them. If you want to create your own later, the Resources section provides deployment guides for self-directed learning.</p>
+<p><strong>This isn’t about writing code.</strong> You won’t become a Python developer in 90 minutes.</p>
+<p><strong>This is about understanding design principles.</strong> You’ll explore the key decisions that make AI educational tools effective or ineffective.</p>
+<p><strong>Why this matters:</strong> When you understand the principles, you can:</p>
+<ul>
+<li>Critically evaluate existing AI tools</li>
+<li>Request informed modifications from developers</li>
+<li>Design tools grounded in learning science</li>
+<li>Adapt templates to your teaching context</li>
+</ul>
 </div>
 </div>
 <hr>
 </section>
-<section id="part-1-access-the-app-2-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="part-1-access-the-app-2-minutes">Part 1: Access the App (2 minutes)</h2>
-<section id="open-the-workshop-space" class="level3">
-<h3 class="anchored" data-anchor-id="open-the-workshop-space">Open the Workshop Space</h3>
-<p><strong>No installation required.</strong> Everything runs in your browser.</p>
-</section>
-</section>
-<section id="access-the-interactive-app" class="level2 callout-setup" data-icon="false">
-<h2 class="anchored" data-anchor-id="access-the-interactive-app">Access the Interactive App</h2>
-<p><strong>URL:</strong> <a href="https://huggingface.co/spaces/virtuelleakademie/workshop-starter">https://huggingface.co/spaces/virtuelleakademie/workshop-starter</a></p>
-<p><strong>What you’ll see:</strong></p>
+<section id="the-interactive-exploration-app" class="level2">
+<h2 class="anchored" data-anchor-id="the-interactive-exploration-app">The Interactive Exploration App</h2>
+<p>Below is a <strong>live marimo notebook</strong> with 5 hands-on labs. You’ll experiment with the design decisions that shape AI educational tools.</p>
+<p><strong>How to use it:</strong></p>
 <ul>
-<li>Interactive marimo notebook</li>
-<li>Code cells (some editable, some read-only)</li>
-<li>Live UI components</li>
-<li>Reactive updates</li>
+<li>Scroll through the labs in order</li>
+<li>Fill in text fields with YOUR information</li>
+<li>Click buttons to generate examples</li>
+<li>Compare results and reflect on what you notice</li>
 </ul>
-<p><strong>First time?</strong> The Space may take 20-30 seconds to wake up. Be patient.</p>
-</section>
-<section id="orient-yourself" class="level3">
-<h3 class="anchored" data-anchor-id="orient-yourself">Orient Yourself</h3>
-<p>When the app loads, you’ll see:</p>
-<ul>
-<li><strong>Code cells</strong> at the top (imports, data models, concept library, AI agent)</li>
-<li><strong>UI components</strong> below (profile inputs, concept selector, generate button)</li>
-<li><strong>Output area</strong> at the bottom (generated examples appear here)</li>
-</ul>
-<p><strong>Each browser session is isolated</strong> - your changes won’t affect other participants.</p>
+<p><a href="https://awellis-worked-example-weaver.hf.space" class="btn btn-primary" target="_blank">Open in new window</a></p>
+<iframe src="https://awellis-worked-example-weaver.hf.space" frameborder="0" width="100%" height="600" style="border: 1px solid #ddd; border-radius: 4px;">
+</iframe>
 <hr>
 </section>
-<section id="part-2-code-walkthrough-20-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="part-2-code-walkthrough-20-minutes">Part 2: Code Walkthrough (20 minutes)</h2>
-<section id="app-structure" class="level3">
-<h3 class="anchored" data-anchor-id="app-structure">App Structure</h3>
-<p>Scroll through the code cells to see the overall structure:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Imports and setup</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Data models (Pydantic)</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Concept library (ONE domain)</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. AI agent configuration</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Generation function</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Marimo UI cells</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Your task:</strong> Read through the code, following along with this walkthrough. Don’t edit yet - focus on understanding.</p>
+<section id="lab-1-prompt-design-laboratory-15-minutes" class="level2">
+<h2 class="anchored" data-anchor-id="lab-1-prompt-design-laboratory-15-minutes">Lab 1: Prompt Design Laboratory (15 minutes)</h2>
+<section id="what-youll-explore" class="level3">
+<h3 class="anchored" data-anchor-id="what-youll-explore">What You’ll Explore</h3>
+<p><strong>Learning Question:</strong> How does prompt engineering affect the quality of worked examples?</p>
 </section>
-<section id="key-components" class="level3">
-<h3 class="anchored" data-anchor-id="key-components">Key Components</h3>
-<section id="data-models-lines-10-60" class="level4">
-<h4 class="anchored" data-anchor-id="data-models-lines-10-60">1. Data Models (Lines 10-60)</h4>
-<p><strong>LearnerProfile</strong> - What we collect:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LearnerProfile(BaseModel):</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    name: <span class="bu">str</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    domain: Literal[<span class="st">"programming"</span>]  <span class="co"># Only 1 domain</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    specific_interest: <span class="bu">str</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    hobby_or_passion: <span class="bu">str</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    goal: <span class="bu">str</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    background_level: Literal[<span class="st">"beginner"</span>, <span class="st">"intermediate"</span>, <span class="st">"advanced"</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>PersonalizedWorkedExample</strong> - What AI generates:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> PersonalizedWorkedExample(BaseModel):</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    title: <span class="bu">str</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    problem_statement: <span class="bu">str</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    given_data: <span class="bu">str</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    step_by_step_solution: <span class="bu">list</span>[<span class="bu">str</span>]  <span class="co"># Multiple steps</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    final_answer: <span class="bu">str</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    connection_to_goal: <span class="bu">str</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    practice_suggestion: <span class="bu">str</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Why Pydantic?</strong> - Type safety - guarantees AI returns what we expect - Validation - catches errors before they reach users - Documentation - clear structure</p>
-</section>
-<section id="concept-library-lines-62-100" class="level4">
-<h4 class="anchored" data-anchor-id="concept-library-lines-62-100">2. Concept Library (Lines 62-100)</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>CONCEPTS <span class="op">=</span> {</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"programming"</span>: [</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        {</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>            <span class="st">"name"</span>: <span class="st">"For Loops"</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">"abstract"</span>: <span class="st">"Iterate through a sequence"</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">"difficulty"</span>: <span class="st">"beginner"</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">"typical_use"</span>: <span class="st">"Process lists, repeat actions"</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        },</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        {</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">"name"</span>: <span class="st">"Functions with Parameters"</span>,</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">"abstract"</span>: <span class="st">"Reusable code blocks with inputs"</span>,</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>            <span class="st">"difficulty"</span>: <span class="st">"beginner"</span>,</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            <span class="st">"typical_use"</span>: <span class="st">"Organize code, avoid repetition"</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        },</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        {</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">"name"</span>: <span class="st">"String Formatting"</span>,</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">"abstract"</span>: <span class="st">"Create formatted text with f-strings"</span>,</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>            <span class="st">"difficulty"</span>: <span class="st">"beginner"</span>,</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">"typical_use"</span>: <span class="st">"Display data, create messages"</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Structure:</strong> - Each concept has: name, abstract, difficulty, typical use - Easy to add new concepts (we’ll do this!) - Can add new domains by extending the dictionary</p>
-</section>
-<section id="ai-agent-lines-102-140" class="level4">
-<h4 class="anchored" data-anchor-id="ai-agent-lines-102-140">3. AI Agent (Lines 102-140)</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>example_generator <span class="op">=</span> Agent(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'openai:gpt-5.1'</span>,           <span class="co"># Model to use</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    result_type<span class="op">=</span>PersonalizedWorkedExample,  <span class="co"># Structured output</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    system_prompt<span class="op">=</span><span class="st">"""You are an expert educator...</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="st">    Create personalized worked examples that:</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="st">    1. Weave learner's interests naturally</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="st">    2. Use their name throughout</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="st">    3. Make data realistic</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="st">    4. Connect to their goal</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="st">    """</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Key features:</strong> - <code>result_type</code> ensures structured output (Pydantic model) - System prompt guides AI behavior - Model choice affects cost/quality</p>
-</section>
-<section id="generation-function-lines-142-180" class="level4">
-<h4 class="anchored" data-anchor-id="generation-function-lines-142-180">4. Generation Function (Lines 142-180)</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> generate_example(profile, concept):</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    prompt <span class="op">=</span> <span class="ss">f"""</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ss">    Create a worked example for:</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ss">    LEARNER: </span><span class="sc">{</span>profile<span class="sc">.</span>name<span class="sc">}</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ss">    INTEREST: </span><span class="sc">{</span>profile<span class="sc">.</span>specific_interest<span class="sc">}</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ss">    HOBBY: </span><span class="sc">{</span>profile<span class="sc">.</span>hobby_or_passion<span class="sc">}</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="ss">    GOAL: </span><span class="sc">{</span>profile<span class="sc">.</span>goal<span class="sc">}</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="ss">    LEVEL: </span><span class="sc">{</span>profile<span class="sc">.</span>background_level<span class="sc">}</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="ss">    CONCEPT: </span><span class="sc">{</span>concept[<span class="st">'name'</span>]<span class="sc">}</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="ss">    ...</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="ss">    """</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> <span class="cf">await</span> example_generator.run(prompt)</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result.data  <span class="co"># Returns PersonalizedWorkedExample</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="marimo-ui-cells-lines-182-end" class="level4">
-<h4 class="anchored" data-anchor-id="marimo-ui-cells-lines-182-end">5. Marimo UI Cells (Lines 182-end)</h4>
-<p>Marimo creates reactive cells:</p>
-<ul>
-<li><code>@app.cell</code> decorator</li>
-<li>Auto-updates when dependencies change</li>
-<li>No stale state (unlike Jupyter)</li>
-</ul>
-<p><strong>UI components:</strong></p>
-<ul>
-<li><code>mo.ui.text()</code> - Text inputs</li>
-<li><code>mo.ui.dropdown()</code> - Concept selection</li>
-<li><code>mo.ui.button()</code> - Generate button</li>
-<li><code>mo.md()</code> - Markdown display</li>
-</ul>
-<hr>
-</section>
-</section>
-</section>
-<section id="part-3-modify---add-concepts-50-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="part-3-modify---add-concepts-50-minutes">Part 3: Modify - Add Concepts (50 minutes)</h2>
-<section id="your-task" class="level3">
-<h3 class="anchored" data-anchor-id="your-task">Your Task</h3>
-<p><strong>Add 1-2 new concepts</strong> to the Programming domain by editing code cells in your browser.</p>
-<p><strong>Suggested concepts:</strong></p>
-<ul>
-<li>List Comprehensions</li>
-<li>Dictionary Methods</li>
-<li>File I/O</li>
-<li>Error Handling</li>
-<li>Object-Oriented Programming basics</li>
-</ul>
-</section>
-<section id="step-by-step-instructions" class="level3">
-<h3 class="anchored" data-anchor-id="step-by-step-instructions">Step-by-Step Instructions</h3>
-<section id="choose-your-concepts" class="level4">
-<h4 class="anchored" data-anchor-id="choose-your-concepts">1. Choose Your Concepts</h4>
-<p><strong>Beginner concepts:</strong></p>
-<ul>
-<li>Variables and data types</li>
-<li>Conditional statements (if/else)</li>
-<li>Basic list operations</li>
-<li>File reading/writing</li>
-</ul>
-<p><strong>Intermediate concepts:</strong></p>
-<ul>
-<li>List comprehensions</li>
-<li>Dictionary methods</li>
-<li>Lambda functions</li>
-<li>Exception handling</li>
-</ul>
-</section>
-<section id="find-the-concepts-cell" class="level4">
-<h4 class="anchored" data-anchor-id="find-the-concepts-cell">2. Find the CONCEPTS Cell</h4>
-<p><strong>Scroll to the editable cell</strong> containing the CONCEPTS dictionary:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>CONCEPTS <span class="op">=</span> {</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"programming"</span>: [</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        {</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>            <span class="st">"name"</span>: <span class="st">"For Loops"</span>,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>            ...</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        },</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        {</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">"name"</span>: <span class="st">"Functions with Parameters"</span>,</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>            ...</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        },</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        {</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>            <span class="st">"name"</span>: <span class="st">"String Formatting"</span>,</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>            ...</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ADD YOUR CONCEPTS HERE!</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>This cell is editable</strong> - click inside it to make changes.</p>
-</section>
-<section id="add-your-concept" class="level4">
-<h4 class="anchored" data-anchor-id="add-your-concept">3. Add Your Concept</h4>
-<p><strong>Click in the cell</strong> and add your new concept to the list:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>        {</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>            <span class="st">"name"</span>: <span class="st">"List Comprehensions"</span>,</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>            <span class="st">"abstract"</span>: <span class="st">"Create new lists using concise syntax"</span>,</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>            <span class="st">"difficulty"</span>: <span class="st">"intermediate"</span>,</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">"typical_use"</span>: <span class="st">"Transform data, filter lists elegantly"</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        },</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Important:</strong> Don’t forget the comma after the closing brace!</p>
-</section>
-</section>
-</section>
-<section id="try-it-add-your-first-concept" class="level2 callout-try" data-icon="false">
-<h2 class="anchored" data-anchor-id="try-it-add-your-first-concept">Try It: Add Your First Concept</h2>
+<section id="instructions" class="level3">
+<h3 class="anchored" data-anchor-id="instructions">Instructions</h3>
 <ol type="1">
-<li>Choose a programming concept you teach</li>
-<li>Write the abstract (1 sentence - what it does)</li>
-<li>Set difficulty level (beginner/intermediate/advanced)</li>
-<li>Describe typical use (when to use it)</li>
-<li>Edit the cell to add your concept</li>
-<li>Run the cell (click the play button or Shift+Enter)</li>
-</ol>
-</section>
-<section id="customise-the-system-prompt-optional" class="level4">
-<h4 class="anchored" data-anchor-id="customise-the-system-prompt-optional">4. Customise the System Prompt (Optional)</h4>
-<p>Want more control over how AI generates examples?</p>
-<p><strong>Find the system prompt cell</strong> (marked as editable):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>system_prompt<span class="op">=</span><span class="st">"""You are an expert educator...</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Modifications you could make:</strong></p>
+<li><p><strong>Read both prompts</strong> in the app:</p>
 <ul>
-<li>Add emphasis on code comments</li>
-<li>Request specific programming style</li>
-<li>Add warnings about common errors</li>
-<li>Include best practices</li>
-</ul>
-<p><strong>Example addition:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>system_prompt<span class="op">=</span><span class="st">"""You are an expert educator...</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="st">IMPORTANT: For programming examples:</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="st">- Include detailed code comments</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="st">- Mention common pitfalls</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="st">- Show best practices</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="st">- Use modern Python syntax (f-strings, type hints)</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="run-the-cell" class="level4">
-<h4 class="anchored" data-anchor-id="run-the-cell">5. Run the Cell</h4>
-<p>After editing:</p>
-<ol type="1">
-<li>Click the <strong>Run</strong> button (or press Shift+Enter)</li>
-<li>Marimo automatically updates dependent cells</li>
-<li>New concepts appear in the dropdown below</li>
-<li>Watch the reactive magic happen</li>
-</ol>
-<hr>
-</section>
-<section id="part-4-test-and-refine-15-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="part-4-test-and-refine-15-minutes">Part 4: Test and Refine (15 minutes)</h2>
-<section id="generate-examples-with-your-concepts" class="level3">
-<h3 class="anchored" data-anchor-id="generate-examples-with-your-concepts">Generate Examples with Your Concepts</h3>
-</section>
-</section>
-<section id="individual-testing" class="level2 callout-individual" data-icon="false">
-<h2 class="anchored" data-anchor-id="individual-testing">Individual Testing</h2>
-<p><strong>Now test your modifications:</strong></p>
-<ol type="1">
-<li><p><strong>Fill in your own profile:</strong></p>
-<ul>
-<li>Use YOUR name</li>
-<li>YOUR specific interest in programming</li>
-<li>YOUR hobby</li>
-<li>YOUR goal</li>
+<li>Basic Prompt (no pedagogical grounding)</li>
+<li>CLT-Grounded Prompt (reduces cognitive load)</li>
 </ul></li>
-<li><p><strong>Select one of YOUR new concepts</strong></p></li>
-<li><p><strong>Click Generate</strong> and wait (30-60 seconds)</p></li>
-<li><p><strong>Review the generated example:</strong></p>
+<li><p><strong>Click “Generate Both Examples”</strong></p></li>
+<li><p><strong>Compare the results:</strong></p>
 <ul>
-<li>Does it use your personal context naturally?</li>
-<li>Is the code correct and runnable?</li>
-<li>Are the explanations clear?</li>
-<li>Does it connect to your goal?</li>
-</ul></li>
-<li><p><strong>Try different profiles:</strong></p>
-<ul>
-<li>Change the interest/hobby</li>
-<li>See how examples change</li>
-<li>Test different difficulty levels</li>
+<li>Which problem is clearer and more specific?</li>
+<li>Which solution breaks down steps better?</li>
+<li>Which explanation helps you understand WHY, not just WHAT?</li>
 </ul></li>
 </ol>
 </section>
-<section id="quality-checks" class="level3">
-<h3 class="anchored" data-anchor-id="quality-checks">Quality Checks</h3>
-<p><strong>Good personalised example:</strong> - Uses learner’s name throughout - Data/scenario matches their interest - Code is correct and runnable - Explanations are clear - Explicitly connects to their goal</p>
-<p><strong>Signs of poor generation:</strong> - Generic example with name added superficially - Syntax errors in code - Forced connection to interest - Missing explanation steps</p>
+<section id="key-insight" class="level3">
+<h3 class="anchored" data-anchor-id="key-insight">Key Insight</h3>
+<p><strong>The prompt IS your pedagogical design encoded in language.</strong></p>
+<p>Every word in your prompt shapes the language model’s output. Generic prompts produce generic examples. Pedagogically grounded prompts produce learning-focused examples.</p>
 </section>
-<section id="iterate-and-improve" class="level3">
-<h3 class="anchored" data-anchor-id="iterate-and-improve">Iterate and Improve</h3>
-<p><strong>If examples aren’t satisfactory:</strong></p>
+</section>
+<section id="reflection-questions" class="level2 callout-reflect" data-icon="false">
+<h2 class="anchored" data-anchor-id="reflection-questions">Reflection Questions</h2>
+<p><strong>Think about:</strong></p>
+<ul>
+<li>What specific phrases in the CLT-grounded prompt improved the output?</li>
+<li>How could you apply this to prompts in YOUR teaching domain?</li>
+<li>What CLT principles are explicitly mentioned in the grounded prompt?</li>
+</ul>
+<p><strong>Discussion:</strong> Share one phrase from the CLT prompt that you found particularly effective.</p>
+</section>
+<hr>
+<section id="lab-2-personalization-ab-test-15-minutes" class="level2">
+<h2 class="anchored" data-anchor-id="lab-2-personalization-ab-test-15-minutes">Lab 2: Personalization A/B Test (15 minutes)</h2>
+<section id="what-youll-explore-1" class="level3">
+<h3 class="anchored" data-anchor-id="what-youll-explore-1">What You’ll Explore</h3>
+<p><strong>Learning Question:</strong> Can you FEEL the difference in cognitive load?</p>
+</section>
+<section id="instructions-1" class="level3">
+<h3 class="anchored" data-anchor-id="instructions-1">Instructions</h3>
 <ol type="1">
-<li><strong>Check concept description</strong> - Is the “abstract” clear and concise?</li>
-<li><strong>Adjust system prompt</strong> - Add more specific instructions</li>
-<li><strong>Check difficulty</strong> - Does it match the learner level?</li>
-<li><strong>Regenerate</strong> - AI output varies; try again</li>
+<li><p><strong>Enter YOUR context:</strong></p>
+<ul>
+<li>Your hobby or interest (e.g., photography, cooking, gaming)</li>
+<li>What you want to achieve (e.g., build a recipe app, automate photo editing)</li>
+</ul></li>
+<li><p><strong>Click “Generate A/B Comparison”</strong></p></li>
+<li><p><strong>Read both examples:</strong></p>
+<ul>
+<li>Generic (standard textbook style)</li>
+<li>Personalized (using your context)</li>
+</ul></li>
+<li><p><strong>Notice how each one FEELS:</strong></p>
+<ul>
+<li>Which is more engaging to read?</li>
+<li>Which feels easier to process mentally?</li>
+<li>Can you visualize the personalized example more easily?</li>
+</ul></li>
 </ol>
-<hr>
 </section>
-<section id="common-issues-solutions" class="level2">
-<h2 class="anchored" data-anchor-id="common-issues-solutions">Common Issues &amp; Solutions</h2>
-<section id="issue-concept-doesnt-appear-in-dropdown" class="level3">
-<h3 class="anchored" data-anchor-id="issue-concept-doesnt-appear-in-dropdown">Issue: Concept doesn’t appear in dropdown</h3>
-<p><strong>Solution:</strong></p>
+<section id="key-insight-1" class="level3">
+<h3 class="anchored" data-anchor-id="key-insight-1">Key Insight</h3>
+<p><strong>This is the personalization effect in action!</strong></p>
+<p>Familiar contexts require less cognitive effort to process. When you don’t have to decode an unfamiliar scenario, more working memory is available for learning the target concept.</p>
+</section>
+</section>
+<section id="try-this" class="level2 callout-try" data-icon="false">
+<h2 class="anchored" data-anchor-id="try-this">Try This</h2>
+<p><strong>Experiment further:</strong></p>
+<ol type="1">
+<li>Generate examples for 2-3 different hobbies</li>
+<li>Notice how the SAME concept (Python dictionaries) gets explained differently</li>
+<li>Which personalized context resonated most with you?</li>
+</ol>
+<p><strong>The takeaway:</strong> Personalization isn’t just “nice to have”—it’s a cognitive load reduction strategy.</p>
+</section>
+<section id="reflection-questions-1" class="level2 callout-reflect" data-icon="false">
+<h2 class="anchored" data-anchor-id="reflection-questions-1">Reflection Questions</h2>
+<p><strong>Think about:</strong></p>
 <ul>
-<li>Check Python syntax (commas, brackets)</li>
-<li>Ensure it’s inside “programming” array</li>
-<li>Run the cell again (Shift+Enter)</li>
-<li>Refresh the browser if needed</li>
+<li>How did the personalized example reduce extraneous cognitive load?</li>
+<li>Could you use personalization in YOUR teaching context?</li>
+<li>What student interests/contexts could you leverage?</li>
+</ul>
+<p><strong>Discussion:</strong> Share your most effective personalized example with a neighbor.</p>
+</section>
+<hr>
+<section id="lab-3-data-model-designer-20-minutes" class="level2">
+<h2 class="anchored" data-anchor-id="lab-3-data-model-designer-20-minutes">Lab 3: Data Model Designer (20 minutes)</h2>
+<section id="what-youll-explore-2" class="level3">
+<h3 class="anchored" data-anchor-id="what-youll-explore-2">What You’ll Explore</h3>
+<p><strong>Learning Question:</strong> What makes a worked example “worked”?</p>
+</section>
+<section id="instructions-2" class="level3">
+<h3 class="anchored" data-anchor-id="instructions-2">Instructions</h3>
+<ol type="1">
+<li><p><strong>Read the current data model</strong> shown in the app</p></li>
+<li><p><strong>Select fields</strong> you think support learning:</p>
+<ul>
+<li><code>problem: str</code> (The problem statement)</li>
+<li><code>solution_steps: list[str]</code> (Steps as a list for chunking!)</li>
+<li><code>solution: str</code> (Solution as one big block)</li>
+<li><code>final_answer: str</code> (Explicit conclusion)</li>
+<li><code>key_insight: str</code> (Why this approach works)</li>
+<li><code>code_with_comments: str</code> (Annotated code)</li>
+<li><code>common_mistakes: str</code> (What to avoid)</li>
+<li><code>connection_to_real_world: str</code> (Practical relevance)</li>
+</ul></li>
+<li><p><strong>See the pedagogical analysis:</strong></p>
+<ul>
+<li>What CLT principles do your choices implement?</li>
+<li>What’s your design score?</li>
+<li>What feedback does the analyzer provide?</li>
+</ul></li>
+</ol>
+</section>
+<section id="key-insight-2" class="level3">
+<h3 class="anchored" data-anchor-id="key-insight-2">Key Insight</h3>
+<p><strong>The data structure IS the pedagogy.</strong></p>
+<p>When you design a Pydantic model (the structure that controls generated outputs), you’re making pedagogical choices. Each field implements (or undermines) a CLT principle.</p>
+<div class="callout callout-style-simple callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Critical Design Choice: Chunking
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Notice the difference between:</strong></p>
+<ul>
+<li><code>solution_steps: list[str]</code> (Forces GPT-5.1 to break the solution into chunks)</li>
+<li><code>solution: str</code> (Allows GPT-5.1 to generate everything in one block)</li>
+</ul>
+<p><strong>For novices:</strong> Chunked steps reduce intrinsic cognitive load (Sweller, 1988)</p>
+<p><strong>For experts:</strong> One block may be fine (expertise reversal effect)</p>
+<p><strong>Your choice of data type (list vs.&nbsp;str) controls this!</strong></p>
+</div>
+</div>
+</section>
+</section>
+<section id="reflection-questions-2" class="level2 callout-reflect" data-icon="false">
+<h2 class="anchored" data-anchor-id="reflection-questions-2">Reflection Questions</h2>
+<p><strong>Think about:</strong></p>
+<ul>
+<li>Why is <code>solution_steps: list[str]</code> better than <code>solution: str</code> for novices?</li>
+<li>What field would you ADD for your teaching domain?</li>
+<li>How does structure guide (or constrain) what the model generates?</li>
+</ul>
+<p><strong>Discussion:</strong> Design the ideal data model for worked examples in YOUR subject area. What fields would you include?</p>
+</section>
+<hr>
+<section id="lab-4-parameter-playground-10-minutes" class="level2">
+<h2 class="anchored" data-anchor-id="lab-4-parameter-playground-10-minutes">Lab 4: Parameter Playground (10 minutes)</h2>
+<section id="what-youll-explore-3" class="level3">
+<h3 class="anchored" data-anchor-id="what-youll-explore-3">What You’ll Explore</h3>
+<p><strong>Learning Question:</strong> How do model parameters affect pedagogical quality?</p>
+</section>
+<section id="instructions-3" class="level3">
+<h3 class="anchored" data-anchor-id="instructions-3">Instructions</h3>
+<ol type="1">
+<li><strong>Adjust the parameters:</strong>
+<ul>
+<li>Reasoning Effort (none, low, medium, high)</li>
+<li>Verbosity (low, medium, high)</li>
+</ul></li>
+<li><strong>Read the guidance:</strong>
+<ul>
+<li>For novices: Low reasoning (fast), medium-high verbosity (detailed)</li>
+<li>For experts: Higher reasoning (better solutions), lower verbosity (concise)</li>
+</ul></li>
+<li><strong>Consider the tradeoffs:</strong>
+<ul>
+<li>More reasoning = better quality but slower and more expensive</li>
+<li>Higher verbosity = clearer explanations but longer to read</li>
+</ul></li>
+</ol>
+</section>
+<section id="key-insight-3" class="level3">
+<h3 class="anchored" data-anchor-id="key-insight-3">Key Insight</h3>
+<p><strong>The “best” parameters depend on your learners!</strong></p>
+<p>There’s no universal setting. You must match technical parameters to pedagogical needs:</p>
+<ul>
+<li><strong>Novice learners:</strong> Need detailed, step-by-step explanations (high verbosity)</li>
+<li><strong>Expert learners:</strong> Want concise, sophisticated solutions (low verbosity, high reasoning)</li>
+<li><strong>Budget constraints:</strong> Lower reasoning is faster and cheaper</li>
+<li><strong>Quality requirements:</strong> Higher reasoning produces better examples</li>
+</ul>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Cost vs.&nbsp;Quality Tradeoffs
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Real-world considerations:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 17%">
+<col style="width: 14%">
+<col style="width: 21%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Setting</th>
+<th>Speed</th>
+<th>Cost</th>
+<th>Quality</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Low reasoning, low verbosity</td>
+<td>Fast</td>
+<td>Low</td>
+<td>Basic</td>
+<td>Quick practice problems</td>
+</tr>
+<tr class="even">
+<td>Low reasoning, high verbosity</td>
+<td>Fast</td>
+<td>Medium</td>
+<td>Good</td>
+<td>Novice learners at scale</td>
+</tr>
+<tr class="odd">
+<td>High reasoning, high verbosity</td>
+<td>Slow</td>
+<td>High</td>
+<td>Excellent</td>
+<td>Premium personalized tutoring</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Your choice depends on:</strong> budget, learner needs, time constraints, and learning objectives.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="reflection-questions-3" class="level2 callout-reflect" data-icon="false">
+<h2 class="anchored" data-anchor-id="reflection-questions-3">Reflection Questions</h2>
+<p><strong>Think about:</strong></p>
+<ul>
+<li>What parameters would you use for YOUR learners?</li>
+<li>How would you balance cost and quality?</li>
+<li>When might you use different settings for different students?</li>
 </ul>
 </section>
-<section id="issue-generation-fails-with-error" class="level3">
-<h3 class="anchored" data-anchor-id="issue-generation-fails-with-error">Issue: Generation fails with error</h3>
-<p><strong>Possible causes:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Missing comma between concepts</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: <span class="st">"For Loops"</span>,</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    ...</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>}  <span class="co"># &lt;- Need comma here!</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: <span class="st">"List Comprehensions"</span>,</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    ...</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>What to do:</strong> Edit the cell, add the missing comma, run again.</p>
-</section>
-<section id="issue-examples-are-too-generic" class="level3">
-<h3 class="anchored" data-anchor-id="issue-examples-are-too-generic">Issue: Examples are too generic</h3>
-<p><strong>Solution: Enhance system prompt cell:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>system_prompt<span class="op">=</span><span class="st">"""...</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="st">CRITICAL: Weave interests NATURALLY into the problem.</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="st">Bad: "Calculate sum of recipe ingredients"</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="st">Good: "You're building a recipe cost calculator for your</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="st">baking blog. Here's how to sum ingredient costs..."</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then run the cell to update the agent configuration.</p>
-</section>
-<section id="issue-slow-generation-or-timeout" class="level3">
-<h3 class="anchored" data-anchor-id="issue-slow-generation-or-timeout">Issue: Slow generation or timeout</h3>
-<p><strong>Causes:</strong></p>
-<ul>
-<li>GPT-5.1 can take 30-60 seconds</li>
-<li>Multiple users generating simultaneously</li>
-<li>HuggingFace Space waking from sleep</li>
-</ul>
-<p><strong>What to do:</strong> Be patient. If it fails, try again.</p>
 <hr>
+<section id="lab-5-clt-analyzer-20-minutes" class="level2">
+<h2 class="anchored" data-anchor-id="lab-5-clt-analyzer-20-minutes">Lab 5: CLT Analyzer (20 minutes)</h2>
+<section id="what-youll-explore-4" class="level3">
+<h3 class="anchored" data-anchor-id="what-youll-explore-4">What You’ll Explore</h3>
+<p><strong>Learning Question:</strong> Can you evaluate examples using CLT principles?</p>
+</section>
+<section id="instructions-4" class="level3">
+<h3 class="anchored" data-anchor-id="instructions-4">Instructions</h3>
+<ol type="1">
+<li><p><strong>Click “Generate Random Example”</strong></p></li>
+<li><p><strong>Read the example carefully</strong></p></li>
+<li><p><strong>Evaluate it using the checklist:</strong></p>
+<ul>
+<li>✅ Reduces extraneous cognitive load (no unnecessary complexity)</li>
+<li>✅ Manages intrinsic load (breaks problem into chunks)</li>
+<li>✅ Optimizes germane load (helps build schemas/patterns)</li>
+<li>✅ Is a WORKED example (shows complete solution, not a puzzle)</li>
+<li>✅ Has clear step-by-step progression</li>
+<li>✅ Explains WHY, not just WHAT</li>
+</ul></li>
+<li><p><strong>See your score:</strong></p>
+<ul>
+<li>5-6: Excellent pedagogical design</li>
+<li>3-4: Good, but room for improvement</li>
+<li>1-2: Needs significant pedagogical revision</li>
+</ul></li>
+</ol>
+</section>
+<section id="key-insight-4" class="level3">
+<h3 class="anchored" data-anchor-id="key-insight-4">Key Insight</h3>
+<p><strong>You’re developing a CLT-grounded critical lens for evaluating AI tools!</strong></p>
+<p>This skill is more valuable than coding. When you can evaluate generated outputs using learning science principles, you can:</p>
+<ul>
+<li>Spot pedagogically weak examples</li>
+<li>Request specific improvements</li>
+<li>Compare competing language models and tools</li>
+<li>Design better prompts and data models</li>
+</ul>
 </section>
 </section>
-<section id="reflection-3-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="reflection-3-minutes">Reflection (3 minutes)</h2>
+<section id="try-this-1" class="level2 callout-try" data-icon="false">
+<h2 class="anchored" data-anchor-id="try-this-1">Try This</h2>
+<p><strong>Generate 3-4 examples and evaluate each:</strong></p>
+<ol type="1">
+<li>Do you see patterns in what GPT-5.1 generates well?</li>
+<li>What does it consistently miss?</li>
+<li>How would you revise the prompt to improve low-scoring areas?</li>
+</ol>
+<p><strong>The goal:</strong> Develop your critical evaluation instinct.</p>
+</section>
+<section id="reflection-questions-4" class="level2 callout-reflect" data-icon="false">
+<h2 class="anchored" data-anchor-id="reflection-questions-4">Reflection Questions</h2>
+<p><strong>Think about:</strong></p>
+<ul>
+<li>Which CLT criteria are hardest for language models to meet?</li>
+<li>What prompt changes would improve low-scoring examples?</li>
+<li>How would you use this checklist when evaluating tools you already use?</li>
+</ul>
+<p><strong>Discussion:</strong> Share one example you evaluated. What was its score? What would you improve?</p>
+</section>
+<hr>
+<section id="final-reflection-10-minutes" class="level2">
+<h2 class="anchored" data-anchor-id="final-reflection-10-minutes">Final Reflection (10 minutes)</h2>
 </section>
 <section id="what-youve-learned" class="level2 callout-reflect" data-icon="false">
 <h2 class="anchored" data-anchor-id="what-youve-learned">What You’ve Learned</h2>
-<p><strong>Take a moment to consider:</strong></p>
+<p>Through these 5 labs, you explored:</p>
 <ol type="1">
-<li><strong>Code Structure</strong> - Can you identify the key components?
+<li>✅ <strong>Prompts encode pedagogy</strong> (Design drives outputs)</li>
+<li>✅ <strong>Personalization reduces load</strong> (Context matters)</li>
+<li>✅ <strong>Structure shapes learning</strong> (Data models are pedagogical choices)</li>
+<li>✅ <strong>Parameters affect quality</strong> (Settings have learning implications)</li>
+<li>✅ <strong>Critical evaluation is a skill</strong> (You can assess AI tools with CLT)</li>
+</ol>
+<section id="integration-questions" class="level3">
+<h3 class="anchored" data-anchor-id="integration-questions">Integration Questions</h3>
+<p><strong>Consider:</strong></p>
+<ol type="1">
+<li><strong>What surprised you most?</strong>
 <ul>
-<li>Data models (Pydantic)</li>
-<li>Concept library (dictionary)</li>
-<li>AI agent (PydanticAI)</li>
-<li>UI components (Marimo)</li>
+<li>Which lab challenged your assumptions?</li>
+<li>What principle seemed most powerful?</li>
 </ul></li>
-<li><strong>The Pattern</strong> - What would you need to build your own tool?
+<li><strong>What will you change?</strong>
 <ul>
-<li>Define your domain and concepts</li>
-<li>Create data models for inputs/outputs</li>
-<li>Configure AI agent with system prompt</li>
-<li>Build UI for interaction</li>
+<li>How will you modify prompts you write for language models?</li>
+<li>What will you look for when evaluating educational technology tools?</li>
 </ul></li>
-<li><strong>Pedagogical Principles</strong> - How does this reduce cognitive load?
+<li><strong>What will you build?</strong>
 <ul>
-<li>Structured outputs (predictable format)</li>
-<li>Personalised contexts (familiar to learner)</li>
-<li>Complete worked examples (not problem-solving)</li>
+<li>Could you adapt this pattern to your teaching domain?</li>
+<li>What concepts would you include in your worked example generator?</li>
+</ul></li>
+<li><strong>What questions remain?</strong>
+<ul>
+<li>What do you still want to understand?</li>
+<li>What would you need to deploy this in your context?</li>
 </ul></li>
 </ol>
 </section>
-<section id="checkpoint-questions" class="level2 callout-checkpoint" data-icon="false">
-<h2 class="anchored" data-anchor-id="checkpoint-questions">Checkpoint Questions</h2>
-<p><strong>Can you answer:</strong> - Where do you add new concepts? - What does <code>result_type=PersonalizedWorkedExample</code> do? - How does personalisation reduce cognitive load?</p>
-<p><strong>Can you do:</strong> - Add a new concept to the library? - Generate an example with your own profile? - Modify the system prompt?</p>
-<p><strong>Have you recognised:</strong> - This isn’t about becoming a Python developer - It’s about understanding what’s possible - The pattern can be adapted to many domains</p>
+</section>
+<section id="checkpoint-can-you-answer-these" class="level2 callout-checkpoint" data-icon="false">
+<h2 class="anchored" data-anchor-id="checkpoint-can-you-answer-these">Checkpoint: Can You Answer These?</h2>
+<p><strong>Pedagogical Understanding:</strong></p>
+<ul>
+<li>Why does chunking (<code>solution_steps: list[str]</code>) reduce cognitive load?</li>
+<li>How does personalization reduce extraneous cognitive load?</li>
+<li>What makes a worked example “worked” versus a problem to solve?</li>
+</ul>
+<p><strong>Practical Skills:</strong></p>
+<ul>
+<li>Can you write a CLT-grounded prompt for your subject?</li>
+<li>Can you evaluate a generated example using CLT criteria?</li>
+<li>Can you design a data model for worked examples in your domain?</li>
+</ul>
+<p><strong>Critical Thinking:</strong></p>
+<ul>
+<li>What’s the difference between technically impressive and pedagogically sound?</li>
+<li>When should you prioritize speed/cost vs.&nbsp;quality?</li>
+<li>What ethical considerations arise from personalized learning tools powered by language models?</li>
+</ul>
 </section>
 <hr>
-<p><strong>Next:</strong> <a href="../../workshop/extend/index.html">Extend Section</a> - Design your own extensions in groups</p>
+<section id="whats-next" class="level2">
+<h2 class="anchored" data-anchor-id="whats-next">What’s Next?</h2>
+<p>You’ve explored the <strong>design principles</strong>. Now you’re ready to:</p>
+<p><strong>Option 1: Use the Complete Tool</strong></p>
+<p><a href="https://huggingface.co/spaces/awellis/worked-example-weaver-app" target="_blank">Try the full Worked Example Weaver</a></p>
+<ul>
+<li>See all 3 domains (Programming, Health Sciences, Agronomy)</li>
+<li>16 concepts to explore</li>
+<li>Generate personalized examples for real learners</li>
+</ul>
+<p><strong>Option 2: Design Your Extensions</strong></p>
+<p>Move to the <a href="../../workshop/extend/index.html">Extend section</a> where you’ll:</p>
+<ul>
+<li>Plan how to adapt this to YOUR teaching context</li>
+<li>Sketch your personalized worked example tool</li>
+</ul>
+<p><strong>Option 3: Dive Into the Code</strong></p>
+<p>If you want to understand the technical implementation:</p>
+<ul>
+<li><a href="https://huggingface.co/spaces/awellis/worked-example-weaver-app/blob/main/app.py" target="_blank">View the complete app.py on HuggingFace</a></li>
+<li>Explore the Marimo and Pydantic documentation</li>
+</ul>
+<hr>
+<p><strong>Next:</strong> <a href="../../workshop/extend/index.html">Extend Section</a> (Design your own extensions)</p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

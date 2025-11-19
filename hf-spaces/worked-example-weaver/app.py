@@ -1,10 +1,9 @@
+# ruff: noqa
 """
-Personalized Worked Example Generator
-Demonstrates Cognitive Load Theory principles through AI-generated personalized examples.
+Interactive Exploration: Cognitive Load Theory & AI-Generated Worked Examples
+Five hands-on labs to understand how to design educational AI tools
 
-Based on research:
-- Sweller, J. (1988). Cognitive load during problem solving.
-- NSW CESE (2017). Cognitive load theory: Research that teachers really need to understand.
+Built for embedding in Quarto workshop materials
 """
 
 import marimo
@@ -14,690 +13,725 @@ app = marimo.App(width="medium")
 
 
 @app.cell
-def imports():
+def _():
     import marimo as mo
+    from openai import OpenAI
     from pydantic import BaseModel, Field
-    from pydantic_ai import Agent
     from typing import Literal
     import os
     from dotenv import load_dotenv
 
     # Load environment variables from .env file
     load_dotenv()
-    return Agent, BaseModel, Field, Literal, mo
+
+    return BaseModel, Field, OpenAI, mo, os
 
 
 @app.cell
-def welcome_section(mo):
+def _(mo):
     mo.md("""
-    # 🎓 Personalized Worked Example Generator
+    # 🧪 Interactive Exploration Lab
+    ## Designing AI Tools Grounded in Cognitive Load Theory
 
-    **Learn concepts through examples tailored to YOUR interests!**
+    Welcome to the **interactive exploration**! This isn't a complete tool—it's a laboratory
+    where you'll experiment with the key design decisions that make AI educational tools effective.
 
-    ## Why This Works
+    ### What You'll Explore
 
-    This tool demonstrates principles from **Cognitive Load Theory**:
+    Through 5 hands-on labs, you'll discover:
 
-    ### The Worked Example Effect
-    > "Novice learners who are given worked examples to study perform better
-    > than learners who are required to solve problems themselves."
-    >
-    > — NSW Centre for Education Statistics and Evaluation (2017)
+    1. 🎨 **Prompt Design Lab** - How prompt engineering shapes learning
+    2. ⚖️ **Personalization A/B Test** - Feel the cognitive load difference
+    3. 🏗️ **Data Model Designer** - What makes examples "worked"
+    4. 🎛️ **Parameter Playground** - Model settings and pedagogy
+    5. 🔍 **CLT Analyzer** - Evaluate examples with a critical lens
 
-    **Why?** Unguided problem-solving overloads working memory. Worked examples
-    reduce cognitive load, freeing capacity for learning.
+    ### Why This Matters
 
-    ### The Personalization Effect
+    You could just use a tool. But **understanding the design principles** lets you:
+    - Adapt tools to your specific domain
+    - Critique and improve existing AI educational tools
+    - Design new tools grounded in learning science
 
-    Familiar contexts (your hobbies, interests, goals) are easier to process,
-    further reducing cognitive load and improving learning.
-
-    ---
-
-    ## How It Works
-
-    1. **Tell us about yourself** - interests, goals, background
-    2. **Choose a concept** to learn in your domain
-    3. **Get a custom example** woven into your context
-
-    Let's get started! 👇
+    **Ready to explore?** Let's start with the setup.
     """)
     return
 
 
 @app.cell
-def define_models(BaseModel, Field, Literal):
-    """Define data models for learner profiles and worked examples"""
-
-    class LearnerProfile(BaseModel):
-        """Collect learner information for personalization"""
-
-        name: str = Field(
-            description="Learner's first name"
-        )
-
-        domain: Literal["programming", "health_sciences", "agronomy"] = Field(
-            description="Learning domain"
-        )
-
-        specific_interest: str = Field(
-            description="Specific interest within domain"
-        )
-
-        hobby_or_passion: str = Field(
-            description="A hobby or passion they have"
-        )
-
-        goal: str = Field(
-            description="What they want to achieve"
-        )
-
-        background_level: Literal["beginner", "intermediate", "advanced"] = Field(
-            description="Their current level in the domain"
-        )
-
-
-    class PersonalizedWorkedExample(BaseModel):
-        """A complete worked example tailored to the learner"""
-
-        title: str = Field(
-            description="Engaging title that incorporates learner's interest"
-        )
-
-        problem_statement: str = Field(
-            description="Problem framed in learner's context (3-4 sentences)"
-        )
-
-        given_data: str = Field(
-            description="Data presented in familiar context (can include code blocks or tables)"
-        )
-
-        step_by_step_solution: list[str] = Field(
-            description="Clear steps with explanations. Include code or calculations."
-        )
-
-        final_answer: str = Field(
-            description="The final answer with interpretation relevant to learner's context"
-        )
-
-        connection_to_goal: str = Field(
-            description="How this example relates to their stated goal (2-3 sentences)"
-        )
-
-        practice_suggestion: str = Field(
-            description="A similar problem they could try next, using their context"
-        )
-    return LearnerProfile, PersonalizedWorkedExample
+def _(OpenAI, os):
+    """Setup: Initialize OpenAI client"""
+    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    return (client,)
 
 
 @app.cell
-def define_concepts():
-    """Define concept library for each domain"""
-
-    CONCEPTS = {
-        "programming": [
-            {
-                "name": "For Loops",
-                "abstract": "Iterate through a sequence of items",
-                "difficulty": "beginner",
-                "typical_use": "Processing lists, repeating actions multiple times"
-            },
-            {
-                "name": "List Comprehensions",
-                "abstract": "Create new lists using concise syntax",
-                "difficulty": "intermediate",
-                "typical_use": "Transform data, filter lists elegantly"
-            },
-            {
-                "name": "Dictionary Methods",
-                "abstract": "Access and manipulate key-value pairs",
-                "difficulty": "beginner",
-                "typical_use": "Store related data, perform fast lookups"
-            },
-            {
-                "name": "Functions with Parameters",
-                "abstract": "Create reusable code blocks that accept inputs",
-                "difficulty": "beginner",
-                "typical_use": "Organize code, avoid repetition"
-            },
-            {
-                "name": "String Formatting",
-                "abstract": "Create formatted text output using f-strings",
-                "difficulty": "beginner",
-                "typical_use": "Display data, create messages dynamically"
-            }
-        ],
-        "health_sciences": [
-            {
-                "name": "Mean and Standard Deviation",
-                "abstract": "Describe central tendency and variability in data",
-                "difficulty": "beginner",
-                "typical_use": "Summarize health measurements, describe populations"
-            },
-            {
-                "name": "Correlation Analysis",
-                "abstract": "Measure strength and direction of relationship between two variables",
-                "difficulty": "intermediate",
-                "typical_use": "Find relationships in health data, guide research"
-            },
-            {
-                "name": "Linear Regression",
-                "abstract": "Predict one variable from another using a straight-line relationship",
-                "difficulty": "intermediate",
-                "typical_use": "Predict outcomes, understand relationships, forecast trends"
-            },
-            {
-                "name": "Independent T-Test",
-                "abstract": "Compare means between two independent groups",
-                "difficulty": "intermediate",
-                "typical_use": "Test intervention effectiveness, compare treatments"
-            },
-            {
-                "name": "Confidence Intervals",
-                "abstract": "Estimate population parameters with uncertainty",
-                "difficulty": "intermediate",
-                "typical_use": "Interpret research findings, quantify precision"
-            },
-            {
-                "name": "Effect Size (Cohen's d)",
-                "abstract": "Measure practical significance of differences",
-                "difficulty": "intermediate",
-                "typical_use": "Interpret research impact beyond p-values"
-            }
-        ],
-        "agronomy": [
-            {
-                "name": "Yield Prediction",
-                "abstract": "Estimate crop output based on inputs using regression",
-                "difficulty": "intermediate",
-                "typical_use": "Plan harvest, allocate resources, financial projections"
-            },
-            {
-                "name": "NPK Optimization",
-                "abstract": "Calculate optimal fertilizer ratios for maximum benefit",
-                "difficulty": "intermediate",
-                "typical_use": "Maximize yield while minimizing cost and environmental impact"
-            },
-            {
-                "name": "Growing Degree Days",
-                "abstract": "Calculate heat accumulation for crop development",
-                "difficulty": "beginner",
-                "typical_use": "Predict crop stages, plan field operations"
-            },
-            {
-                "name": "Water Use Efficiency",
-                "abstract": "Calculate crop yield per unit of water used",
-                "difficulty": "beginner",
-                "typical_use": "Optimize irrigation, compare varieties"
-            },
-            {
-                "name": "Cost-Benefit Analysis",
-                "abstract": "Compare costs and returns of agricultural interventions",
-                "difficulty": "intermediate",
-                "typical_use": "Make informed decisions about inputs and practices"
-            }
-        ]
-    }
-    return (CONCEPTS,)
-
-
-@app.cell
-def create_agent(Agent, PersonalizedWorkedExample):
-    """Create the AI agent for generating personalized examples"""
-
-    example_generator = Agent[PersonalizedWorkedExample](
-        'openai:gpt-5.1',
-        system_prompt="""You are an expert educator who creates highly personalized
-        worked examples that connect abstract concepts to learners' lived experiences.
-
-        CRITICAL INSTRUCTIONS:
-        1. Weave the learner's interests, hobbies, and goals naturally into the example
-        2. Use their name throughout to increase personal connection
-        3. Make data and scenarios feel authentic to their context
-        4. Keep explanations clear but connect to what they care about
-        5. The example should feel like it was written specifically for this person
-        6. Match complexity to their level (beginner/intermediate/advanced)
-        7. Make the connection to their goal explicit and motivating
-        8. Use concrete numbers and realistic data
-        9. For programming examples, include actual runnable code with comments
-        10. For quantitative examples, show all calculations step by step
-
-        STRUCTURE YOUR EXAMPLES:
-        - Start with an engaging title that mentions their interest
-        - Frame the problem in their context (use their name and interests)
-        - Present data that feels real to their situation
-        - Walk through steps clearly with explanations
-        - For code: include comments explaining each part
-        - For math: show each calculation explicitly
-        - Connect the final answer to their goal
-        - Suggest a related practice problem in their context
-
-        AVOID:
-        - Generic examples with personal details superficially added
-        - Forced or artificial connections
-        - Too much technical jargon for beginners
-        - Abstract variable names (use meaningful names from their context)
-        - Skipping steps in solutions
-
-        Remember: This is a WORKED EXAMPLE - a complete solution for the learner
-        to study, not a problem for them to solve.
-        """
-    )
-
-    async def generate_personalized_example(
-        profile: 'LearnerProfile',
-        concept: dict
-    ) -> PersonalizedWorkedExample:
-        """Generate a personalized worked example"""
-
-        prompt = f"""
-        Create a worked example for:
-
-        LEARNER PROFILE:
-        - Name: {profile.name}
-        - Domain: {profile.domain}
-        - Specific interest: {profile.specific_interest}
-        - Hobby/passion: {profile.hobby_or_passion}
-        - Goal: {profile.goal}
-        - Level: {profile.background_level}
-
-        CONCEPT TO TEACH:
-        - Name: {concept['name']}
-        - Abstract description: {concept['abstract']}
-        - Difficulty: {concept['difficulty']}
-        - Typical use: {concept['typical_use']}
-
-        Create a worked example that teaches this concept using {profile.name}'s
-        specific context. The example should feel personal and relevant to their
-        goal of "{profile.goal}".
-
-        Make the problem realistic and the data believable for their situation.
-
-        For programming: Include complete, runnable code with explanatory comments.
-        For quantitative problems: Show every calculation step explicitly.
-
-        This is a WORKED EXAMPLE - provide the complete solution for them to study.
-        """
-
-        result = await example_generator.run(prompt)
-        return result.output
-    return (generate_personalized_example,)
-
-
-@app.cell
-def profile_form_header(mo):
-    """Header for profile form"""
-    mo.md("---\n## 👤 Step 1: Tell Us About Yourself")
-    return
-
-
-@app.cell
-def profile_inputs(mo):
-    """Individual input widgets for profile"""
-
-    name_input = mo.ui.text(
-        label="Your first name:",
-        placeholder="e.g., Maria",
-        full_width=True
-    )
-
-    domain_input = mo.ui.dropdown(
-        label="Choose your learning domain:",
-        options={
-            "Programming (Python)": "programming",
-            "Health Sciences (Statistics)": "health_sciences",
-            "Agronomy (Agricultural Science)": "agronomy"
-        },
-        value=None,
-        full_width=True
-    )
-
-    interest_input = mo.ui.text(
-        label="Your specific interest in this domain:",
-        placeholder="e.g., web development, sports nutrition, coffee farming",
-        full_width=True
-    )
-
-    hobby_input = mo.ui.text(
-        label="A hobby or passion you have:",
-        placeholder="e.g., photography, cycling, cooking",
-        full_width=True
-    )
-
-    goal_input = mo.ui.text(
-        label="What you want to achieve:",
-        placeholder="e.g., build a portfolio site, improve performance, increase yield",
-        full_width=True
-    )
-
-    level_input = mo.ui.dropdown(
-        label="Your current level:",
-        options=["beginner", "intermediate", "advanced"],
-        value="beginner",
-        full_width=True
-    )
-    return (
-        domain_input,
-        goal_input,
-        hobby_input,
-        interest_input,
-        level_input,
-        name_input,
-    )
-
-
-@app.cell
-def display_profile_form(
-    domain_input,
-    goal_input,
-    hobby_input,
-    interest_input,
-    level_input,
-    mo,
-    name_input,
-):
-    """Display the profile form"""
-
-    _form = mo.vstack([
-        name_input,
-        domain_input,
-        interest_input,
-        hobby_input,
-        goal_input,
-        level_input
-    ])
-
-    _form
-    return
-
-
-@app.cell
-def check_profile_complete(
-    domain_input,
-    goal_input,
-    hobby_input,
-    interest_input,
-    level_input,
-    name_input,
-):
-    """Check if profile is complete"""
-
-    profile_complete = all([
-        name_input.value,
-        domain_input.value,
-        interest_input.value,
-        hobby_input.value,
-        goal_input.value,
-        level_input.value
-    ])
-    return (profile_complete,)
-
-
-@app.cell
-def create_profile(
-    LearnerProfile,
-    domain_input,
-    goal_input,
-    hobby_input,
-    interest_input,
-    level_input,
-    name_input,
-    profile_complete,
-):
-    """Create profile object if form is complete"""
-
-    if profile_complete:
-        learner_profile = LearnerProfile(
-            name=name_input.value,
-            domain=domain_input.value,
-            specific_interest=interest_input.value,
-            hobby_or_passion=hobby_input.value,
-            goal=goal_input.value,
-            background_level=level_input.value
-        )
-    else:
-        learner_profile = None
-    return (learner_profile,)
-
-
-@app.cell
-def show_profile_status(learner_profile, mo, profile_complete):
-    """Show profile status"""
-
-    if profile_complete:
-        _status = mo.callout(
-            f"""
-            ✅ **Profile Complete!**
-
-            Great, {learner_profile.name}! Now choose a concept below.
-            """,
-            kind="success"
-        )
-    else:
-        _status = mo.callout(
-            "📝 Please fill in all fields above to continue.",
-            kind="info"
-        )
-
-    _status
-    return
-
-
-@app.cell
-def concept_selection_header(mo, profile_complete):
-    """Header for concept selection"""
-
-    if profile_complete:
-        _header = mo.md("---\n## 📚 Step 2: Choose a Concept to Learn")
-    else:
-        _header = None
-
-    _header
-    return
-
-
-@app.cell
-def concept_selector_widget(CONCEPTS, learner_profile, mo, profile_complete):
-    """Create concept selector based on chosen domain"""
-
-    if profile_complete and learner_profile:
-        available_concepts = CONCEPTS[learner_profile.domain]
-
-        concept_selector = mo.ui.dropdown(
-            label=f"Choose a concept in {learner_profile.domain.replace('_', ' ').title()}:",
-            options={
-                f"{c['name']} ({c['difficulty']})": c
-                for c in available_concepts
-            },
-            value=None,
-            full_width=True
-        )
-    else:
-        concept_selector = None
-    return (concept_selector,)
-
-
-@app.cell
-def display_concept_selector(concept_selector, mo, profile_complete):
-    """Display the concept selector"""
-
-    if profile_complete and concept_selector is not None:
-        _display = mo.vstack([
-            concept_selector,
-            mo.callout(
-                "👆 Select a concept from the dropdown above to continue.",
-                kind="info"
-            ) if not concept_selector.value else mo.callout(
-                "✅ Great! Now click the button below to generate your example.",
-                kind="success"
-            )
-        ])
-    else:
-        _display = None
-
-    _display
-    return
-
-
-@app.cell
-def generate_button_widget(concept_selector, mo, profile_complete):
-    """Create and display generate button"""
-
-    if profile_complete and concept_selector is not None and concept_selector.value:
-        generate_button = mo.ui.run_button(
-            label="✨ Generate My Personalized Example",
-            kind="success",
-        )
-    else:
-        generate_button = None
-    return (generate_button,)
-
-
-@app.cell
-def display_generate_button(generate_button, mo):
-    """Display the generate button"""
-
-    if generate_button is not None:
-        _display = mo.vstack([
-            mo.md("---"),
-            mo.md("## 🎯 Step 3: Generate Your Example"),
-            generate_button
-        ])
-    else:
-        _display = None
-
-    _display
-    return
-
-
-@app.cell
-async def generate_and_display(
-    concept_selector,
-    generate_button,
-    generate_personalized_example,
-    learner_profile,
-    mo,
-):
-    """Generate and display the personalized example"""
-
-    # Stop if button hasn't been clicked
-    mo.stop(generate_button is None or not generate_button.value)
-
-    try:
-        example = await generate_personalized_example(
-            profile=learner_profile,
-            concept=concept_selector.value
-        )
-
-        # Display the example
-        _output = mo.vstack([
-            mo.md("---"),
-            mo.md(f"# {example.title}"),
-            mo.md("## 📋 The Problem"),
-            mo.md(example.problem_statement),
-            mo.md("### Given Data"),
-            mo.md(example.given_data),
-            mo.md("---"),
-            mo.md("## 💡 Step-by-Step Solution"),
-            *[mo.md(f"**Step {i}:**\n\n{step}")
-              for i, step in enumerate(example.step_by_step_solution, 1)],
-            mo.md("---"),
-            mo.md("## ✅ Final Answer"),
-            mo.md(example.final_answer),
-            mo.md("---"),
-            mo.callout(
-                f"### 🎯 Why This Matters for You\n\n{example.connection_to_goal}",
-                kind="success"
-            ),
-            mo.md("---"),
-            mo.callout(
-                f"### 🚀 Try This Next\n\n{example.practice_suggestion}",
-                kind="info"
-            ),
-        ])
-
-    except Exception as e:
-        _output = mo.callout(
-            f"❌ Error generating example: {str(e)}\n\nPlease check your OpenAI API key.",
-            kind="danger"
-        )
-
-    _output
-    return
-
-
-@app.cell
-def footer(mo):
-    """Display footer with information"""
-
+def _(mo):
     mo.md("""
     ---
 
-    ## 📖 About This Tool
+    ## 🎨 Lab 1: Prompt Design Laboratory
 
-    ### Cognitive Load Theory Principles
+    **Learning Question**: How does prompt engineering affect the quality of worked examples?
 
-    This tool demonstrates research-backed learning principles:
+    ### The Experiment
 
-    **The Worked Example Effect** (Sweller, 1988; Cooper & Sweller, 1987)
-    > "Novice learners who are given worked examples to study perform better on
-    > subsequent tests than learners who are required to solve the equivalent
-    > problems themselves."
+    You'll see **two prompts** - a basic one and one grounded in CLT principles.
+    Try editing them and see how the outputs change.
 
-    - **Why?** Unguided problem-solving overloads working memory
-    - **Result:** Studying worked examples frees cognitive capacity for learning
-    - **Evidence:** Effect size of 0.52 across multiple studies (Crissman, 2006)
+    **Key insight**: The prompt IS your pedagogical design encoded in language.
+    """)
+    return
 
-    **The Personalization Effect** (Cordova & Lepper, 1996)
-    > "Familiar contexts require less cognitive effort to process, reducing
-    > extraneous cognitive load and improving learning outcomes."
 
-    - **Why?** Known contexts don't require working memory to parse
-    - **Result:** More capacity available for schema construction
-    - **Benefit:** Increased motivation through personal relevance
+@app.cell
+def _(BaseModel, Field):
+    """Simple data model for Lab 1"""
 
-    ### Built With
+    class SimpleExample(BaseModel):
+        """Minimal structure for prompt comparison"""
+        problem: str = Field(description="The problem to solve")
+        solution: str = Field(description="Step-by-step solution")
+        explanation: str = Field(description="Why this approach works")
+    return (SimpleExample,)
 
-    - [Marimo](https://marimo.io) - Reactive Python notebooks
-    - [PydanticAI](https://ai.pydantic.dev) - Type-safe AI agents
-    - [OpenAI GPT-5.1](https://openai.com) - Language model
-    - [Pydantic](https://pydantic.dev) - Data validation
 
-    ### 🔧 Extend This Tool
+@app.cell
+def _(mo):
+    """Lab 1: Prompt inputs"""
 
-    Ideas for enhancement:
+    mo.md("### Try These Prompts")
 
-    - Add more domains (economics, chemistry, history, literature)
-    - Include images and diagrams in examples
-    - Create sequences of scaffolded examples
-    - Track learner progress over time
-    - Export examples to PDF or flashcards
-    - Add multilingual support
-    - Integrate with learning management systems
+    basic_prompt = mo.ui.text_area(
+        label="Basic Prompt (no pedagogical grounding):",
+        value="""Create an example problem about Python for loops and solve it step by step.""",
+        full_width=True,
+        rows=3
+    )
 
-    ### 📚 Research References
+    clt_prompt = mo.ui.text_area(
+        label="CLT-Grounded Prompt (reduces cognitive load):",
+        value="""Create a worked example about Python for loops.
 
-    - Cooper, G., & Sweller, J. (1987). Effects of schema acquisition and rule
-      automation on mathematical problem-solving transfer. *Journal of Educational
-      Psychology*, 79(4), 347-362.
+    CRITICAL: This is a WORKED EXAMPLE for novice learners.
+    - Problem: Clear, specific, uses familiar context (counting items)
+    - Solution: Break into small steps, explain each step's purpose
+    - Explanation: Connect to WHY this pattern works (not just WHAT it does)
 
-    - Cordova, D. I., & Lepper, M. R. (1996). Intrinsic motivation and the process
-      of learning: Beneficial effects of contextualization, personalization, and
-      choice. *Journal of Educational Psychology*, 88(4), 715.
+    Keep cognitive load low: avoid technical jargon, use concrete examples.""",
+        full_width=True,
+        rows=8
+    )
 
-    - Crissman, J. (2006). *The design and utilization of effective worked examples:
-      A meta-analysis* (Doctoral dissertation). University of Nebraska, Lincoln.
+    mo.vstack([basic_prompt, clt_prompt])
+    return basic_prompt, clt_prompt
 
-    - NSW Centre for Education Statistics and Evaluation (2017). *Cognitive load
-      theory: Research that teachers really need to understand*.
-      [Link](https://education.nsw.gov.au/about-us/education-data-and-research/cese/publications/literature-reviews/cognitive-load-theory)
 
-    - Sweller, J. (1988). Cognitive load during problem solving: Effects on learning.
-      *Cognitive Science*, 12(2), 257-285.
+@app.cell
+def _(mo):
+    """Lab 1: Generate button"""
+
+    lab1_button = mo.ui.run_button(
+        label="🔬 Generate Both Examples",
+        kind="success",
+    )
+
+    mo.md(f"### Compare the Results\n\n{lab1_button}")
+    return (lab1_button,)
+
+
+@app.cell
+def _(SimpleExample, basic_prompt, client, clt_prompt, lab1_button, mo):
+    """Lab 1: Generate and compare both examples"""
+
+    lab1_output = None
+
+    if lab1_button.value and basic_prompt.value and clt_prompt.value:
+        with mo.status.spinner(title="Generating both examples..."):
+            basic_response = client.responses.parse(
+                model="gpt-5.1",
+                input=[{"role": "user", "content": basic_prompt.value}],
+                text_format=SimpleExample
+            )
+            basic_example = basic_response.output_parsed
+
+            clt_response = client.responses.parse(
+                model="gpt-5.1",
+                input=[{"role": "user", "content": clt_prompt.value}],
+                text_format=SimpleExample
+            )
+            clt_example = clt_response.output_parsed
+
+        lab1_output = mo.vstack([
+            mo.md("### 📊 Basic Prompt Result"),
+            mo.md(f"**Problem:** {basic_example.problem}"),
+            mo.md(f"**Solution:** {basic_example.solution}"),
+            mo.md(f"**Explanation:** {basic_example.explanation}"),
+            mo.md("---"),
+            mo.md("### 🎓 CLT-Grounded Prompt Result"),
+            mo.md(f"**Problem:** {clt_example.problem}"),
+            mo.md(f"**Solution:** {clt_example.solution}"),
+            mo.md(f"**Explanation:** {clt_example.explanation}"),
+            mo.callout(mo.md("""
+            ### 💭 What Do You Notice?
+
+            - Which problem is clearer and more specific?
+            - Which solution breaks down steps better?
+            - Which explanation helps you understand WHY, not just WHAT?
+
+            **The prompt IS your pedagogical design!**
+            """), kind="info")
+        ])
+
+    lab1_output
+
+
+@app.cell
+def _(mo):
+    mo.md("""
+    ---
+
+    ## ⚖️ Lab 2: Personalization A/B Test
+
+    **Learning Question**: Can you FEEL the difference in cognitive load?
+
+    ### The Experiment
+
+    You'll enter YOUR context (hobby, goal), then see the SAME concept taught:
+    - **Generic**: Standard textbook style
+    - **Personalized**: Using your context
+
+    **Hypothesis**: The personalized version should feel more engaging and easier to process.
+    """)
+    return
+
+
+@app.cell
+def _(mo):
+    """Lab 2: Context inputs"""
+
+    mo.md("### Your Context")
+
+    your_hobby = mo.ui.text(
+        label="Your hobby or interest:",
+        placeholder="e.g., photography, cooking, gaming",
+        full_width=True
+    )
+
+    your_goal = mo.ui.text(
+        label="What you want to achieve:",
+        placeholder="e.g., build a recipe app, automate photo editing",
+        full_width=True
+    )
+
+    mo.vstack([your_hobby, your_goal])
+    return your_hobby, your_goal
+
+
+@app.cell
+def _(mo):
+    """Lab 2: Generate button"""
+
+    lab2_button = mo.ui.run_button(
+        label="⚖️ Generate A/B Comparison",
+        kind="success",
+    )
+
+    mo.md(f"{lab2_button}")
+    return (lab2_button,)
+
+
+@app.cell
+def _(SimpleExample, client, lab2_button, mo, your_goal, your_hobby):
+    """Lab 2: Generate A/B comparison"""
+
+    lab2_output = None
+
+    if lab2_button.value and your_hobby.value and your_goal.value:
+        with mo.status.spinner(title="Generating generic and personalized examples..."):
+
+            generic_prompt = "Create a worked example about Python dictionaries for beginners."
+            generic_response = client.responses.parse(
+                model="gpt-5.1",
+                input=[{"role": "user", "content": generic_prompt}],
+                text_format=SimpleExample
+            )
+            generic_example = generic_response.output_parsed
+
+            personalized_prompt = f"""Create a worked example about Python dictionaries for beginners.
+
+IMPORTANT: Personalize this example for someone who is interested in {your_hobby.value} and wants to {your_goal.value}.
+Use familiar contexts and examples from their interest to make the concept more relatable and reduce cognitive load."""
+
+            personalized_response = client.responses.parse(
+                model="gpt-5.1",
+                input=[{"role": "user", "content": personalized_prompt}],
+                text_format=SimpleExample
+            )
+            personalized_example = personalized_response.output_parsed
+
+        lab2_output = mo.vstack([
+            mo.md("### 📖 Generic Example (Standard Textbook Style)"),
+            mo.md(f"**Problem:** {generic_example.problem}"),
+            mo.md(f"**Solution:** {generic_example.solution}"),
+            mo.md(f"**Explanation:** {generic_example.explanation}"),
+            mo.md("---"),
+            mo.md(f"### ✨ Personalized Example (Your Context: {your_hobby.value})"),
+            mo.md(f"**Problem:** {personalized_example.problem}"),
+            mo.md(f"**Solution:** {personalized_example.solution}"),
+            mo.md(f"**Explanation:** {personalized_example.explanation}"),
+            mo.callout(mo.md("""
+            ### 💭 How Did That Feel?
+
+            - Which example was more engaging to read?
+            - Which one felt easier to process mentally?
+            - Could you visualize the personalized example more easily?
+
+            **This is the personalization effect in action!** Familiar contexts reduce extraneous cognitive load.
+            """), kind="success")
+        ])
+
+    lab2_output
+
+
+@app.cell
+def _(mo):
+    mo.md("""
+    ---
+
+    ## 🏗️ Lab 3: Data Model Designer
+
+    **Learning Question**: What makes a worked example "worked"?
+
+    ### The Experiment
+
+    Design the data structure for a worked example. What fields do you need?
+    Think about:
+    - What cognitive load principle does each field support?
+    - How does structure guide the AI's output?
+
+    **Current Model** (you can modify this in your mind):
+    ```python
+    class WorkedExample:
+        problem: str           # What they need to solve
+        solution_steps: list   # Broken into chunks (why a list?)
+        final_answer: str      # Clear conclusion
+        key_insight: str       # Schema activation
+    ```
+    """)
+    return
+
+
+@app.cell
+def _(mo):
+    """Lab 3: Interactive field selector"""
+
+    mo.md("### Which Fields Support Learning?")
+
+    field_options = {
+        "problem: str": "The problem statement",
+        "solution_steps: list[str]": "Steps as a list (chunking!)",
+        "solution: str": "Solution as one big block",
+        "final_answer: str": "Explicit conclusion",
+        "key_insight: str": "Why this approach works",
+        "code_with_comments: str": "Annotated code",
+        "common_mistakes: str": "What to avoid",
+        "connection_to_real_world: str": "Practical relevance"
+    }
+
+    field_selector = mo.ui.multiselect(
+        options=list(field_options.keys()),
+        label="Select fields for YOUR ideal worked example:",
+        value=["problem: str", "solution_steps: list[str]", "final_answer: str", "key_insight: str"]
+    )
+
+    field_selector
+    return (field_selector,)
+
+
+@app.cell
+def _(field_selector, mo):
+    """Lab 3: Display selection count"""
+    mo.md(f"**You selected {len(field_selector.value)} fields**")
+    return
+
+
+@app.cell
+def _(field_selector, mo):
+    """Lab 3: Adaptive analysis based on selections"""
+
+    analysis_output = None
+
+    if field_selector.value:
+        selected = field_selector.value
+
+        # Analyze specific choices
+        has_chunked_solution = "solution_steps: list[str]" in selected
+        has_monolithic_solution = "solution: str" in selected
+        has_key_insight = "key_insight: str" in selected
+        has_common_mistakes = "common_mistakes: str" in selected
+        has_final_answer = "final_answer: str" in selected
+        has_code_comments = "code_with_comments: str" in selected
+        has_real_world = "connection_to_real_world: str" in selected
+        has_problem = "problem: str" in selected
+
+        # Detect issues
+        contradiction = has_chunked_solution and has_monolithic_solution
+        too_many_fields = len(selected) >= 7
+        too_few_fields = len(selected) <= 2
+        no_chunking = not has_chunked_solution
+
+        # Calculate design score
+        design_score = 0
+        feedback_items = []
+
+        # Essential field
+        if has_problem:
+            design_score += 1
+        else:
+            feedback_items.append("⚠️ Missing `problem` field - students need to know what to solve!")
+
+        # Chunking (most critical for CLT)
+        if has_chunked_solution and not has_monolithic_solution:
+            design_score += 2  # Worth 2 points!
+            feedback_items.append("✅ **Excellent**: `solution_steps: list[str]` implements **chunking** (reduces intrinsic load)")
+        elif has_monolithic_solution and not has_chunked_solution:
+            feedback_items.append("❌ **Problem**: `solution: str` as one block creates **high cognitive load** for novices")
+        elif contradiction:
+            feedback_items.append("⚠️ **Contradiction**: You have BOTH chunked and monolithic solutions - choose one!")
+        else:
+            feedback_items.append("⚠️ **Missing**: No solution field at all - how will students see the steps?")
+
+        # Schema activation
+        if has_key_insight:
+            design_score += 1
+            feedback_items.append("✅ `key_insight` supports **schema activation** (connects to prior knowledge)")
+        else:
+            feedback_items.append("💡 **Consider adding**: `key_insight` for schema activation")
+
+        # Desirable difficulty
+        if has_common_mistakes:
+            design_score += 1
+            feedback_items.append("✅ `common_mistakes` creates **desirable difficulty** (learning from contrasts)")
+
+        # Closure
+        if has_final_answer:
+            design_score += 1
+            feedback_items.append("✅ `final_answer` provides **closure** (reduces uncertainty)")
+
+        # Additional good choices
+        if has_code_comments:
+            feedback_items.append("✅ `code_with_comments` uses **dual coding** (text + code)")
+
+        if has_real_world:
+            feedback_items.append("✅ `connection_to_real_world` adds **relevance** (reduces extraneous load)")
+
+        # Check for cognitive overload
+        if too_many_fields:
+            design_score -= 1
+            feedback_items.append("⚠️ **Cognitive overload risk**: 7-8 fields may overwhelm novices. Consider focusing on core elements.")
+
+        if too_few_fields and not contradiction:
+            feedback_items.append("💡 **Suggestion**: Add more fields to support learning (aim for 4-6 well-chosen fields)")
+
+        # Determine overall quality
+        max_design_score = 6
+        if design_score >= 5:
+            quality = "🌟 **Excellent pedagogical design!**"
+            kind = "success"
+        elif design_score >= 3:
+            quality = "👍 **Good design with room for improvement**"
+            kind = "info"
+        else:
+            quality = "⚠️ **Needs pedagogical revision**"
+            kind = "warn"
+
+        # Build the output
+        analysis_output = mo.vstack([
+            mo.md(f"""
+            ### Your Selected Structure
+
+            ```python
+            class WorkedExample:
+                {chr(10).join(['    ' + f for f in selected])}
+            ```
+            """),
+            mo.callout(mo.md(f"""
+            ### 📊 Pedagogical Analysis
+
+            **Score: {design_score}/{max_design_score}**
+
+            {quality}
+
+            #### Design Evaluation:
+
+            {chr(10).join(['- ' + item for item in feedback_items])}
+
+            ---
+
+            **Key Principle**: The design IS the pedagogy. Each field choice implements (or undermines) a CLT principle.
+            """), kind=kind)
+        ])
+
+    analysis_output
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md("""
+    ---
+
+    ## 🎛️ Lab 4: Parameter Playground
+
+    **Learning Question**: How do model parameters affect pedagogical quality?
+
+    ### The Experiment
+
+    GPT-5.1 has parameters like `reasoning.effort`. Try different settings and see
+    how they affect example quality.
+
+    **Note**: This lab is conceptual---showing the parameters you COULD control.
+    """)
+    return
+
+
+@app.cell
+def _(mo):
+    """Lab 4: Parameter sliders"""
+
+    mo.md("### Adjust Parameters")
+
+    reasoning_effort = mo.ui.dropdown(
+        options=["none", "low", "medium", "high"],
+        value="low",
+        label="Reasoning Effort (how much thinking?)"
+    )
+
+    verbosity = mo.ui.dropdown(
+        options=["low", "medium", "high"],
+        value="medium",
+        label="Verbosity (explanation detail)"
+    )
+
+    mo.vstack([reasoning_effort, verbosity])
+    return reasoning_effort, verbosity
+
+
+@app.cell
+def _(mo, reasoning_effort, verbosity):
+    """Lab 4: Display parameter info"""
+    mo.callout(mo.md(f"""
+    **Current Settings:**
+
+    - Reasoning: {reasoning_effort.value}
+    - Verbosity: {verbosity.value}
+
+    **For novices**: Low reasoning (fast), medium-high verbosity (detailed explanations)
+
+    **For experts**: Higher reasoning (better solutions), lower verbosity (concise)
+
+    The "best" parameters depend on your learners!
+    """), kind="info")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md("""
+    ---
+
+    ## 🔍 Lab 5: CLT Analyzer
+
+    **Learning Question**: Can you evaluate examples using CLT principles?
+
+    ### The Experiment
+
+    Read an AI-generated example and evaluate it against CLT criteria.
+    This develops your **critical lens** for educational AI.
+    """)
+    return
+
+
+@app.cell
+def _(mo):
+    """Lab 5: Generate button"""
+
+    mo.md("### Generate an Example to Analyze")
+
+    lab5_button = mo.ui.run_button(
+        label="🎲 Generate Random Example",
+        kind="neutral",
+    )
+
+    lab5_button
+    return (lab5_button,)
+
+
+@app.cell
+def _(SimpleExample, client, lab5_button, mo):
+    """Lab 5: Generate and display example to analyze"""
+
+    example_output = None
+
+    if lab5_button.value:
+        with mo.status.spinner(title="Generating example..."):
+            response = client.responses.parse(
+                model="gpt-5.1",
+                input=[{"role": "user", "content": "Create a worked example about Python dictionaries for beginners."}],
+                text_format=SimpleExample
+            )
+            analyze_example = response.output_parsed
+
+        example_output = mo.vstack([
+            mo.md("### Example to Analyze"),
+            mo.md(f"**Problem:** {analyze_example.problem}"),
+            mo.md(f"**Solution:** {analyze_example.solution}"),
+            mo.md(f"**Explanation:** {analyze_example.explanation}"),
+        ])
+
+    example_output
+
+
+@app.cell
+def _(mo):
+    """Lab 5: CLT evaluation checklist"""
+
+    reduces_extraneous = mo.ui.checkbox(
+        label="✅ Reduces extraneous cognitive load (no unnecessary complexity)"
+    )
+
+    manages_intrinsic = mo.ui.checkbox(
+        label="✅ Manages intrinsic load (breaks problem into chunks)"
+    )
+
+    optimizes_germane = mo.ui.checkbox(
+        label="✅ Optimizes germane load (helps build schemas/patterns)"
+    )
+
+    worked_not_problem = mo.ui.checkbox(
+        label="✅ Is a WORKED example (shows complete solution, not a puzzle)"
+    )
+
+    clear_steps = mo.ui.checkbox(
+        label="✅ Has clear step-by-step progression"
+    )
+
+    explains_why = mo.ui.checkbox(
+        label="✅ Explains WHY, not just WHAT"
+    )
+
+    mo.vstack([
+        reduces_extraneous,
+        manages_intrinsic,
+        optimizes_germane,
+        worked_not_problem,
+        clear_steps,
+        explains_why
+    ])
+    return (
+        clear_steps,
+        explains_why,
+        manages_intrinsic,
+        optimizes_germane,
+        reduces_extraneous,
+        worked_not_problem,
+    )
+
+
+@app.cell
+def _(
+    clear_steps,
+    explains_why,
+    manages_intrinsic,
+    mo,
+    optimizes_germane,
+    reduces_extraneous,
+    worked_not_problem,
+):
+    """Lab 5: Scoring"""
+
+    checklist_values = [
+        reduces_extraneous.value,
+        manages_intrinsic.value,
+        optimizes_germane.value,
+        worked_not_problem.value,
+        clear_steps.value,
+        explains_why.value
+    ]
+
+    score = sum(1 for v in checklist_values if v)
+
+    score_output = None
+
+    if score > 0:
+        score_output = mo.callout(f"""
+        ### Score: {score}/6
+
+        {"🌟" * score}
+
+        **Interpretation:**
+        - 5-6: Excellent pedagogical design
+        - 3-4: Good, but room for improvement
+        - 1-2: Needs significant pedagogical revision
+        - 0: Not yet evaluated
+
+        **Key Skill**: You're developing a CLT-grounded critical lens for evaluating AI tools!
+        """, kind="success" if score >= 5 else "info")
+
+    score_output
+
+
+@app.cell
+def _(mo):
+    mo.md("""
+    ---
+
+    ## 🎯 Conclusion: From Exploration to Creation
+
+    ### What You Discovered
+
+    Through these 5 labs, you explored:
+
+    1. ✅ **Prompts encode pedagogy** - Design drives outputs
+    2. ✅ **Personalization reduces load** - Context matters
+    3. ✅ **Structure shapes learning** - Data models are pedagogical choices
+    4. ✅ **Parameters affect quality** - Settings have learning implications
+    5. ✅ **Critical evaluation is a skill** - You can assess AI tools with CLT
+
+    ### What's Next?
+
+    Now that you understand the **design principles**, you're ready to:
+
+    **Option 1: Build Your Own Tool**
+    - Use the simplified code from the workshop
+    - Apply these design principles
+    - Deploy to HuggingFace Spaces
+
+    **Option 2: Use the Complete Tool**
+    - [Try the full Worked Example Weaver](https://huggingface.co/spaces/virtuelleakademie/worked-example-weaver-app)
+    - See all 5 principles integrated
+
+    **Option 3: Adapt to Your Domain**
+    - Take the template
+    - Add your concepts
+    - Customize for your learners
+
+    ### The Big Idea
+
+    AI tools for education should be **grounded in learning science**, not just technically impressive.
+
+    You now have:
+    - 🧠 The theoretical foundation (CLT)
+    - 🔬 Hands-on experience (these labs)
+    - 🛠️ The technical skills (simple OpenAI API)
+    - 🎯 A critical lens (can evaluate tools)
+
+    **Go build something that helps people learn!**
 
     ---
 
-    **Created in the BFH Workshop:** Building Personalized Worked Example Generators with AI
+    *Created by the [Virtual Academy](https://virtuelleakademie.ch/), BFH*
     """)
     return
 
