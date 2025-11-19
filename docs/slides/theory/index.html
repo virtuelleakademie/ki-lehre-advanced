@@ -97,7 +97,27 @@
     code span.va { color: #111111; } /* Variable */
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-8910c83ed40c291cdbba4a0e0b83eb6e.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -205,15 +225,81 @@
     }
   </style>
   <style>
-  div.callout-reflect.callout {
+  div.callout-pro-tip.callout {
+    border-left-color: gold;
+  }
+  div.callout-pro-tip.callout-style-default > .callout-header {
+    background-color: rgb(from gold r g b / 13%);
+  }
+  div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
+    content: '💡';
+    background-image: none;
+  }
+  div.callout-tutor-example.callout {
     border-left-color: purple;
   }
-  div.callout-reflect.callout-style-default > .callout-header {
+  div.callout-tutor-example.callout-style-default > .callout-header {
     background-color: rgb(from purple r g b / 13%);
   }
-  div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
-    content: '💭';
+  div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
+    content: '📄';
+    background-image: none;
+  }
+  div.callout-export.callout {
+    border-left-color: brown;
+  }
+  div.callout-export.callout-style-default > .callout-header {
+    background-color: rgb(from brown r g b / 13%);
+  }
+  div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
+    content: '📤';
+    background-image: none;
+  }
+  div.callout-break.callout {
+    border-left-color: yellow;
+  }
+  div.callout-break.callout-style-default > .callout-header {
+    background-color: rgb(from yellow r g b / 13%);
+  }
+  div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
+    content: '☕';
+    background-image: none;
+  }
+  div.callout-try.callout {
+    border-left-color: blue;
+  }
+  div.callout-try.callout-style-default > .callout-header {
+    background-color: rgb(from blue r g b / 13%);
+  }
+  div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
+    content: '🔄';
+    background-image: none;
+  }
+  div.callout-individual.callout {
+    border-left-color: steelblue;
+  }
+  div.callout-individual.callout-style-default > .callout-header {
+    background-color: rgb(from steelblue r g b / 13%);
+  }
+  div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
+    content: '💻';
+    background-image: none;
+  }
+  div.callout-pair.callout {
+    border-left-color: forestgreen;
+  }
+  div.callout-pair.callout-style-default > .callout-header {
+    background-color: rgb(from forestgreen r g b / 13%);
+  }
+  div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
+    content: '👥';
     background-image: none;
   }
   div.callout-caution.callout {
@@ -227,6 +313,39 @@
     content: '⚠️';
     background-image: none;
   }
+  div.callout-screens-down.callout {
+    border-left-color: orange;
+  }
+  div.callout-screens-down.callout-style-default > .callout-header {
+    background-color: rgb(from orange r g b / 13%);
+  }
+  div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
+    content: '🔽';
+    background-image: none;
+  }
+  div.callout-reflect.callout {
+    border-left-color: purple;
+  }
+  div.callout-reflect.callout-style-default > .callout-header {
+    background-color: rgb(from purple r g b / 13%);
+  }
+  div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
+    content: '💭';
+    background-image: none;
+  }
+  div.callout-timing.callout {
+    border-left-color: red;
+  }
+  div.callout-timing.callout-style-default > .callout-header {
+    background-color: rgb(from red r g b / 13%);
+  }
+  div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
+    content: '⏱️';
+    background-image: none;
+  }
   div.callout-screens-up.callout {
     border-left-color: green;
   }
@@ -236,6 +355,61 @@
   div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
   div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
     content: '🔼';
+    background-image: none;
+  }
+  div.callout-testing.callout {
+    border-left-color: green;
+  }
+  div.callout-testing.callout-style-default > .callout-header {
+    background-color: rgb(from green r g b / 13%);
+  }
+  div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
+    content: '🧪';
+    background-image: none;
+  }
+  div.callout-checkpoint.callout {
+    border-left-color: purple;
+  }
+  div.callout-checkpoint.callout-style-default > .callout-header {
+    background-color: rgb(from purple r g b / 13%);
+  }
+  div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
+    content: '🎯';
+    background-image: none;
+  }
+  div.callout-feedback.callout {
+    border-left-color: teal;
+  }
+  div.callout-feedback.callout-style-default > .callout-header {
+    background-color: rgb(from teal r g b / 13%);
+  }
+  div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
+    content: '📝';
+    background-image: none;
+  }
+  div.callout-schedule.callout {
+    border-left-color: steelblue;
+  }
+  div.callout-schedule.callout-style-default > .callout-header {
+    background-color: rgb(from steelblue r g b / 13%);
+  }
+  div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
+    content: '⏰︎';
+    background-image: none;
+  }
+  div.callout-prompt-example.callout {
+    border-left-color: steelblue;
+  }
+  div.callout-prompt-example.callout-style-default > .callout-header {
+    background-color: rgb(from steelblue r g b / 13%);
+  }
+  div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
+    content: '👩🏼‍🔧';
     background-image: none;
   }
   div.callout-prompt-template.callout {
@@ -260,83 +434,6 @@
     content: '👥';
     background-image: none;
   }
-  div.callout-individual.callout {
-    border-left-color: steelblue;
-  }
-  div.callout-individual.callout-style-default > .callout-header {
-    background-color: rgb(from steelblue r g b / 13%);
-  }
-  div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
-    content: '💻';
-    background-image: none;
-  }
-  div.callout-break.callout {
-    border-left-color: yellow;
-  }
-  div.callout-break.callout-style-default > .callout-header {
-    background-color: rgb(from yellow r g b / 13%);
-  }
-  div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
-    content: '☕';
-    background-image: none;
-  }
-  div.callout-pair.callout {
-    border-left-color: forestgreen;
-  }
-  div.callout-pair.callout-style-default > .callout-header {
-    background-color: rgb(from forestgreen r g b / 13%);
-  }
-  div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
-    content: '👥';
-    background-image: none;
-  }
-  div.callout-screens-down.callout {
-    border-left-color: orange;
-  }
-  div.callout-screens-down.callout-style-default > .callout-header {
-    background-color: rgb(from orange r g b / 13%);
-  }
-  div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
-    content: '🔽';
-    background-image: none;
-  }
-  div.callout-testing.callout {
-    border-left-color: green;
-  }
-  div.callout-testing.callout-style-default > .callout-header {
-    background-color: rgb(from green r g b / 13%);
-  }
-  div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
-    content: '🧪';
-    background-image: none;
-  }
-  div.callout-tutor-example.callout {
-    border-left-color: purple;
-  }
-  div.callout-tutor-example.callout-style-default > .callout-header {
-    background-color: rgb(from purple r g b / 13%);
-  }
-  div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
-    content: '📄';
-    background-image: none;
-  }
-  div.callout-try.callout {
-    border-left-color: blue;
-  }
-  div.callout-try.callout-style-default > .callout-header {
-    background-color: rgb(from blue r g b / 13%);
-  }
-  div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
-    content: '🔄';
-    background-image: none;
-  }
   div.callout-setup.callout {
     border-left-color: gray;
   }
@@ -346,83 +443,6 @@
   div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
   div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
     content: '⚙️';
-    background-image: none;
-  }
-  div.callout-pro-tip.callout {
-    border-left-color: gold;
-  }
-  div.callout-pro-tip.callout-style-default > .callout-header {
-    background-color: rgb(from gold r g b / 13%);
-  }
-  div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
-    content: '💡';
-    background-image: none;
-  }
-  div.callout-checkpoint.callout {
-    border-left-color: purple;
-  }
-  div.callout-checkpoint.callout-style-default > .callout-header {
-    background-color: rgb(from purple r g b / 13%);
-  }
-  div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
-    content: '🎯';
-    background-image: none;
-  }
-  div.callout-schedule.callout {
-    border-left-color: steelblue;
-  }
-  div.callout-schedule.callout-style-default > .callout-header {
-    background-color: rgb(from steelblue r g b / 13%);
-  }
-  div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
-    content: '⏰︎';
-    background-image: none;
-  }
-  div.callout-feedback.callout {
-    border-left-color: teal;
-  }
-  div.callout-feedback.callout-style-default > .callout-header {
-    background-color: rgb(from teal r g b / 13%);
-  }
-  div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
-    content: '📝';
-    background-image: none;
-  }
-  div.callout-timing.callout {
-    border-left-color: red;
-  }
-  div.callout-timing.callout-style-default > .callout-header {
-    background-color: rgb(from red r g b / 13%);
-  }
-  div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
-    content: '⏱️';
-    background-image: none;
-  }
-  div.callout-export.callout {
-    border-left-color: brown;
-  }
-  div.callout-export.callout-style-default > .callout-header {
-    background-color: rgb(from brown r g b / 13%);
-  }
-  div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
-    content: '📤';
-    background-image: none;
-  }
-  div.callout-prompt-example.callout {
-    border-left-color: steelblue;
-  }
-  div.callout-prompt-example.callout-style-default > .callout-header {
-    background-color: rgb(from steelblue r g b / 13%);
-  }
-  div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
-    content: '👩🏼‍🔧';
     background-image: none;
   }
   </style>
@@ -524,7 +544,7 @@ Andrew Ellis
 <ul>
 <li><strong>Effect size: 0.52</strong> across multiple studies (Crissman, 2006)</li>
 <li>Particularly strong for novices (Cooper &amp; Sweller, 1987)</li>
-<li>Diminishes as expertise grows (Kalyuga et al., 2003)</li>
+<li>Diminishes as expertise grows <span class="citation" data-cites="kalyugaExpertiseReversalEffect2009">(<a href="#/next-steps" role="doc-biblioref" onclick="">Kalyuga 2009</a>)</span></li>
 <li>Replicated across domains: mathematics, programming, science</li>
 </ul>
 </div>
@@ -840,8 +860,8 @@ Andrew Ellis
 <h2>Key Papers</h2>
 <p><strong>Worked Example Effect:</strong></p>
 <ul>
-<li><strong>Sweller, J. (1988)</strong>. Cognitive load during problem solving: Effects on learning. <em>Cognitive Science</em>, 12(2), 257-285.</li>
-<li><strong>Cooper, G., &amp; Sweller, J. (1987)</strong>. Effects of schema acquisition and rule automation on mathematical problem-solving transfer. <em>Journal of Educational Psychology</em>, 79(4), 347-362.</li>
+<li><span class="citation" data-cites="swellerCognitiveLoadProblem1988">Sweller (<a href="#/next-steps" role="doc-biblioref" onclick="">1988</a>)</span></li>
+<li>Cooper, G., &amp; Sweller, J. (1987). Effects of schema acquisition and rule automation on mathematical problem-solving transfer. <em>Journal of Educational Psychology</em>, 79(4), 347-362.</li>
 </ul>
 <p><strong>Personalisation Effect:</strong></p>
 <ul>
@@ -916,7 +936,7 @@ Andrew Ellis
 <li>What concerns do you have?</li>
 </ul>
 </section>
-<section id="next-steps" class="slide level2">
+<section id="next-steps" class="slide level2 smaller scrollable">
 <h2>Next Steps</h2>
 <p><strong>Now we’ll see it in action:</strong></p>
 <div class="callout callout-tip no-icon callout-titled callout-style-simple">
@@ -938,6 +958,14 @@ Andrew Ellis
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-kalyugaExpertiseReversalEffect2009" class="csl-entry" role="listitem">
+Kalyuga, Slava. 2009. <span>“The <span>Expertise Reversal Effect</span>.”</span> In <em>Managing <span>Cognitive Load</span> in <span>Adaptive Multimedia Learning</span></em>, 58–80. IGI Global Scientific Publishing. <a href="https://doi.org/10.4018/978-1-60566-048-6.ch003">https://doi.org/10.4018/978-1-60566-048-6.ch003</a>.
+</div>
+<div id="ref-swellerCognitiveLoadProblem1988" class="csl-entry" role="listitem">
+Sweller, John. 1988. <span>“Cognitive Load During Problem Solving: <span>Effects</span> on Learning.”</span> <em>Cognitive Science</em> 12 (2): 257–85. <a href="https://doi.org/10.1016/0364-0213(88)90023-7">https://doi.org/10.1016/0364-0213(88)90023-7</a>.
+</div>
+</div>
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

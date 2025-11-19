@@ -42,13 +42,13 @@ By the end of this workshop, you will:
 
 ### Pedagogical Foundation
 
-This workshop is grounded in **Cognitive Load Theory** (Sweller, 1988), specifically:
+This workshop is grounded in **Cognitive Load Theory** [@swellerCognitiveLoadProblem1988], specifically:
 
 **The Worked Example Effect:**
 
 > "A 'worked example' is a problem that has already been solved for the learner, with every step fully explained and clearly shown. The 'worked example effect' is the widely replicated finding that novice learners who are given worked examples to study perform better on subsequent tests than learners who are required to solve the equivalent problems themselves."
 >
-> — NSW CESE (2017, p. 7)
+> @centreforeducationstatisticsandevaluationCognitiveLoadTheory2023
 
 **Why It Works:**
 
@@ -70,12 +70,12 @@ This workshop is grounded in **Cognitive Load Theory** (Sweller, 1988), specific
 
 | Time | Duration | Section | Activity |
 |------|----------|---------|----------|
-| 0:00-0:10 | 10 min | [**Opening**](opening/index.qmd) | Think-pair-share: Learning from examples |
-| 0:10-0:40 | 30 min | [**Theory**](theory/index.qmd) | Cognitive Load Theory principles |
-| 0:40-1:00 | 20 min | [**Demo**](demo/index.qmd) | See the complete application (all 3 domains) |
-| 1:00-2:30 | 90 min | [**Build**](build/index.qmd) | Hands-on: Modify starter template, add concepts |
-| 2:30-3:00 | 30 min | [**Extend**](extend/index.qmd) | Group activity: Design your extensions |
-| 3:00-3:10 | 10 min | [**Resources**](resources/index.qmd) | Links, documentation, next steps |
+| 9:00-0:10 | 10 min | [**Opening**](opening/index.qmd) | Think-pair-share: Learning from examples |
+| 9:10-9:40 | 30 min | [**Theory**](theory/index.qmd) | Cognitive Load Theory principles |
+| 9:40-10:00 | 20 min | [**Demo**](demo/index.qmd) | See the complete application (all 3 domains) |
+| 10:00-11:30 | 90 min | [**Build**](build/index.qmd) | Hands-on: Modify starter template, add concepts |
+| 11:30-12:00 | 30 min | [**Extend**](extend/index.qmd) | Group activity: Design your extensions |
+| 12:00-12:10 | 10 min | [**Resources**](resources/index.qmd) | Links, documentation, next steps |
 :::
 
 ## Prerequisites
@@ -95,7 +95,7 @@ This workshop is grounded in **Cognitive Load Theory** (Sweller, 1988), specific
 
 What you need:
 
-1. **Laptop with modern browser** (Chrome, Firefox, Safari, Edge)
+1. **Laptop with modern browser**
 2. **Internet connection** (workshop uses HuggingFace Spaces)
 3. **Optional:** Notebook for reflecting on how you'd apply this to your teaching
 
@@ -104,13 +104,6 @@ What you need:
 Everything runs in your browser via an interactive web application.
 :::
 
-### Target Audience
-
-- Educators interested in AI tools
-- Instructional designers
-- Learning technologists
-- Educational researchers
-- Anyone creating educational technology
 
 ## Workshop Structure: A Worked Example Approach
 
@@ -125,7 +118,7 @@ Give you requirements → You struggle to build → Instructor helps when stuck
 ```
 *High cognitive load, potential frustration, pattern harder to see*
 
-**Our approach** (worked example):
+**This approach** (worked example):
 ```
 Show complete solution → Study each component → Explain design choices → Apply to your domain
 ```
@@ -138,26 +131,21 @@ Show complete solution → Study each component → Explain design choices → A
 
 This workshop follows the worked example pattern:
 
-1. **ACTIVATE** (Opening) - Prior knowledge activation
-2. **PRESENT** (Theory + Demo) - See the complete solution
-3. **STUDY** (Build) - Examine and modify the code
-4. **UNDERSTAND** (Extend) - Connect to pedagogical applications
-5. **TRANSFER** (Resources) - Apply to your own teaching
+1. **ACTIVATE** (Opening): Prior knowledge activation
+2. **PRESENT** (Theory + Demo): See the complete solution
+3. **STUDY** (Build): Examine and modify the code
+4. **UNDERSTAND** (Extend): Connect to pedagogical applications
+5. **TRANSFER** (Resources): Apply to your own teaching
 
 ### Fading Scaffolding
 
 Notice how support gradually decreases:
 
 - **Theory/Demo**: Full explanation, complete working application shown
-- **Build**: Scaffolded practice - modify template, add concepts
-- **Extend**: Independent design - plan your own extensions
+- **Build**: Scaffolded practice---modify template, add concepts
+- **Extend**: Independent design---plan your own extensions
 - **After workshop**: Transfer to new domains on your own
 
-**Key difference from traditional workshops:**
-
-- We DON'T ask you to build from scratch (too much cognitive load)
-- We DO show you a complete solution, then you modify it (worked example effect)
-- This reduces load and helps you see the pattern more clearly
 
 ::: {.callout-tip}
 ## Meta-Learning Moment
@@ -168,7 +156,7 @@ Notice how support gradually decreases:
 - When do you want to start experimenting on your own?
 - How does seeing the "big picture" first affect your understanding?
 
-These insights will inform how YOU design worked examples for your students.
+These insights will inform how you design worked examples for your students.
 :::
 
 ## Technical Stack
@@ -183,7 +171,7 @@ These insights will inform how YOU design worked examples for your students.
 
 ### Two Applications in This Workshop
 
-We use **two different applications** with distinct purposes:
+This workshop uses **two different applications** with distinct purposes:
 
 **1. Interactive Exploration App (Marimo)**
 
@@ -195,71 +183,8 @@ We use **two different applications** with distinct purposes:
 **2. Production Tool (Gradio)**
 
 - Complete deployable worked example generator
-- What you'll build in the workshop
-- Deploy to HuggingFace Spaces
-- Share with students/colleagues
+- Deployed to HuggingFace Spaces
 
-### Why This Approach?
-
-**Direct OpenAI API + Pydantic:**
-
-- Simple, transparent code
-- Focus on pedagogical design, not framework complexity
-- Type-safe structured outputs
-- Industry-standard pattern
-
-**Gradio for Production:**
-
-- Clean web interface
-- Easy deployment
-- Accessible to non-programmers
-- Production-ready out of the box
-
-**Marimo for Learning:**
-
-- Interactive exploration
-- Reactive updates (no stale state)
-- Perfect for hands-on experimentation
-- Embeddable in documentation
-
-## Learning Domains
-
-### The Complete Demo (What's Possible)
-
-The DEMO application supports three domains with 16 total concepts:
-
-**1. Programming (Python):** 5 concepts
-
-- For loops, List comprehensions, Dictionary methods, Functions, String formatting
-
-**2. Health Sciences (Statistics):** 6 concepts
-
-- Mean & SD, Correlation, Linear Regression, T-tests, Confidence Intervals, Effect Size
-
-**3. Agronomy (Agricultural Science):** 5 concepts
-
-- Yield prediction, NPK optimization, Growing degree days, Water use efficiency, Cost-benefit
-
-### Your Starter Template (What You'll Build)
-
-You'll work with a **simplified version**:
-
-- **ONE domain** (Programming) with 3 concepts
-- For Loops, Functions with Parameters, String Formatting
-- Complete working code
-- Ready to extend with more concepts
-
-**In the Build section**, you'll:
-
-- Add 1-2 new concepts (e.g., List Comprehensions, Dictionary Methods)
-- Customize prompts
-- Test with your own profile
-
-**After the workshop**, you can:
-
-- Add Health Sciences or Agronomy domains
-- Expand to match the demo's complexity
-- Create your own domain entirely
 
 ## Connection to Learning Science
 
@@ -268,7 +193,7 @@ This workshop demonstrates several evidence-based learning principles:
 ::: {.callout-note icon=false}
 ## Make It Stick Connections
 
-This tool addresses multiple strategies from *Make It Stick* (Brown, Roediger, & McDaniel, 2014):
+This tool addresses multiple strategies from *Make It Stick* [@brownMakeItStick2014]:
 
 1. **Worked Examples:** Reduce cognitive load for novices
 2. **Variation:** Practice in different personal contexts
@@ -281,36 +206,6 @@ See the [ki-lehre-intermediate workshop](https://virtuelleakademie.github.io/ki-
 ## Get Started
 
 Ready to begin? Start with the [opening activity](opening/index.qmd)!
-
-::: {.callout-checkpoint icon=false}
-## Workshop Outcomes
-
-By the end of this workshop, you'll have:
-
-**Understanding** of Cognitive Load Theory principles (worked example + personalisation effects)
-
-**Experience** with OpenAI structured outputs using Pydantic and Marimo
-
-**Modified code:** Your own version with added concepts
-
-**Design plan:** Extensions for your teaching context
-
-**Recognition of the pattern:** What's involved in building educational AI tools
-
-**You will NOT have:** A deployed production application, nor will you be a proficient Python developer
-
-**You WILL have:** Conceptual understanding of how these tools work and what's possible
-:::
-
-## Research References
-
-- Cooper, G., & Sweller, J. (1987). Effects of schema acquisition and rule automation on mathematical problem-solving transfer. *Journal of Educational Psychology*, 79(4), 347-362.
-
-- NSW Centre for Education Statistics and Evaluation (2017). *Cognitive load theory: Research that teachers really need to understand*. [Link](https://education.nsw.gov.au/about-us/education-data-and-research/cese/publications/literature-reviews/cognitive-load-theory)
-
-- Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. *Cognitive Science*, 12(2), 257-285.
-
-- Brown, P. C., Roediger III, H. L., & McDaniel, M. A. (2014). *Make it stick: The science of successful learning*. Harvard University Press.
 
 
 
