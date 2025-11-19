@@ -16,12 +16,12 @@ app = marimo.App(width="medium")
 @app.cell
 def imports():
     import marimo as mo
+    from openai import OpenAI
     from pydantic import BaseModel, Field
-    from pydantic_ai import Agent
     from typing import Literal
     import os
 
-    return mo, BaseModel, Field, Agent, Literal, os
+    return mo, OpenAI, BaseModel, Field, Literal, os
 
 
 @app.cell
@@ -64,7 +64,14 @@ def welcome_section(mo):
 
 @app.cell
 def define_models(BaseModel, Field, Literal):
-    """Define data models for learner profiles and worked examples"""
+    """
+    PEDAGOGICAL DESIGN: Define data structures
+
+    These Pydantic models embody our learning principles:
+    - Clear structure reduces cognitive load
+    - Explicit fields make the design transparent
+    - Type hints ensure reliability
+    """
 
     class LearnerProfile(BaseModel):
         """Collect learner information for personalization"""
@@ -95,7 +102,18 @@ def define_models(BaseModel, Field, Literal):
 
 
     class PersonalizedWorkedExample(BaseModel):
-        """A complete worked example tailored to the learner"""
+        """
+        A complete worked example tailored to the learner
+
+        DESIGN RATIONALE (based on CLT):
+        - title: Engaging hook using learner's context
+        - problem_statement: Clear framing reduces ambiguity
+        - given_data: Familiar context reduces extraneous load
+        - step_by_step_solution: List structure supports chunking
+        - final_answer: Explicit conclusion aids schema formation
+        - connection_to_goal: Motivation through relevance
+        - practice_suggestion: Spaced practice opportunity
+        """
 
         title: str = Field(
             description="Engaging title that incorporates learner's interest"
@@ -241,56 +259,87 @@ def define_concepts():
 
 
 @app.cell
-def create_agent(Agent, PersonalizedWorkedExample):
-    """Create the AI agent for generating personalized examples"""
+def setup_openai_client(OpenAI, os):
+    """
+    Initialize OpenAI client
 
-    example_generator = Agent(
-        'openai:gpt-5.1',
-        result_type=PersonalizedWorkedExample,
-        system_prompt="""You are an expert educator who creates highly personalized
-        worked examples that connect abstract concepts to learners' lived experiences.
+    Simple and transparent - just create the client with your API key
+    """
+    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-        CRITICAL INSTRUCTIONS:
-        1. Weave the learner's interests, hobbies, and goals naturally into the example
-        2. Use their name throughout to increase personal connection
-        3. Make data and scenarios feel authentic to their context
-        4. Keep explanations clear but connect to what they care about
-        5. The example should feel like it was written specifically for this person
-        6. Match complexity to their level (beginner/intermediate/advanced)
-        7. Make the connection to their goal explicit and motivating
-        8. Use concrete numbers and realistic data
-        9. For programming examples, include actual runnable code with comments
-        10. For quantitative examples, show all calculations step by step
+    return client,
 
-        STRUCTURE YOUR EXAMPLES:
-        - Start with an engaging title that mentions their interest
-        - Frame the problem in their context (use their name and interests)
-        - Present data that feels real to their situation
-        - Walk through steps clearly with explanations
-        - For code: include comments explaining each part
-        - For math: show each calculation explicitly
-        - Connect the final answer to their goal
-        - Suggest a related practice problem in their context
 
-        AVOID:
-        - Generic examples with personal details superficially added
-        - Forced or artificial connections
-        - Too much technical jargon for beginners
-        - Abstract variable names (use meaningful names from their context)
-        - Skipping steps in solutions
+@app.cell
+def define_system_prompt():
+    """
+    PEDAGOGICAL DESIGN: Craft the system prompt
 
-        Remember: This is a WORKED EXAMPLE - a complete solution for the learner
-        to study, not a problem for them to solve.
-        """
-    )
+    This prompt embodies our CLT principles:
+    - Personalization reduces extraneous load
+    - Worked examples reduce germane load
+    - Clear structure supports schema formation
+    """
 
-    async def generate_personalized_example(
+    SYSTEM_PROMPT = """You are an expert educator who creates highly personalized
+    worked examples that connect abstract concepts to learners' lived experiences.
+
+    CRITICAL INSTRUCTIONS:
+    1. Weave the learner's interests, hobbies, and goals naturally into the example
+    2. Use their name throughout to increase personal connection
+    3. Make data and scenarios feel authentic to their context
+    4. Keep explanations clear but connect to what they care about
+    5. Match complexity to their level (beginner/intermediate/advanced)
+    6. Make the connection to their goal explicit and motivating
+    7. Use concrete numbers and realistic data
+    8. For programming examples, include actual runnable code with comments
+    9. For quantitative examples, show all calculations step by step
+
+    STRUCTURE YOUR EXAMPLES:
+    - Start with an engaging title that mentions their interest
+    - Frame the problem in their context (use their name and interests)
+    - Present data that feels real to their situation
+    - Walk through steps clearly with explanations
+    - For code: include comments explaining each part
+    - For math: show each calculation explicitly
+    - Connect the final answer to their goal
+    - Suggest a related practice problem in their context
+
+    AVOID:
+    - Generic examples with personal details superficially added
+    - Forced or artificial connections
+    - Too much technical jargon for beginners
+    - Abstract variable names (use meaningful names from their context)
+    - Skipping steps in solutions
+
+    Remember: This is a WORKED EXAMPLE - a complete solution for the learner
+    to study, not a problem for them to solve.
+    """
+
+    return SYSTEM_PROMPT,
+
+
+@app.cell
+def create_generator_function(client, SYSTEM_PROMPT, PersonalizedWorkedExample):
+    """
+    CORE FUNCTION: Generate personalized examples
+
+    Notice how simple this is:
+    1. Build the user prompt with learner context
+    2. Call OpenAI's responses API with our Pydantic model
+    3. Get back a validated PersonalizedWorkedExample
+
+    The new responses.parse() API is cleaner than the old chat completions!
+    """
+
+    def generate_personalized_example(
         profile: 'LearnerProfile',
         concept: dict
     ) -> PersonalizedWorkedExample:
         """Generate a personalized worked example"""
 
-        prompt = f"""
+        # Build the user prompt with all the context
+        user_prompt = f"""
         Create a worked example for:
 
         LEARNER PROFILE:
@@ -319,10 +368,20 @@ def create_agent(Agent, PersonalizedWorkedExample):
         This is a WORKED EXAMPLE - provide the complete solution for them to study.
         """
 
-        result = await example_generator.run(prompt)
-        return result.data
+        # Call OpenAI with structured outputs using the new responses API
+        response = client.responses.parse(
+            model="gpt-5.1",
+            input=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": user_prompt}
+            ],
+            text_format=PersonalizedWorkedExample
+        )
 
-    return example_generator, generate_personalized_example
+        # Extract the parsed example
+        return response.output_parsed
+
+    return generate_personalized_example,
 
 
 @app.cell
@@ -517,7 +576,7 @@ def generate_button_widget(mo, profile_complete, concept_selector):
 
 
 @app.cell
-async def generate_and_display(mo, generate_button, learner_profile, concept_selector, generate_personalized_example):
+def generate_and_display(mo, generate_button, learner_profile, concept_selector, generate_personalized_example):
     """Generate and display the personalized example"""
 
     if generate_button and generate_button.value and learner_profile and concept_selector.value:
@@ -525,7 +584,7 @@ async def generate_and_display(mo, generate_button, learner_profile, concept_sel
         # Show loading state
         with mo.status.spinner(title="Creating your personalized example... This may take 30-60 seconds."):
             try:
-                example = await generate_personalized_example(
+                example = generate_personalized_example(
                     profile=learner_profile,
                     concept=concept_selector.value
                 )
@@ -601,8 +660,7 @@ def footer(mo):
     ### Built With
 
     - [Marimo](https://marimo.io) - Reactive Python notebooks
-    - [PydanticAI](https://ai.pydantic.dev) - Type-safe AI agents
-    - [OpenAI GPT-5.1](https://openai.com) - Language model
+    - [OpenAI GPT-5.1](https://platform.openai.com/docs/guides/latest-model) - Latest language model with structured outputs
     - [Pydantic](https://pydantic.dev) - Data validation
 
     ### 🔧 Extend This Tool
