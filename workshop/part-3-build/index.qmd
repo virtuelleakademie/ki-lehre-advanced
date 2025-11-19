@@ -161,7 +161,7 @@ Questions to guide them:
 - Does it have clear applications in the real world?
 :::
 
-## Activity 2: Build the AI Agent
+## Activity 2: Design the System Prompt
 
 ::: {.callout-note icon=false}
 ## 🧠 Critical Discussion (20 minutes)
@@ -210,50 +210,50 @@ Collect responses and synthesize:
 The system prompt is **critical** for quality. It's our pedagogical guidance to the AI.
 
 ```python
-from pydantic_ai import Agent
+from openai import OpenAI
 
-example_generator = Agent(
-    'openai:gpt-5.1',
-    result_type=PersonalizedWorkedExample,
-    system_prompt="""You are an expert educator who creates highly personalized
-    worked examples that connect abstract concepts to learners' lived experiences.
+# Initialize the client
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-    CRITICAL INSTRUCTIONS:
+# Define our pedagogical system prompt
+SYSTEM_PROMPT = """You are an expert educator who creates highly personalized
+worked examples that connect abstract concepts to learners' lived experiences.
 
-    1. Weave the learner's interests, hobbies, and goals naturally into the example
-    2. Use their name throughout to increase personal connection
-    3. Make data and scenarios feel authentic to their context
-    4. Keep explanations clear but connect to what they care about
-    5. The example should feel like it was written specifically for this person
-    6. Match complexity to their level (beginner/intermediate/advanced)
-    7. Make the connection to their goal explicit and motivating
-    8. Use concrete numbers and realistic data
-    9. For programming examples, include actual runnable code with comments
-    10. For quantitative examples, show all calculations step by step
+CRITICAL INSTRUCTIONS:
 
-    STRUCTURE YOUR EXAMPLES:
+1. Weave the learner's interests, hobbies, and goals naturally into the example
+2. Use their name throughout to increase personal connection
+3. Make data and scenarios feel authentic to their context
+4. Keep explanations clear but connect to what they care about
+5. The example should feel like it was written specifically for this person
+6. Match complexity to their level (beginner/intermediate/advanced)
+7. Make the connection to their goal explicit and motivating
+8. Use concrete numbers and realistic data
+9. For programming examples, include actual runnable code with comments
+10. For quantitative examples, show all calculations step by step
 
-    - Start with an engaging title that mentions their interest
-    - Frame the problem in their context (use their name and interests)
-    - Present data that feels real to their situation
-    - Walk through steps clearly with explanations
-    - For code: include comments explaining each part
-    - For math: show each calculation explicitly
-    - Connect the final answer to their goal
-    - Suggest a related practice problem in their context
+STRUCTURE YOUR EXAMPLES:
 
-    AVOID:
+- Start with an engaging title that mentions their interest
+- Frame the problem in their context (use their name and interests)
+- Present data that feels real to their situation
+- Walk through steps clearly with explanations
+- For code: include comments explaining each part
+- For math: show each calculation explicitly
+- Connect the final answer to their goal
+- Suggest a related practice problem in their context
 
-    - Generic examples with personal details superficially added
-    - Forced or artificial connections
-    - Too much technical jargon for beginners
-    - Abstract variable names (use meaningful names from their context)
-    - Skipping steps in solutions
+AVOID:
 
-    Remember: This is a WORKED EXAMPLE - a complete solution for the learner
-    to study, not a problem for them to solve.
-    """
-)
+- Generic examples with personal details superficially added
+- Forced or artificial connections
+- Too much technical jargon for beginners
+- Abstract variable names (use meaningful names from their context)
+- Skipping steps in solutions
+
+Remember: This is a WORKED EXAMPLE - a complete solution for the learner
+to study, not a problem for them to solve.
+"""
 ```
 
 ### Why Each Instruction Matters
@@ -286,13 +286,14 @@ Now we connect everything together.
 This function takes a learner profile and a concept, then asks the AI to generate a personalized example.
 
 ```python
-async def generate_personalized_example(
+def generate_personalized_example(
     profile: LearnerProfile,
     concept: dict
 ) -> PersonalizedWorkedExample:
-    """Generate a personalized worked example"""
+    """Generate a personalized worked example using GPT-5.1"""
 
-    prompt = f"""
+    # Build the user prompt with learner and concept information
+    user_prompt = f"""
     Create a worked example for:
 
     LEARNER PROFILE:
@@ -321,8 +322,18 @@ async def generate_personalized_example(
     This is a WORKED EXAMPLE - provide the complete solution for them to study.
     """
 
-    result = await example_generator.run(prompt)
-    return result.data
+    # Call GPT-5.1 with structured output
+    response = client.responses.parse(
+        model="gpt-5.1",
+        input=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": user_prompt}
+        ],
+        text_format=PersonalizedWorkedExample
+    )
+
+    # Return the parsed, validated example
+    return response.output_parsed
 ```
 
 ### Why This Works
@@ -331,8 +342,9 @@ The function:
 
 1. **Combines** profile information with concept description
 2. **Provides context** to the AI about the learner
-3. **Specifies output format** (handled by Pydantic)
-4. **Returns structured data** ready to use
+3. **Uses structured outputs** - GPT-5.1 guarantees the response matches PersonalizedWorkedExample
+4. **Returns validated data** ready to use in your application
+5. **Simple and transparent** - No complex framework needed
 
 ## Activity 4: Test the Generator
 
@@ -365,7 +377,7 @@ print(f"Generating example for {sarah.name}...")
 print(f"Concept: {concept['name']}")
 print()
 
-example = await generate_personalized_example(sarah, concept)
+example = generate_personalized_example(sarah, concept)
 ```
 
 ### Examining the Output
@@ -429,11 +441,11 @@ cooking steps...
 
 At this point, you have:
 
-✅ A **concept library** with 15 concepts across 3 domains
+✅ A **concept library** with 16 concepts across 3 domains
 
-✅ An **AI agent** configured with pedagogical instructions
+✅ A **system prompt** encoding pedagogical principles
 
-✅ A **generation function** that creates personalized examples
+✅ A **generation function** that creates personalized examples using GPT-5.1
 
 ✅ **Tested output** demonstrating quality
 
@@ -448,9 +460,10 @@ At this point, you have:
 Everyone should have:
 
 1. CONCEPTS dictionary with all domains
-2. PydanticAI agent created with system prompt
-3. generation function defined
-4. Successfully generated at least one example
+2. SYSTEM_PROMPT with pedagogical instructions
+3. OpenAI client initialized
+4. generation_personalized_example function defined
+5. Successfully generated at least one example
 
 **Having issues?** Raise your hand now!
 :::

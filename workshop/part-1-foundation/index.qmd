@@ -8,9 +8,8 @@ subtitle: "See the Complete Solution, Then Understand Why It Works"
 
 - **PRESENT Phase**: See what we're building
 - Demo the Complete Application: 5 minutes
-- Understand the Theory (CLT): 10 minutes
-- Environment Setup: 10 minutes
-- PydanticAI Quick Demo: 5 minutes
+- Understand the Theory (CLT): 15 minutes
+- Interactive Lab 1: Prompt Design: 10 minutes
 :::
 
 ::: {.callout-important}
@@ -189,143 +188,92 @@ This will help you understand your performance variability.
 - Maintain pedagogical quality through structured outputs
 - Each learner gets examples in their context
 
-## Environment Setup
+## Interactive Lab 1: Prompt Design
 
-::: {.callout-important}
-## 🛠️ Installation (15 minutes)
+::: {.callout-activity-screens-up icon=false}
+## 💻 Hands-On Exploration (10 minutes)
 
-We'll work together to ensure everyone has the necessary tools installed.
+Try the interactive lab below to see how prompt design affects output quality.
 
-### Step 1: Verify Python Version
+**What you'll do:**
 
-```bash
-python --version
-# Should show Python 3.10 or higher
-```
+1. Compare a basic prompt vs. a CLT-grounded prompt
+2. See the difference in output quality
+3. Understand why explicit pedagogical instructions matter
 
-If you need to install Python: [python.org/downloads](https://python.org/downloads)
-
-### Step 2: Install Packages
-
-```bash
-pip install marimo pydantic-ai openai
-```
-
-**What we're installing:**
-
-- **marimo**: Reactive Python notebooks with UI
-- **pydantic-ai**: Type-safe AI agent framework
-- **openai**: OpenAI API client
-
-### Step 3: Set API Key
-
-**macOS/Linux:**
-```bash
-export OPENAI_API_KEY="sk-your-key-here"
-```
-
-**Windows (Command Prompt):**
-```cmd
-set OPENAI_API_KEY=sk-your-key-here
-```
-
-**Windows (PowerShell):**
-```powershell
-$env:OPENAI_API_KEY="sk-your-key-here"
-```
-
-### Step 4: Test Installation
-
-```bash
-marimo tutorial intro
-```
-
-If a browser window opens with the marimo tutorial, you're ready! ✅
+**Scroll down to the embedded interactive lab ⬇️**
 :::
+
+<iframe src="https://huggingface.co/spaces/YOUR-USERNAME/worked-example-weaver" width="100%" height="600px" frameborder="0"></iframe>
 
 ::: {.callout-tip}
-## 💡 Troubleshooting
+## 💡 What to Notice
 
-**If marimo tutorial doesn't work:**
+**Basic prompt** produces:
 
-- Check Python version is 3.10+
-- Try `python -m marimo tutorial intro`
-- Ensure marimo is in your PATH
+- Generic examples
+- Inconsistent structure
+- May skip steps
+- No connection to learner goals
 
-**If API key issues:**
+**CLT-grounded prompt** produces:
 
-- Verify no extra spaces in the key
-- Check you copied the entire key (starts with `sk-`)
-- Try setting it in your script instead: `os.environ["OPENAI_API_KEY"] = "your-key"`
-:::
+- Structured, predictable format
+- All steps shown explicitly
+- Clear connections to context
+- Pedagogically sound examples
 
-## PydanticAI Quick Demo
-
-::: {.callout-note icon=false}
-## 💻 Live Demonstration (5 minutes)
-
-Instructor demonstrates this code to show structured outputs.
+**Key insight:** The prompt IS the pedagogy. The quality of your educational AI tool depends on how well you encode learning science principles into your prompts.
 :::
 
 ### The Power of Structured Outputs
 
-Traditional LLM usage returns unstructured text. PydanticAI gives us **type-safe, structured data**.
+What you just saw uses **OpenAI's structured outputs** with Pydantic models.
 
-**Example:**
+**How it works:**
 
 ```python
 from pydantic import BaseModel
-from pydantic_ai import Agent
+from openai import OpenAI
 
 # Define the structure we want
-class Greeting(BaseModel):
-    message: str
-    enthusiasm_level: int  # 1-10
-    language: str
+class PersonalizedWorkedExample(BaseModel):
+    title: str
+    problem_statement: str
+    step_by_step_solution: list[str]
+    final_answer: str
+    connection_to_goal: str
 
-# Create an agent that returns this structure
-agent = Agent('openai:gpt-4o', result_type=Greeting)
+# Use GPT-5.1 with structured outputs
+client = OpenAI()
+response = client.responses.parse(
+    model="gpt-5.1",
+    input=[
+        {"role": "system", "content": "You are an expert educator..."},
+        {"role": "user", "content": "Create an example for..."}
+    ],
+    text_format=PersonalizedWorkedExample
+)
 
-# Run it
-result = agent.run_sync("Say hello enthusiastically in Spanish!")
-
-# We get structured data, not just text
-print(f"Message: {result.data.message}")
-print(f"Enthusiasm: {result.data.enthusiasm_level}")
-print(f"Language: {result.data.language}")
+example = response.output_parsed  # Guaranteed to match the structure!
 ```
 
-**Output:**
-```
-Message: ¡Hola! ¡Qué alegría verte!
-Enthusiasm: 9
-Language: Spanish
-```
+**Why This Matters:**
 
-### Why This Matters
-
-**Without structured outputs:**
-
-- Get back raw text
-- Need to parse/validate manually
-- Prone to errors
-- Hard to use programmatically
-
-**With Pydantic models:**
-
-- Guaranteed data structure
-- Type safety
-- Automatic validation
-- Easy to use in applications
+- ✅ Guaranteed data structure
+- ✅ Type safety with Pydantic
+- ✅ Automatic validation
+- ✅ Consistent output format
+- ✅ Easy to use programmatically
 
 ### For Our Workshop
 
-Today we'll define two main structures:
+We'll define two main structures:
 
 1. **LearnerProfile** - Captures student information
 2. **PersonalizedWorkedExample** - Defines what a complete example looks like
 
-The AI will fill these structures, guaranteeing consistent, usable output.
+GPT-5.1 will fill these structures, guaranteeing consistent, usable output.
 
 ## Key Takeaways
 
@@ -335,7 +283,8 @@ The AI will fill these structures, guaranteeing consistent, usable output.
 1. **Worked examples** reduce cognitive load and improve learning for novices (effect size 0.52)
 2. **Personalization** reduces extraneous load by using familiar contexts
 3. **AI** can scale personalization that would be impossible manually
-4. **PydanticAI** gives us type-safe, structured outputs for reliable applications
+4. **Structured outputs** with Pydantic ensure consistent, reliable educational content
+5. **Prompt design** is where pedagogical principles get encoded
 
 :::
 
@@ -346,7 +295,8 @@ The AI will fill these structures, guaranteeing consistent, usable output.
 
 - ✅ You SAW the complete solution (demo)
 - ✅ You UNDERSTOOD the theory behind it (CLT)
-- ✅ You SET UP your environment (ready to study the code)
+- ✅ You EXPLORED how prompt design affects quality (Lab 1)
+- ✅ You LEARNED about structured outputs with Pydantic
 
 **What's next?**
 

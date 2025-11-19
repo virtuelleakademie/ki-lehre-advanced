@@ -1,6 +1,6 @@
 ---
 title: "Building Personalized Worked Example Generators with AI"
-subtitle: "Demonstrating Cognitive Load Theory Principles through PydanticAI"
+subtitle: "Demonstrating Cognitive Load Theory Principles through Structured AI Outputs"
 format:
   html:
     toc: true
@@ -175,33 +175,52 @@ These insights will inform how YOU design worked examples for your students.
 
 ### Core Technologies
 
-- **[Marimo](https://marimo.io)** - Reactive Python notebooks with built-in UI
-- **[PydanticAI](https://ai.pydantic.dev)** - Type-safe AI agent framework
+- **[OpenAI GPT-5.1](https://platform.openai.com/docs/guides/latest-model)** - Latest language model with structured outputs
 - **[Pydantic](https://pydantic.dev)** - Data validation using Python type hints
-- **[OpenAI GPT-5.1](https://openai.com)** - Language model for generation
+- **[Gradio](https://gradio.app)** - Web interface for the production tool
+- **[Marimo](https://marimo.io)** - Reactive Python notebooks for interactive exploration
 - **[HuggingFace Spaces](https://huggingface.co/spaces)** - Free deployment platform
 
-### Why These Choices?
+### Two Applications in This Workshop
 
-**Marimo over Jupyter/Colab:**
+We use **two different applications** with distinct purposes:
 
+**1. Interactive Exploration App (Marimo)**
+
+- 5 hands-on labs for exploring concepts
+- Embedded throughout this website
+- Experiment with prompt design, personalization, data models
+- Learn by doing, no installation required
+
+**2. Production Tool (Gradio)**
+
+- Complete deployable worked example generator
+- What you'll build in the workshop
+- Deploy to HuggingFace Spaces
+- Share with students/colleagues
+
+### Why This Approach?
+
+**Direct OpenAI API + Pydantic:**
+
+- Simple, transparent code
+- Focus on pedagogical design, not framework complexity
+- Type-safe structured outputs
+- Industry-standard pattern
+
+**Gradio for Production:**
+
+- Clean web interface
+- Easy deployment
+- Accessible to non-programmers
+- Production-ready out of the box
+
+**Marimo for Learning:**
+
+- Interactive exploration
 - Reactive updates (no stale state)
-- Better developer experience
-- Production-ready (can deploy as apps)
-- Git-friendly (pure Python files)
-
-**PydanticAI over raw OpenAI:**
-
-- Type safety with Pydantic models
-- Structured outputs guaranteed
-- Cleaner, more maintainable code
-- Better error handling
-
-**HuggingFace Spaces:**
-
-- Free hosting for educational demos
-- Docker + Marimo template available
-- Easy sharing with students/colleagues
+- Perfect for hands-on experimentation
+- Embeddable in documentation
 
 ## Learning Domains
 

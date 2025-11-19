@@ -1,30 +1,56 @@
 ---
 title: "Part 4: Interface"
-subtitle: "Building Interactive UI with Marimo"
+subtitle: "Building a Production Web Interface with Gradio"
 ---
 
 ::: {.callout-note icon=false}
 ## ⏱️ Duration: 40 minutes
 
-- Marimo Basics: 5 minutes
+- Gradio Basics: 5 minutes
 - Build Profile Input Form: 15 minutes
 - Add Dynamic Concept Selection: 10 minutes
 - Generate and Display Example: 10 minutes
 :::
 
-## Introduction to Marimo
+::: {.callout-important}
+## 🎯 Two Interfaces, Two Purposes
 
-Marimo is a reactive Python notebook that solves many problems with traditional Jupyter notebooks.
+**Marimo App** (already built):
 
-### Key Differences from Jupyter
+- Interactive exploration labs
+- Embedded in this website
+- For learning concepts
 
-| Feature | Jupyter | Marimo |
-|---------|---------|--------|
-| **State** | Hidden, can be stale | Reactive, always fresh |
-| **UI Elements** | Basic widgets | Rich, built-in components |
-| **Deployment** | Needs conversion | Direct app deployment |
-| **Git** | JSON format | Pure Python |
-| **Cell execution** | Manual, any order | Automatic, dependency-based |
+**Gradio App** (we'll build now):
+
+- Production-ready tool
+- Deploy to HuggingFace Spaces
+- Share with students/colleagues
+
+This part focuses on building the **Gradio production interface**.
+:::
+
+## Introduction to Gradio
+
+Gradio lets you quickly create beautiful web interfaces for machine learning models and Python functions.
+
+### Why Gradio for Production?
+
+| Feature | Benefit |
+|---------|---------|
+| **Simple API** | Build UIs in minutes, not hours |
+| **Beautiful by default** | Professional-looking interfaces out of the box |
+| **Easy deployment** | Works seamlessly with HuggingFace Spaces |
+| **User-friendly** | No code knowledge needed for users |
+| **Responsive** | Works on desktop and mobile |
+
+### Complete Working Example
+
+The full Gradio app code is available at:
+
+📁 [`hf-spaces/worked-example-weaver-app/app.py`](../../hf-spaces/worked-example-weaver-app/app.py)
+
+This is the complete, production-ready application. We'll walk through the key parts below.
 
 ### Quick Reactivity Demo
 
