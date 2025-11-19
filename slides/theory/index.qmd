@@ -45,439 +45,188 @@ editor:
 ---
 
 
-## Today's Learning Objectives
+## Learning Objectives
 
 By the end of this workshop, you will understand:
 
-1. **The Worked Example Effect** - Why studying complete solutions helps novices learn
-2. **The Personalisation Effect** - How familiar contexts reduce cognitive load
-3. **How AI can scale** these principles in education
+1. **Cognitive Load Theory:** How working memory limits affect learning
+2. **The Worked Example Effect:** Why studying solutions helps novices
+3. **The Personalisation Effect:** How familiar contexts reduce cognitive load
+4. **How AI can scale** these principles in education
 
 
-## Cognitive Load Theory Basics {.smaller}
+## Two Memory Systems {.smaller}
 
 ::::{.columns}
 :::{.column width="50%"}
 ### Working Memory
 
-- **Limited**: 3-7 items at once
-- **Volatile**: Information decays quickly
-- **Bottleneck**: Gets overloaded with complex material
-- **Problem**: Learning new concepts can feel overwhelming
+**Limited capacity** (approximately 4 items)
+
+**Volatile** (information decays quickly)
+
+**Bottleneck** for learning
 :::
 
 :::{.column width="50%"}
 ### Long-Term Memory
 
-- **Unlimited**: No known capacity limits
-- **Persistent**: Information stored as schemas
-- **Automatic**: Accessed without conscious effort
-- **Goal**: Build rich, organized knowledge structures
+**Unlimited capacity**
+
+**Permanent storage** via schemas
+
+**Automatic access** without effort
 :::
 ::::
 
+::: {.callout-tip}
+**The Challenge:** Get information from working memory into long-term memory without overload
+:::
+
+
+## Three Types of Cognitive Load {.smaller}
+
+| Type | Description | Effect on Learning | Example |
+|------|-------------|-------------------|---------|
+| **Intrinsic** | Complexity inherent to the material | Necessary for learning | Learning calculus is inherently complex |
+| **Extraneous** | Load from poor design or irrelevant info | **Hinders learning** | Confusing layouts, unfamiliar contexts |
+| **Germane** | Effort directed at learning | **Helps learning** | Studying patterns, making connections |
+
 ::: {.callout-important}
-## The Challenge
-
-How do we get information from working memory into long-term memory **without overload**?
+**Goal:** Minimize extraneous load, manage intrinsic load, maximize germane load
 :::
 
 
-## The Novice Problem {.smaller}
-
-**Problem-solving for novices = cognitive overload**
-
-- Must search for solution strategies
-- Must test each strategy
-- Must monitor progress
-- Must learn the concept
-- **Too much for working memory!**
-
-::: {.fragment}
-### Result
-
-- Frustration
-- Poor learning
-- Shallow understanding
-- Can't transfer knowledge
-:::
+# The Worked Example Effect
 
 
-# Principle 1: The Worked Example Effect
-
-
-## The Research {.smaller}
+## What the Research Shows {.smaller}
 
 > **"Novice learners who are given worked examples to study perform better on subsequent tests than learners who are required to solve the equivalent problems themselves."**
 >
-> — NSW Centre for Education Statistics and Evaluation (2017, p. 7)
+> — NSW Centre for Education Statistics and Evaluation (2017)
 
-::: {.fragment}
-### The Evidence
+**Evidence:**
 
-- **Effect size: 0.52** across multiple studies (Crissman, 2006)
-- Particularly strong for novices (Cooper & Sweller, 1987)
-- Diminishes as expertise grows [@kalyugaExpertiseReversalEffect2009]
-- Replicated across domains: mathematics, programming, science
-:::
+- Effect size: 0.52 (medium to large)
+- Strongest for novices
+- Diminishes as expertise grows
+- Works across domains (math, programming, science)
 
 
-## Why Worked Examples Work {.smaller}
+## Why It Works {.smaller}
 
 ::::{.columns}
 :::{.column width="50%"}
-### Traditional Problem-Solving
+### Problem Solving
 
-**High Cognitive Load:**
+**High cognitive load:**
 
-- Search for strategies
+- Search for solution
 - Test approaches
 - Monitor progress
 - Learn concept
-- Track errors
 
-**Little capacity left for learning!**
+**Little capacity left for learning**
 :::
 
 :::{.column width="50%"}
-### Studying Worked Examples
+### Worked Examples
 
-**Reduced Cognitive Load:**
+**Lower cognitive load:**
 
-- Solution is shown
-- Can focus on pattern
-- More capacity for schemas
-- Easier to see structure
+- Solution provided
+- Focus on understanding
+- See patterns clearly
+- Build schemas efficiently
 
-**Efficient learning!**
+**More capacity for learning**
 :::
 ::::
 
 
-## Example: Learning For Loops
+# The Personalisation Effect
+
+
+## Generic vs. Personalised Examples {.smaller}
 
 ::::{.columns}
 :::{.column width="50%"}
-### Problem-Solving Approach
-
-"Write code to print numbers 1-10"
-
-- Where do I start?
-- What's the syntax?
-- How do I increment?
-- Why isn't it working?
-- What's a range?
-:::
-
-:::{.column width="50%"}
-### Worked Example Approach
-
-```python
-# Print numbers 1 to 10
-for i in range(1, 11):
-    print(i)
-```
-
-**Study this:**
-
-- See the pattern
-- Understand range()
-- See the structure
-- Can now apply it
-:::
-::::
-
-
-## Key Insight for Today {.smaller}
-
-::: {.callout-important icon=false}
-## You Are Novices
-
-**At building educational AI tools with PydanticAI and Marimo**
-
-**Therefore:** We'll show you a complete, working solution first, then you'll study and modify it.
-
-This workshop IS a worked example of the worked example principle.
-:::
-
-
-# Principle 2: The Personalisation Effect
-
-
-## The Problem with Generic Examples {.smaller}
-
-**Generic example:**
+### Generic
 
 ```text
-Calculate the correlation between Variable X and Variable Y.
+Calculate the correlation
+between Variable X and Y.
 
 X: [10, 15, 20, 25, 30]
 Y: [2, 4, 6, 8, 10]
 ```
 
-**Cognitive load:**
+**Higher extraneous load:**
 
-- Must process abstract variables
-- No connection to existing knowledge
+- Abstract variables
+- No connection to prior knowledge
 - No personal relevance
-- Higher extraneous load
+:::
 
-
-## The Power of Personalisation {.smaller}
-
-**Personalised example:**
+:::{.column width="50%"}
+### Personalised
 
 ```text
-You love cycling. Calculate the correlation between your
-weekly training hours and your average speed:
+You love cycling. Calculate
+correlation between training
+hours and speed:
 
-Training hours: [10, 15, 20, 25, 30]
-Average speed: [25, 27, 29, 31, 33] km/h
-
-This will help you understand if more training
-improves your performance.
+Hours: [10, 15, 20, 25, 30]
+Speed: [25, 27, 29, 31, 33]
 ```
 
-**Benefits:**
+**Lower extraneous load:**
 
-- Connects to existing knowledge (cycling)
-- Easier to process (familiar context)
-- More motivation (personal relevance)
-- Lower cognitive load
-
-
-## The Research Evidence {.smaller}
-
-> **"Familiar contexts require less cognitive effort to process, reducing extraneous cognitive load and improving learning outcomes."**
->
-> — Cordova & Lepper (1996)
-
-::: {.fragment}
-### The Evidence
-
-- Increased motivation and engagement
-- Better learning outcomes with familiar contexts
-- Particularly effective when combined with worked examples
-- Reduces extraneous cognitive load
-:::
-
-
-## Two Types of Cognitive Load {.smaller}
-
-::::{.columns}
-:::{.column width="50%"}
-### Extraneous Load (BAD)
-
-- Processing irrelevant information
-- Unfamiliar contexts requiring interpretation
-- Confusing formats
-- Poor instructional design
-
-**Reduces learning!**
-:::
-
-:::{.column width="50%"}
-### Germane Load (GOOD)
-
-- Effort directed at learning
-- Schema construction
-- Deep processing of patterns
-- Understanding structures
-
-**Promotes learning!**
+- Familiar context
+- Connects to existing knowledge
+- Personally relevant
 :::
 ::::
 
-::: {.callout-tip}
-**Personalisation reduces extraneous load while maintaining germane load**
-:::
+
+## Why Personalisation Works {.smaller}
+
+> **"Familiar contexts require less cognitive effort to process, reducing extraneous cognitive load."**
+>
+> — Cordova & Lepper (1996)
+
+**Benefits:**
+
+- Reduces extraneous cognitive load
+- Increases motivation and engagement
+- Better learning outcomes
+- Particularly effective with worked examples
 
 
-# How AI Enables This at Scale
+# How AI Enables Scaling
 
 
-## The Traditional Challenge {.smaller}
+## The Challenge of Personalisation {.smaller}
 
-**Creating personalised worked examples is labor-intensive:**
-
-- Must know each student's interests
-- Must create unique examples for each concept
-- Must ensure quality and accuracy
-- Must maintain pedagogical soundness
-- **Doesn't scale beyond small classes**
-
-::: {.fragment}
-### The Math
+**Creating personalised worked examples manually:**
 
 - 30 students × 10 concepts = 300 unique examples
 - 15 minutes per example = 75 hours
-- **Impossible to do manually!**
-:::
+- **Impossible to do at scale**
 
 
 ## The AI Solution {.smaller}
 
-**Large language models can:**
+**AI can generate personalised worked examples:**
 
-- Generate unique examples on demand
-- Weave personal contexts naturally
-- Maintain pedagogical quality (with structured outputs)
+- Create unique examples on demand
+- Incorporate personal contexts naturally
+- Maintain quality with structured outputs
 - **Scale to unlimited students**
-- Generate in seconds, not hours
-
-::: {.fragment}
-### Today's Goal
-
-Build a tool that:
-
-1. Collects learner interests, hobbies, goals
-2. Generates personalised worked examples
-3. Teaches concepts through familiar contexts
-4. Uses PydanticAI to ensure structured, quality output
-:::
-
-
-## Why PydanticAI? {.smaller}
-
-**The Problem with Raw LLMs:**
-
-- Get back unstructured text
-- Need to parse and validate manually
-- Prone to errors
-- Hard to use programmatically
-
-::: {.fragment}
-**The Solution: Structured Outputs**
-
-- Define data models (Pydantic)
-- Guarantee structure (type safety)
-- Automatic validation
-- Easy to use in applications
-
-**We'll see this in action today!**
-:::
-
-
-# The Workshop as Worked Example
-
-
-## Meta-Pedagogical Design {.smaller}
-
-::::{.columns}
-:::{.column width="50%"}
-### Traditional Workshop
-
-**Problem-Solving:**
-
-"Here are the requirements. Build a personalised example generator. We'll help when you get stuck."
-
-**Result:**
-
-- High cognitive load
-- Potential frustration
-- Unclear pattern
-- Hard to transfer
-:::
-
-:::{.column width="50%"}
-### Our Workshop
-
-**Worked Example:**
-
-"Here's a complete solution. Let's study how it works. Now modify it for your needs."
-
-**Result:**
-
-- Lower cognitive load
-- Clearer pattern
-- Better understanding
-- Easier transfer
-:::
-::::
-
-
-## Why This Structure? {.smaller}
-
-::: {.callout-important icon=false}
-## You're Learning a New Domain
-
-**Educational AI tools with PydanticAI/Marimo**
-
-- You're **novices** in this domain
-- The research says worked examples are more effective than unguided problem-solving for novices
-- Therefore, we designed this workshop as a worked example
-
-**Notice as we progress:**
-
-- When we show you complete solutions
-- When we explain design choices
-- When we gradually reduce support
-- When you apply independently
-
-**The workshop structure demonstrates the principles it teaches!**
-:::
-
-
-## The Fading Scaffolding Pattern {.smaller}
-
-Notice how support gradually decreases:
-
-::::{.columns}
-:::{.column width="50%"}
-**High Support →**
-
-- **Demo**: Complete solution shown
-- **Theory**: Why it works
-- **Build**: Scaffolded practice
-:::
-
-:::{.column width="50%"}
-**→ Low Support**
-
-- **Extend**: Independent design
-- **After**: Transfer to new domains
-:::
-::::
 
 ::: {.callout-tip}
-This is called **fading** - gradually reducing support as competence grows
-:::
-
-
-# Research Summary
-
-
-## Key Papers {.smaller}
-
-**Worked Example Effect:**
-
-- @swellerCognitiveLoadProblem1988
-- @cooperEffectsSchemaAcquisition1987
-
-**Personalisation Effect:**
-
-- **Cordova, D. I., & Lepper, M. R. (1996)**. Intrinsic motivation and the process of learning. *Journal of Educational Psychology*, 88(4), 715.
-
-**Meta-Analysis:**
-
-- **Crissman, J. (2006)**. *The design and utilization of effective worked examples: A meta-analysis*. University of Nebraska, Lincoln.
-
-
-## Accessible Resource {.smaller}
-
-::: {.callout-tip icon=false}
-## Highly Recommended Reading
-
-**NSW Centre for Education Statistics and Evaluation (2017)**
-
-*Cognitive load theory: Research that teachers really need to understand*
-
-[Link](https://education.nsw.gov.au/about-us/education-data-and-research/cese/publications/literature-reviews/cognitive-load-theory)
-
-- Accessible introduction to CLT
-- Practical implications for teaching
-- Evidence summary with effect sizes
-- Free to download
+**Today's Goal:** Build a tool that generates personalised worked examples using PydanticAI
 :::
 
 
@@ -486,49 +235,47 @@ This is called **fading** - gradually reducing support as competence grows
 
 ## Summary {.smaller}
 
-1. **Worked examples reduce cognitive load** for novices
-   - Effect size: 0.52
-   - More effective than problem-solving for beginners
-   - Allows focus on pattern, not search
+**Three core principles:**
 
-2. **Personalisation makes examples easier** to process
-   - Familiar contexts reduce extraneous load
+1. **Worked examples reduce cognitive load for novices**
+   - Effect size: 0.52
+   - More effective than problem solving for beginners
+   - Allows focus on understanding patterns
+
+2. **Personalisation reduces extraneous load**
+   - Familiar contexts easier to process
    - Increases motivation and engagement
    - Better learning outcomes
 
-3. **AI can scale** personalised worked examples
+3. **AI enables scaling of personalised worked examples**
    - Generate unique examples on demand
    - Maintain quality with structured outputs
    - Impossible to do manually at scale
 
-4. **This workshop** is designed as a worked example
-   - You'll study a complete solution
-   - We'll explain design choices
-   - You'll modify for your needs
 
+## Recommended Reading {.smaller}
 
-## Questions?
+**NSW Centre for Education Statistics and Evaluation (2017)**
 
-**Discussion time: 5 minutes**
+*Cognitive load theory: Research that teachers really need to understand*
 
-- What questions do you have about the theory?
-- How might this apply to your teaching?
-- What concerns do you have?
+[education.nsw.gov.au/cese/publications/literature-reviews/cognitive-load-theory](https://education.nsw.gov.au/about-us/education-data-and-research/cese/publications/literature-reviews/cognitive-load-theory)
+
+- Accessible introduction to CLT
+- Practical implications for teaching
+- Evidence summary with effect sizes
 
 
 ## Next Steps
 
-**Now we'll see it in action:**
-
 ::: {.callout-tip icon=false}
-## Next: [Demo Section](../../workshop/demo/index.qmd)
+## Let's See It in Action
 
-We'll demonstrate the complete application:
+**Next:** Demonstration of the complete application
 
-- All 3 domains (Programming, Health Sciences, Agronomy)
-- 16 concepts total
+- 3 domains (Programming, Health Sciences, Agronomy)
 - Live personalised example generation
-- See the power of structured outputs
+- Structured outputs with PydanticAI
 
 **Then you'll build your own version!**
 :::
