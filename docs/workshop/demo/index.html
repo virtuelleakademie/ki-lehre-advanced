@@ -89,15 +89,15 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 <style>
-div.callout-try.callout {
-  border-left-color: blue;
+div.callout-reflect.callout {
+  border-left-color: purple;
 }
-div.callout-try.callout-style-default > .callout-header {
-  background-color: rgb(from blue r g b / 13%);
+div.callout-reflect.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
 }
-div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
-  content: '🔄';
+div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
+  content: '💭';
   background-image: none;
 }
 div.callout-prompt-template.callout {
@@ -122,94 +122,6 @@ div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro
   content: '💡';
   background-image: none;
 }
-div.callout-timing.callout {
-  border-left-color: red;
-}
-div.callout-timing.callout-style-default > .callout-header {
-  background-color: rgb(from red r g b / 13%);
-}
-div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
-  content: '⏱️';
-  background-image: none;
-}
-div.callout-schedule.callout {
-  border-left-color: steelblue;
-}
-div.callout-schedule.callout-style-default > .callout-header {
-  background-color: rgb(from steelblue r g b / 13%);
-}
-div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
-  content: '⏰︎';
-  background-image: none;
-}
-div.callout-feedback.callout {
-  border-left-color: teal;
-}
-div.callout-feedback.callout-style-default > .callout-header {
-  background-color: rgb(from teal r g b / 13%);
-}
-div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
-  content: '📝';
-  background-image: none;
-}
-div.callout-reflect.callout {
-  border-left-color: purple;
-}
-div.callout-reflect.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
-  content: '💭';
-  background-image: none;
-}
-div.callout-pair.callout {
-  border-left-color: forestgreen;
-}
-div.callout-pair.callout-style-default > .callout-header {
-  background-color: rgb(from forestgreen r g b / 13%);
-}
-div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
-  content: '👥';
-  background-image: none;
-}
-div.callout-checkpoint.callout {
-  border-left-color: purple;
-}
-div.callout-checkpoint.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
-  content: '🎯';
-  background-image: none;
-}
-div.callout-screens-down.callout {
-  border-left-color: orange;
-}
-div.callout-screens-down.callout-style-default > .callout-header {
-  background-color: rgb(from orange r g b / 13%);
-}
-div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
-  content: '🔽';
-  background-image: none;
-}
-div.callout-tutor-example.callout {
-  border-left-color: purple;
-}
-div.callout-tutor-example.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
-  content: '📄';
-  background-image: none;
-}
 div.callout-caution.callout {
   border-left-color: orange;
 }
@@ -232,59 +144,15 @@ div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-
   content: '🔼';
   background-image: none;
 }
-div.callout-setup.callout {
-  border-left-color: gray;
+div.callout-try.callout {
+  border-left-color: blue;
 }
-div.callout-setup.callout-style-default > .callout-header {
-  background-color: rgb(from gray r g b / 13%);
+div.callout-try.callout-style-default > .callout-header {
+  background-color: rgb(from blue r g b / 13%);
 }
-div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
-  content: '⚙️';
-  background-image: none;
-}
-div.callout-group.callout {
-  border-left-color: purple;
-}
-div.callout-group.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
-  content: '👥';
-  background-image: none;
-}
-div.callout-break.callout {
-  border-left-color: yellow;
-}
-div.callout-break.callout-style-default > .callout-header {
-  background-color: rgb(from yellow r g b / 13%);
-}
-div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
-  content: '☕';
-  background-image: none;
-}
-div.callout-individual.callout {
-  border-left-color: steelblue;
-}
-div.callout-individual.callout-style-default > .callout-header {
-  background-color: rgb(from steelblue r g b / 13%);
-}
-div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
-  content: '💻';
-  background-image: none;
-}
-div.callout-export.callout {
-  border-left-color: brown;
-}
-div.callout-export.callout-style-default > .callout-header {
-  background-color: rgb(from brown r g b / 13%);
-}
-div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
-  content: '📤';
+div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
+  content: '🔄';
   background-image: none;
 }
 div.callout-prompt-example.callout {
@@ -298,6 +166,94 @@ div.callout-prompt-example.callout-style-default .callout-icon::before, div.call
   content: '👩🏼‍🔧';
   background-image: none;
 }
+div.callout-individual.callout {
+  border-left-color: steelblue;
+}
+div.callout-individual.callout-style-default > .callout-header {
+  background-color: rgb(from steelblue r g b / 13%);
+}
+div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
+  content: '💻';
+  background-image: none;
+}
+div.callout-group.callout {
+  border-left-color: purple;
+}
+div.callout-group.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
+  content: '👥';
+  background-image: none;
+}
+div.callout-feedback.callout {
+  border-left-color: teal;
+}
+div.callout-feedback.callout-style-default > .callout-header {
+  background-color: rgb(from teal r g b / 13%);
+}
+div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
+  content: '📝';
+  background-image: none;
+}
+div.callout-break.callout {
+  border-left-color: yellow;
+}
+div.callout-break.callout-style-default > .callout-header {
+  background-color: rgb(from yellow r g b / 13%);
+}
+div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
+  content: '☕';
+  background-image: none;
+}
+div.callout-setup.callout {
+  border-left-color: gray;
+}
+div.callout-setup.callout-style-default > .callout-header {
+  background-color: rgb(from gray r g b / 13%);
+}
+div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
+  content: '⚙️';
+  background-image: none;
+}
+div.callout-tutor-example.callout {
+  border-left-color: purple;
+}
+div.callout-tutor-example.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
+  content: '📄';
+  background-image: none;
+}
+div.callout-pair.callout {
+  border-left-color: forestgreen;
+}
+div.callout-pair.callout-style-default > .callout-header {
+  background-color: rgb(from forestgreen r g b / 13%);
+}
+div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
+  content: '👥';
+  background-image: none;
+}
+div.callout-screens-down.callout {
+  border-left-color: orange;
+}
+div.callout-screens-down.callout-style-default > .callout-header {
+  background-color: rgb(from orange r g b / 13%);
+}
+div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
+  content: '🔽';
+  background-image: none;
+}
 div.callout-testing.callout {
   border-left-color: green;
 }
@@ -307,6 +263,50 @@ div.callout-testing.callout-style-default > .callout-header {
 div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
   content: '🧪';
+  background-image: none;
+}
+div.callout-export.callout {
+  border-left-color: brown;
+}
+div.callout-export.callout-style-default > .callout-header {
+  background-color: rgb(from brown r g b / 13%);
+}
+div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
+  content: '📤';
+  background-image: none;
+}
+div.callout-schedule.callout {
+  border-left-color: steelblue;
+}
+div.callout-schedule.callout-style-default > .callout-header {
+  background-color: rgb(from steelblue r g b / 13%);
+}
+div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
+  content: '⏰︎';
+  background-image: none;
+}
+div.callout-checkpoint.callout {
+  border-left-color: purple;
+}
+div.callout-checkpoint.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
+  content: '🎯';
+  background-image: none;
+}
+div.callout-timing.callout {
+  border-left-color: red;
+}
+div.callout-timing.callout-style-default > .callout-header {
+  background-color: rgb(from red r g b / 13%);
+}
+div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
+  content: '⏱️';
   background-image: none;
 }
 </style>
@@ -516,28 +516,22 @@ div.callout-testing.callout-style-default .callout-icon::before, div.callout-tes
    
   <ul>
   <li><a href="#duration-20-minutes" id="toc-duration-20-minutes" class="nav-link active" data-scroll-target="#duration-20-minutes">Duration: 20 minutes</a></li>
-  <li><a href="#purpose-of-this-demo" id="toc-purpose-of-this-demo" class="nav-link" data-scroll-target="#purpose-of-this-demo">Purpose of This Demo</a></li>
-  <li><a href="#live-demonstration-15-minutes" id="toc-live-demonstration-15-minutes" class="nav-link" data-scroll-target="#live-demonstration-15-minutes">Live Demonstration (15 minutes)</a>
+  <li><a href="#what-youll-see" id="toc-what-youll-see" class="nav-link" data-scroll-target="#what-youll-see">What You’ll See</a></li>
+  <li><a href="#try-the-interactive-demo" id="toc-try-the-interactive-demo" class="nav-link" data-scroll-target="#try-the-interactive-demo">Try the Interactive Demo</a></li>
+  <li><a href="#how-to-explore-the-demo" id="toc-how-to-explore-the-demo" class="nav-link" data-scroll-target="#how-to-explore-the-demo">How to Explore the Demo</a>
   <ul class="collapse">
-  <li><a href="#interactive-demo" id="toc-interactive-demo" class="nav-link" data-scroll-target="#interactive-demo">Interactive Demo</a></li>
-  <li><a href="#instructor-setup-pre-workshop" id="toc-instructor-setup-pre-workshop" class="nav-link" data-scroll-target="#instructor-setup-pre-workshop">Instructor Setup (Pre-workshop)</a></li>
-  <li><a href="#demo-script" id="toc-demo-script" class="nav-link" data-scroll-target="#demo-script">Demo Script</a></li>
+  <li><a href="#step-1-examine-the-interface" id="toc-step-1-examine-the-interface" class="nav-link" data-scroll-target="#step-1-examine-the-interface">Step 1: Examine the Interface</a></li>
+  <li><a href="#step-2-try-different-learner-profiles" id="toc-step-2-try-different-learner-profiles" class="nav-link" data-scroll-target="#step-2-try-different-learner-profiles">Step 2: Try Different Learner Profiles</a></li>
   </ul></li>
-  <li><a href="#key-points-to-emphasize" id="toc-key-points-to-emphasize" class="nav-link" data-scroll-target="#key-points-to-emphasize">Key Points to Emphasize</a>
+  <li><a href="#what-makes-this-powerful" id="toc-what-makes-this-powerful" class="nav-link" data-scroll-target="#what-makes-this-powerful">What Makes This Powerful?</a>
   <ul class="collapse">
-  <li><a href="#application-features" id="toc-application-features" class="nav-link" data-scroll-target="#application-features">1. Application Features</a></li>
-  <li><a href="#technical-approach" id="toc-technical-approach" class="nav-link" data-scroll-target="#technical-approach">2. Technical Approach</a></li>
-  <li><a href="#personalisation-power" id="toc-personalisation-power" class="nav-link" data-scroll-target="#personalisation-power">3. Personalisation Power</a></li>
+  <li><a href="#why-this-matters" id="toc-why-this-matters" class="nav-link" data-scroll-target="#why-this-matters">Why This Matters</a></li>
+  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How It Works</a></li>
+  <li><a href="#domains-and-concepts" id="toc-domains-and-concepts" class="nav-link" data-scroll-target="#domains-and-concepts">Domains and Concepts</a></li>
   </ul></li>
-  <li><a href="#discussion-and-reflection" id="toc-discussion-and-reflection" class="nav-link" data-scroll-target="#discussion-and-reflection">Discussion and Reflection</a></li>
-  <li><a href="#discussion-questions" id="toc-discussion-questions" class="nav-link" data-scroll-target="#discussion-questions">Discussion Questions</a></li>
-  <li><a href="#technical-notes-for-instructors" id="toc-technical-notes-for-instructors" class="nav-link" data-scroll-target="#technical-notes-for-instructors">Technical Notes for Instructors</a>
-  <ul class="collapse">
-  <li><a href="#if-demo-fails" id="toc-if-demo-fails" class="nav-link" data-scroll-target="#if-demo-fails">If Demo Fails</a></li>
-  <li><a href="#common-demo-issues" id="toc-common-demo-issues" class="nav-link" data-scroll-target="#common-demo-issues">Common Demo Issues</a></li>
-  <li><a href="#customization-for-your-workshop" id="toc-customization-for-your-workshop" class="nav-link" data-scroll-target="#customization-for-your-workshop">Customization for Your Workshop</a></li>
-  </ul></li>
-  <li><a href="#what-participants-should-understand" id="toc-what-participants-should-understand" class="nav-link" data-scroll-target="#what-participants-should-understand">What Participants Should Understand</a></li>
+  <li><a href="#reflection-questions" id="toc-reflection-questions" class="nav-link" data-scroll-target="#reflection-questions">Reflection Questions</a></li>
+  <li><a href="#think-about" id="toc-think-about" class="nav-link" data-scroll-target="#think-about">Think About</a></li>
+  <li><a href="#pedagogical-foundation" id="toc-pedagogical-foundation" class="nav-link" data-scroll-target="#pedagogical-foundation">Pedagogical Foundation</a></li>
   </ul>
 </nav>
     </div>
@@ -566,213 +560,141 @@ div.callout-testing.callout-style-default .callout-icon::before, div.callout-tes
 <section id="duration-20-minutes" class="level2 callout-schedule" data-icon="false">
 <h2 class="anchored" data-anchor-id="duration-20-minutes">Duration: 20 minutes</h2>
 </section>
-<section id="purpose-of-this-demo" class="level2">
-<h2 class="anchored" data-anchor-id="purpose-of-this-demo">Purpose of This Demo</h2>
-<p><strong>Show what’s possible:</strong> Demonstrate a complete application with 3 domains and 16 concepts.</p>
-<p><strong>Activate curiosity:</strong> See the power of AI-generated personalised worked examples.</p>
-<p><strong>Inspire transfer:</strong> Spark ideas for how similar tools could support your own teaching.</p>
+<section id="what-youll-see" class="level2">
+<h2 class="anchored" data-anchor-id="what-youll-see">What You’ll See</h2>
+<p>In this demonstration, you’ll explore a complete AI-powered personalised worked example generator. The application demonstrates how AI can create customized learning materials tailored to individual student contexts.</p>
+<p><strong>What makes this interesting:</strong></p>
+<ul>
+<li>Generates examples across 3 different domains (Programming, Health Sciences, Agronomy)</li>
+<li>Personalizes content based on student interests, goals, and background</li>
+<li>Creates unique worked examples on demand</li>
+</ul>
 <hr>
 </section>
-<section id="live-demonstration-15-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="live-demonstration-15-minutes">Live Demonstration (15 minutes)</h2>
-<section id="interactive-demo" class="level3">
-<h3 class="anchored" data-anchor-id="interactive-demo">Interactive Demo</h3>
-<p>Try the complete application below:</p>
+<section id="try-the-interactive-demo" class="level2">
+<h2 class="anchored" data-anchor-id="try-the-interactive-demo">Try the Interactive Demo</h2>
+<p>Explore the complete application below. You can interact with it directly or open it in a new window for a larger view.</p>
 <p><a href="https://awellis-worked-example-weaver-app.hf.space" target="_blank">Open demo in new window</a></p>
 <iframe src="https://awellis-worked-example-weaver-app.hf.space" frameborder="0" width="850" height="450">
 </iframe>
+<hr>
 </section>
-<section id="instructor-setup-pre-workshop" class="level3">
-<h3 class="anchored" data-anchor-id="instructor-setup-pre-workshop">Instructor Setup (Pre-workshop)</h3>
-<p><strong>Before workshop starts:</strong></p>
-<ol type="1">
-<li>Open the deployed demo: <a href="https://awellis-worked-example-weaver-app.hf.space">https://awellis-worked-example-weaver-app.hf.space</a></li>
-<li>Test that the application loads properly</li>
-<li>Prepare backup screenshots in case of connectivity issues</li>
-</ol>
-</section>
-<section id="demo-script" class="level3">
-<h3 class="anchored" data-anchor-id="demo-script">Demo Script</h3>
-<section id="show-the-interface-2-min" class="level4">
-<h4 class="anchored" data-anchor-id="show-the-interface-2-min">1. Show the Interface (2 min)</h4>
-<p><strong>Scroll through the app:</strong></p>
+<section id="how-to-explore-the-demo" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-explore-the-demo">How to Explore the Demo</h2>
+<section id="step-1-examine-the-interface" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-examine-the-interface">Step 1: Examine the Interface</h3>
+<p>Notice the clean, simple layout:</p>
 <ul>
-<li>“This is a personalised worked example generator”</li>
-<li>“Notice the clean interface - learner profile, concept selection, generate button”</li>
-<li>“Built with Marimo - reactive Python notebooks”</li>
+<li>Learner profile section (name, domain, interests, goals)</li>
+<li>Concept selection dropdown</li>
+<li>Generate button</li>
+<li>Display area for the personalized example</li>
 </ul>
+<p>This interface was built using Marimo, a reactive Python notebook framework.</p>
 </section>
-<section id="fill-in-profile---programming-domain-3-min" class="level4">
-<h4 class="anchored" data-anchor-id="fill-in-profile---programming-domain-3-min">2. Fill in Profile - Programming Domain (3 min)</h4>
-<p><strong>Choose an engaging example:</strong></p>
+<section id="step-2-try-different-learner-profiles" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-try-different-learner-profiles">Step 2: Try Different Learner Profiles</h3>
+<p><strong>Example 1: Programming Domain</strong></p>
+<p>Create a profile like this:</p>
 <pre><code>Name: Sarah
 Domain: Programming (Python)
 Specific interest: Web development
 Hobby/passion: Baking
 Goal: Build a recipe sharing website
 Level: Beginner</code></pre>
-<p><strong>Narrate as you type:</strong></p>
+<p>Select a concept (e.g., “For Loops”) and click Generate.</p>
+<p><strong>What to notice:</strong></p>
 <ul>
-<li>“Sarah is interested in web development”</li>
-<li>“She loves baking - that’s her personal context”</li>
-<li>“She wants to build a recipe website - clear goal”</li>
+<li>The example uses baking contexts (recipes, ingredients)</li>
+<li>Code examples relate to her recipe website goal</li>
+<li>The worked solution is complete and step-by-step</li>
+<li>Practice suggestions continue the baking theme</li>
 </ul>
-<p><strong>Select concept:</strong></p>
-<ul>
-<li>“Let’s teach her about For Loops”</li>
-<li>“Notice: beginner level concept”</li>
-</ul>
-</section>
-<section id="generate-example-5-min" class="level4">
-<h4 class="anchored" data-anchor-id="generate-example-5-min">3. Generate Example (5 min)</h4>
-<p><strong>Click Generate:</strong></p>
-<ul>
-<li>“This takes 30-60 seconds - GPT-5.1 is creating a personalised example”</li>
-<li>While waiting: “The AI is weaving Sarah’s baking interest into a programming lesson”</li>
-</ul>
-<p><strong>Review Generated Example:</strong></p>
-<ul>
-<li><strong>Title</strong>: Notice how it mentions her interest</li>
-<li><strong>Problem</strong>: Set in her context (recipes, baking)</li>
-<li><strong>Data</strong>: Realistic for her scenario</li>
-<li><strong>Solution</strong>: Complete, step-by-step, with code</li>
-<li><strong>Connection to Goal</strong>: Explicitly links to recipe website</li>
-<li><strong>Practice Suggestion</strong>: Another baking-related problem</li>
-</ul>
-<p><strong>Key point:</strong> “This isn’t generic - it’s tailored to Sarah’s interests and goals”</p>
-</section>
-<section id="show-second-domain---health-sciences-3-min" class="level4">
-<h4 class="anchored" data-anchor-id="show-second-domain---health-sciences-3-min">4. Show Second Domain - Health Sciences (3 min)</h4>
-<p><strong>Clear and start new profile:</strong></p>
+<p><strong>Example 2: Health Sciences Domain</strong></p>
+<p>Try a different profile:</p>
 <pre><code>Name: Marcus
 Domain: Health Sciences (Statistics)
 Specific interest: Sports performance
 Hobby/passion: Running
 Goal: Improve marathon time
 Level: Intermediate</code></pre>
-<p><strong>Select concept:</strong></p>
+<p>Select “Linear Regression” and generate.</p>
+<p><strong>What to notice:</strong></p>
 <ul>
-<li>“Linear Regression - intermediate level”</li>
+<li>Same tool, completely different domain</li>
+<li>Examples now use running and race data</li>
+<li>Statistical concepts applied to sports performance</li>
+<li>Personalization adapts to the new context</li>
 </ul>
-<p><strong>Generate and show:</strong></p>
-<ul>
-<li>“Now the example uses running data”</li>
-<li>“Predicting race times from training volume”</li>
-<li>“Same tool, completely different domain and context”</li>
-</ul>
-</section>
-<section id="show-third-domain---agronomy-2-min" class="level4">
-<h4 class="anchored" data-anchor-id="show-third-domain---agronomy-2-min">5. Show Third Domain - Agronomy (2 min)</h4>
-<p><strong>Optional if time allows:</strong></p>
+<p><strong>Example 3: Agronomy Domain</strong></p>
+<p>If you have time, try:</p>
 <pre><code>Name: Elena
 Domain: Agronomy
 Specific interest: Coffee farming
 Hobby/passion: Sustainability
 Goal: Increase yield sustainably
 Level: Beginner</code></pre>
-<p><strong>Point out:</strong></p>
-<ul>
-<li>“Three complete domains”</li>
-<li>“16 total concepts”</li>
-<li>“Unlimited personalisation possibilities”</li>
-</ul>
+<p>This demonstrates the breadth: 3 domains, 16 concepts total.</p>
 <hr>
 </section>
 </section>
+<section id="what-makes-this-powerful" class="level2">
+<h2 class="anchored" data-anchor-id="what-makes-this-powerful">What Makes This Powerful?</h2>
+<section id="why-this-matters" class="level3">
+<h3 class="anchored" data-anchor-id="why-this-matters">Why This Matters</h3>
+<p><strong>The traditional challenge:</strong></p>
+<p>Creating personalized learning materials is time-intensive. Writing a single customized worked example takes 15-30 minutes. For a class of 20 students learning 16 different concepts, you’d need to create 320 unique examples. This is simply not feasible for most educators.</p>
+<p><strong>The AI-powered solution:</strong></p>
+<p>The application generates personalized examples in 30-60 seconds. Each student gets content tailored to their interests and goals, and the approach scales to any number of learners.</p>
 </section>
-<section id="key-points-to-emphasize" class="level2">
-<h2 class="anchored" data-anchor-id="key-points-to-emphasize">Key Points to Emphasize</h2>
-<section id="application-features" class="level3">
-<h3 class="anchored" data-anchor-id="application-features">1. Application Features</h3>
-<p><strong>This demonstration shows:</strong></p>
-<ul>
-<li>3 complete domains (Programming, Health Sciences, Agronomy)</li>
-<li>16 concepts total across all domains</li>
-<li>Full production application</li>
-<li>Deployed and accessible online</li>
-</ul>
-</section>
-<section id="technical-approach" class="level3">
-<h3 class="anchored" data-anchor-id="technical-approach">2. Technical Approach</h3>
-<p><strong>This app demonstrates:</strong></p>
-<ul>
-<li>✅ Pydantic data models (structured input/output)</li>
-<li>✅ OpenAI structured outputs (type-safe AI responses)</li>
-<li>✅ Marimo reactive UI (automatic updates)</li>
-<li>✅ Concept library (extensible design)</li>
-</ul>
-</section>
-<section id="personalisation-power" class="level3">
-<h3 class="anchored" data-anchor-id="personalisation-power">3. Personalisation Power</h3>
-<p><strong>Without AI:</strong> - Creating this many personalised examples manually = impossible - Each example takes 15-30 minutes to craft - 16 concepts × 20 students = 320 unique examples needed</p>
-<p><strong>With AI:</strong> - Generate on-demand - Unique for each learner - Maintains quality (structured outputs) - Scales infinitely</p>
-<hr>
-</section>
-</section>
-<section id="discussion-and-reflection" class="level2">
-<h2 class="anchored" data-anchor-id="discussion-and-reflection">Discussion and Reflection</h2>
-</section>
-<section id="discussion-questions" class="level2 callout-checkpoint" data-icon="false">
-<h2 class="anchored" data-anchor-id="discussion-questions">Discussion Questions</h2>
-<p><strong>Ask participants:</strong></p>
+<section id="how-it-works" class="level3">
+<h3 class="anchored" data-anchor-id="how-it-works">How It Works</h3>
+<p>The application follows a simple three-step process:</p>
 <ol type="1">
-<li>“What impressed you most about the demo?”</li>
-<li>“How could you use personalised worked examples in YOUR teaching?”</li>
-<li>“What domain or context would be relevant for your students?”</li>
+<li><strong>Collect context:</strong> Learner fills in their profile (interests, goals, background)</li>
+<li><strong>Generate example:</strong> AI creates a worked example tailored to that specific learner</li>
+<li><strong>Display result:</strong> The personalized example appears with complete solution steps</li>
 </ol>
-<p><strong>Common responses:</strong></p>
-<ul>
-<li>“The personalisation is impressive”</li>
-<li>“I teach [X], this could work for that domain”</li>
-<li>“My students have diverse backgrounds, this could help bridge contexts”</li>
-</ul>
-<p><strong>Key takeaway:</strong></p>
-<ul>
-<li>AI-powered personalisation enables scaling individualized instruction</li>
-<li>The pattern (structured data + AI generation + reactive UI) applies across domains</li>
-<li>Similar approaches could support various educational contexts</li>
-</ul>
+<p>Behind the scenes, the AI uses the learner’s context to weave familiar scenarios into the teaching content, making abstract concepts more concrete and relatable.</p>
 </section>
-<hr>
-<section id="technical-notes-for-instructors" class="level2">
-<h2 class="anchored" data-anchor-id="technical-notes-for-instructors">Technical Notes for Instructors</h2>
-<section id="if-demo-fails" class="level3">
-<h3 class="anchored" data-anchor-id="if-demo-fails">If Demo Fails</h3>
-<p><strong>Backup plan:</strong> 1. Show pre-recorded video 2. Use screenshots in slides 3. Walk through the code structure instead</p>
-</section>
-<section id="common-demo-issues" class="level3">
-<h3 class="anchored" data-anchor-id="common-demo-issues">Common Demo Issues</h3>
-<p><strong>Generation takes too long:</strong></p>
+<section id="domains-and-concepts" class="level3">
+<h3 class="anchored" data-anchor-id="domains-and-concepts">Domains and Concepts</h3>
+<p><strong>Current coverage:</strong></p>
 <ul>
-<li>Have pre-generated examples ready as screenshots</li>
-<li>Explain the typical generation time (30-60 seconds)</li>
+<li><strong>Programming (Python):</strong> For loops, list comprehensions, dictionaries, functions, string formatting (and more)</li>
+<li><strong>Health Sciences (Statistics):</strong> Correlation, mean/SD, t-tests, confidence intervals, linear regression (and more)</li>
+<li><strong>Agronomy:</strong> Yield prediction, NPK optimization, growing degree days, water efficiency</li>
 </ul>
-<p><strong>Connectivity issues:</strong></p>
-<ul>
-<li>Backup: Show screenshots or pre-recorded video</li>
-<li>Have local version ready if possible</li>
-</ul>
-</section>
-<section id="customization-for-your-workshop" class="level3">
-<h3 class="anchored" data-anchor-id="customization-for-your-workshop">Customization for Your Workshop</h3>
-<p><strong>Domains to demo:</strong></p>
-<ul>
-<li>Choose domains relevant to your audience</li>
-<li>If all participants teach programming, focus on that domain</li>
-<li>If mixed audience, show variety across domains</li>
-</ul>
+<p>The pattern can extend to any domain where worked examples support learning.</p>
 <hr>
 </section>
 </section>
-<section id="what-participants-should-understand" class="level2">
-<h2 class="anchored" data-anchor-id="what-participants-should-understand">What Participants Should Understand</h2>
-<p>After this demo, participants should know:</p>
+<section id="reflection-questions" class="level2">
+<h2 class="anchored" data-anchor-id="reflection-questions">Reflection Questions</h2>
+</section>
+<section id="think-about" class="level2 callout-reflect" data-icon="false">
+<h2 class="anchored" data-anchor-id="think-about">Think About</h2>
+<p>Consider these questions as you explore the demo:</p>
 <ol type="1">
-<li><strong>What’s possible:</strong> A complete personalised example generator with multiple domains</li>
-<li><strong>The power:</strong> How AI enables personalisation at scale</li>
-<li><strong>The approach:</strong> Structured data models + AI generation + reactive UI</li>
-<li><strong>The potential:</strong> How similar tools could support their own teaching contexts</li>
+<li>What aspects of the personalization impressed you most?</li>
+<li>How could personalized worked examples benefit YOUR students?</li>
+<li>What domain or subject area would be relevant for your teaching context?</li>
+<li>What types of student interests or goals could you leverage for personalization?</li>
 </ol>
+<p><strong>Key insight:</strong> AI-powered tools can scale individualized instruction in ways that were previously impractical. The pattern demonstrated here (structured data + AI generation + interactive UI) can apply across many educational contexts.</p>
+</section>
+<hr>
+<section id="pedagogical-foundation" class="level2">
+<h2 class="anchored" data-anchor-id="pedagogical-foundation">Pedagogical Foundation</h2>
+<p>This tool is grounded in <strong>Cognitive Load Theory</strong> research:</p>
+<p><strong>Worked Example Effect:</strong> Novice learners benefit more from studying complete solutions than from problem-solving alone (effect size 0.52).</p>
+<p><strong>Personalization Principle:</strong> Familiar contexts reduce extraneous cognitive load, allowing learners to focus on the target concept rather than decoding unfamiliar scenarios.</p>
+<p>By combining these principles with AI generation, we can provide:</p>
+<ul>
+<li>High-quality worked examples (supporting novice learning)</li>
+<li>Personalized to individual contexts (reducing cognitive load)</li>
+<li>At scale (reaching all learners, not just a privileged few)</li>
+</ul>
 
 
 </section>
