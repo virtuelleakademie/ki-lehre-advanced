@@ -2787,7 +2787,7 @@
     "href": "workshop/theory/index.html#learning-objectives",
     "title": "Theory: Cognitive Load Theory Principles",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nBy the end of this section, you will understand:\n\nThe Worked Example Effect - Why studying complete solutions helps novices learn\nThe Personalisation Effect - How familiar contexts reduce cognitive load\nHow AI can scale these principles in education",
+    "text": "Learning Objectives\nBy the end of this section, you will understand:\n\nThe Worked Example Effect: Why studying complete solutions helps novices learn\nThe Personalisation Effect: How familiar contexts reduce cognitive load\nHow AI can scale these principles in education",
     "crumbs": [
       "Workshop",
       "Theory (30 min)",
@@ -3866,7 +3866,7 @@
     "href": "slides/theory/index.html#the-ai-solution",
     "title": "Cognitive Load Theory & Educational AI",
     "section": "The AI Solution",
-    "text": "The AI Solution\nLarge language models can:\n\nGenerate unique examples on demand\nWeave personal contexts naturally\nMaintain pedagogical quality (with structured outputs)\nScale to unlimited students\nGenerate in seconds, not hours\n\n\nToday’s Goal\nBuild a tool that:\n\nCollects learner interests, hobbies, goals\nGenerates personalised worked examples\nTeaches concepts through familiar contexts\nUses PydanticAI to ensure structured, quality output"
+    "text": "The AI Solution\nAI can generate personalised worked examples:\n\nCreate unique examples on demand\nIncorporate personal contexts naturally\nMaintain quality with structured outputs\nScale to unlimited students\n\n\n\n\nToday’s Goal: Build a tool that generates personalised worked examples using PydanticAI"
   },
   {
     "objectID": "slides/theory/index.html#why-pydanticai",
@@ -3901,7 +3901,7 @@
     "href": "slides/theory/index.html#key-papers",
     "title": "Cognitive Load Theory & Educational AI",
     "section": "Key Papers",
-    "text": "Key Papers\nWorked Example Effect:\n\nSweller (1988)\nCooper, G., & Sweller, J. (1987). Effects of schema acquisition and rule automation on mathematical problem-solving transfer. Journal of Educational Psychology, 79(4), 347-362.\n\nPersonalisation Effect:\n\nCordova, D. I., & Lepper, M. R. (1996). Intrinsic motivation and the process of learning. Journal of Educational Psychology, 88(4), 715.\n\nMeta-Analysis:\n\nCrissman, J. (2006). The design and utilization of effective worked examples: A meta-analysis. University of Nebraska, Lincoln."
+    "text": "Key Papers\nWorked Example Effect:\n\nSweller (1988)\nCooper and Sweller (1987)\n\nPersonalisation Effect:\n\nCordova, D. I., & Lepper, M. R. (1996). Intrinsic motivation and the process of learning. Journal of Educational Psychology, 88(4), 715.\n\nMeta-Analysis:\n\nCrissman, J. (2006). The design and utilization of effective worked examples: A meta-analysis. University of Nebraska, Lincoln."
   },
   {
     "objectID": "slides/theory/index.html#accessible-resource",
@@ -3915,7 +3915,7 @@
     "href": "slides/theory/index.html#summary",
     "title": "Cognitive Load Theory & Educational AI",
     "section": "Summary",
-    "text": "Summary\n\nWorked examples reduce cognitive load for novices\n\nEffect size: 0.52\nMore effective than problem-solving for beginners\nAllows focus on pattern, not search\n\nPersonalisation makes examples easier to process\n\nFamiliar contexts reduce extraneous load\nIncreases motivation and engagement\nBetter learning outcomes\n\nAI can scale personalised worked examples\n\nGenerate unique examples on demand\nMaintain quality with structured outputs\nImpossible to do manually at scale\n\nThis workshop is designed as a worked example\n\nYou’ll study a complete solution\nWe’ll explain design choices\nYou’ll modify for your needs"
+    "text": "Summary\nThree core principles:\n\nWorked examples reduce cognitive load for novices\n\nEffect size: 0.52\nMore effective than problem solving for beginners\nAllows focus on understanding patterns\n\nPersonalisation reduces extraneous load\n\nFamiliar contexts easier to process\nIncreases motivation and engagement\nBetter learning outcomes\n\nAI enables scaling of personalised worked examples\n\nGenerate unique examples on demand\nMaintain quality with structured outputs\nImpossible to do manually at scale"
   },
   {
     "objectID": "slides/theory/index.html#questions",
@@ -3929,7 +3929,7 @@
     "href": "slides/theory/index.html#next-steps",
     "title": "Cognitive Load Theory & Educational AI",
     "section": "Next Steps",
-    "text": "Next Steps\nNow we’ll see it in action:\n\n\n\nNext: Demo Section\n\n\nWe’ll demonstrate the complete application:\n\nAll 3 domains (Programming, Health Sciences, Agronomy)\n16 concepts total\nLive personalised example generation\nSee the power of structured outputs\n\nThen you’ll build your own version!\n\n\n\n\n\n\n\nKalyuga, Slava. 2009. “The Expertise Reversal Effect.” In Managing Cognitive Load in Adaptive Multimedia Learning, 58–80. IGI Global Scientific Publishing. https://doi.org/10.4018/978-1-60566-048-6.ch003.\n\n\nSweller, John. 1988. “Cognitive Load During Problem Solving: Effects on Learning.” Cognitive Science 12 (2): 257–85. https://doi.org/10.1016/0364-0213(88)90023-7."
+    "text": "Next Steps\n\n\n\nLet’s See It in Action\n\n\nNext: Demonstration of the complete application\n\n3 domains (Programming, Health Sciences, Agronomy)\nLive personalised example generation\nStructured outputs with PydanticAI\n\nThen you’ll build your own version!"
   },
   {
     "objectID": "workshop/theory/index.html#cognitive-load-theory-educational-ai",
@@ -4018,5 +4018,68 @@
     "title": "Part 3: Build",
     "section": "Activity 2: Design the System Prompt",
     "text": "Activity 2: Design the System Prompt\n\n\n\n\n\n\nNote🧠 Critical Discussion (20 minutes)\n\n\n\nBefore coding, let’s think: What instructions should we give the AI to generate good worked examples?\n\n\n\nWhat Makes a Good Personalized Example?\n\n\n\n\n\n\nNote💭 Facilitated Discussion\n\n\n\nInstructor asks: “What instructions would help the AI generate examples that…”\nCollect responses and synthesize:\nDO:\n✅ Weave interests naturally (not tacked on)\n✅ Use learner’s name throughout\n✅ Make data realistic and believable\n✅ Match complexity to learner’s level\n✅ Show every step explicitly\n✅ Connect to their goal\nDON’T:\n❌ Create generic examples with personal details superficially added\n❌ Force artificial connections\n❌ Use too much jargon for beginners\n❌ Use abstract variable names\n❌ Skip steps in solutions\n\n\n\n\nThe System Prompt\nThe system prompt is critical for quality. It’s our pedagogical guidance to the AI.\nfrom openai import OpenAI\n\n# Initialize the client\nclient = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))\n\n# Define our pedagogical system prompt\nSYSTEM_PROMPT = \"\"\"You are an expert educator who creates highly personalized\nworked examples that connect abstract concepts to learners' lived experiences.\n\nCRITICAL INSTRUCTIONS:\n\n1. Weave the learner's interests, hobbies, and goals naturally into the example\n2. Use their name throughout to increase personal connection\n3. Make data and scenarios feel authentic to their context\n4. Keep explanations clear but connect to what they care about\n5. The example should feel like it was written specifically for this person\n6. Match complexity to their level (beginner/intermediate/advanced)\n7. Make the connection to their goal explicit and motivating\n8. Use concrete numbers and realistic data\n9. For programming examples, include actual runnable code with comments\n10. For quantitative examples, show all calculations step by step\n\nSTRUCTURE YOUR EXAMPLES:\n\n- Start with an engaging title that mentions their interest\n- Frame the problem in their context (use their name and interests)\n- Present data that feels real to their situation\n- Walk through steps clearly with explanations\n- For code: include comments explaining each part\n- For math: show each calculation explicitly\n- Connect the final answer to their goal\n- Suggest a related practice problem in their context\n\nAVOID:\n\n- Generic examples with personal details superficially added\n- Forced or artificial connections\n- Too much technical jargon for beginners\n- Abstract variable names (use meaningful names from their context)\n- Skipping steps in solutions\n\nRemember: This is a WORKED EXAMPLE - a complete solution for the learner\nto study, not a problem for them to solve.\n\"\"\"\n\n\nWhy Each Instruction Matters\n\n\n\n\n\n\nTip💡 Pedagogical Grounding\n\n\n\n\n\n\n\n\n\n\nInstruction\nCognitive Science Rationale\n\n\n\n\n“Weave interests naturally”\nReduces extraneous load, authentic context\n\n\n“Use their name”\nPersonal connection → germane load (motivation)\n\n\n“Authentic data”\nBelievability → mental simulation → deeper encoding\n\n\n“Match complexity to level”\nZone of proximal development\n\n\n“Show all steps”\nSchema construction requires seeing the pattern\n\n\n“Connect to goal”\nMotivation, relevance, transfer\n\n\n\nThe “avoid” list addresses common failure modes we’ve observed in testing."
+  },
+  {
+    "objectID": "slides/theory/index.html#learning-objectives",
+    "href": "slides/theory/index.html#learning-objectives",
+    "title": "Cognitive Load Theory & Educational AI",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBy the end of this workshop, you will understand:\n\nCognitive Load Theory: How working memory limits affect learning\nThe Worked Example Effect: Why studying solutions helps novices\nThe Personalisation Effect: How familiar contexts reduce cognitive load\nHow AI can scale these principles in education"
+  },
+  {
+    "objectID": "slides/theory/index.html#two-memory-systems",
+    "href": "slides/theory/index.html#two-memory-systems",
+    "title": "Cognitive Load Theory & Educational AI",
+    "section": "Two Memory Systems",
+    "text": "Two Memory Systems\n\n\nWorking Memory\nLimited capacity (approximately 4 items)\nVolatile (information decays quickly)\nBottleneck for learning\n\nLong-Term Memory\nUnlimited capacity\nPermanent storage via schemas\nAutomatic access without effort\n\n\n\n\nThe Challenge: Get information from working memory into long-term memory without overload"
+  },
+  {
+    "objectID": "slides/theory/index.html#three-types-of-cognitive-load",
+    "href": "slides/theory/index.html#three-types-of-cognitive-load",
+    "title": "Cognitive Load Theory & Educational AI",
+    "section": "Three Types of Cognitive Load",
+    "text": "Three Types of Cognitive Load\n\n\n\n\n\n\n\n\n\nType\nDescription\nEffect on Learning\nExample\n\n\n\n\nIntrinsic\nComplexity inherent to the material\nNecessary for learning\nLearning calculus is inherently complex\n\n\nExtraneous\nLoad from poor design or irrelevant info\nHinders learning\nConfusing layouts, unfamiliar contexts\n\n\nGermane\nEffort directed at learning\nHelps learning\nStudying patterns, making connections\n\n\n\n\n\n\nGoal: Minimize extraneous load, manage intrinsic load, maximize germane load"
+  },
+  {
+    "objectID": "slides/theory/index.html#what-the-research-shows",
+    "href": "slides/theory/index.html#what-the-research-shows",
+    "title": "Cognitive Load Theory & Educational AI",
+    "section": "What the Research Shows",
+    "text": "What the Research Shows\n\n“Novice learners who are given worked examples to study perform better on subsequent tests than learners who are required to solve the equivalent problems themselves.”\n— NSW Centre for Education Statistics and Evaluation (2017)\n\nEvidence:\n\nEffect size: 0.52 (medium to large)\nStrongest for novices\nDiminishes as expertise grows\nWorks across domains (math, programming, science)"
+  },
+  {
+    "objectID": "slides/theory/index.html#why-it-works",
+    "href": "slides/theory/index.html#why-it-works",
+    "title": "Cognitive Load Theory & Educational AI",
+    "section": "Why It Works",
+    "text": "Why It Works\n\n\nProblem Solving\nHigh cognitive load:\n\nSearch for solution\nTest approaches\nMonitor progress\nLearn concept\n\nLittle capacity left for learning\n\nWorked Examples\nLower cognitive load:\n\nSolution provided\nFocus on understanding\nSee patterns clearly\nBuild schemas efficiently\n\nMore capacity for learning"
+  },
+  {
+    "objectID": "slides/theory/index.html#generic-vs.-personalised-examples",
+    "href": "slides/theory/index.html#generic-vs.-personalised-examples",
+    "title": "Cognitive Load Theory & Educational AI",
+    "section": "Generic vs. Personalised Examples",
+    "text": "Generic vs. Personalised Examples\n\n\nGeneric\nCalculate the correlation\nbetween Variable X and Y.\n\nX: [10, 15, 20, 25, 30]\nY: [2, 4, 6, 8, 10]\nHigher extraneous load:\n\nAbstract variables\nNo connection to prior knowledge\nNo personal relevance\n\n\nPersonalised\nYou love cycling. Calculate\ncorrelation between training\nhours and speed:\n\nHours: [10, 15, 20, 25, 30]\nSpeed: [25, 27, 29, 31, 33]\nLower extraneous load:\n\nFamiliar context\nConnects to existing knowledge\nPersonally relevant"
+  },
+  {
+    "objectID": "slides/theory/index.html#why-personalisation-works",
+    "href": "slides/theory/index.html#why-personalisation-works",
+    "title": "Cognitive Load Theory & Educational AI",
+    "section": "Why Personalisation Works",
+    "text": "Why Personalisation Works\n\n“Familiar contexts require less cognitive effort to process, reducing extraneous cognitive load.”\n— Cordova & Lepper (1996)\n\nBenefits:\n\nReduces extraneous cognitive load\nIncreases motivation and engagement\nBetter learning outcomes\nParticularly effective with worked examples"
+  },
+  {
+    "objectID": "slides/theory/index.html#the-challenge-of-personalisation",
+    "href": "slides/theory/index.html#the-challenge-of-personalisation",
+    "title": "Cognitive Load Theory & Educational AI",
+    "section": "The Challenge of Personalisation",
+    "text": "The Challenge of Personalisation\nCreating personalised worked examples manually:\n\n30 students × 10 concepts = 300 unique examples\n15 minutes per example = 75 hours\nImpossible to do at scale"
+  },
+  {
+    "objectID": "slides/theory/index.html#recommended-reading",
+    "href": "slides/theory/index.html#recommended-reading",
+    "title": "Cognitive Load Theory & Educational AI",
+    "section": "Recommended Reading",
+    "text": "Recommended Reading\nNSW Centre for Education Statistics and Evaluation (2017)\nCognitive load theory: Research that teachers really need to understand\neducation.nsw.gov.au/cese/publications/literature-reviews/cognitive-load-theory\n\nAccessible introduction to CLT\nPractical implications for teaching\nEvidence summary with effect sizes"
   }
 ]
