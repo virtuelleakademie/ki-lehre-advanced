@@ -8,21 +8,11 @@ title: "Demo: The Complete Application"
 
 ## Purpose of This Demo
 
-**Show participants what's possible** - demonstrate the FULL complex application with all 3 domains and 16 concepts.
+**Show what's possible:** Demonstrate a complete application with 3 domains and 16 concepts.
 
-**Set realistic expectations** - they will build a SIMPLER version (1 domain, 3-4 concepts) in the hands-on section.
+**Activate curiosity:** See the power of AI-generated personalised worked examples.
 
-**Activate curiosity** - see the power of AI-generated personalised worked examples.
-
----
-
-## Demo Strategy
-
-::: {.callout-important}
-## Key Message
-
-**"This complex app took hours to build. Today you'll learn the pattern by modifying a simplified version. By understanding the pattern, you could extend it to match this complexity."**
-:::
+**Inspire transfer:** Spark ideas for how similar tools could support your own teaching.
 
 ---
 
@@ -32,6 +22,8 @@ title: "Demo: The Complete Application"
 
 Try the complete application below:
 
+[Open demo in new window](https://awellis-worked-example-weaver-app.hf.space){target="_blank"}
+
 <iframe
 	src="https://awellis-worked-example-weaver-app.hf.space"
 	frameborder="0"
@@ -39,13 +31,13 @@ Try the complete application below:
 	height="450"
 ></iframe>
 
-### Setup (Pre-workshop)
+### Instructor Setup (Pre-workshop)
 
 **Before workshop starts:**
 
-1. Have the deployed HuggingFace Space open: `https://huggingface.co/spaces/virtuelleakademie/clt-worked-example-weaver`
-2. Or run locally: `marimo run workshop/part-3-build/app.py`
-3. Test that generation works with your OpenAI API key
+1. Open the deployed demo: [https://awellis-worked-example-weaver-app.hf.space](https://awellis-worked-example-weaver-app.hf.space)
+2. Test that the application loads properly
+3. Prepare backup screenshots in case of connectivity issues
 
 ### Demo Script
 
@@ -142,29 +134,23 @@ Level: Beginner
 
 ## Key Points to Emphasize
 
-### 1. Complexity
+### 1. Application Features
 
-**What participants see:**
-- 3 complete domains
-- 16 concepts total
-- Full production app
-- Deployed to cloud
+**This demonstration shows:**
 
-**What they'll build:**
-- 1 domain (their choice)
-- 3-4 concepts
-- Local development
-- Can deploy later (optional)
+- 3 complete domains (Programming, Health Sciences, Agronomy)
+- 16 concepts total across all domains
+- Full production application
+- Deployed and accessible online
 
-### 2. The Pattern
+### 2. Technical Approach
 
 **This app demonstrates:**
+
 - ✅ Pydantic data models (structured input/output)
 - ✅ OpenAI structured outputs (type-safe AI responses)
 - ✅ Marimo reactive UI (automatic updates)
 - ✅ Concept library (extensible design)
-
-**You'll learn the pattern, then extend it.**
 
 ### 3. Personalisation Power
 
@@ -181,28 +167,28 @@ Level: Beginner
 
 ---
 
-## Transition to Build Section
+## Discussion and Reflection
 
 ::: {.callout-checkpoint icon=false}
-## Checkpoint Questions
+## Discussion Questions
 
 **Ask participants:**
 
 1. "What impressed you most about the demo?"
 2. "How could you use personalised worked examples in YOUR teaching?"
-3. "What domain would you want to add?"
+3. "What domain or context would be relevant for your students?"
 
 **Common responses:**
 
 - "The personalisation is impressive"
-- "I teach [X], could I add that domain?"
-- "How hard is it to add new concepts?"
+- "I teach [X], this could work for that domain"
+- "My students have diverse backgrounds, this could help bridge contexts"
 
-**Your response:**
+**Key takeaway:**
 
-- "Great questions! In the next section, you'll work with a simplified version"
-- "You'll see exactly how concepts are structured"
-- "And in the Extend section, you'll design your own additions"
+- AI-powered personalisation enables scaling individualized instruction
+- The pattern (structured data + AI generation + reactive UI) applies across domains
+- Similar approaches could support various educational contexts
 :::
 
 ---
@@ -219,19 +205,22 @@ Level: Beginner
 ### Common Demo Issues
 
 **Generation takes too long:**
-- Have pre-generated examples ready as screenshots
-- Explain: "Production would cache common patterns"
 
-**API error:**
-- Backup: Show code that would generate it
-- Explain: "This is why we provide starter template - ensures it works"
+- Have pre-generated examples ready as screenshots
+- Explain the typical generation time (30-60 seconds)
+
+**Connectivity issues:**
+
+- Backup: Show screenshots or pre-recorded video
+- Have local version ready if possible
 
 ### Customization for Your Workshop
 
 **Domains to demo:**
+
 - Choose domains relevant to your audience
-- If all participants teach programming → focus on that
-- If mixed → show variety
+- If all participants teach programming, focus on that domain
+- If mixed audience, show variety across domains
 
 ---
 
@@ -239,11 +228,7 @@ Level: Beginner
 
 After this demo, participants should know:
 
-1. **The end goal** - What a complete personalised example generator looks like
-2. **The power** - How AI enables personalisation at scale
-3. **The scope** - They'll build a simpler version to learn the pattern
-4. **The potential** - How they could extend it for their teaching
-
----
-
-**Next:** [Build Section](../build/index.qmd) - Now you'll work with the code
+1. **What's possible:** A complete personalised example generator with multiple domains
+2. **The power:** How AI enables personalisation at scale
+3. **The approach:** Structured data models + AI generation + reactive UI
+4. **The potential:** How similar tools could support their own teaching contexts
