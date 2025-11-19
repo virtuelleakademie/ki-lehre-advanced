@@ -358,32 +358,122 @@ def _(field_selector, mo):
 
 @app.cell
 def _(field_selector, mo):
-    """Lab 3: Analysis"""
+    """Lab 3: Adaptive analysis based on selections"""
+
+    analysis_output = None
 
     if field_selector.value:
-        mo.md(f"""
-        ### Your Selected Structure
+        selected = field_selector.value
 
-        ```python
-        class WorkedExample:
-            {chr(10).join(['    ' + f for f in field_selector.value])}
-        ```
+        # Analyze specific choices
+        has_chunked_solution = "solution_steps: list[str]" in selected
+        has_monolithic_solution = "solution: str" in selected
+        has_key_insight = "key_insight: str" in selected
+        has_common_mistakes = "common_mistakes: str" in selected
+        has_final_answer = "final_answer: str" in selected
+        has_code_comments = "code_with_comments: str" in selected
+        has_real_world = "connection_to_real_world: str" in selected
+        has_problem = "problem: str" in selected
 
-        ### 💭 Design Analysis
+        # Detect issues
+        contradiction = has_chunked_solution and has_monolithic_solution
+        too_many_fields = len(selected) >= 7
+        too_few_fields = len(selected) <= 2
+        no_chunking = not has_chunked_solution
 
-        **Key Questions:**
-        - Did you choose `solution_steps: list[str]` or `solution: str`?
-          - **List = chunking** (reduces cognitive load)
-          - **String = one big block** (higher load for novices)
+        # Calculate design score
+        design_score = 0
+        feedback_items = []
 
-        - Did you include `key_insight`?
-          - Helps with **schema activation** (connecting to prior knowledge)
+        # Essential field
+        if has_problem:
+            design_score += 1
+        else:
+            feedback_items.append("⚠️ Missing `problem` field - students need to know what to solve!")
 
-        - Did you include `common_mistakes`?
-          - **Desirable difficulty**: learning from contrasts
+        # Chunking (most critical for CLT)
+        if has_chunked_solution and not has_monolithic_solution:
+            design_score += 2  # Worth 2 points!
+            feedback_items.append("✅ **Excellent**: `solution_steps: list[str]` implements **chunking** (reduces intrinsic load)")
+        elif has_monolithic_solution and not has_chunked_solution:
+            feedback_items.append("❌ **Problem**: `solution: str` as one block creates **high cognitive load** for novices")
+        elif contradiction:
+            feedback_items.append("⚠️ **Contradiction**: You have BOTH chunked and monolithic solutions - choose one!")
+        else:
+            feedback_items.append("⚠️ **Missing**: No solution field at all - how will students see the steps?")
 
-        **The design IS the pedagogy**. Each field choice implements a CLT principle.
-        """)
+        # Schema activation
+        if has_key_insight:
+            design_score += 1
+            feedback_items.append("✅ `key_insight` supports **schema activation** (connects to prior knowledge)")
+        else:
+            feedback_items.append("💡 **Consider adding**: `key_insight` for schema activation")
+
+        # Desirable difficulty
+        if has_common_mistakes:
+            design_score += 1
+            feedback_items.append("✅ `common_mistakes` creates **desirable difficulty** (learning from contrasts)")
+
+        # Closure
+        if has_final_answer:
+            design_score += 1
+            feedback_items.append("✅ `final_answer` provides **closure** (reduces uncertainty)")
+
+        # Additional good choices
+        if has_code_comments:
+            feedback_items.append("✅ `code_with_comments` uses **dual coding** (text + code)")
+
+        if has_real_world:
+            feedback_items.append("✅ `connection_to_real_world` adds **relevance** (reduces extraneous load)")
+
+        # Check for cognitive overload
+        if too_many_fields:
+            design_score -= 1
+            feedback_items.append("⚠️ **Cognitive overload risk**: 7-8 fields may overwhelm novices. Consider focusing on core elements.")
+
+        if too_few_fields and not contradiction:
+            feedback_items.append("💡 **Suggestion**: Add more fields to support learning (aim for 4-6 well-chosen fields)")
+
+        # Determine overall quality
+        max_design_score = 6
+        if design_score >= 5:
+            quality = "🌟 **Excellent pedagogical design!**"
+            kind = "success"
+        elif design_score >= 3:
+            quality = "👍 **Good design with room for improvement**"
+            kind = "info"
+        else:
+            quality = "⚠️ **Needs pedagogical revision**"
+            kind = "warn"
+
+        # Build the output
+        analysis_output = mo.vstack([
+            mo.md(f"""
+            ### Your Selected Structure
+
+            ```python
+            class WorkedExample:
+                {chr(10).join(['    ' + f for f in selected])}
+            ```
+            """),
+            mo.callout(mo.md(f"""
+            ### 📊 Pedagogical Analysis
+
+            **Score: {design_score}/{max_design_score}**
+
+            {quality}
+
+            #### Design Evaluation:
+
+            {chr(10).join(['- ' + item for item in feedback_items])}
+
+            ---
+
+            **Key Principle**: The design IS the pedagogy. Each field choice implements (or undermines) a CLT principle.
+            """), kind=kind)
+        ])
+
+    analysis_output
     return
 
 
