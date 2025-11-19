@@ -139,6 +139,8 @@ def _(mo):
 def _(SimpleExample, basic_prompt, client, clt_prompt, lab1_button, mo):
     """Lab 1: Generate and compare both examples"""
 
+    lab1_output = None
+
     if lab1_button.value and basic_prompt.value and clt_prompt.value:
         with mo.status.spinner(title="Generating both examples..."):
             # Generate basic example
@@ -157,7 +159,7 @@ def _(SimpleExample, basic_prompt, client, clt_prompt, lab1_button, mo):
             )
             clt_example = clt_response.output_parsed
 
-        comparison = mo.vstack([
+        _comparison = mo.vstack([
             mo.md("### 📊 Basic Prompt Result"),
             mo.md(f"**Problem:** {basic_example.problem}"),
             mo.md(f"**Solution:** {basic_example.solution}"),
@@ -169,7 +171,7 @@ def _(SimpleExample, basic_prompt, client, clt_prompt, lab1_button, mo):
             mo.md(f"**Explanation:** {clt_example.explanation}"),
         ])
 
-        reflection = mo.callout(mo.md("""
+        _reflection = mo.callout(mo.md("""
         ### 💭 What Do You Notice?
 
         - Which problem is clearer and more specific?
@@ -179,8 +181,9 @@ def _(SimpleExample, basic_prompt, client, clt_prompt, lab1_button, mo):
         **The prompt IS your pedagogical design!**
         """), kind="info")
 
-        return mo.vstack([comparison, reflection])
-    return
+        lab1_output = mo.vstack([_comparison, _reflection])
+
+    lab1_output
 
 
 @app.cell
@@ -242,6 +245,8 @@ def _(mo):
 def _(SimpleExample, client, lab2_button, mo, your_goal, your_hobby):
     """Lab 2: Generate A/B comparison"""
 
+    lab2_output = None
+
     if lab2_button.value and your_hobby.value and your_goal.value:
         with mo.status.spinner(title="Generating generic and personalized examples..."):
             # Generic example
@@ -266,7 +271,7 @@ Use familiar contexts and examples from their interest to make the concept more 
             )
             personalized_example = personalized_response.output_parsed
 
-        comparison = mo.vstack([
+        _comparison = mo.vstack([
             mo.md("### 📖 Generic Example (Standard Textbook Style)"),
             mo.md(f"**Problem:** {generic_example.problem}"),
             mo.md(f"**Solution:** {generic_example.solution}"),
@@ -278,7 +283,7 @@ Use familiar contexts and examples from their interest to make the concept more 
             mo.md(f"**Explanation:** {personalized_example.explanation}"),
         ])
 
-        reflection = mo.callout(mo.md("""
+        _reflection = mo.callout(mo.md("""
         ### 💭 How Did That Feel?
 
         - Which example was more engaging to read?
@@ -288,8 +293,9 @@ Use familiar contexts and examples from their interest to make the concept more 
         **This is the personalization effect in action!** Familiar contexts reduce extraneous cognitive load.
         """), kind="success")
 
-        return mo.vstack([comparison, reflection])
-    return
+        lab2_output = mo.vstack([_comparison, _reflection])
+
+    lab2_output
 
 
 @app.cell
