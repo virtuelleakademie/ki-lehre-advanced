@@ -1,3 +1,4 @@
+# ruff: noqa
 """
 Interactive Exploration: Cognitive Load Theory & AI-Generated Worked Examples
 Five hands-on labs to understand how to design educational AI tools
@@ -118,7 +119,7 @@ def _(mo):
     )
 
     mo.vstack([basic_prompt, clt_prompt])
-    return basic_prompt, clt_prompt
+    return
 
 
 @app.cell
@@ -136,11 +137,11 @@ def _(mo):
 
 @app.cell
 def _(SimpleExample, basic_prompt, client, clt_prompt, lab1_button, mo):
-    """Lab 1: Generate and display"""
+    """Lab 1: Generate and compare both examples"""
 
-    if lab1_button.value:
+    if lab1_button.value and basic_prompt.value and clt_prompt.value:
         with mo.status.spinner(title="Generating both examples..."):
-            # Generate basic
+            # Generate basic example
             basic_response = client.responses.parse(
                 model="gpt-5.1",
                 input=[{"role": "user", "content": basic_prompt.value}],
@@ -148,7 +149,7 @@ def _(SimpleExample, basic_prompt, client, clt_prompt, lab1_button, mo):
             )
             basic_example = basic_response.output_parsed
 
-            # Generate CLT-grounded
+            # Generate CLT-grounded example
             clt_response = client.responses.parse(
                 model="gpt-5.1",
                 input=[{"role": "user", "content": clt_prompt.value}],
@@ -156,33 +157,29 @@ def _(SimpleExample, basic_prompt, client, clt_prompt, lab1_button, mo):
             )
             clt_example = clt_response.output_parsed
 
-        # Display side by side
-        comparison = mo.hstack([
-            mo.vstack([
-                mo.md("**Basic Prompt Result:**"),
-                mo.md(f"**Problem:** {basic_example.problem}"),
-                mo.md(f"**Solution:** {basic_example.solution}"),
-                mo.md(f"**Explanation:** {basic_example.explanation}"),
-            ]),
-            mo.vstack([
-                mo.md("**CLT-Grounded Result:**"),
-                mo.md(f"**Problem:** {clt_example.problem}"),
-                mo.md(f"**Solution:** {clt_example.solution}"),
-                mo.md(f"**Explanation:** {clt_example.explanation}"),
-            ])
+        comparison = mo.vstack([
+            mo.md("### 📊 Basic Prompt Result"),
+            mo.md(f"**Problem:** {basic_example.problem}"),
+            mo.md(f"**Solution:** {basic_example.solution}"),
+            mo.md(f"**Explanation:** {basic_example.explanation}"),
+            mo.md("---"),
+            mo.md("### 🎓 CLT-Grounded Prompt Result"),
+            mo.md(f"**Problem:** {clt_example.problem}"),
+            mo.md(f"**Solution:** {clt_example.solution}"),
+            mo.md(f"**Explanation:** {clt_example.explanation}"),
         ])
 
-        reflection = mo.md("""
-        ### 🤔 Reflection Questions
+        reflection = mo.callout(mo.md("""
+        ### 💭 What Do You Notice?
 
-        - Which example would be easier for a novice to learn from?
-        - Which one reduces extraneous cognitive load?
-        - What specific phrases in the CLT prompt made the difference?
+        - Which problem is clearer and more specific?
+        - Which solution breaks down steps better?
+        - Which explanation helps you understand WHY, not just WHAT?
 
-        **Key Takeaway**: Prompts aren't just instructions—they're pedagogical designs.
-        """)
+        **The prompt IS your pedagogical design!**
+        """), kind="info")
 
-        mo.vstack([comparison, reflection])
+        return mo.vstack([comparison, reflection])
     return
 
 
@@ -225,7 +222,7 @@ def _(mo):
     )
 
     mo.vstack([your_hobby, your_goal])
-    return your_goal, your_hobby
+    return your_hobby, your_goal
 
 
 @app.cell
@@ -243,59 +240,55 @@ def _(mo):
 
 @app.cell
 def _(SimpleExample, client, lab2_button, mo, your_goal, your_hobby):
-    """Lab 2: Generate generic vs personalized"""
+    """Lab 2: Generate A/B comparison"""
 
     if lab2_button.value and your_hobby.value and your_goal.value:
-        with mo.status.spinner(title="Creating both versions..."):
-            # Generic version
+        with mo.status.spinner(title="Generating generic and personalized examples..."):
+            # Generic example
+            generic_prompt = "Create a worked example about Python dictionaries for beginners."
             generic_response = client.responses.parse(
                 model="gpt-5.1",
-                input=[{"role": "user", "content": """Create a worked example teaching Python list comprehensions.
-    Use a generic context like processing numbers or simple data."""}],
+                input=[{"role": "user", "content": generic_prompt}],
                 text_format=SimpleExample
             )
-            generic = generic_response.output_parsed
+            generic_example = generic_response.output_parsed
 
-            # Personalized version
-            personal_response = client.responses.parse(
+            # Personalized example
+            personalized_prompt = f"""Create a worked example about Python dictionaries for beginners.
+
+IMPORTANT: Personalize this example for someone who is interested in {your_hobby.value} and wants to {your_goal.value}.
+Use familiar contexts and examples from their interest to make the concept more relatable and reduce cognitive load."""
+
+            personalized_response = client.responses.parse(
                 model="gpt-5.1",
-                input=[{"role": "user", "content": f"""Create a worked example teaching Python list comprehensions.
-
-    Use this SPECIFIC context:
-    - Learner's interest: {your_hobby.value}
-    - Their goal: {your_goal.value}
-
-    Make the problem about their interest and show how this helps them achieve their goal.
-    This is a WORKED EXAMPLE - provide complete step-by-step solution."""}],
+                input=[{"role": "user", "content": personalized_prompt}],
                 text_format=SimpleExample
             )
-            personal = personal_response.output_parsed
+            personalized_example = personalized_response.output_parsed
 
-        # Display comparison
-        mo.vstack([
-            mo.md("### Generic Version"),
-            mo.md(f"**Problem:** {generic.problem}"),
-            mo.md(f"**Solution:** {generic.solution}"),
-            mo.md(f"**Explanation:** {generic.explanation}"),
+        comparison = mo.vstack([
+            mo.md("### 📖 Generic Example (Standard Textbook Style)"),
+            mo.md(f"**Problem:** {generic_example.problem}"),
+            mo.md(f"**Solution:** {generic_example.solution}"),
+            mo.md(f"**Explanation:** {generic_example.explanation}"),
             mo.md("---"),
-            mo.md("### Personalized Version (Using YOUR Context)"),
-            mo.md(f"**Problem:** {personal.problem}"),
-            mo.md(f"**Solution:** {personal.solution}"),
-            mo.md(f"**Explanation:** {personal.explanation}"),
-            mo.md("---"),
-            mo.callout("""
-            ### 🧠 Notice the Difference?
-
-            - **Which felt more engaging?**
-            - **Which required less mental effort to understand the context?**
-            - **Which made the concept feel more relevant?**
-
-            That's the **personalization effect**: familiar contexts reduce extraneous cognitive load.
-            """, kind="success")
+            mo.md(f"### ✨ Personalized Example (Your Context: {your_hobby.value})"),
+            mo.md(f"**Problem:** {personalized_example.problem}"),
+            mo.md(f"**Solution:** {personalized_example.solution}"),
+            mo.md(f"**Explanation:** {personalized_example.explanation}"),
         ])
 
-    elif lab2_button.value:
-        mo.callout("Please enter your hobby and goal above first!", kind="warn")
+        reflection = mo.callout(mo.md("""
+        ### 💭 How Did That Feel?
+
+        - Which example was more engaging to read?
+        - Which one felt easier to process mentally?
+        - Could you visualize the personalized example more easily?
+
+        **This is the personalization effect in action!** Familiar contexts reduce extraneous cognitive load.
+        """), kind="success")
+
+        return mo.vstack([comparison, reflection])
     return
 
 
@@ -406,7 +399,7 @@ def _(mo):
     GPT-5.1 has parameters like `reasoning.effort`. Try different settings and see
     how they affect example quality.
 
-    **Note**: This lab is conceptual - showing the parameters you COULD control.
+    **Note**: This lab is conceptual---showing the parameters you COULD control.
     """)
     return
 
@@ -436,16 +429,18 @@ def _(mo):
 @app.cell
 def _(mo, reasoning_effort, verbosity):
     """Lab 4: Display parameter info"""
-    mo.callout(f"""
+    mo.callout(mo.md(f"""
     **Current Settings:**
+
     - Reasoning: {reasoning_effort.value}
     - Verbosity: {verbosity.value}
 
     **For novices**: Low reasoning (fast), medium-high verbosity (detailed explanations)
+
     **For experts**: Higher reasoning (better solutions), lower verbosity (concise)
 
     The "best" parameters depend on your learners!
-    """, kind="info")
+    """), kind="info")
     return
 
 
