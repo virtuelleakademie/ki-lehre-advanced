@@ -88,6 +88,83 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 <style>
+div.callout-break.callout {
+  border-left-color: yellow;
+}
+div.callout-break.callout-style-default > .callout-header {
+  background-color: rgb(from yellow r g b / 13%);
+}
+div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
+  content: '☕';
+  background-image: none;
+}
+div.callout-screens-up.callout {
+  border-left-color: green;
+}
+div.callout-screens-up.callout-style-default > .callout-header {
+  background-color: rgb(from green r g b / 13%);
+}
+div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
+  content: '🔼';
+  background-image: none;
+}
+div.callout-screens-down.callout {
+  border-left-color: orange;
+}
+div.callout-screens-down.callout-style-default > .callout-header {
+  background-color: rgb(from orange r g b / 13%);
+}
+div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
+  content: '🔽';
+  background-image: none;
+}
+div.callout-individual.callout {
+  border-left-color: steelblue;
+}
+div.callout-individual.callout-style-default > .callout-header {
+  background-color: rgb(from steelblue r g b / 13%);
+}
+div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
+  content: '💻';
+  background-image: none;
+}
+div.callout-reflect.callout {
+  border-left-color: purple;
+}
+div.callout-reflect.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
+  content: '💭';
+  background-image: none;
+}
+div.callout-schedule.callout {
+  border-left-color: steelblue;
+}
+div.callout-schedule.callout-style-default > .callout-header {
+  background-color: rgb(from steelblue r g b / 13%);
+}
+div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
+  content: '⏰︎';
+  background-image: none;
+}
+div.callout-prompt-example.callout {
+  border-left-color: steelblue;
+}
+div.callout-prompt-example.callout-style-default > .callout-header {
+  background-color: rgb(from steelblue r g b / 13%);
+}
+div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
+  content: '👩🏼‍🔧';
+  background-image: none;
+}
 div.callout-setup.callout {
   border-left-color: gray;
 }
@@ -110,39 +187,6 @@ div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.c
   content: '👥';
   background-image: none;
 }
-div.callout-feedback.callout {
-  border-left-color: teal;
-}
-div.callout-feedback.callout-style-default > .callout-header {
-  background-color: rgb(from teal r g b / 13%);
-}
-div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
-  content: '📝';
-  background-image: none;
-}
-div.callout-prompt-example.callout {
-  border-left-color: steelblue;
-}
-div.callout-prompt-example.callout-style-default > .callout-header {
-  background-color: rgb(from steelblue r g b / 13%);
-}
-div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
-  content: '👩🏼‍🔧';
-  background-image: none;
-}
-div.callout-timing.callout {
-  border-left-color: red;
-}
-div.callout-timing.callout-style-default > .callout-header {
-  background-color: rgb(from red r g b / 13%);
-}
-div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
-  content: '⏱️';
-  background-image: none;
-}
 div.callout-checkpoint.callout {
   border-left-color: purple;
 }
@@ -154,92 +198,15 @@ div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-
   content: '🎯';
   background-image: none;
 }
-div.callout-export.callout {
-  border-left-color: brown;
+div.callout-testing.callout {
+  border-left-color: green;
 }
-div.callout-export.callout-style-default > .callout-header {
-  background-color: rgb(from brown r g b / 13%);
+div.callout-testing.callout-style-default > .callout-header {
+  background-color: rgb(from green r g b / 13%);
 }
-div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
-  content: '📤';
-  background-image: none;
-}
-div.callout-break.callout {
-  border-left-color: yellow;
-}
-div.callout-break.callout-style-default > .callout-header {
-  background-color: rgb(from yellow r g b / 13%);
-}
-div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
-  content: '☕';
-  background-image: none;
-}
-div.callout-try.callout {
-  border-left-color: blue;
-}
-div.callout-try.callout-style-default > .callout-header {
-  background-color: rgb(from blue r g b / 13%);
-}
-div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
-  content: '🔄';
-  background-image: none;
-}
-div.callout-caution.callout {
-  border-left-color: orange;
-}
-div.callout-caution.callout-style-default > .callout-header {
-  background-color: rgb(from orange r g b / 13%);
-}
-div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
-  content: '⚠️';
-  background-image: none;
-}
-div.callout-individual.callout {
-  border-left-color: steelblue;
-}
-div.callout-individual.callout-style-default > .callout-header {
-  background-color: rgb(from steelblue r g b / 13%);
-}
-div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
-  content: '💻';
-  background-image: none;
-}
-div.callout-screens-down.callout {
-  border-left-color: orange;
-}
-div.callout-screens-down.callout-style-default > .callout-header {
-  background-color: rgb(from orange r g b / 13%);
-}
-div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
-  content: '🔽';
-  background-image: none;
-}
-div.callout-schedule.callout {
-  border-left-color: steelblue;
-}
-div.callout-schedule.callout-style-default > .callout-header {
-  background-color: rgb(from steelblue r g b / 13%);
-}
-div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
-  content: '⏰︎';
-  background-image: none;
-}
-div.callout-reflect.callout {
-  border-left-color: purple;
-}
-div.callout-reflect.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
-  content: '💭';
+div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
+  content: '🧪';
   background-image: none;
 }
 div.callout-pro-tip.callout {
@@ -264,15 +231,48 @@ div.callout-prompt-template.callout-style-default .callout-icon::before, div.cal
   content: '📋';
   background-image: none;
 }
-div.callout-screens-up.callout {
-  border-left-color: green;
+div.callout-timing.callout {
+  border-left-color: red;
 }
-div.callout-screens-up.callout-style-default > .callout-header {
-  background-color: rgb(from green r g b / 13%);
+div.callout-timing.callout-style-default > .callout-header {
+  background-color: rgb(from red r g b / 13%);
 }
-div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
-  content: '🔼';
+div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
+  content: '⏱️';
+  background-image: none;
+}
+div.callout-caution.callout {
+  border-left-color: orange;
+}
+div.callout-caution.callout-style-default > .callout-header {
+  background-color: rgb(from orange r g b / 13%);
+}
+div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
+  content: '⚠️';
+  background-image: none;
+}
+div.callout-export.callout {
+  border-left-color: brown;
+}
+div.callout-export.callout-style-default > .callout-header {
+  background-color: rgb(from brown r g b / 13%);
+}
+div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
+  content: '📤';
+  background-image: none;
+}
+div.callout-feedback.callout {
+  border-left-color: teal;
+}
+div.callout-feedback.callout-style-default > .callout-header {
+  background-color: rgb(from teal r g b / 13%);
+}
+div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
+  content: '📝';
   background-image: none;
 }
 div.callout-group.callout {
@@ -286,17 +286,6 @@ div.callout-group.callout-style-default .callout-icon::before, div.callout-group
   content: '👥';
   background-image: none;
 }
-div.callout-testing.callout {
-  border-left-color: green;
-}
-div.callout-testing.callout-style-default > .callout-header {
-  background-color: rgb(from green r g b / 13%);
-}
-div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
-  content: '🧪';
-  background-image: none;
-}
 div.callout-tutor-example.callout {
   border-left-color: purple;
 }
@@ -306,6 +295,17 @@ div.callout-tutor-example.callout-style-default > .callout-header {
 div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
   content: '📄';
+  background-image: none;
+}
+div.callout-try.callout {
+  border-left-color: blue;
+}
+div.callout-try.callout-style-default > .callout-header {
+  background-color: rgb(from blue r g b / 13%);
+}
+div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
+  content: '🔄';
   background-image: none;
 }
 </style>
@@ -492,35 +492,13 @@ div.callout-tutor-example.callout-style-default .callout-icon::before, div.callo
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#duration-30-minutes" id="toc-duration-30-minutes" class="nav-link active" data-scroll-target="#duration-30-minutes">Duration: 30 minutes</a></li>
+  <li><a href="#duration-15-20-minutes" id="toc-duration-15-20-minutes" class="nav-link active" data-scroll-target="#duration-15-20-minutes">Duration: 15-20 minutes</a></li>
   <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose">Purpose</a></li>
-  <li><a href="#group-activity-structure" id="toc-group-activity-structure" class="nav-link" data-scroll-target="#group-activity-structure">Group Activity Structure</a>
-  <ul class="collapse">
-  <li><a href="#form-groups-2-minutes" id="toc-form-groups-2-minutes" class="nav-link" data-scroll-target="#form-groups-2-minutes">Form Groups (2 minutes)</a></li>
-  </ul></li>
-  <li><a href="#groups-of-3-4" id="toc-groups-of-3-4" class="nav-link" data-scroll-target="#groups-of-3-4">Groups of 3-4</a></li>
-  <li><a href="#round-1-new-domains-6-minutes" id="toc-round-1-new-domains-6-minutes" class="nav-link" data-scroll-target="#round-1-new-domains-6-minutes">Round 1: New Domains (6 minutes)</a></li>
-  <li><a href="#discussion-prompts" id="toc-discussion-prompts" class="nav-link" data-scroll-target="#discussion-prompts">Discussion Prompts</a></li>
-  <li><a href="#example-domains-to-inspire-you" id="toc-example-domains-to-inspire-you" class="nav-link" data-scroll-target="#example-domains-to-inspire-you">Example Domains to Inspire You</a></li>
-  <li><a href="#note-taker-task" id="toc-note-taker-task" class="nav-link" data-scroll-target="#note-taker-task">Note-Taker Task</a></li>
-  <li><a href="#round-2-new-features-6-minutes" id="toc-round-2-new-features-6-minutes" class="nav-link" data-scroll-target="#round-2-new-features-6-minutes">Round 2: New Features (6 minutes)</a></li>
-  <li><a href="#discussion-prompts-1" id="toc-discussion-prompts-1" class="nav-link" data-scroll-target="#discussion-prompts-1">Discussion Prompts</a></li>
-  <li><a href="#feature-ideas-to-consider" id="toc-feature-ideas-to-consider" class="nav-link" data-scroll-target="#feature-ideas-to-consider">Feature Ideas to Consider</a></li>
-  <li><a href="#pedagogical-considerations" id="toc-pedagogical-considerations" class="nav-link" data-scroll-target="#pedagogical-considerations">Pedagogical Considerations</a></li>
-  <li><a href="#note-taker-task-1" id="toc-note-taker-task-1" class="nav-link" data-scroll-target="#note-taker-task-1">Note-Taker Task</a></li>
-  <li><a href="#round-3-integration-barriers-6-minutes" id="toc-round-3-integration-barriers-6-minutes" class="nav-link" data-scroll-target="#round-3-integration-barriers-6-minutes">Round 3: Integration &amp; Barriers (6 minutes)</a></li>
-  <li><a href="#discussion-prompts-2" id="toc-discussion-prompts-2" class="nav-link" data-scroll-target="#discussion-prompts-2">Discussion Prompts</a></li>
-  <li><a href="#integration-scenarios" id="toc-integration-scenarios" class="nav-link" data-scroll-target="#integration-scenarios">Integration Scenarios</a></li>
-  <li><a href="#common-barriers-solutions" id="toc-common-barriers-solutions" class="nav-link" data-scroll-target="#common-barriers-solutions">Common Barriers &amp; Solutions</a></li>
-  <li><a href="#note-taker-task-2" id="toc-note-taker-task-2" class="nav-link" data-scroll-target="#note-taker-task-2">Note-Taker Task</a></li>
-  <li><a href="#group-sharing-10-minutes" id="toc-group-sharing-10-minutes" class="nav-link" data-scroll-target="#group-sharing-10-minutes">Group Sharing (10 minutes)</a></li>
-  <li><a href="#share-with-full-group" id="toc-share-with-full-group" class="nav-link" data-scroll-target="#share-with-full-group">Share with Full Group</a></li>
-  <li><a href="#common-themes-to-listen-for" id="toc-common-themes-to-listen-for" class="nav-link" data-scroll-target="#common-themes-to-listen-for">Common Themes to Listen For</a></li>
-  <li><a href="#pedagogical-reflection-5-minutes" id="toc-pedagogical-reflection-5-minutes" class="nav-link" data-scroll-target="#pedagogical-reflection-5-minutes">Pedagogical Reflection (5 minutes)</a></li>
-  <li><a href="#meta-reflection" id="toc-meta-reflection" class="nav-link" data-scroll-target="#meta-reflection">Meta-Reflection</a></li>
-  <li><a href="#wrap-up-questions" id="toc-wrap-up-questions" class="nav-link" data-scroll-target="#wrap-up-questions">Wrap-Up Questions</a></li>
+  <li><a href="#activity-instructions" id="toc-activity-instructions" class="nav-link" data-scroll-target="#activity-instructions">Activity Instructions</a></li>
+  <li><a href="#think-individually-3-5-minutes" id="toc-think-individually-3-5-minutes" class="nav-link" data-scroll-target="#think-individually-3-5-minutes">Think Individually (3-5 minutes)</a></li>
+  <li><a href="#share-and-discuss-10-15-minutes" id="toc-share-and-discuss-10-15-minutes" class="nav-link" data-scroll-target="#share-and-discuss-10-15-minutes">Share and Discuss (10-15 minutes)</a></li>
+  <li><a href="#wrap-up-5-minutes" id="toc-wrap-up-5-minutes" class="nav-link" data-scroll-target="#wrap-up-5-minutes">Wrap-Up (5 minutes)</a></li>
   <li><a href="#final-reflections" id="toc-final-reflections" class="nav-link" data-scroll-target="#final-reflections">Final Reflections</a></li>
-  <li><a href="#next-steps-suggestions" id="toc-next-steps-suggestions" class="nav-link" data-scroll-target="#next-steps-suggestions">Next Steps Suggestions</a></li>
   </ul>
 </nav>
     </div>
@@ -546,13 +524,8 @@ div.callout-tutor-example.callout-style-default .callout-icon::before, div.callo
 </header>
 
 
-<section id="duration-30-minutes" class="level2 callout-schedule" data-icon="false">
-<h2 class="anchored" data-anchor-id="duration-30-minutes">Duration: 30 minutes</h2>
-<ul>
-<li>Group formation (2 min)</li>
-<li>Discussion rounds (18 min - 6 min each)</li>
-<li>Group sharing (10 min)</li>
-</ul>
+<section id="duration-15-20-minutes" class="level2 callout-schedule" data-icon="false">
+<h2 class="anchored" data-anchor-id="duration-15-20-minutes">Duration: 15-20 minutes</h2>
 </section>
 <hr>
 <section id="purpose" class="level2">
@@ -562,306 +535,57 @@ div.callout-tutor-example.callout-style-default .callout-icon::before, div.callo
 <li>Reflect on what you’ve learned</li>
 <li>Design extensions for YOUR teaching context</li>
 <li>Share ideas with community</li>
-<li>Think about pedagogical implications</li>
 </ul>
 <p>This is <em>not</em> coding, it’s design thinking and pedagogical reflection.</p>
 <hr>
 </section>
-<section id="group-activity-structure" class="level2">
-<h2 class="anchored" data-anchor-id="group-activity-structure">Group Activity Structure</h2>
-<section id="form-groups-2-minutes" class="level3">
-<h3 class="anchored" data-anchor-id="form-groups-2-minutes">Form Groups (2 minutes)</h3>
+<section id="activity-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="activity-instructions">Activity Instructions</h2>
 </section>
+<section id="think-individually-3-5-minutes" class="level2 callout-activity-individual" data-icon="false" data-collapse="true">
+<h2 class="anchored" data-anchor-id="think-individually-3-5-minutes">Think Individually (3-5 minutes)</h2>
+<p>Reflect on these questions:</p>
+<ul>
+<li>What subject do you teach?</li>
+<li>Which 3-5 concepts from your domain could work as personalized examples?</li>
+<li>What’s ONE feature that would make this tool more useful for your students?</li>
+<li>What’s one barrier you foresee to using this?</li>
+</ul>
+<p>Write down your ideas.</p>
 </section>
-<section id="groups-of-3-4" class="level2 callout-group" data-icon="false">
-<h2 class="anchored" data-anchor-id="groups-of-3-4">Groups of 3-4</h2>
-<p><strong>Self-organise into groups of 3-4 people:</strong></p>
+<section id="share-and-discuss-10-15-minutes" class="level2 callout-activity-group" data-icon="false" data-collapse="true">
+<h2 class="anchored" data-anchor-id="share-and-discuss-10-15-minutes">Share and Discuss (10-15 minutes)</h2>
+<p><strong>Option 1: Small Group Discussion</strong></p>
+<p>Form groups of 3-4 and discuss:</p>
 <ul>
-<li>Ideally mix: different domains, different experience levels <!-- - Each group needs: 1 note-taker, 1 time-keeper --></li>
-<li>Find space where you can talk comfortably</li>
+<li>Your domain and which concepts might work</li>
+<li>One practical challenge to using this tool</li>
+<li>One idea for extending or improving it</li>
 </ul>
-</section>
-<hr>
-<section id="round-1-new-domains-6-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="round-1-new-domains-6-minutes">Round 1: New Domains (6 minutes)</h2>
-</section>
-<section id="discussion-prompts" class="level2 callout-reflect" data-icon="false">
-<h2 class="anchored" data-anchor-id="discussion-prompts">Discussion Prompts</h2>
-<p><strong>Individual reflection (2 min):</strong></p>
-<ul>
-<li>What subject/domain do YOU teach?</li>
-<li>Could worked examples help your students learn this content?</li>
-<li>What 3-5 concepts from your domain would benefit most from personalisation?</li>
-</ul>
-<p><strong>Group discussion (4 min):</strong></p>
-<ul>
-<li>Share your domains with the group</li>
-<li>For each person’s domain, brainstorm:
-<ul>
-<li>What concepts could work well?</li>
-<li>What student interests might connect?</li>
-<li>What challenges might arise?</li>
-</ul></li>
-</ul>
-</section>
-<section id="example-domains-to-inspire-you" class="level3">
-<h3 class="anchored" data-anchor-id="example-domains-to-inspire-you">Example Domains to Inspire You</h3>
-<p><strong>Natural Sciences:</strong></p>
-<ul>
-<li>Physics (kinematics, forces, energy)</li>
-<li>Chemistry (stoichiometry, equilibrium, thermodynamics)</li>
-<li>Biology (genetics, cellular processes, ecology)</li>
-</ul>
-<p><strong>Mathematics:</strong></p>
-<ul>
-<li>Algebra (linear equations, quadratic functions)</li>
-<li>Calculus (derivatives, integrals, limits)</li>
-<li>Probability (combinations, Bayes’ theorem)</li>
-</ul>
-<p><strong>Social Sciences:</strong></p>
-<ul>
-<li>Economics (supply/demand, elasticity, game theory)</li>
-<li>Psychology (experimental design, statistical tests)</li>
-<li>Sociology (research methods, data analysis)</li>
-</ul>
-<p><strong>Humanities:</strong></p>
-<ul>
-<li>Literature analysis techniques</li>
-<li>Historical event analysis frameworks</li>
-<li>Philosophical argument structures</li>
-<li>Language learning grammar patterns</li>
-</ul>
-<p><strong>Professional/Technical:</strong></p>
-<ul>
-<li>Nursing procedures</li>
-<li>Engineering calculations</li>
-<li>Legal reasoning</li>
-<li>Business case analysis</li>
-</ul>
-</section>
-<section id="note-taker-task" class="level3">
-<h3 class="anchored" data-anchor-id="note-taker-task">Note-Taker Task</h3>
-<p><strong>Record for your group:</strong></p>
-<ul>
-<li><p>Domains discussed:</p></li>
-<li><p>Most promising concepts:</p></li>
-<li><p>Challenges identified:</p></li>
-</ul>
-<hr>
-</section>
-<section id="round-2-new-features-6-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="round-2-new-features-6-minutes">Round 2: New Features (6 minutes)</h2>
-</section>
-<section id="discussion-prompts-1" class="level2 callout-reflect" data-icon="false">
-<h2 class="anchored" data-anchor-id="discussion-prompts-1">Discussion Prompts</h2>
-<p><strong>Individual reflection (2 min):</strong></p>
-<ul>
-<li>What would make this tool MORE useful for your students?</li>
-<li>What’s missing from the current version?</li>
-<li>How could you assess learning (not just provide examples)?</li>
-</ul>
-<p><strong>Group discussion (4 min):</strong></p>
-<ul>
-<li>Share and discuss feature ideas</li>
-<li>Prioritize: What would have MOST impact?</li>
-<li>Consider: What’s technically feasible?</li>
-</ul>
-</section>
-<section id="feature-ideas-to-consider" class="level3">
-<h3 class="anchored" data-anchor-id="feature-ideas-to-consider">Feature Ideas to Consider</h3>
-<p><strong>Enhanced Personalisation:</strong></p>
-<ul>
-<li>Learning style adaptation (visual/verbal/kinesthetic)</li>
-<li>Prior knowledge assessment</li>
-<li>Difficulty auto-adjustment based on performance</li>
-<li>Cultural context consideration</li>
-</ul>
-<p><strong>Multimedia Integration:</strong></p>
-<ul>
-<li>Diagrams and illustrations</li>
-<li>Code visualization</li>
-<li>Interactive simulations</li>
-<li>Video explanations</li>
-</ul>
-<p><strong>Learning Sequences:</strong></p>
-<ul>
-<li>Series of scaffolded examples (easy → hard)</li>
-<li>Prerequisite checking</li>
-<li>Concept dependencies</li>
-<li>Progressive complexity</li>
-</ul>
-<p><strong>Assessment Integration:</strong></p>
-<ul>
-<li>Generate practice problems (not worked examples)</li>
-<li>Faded worked examples (some steps hidden)</li>
-<li>Self-explanation prompts</li>
-<li>Comprehension checks</li>
-</ul>
-<p><strong>Collaborative Features:</strong></p>
-<ul>
-<li>Share examples with classmates</li>
-<li>Peer discussion of solutions</li>
-<li>Teacher dashboard (monitor usage)</li>
-<li>Example gallery (showcase good ones)</li>
-</ul>
-<p><strong>Export/Integration:</strong></p>
-<ul>
-<li>Export to PDF</li>
-<li>Create flashcards</li>
-<li>Integrate with LMS (Moodle, Canvas)</li>
-<li>Email examples to students</li>
-</ul>
-</section>
-<section id="pedagogical-considerations" class="level3">
-<h3 class="anchored" data-anchor-id="pedagogical-considerations">Pedagogical Considerations</h3>
-<p><strong>For each feature, ask:</strong></p>
-<ul>
-<li>Does this reduce or increase cognitive load?</li>
-<li>Does it promote active learning or passive consumption?</li>
-<li>Could it encourage surface vs.&nbsp;deep learning?</li>
-<li>How would you prevent over-reliance on AI?</li>
-</ul>
-</section>
-<section id="note-taker-task-1" class="level3">
-<h3 class="anchored" data-anchor-id="note-taker-task-1">Note-Taker Task</h3>
-<p><strong>Record for your group:</strong></p>
-<ul>
-<li><p>Top 3 feature ideas:</p></li>
-<li><p>Pedagogical benefits:</p></li>
-<li><p>Potential concerns:</p></li>
-</ul>
-<hr>
-</section>
-<section id="round-3-integration-barriers-6-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="round-3-integration-barriers-6-minutes">Round 3: Integration &amp; Barriers (6 minutes)</h2>
-</section>
-<section id="discussion-prompts-2" class="level2 callout-reflect" data-icon="false">
-<h2 class="anchored" data-anchor-id="discussion-prompts-2">Discussion Prompts</h2>
-<p><strong>Individual reflection (2 min):</strong> - How would you actually USE this in your course? - What barriers exist to implementation? - What institutional support would you need?</p>
-<p><strong>Group discussion (4 min):</strong> - Share integration ideas - Problem-solve barriers together - Identify resources needed</p>
-</section>
-<section id="integration-scenarios" class="level3">
-<h3 class="anchored" data-anchor-id="integration-scenarios">Integration Scenarios</h3>
-<p><strong>Homework/Practice:</strong> - Students generate examples before class - Review worked examples as prep for problem-solving - Create personal example library</p>
-<p><strong>In-Class Activities:</strong> - Generate examples live (demonstrate personalisation) - Compare different students’ examples (same concept, different contexts) - Use as discussion starters</p>
-<p><strong>Assessment Preparation:</strong> - Generate practice examples before exams - Create personalised study guides - Review challenging concepts with custom examples</p>
-<p><strong>Flipped Classroom:</strong> - Students study worked examples before class - Class time for problem-solving with support - Worked examples reduce prep time barrier</p>
-</section>
-<section id="common-barriers-solutions" class="level3">
-<h3 class="anchored" data-anchor-id="common-barriers-solutions">Common Barriers &amp; Solutions</h3>
-<p><strong>Barrier: “Students don’t have programming skills”</strong> - Solution: Deploy as web app, students just use interface - Solution: Run as class demonstration tool (you generate for them)</p>
-<p><strong>Barrier: “OpenAI API costs money”</strong> - Solution: Institutional account (educational discounts available) - Solution: Generate once, reuse examples - Solution: Use cheaper models for some concepts</p>
-<p><strong>Barrier: “I don’t know Python/coding”</strong> - Solution: Collaborate with tech-savvy colleague - Solution: Use deployed version (no coding needed) - Solution: IT support could set it up</p>
-<p><strong>Barrier: “Students might rely too much on AI”</strong> - Solution: Pair with problem-solving practice - Solution: Use faded examples (gradually hide steps) - Solution: Emphasize: study examples, THEN solve problems</p>
-<p><strong>Barrier: “How do I ensure quality?”</strong> - Solution: Review generated examples before sharing - Solution: Use structured outputs (Pydantic ensures format) - Solution: Build example library of vetted generations</p>
-</section>
-<section id="note-taker-task-2" class="level3">
-<h3 class="anchored" data-anchor-id="note-taker-task-2">Note-Taker Task</h3>
-<p><strong>Record for your group:</strong> - Best integration idea:</p>
-<ul>
-<li><p>Top 2 barriers:</p></li>
-<li><p>Possible solutions:</p></li>
-</ul>
-<hr>
-</section>
-<section id="group-sharing-10-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="group-sharing-10-minutes">Group Sharing (10 minutes)</h2>
-</section>
-<section id="share-with-full-group" class="level2 callout-group" data-icon="false">
-<h2 class="anchored" data-anchor-id="share-with-full-group">Share with Full Group</h2>
-<p>Each group shares (2 minutes each):</p>
+<p><strong>Option 2: Gallery Walk</strong></p>
+<p>On sticky notes or paper, write:</p>
 <ol type="1">
-<li><strong>One promising domain extension</strong>
-<ul>
-<li>What domain? Which concepts?</li>
-</ul></li>
-<li><strong>One high-impact feature</strong>
-<ul>
-<li>What would it do? Why valuable?</li>
-</ul></li>
-<li><strong>One integration insight</strong>
-<ul>
-<li>How would you actually use this?</li>
-<li>What barrier did you identify?</li>
-</ul></li>
+<li>Your domain + 3-5 key concepts</li>
+<li>One feature you’d add</li>
+<li>One barrier you foresee</li>
 </ol>
-<p><strong>Instructor:</strong> Note common themes on board/slide</p>
+<p>Post your notes on the wall, then walk around and place checkmarks next to ideas you find interesting.</p>
 </section>
-<section id="common-themes-to-listen-for" class="level3">
-<h3 class="anchored" data-anchor-id="common-themes-to-listen-for">Common Themes to Listen For</h3>
-<p><strong>Themes that often emerge:</strong></p>
-<ul>
-<li>Need for discipline-specific domains</li>
-<li>Desire for assessment features</li>
-<li>Concern about over-reliance</li>
-<li>Integration with existing tools</li>
-<li>Quality control questions</li>
-</ul>
 <hr>
-</section>
-<section id="pedagogical-reflection-5-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="pedagogical-reflection-5-minutes">Pedagogical Reflection (5 minutes)</h2>
-</section>
-<section id="meta-reflection" class="level2 callout-reflect" data-icon="false">
-<h2 class="anchored" data-anchor-id="meta-reflection">Meta-Reflection</h2>
-<p><strong>Think about the workshop itself:</strong></p>
-<ol type="1">
-<li>How did THIS workshop demonstrate the worked example principle?
-<ul>
-<li>We showed you complete solution (demo)</li>
-<li>You studied the code (walkthrough)</li>
-<li>You modified with scaffolding (build)</li>
-<li>You’re now designing extensions (transfer)</li>
-</ul></li>
-<li>What support did you need most?
-<ul>
-<li>Complete working code?</li>
-<li>Step-by-step explanations?</li>
-<li>Time to experiment?</li>
-<li>Community discussion?</li>
-</ul></li>
-<li>How can you apply this pattern to YOUR teaching?
-<ul>
-<li>Show complete solutions first?</li>
-<li>Provide scaffolding for practice?</li>
-<li>Use personal contexts?</li>
-<li>Design for gradual independence?</li>
-</ul></li>
-</ol>
-</section>
-<p><strong>Key insight:</strong> &gt; <strong>The way we taught this workshop IS a worked example of the worked example principle.</strong></p>
-<hr>
-<section id="wrap-up-questions" class="level2">
-<h2 class="anchored" data-anchor-id="wrap-up-questions">Wrap-Up Questions</h2>
+<section id="wrap-up-5-minutes" class="level2">
+<h2 class="anchored" data-anchor-id="wrap-up-5-minutes">Wrap-Up (5 minutes)</h2>
 </section>
 <section id="final-reflections" class="level2 callout-checkpoint" data-icon="false">
 <h2 class="anchored" data-anchor-id="final-reflections">Final Reflections</h2>
-<p><strong>Instructor asks:</strong></p>
+<p><strong>Key questions:</strong></p>
 <ol type="1">
-<li>“Who will actually try using this tool with students?”</li>
+<li>“Who will try using this type of tool with students?”</li>
 <li>“What’s your next step?”</li>
-<li>“What questions do you still have?”</li>
+<li>“What questions remain?”</li>
 </ol>
-<p><strong>Encourage:</strong></p>
-<ul>
-<li>Start small (one concept, one class)</li>
-<li>Share experiences (create community)</li>
-<li>Iterate based on student feedback</li>
-<li>Remember: tool serves pedagogy, not vice versa</li>
-</ul>
 </section>
-<hr>
-<section id="next-steps-suggestions" class="level2">
-<h2 class="anchored" data-anchor-id="next-steps-suggestions">Next Steps Suggestions</h2>
-<p><strong>This week:</strong> - Add 1-2 more concepts to your domain - Test with actual student profiles - Generate a library of examples</p>
-<p><strong>This month:</strong> - Pilot with one class or assignment - Gather student feedback - Refine system prompts</p>
-<p><strong>This semester:</strong> - Build example library for your course - Track student outcomes - Share results with colleagues</p>
-<p><strong>Long term:</strong> - Collaborate to add new domains - Integrate with your LMS - Research effectiveness - Contribute back to community</p>
-<hr>
-<p><strong>Next:</strong> <a href="../../workshop/resources/index.html">Resources</a> - Links, documentation, and next steps</p>
 
 
-</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
