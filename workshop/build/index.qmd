@@ -21,7 +21,7 @@ By the end of this section, you will:
 1. **Understand** the code structure of the worked example generator
 2. **Modify** the template to add new concepts (in your browser)
 3. **Recognise** the pattern for building educational AI tools
-4. **See** how PydanticAI and Marimo work together
+4. **See** how Pydantic and Marimo create structured outputs
 
 ::: {.callout-important}
 ## Realistic Expectations
@@ -64,7 +64,7 @@ When the app loads, you'll see:
 - **UI components** below (profile inputs, concept selector, generate button)
 - **Output area** at the bottom (generated examples appear here)
 
-**Each browser session is isolated** - your changes won't affect other participants.
+**Each browser session is isolated:** your changes won't affect other participants.
 
 ---
 
@@ -89,7 +89,7 @@ Scroll through the code cells to see the overall structure:
 
 #### 1. Data Models (Lines 10-60)
 
-**LearnerProfile** - What we collect:
+**LearnerProfile:** What we collect
 ```python
 class LearnerProfile(BaseModel):
     name: str
@@ -100,7 +100,7 @@ class LearnerProfile(BaseModel):
     background_level: Literal["beginner", "intermediate", "advanced"]
 ```
 
-**PersonalizedWorkedExample** - What AI generates:
+**PersonalizedWorkedExample:** What AI generates
 ```python
 class PersonalizedWorkedExample(BaseModel):
     title: str
@@ -265,7 +265,7 @@ CONCEPTS = {
 }
 ```
 
-**This cell is editable** - click inside it to make changes.
+**This cell is editable:** click inside it to make changes.
 
 #### 3. Add Your Concept
 
@@ -385,10 +385,10 @@ After editing:
 
 **If examples aren't satisfactory:**
 
-1. **Check concept description** - Is the "abstract" clear and concise?
-2. **Adjust system prompt** - Add more specific instructions
-3. **Check difficulty** - Does it match the learner level?
-4. **Regenerate** - AI output varies; try again
+1. **Check concept description:** Is the "abstract" clear and concise?
+2. **Adjust system prompt:** Add more specific instructions
+3. **Check difficulty:** Does it match the learner level?
+4. **Regenerate:** AI output varies; try again
 
 ---
 
@@ -454,19 +454,19 @@ Then run the cell to update the agent configuration.
 
 **Take a moment to consider:**
 
-1. **Code Structure** - Can you identify the key components?
+1. **Code Structure:** Can you identify the key components?
    - Data models (Pydantic)
    - Concept library (dictionary)
-   - AI agent (PydanticAI)
+   - OpenAI API with structured outputs
    - UI components (Marimo)
 
-2. **The Pattern** - What would you need to build your own tool?
+2. **The Pattern:** What would you need to build your own tool?
    - Define your domain and concepts
    - Create data models for inputs/outputs
    - Configure AI agent with system prompt
    - Build UI for interaction
 
-3. **Pedagogical Principles** - How does this reduce cognitive load?
+3. **Pedagogical Principles:** How does this reduce cognitive load?
    - Structured outputs (predictable format)
    - Personalised contexts (familiar to learner)
    - Complete worked examples (not problem-solving)
