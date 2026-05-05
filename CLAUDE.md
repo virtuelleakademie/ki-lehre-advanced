@@ -11,7 +11,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Educational website and workshop materials for building AI-powered educational tools grounded in Cognitive Load Theory. This 3-hour workshop teaches educators to create personalized worked example generators using PydanticAI and Marimo. Built with Quarto, delivered in English, maintained by the Virtual Academy at Bern University of Applied Sciences (BFH). Published at https://virtuelleakademie.github.io/ki-lehre-advanced/
+Educational website and workshop materials for the **KI in der Lehre: Advanced** workshop, the third in a three-workshop trilogy on AI in education at the BFH Virtuelle Akademie.
+
+This 3-hour workshop has participants build a CLT-grounded **diagnostic AI tool** for their own discipline, **without writing code**. The output schema is fixed (it IS the cognitive-load-theory taxonomy: five `load_signal` and five `intervention` enum categories); participants iterate the system prompt against a hosted Gradio shell. They leave with a configured tool URL and a portable prompt recipe usable in Microsoft Copilot, ChatGPT, or Claude.
+
+Built with Quarto, delivered in English, maintained by the Virtual Academy at Bern University of Applied Sciences (BFH). Published at https://virtuelleakademie.github.io/ki-lehre-advanced/
+
+The marimo + PydanticAI iteration of this workshop has been moved to `archive/marimo-iteration/`. See `workshop-redesign-overview.md` for the redesign rationale.
 
 ## Development Commands
 
@@ -44,27 +50,33 @@ make diff                   # Show word-level diff
 
 ### Content Organization
 
-**Workshop Structure (3-hour workshop - English):**
+**Workshop Structure (3-hour workshop, English):**
 
-- **workshop/index.qmd**: Main workshop overview with schedule and learning objectives
-- **workshop/einstieg/**: Opening activity (10 min) - Activating exercise on learning from examples
-- **workshop/part-1-foundation/**: Foundation (30 min) - CLT theory, environment setup, PydanticAI demo
-- **workshop/part-2-design/**: Design (30 min) - Data models, domain design, collaborative building
-- **workshop/part-3-build/**: Build (50 min) - Concept library, AI agent, generation function
-  - `app.py`: **Complete marimo notebook** - The main application participants build
-  - `requirements.txt`: Python dependencies for deployment
-- **workshop/part-4-interface/**: Interface (40 min) - Marimo UI, reactive forms, display logic
-- **workshop/part-5-deploy/**: Deploy (30 min) - HuggingFace Spaces deployment guide
-- **workshop/diskussion/**: Closing (10 min) - Reflection, transfer, extensions
+- **workshop/index.qmd**: Main workshop overview, schedule, learning objectives
+- **workshop/opening/**: Opening (10 min): think-pair-share on a misdiagnosis you remember
+- **workshop/theory/**: Theory (30 min): the CLT-grounded diagnostic taxonomy (five `load_signal` and five `intervention` categories)
+- **workshop/demo/**: Demo (15 min): walkthrough of the diagnostic shell on a calibrated nursing example
+- **workshop/build/**: Build (115 min, includes break): the four CLT-anchored labs against the hosted shell
+  - **workshop/build/scenarios/**: six discipline scenarios (nursing, education, business, social work, engineering, statistics), each with three calibrated student responses tagged to `load_signal` categories
+- **workshop/extend/**: Extend (15 min): tool-vs-recipe and most-diagnostic-load-signal reflection
+- **workshop/diskussion/**: Closing (5-10 min): one Monday commitment + the meta-lesson
+
+**The Hosted Shell:**
+
+- **hf-spaces/diagnostic-tool-shell/**: the Gradio app participants use during the Build block
+  - `models.py`: fixed Pydantic schema (Diagnosis, Response, DiagnosticResult)
+  - `app.py`: three surfaces (system prompt editor, test pane, export portable prompt). Uses Anthropic Claude Haiku 4.5 with structured output via tool-use.
+  - `scenarios.json`: source of truth for the scenario pack (mirrored as .qmd files under workshop/build/scenarios/)
+- **hf-spaces/worked-example-weaver-app/**: the older personalized-worked-example tool. Stays deployed and is linked from the closing as optional further exploration. Not used in the workshop's main flow.
 
 **Supporting Directories:**
 
 - **resources/**: Prompt templates library, supporting materials
-- **tutorials/**: Optional local setup guides (VS Code, OpenAI)
+- **tutorials/**: Optional local setup guides
 - **slides/**: RevealJS presentations
 - **assets/**: Images, PDFs, logos, backgrounds
-- **docs/**: Build output - **DO NOT EDIT** (GitHub Pages, auto-generated)
-- **archive/**: Archived legacy content (old workshop modules from previous designs)
+- **docs/**: Build output (GitHub Pages, auto-generated). **Do not edit.**
+- **archive/marimo-iteration/**: prior iteration of the workshop (marimo + PydanticAI). Not in the live render. See `archive/marimo-iteration/README.md` for context.
 
 ### Key Configuration Files
 
@@ -81,10 +93,11 @@ make diff                   # Show word-level diff
 - Colors, typography (Jura font)
 - Brand identity elements
 
-**pyproject.toml**: Python dependencies
-- Current: marimo[mcp], openai, pydantic, pydantic-ai, python-dotenv, tiktoken
+**pyproject.toml**: Python dependencies for any local marimo work that may still happen on this repo (not used by the main workshop flow).
 - Package manager: uv
 - Requires Python >=3.10
+
+**hf-spaces/diagnostic-tool-shell/requirements.txt**: dependencies for the hosted shell (gradio, anthropic, pydantic, python-dotenv). Self-contained; not installed via the project venv.
 
 **_metadata.yml files**: Per-directory defaults
 - Located in exercises/, slides/, tutorials/, workshop/
@@ -135,7 +148,9 @@ uv sync            # Syncs all dependencies
 
 ### Working with Marimo + Quarto Integration
 
-The project uses **marimo islands** - interactive Python cells embedded in Quarto documents.
+**Note**: The current workshop (diagnose-then-respond redesign) does **not** use marimo. The hosted Gradio shell at `hf-spaces/diagnostic-tool-shell/` is the only interactive surface participants encounter. The marimo + Quarto integration documented below is preserved because it remains a valid technique for OTHER content (and the archived marimo iteration uses it), but it is not exercised by the main workshop flow.
+
+The project supports **marimo islands** - interactive Python cells embedded in Quarto documents.
 
 #### Development Workflow (Option A: Marimo-First)
 ```bash
@@ -250,48 +265,84 @@ This workshop is grounded in cognitive science principles from "Make it Stick" a
 
 ## Workshop Structure
 
-**Building Personalized Worked Example Generators with AI** - A complete 3-hour workshop
+**Building Diagnostic AI Tools, Grounded in Cognitive Load Theory** - A 3-hour workshop in which participants build a working diagnostic tool for their discipline without writing code.
 
 ### Learning Objectives
 
 By the end of this workshop, participants will:
 
-1. **Understand** the worked example effect and personalization principle from Cognitive Load Theory
-2. **Build** a working personalized example generator using PydanticAI
-3. **Deploy** an interactive demo to HuggingFace Spaces
-4. **Possess** a template for creating domain-specific educational tools
+1. **Identify** five CLT-grounded diagnostic signals in student work
+2. **Match** each diagnostic signal to a corresponding intervention strategy
+3. **Write** a system prompt that instructs an LLM to apply those categories in their discipline
+4. **Calibrate** the prompt against tagged student responses
+5. **Produce** a portable prompt recipe usable in any LLM interface (Microsoft Copilot, ChatGPT, Claude.ai)
 
 ### Workshop Flow
 
-| Part | Duration | What Participants Do |
+| Block | Duration | What Participants Do |
 |------|----------|---------------------|
-| Opening | 10 min | Think-Pair-Share on learning from examples |
-| Part 1: Foundation | 30 min | Learn CLT theory, set up environment, see PydanticAI demo |
-| Part 2: Design | 30 min | Collaboratively design data models (LearnerProfile, PersonalizedWorkedExample) |
-| Part 3: Build | 50 min | Build concept library, create AI agent, test generator |
-| Part 4: Interface | 40 min | Build interactive UI with Marimo (forms, buttons, display) |
-| Part 5: Deploy | 30 min | Deploy to HuggingFace Spaces, troubleshoot, discuss extensions |
-| Closing | 10 min | Reflect on learning, discuss transfer to own teaching |
+| Opening | 10 min | Think-pair-share: a misdiagnosis you remember |
+| Theory | 30 min | The five `load_signal` categories grounded in CLT and schema research |
+| Demo | 15 min | Walkthrough of the shell on a calibrated nursing example |
+| Build: Pick scenario | 10 min | Choose one of six discipline scenarios |
+| Build: Lab 1 | 15 min | Domain examples of each load type |
+| **Break** | 10 min | |
+| Build: Lab 2 | 15 min | Map diagnosis to intervention |
+| Build: Lab 3 | 25 min | Write the diagnostic system prompt for your discipline |
+| Build: Lab 4 | 25 min | Test on calibrated responses, refine, export portable prompt |
+| Build: Pair-test + gallery | 15 min | Run a partner's tool against your scenario |
+| Extend | 15 min | Tool-vs-recipe and most-diagnostic-load-signal reflection |
+| Closing | 5-10 min | One Monday commitment |
 
 ### Technical Stack
 
-- **PydanticAI**: Type-safe AI agent framework for structured outputs
-- **Marimo**: Reactive Python notebooks with built-in UI components
-- **OpenAI GPT-4o**: Language model for example generation
-- **HuggingFace Spaces**: Free deployment platform
+- **Anthropic Claude Haiku 4.5**: structured-output language model used by the diagnostic shell
+- **Pydantic**: defines the fixed `Diagnosis` and `Response` schema
+- **Gradio**: hosts the three-surface shell UI
+- **HuggingFace Spaces**: free deployment platform
 
-### Three Supported Domains
+### The Fixed Schema (CLT Load Taxonomy)
 
-1. **Programming (Python)**: For loops, list comprehensions, dictionaries, functions, string formatting
-2. **Health Sciences (Statistics)**: Correlation, mean/SD, t-tests, confidence intervals, effect size
-3. **Agronomy**: Yield prediction, NPK optimization, growing degree days, water efficiency, cost-benefit
+The schema is the workshop's central object. Participants never edit it; they iterate the system prompt that uses it.
+
+`load_signal` (diagnostic categories):
+
+1. `intrinsic_overload`: too much element interactivity for the learner's current schema
+2. `extrinsic_distractor`: irrelevant complexity in material or task design
+3. `germane_disengagement`: going through motions without effortful processing
+4. `schema_gap`: relevant prior knowledge is missing
+5. `active_misconception`: a wrong schema is in place and being applied
+
+`intervention` (response strategies, default mapping to load signals above):
+
+1. `segment_intrinsic_load`
+2. `reduce_extrinsic_load`
+3. `prompt_germane_processing`
+4. `activate_prior_schema`
+5. `replace_misconception`
+
+`severity`: `mild`, `moderate`, `fundamental`.
+
+### Six Discipline Scenarios
+
+Located at `workshop/build/scenarios/` and mirrored in `hf-spaces/diagnostic-tool-shell/scenarios.json`:
+
+1. Nursing: Warfarin and INR
+2. Education: Critique a quiz question
+3. Business: Bakery pricing
+4. Social work: Missed appointments
+5. Engineering: Stale-data bug
+6. Statistics: Interpreting r = 0.3
+
+Each scenario provides three calibrated student responses tagged with the `load_signal` they exemplify, used as the answer key for Lab 4.
 
 ### Pedagogical Grounding
 
-Based on **Cognitive Load Theory** (Sweller, 1988):
+Based on **Cognitive Load Theory** [@swellerCognitiveLoadProblem1988] (with the updated germane-processing framing in Sweller, Ayres and Kalyuga 2019) and schema-acquisition research:
 
-- **Worked Example Effect**: Novices learn better from studying solutions than solving problems (effect size 0.52)
-- **Personalization Effect**: Familiar contexts reduce extraneous cognitive load, improving learning
+- **Three classical load types**: intrinsic, extraneous, germane (the latter reframed as germane *processing* in 2019)
+- **Diagnostic taxonomy extension**: schema_gap and active_misconception add two distinct schema-acquisition failure modes (absent vs. wrong schema)
+- **Workshop design principle**: theory provides structure (the fixed schema); practitioners provide cues (the system prompt)
 
 ## Notes for Development
 

@@ -1,229 +1,90 @@
 ---
-title: "Closing: Transfer & Reflection"
+title: "Closing: One Commitment"
 ---
 
-::: {.callout-note icon=false}
-## ⏱️ Duration: 10 minutes
+::: {.callout-schedule icon=false}
+## Duration: 5-10 minutes
 :::
 
-## Reflection
+## What you have
 
-Let's close by connecting today's work to your teaching practice.
+In three hours you have built a diagnostic AI tool grounded in cognitive load theory and tuned to one of six discipline scenarios. Concretely you have:
 
-### What We Built
+- A configured tool URL with your system prompt
+- A portable prompt recipe usable in Microsoft Copilot, ChatGPT, or Claude.ai
+- A calibration record from Lab 4
+- A view from another discipline's tool through the pair-test
 
-In 3 hours, you created a complete educational AI application that:
+You did this without writing code, without designing data structures, and without deploying anything yourself. The pedagogical work was the work.
 
-✅ Generates personalized worked examples
-✅ Demonstrates Cognitive Load Theory principles
-✅ Scales personalization impossibly for manual creation
-✅ Deploys as a shareable web application
+## One Monday commitment
 
-**That's significant!** Most educational AI tools don't ground themselves in learning science. Yours does.
+::: {.callout-individual icon=false}
+## Write it down
 
-## Transfer Questions
+Pick one concrete change for your next teaching cycle. Something you would not have done before this workshop.
 
-::: {.callout-note icon=false}
-## 💭 Think-Share (8 minutes)
+Examples of the right size:
 
-**Individual Reflection (3 minutes):**
+- Try the portable prompt on the next batch of student work in subject X
+- Run three of your typical exam responses through the tool to see what it flags
+- Use the five-category vocabulary in your next teaching team meeting when discussing a struggling student
+- Adapt the prompt for one specific assignment type you give regularly
 
-Consider your own teaching context:
-
-1. **What concept or skill** do your students struggle to learn?
-
-2. **How could personalized worked examples** help with that specific challenge?
-
-3. **What domain/context** would be most relevant to your students?
-
-4. **What would you need to adapt** from today's tool for your context?
-
-**Group Share (5 minutes):**
-
-Volunteers share their ideas. Instructor facilitates quick discussion of:
-
-- Common themes across responses
-- Challenges in adaptation
-- Next steps for implementation
+Write your commitment on paper. Tell your neighbour. Put a date on it.
 :::
 
-## Beyond This Workshop
+## The meta-lesson
 
-### Immediate Next Steps
+::: {.callout-pro-tip icon=false}
+## Pedagogy provides structure; practitioners provide cues
 
-::: {.callout-tip icon=false}
-## 🚀 What to Do Monday Morning
+The decomposition this workshop turned on was:
 
-**Week 1: Customize**
+- **Theory provides structure.** The five `load_signal` categories were not invented for this tool; they were derived from CLT and schema-acquisition research. They are the same five whatever discipline you teach.
+- **Practitioners provide cues.** What an `intrinsic_overload` looks like in nursing differs from what it looks like in business or social work. Your discipline expertise is what makes the structure usable.
 
-1. Adapt concepts for your domain
-2. Test with 3-5 students informally
-3. Collect feedback on personalization quality
-
-**Week 2: Iterate**
-
-4. Refine system prompt based on feedback
-5. Add domain-specific concepts
-6. Share with colleagues for peer review
-
-**Week 3: Integrate**
-
-7. Add to your LMS or website
-8. Create assignment around studying examples
-9. Measure impact (quiz scores, student feedback)
+This is the move we want you to take back to your teaching with AI. When you reach for a new AI tool, ask: *where is the theory in this, and where is the discipline expertise?* If the answer is "neither," the tool is doing something other than supporting learning.
 :::
 
-### Broader Applications
+## Going further
 
-The patterns you learned today apply to many educational AI tools:
+If you want to see a more elaborated example of CLT-grounded tool design, the [Worked Example Weaver](https://awellis-worked-example-weaver-app.hf.space){target="_blank"} is a sister tool that generates personalized worked examples across three domains. It is a deliberately heavier piece of software than today's diagnostic shell, and serves as a reference for what a fuller tool with a more complex structure looks like.
 
-**Structure Outputs** (Pydantic):
+For the cognitive science behind the diagnostic taxonomy:
 
-- Quiz generation
-- Feedback on student work
-- Learning path recommendations
+- [ki-lehre-intermediate](https://virtuelleakademie.github.io/ki-lehre-intermediate/) for the offloading-vs-outsourcing framing
+- Sweller, Ayres and Kalyuga (2019), *Cognitive Architecture and Instructional Design*, for the updated CLT framework
+- @kalyugaExpertiseReversalEffect2009 for why severity and learner expertise modulate intervention choice
 
-**Personalization** (profiles):
+## Frequently asked questions
 
-- Adaptive practice problems
-- Contextualized case studies
-- Project idea generation
+::: {.callout-feedback icon=false}
+**Q: What if my discipline does not fit any of the five categories?**
 
-**Deployment** (HuggingFace):
+This is the most common pushback and worth taking seriously. Two responses:
 
-- Share tools with colleagues
-- Student-facing applications
-- Research prototypes
+First, the categories are deliberately broad. `intrinsic_overload` is not "exam stress" but "too much element-interactivity for current schemas" — that shows up in every discipline, including yours.
 
-## The Meta-Lesson
+Second, if a response genuinely falls outside the categories, that is information. The tool will produce a low-confidence diagnosis, the `domain_notes` field will surface what the categories missed, and you have a research finding: in your discipline, here is a load signal not captured by the standard taxonomy. That is interesting and worth keeping.
 
-::: {.callout-tip}
-## 🎓 Pedagogy-First AI
+**Q: How do I trust the LLM's diagnosis?**
 
-**Critical insight from today:**
+You don't, fully. The tool is a triage aid, not an oracle. Workshop Lab 4's calibration test exists exactly to map where your prompt produces reliable diagnoses and where it does not. Use the tool where it is reliable; second-guess it where it is not. Note that the same caution applies to your own diagnostic intuitions, which is partly the workshop's point.
 
-We didn't start with "What can AI do?"
+**Q: What about students using Copilot themselves on the same artifact?**
 
-We started with "What does research say about learning?"
+Different question. The tool you built is a *teacher's* diagnostic aid: it reads student work for the cognitive signal. A student running their own work through Copilot for feedback is doing something different (and often something we worry about). The intermediate workshop's offloading-vs-outsourcing framing applies here.
 
-Then we asked: "How can AI scale those principles?"
+**Q: Will this scale to a class of 200?**
 
-**This is the right order.**
-
-Technology should serve pedagogy, not vice versa.
+Yes, with caveats. The portable prompt runs on whatever institutional LLM you have access to, and the per-call cost is small. The cap is your time spent reviewing the diagnoses. A reasonable workflow is to use the tool for first-pass triage and then deeply read the responses the tool flags as `severity: fundamental`.
 :::
 
-## Connection to Make It Stick
+::: {.callout-checkpoint icon=false}
+## Thank you
 
-Today's tool addresses multiple evidence-based strategies:
+You came in expecting to develop something. You did: a diagnostic vocabulary, a working tool, and a recipe. None of it required code. All of it was pedagogical thinking made operational.
 
-1. **Worked Examples** [@swellerCognitiveLoadProblem1988] - Core feature
-2. **Variation** - Different personal contexts for transfer
-3. **Understanding** - Complete explanations, not just answers
-4. **Application** - Real-world problems in familiar contexts
-
-For deeper exploration of these learning principles, see:
-
-- [ki-lehre-intermediate](https://virtuelleakademie.github.io/ki-lehre-intermediate/) - Learning science foundations
-- [Make It Stick](https://www.retrievalpractice.org/) - Practical applications of cognitive science
-
-## Questions & Discussion
-
-::: {.callout-note icon=false}
-## ❓ Open Floor (2 minutes)
-
-Final questions, clarifications, or insights?
-
-**Common questions:**
-
-Q: *"Won't students just copy examples without learning?"*
-
-A: Valid concern! This is why we:
-
-- Include "connection to goal" (Why does this matter?)
-- Provide "practice suggestion" (Try this yourself)
-- Recommend spacing (Don't binge examples)
-- Encourage self-explanation (Explain each step to yourself)
-
-Worked examples are most effective when followed by practice problems. They're a **starting point**, not the whole curriculum.
-
-Q: *"What if the AI generates incorrect examples?"*
-
-A: Important! Always:
-
-- Spot-check generated examples
-- Use structured outputs (reduces errors)
-- Include disclaimers for students
-- Treat AI as a **draft generator**, not oracle
-- Have domain experts review output
-
-Q: *"How much does OpenAI API cost?"*
-
-A: Remarkably little for educational use:
-
-- GPT-4o: ~$0.01-0.02 per example
-- 100 examples ≈ $1-2
-- Consider GPT-4o-mini for even lower costs
-- Most institutions can afford this for pilot programs
-:::
-
-## Thank You!
-
-**You've accomplished something significant today.**
-
-You built a pedagogically-grounded AI tool in 3 hours. Most educational technology development takes months. You compressed that by:
-
-- Using modern frameworks (Marimo, OpenAI structured outputs)
-- Standing on research foundations (CLT)
-- Focusing on one clear use case
-- Building together collaboratively
-
-### Stay Connected
-
-- **Share your extensions** - Post to social media with #eduAI #CognitiveLoad
-- **Join the community** - Marimo Discord, AI in Education forums
-- **Publish your variants** - HuggingFace Spaces, GitHub
-- **Research opportunities** - Test effectiveness, publish findings
-
-### Final Thought
-
-::: {.callout-tip}
-## 💡 The Real Power
-
-The real power of today's tool isn't just personalization. It's that you now understand:
-
-1. **Why** worked examples reduce cognitive load
-2. **How** to structure AI outputs for learning
-3. **When** to apply personalization
-4. **Where** to ground technology in research
-
-**You can apply these principles to any educational AI tool you build.**
-
-That knowledge transfers far beyond this workshop.
-:::
-
----
-
-**Workshop complete!** Thank you for your engagement, curiosity, and commitment to evidence-based teaching. 🎓
-
-::: {.callout-note icon=false}
-## 📚 Additional Resources
-
-**Workshop Materials:**
-
-- Complete code: [GitHub repository](#)
-- Instructor guide: [download PDF](#)
-- Slides: [view presentation](#)
-
-**Learning Science:**
-
-- @centreforeducationstatisticsandevaluationCognitiveLoadTheory2023
-- @swellerCognitiveLoadProblem1988
-- @brownMakeItStick2014
-
-**Technical Documentation:**
-
-- [Marimo](https://marimo.io)
-- [OpenAI Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs)
-- [HuggingFace Spaces](https://huggingface.co/docs/hub/spaces)
+Use it on Monday.
 :::

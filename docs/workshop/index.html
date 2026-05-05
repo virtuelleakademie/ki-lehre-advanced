@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Building Personalized Worked Example Generators with AI – KI in der Lehre: Advanced</title>
+<title>Building Diagnostic AI Tools, Grounded in Cognitive Load Theory – KI in der Lehre: Advanced</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -24,7 +27,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -53,19 +55,18 @@ div.csl-indent {
 <link href="..//assets/robot.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e365b28d8a0182811adae2bd819f4b55.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-c05a37d400b741d7e2a962bf5f58d257.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e365b28d8a0182811adae2bd819f4b55.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8d847308045b6577ba39e8deecd8135e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-8d847308045b6577ba39e8deecd8135e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-8d847308045b6577ba39e8deecd8135e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9532168f8b5389fccfc875d5a33a4e28.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-9532168f8b5389fccfc875d5a33a4e28.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9532168f8b5389fccfc875d5a33a4e28.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.js"></script>
 <link href="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -107,26 +108,59 @@ div.csl-indent {
   });
 </script>
 <style>
-div.callout-break.callout {
-  border-left-color: yellow;
+div.callout-pro-tip.callout {
+  border-left-color: gold;
 }
-div.callout-break.callout-style-default > .callout-header {
-  background-color: rgb(from yellow r g b / 13%);
+div.callout-pro-tip.callout-style-default > .callout-header {
+  background-color: rgb(from gold r g b / 13%);
 }
-div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
-  content: '☕';
+div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
+  content: '💡';
   background-image: none;
 }
-div.callout-pair.callout {
-  border-left-color: forestgreen;
+div.callout-checkpoint.callout {
+  border-left-color: purple;
 }
-div.callout-pair.callout-style-default > .callout-header {
-  background-color: rgb(from forestgreen r g b / 13%);
+div.callout-checkpoint.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
 }
-div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
-  content: '👥';
+div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
+  content: '🎯';
+  background-image: none;
+}
+div.callout-tutor-example.callout {
+  border-left-color: purple;
+}
+div.callout-tutor-example.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
+  content: '📄';
+  background-image: none;
+}
+div.callout-try.callout {
+  border-left-color: blue;
+}
+div.callout-try.callout-style-default > .callout-header {
+  background-color: rgb(from blue r g b / 13%);
+}
+div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
+  content: '🔄';
+  background-image: none;
+}
+div.callout-reflect.callout {
+  border-left-color: purple;
+}
+div.callout-reflect.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
+  content: '💭';
   background-image: none;
 }
 div.callout-schedule.callout {
@@ -151,94 +185,6 @@ div.callout-caution.callout-style-default .callout-icon::before, div.callout-cau
   content: '⚠️';
   background-image: none;
 }
-div.callout-checkpoint.callout {
-  border-left-color: purple;
-}
-div.callout-checkpoint.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
-  content: '🎯';
-  background-image: none;
-}
-div.callout-try.callout {
-  border-left-color: blue;
-}
-div.callout-try.callout-style-default > .callout-header {
-  background-color: rgb(from blue r g b / 13%);
-}
-div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
-  content: '🔄';
-  background-image: none;
-}
-div.callout-setup.callout {
-  border-left-color: gray;
-}
-div.callout-setup.callout-style-default > .callout-header {
-  background-color: rgb(from gray r g b / 13%);
-}
-div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
-  content: '⚙️';
-  background-image: none;
-}
-div.callout-group.callout {
-  border-left-color: purple;
-}
-div.callout-group.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
-  content: '👥';
-  background-image: none;
-}
-div.callout-screens-down.callout {
-  border-left-color: orange;
-}
-div.callout-screens-down.callout-style-default > .callout-header {
-  background-color: rgb(from orange r g b / 13%);
-}
-div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
-  content: '🔽';
-  background-image: none;
-}
-div.callout-testing.callout {
-  border-left-color: green;
-}
-div.callout-testing.callout-style-default > .callout-header {
-  background-color: rgb(from green r g b / 13%);
-}
-div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
-  content: '🧪';
-  background-image: none;
-}
-div.callout-pro-tip.callout {
-  border-left-color: gold;
-}
-div.callout-pro-tip.callout-style-default > .callout-header {
-  background-color: rgb(from gold r g b / 13%);
-}
-div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
-  content: '💡';
-  background-image: none;
-}
-div.callout-export.callout {
-  border-left-color: brown;
-}
-div.callout-export.callout-style-default > .callout-header {
-  background-color: rgb(from brown r g b / 13%);
-}
-div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
-  content: '📤';
-  background-image: none;
-}
 div.callout-timing.callout {
   border-left-color: red;
 }
@@ -248,28 +194,6 @@ div.callout-timing.callout-style-default > .callout-header {
 div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
   content: '⏱️';
-  background-image: none;
-}
-div.callout-screens-up.callout {
-  border-left-color: green;
-}
-div.callout-screens-up.callout-style-default > .callout-header {
-  background-color: rgb(from green r g b / 13%);
-}
-div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
-  content: '🔼';
-  background-image: none;
-}
-div.callout-reflect.callout {
-  border-left-color: purple;
-}
-div.callout-reflect.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
-  content: '💭';
   background-image: none;
 }
 div.callout-prompt-template.callout {
@@ -283,37 +207,15 @@ div.callout-prompt-template.callout-style-default .callout-icon::before, div.cal
   content: '📋';
   background-image: none;
 }
-div.callout-prompt-example.callout {
-  border-left-color: steelblue;
+div.callout-testing.callout {
+  border-left-color: green;
 }
-div.callout-prompt-example.callout-style-default > .callout-header {
-  background-color: rgb(from steelblue r g b / 13%);
+div.callout-testing.callout-style-default > .callout-header {
+  background-color: rgb(from green r g b / 13%);
 }
-div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
-  content: '👩🏼‍🔧';
-  background-image: none;
-}
-div.callout-tutor-example.callout {
-  border-left-color: purple;
-}
-div.callout-tutor-example.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
-  content: '📄';
-  background-image: none;
-}
-div.callout-feedback.callout {
-  border-left-color: teal;
-}
-div.callout-feedback.callout-style-default > .callout-header {
-  background-color: rgb(from teal r g b / 13%);
-}
-div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
-  content: '📝';
+div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
+  content: '🧪';
   background-image: none;
 }
 div.callout-individual.callout {
@@ -327,11 +229,110 @@ div.callout-individual.callout-style-default .callout-icon::before, div.callout-
   content: '💻';
   background-image: none;
 }
+div.callout-prompt-example.callout {
+  border-left-color: steelblue;
+}
+div.callout-prompt-example.callout-style-default > .callout-header {
+  background-color: rgb(from steelblue r g b / 13%);
+}
+div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
+  content: '👩🏼‍🔧';
+  background-image: none;
+}
+div.callout-export.callout {
+  border-left-color: brown;
+}
+div.callout-export.callout-style-default > .callout-header {
+  background-color: rgb(from brown r g b / 13%);
+}
+div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
+  content: '📤';
+  background-image: none;
+}
+div.callout-screens-down.callout {
+  border-left-color: orange;
+}
+div.callout-screens-down.callout-style-default > .callout-header {
+  background-color: rgb(from orange r g b / 13%);
+}
+div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
+  content: '🔽';
+  background-image: none;
+}
+div.callout-pair.callout {
+  border-left-color: forestgreen;
+}
+div.callout-pair.callout-style-default > .callout-header {
+  background-color: rgb(from forestgreen r g b / 13%);
+}
+div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
+  content: '👥';
+  background-image: none;
+}
+div.callout-screens-up.callout {
+  border-left-color: green;
+}
+div.callout-screens-up.callout-style-default > .callout-header {
+  background-color: rgb(from green r g b / 13%);
+}
+div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
+  content: '🔼';
+  background-image: none;
+}
+div.callout-setup.callout {
+  border-left-color: gray;
+}
+div.callout-setup.callout-style-default > .callout-header {
+  background-color: rgb(from gray r g b / 13%);
+}
+div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
+  content: '⚙️';
+  background-image: none;
+}
+div.callout-feedback.callout {
+  border-left-color: teal;
+}
+div.callout-feedback.callout-style-default > .callout-header {
+  background-color: rgb(from teal r g b / 13%);
+}
+div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
+  content: '📝';
+  background-image: none;
+}
+div.callout-group.callout {
+  border-left-color: purple;
+}
+div.callout-group.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
+  content: '👥';
+  background-image: none;
+}
+div.callout-break.callout {
+  border-left-color: yellow;
+}
+div.callout-break.callout-style-default > .callout-header {
+  background-color: rgb(from yellow r g b / 13%);
+}
+div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
+  content: '☕';
+  background-image: none;
+}
 </style>
 
 
-<meta property="og:title" content="Building Personalized Worked Example Generators with AI – KI in der Lehre: Advanced">
-<meta property="og:description" content="Demonstrating Cognitive Load Theory Principles through Structured AI Outputs">
+<meta property="og:title" content="Building Diagnostic AI Tools, Grounded in Cognitive Load Theory – KI in der Lehre: Advanced">
+<meta property="og:description" content="A 3-hour workshop on implementing CLT principles in a working diagnostic tool, without writing code">
 <meta property="og:site_name" content="KI in der Lehre: Advanced">
 </head>
 
@@ -389,7 +390,7 @@ div.callout-individual.callout-style-default .callout-icon::before, div.callout-
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../workshop/index.html">Building Personalized Worked Example Generators with AI</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../workshop/index.html">Building Diagnostic AI Tools, Grounded in Cognitive Load Theory</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -412,7 +413,7 @@ div.callout-individual.callout-style-default .callout-icon::before, div.callout-
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../workshop/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Building Personalized Worked Example Generators with AI</span></a>
+ <span class="menu-text">Building Diagnostic AI Tools, Grounded in Cognitive Load Theory</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
@@ -428,7 +429,7 @@ div.callout-individual.callout-style-default .callout-icon::before, div.callout-
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../workshop/opening/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Opening: Activating Exercise</span></a>
+ <span class="menu-text">Opening: A Diagnostic Moment</span></a>
   </div>
 </li>
       </ul>
@@ -445,7 +446,7 @@ div.callout-individual.callout-style-default .callout-icon::before, div.callout-
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../workshop/theory/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Theory: Cognitive Load Theory Principles</span></a>
+ <span class="menu-text">Theory: A CLT-Grounded Diagnostic Taxonomy</span></a>
   </div>
 </li>
       </ul>
@@ -453,7 +454,7 @@ div.callout-individual.callout-style-default .callout-icon::before, div.callout-
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Demo (20 min)</span></a>
+ <span class="menu-text">Demo (15 min)</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -462,7 +463,7 @@ div.callout-individual.callout-style-default .callout-icon::before, div.callout-
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../workshop/demo/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Demo: The Complete Application</span></a>
+ <span class="menu-text">Demo: The Diagnostic Shell in Action</span></a>
   </div>
 </li>
       </ul>
@@ -470,7 +471,7 @@ div.callout-individual.callout-style-default .callout-icon::before, div.callout-
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Build (90 min)</span></a>
+ <span class="menu-text">Build (115 min, incl.&nbsp;break)</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -479,24 +480,94 @@ div.callout-individual.callout-style-default .callout-icon::before, div.callout-
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../workshop/build/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Build: Interactive Exploration Labs</span></a>
+ <span class="menu-text">Build: Implementing CLT in a Diagnostic Tool</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Scenarios</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workshop/build/scenarios/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Scenario Pack</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workshop/build/scenarios/nursing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nursing: Warfarin and INR</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workshop/build/scenarios/education.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Education: Critique a quiz question</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workshop/build/scenarios/business.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Business: Bakery pricing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workshop/build/scenarios/social-work.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Social work: Missed appointments</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workshop/build/scenarios/engineering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Engineering: Stale-data bug</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workshop/build/scenarios/statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics: Interpreting r = 0.3</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Extend (15 min)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workshop/extend/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Extend: From Tool to Practice</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Extend (30 min)</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Closing (5-10 min)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../workshop/extend/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Extend: Design Your Extensions</span></a>
+  <a href="../workshop/diskussion/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Closing: One Commitment</span></a>
   </div>
 </li>
       </ul>
@@ -513,12 +584,13 @@ div.callout-individual.callout-style-default .callout-icon::before, div.callout-
   <ul class="collapse">
   <li><a href="#workshop-overview" id="toc-workshop-overview" class="nav-link active" data-scroll-target="#workshop-overview">Workshop Overview</a></li>
   <li><a href="#workshop-schedule" id="toc-workshop-schedule" class="nav-link" data-scroll-target="#workshop-schedule">Workshop Schedule</a></li>
-  <li><a href="#hour-schedule" id="toc-hour-schedule" class="nav-link" data-scroll-target="#hour-schedule">3-Hour Schedule</a></li>
+  <li><a href="#hour-schedule" id="toc-hour-schedule" class="nav-link" data-scroll-target="#hour-schedule">3-hour schedule</a></li>
   <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  <li><a href="#setup-required-before-workshop" id="toc-setup-required-before-workshop" class="nav-link" data-scroll-target="#setup-required-before-workshop">Setup Required Before Workshop</a></li>
-  <li><a href="#workshop-structure-a-worked-example-approach" id="toc-workshop-structure-a-worked-example-approach" class="nav-link" data-scroll-target="#workshop-structure-a-worked-example-approach">Workshop Structure: A Worked Example Approach</a></li>
+  <li><a href="#setup-before-the-workshop" id="toc-setup-before-the-workshop" class="nav-link" data-scroll-target="#setup-before-the-workshop">Setup before the workshop</a></li>
+  <li><a href="#workshop-structure-an-applied-worked-example" id="toc-workshop-structure-an-applied-worked-example" class="nav-link" data-scroll-target="#workshop-structure-an-applied-worked-example">Workshop Structure: An Applied Worked Example</a></li>
+  <li><a href="#meta-learning-moment" id="toc-meta-learning-moment" class="nav-link" data-scroll-target="#meta-learning-moment">Meta-learning moment</a></li>
   <li><a href="#technical-stack" id="toc-technical-stack" class="nav-link" data-scroll-target="#technical-stack">Technical Stack</a></li>
-  <li><a href="#connection-to-learning-science" id="toc-connection-to-learning-science" class="nav-link" data-scroll-target="#connection-to-learning-science">Connection to Learning Science</a></li>
+  <li><a href="#connection-to-the-trilogy" id="toc-connection-to-the-trilogy" class="nav-link" data-scroll-target="#connection-to-the-trilogy">Connection to the Trilogy</a></li>
   <li><a href="#get-started" id="toc-get-started" class="nav-link" data-scroll-target="#get-started">Get Started</a></li>
   </ul>
 </nav>
@@ -528,8 +600,8 @@ div.callout-individual.callout-style-default .callout-icon::before, div.callout-
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Building Personalized Worked Example Generators with AI</h1>
-<p class="subtitle lead">Demonstrating Cognitive Load Theory Principles through Structured AI Outputs</p>
+<h1 class="title">Building Diagnostic AI Tools, Grounded in Cognitive Load Theory</h1>
+<p class="subtitle lead">A 3-hour workshop on implementing CLT principles in a working diagnostic tool, without writing code</p>
 </div>
 
 
@@ -548,67 +620,54 @@ div.callout-individual.callout-style-default .callout-icon::before, div.callout-
 
 <section id="workshop-overview" class="level2">
 <h2 class="anchored" data-anchor-id="workshop-overview">Workshop Overview</h2>
-<p>Welcome to this 3-hour workshop on building AI-powered educational tools grounded in Cognitive Load Theory. You’ll learn a pattern for creating personalized worked examples by modifying a working template.</p>
+<p>A 3-hour workshop in which participants build a CLT-grounded diagnostic AI tool for their own discipline. The output schema is fixed; participants iterate the system prompt. They never write code, never edit data structures, and never deploy anything themselves.</p>
+<p>Participants leave with two artifacts: a configured tool URL with their prompt baked in, and a portable prompt recipe usable in Microsoft Copilot, ChatGPT, or Claude.</p>
 <section id="what-youll-do" class="level3">
 <h3 class="anchored" data-anchor-id="what-youll-do">What You’ll Do</h3>
 <ol type="1">
-<li><strong>See a complete demo:</strong> Experience the full complex application (3 domains, 16 concepts)</li>
-<li><strong>Study the code:</strong> Understand how Pydantic and Marimo create structured AI outputs</li>
-<li><strong>Modify a template:</strong> Add concepts to a simplified version (1 domain, 3 concepts)</li>
-<li><strong>Design extensions:</strong> Plan how to apply this to YOUR teaching</li>
+<li><strong>See the diagnostic shell</strong> in action: a working tool that classifies student responses into five CLT-grounded categories</li>
+<li><strong>Pick a discipline scenario</strong> from a set of six, each with three calibrated student responses</li>
+<li><strong>Write a system prompt</strong> that teaches the LLM how the CLT taxonomy shows up in your discipline</li>
+<li><strong>Test, iterate, export</strong>: run on calibrated responses, refine, then export a portable prompt for any LLM interface</li>
 </ol>
 </section>
 <section id="what-youll-build" class="level3">
 <h3 class="anchored" data-anchor-id="what-youll-build">What You’ll Build</h3>
-<p>You’ll <strong>modify</strong> a working <strong>Personalised Worked Example Generator</strong> (in your browser) that:</p>
+<p>A diagnostic tool that takes a student response (written work, a short answer, an explanation) and returns:</p>
 <ul>
-<li>Collects learner profile information (name, domain, interests, hobbies, goals, skill level)</li>
-<li>Generates customised worked examples in ONE domain (Programming)</li>
-<li>Weaves learner interests naturally into educational content</li>
-<li>Provides step-by-step solutions with personal relevance</li>
-<li>Runs in your browser (no installation required)</li>
+<li>A <code>Diagnosis</code> containing one of five <code>load_signal</code> categories, the evidence for that classification, a severity rating, and discipline-specific notes</li>
+<li>A <code>Response</code> containing one of five <code>intervention</code> categories and a concrete piece of text to say to the student</li>
 </ul>
-<p><strong>Note:</strong> The demo shows all 3 domains with 16 concepts. You’ll work with a SIMPLIFIED version (1 domain, 3 concepts) and add 1-2 more concepts to learn the pattern.</p>
+<p>The five <code>load_signal</code> categories are derived from cognitive load theory and schema-acquisition research: <code>intrinsic_overload</code>, <code>extrinsic_distractor</code>, <code>germane_disengagement</code>, <code>schema_gap</code>, <code>active_misconception</code>. They are fixed across all disciplines. Your discipline expertise lives in the system prompt.</p>
 </section>
 <section id="learning-objectives" class="level3">
 <h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
 <p>By the end of this workshop, you will:</p>
 <ol type="1">
-<li><strong>Understand</strong> the worked example effect and personalisation principle from Cognitive Load Theory</li>
-<li><strong>Modify</strong> a working template to add your own concepts (in your browser)</li>
-<li><strong>See</strong> how Pydantic ensures structured outputs from AI</li>
-<li><strong>Recognise</strong> the pattern for building educational AI tools</li>
-<li><strong>Design</strong> extensions for your own teaching context</li>
+<li><strong>Identify</strong> five CLT-grounded diagnostic signals in student work</li>
+<li><strong>Match</strong> each diagnostic signal to a corresponding intervention strategy</li>
+<li><strong>Write</strong> a system prompt that instructs an LLM to apply those categories in your discipline</li>
+<li><strong>Calibrate</strong> a diagnostic prompt against tagged student responses to know where to trust it and where to second-guess it</li>
+<li><strong>Produce</strong> a portable prompt recipe usable in any LLM interface you have access to</li>
 </ol>
 </section>
 <section id="pedagogical-foundation" class="level3">
 <h3 class="anchored" data-anchor-id="pedagogical-foundation">Pedagogical Foundation</h3>
-<p>This workshop is grounded in <strong>Cognitive Load Theory</strong> <span class="citation" data-cites="swellerCognitiveLoadProblem1988">(<a href="#ref-swellerCognitiveLoadProblem1988" role="doc-biblioref">Sweller 1988</a>)</span>, specifically:</p>
-<p><strong>The Worked Example Effect:</strong></p>
-<blockquote class="blockquote">
-<p>“A ‘worked example’ is a problem that has already been solved for the learner, with every step fully explained and clearly shown. The ‘worked example effect’ is the widely replicated finding that novice learners who are given worked examples to study perform better on subsequent tests than learners who are required to solve the equivalent problems themselves.”</p>
-<p><span class="citation" data-cites="centreforeducationstatisticsandevaluationCognitiveLoadTheory2023">Centre for Education Statistics and Evaluation (<a href="#ref-centreforeducationstatisticsandevaluationCognitiveLoadTheory2023" role="doc-biblioref">2023</a>)</span></p>
-</blockquote>
-<p><strong>Why It Works:</strong></p>
+<p>This workshop applies <strong>Cognitive Load Theory</strong> <span class="citation" data-cites="swellerCognitiveLoadProblem1988">(<a href="#ref-swellerCognitiveLoadProblem1988" role="doc-biblioref">Sweller 1988</a>)</span> (with the updated germane-processing framing in Sweller, Ayres and Kalyuga 2019) and schema-acquisition research <span class="citation" data-cites="kalyugaExpertiseReversalEffect2009">(<a href="#ref-kalyugaExpertiseReversalEffect2009" role="doc-biblioref">Kalyuga 2009</a>)</span> to the practical problem of reading student work.</p>
+<p>The five diagnostic categories correspond to the cognitive architecture CLT describes:</p>
 <ul>
-<li>Unguided problem-solving overloads working memory</li>
-<li>Studying worked examples reduces cognitive load</li>
-<li>More working memory capacity available for schema construction</li>
-<li>Better learning outcomes for novices</li>
+<li><code>intrinsic_overload</code> and <code>extrinsic_distractor</code> map onto the classical intrinsic and extraneous load types</li>
+<li><code>germane_disengagement</code> flags the absence of germane processing</li>
+<li><code>schema_gap</code> and <code>active_misconception</code> extend the framework to two distinct schema-acquisition failure modes (absent schema vs.&nbsp;wrong schema)</li>
 </ul>
-<p><strong>Our Addition - Personalization:</strong></p>
-<ul>
-<li>Familiar contexts reduce extraneous cognitive load</li>
-<li>Personal relevance increases germane load (motivation)</li>
-<li>Better schema formation and transfer</li>
-</ul>
+<p>The decomposition matters because each category implies a distinct intervention. Diagnostic precision drives instructional choice.</p>
 </section>
 </section>
 <section id="workshop-schedule" class="level2">
 <h2 class="anchored" data-anchor-id="workshop-schedule">Workshop Schedule</h2>
 </section>
 <section id="hour-schedule" class="level2 callout-schedule" data-icon="false">
-<h2 class="anchored" data-anchor-id="hour-schedule">3-Hour Schedule</h2>
+<h2 class="anchored" data-anchor-id="hour-schedule">3-hour schedule</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -620,67 +679,70 @@ div.callout-individual.callout-style-default .callout-icon::before, div.callout-
 </thead>
 <tbody>
 <tr class="odd">
-<td>9:00-0:10</td>
+<td>0:00-0:10</td>
 <td>10 min</td>
 <td><a href="../workshop/opening/index.html"><strong>Opening</strong></a></td>
-<td>Think-pair-share: Learning from examples</td>
+<td>Think-pair-share: a misdiagnosis you remember</td>
 </tr>
 <tr class="even">
-<td>9:10-9:40</td>
+<td>0:10-0:40</td>
 <td>30 min</td>
 <td><a href="../workshop/theory/index.html"><strong>Theory</strong></a></td>
-<td>Cognitive Load Theory principles</td>
+<td>The CLT-grounded diagnostic taxonomy</td>
 </tr>
 <tr class="odd">
-<td>9:40-10:00</td>
-<td>20 min</td>
+<td>0:40-0:55</td>
+<td>15 min</td>
 <td><a href="../workshop/demo/index.html"><strong>Demo</strong></a></td>
-<td>See the complete application (all 3 domains)</td>
+<td>The diagnostic shell walked through with a calibrated example</td>
 </tr>
 <tr class="even">
-<td>10:00-11:30</td>
-<td>90 min</td>
+<td>0:55-2:50</td>
+<td>115 min</td>
 <td><a href="../workshop/build/index.html"><strong>Build</strong></a></td>
-<td>Hands-on: Modify starter template, add concepts</td>
+<td>Pick scenario, four labs against the shell, pair-test (10-min break included)</td>
 </tr>
 <tr class="odd">
-<td>11:30-11:50</td>
-<td>15-20 min</td>
-<td><a href="../workshop/extend/index.html"><strong>Extend</strong></a></td>
-<td>Choose: Discussion or Gallery Walk</td>
+<td>2:50-3:00</td>
+<td>10 min</td>
+<td><a href="../workshop/diskussion/index.html"><strong>Closing</strong></a></td>
+<td>One Monday commitment</td>
 </tr>
 </tbody>
 </table>
-<!-- | 12:00-12:10 | 10 min | [**Resources**](resources/index.qmd) | Links, documentation, next steps | -->
 </section>
+<p>The Build block has its own internal structure: 10 min picking a scenario, four labs of 15 to 25 min each, a 10-min break, and 15 min of pair-testing. See the <a href="../workshop/build/index.html">Build page</a> for the lab-by-lab breakdown.</p>
 <section id="prerequisites" class="level2">
 <h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
 <section id="required-knowledge" class="level3">
 <h3 class="anchored" data-anchor-id="required-knowledge">Required Knowledge</h3>
 <ul>
-<li><strong>Basic Python</strong>: lists, dictionaries, functions (reading code, not writing from scratch)</li>
-<li><strong>No statistics background required</strong></li>
-<li><strong>No prior AI/ML experience needed</strong></li>
+<li><strong>None technical.</strong> Participants do not write code, edit data structures, or run notebooks.</li>
+<li><strong>Some teaching experience</strong> in any discipline. The workshop’s central activity is reading a student response and asking what cognitive signal it reveals.</li>
 </ul>
 </section>
 <section id="materials-required" class="level3">
 <h3 class="anchored" data-anchor-id="materials-required">Materials Required</h3>
 </section>
 </section>
-<section id="setup-required-before-workshop" class="level2 callout-setup" data-icon="false">
-<h2 class="anchored" data-anchor-id="setup-required-before-workshop">Setup Required Before Workshop</h2>
-<p><strong>That’s it. No installation needed.</strong></p>
+<section id="setup-before-the-workshop" class="level2 callout-setup" data-icon="false">
+<h2 class="anchored" data-anchor-id="setup-before-the-workshop">Setup before the workshop</h2>
 <p>What you need:</p>
 <ol type="1">
-<li><strong>Laptop with modern browser</strong></li>
-<li><strong>Internet connection</strong> (workshop uses HuggingFace Spaces)</li>
-<li><strong>Optional:</strong> Notebook for reflecting on how you’d apply this to your teaching</li>
+<li>A laptop with a modern browser</li>
+<li>An internet connection (the diagnostic shell runs on Hugging Face Spaces)</li>
+<li>Optional but useful: a notebook or document where you can paste your final exported prompt</li>
 </ol>
-<p><strong>No Python installation. No API keys. No troubleshooting.</strong></p>
-<p>Everything runs in your browser via an interactive web application.</p>
+<p>What you do <strong>not</strong> need:</p>
+<ul>
+<li>Python, an IDE, or a development environment</li>
+<li>An API key for any LLM</li>
+<li>A Hugging Face account</li>
+<li>Any preparation reading</li>
+</ul>
 </section>
-<section id="workshop-structure-a-worked-example-approach" class="level2">
-<h2 class="anchored" data-anchor-id="workshop-structure-a-worked-example-approach">Workshop Structure: A Worked Example Approach</h2>
+<section id="workshop-structure-an-applied-worked-example" class="level2">
+<h2 class="anchored" data-anchor-id="workshop-structure-an-applied-worked-example">Workshop Structure: An Applied Worked Example</h2>
 <div class="callout callout-style-simple callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -691,124 +753,64 @@ div.callout-individual.callout-style-default .callout-icon::before, div.callout-
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This workshop <strong>demonstrates the principle it teaches</strong> by being structured as a worked example itself.</p>
+<p>This workshop demonstrates the principle it teaches by being structured as a worked example of CLT-grounded design.</p>
 <p><strong>Traditional approach</strong> (problem-solving):</p>
-<pre><code>Give you requirements → You struggle to build → Instructor helps when stuck</code></pre>
-<p><em>High cognitive load, potential frustration, pattern harder to see</em></p>
+<blockquote class="blockquote">
+<p>Define your tool’s data structures, design the schema, implement the LLM call, build a UI, deploy.</p>
+</blockquote>
+<p>This is too much for a 3-hour workshop and not what most participants need to know.</p>
 <p><strong>This approach</strong> (worked example):</p>
-<pre><code>Show complete solution → Study each component → Explain design choices → Apply to your domain</code></pre>
-<p><em>Lower cognitive load, clearer pattern, better transfer</em></p>
-<p><strong>Why?</strong> Most of you are novices at building educational AI tools. Research shows studying worked examples is more effective than unguided problem-solving for novices.</p>
-</div>
-</div>
-<section id="the-worked-example-approach" class="level3">
-<h3 class="anchored" data-anchor-id="the-worked-example-approach">The Worked Example Approach</h3>
-<p>This workshop follows the worked example pattern:</p>
-<ol type="1">
-<li><strong>ACTIVATE</strong> (Opening): Prior knowledge activation</li>
-<li><strong>PRESENT</strong> (Theory + Demo): See the complete solution</li>
-<li><strong>STUDY</strong> (Build): Examine and modify the code</li>
-<li><strong>UNDERSTAND</strong> (Extend): Connect to pedagogical applications</li>
-<li><strong>TRANSFER</strong> (Resources): Apply to your own teaching</li>
-</ol>
-</section>
-<section id="fading-scaffolding" class="level3">
-<h3 class="anchored" data-anchor-id="fading-scaffolding">Fading Scaffolding</h3>
-<p>Notice how support gradually decreases:</p>
-<ul>
-<li><strong>Theory/Demo</strong>: Full explanation, complete working application shown</li>
-<li><strong>Build</strong>: Scaffolded practice—modify template, add concepts</li>
-<li><strong>Extend</strong>: Independent design—plan your own extensions</li>
-<li><strong>After workshop</strong>: Transfer to new domains on your own</li>
-</ul>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Meta-Learning Moment
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>As you progress through today, notice:</strong></p>
-<ul>
-<li>When does studying the complete solution help vs.&nbsp;confuse?</li>
-<li>When do you want to start experimenting on your own?</li>
-<li>How does seeing the “big picture” first affect your understanding?</li>
-</ul>
-<p>These insights will inform how you design worked examples for your students.</p>
+<blockquote class="blockquote">
+<p>The structure is given. The intelligence lives in the prompt. Your work is making the structure speak your discipline’s language.</p>
+</blockquote>
+<p><strong>Why?</strong> The decomposition (theory provides structure, practitioner provides cues) is the move we want participants to take back to their teaching with AI. Doing it once at workshop scale lets participants feel the leverage.</p>
 </div>
 </div>
 </section>
+<section id="meta-learning-moment" class="level2 callout-pro-tip">
+<h2 class="anchored" data-anchor-id="meta-learning-moment">Meta-learning moment</h2>
+<p>As you progress through today, notice when the <strong>fixed schema</strong> is helping you think and when it feels constraining. Notice the categories you found easy to instantiate in your discipline and the ones that required real effort. The categories that required effort are usually the ones your teaching most needs help diagnosing.</p>
 </section>
 <section id="technical-stack" class="level2">
 <h2 class="anchored" data-anchor-id="technical-stack">Technical Stack</h2>
-<section id="core-technologies" class="level3">
-<h3 class="anchored" data-anchor-id="core-technologies">Core Technologies</h3>
-<ul>
-<li><strong><a href="https://platform.openai.com/docs/guides/latest-model">OpenAI GPT-5.1</a>:</strong> Latest language model with structured outputs</li>
-<li><strong><a href="https://pydantic.dev">Pydantic</a>:</strong> Data validation using Python type hints</li>
-<li><strong><a href="https://gradio.app">Gradio</a>:</strong> Web interface for the production tool</li>
-<li><strong><a href="https://marimo.io">Marimo</a>:</strong> Reactive Python notebooks for interactive exploration</li>
-<li><strong><a href="https://huggingface.co/spaces">HuggingFace Spaces</a>:</strong> Free deployment platform</li>
-</ul>
-</section>
-<section id="two-applications-in-this-workshop" class="level3">
-<h3 class="anchored" data-anchor-id="two-applications-in-this-workshop">Two Applications in This Workshop</h3>
-<p>This workshop uses <strong>two different applications</strong> with distinct purposes:</p>
-<p><strong>1. Interactive Exploration App (Marimo)</strong></p>
-<ul>
-<li>5 hands-on labs for exploring concepts</li>
-<li>Embedded throughout this website</li>
-<li>Experiment with prompt design, personalization, data models</li>
-<li>Learn by doing, no installation required</li>
-</ul>
-<p><strong>2. Production Tool (Gradio)</strong></p>
-<ul>
-<li>Complete deployable worked example generator</li>
-<li>Deployed to HuggingFace Spaces</li>
-</ul>
-</section>
-</section>
-<section id="connection-to-learning-science" class="level2">
-<h2 class="anchored" data-anchor-id="connection-to-learning-science">Connection to Learning Science</h2>
-<p>This workshop demonstrates several evidence-based learning principles:</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Make It Stick Connections
+<div class="callout-body-container">
+<p>You do not need to know any of this. It is documented for instructors and for the curious.</p>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>This tool addresses multiple strategies from <em>Make It Stick</em> <span class="citation" data-cites="brownMakeItStick2014">(<a href="#ref-brownMakeItStick2014" role="doc-biblioref">Brown, III, and McDaniel 2014</a>)</span>:</p>
-<ol type="1">
-<li><strong>Worked Examples:</strong> Reduce cognitive load for novices</li>
-<li><strong>Variation:</strong> Practice in different personal contexts</li>
-<li><strong>Understanding vs.&nbsp;Familiarity:</strong> Personalisation helps distinguish the two</li>
-<li><strong>Application:</strong> Real-world contexts for transfer</li>
-</ol>
-<p>See the <a href="https://virtuelleakademie.github.io/ki-lehre-intermediate/">ki-lehre-intermediate workshop</a> for deeper exploration of learning science principles.</p>
 </div>
-</div>
+<ul>
+<li><strong><a href="https://docs.claude.com">Anthropic Claude Haiku 4.5</a></strong>: structured-output language model used by the diagnostic shell</li>
+<li><strong><a href="https://pydantic.dev">Pydantic</a></strong>: defines the fixed <code>Diagnosis</code> and <code>Response</code> schema in <code>models.py</code></li>
+<li><strong><a href="https://gradio.app">Gradio</a></strong>: hosts the three-surface shell UI</li>
+<li><strong><a href="https://huggingface.co/spaces">Hugging Face Spaces</a></strong>: free deployment for the shell</li>
+</ul>
+</section>
+<section id="connection-to-the-trilogy" class="level2">
+<h2 class="anchored" data-anchor-id="connection-to-the-trilogy">Connection to the Trilogy</h2>
+<p>This is the <strong>advanced</strong> workshop in a three-workshop sequence on AI in education at the BFH Virtuelle Akademie:</p>
+<ul>
+<li>The <a href="https://virtuelleakademie.github.io/ki-lehre-beginner/"><strong>beginner</strong></a> workshop introduces AI in education broadly.</li>
+<li>The <a href="https://virtuelleakademie.github.io/ki-lehre-intermediate/"><strong>intermediate</strong></a> workshop establishes cognitive load theory, the offloading-vs-outsourcing distinction, and a diagnostic vocabulary for analysing assignments.</li>
+<li>This <strong>advanced</strong> workshop turns that diagnostic vocabulary into a working tool.</li>
+</ul>
+<p>If you have not done the intermediate workshop, this workshop will still work for you, but the theory section will move quickly through the CLT background that workshop establishes more carefully.</p>
 </section>
 <section id="get-started" class="level2">
 <h2 class="anchored" data-anchor-id="get-started">Get Started</h2>
-<p>Ready to begin? Start with the <a href="../workshop/opening/index.html">opening activity</a>!</p>
+<p>Ready to begin? Start with the <a href="../workshop/opening/index.html">opening activity</a>.</p>
 
 
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-brownMakeItStick2014" class="csl-entry" role="listitem">
-Brown, Peter C., Henry L. Roediger III, and Mark A. McDaniel. 2014. <em>Make <span>It Stick</span>: <span>The Science</span> of <span>Successful Learning</span></em>. Cambridge, Massachusetts: Belknap Press: An Imprint of Harvard University Press.
-</div>
-<div id="ref-centreforeducationstatisticsandevaluationCognitiveLoadTheory2023" class="csl-entry" role="listitem">
-Centre for Education Statistics and Evaluation. 2023. <span>“Cognitive Load Theory: <span>Research</span> That Teachers Really Need to Understand.”</span> NSW Department of Education. June 13, 2023. <a href="https://education.nsw.gov.au/about-us/education-data-and-research/cese/publications/literature-reviews/cognitive-load-theory.html">https://education.nsw.gov.au/about-us/education-data-and-research/cese/publications/literature-reviews/cognitive-load-theory.html</a>.
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-kalyugaExpertiseReversalEffect2009" class="csl-entry" role="listitem">
+Kalyuga, Slava. 2009. <span>“The <span>Expertise Reversal Effect</span>.”</span> In <em>Managing <span>Cognitive Load</span> in <span>Adaptive Multimedia Learning</span></em>. IGI Global Scientific Publishing. <a href="https://doi.org/10.4018/978-1-60566-048-6.ch003">https://doi.org/10.4018/978-1-60566-048-6.ch003</a>.
 </div>
 <div id="ref-swellerCognitiveLoadProblem1988" class="csl-entry" role="listitem">
 Sweller, John. 1988. <span>“Cognitive Load During Problem Solving: <span>Effects</span> on Learning.”</span> <em>Cognitive Science</em> 12 (2): 257–85. <a href="https://doi.org/10.1016/0364-0213(88)90023-7">https://doi.org/10.1016/0364-0213(88)90023-7</a>.

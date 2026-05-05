@@ -177,265 +177,790 @@
   {
     "objectID": "workshop/theory/index.html#learning-objectives",
     "href": "workshop/theory/index.html#learning-objectives",
-    "title": "Theory: Cognitive Load Theory Principles",
+    "title": "Theory: A CLT-Grounded Diagnostic Taxonomy",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nBy the end of this section, you will understand:\n\nThe Worked Example Effect: Why studying complete solutions helps novices learn\nThe Personalisation Effect: How familiar contexts reduce cognitive load\nHow AI can scale these principles in education",
+    "text": "Learning Objectives\nBy the end of this section, you will:\n\nRecognise the three classical CLT load types and the cognitive architecture they describe\nIdentify five diagnostic signals visible in student work, derived from CLT plus schema-acquisition research\nMatch each diagnostic signal to a corresponding intervention strategy\nJustify why a fixed diagnostic taxonomy is itself an act of pedagogical decomposition",
     "crumbs": [
       "Workshop",
       "Theory (30 min)",
-      "Theory: Cognitive Load Theory Principles"
+      "Theory: A CLT-Grounded Diagnostic Taxonomy"
     ]
   },
   {
-    "objectID": "workshop/theory/index.html#cognitive-load-theory-educational-ai",
-    "href": "workshop/theory/index.html#cognitive-load-theory-educational-ai",
-    "title": "Theory: Cognitive Load Theory Principles",
-    "section": " Cognitive Load Theory & Educational AI",
-    "text": "Cognitive Load Theory & Educational AI\n    View slides in full screen",
+    "objectID": "workshop/theory/index.html#where-this-picks-up-from-the-intermediate-workshop",
+    "href": "workshop/theory/index.html#where-this-picks-up-from-the-intermediate-workshop",
+    "title": "Theory: A CLT-Grounded Diagnostic Taxonomy",
+    "section": "Where this picks up from the intermediate workshop",
+    "text": "Where this picks up from the intermediate workshop\nThe intermediate workshop established two distinctions:\n\nCognitive offloading: a tool reduces working-memory load while the student continues to think\nCognitive outsourcing: a tool eliminates the thinking the student was supposed to do\n\nBoth rest on a more basic question: what does the student’s working memory actually contain right now? An AI tool that takes a student artifact as input can ask exactly that question. This workshop builds a tool to ask it.",
     "crumbs": [
       "Workshop",
       "Theory (30 min)",
-      "Theory: Cognitive Load Theory Principles"
+      "Theory: A CLT-Grounded Diagnostic Taxonomy"
     ]
   },
   {
-    "objectID": "workshop/theory/index.html#three-types-of-cognitive-load",
-    "href": "workshop/theory/index.html#three-types-of-cognitive-load",
-    "title": "Theory: Cognitive Load Theory Principles",
-    "section": "Three Types of Cognitive Load",
-    "text": "Three Types of Cognitive Load\n\n\n\n\n\n\n\n\n\nLoad Type\nSource\nEffect on Learning\nDesign Implication\n\n\n\n\nIntrinsic Load\nInherent complexity of the material and prior knowledge of learner\nNecessary for learning (but can cause overload if too high)\nUse worked examples, simple-to-complex sequencing, part-whole approaches\n\n\nExtraneous Load\nPoorly designed instruction that doesn’t facilitate schema construction\nHarmful - does not contribute to learning\nEliminate redundancy, integrate information sources, use dual modality\n\n\nGermane Load\nWell-designed instruction that directly facilitates schema construction and automation\nHelpful - directly contributes to learning\nProvide worked examples, guided practice, scaffolding that fades\n\n\n\nKey Principle: Total Cognitive Load = Intrinsic + Extraneous + Germane\nGoal: Minimize extraneous load, optimize germane load, manage intrinsic load appropriately for learner expertise level.",
+    "objectID": "workshop/theory/index.html#the-substrate-classical-clt-load-types",
+    "href": "workshop/theory/index.html#the-substrate-classical-clt-load-types",
+    "title": "Theory: A CLT-Grounded Diagnostic Taxonomy",
+    "section": "The substrate: classical CLT load types",
+    "text": "The substrate: classical CLT load types\n\n\n\n\n\n\n\n\n\nLoad Type\nSource\nEffect on Learning\nDesign Implication\n\n\n\n\nIntrinsic Load\nInherent complexity of the material relative to the learner’s existing schemas\nNecessary for learning, but can cause overload\nSequence simple-to-complex; chunk; use worked examples\n\n\nExtraneous Load\nTask or material design that doesn’t serve schema construction\nHarmful — does not contribute to learning\nEliminate redundancy; integrate sources; reduce surface complexity\n\n\nGermane Processing\nEffortful schema construction by the learner\nHelpful — this is where learning happens\nProvide scaffolds that prompt elaboration, not just retrieval\n\n\n\nTotal cognitive load = intrinsic + extraneous + germane. The teacher’s job is to manage intrinsic load to the learner’s capacity, eliminate extraneous load, and create conditions where germane processing can occur.\n\nThe framing of germane load was revised in Sweller, Ayres and Kalyuga (2019) from “germane load” (a third type of load) to “germane processing” (the working-memory work that builds long-term-memory schemas). The diagnostic taxonomy below uses this updated framing.",
     "crumbs": [
       "Workshop",
       "Theory (30 min)",
-      "Theory: Cognitive Load Theory Principles"
+      "Theory: A CLT-Grounded Diagnostic Taxonomy"
     ]
   },
   {
-    "objectID": "workshop/theory/index.html#evidence-based-effects-from-cognitive-load-research",
-    "href": "workshop/theory/index.html#evidence-based-effects-from-cognitive-load-research",
-    "title": "Theory: Cognitive Load Theory Principles",
-    "section": "Evidence-Based Effects from Cognitive Load Research",
-    "text": "Evidence-Based Effects from Cognitive Load Research\n\n\n\n\n\n\n\n\nEffect\nDescription\nApplication to AI Tools\n\n\n\n\nWorked Example Effect (Sweller 1988)\nNovices learn better from studying complete solutions than solving problems independently (effect size: 0.52)\nAI should generate complete, step-by-step solutions for novices to study\n\n\nExpertise Reversal Effect (Kalyuga 2009)\nAs expertise increases, worked examples become less effective and can be counterproductive\nPersonalize based on learner level - more guidance for novices, less for experts\n\n\nRedundancy Effect\nPresenting the same information in multiple forms increases load without aiding learning\nAI should avoid repeating information unnecessarily in text and diagrams\n\n\nSplit Attention Effect\nRequiring learners to process separate sources simultaneously increases load\nAI should integrate text and visuals, not require mental integration\n\n\nModality Effect\nUsing both visual and auditory channels can increase working memory capacity\nConsider multimodal AI outputs (text + narration, diagrams + audio explanation)",
+    "objectID": "workshop/theory/index.html#the-five-diagnostic-signals",
+    "href": "workshop/theory/index.html#the-five-diagnostic-signals",
+    "title": "Theory: A CLT-Grounded Diagnostic Taxonomy",
+    "section": "The five diagnostic signals",
+    "text": "The five diagnostic signals\nThree of these signals correspond directly to the classical load types. Two more come from schema-acquisition research: a learner can have an absent schema (schema_gap) or an actively wrong one (active_misconception). All five are visible in student artifacts when you know what to look for.\n\nintrinsic_overload\nThe learner is tracking too many interacting elements at once for their current schemas to handle. The response shows partial reasoning that breaks down, lost threads, mid-explanation derailments.\n\nExample (engineering): a student listing twelve possible causes of a bug and not choosing one.\n\nThe mechanism: working memory has been exceeded. The intervention is to chunk the task so element-interactivity falls within capacity (segment_intrinsic_load).\n\n\nextrinsic_distractor\nCognitive effort is going to the wrong place. The student fixates on irrelevant surface features of the task, the material, or the institutional process around it. The actual learning target is not where attention has landed.\n\nExample (social work): a student analysing a missed-appointment case by checking whether the intake forms are up to date.\n\nThe mechanism: extraneous load has captured the limited working-memory budget. The intervention is to declutter the task surface so the substantive question becomes the salient one (reduce_extrinsic_load).\n\n\ngermane_disengagement\nThe student retrieves correct information but does not elaborate on it. The response is technically right and pedagogically empty: rote knowledge surfacing without contact with the specific case.\n\nExample (statistics): a student reciting the textbook definition of correlation when asked to interpret a specific value.\n\nThe mechanism: germane processing is not happening. The student is in retrieval mode, not in schema-construction mode. The intervention is a probe that forces application or self-explanation (prompt_germane_processing).\n\n\nschema_gap\nA foundational concept needed to engage with the task is simply absent. The student often knows something is missing and may say so explicitly.\n\nExample (business): a student asking “is there a formula for whether customers will still buy as many?” — they have correctly identified the missing concept (price elasticity).\n\nThe mechanism: the relevant long-term-memory schema does not exist yet. The intervention is to build a bridge from existing schemas to the missing one (activate_prior_schema).\n\n\nactive_misconception\nThe student is reasoning consistently from a coherent but wrong model. The reasoning is internally self-consistent — that is what makes misconceptions hard to dislodge.\n\nExample (nursing): a student believing high INR means thick blood and confidently increasing the warfarin dose.\n\nThe mechanism: a wrong schema is activated and being applied. The intervention is to surface the contrast between the wrong model and the right one, typically through a worked example (replace_misconception).",
     "crumbs": [
       "Workshop",
       "Theory (30 min)",
-      "Theory: Cognitive Load Theory Principles"
+      "Theory: A CLT-Grounded Diagnostic Taxonomy"
     ]
   },
   {
-    "objectID": "workshop/theory/index.html#how-this-guides-our-workshop-tool",
-    "href": "workshop/theory/index.html#how-this-guides-our-workshop-tool",
-    "title": "Theory: Cognitive Load Theory Principles",
-    "section": "How This Guides Our Workshop Tool",
-    "text": "How This Guides Our Workshop Tool\nThe personalized worked example generator applies these principles:\n\nManages Intrinsic Load: Allows learners to select concepts matching their current level\nReduces Extraneous Load: Presents clear, integrated examples without redundancy\nMaximizes Germane Load: Provides complete solutions that promote schema construction\nLeverages Worked Example Effect: Generates full solutions for study, not partial hints\nEnables Personalization: Uses familiar contexts to reduce extraneous cognitive load\n\n\nNext: See the Demo",
+    "objectID": "workshop/theory/index.html#mapping-diagnosis-to-intervention",
+    "href": "workshop/theory/index.html#mapping-diagnosis-to-intervention",
+    "title": "Theory: A CLT-Grounded Diagnostic Taxonomy",
+    "section": "Mapping diagnosis to intervention",
+    "text": "Mapping diagnosis to intervention\nThe shell’s output schema couples each load_signal with a default intervention. The defaults are not the only valid choice; severity and discipline modulate them. But the defaults are a useful baseline.\n\n\n\n\n\n\n\n\nDiagnosis (load_signal)\nDefault intervention\nWhat the intervention does\n\n\n\n\nintrinsic_overload\nsegment_intrinsic_load\nChunks the task so element-interactivity drops below capacity\n\n\nextrinsic_distractor\nreduce_extrinsic_load\nDeclutters the surface so attention can find the substantive target\n\n\ngermane_disengagement\nprompt_germane_processing\nForces application or self-explanation through a probe\n\n\nschema_gap\nactivate_prior_schema\nBridges from an existing schema to the missing one via analogy\n\n\nactive_misconception\nreplace_misconception\nContrasts the wrong model with the right one, often through a worked example",
     "crumbs": [
       "Workshop",
       "Theory (30 min)",
-      "Theory: Cognitive Load Theory Principles"
+      "Theory: A CLT-Grounded Diagnostic Taxonomy"
+    ]
+  },
+  {
+    "objectID": "workshop/theory/index.html#why-a-fixed-schema",
+    "href": "workshop/theory/index.html#why-a-fixed-schema",
+    "title": "Theory: A CLT-Grounded Diagnostic Taxonomy",
+    "section": "Why a fixed schema",
+    "text": "Why a fixed schema\nThe shell you will use in the Build block fixes the five diagnostic categories and the five intervention categories. It does not ask you to design them.\nThe reason is methodological. The categories are the pedagogical decomposition. Every choice the LLM makes when classifying a student response is a CLT-grounded choice. Your work as a tool designer is to teach the model how those categories appear in your discipline. The structure stays put; the discipline-specific cues are what you contribute.",
+    "crumbs": [
+      "Workshop",
+      "Theory (30 min)",
+      "Theory: A CLT-Grounded Diagnostic Taxonomy"
+    ]
+  },
+  {
+    "objectID": "workshop/theory/index.html#a-meta-point-about-decomposition",
+    "href": "workshop/theory/index.html#a-meta-point-about-decomposition",
+    "title": "Theory: A CLT-Grounded Diagnostic Taxonomy",
+    "section": "A meta point about decomposition",
+    "text": "A meta point about decomposition\nThis workshop’s tool is itself a worked example. Designing diagnostic AI tools for teaching often gets framed as data-modelling work: “what fields should this return?” That framing turns pedagogical thinking into engineering thinking. By fixing the schema as the CLT taxonomy, the tool removes data-modelling as a degree of freedom and forces the design work to live where it belongs: in noticing what learning looks like in your specific discipline.",
+    "crumbs": [
+      "Workshop",
+      "Theory (30 min)",
+      "Theory: A CLT-Grounded Diagnostic Taxonomy"
+    ]
+  },
+  {
+    "objectID": "workshop/theory/index.html#what-you-do-next",
+    "href": "workshop/theory/index.html#what-you-do-next",
+    "title": "Theory: A CLT-Grounded Diagnostic Taxonomy",
+    "section": "What you do next",
+    "text": "What you do next\nYou will pick one of six discipline scenarios, each with three calibrated student responses. You will write a system prompt that tells the LLM how to apply the five categories to your discipline. You will test, iterate, and export a portable prompt you can use in any LLM interface.\nNext: See the Demo",
+    "crumbs": [
+      "Workshop",
+      "Theory (30 min)",
+      "Theory: A CLT-Grounded Diagnostic Taxonomy"
     ]
   },
   {
     "objectID": "workshop/opening/index.html",
     "href": "workshop/opening/index.html",
-    "title": "Opening: Activating Exercise",
+    "title": "Opening: A Diagnostic Moment",
     "section": "",
-    "text": "NoteDuration: 10 minutes",
+    "text": "Next: Theory",
     "crumbs": [
       "Workshop",
       "Opening (10 min)",
-      "Opening: Activating Exercise"
+      "Opening: A Diagnostic Moment"
     ]
   },
   {
     "objectID": "workshop/opening/index.html#welcome",
     "href": "workshop/opening/index.html#welcome",
-    "title": "Opening: Activating Exercise",
-    "section": "Welcome!",
-    "text": "Welcome!\nBefore we dive into the technical details, let’s activate our prior knowledge about learning.",
+    "title": "Opening: A Diagnostic Moment",
+    "section": "Welcome",
+    "text": "Welcome\nBefore we get into theory, a moment of recall.",
     "crumbs": [
       "Workshop",
       "Opening (10 min)",
-      "Opening: Activating Exercise"
+      "Opening: A Diagnostic Moment"
     ]
   },
   {
-    "objectID": "workshop/opening/index.html#think-pair-share-learning-from-examples",
-    "href": "workshop/opening/index.html#think-pair-share-learning-from-examples",
-    "title": "Opening: Activating Exercise",
-    "section": "Think-Pair-Share: Learning from Examples",
-    "text": "Think-Pair-Share: Learning from Examples\n\n\n\n\n\n\nNoteTHINK (3 minutes)\n\n\n\nConsider these two scenarios for learning how to calculate correlation:\n\nScenario A: Problem-Solving\nYou’re given:\n\n“Calculate the correlation between Variable X and Variable Y”\n\nThen you spend time figuring out the formula, looking up procedures, trying different approaches.\n\n\nScenario B: Worked Example\nYou’re shown:\n\n“Calculate the correlation between your weekly running distance and your 5K race times:\nGiven data: - Running: [25, 30, 20, 35, 28] km/week - Race times: [22, 21, 24, 19, 20] minutes\nStep 1: Calculate means… [Complete solution with every step explained]”\n\nQuestion: Which scenario would help you learn better? Why?\n\n\n\n\n\n\n\n\n\nNotePAIR (4 minutes)\n\n\n\nShare your thoughts with a neighbor:\n\nWhich scenario did you choose?\nHave you experienced either approach in your own learning?\nWhich approach do you use when teaching?\n\n\n\n\n\n\n\n\n\nNoteSHARE (3 minutes)\n\n\n\nBrief group discussion:\nCommon responses:\n\n“Scenario B is easier to follow”\n“The personal context makes it more engaging”\n“I can see the pattern more clearly in the worked example”\n“But won’t students just copy without understanding?”",
+    "objectID": "workshop/opening/index.html#think-pair-share-a-misdiagnosis-you-remember",
+    "href": "workshop/opening/index.html#think-pair-share-a-misdiagnosis-you-remember",
+    "title": "Opening: A Diagnostic Moment",
+    "section": "Think-Pair-Share: a misdiagnosis you remember",
+    "text": "Think-Pair-Share: a misdiagnosis you remember",
     "crumbs": [
       "Workshop",
       "Opening (10 min)",
-      "Opening: Activating Exercise"
+      "Opening: A Diagnostic Moment"
+    ]
+  },
+  {
+    "objectID": "workshop/opening/index.html#think-3-minutes",
+    "href": "workshop/opening/index.html#think-3-minutes",
+    "title": "Opening: A Diagnostic Moment",
+    "section": "THINK (3 minutes)",
+    "text": "THINK (3 minutes)\nBring to mind a moment when you misjudged what a student knew or what was going wrong with their thinking. The moment can be from any context: a written assignment, a discussion comment, an exam answer, a question they asked, a comment they made in passing.\nHold the moment for a beat. Try to recall:\n\nWhat did the student say or write?\nWhat did you initially conclude they did or didn’t understand?\nWhat turned out to be actually happening?\n\nIf two moments come to mind, pick the one that was most surprising in retrospect.",
+    "crumbs": [
+      "Workshop",
+      "Opening (10 min)",
+      "Opening: A Diagnostic Moment"
+    ]
+  },
+  {
+    "objectID": "workshop/opening/index.html#pair-4-minutes",
+    "href": "workshop/opening/index.html#pair-4-minutes",
+    "title": "Opening: A Diagnostic Moment",
+    "section": "PAIR (4 minutes)",
+    "text": "PAIR (4 minutes)\nTell your neighbour about your moment, and listen to theirs. Then compare:\n\nWere the two moments structurally similar (same kind of mismatch between your initial reading and what was actually happening) or very different?\nWhen you were teaching that student, did you have a clear name or category for what turned out to be going on?",
+    "crumbs": [
+      "Workshop",
+      "Opening (10 min)",
+      "Opening: A Diagnostic Moment"
+    ]
+  },
+  {
+    "objectID": "workshop/opening/index.html#share-3-minutes",
+    "href": "workshop/opening/index.html#share-3-minutes",
+    "title": "Opening: A Diagnostic Moment",
+    "section": "SHARE (3 minutes)",
+    "text": "SHARE (3 minutes)\nA few volunteers share moments. The instructor will note the kinds of mismatches that come up: students with confident-sounding wrong models, students retrieving correct facts without engaging, students stuck on irrelevant features, students missing prerequisites, students juggling too many pieces.\nThese are exactly the categories we will use today.",
+    "crumbs": [
+      "Workshop",
+      "Opening (10 min)",
+      "Opening: A Diagnostic Moment"
     ]
   },
   {
     "objectID": "workshop/opening/index.html#the-bridge-to-todays-workshop",
     "href": "workshop/opening/index.html#the-bridge-to-todays-workshop",
-    "title": "Opening: Activating Exercise",
-    "section": "The Bridge to Today’s Workshop",
-    "text": "The Bridge to Today’s Workshop\nWhat you just experienced touches on two key principles we’ll explore:\n\nThe Worked Example Effect: For novice learners, studying complete solutions is more effective than struggling through problems independently\nThe Personalisation Effect: Familiar contexts (like your own running data) reduce cognitive load and improve learning\n\nToday’s goal: Build a tool that combines both principles at scale using AI.\n\n\n\n\n\n\nImportantThe Workshop IS a Worked Example\n\n\n\nHere’s the key insight: This workshop itself is designed as a worked example.\nWe won’t ask you to build this tool from scratch. Instead:\n\nWe’ll show you a complete, working solution (the personalised example generator)\nWe’ll study it step-by-step, examining how each component works\nWe’ll explain why it’s designed this way ,connecting code to cognitive science\nWe’ll gradually reduce scaffolding, from guided study to independent application\nYou’ll transfer the pattern, applying it to your own teaching domain\n\nWhy this structure?\nBecause you’re learning to build educational AI tools, a relatively new domain where most of you are “novices.” According to Cognitive Load Theory (Sweller 1988), the most effective way for you to learn is to study a worked example, not struggle through unguided problem-solving.\nThe meta-lesson: By experiencing the worked example effect yourself, you’ll better understand how to design it for your students.\n\n\n\n\n\n\n\n\nTipMeta-Cognitive Moment\n\n\n\nThroughout today, notice:\n\nWhen we show you complete solutions (worked example effect)\nWhen we use familiar teaching contexts (personalisation effect)\nWhen we gradually reduce guidance (fading)\nWhen we ask you to apply independently (transfer)\n\nThe workshop structure demonstrates the principles it teaches!\n\n\n\nReady? Let’s move to Theory",
+    "title": "Opening: A Diagnostic Moment",
+    "section": "The bridge to today’s workshop",
+    "text": "The bridge to today’s workshop\nThe diagnostic problem you just remembered is the daily work of teaching: looking at a student artifact and reading what is actually happening in their working memory.\nToday’s tool gives an LLM a fixed cognitive-load-theory taxonomy and asks you to teach it how that taxonomy looks in your discipline. The output is a quick, structured read on a student response: what kind of cognitive signal is it, and what intervention fits.",
     "crumbs": [
       "Workshop",
       "Opening (10 min)",
-      "Opening: Activating Exercise"
+      "Opening: A Diagnostic Moment"
+    ]
+  },
+  {
+    "objectID": "workshop/opening/index.html#the-workshop-as-worked-example",
+    "href": "workshop/opening/index.html#the-workshop-as-worked-example",
+    "title": "Opening: A Diagnostic Moment",
+    "section": "The workshop as worked example",
+    "text": "The workshop as worked example\nThis workshop is itself a worked example of CLT-grounded design. The diagnostic categories are fixed by us; your work is in the discipline-specific cues. That decomposition (theory provides structure, practitioner provides domain) is the move we want you to take back to your teaching.",
+    "crumbs": [
+      "Workshop",
+      "Opening (10 min)",
+      "Opening: A Diagnostic Moment"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html",
+    "href": "workshop/extend/index.html",
+    "title": "Extend: From Tool to Practice",
+    "section": "",
+    "text": "Next: Closing",
+    "crumbs": [
+      "Workshop",
+      "Extend (15 min)",
+      "Extend: From Tool to Practice"
     ]
   },
   {
     "objectID": "workshop/extend/index.html#purpose",
     "href": "workshop/extend/index.html#purpose",
-    "title": "Extend: Design Your Extensions",
+    "title": "Extend: From Tool to Practice",
     "section": "Purpose",
-    "text": "Purpose\nIn this final workshop segment, you will:\n\nReflect on what you’ve learned\nDesign extensions for YOUR teaching context\nShare ideas with community\n\nThis is not coding, it’s design thinking and pedagogical reflection.",
+    "text": "Purpose\nYou now have a configured tool, a portable prompt, and a calibration record. This block is for stepping back and asking what you actually have, where it serves your teaching, and where it does not.\nThis is reflection and design thinking, not coding.",
     "crumbs": [
       "Workshop",
-      "Extend (30 min)",
-      "Extend: Design Your Extensions"
+      "Extend (15 min)",
+      "Extend: From Tool to Practice"
     ]
   },
   {
-    "objectID": "workshop/extend/index.html#activity-instructions",
-    "href": "workshop/extend/index.html#activity-instructions",
-    "title": "Extend: Design Your Extensions",
-    "section": "Activity Instructions",
-    "text": "Activity Instructions",
+    "objectID": "workshop/extend/index.html#question-1-tool-versus-recipe",
+    "href": "workshop/extend/index.html#question-1-tool-versus-recipe",
+    "title": "Extend: From Tool to Practice",
+    "section": "Question 1: tool versus recipe",
+    "text": "Question 1: tool versus recipe",
     "crumbs": [
       "Workshop",
-      "Extend (30 min)",
-      "Extend: Design Your Extensions"
+      "Extend (15 min)",
+      "Extend: From Tool to Practice"
     ]
   },
   {
-    "objectID": "workshop/extend/index.html#think-individually-3-5-minutes",
-    "href": "workshop/extend/index.html#think-individually-3-5-minutes",
-    "title": "Extend: Design Your Extensions",
-    "section": "Think Individually (3-5 minutes)",
-    "text": "Think Individually (3-5 minutes)\nReflect on these questions:\n\nWhat subject do you teach?\nWhich 3-5 concepts from your domain could work as personalized examples?\nWhat’s ONE feature that would make this tool more useful for your students?\nWhat’s one barrier you foresee to using this?\n\nWrite down your ideas.",
+    "objectID": "workshop/extend/index.html#think-3-minutes",
+    "href": "workshop/extend/index.html#think-3-minutes",
+    "title": "Extend: From Tool to Practice",
+    "section": "Think (3 minutes)",
+    "text": "Think (3 minutes)\nYou leave this workshop with two artifacts of different kinds:\n\nThe deployed tool: the shell URL with your prompt baked in. Anyone with the link can run diagnostics through your prompt against student responses.\nThe portable recipe: the exported markdown block. Pastes into any LLM you have institutional access to, including Microsoft Copilot.\n\nWhen does each one serve you better?\n\n\n\n\n\n\n\n\n\nSituation\nTool\nRecipe\nWhy\n\n\n\n\nQuick diagnostic on a single student response in office hours\n\n\n\n\n\nRoutine triage of a class set of short answers\n\n\n\n\n\nSharing the diagnostic approach with a colleague\n\n\n\n\n\nWorking without a network connection\n\n\n\n\n\nWorking with sensitive student data that cannot leave the institution",
     "crumbs": [
       "Workshop",
-      "Extend (30 min)",
-      "Extend: Design Your Extensions"
+      "Extend (15 min)",
+      "Extend: From Tool to Practice"
     ]
   },
   {
-    "objectID": "workshop/extend/index.html#share-and-discuss-10-15-minutes",
-    "href": "workshop/extend/index.html#share-and-discuss-10-15-minutes",
-    "title": "Extend: Design Your Extensions",
-    "section": "Share and Discuss (10-15 minutes)",
-    "text": "Share and Discuss (10-15 minutes)\nOption 1: Small Group Discussion\nForm groups of 3-4 and discuss:\n\nYour domain and which concepts might work\nOne practical challenge to using this tool\nOne idea for extending or improving it\n\nOption 2: Gallery Walk\nOn sticky notes or paper, write:\n\nYour domain + 3-5 key concepts\nOne feature you’d add\nOne barrier you foresee\n\nPost your notes on the wall, then walk around and place checkmarks next to ideas you find interesting.",
+    "objectID": "workshop/extend/index.html#discuss-4-minutes",
+    "href": "workshop/extend/index.html#discuss-4-minutes",
+    "title": "Extend: From Tool to Practice",
+    "section": "Discuss (4 minutes)",
+    "text": "Discuss (4 minutes)\nCompare with your neighbour. Where you marked different cells, was the difference about your discipline, your institutional context, or your personal workflow?\nThe answer “the recipe is always better than the tool” is a perfectly defensible position. So is the opposite. The interesting work is in articulating why one is better for you.",
     "crumbs": [
       "Workshop",
-      "Extend (30 min)",
-      "Extend: Design Your Extensions"
+      "Extend (15 min)",
+      "Extend: From Tool to Practice"
     ]
   },
   {
-    "objectID": "workshop/extend/index.html#wrap-up-5-minutes",
-    "href": "workshop/extend/index.html#wrap-up-5-minutes",
-    "title": "Extend: Design Your Extensions",
-    "section": "Wrap-Up (5 minutes)",
-    "text": "Wrap-Up (5 minutes)",
+    "objectID": "workshop/extend/index.html#question-2-the-load-signal-that-matters-most",
+    "href": "workshop/extend/index.html#question-2-the-load-signal-that-matters-most",
+    "title": "Extend: From Tool to Practice",
+    "section": "Question 2: the load signal that matters most",
+    "text": "Question 2: the load signal that matters most",
     "crumbs": [
       "Workshop",
-      "Extend (30 min)",
-      "Extend: Design Your Extensions"
+      "Extend (15 min)",
+      "Extend: From Tool to Practice"
     ]
   },
   {
-    "objectID": "workshop/extend/index.html#final-reflections",
-    "href": "workshop/extend/index.html#final-reflections",
-    "title": "Extend: Design Your Extensions",
-    "section": "Final Reflections",
-    "text": "Final Reflections\nKey questions:\n\n“Who will try using this type of tool with students?”\n“What’s your next step?”\n“What questions remain?”",
+    "objectID": "workshop/extend/index.html#think-3-minutes-1",
+    "href": "workshop/extend/index.html#think-3-minutes-1",
+    "title": "Extend: From Tool to Practice",
+    "section": "Think (3 minutes)",
+    "text": "Think (3 minutes)\nOf the five load_signal categories, which one do you most need to be able to detect reliably in your discipline?\nReasons it might matter most:\n\nIt is the most common failure mode among your students\nIt is the one you are most likely to misdiagnose without help\nIt is the one whose intervention your teaching currently lacks\nIt is the one that distinguishes “still learning” from “needs a different approach”\n\nPick the category and write one sentence on why.",
     "crumbs": [
       "Workshop",
-      "Extend (30 min)",
-      "Extend: Design Your Extensions"
+      "Extend (15 min)",
+      "Extend: From Tool to Practice"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html#share-5-minutes",
+    "href": "workshop/extend/index.html#share-5-minutes",
+    "title": "Extend: From Tool to Practice",
+    "section": "Share (5 minutes)",
+    "text": "Share (5 minutes)\nVolunteers share their pick and reasoning. The instructor will note which categories cluster across the room. The clustering itself is informative: it shows where this audience’s teaching most needs diagnostic help.",
+    "crumbs": [
+      "Workshop",
+      "Extend (15 min)",
+      "Extend: From Tool to Practice"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html#what-you-take-back",
+    "href": "workshop/extend/index.html#what-you-take-back",
+    "title": "Extend: From Tool to Practice",
+    "section": "What you take back",
+    "text": "What you take back",
+    "crumbs": [
+      "Workshop",
+      "Extend (15 min)",
+      "Extend: From Tool to Practice"
+    ]
+  },
+  {
+    "objectID": "workshop/extend/index.html#the-minimum-useful-thing",
+    "href": "workshop/extend/index.html#the-minimum-useful-thing",
+    "title": "Extend: From Tool to Practice",
+    "section": "The minimum useful thing",
+    "text": "The minimum useful thing\nIf you do nothing else after this workshop, you have:\n\nA diagnostic vocabulary: five categories that name what is happening in a student response, grounded in cognitive load theory and schema-acquisition research.\nA portable prompt: a markdown recipe you can paste into Microsoft Copilot, ChatGPT, or Claude on Monday morning, and use on real student work.\nA calibration record: knowledge of which signals your prompt distinguishes reliably and which it does not, so you know where to trust the tool and where to second-guess it.\n\nThe vocabulary is the point. The tool is the medium.",
+    "crumbs": [
+      "Workshop",
+      "Extend (15 min)",
+      "Extend: From Tool to Practice"
+    ]
+  },
+  {
+    "objectID": "workshop/demo/index.html",
+    "href": "workshop/demo/index.html",
+    "title": "Demo: The Diagnostic Shell in Action",
+    "section": "",
+    "text": "Next: Build",
+    "crumbs": [
+      "Workshop",
+      "Demo (15 min)",
+      "Demo: The Diagnostic Shell in Action"
     ]
   },
   {
     "objectID": "workshop/demo/index.html#what-youll-see",
     "href": "workshop/demo/index.html#what-youll-see",
-    "title": "Demo: The Complete Application",
-    "section": "What You’ll See",
-    "text": "What You’ll See\nIn this demonstration, you’ll explore a complete AI-powered personalised worked example generator. The application demonstrates how AI can create customized learning materials tailored to individual student contexts.\nWhat makes this interesting:\n\nGenerates examples across 3 different domains (Programming, Health Sciences, Agronomy)\nPersonalizes content based on student interests, goals, and background\nCreates unique worked examples on demand",
+    "title": "Demo: The Diagnostic Shell in Action",
+    "section": "What you’ll see",
+    "text": "What you’ll see\nIn this demonstration, the instructor walks through the diagnostic shell using one of the calibrated scenarios. The aim is to show how the three surfaces of the shell work together: a system prompt that encodes how the CLT taxonomy applies in a discipline, a test pane that exercises the prompt against real student responses, and an export feature that turns your work into a portable recipe.",
     "crumbs": [
       "Workshop",
-      "Demo (20 min)",
-      "Demo: The Complete Application"
+      "Demo (15 min)",
+      "Demo: The Diagnostic Shell in Action"
     ]
   },
   {
-    "objectID": "workshop/demo/index.html#try-the-interactive-demo",
-    "href": "workshop/demo/index.html#try-the-interactive-demo",
-    "title": "Demo: The Complete Application",
-    "section": "Try the Interactive Demo",
-    "text": "Try the Interactive Demo\nExplore the complete application below. You can interact with it directly or open it in a new window for a larger view.\nOpen demo in new window",
+    "objectID": "workshop/demo/index.html#open-the-shell",
+    "href": "workshop/demo/index.html#open-the-shell",
+    "title": "Demo: The Diagnostic Shell in Action",
+    "section": "Open the shell",
+    "text": "Open the shell\nOpen the diagnostic shell in a new tab",
     "crumbs": [
       "Workshop",
-      "Demo (20 min)",
-      "Demo: The Complete Application"
+      "Demo (15 min)",
+      "Demo: The Diagnostic Shell in Action"
     ]
   },
   {
-    "objectID": "workshop/demo/index.html#how-to-explore-the-demo",
-    "href": "workshop/demo/index.html#how-to-explore-the-demo",
-    "title": "Demo: The Complete Application",
-    "section": "How to Explore the Demo",
-    "text": "How to Explore the Demo\n\nStep 1: Examine the Interface\nNotice the clean, simple layout:\n\nLearner profile section (name, domain, interests, goals)\nConcept selection dropdown\nGenerate button\nDisplay area for the personalized example\n\nThis interface was built using Marimo, a reactive Python notebook framework.\n\n\nStep 2: Try Different Learner Profiles\nExample 1: Programming Domain\nCreate a profile like this:\nName: Sarah\nDomain: Programming (Python)\nSpecific interest: Web development\nHobby/passion: Baking\nGoal: Build a recipe sharing website\nLevel: Beginner\nSelect a concept (e.g., “For Loops”) and click Generate.\nWhat to notice:\n\nThe example uses baking contexts (recipes, ingredients)\nCode examples relate to her recipe website goal\nThe worked solution is complete and step-by-step\nPractice suggestions continue the baking theme\n\nExample 2: Health Sciences Domain\nTry a different profile:\nName: Marcus\nDomain: Health Sciences (Statistics)\nSpecific interest: Sports performance\nHobby/passion: Running\nGoal: Improve marathon time\nLevel: Intermediate\nSelect “Linear Regression” and generate.\nWhat to notice:\n\nSame tool, completely different domain\nExamples now use running and race data\nStatistical concepts applied to sports performance\nPersonalization adapts to the new context\n\nExample 3: Agronomy Domain\nIf you have time, try:\nName: Elena\nDomain: Agronomy\nSpecific interest: Coffee farming\nHobby/passion: Sustainability\nGoal: Increase yield sustainably\nLevel: Beginner\nThis demonstrates the breadth: 3 domains, 16 concepts total.",
+    "objectID": "workshop/demo/index.html#what-the-instructor-will-demonstrate",
+    "href": "workshop/demo/index.html#what-the-instructor-will-demonstrate",
+    "title": "Demo: The Diagnostic Shell in Action",
+    "section": "What the instructor will demonstrate",
+    "text": "What the instructor will demonstrate\n\n1. The fixed schema (2 minutes)\nOpen the Output schema (fixed, not editable) accordion below the prompt editor. The five load_signal categories and five intervention categories are visible. These are the cognitive-load-theory taxonomy from the theory section, rendered as data fields. They are not editable: this is the deliberate design choice the workshop turns on.\n\n\n2. The starter system prompt (3 minutes)\nRead through the starter system prompt. Notice three things:\n\nIt names each load_signal and gives a generic cue for what it looks like.\nIt maps each diagnosis to a default intervention.\nIt is generic on purpose: it works across disciplines but says nothing specific about any one of them. Your work in the Build block will be to localise it.\n\n\n\n3. Test on a calibrated response (5 minutes)\nPick the Nursing: Warfarin and INR scenario. Three calibrated student responses are loaded; the instructor will run Response B (the active_misconception: “high INR means thick blood, increase the dose”).\nWatch the structured output:\n\nload_signal: should report active_misconception\nevidence: should quote or paraphrase the wrong-model line\nseverity: usually fundamental for an inverted dosing model\nintervention: should default to replace_misconception\ncontent: should be specific corrective text\n\nThe diagnosis is grounded in the schema. The flexibility is in the prompt and the discipline-specific cues.\n\n\n4. Edit the prompt, watch behaviour change (3 minutes)\nThe instructor will add one nursing-specific cue to the system prompt (e.g., “in pharmacology contexts, watch for inverted dose-response models — students sometimes invert the relationship between a lab value and the drug it monitors”). Re-run the same response and observe how the diagnosis becomes more confident or the domain_notes becomes more useful.\nThis is what you will do in Lab 3, in your own discipline.\n\n\n5. The export (2 minutes)\nOpen the Export portable prompt section. The markdown block you see contains your full prompt plus the schema description, ready to paste into Microsoft Copilot, ChatGPT, or Claude.ai. The instructor will copy it into a separate Copilot or ChatGPT tab and run it on the same nursing response. Same diagnosis, different tool.",
     "crumbs": [
       "Workshop",
-      "Demo (20 min)",
-      "Demo: The Complete Application"
+      "Demo (15 min)",
+      "Demo: The Diagnostic Shell in Action"
     ]
   },
   {
-    "objectID": "workshop/demo/index.html#what-makes-this-powerful",
-    "href": "workshop/demo/index.html#what-makes-this-powerful",
-    "title": "Demo: The Complete Application",
-    "section": "What Makes This Powerful?",
-    "text": "What Makes This Powerful?\n\nWhy This Matters\nThe traditional challenge:\nCreating personalized learning materials is time-intensive. Writing a single customized worked example takes 15-30 minutes. For a class of 20 students learning 16 different concepts, you’d need to create 320 unique examples. This is simply not feasible for most educators.\nThe AI-powered solution:\nThe application generates personalized examples in 30-60 seconds. Each student gets content tailored to their interests and goals, and the approach scales to any number of learners.\n\n\nHow It Works\nThe application follows a simple three-step process:\n\nCollect context: Learner fills in their profile (interests, goals, background)\nGenerate example: AI creates a worked example tailored to that specific learner\nDisplay result: The personalized example appears with complete solution steps\n\nBehind the scenes, the AI uses the learner’s context to weave familiar scenarios into the teaching content, making abstract concepts more concrete and relatable.\n\n\nDomains and Concepts\nCurrent coverage:\n\nProgramming (Python): For loops, list comprehensions, dictionaries, functions, string formatting (and more)\nHealth Sciences (Statistics): Correlation, mean/SD, t-tests, confidence intervals, linear regression (and more)\nAgronomy: Yield prediction, NPK optimization, growing degree days, water efficiency\n\nThe pattern can extend to any domain where worked examples support learning.",
+    "objectID": "workshop/demo/index.html#what-this-demo-is-showing",
+    "href": "workshop/demo/index.html#what-this-demo-is-showing",
+    "title": "Demo: The Diagnostic Shell in Action",
+    "section": "What this demo is showing",
+    "text": "What this demo is showing\n\n\nThe structure of a diagnostic AI tool can be fixed once and reused across disciplines, if the structure is grounded in something the disciplines share (like CLT).\nThe discipline-specific intelligence lives in the system prompt, not in code or data structures.\nThe portable prompt export detaches your work from any specific deployment — your Monday-morning artifact does not depend on our hosting.",
     "crumbs": [
       "Workshop",
-      "Demo (20 min)",
-      "Demo: The Complete Application"
+      "Demo (15 min)",
+      "Demo: The Diagnostic Shell in Action"
     ]
   },
   {
-    "objectID": "workshop/demo/index.html#reflection-questions",
-    "href": "workshop/demo/index.html#reflection-questions",
-    "title": "Demo: The Complete Application",
-    "section": "Reflection Questions",
-    "text": "Reflection Questions",
+    "objectID": "workshop/demo/index.html#watch-for",
+    "href": "workshop/demo/index.html#watch-for",
+    "title": "Demo: The Diagnostic Shell in Action",
+    "section": "Watch for",
+    "text": "Watch for\n\nHow much of the diagnostic feels like CLT, and how much feels like the LLM’s general intelligence? Where would you want more of one and less of the other?\nWhere does the structured output help, and where does it constrain? Notice your own pull toward “but my discipline needs an extra field.” We will return to that pull at the end.",
     "crumbs": [
       "Workshop",
-      "Demo (20 min)",
-      "Demo: The Complete Application"
+      "Demo (15 min)",
+      "Demo: The Diagnostic Shell in Action"
     ]
   },
   {
-    "objectID": "workshop/demo/index.html#think-about",
-    "href": "workshop/demo/index.html#think-about",
-    "title": "Demo: The Complete Application",
-    "section": "Think About",
-    "text": "Think About\nConsider these questions as you explore the demo:\n\nWhat aspects of the personalization impressed you most?\nHow could personalized worked examples benefit YOUR students?\nWhat domain or subject area would be relevant for your teaching context?\nWhat types of student interests or goals could you leverage for personalization?\n\nKey insight: AI-powered tools can scale individualized instruction in ways that were previously impractical. The pattern demonstrated here (structured data + AI generation + interactive UI) can apply across many educational contexts.",
+    "objectID": "workshop/build/scenarios/social-work.html",
+    "href": "workshop/build/scenarios/social-work.html",
+    "title": "Social work: Missed appointments",
+    "section": "",
+    "text": "Domain: Social work — case assessment",
     "crumbs": [
       "Workshop",
-      "Demo (20 min)",
-      "Demo: The Complete Application"
+      "Build (115 min, incl. break)",
+      "Scenarios",
+      "Social work: Missed appointments"
     ]
   },
   {
-    "objectID": "workshop/demo/index.html#pedagogical-foundation",
-    "href": "workshop/demo/index.html#pedagogical-foundation",
-    "title": "Demo: The Complete Application",
-    "section": "Pedagogical Foundation",
-    "text": "Pedagogical Foundation\nThis tool is grounded in Cognitive Load Theory research:\nWorked Example Effect: Novice learners benefit more from studying complete solutions than from problem-solving alone (effect size 0.52).\nPersonalization Principle: Familiar contexts reduce extraneous cognitive load, allowing learners to focus on the target concept rather than decoding unfamiliar scenarios.\nBy combining these principles with AI generation, we can provide:\n\nHigh-quality worked examples (supporting novice learning)\nPersonalized to individual contexts (reducing cognitive load)\nAt scale (reaching all learners, not just a privileged few)",
+    "objectID": "workshop/build/scenarios/social-work.html#teaching-task",
+    "href": "workshop/build/scenarios/social-work.html#teaching-task",
+    "title": "Social work: Missed appointments",
+    "section": "Teaching task",
+    "text": "Teaching task\n\nA client receiving substance-use counselling has missed three appointments in a row. What would you consider before reaching out, and how would you frame the contact?",
     "crumbs": [
       "Workshop",
-      "Demo (20 min)",
-      "Demo: The Complete Application"
+      "Build (115 min, incl. break)",
+      "Scenarios",
+      "Social work: Missed appointments"
+    ]
+  },
+  {
+    "objectID": "workshop/build/scenarios/social-work.html#calibrated-student-responses",
+    "href": "workshop/build/scenarios/social-work.html#calibrated-student-responses",
+    "title": "Social work: Missed appointments",
+    "section": "Calibrated student responses",
+    "text": "Calibrated student responses\n\nResponse A — extrinsic_distractor\n\nFirst I would check the file to see if any documentation is overdue, and make sure the client’s intake forms are complete in our system. Then I’d verify the contact information is current and check whether their insurance authorization is still active. After that I’d update the case notes to record that contact is pending.\n\n\nWhy this is extrinsic_distractor: the student spends their cognitive effort on agency-process tasks (forms, billing, notes) instead of the substantive question (the client’s wellbeing and engagement). Effort goes to the wrong place.\n\n\n\nResponse B — active_misconception\n\nThree missed appointments means the client isn’t taking their recovery seriously. I would call them and remind them of their commitments and explain that if they miss another one we may have to close the case. We can’t help people who don’t show up.\n\n\nWhy this is active_misconception: the student reasons coherently from a wrong model (client = autonomous decision-maker who is choosing not to comply). The model needs replacing, not refining: structural and clinical factors are entirely outside the frame.\n\n\n\nResponse C — intrinsic_overload\n\nThere could be many reasons: relapse, transportation, work schedule, mental health, family crisis, housing instability, stigma, fear of judgment, distrust of the agency, transportation costs, childcare, language barriers, immigration status concerns, conflict with previous staff, perceived lack of progress, or just feeling overwhelmed by the process itself.\n\n\nWhy this is intrinsic_overload: the student tracks many real and relevant possibilities but cannot prioritise or move from list to action. The element-interactivity exceeds working-memory capacity, so analysis collapses into enumeration.",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Scenarios",
+      "Social work: Missed appointments"
+    ]
+  },
+  {
+    "objectID": "workshop/build/scenarios/index.html",
+    "href": "workshop/build/scenarios/index.html",
+    "title": "Scenario Pack",
+    "section": "",
+    "text": "Six discipline scenarios for the Build block. Each provides:\nThe calibration is your answer key for Lab 4: when you test your prompt against a scenario, the tool should produce the tagged load_signal for at least two of the three responses.",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Scenarios",
+      "Scenario Pack"
+    ]
+  },
+  {
+    "objectID": "workshop/build/scenarios/index.html#the-scenarios",
+    "href": "workshop/build/scenarios/index.html#the-scenarios",
+    "title": "Scenario Pack",
+    "section": "The scenarios",
+    "text": "The scenarios\n\nNursing: Warfarin and INR — pharmacology decision under uncertainty\nEducation: Critique a quiz question — assessment design analysis\nBusiness: Bakery pricing — pricing strategy with elasticity\nSocial work: Missed appointments — case engagement assessment\nEngineering: Stale-data bug — software diagnosis\nStatistics: Interpreting r = 0.3 — interpreting effect sizes",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Scenarios",
+      "Scenario Pack"
+    ]
+  },
+  {
+    "objectID": "workshop/build/scenarios/index.html#why-calibrated-responses",
+    "href": "workshop/build/scenarios/index.html#why-calibrated-responses",
+    "title": "Scenario Pack",
+    "section": "Why calibrated responses",
+    "text": "Why calibrated responses\nThe calibration is a teaching device, not a claim that a response can only mean one thing. Real student responses are messy and often blend signals. The calibrated responses are constructed to lean strongly toward one load_signal so that you can:\n\nTest whether your prompt distinguishes that signal from the others\nIterate when it does not\nNotice the cases where two signals genuinely co-occur (those will be your discipline’s hardest diagnostic edges)\n\n\nThe scenario you pick determines which three of the five load_signal categories you will exercise. The combinations are deliberate: each scenario covers categories that are particularly distinguishable in that discipline’s idiom.",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Scenarios",
+      "Scenario Pack"
+    ]
+  },
+  {
+    "objectID": "workshop/build/scenarios/education.html",
+    "href": "workshop/build/scenarios/education.html",
+    "title": "Education: Critique a quiz question",
+    "section": "",
+    "text": "Domain: Education / pedagogy — assessment design",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Scenarios",
+      "Education: Critique a quiz question"
+    ]
+  },
+  {
+    "objectID": "workshop/build/scenarios/education.html#teaching-task",
+    "href": "workshop/build/scenarios/education.html#teaching-task",
+    "title": "Education: Critique a quiz question",
+    "section": "Teaching task",
+    "text": "Teaching task\n\nCritique this multiple-choice item and suggest improvements: “The capital of Switzerland is: a) Zurich b) Geneva c) Bern d) All of the above”",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Scenarios",
+      "Education: Critique a quiz question"
+    ]
+  },
+  {
+    "objectID": "workshop/build/scenarios/education.html#calibrated-student-responses",
+    "href": "workshop/build/scenarios/education.html#calibrated-student-responses",
+    "title": "Education: Critique a quiz question",
+    "section": "Calibrated student responses",
+    "text": "Calibrated student responses\n\nResponse A — germane_disengagement\n\nMultiple choice questions should have a clear stem, plausible distractors, only one correct answer, and avoid ‘all of the above’ or ‘none of the above’ as options. They should test higher-order thinking when possible. The distractors should be roughly the same length.\n\n\nWhy this is germane_disengagement: the student recites generic MC-design rules accurately, but never engages with the specific item in front of them. They retrieve a checklist instead of analysing the example.\n\n\n\nResponse B — extrinsic_distractor\n\nThe question is problematic because Bern is also the name of a canton, and students might confuse the city of Bern with the canton of Bern. So you’d need to specify ‘city’ or ‘capital city’ clearly. Also, the German spelling can be ambiguous between cantons and cities.\n\n\nWhy this is extrinsic_distractor: the student fixates on a tangential surface feature (Bern as canton vs. city) rather than the substantive design problem (the broken “all of the above” option in a question with one correct factual answer).\n\n\n\nResponse C — active_misconception\n\nI think ‘all of the above’ is fine here because students should know exact facts, and if they pick it that means they don’t know the answer. The question is testing whether they really know the capital, so the trick distractors are useful for catching guessers.\n\n\nWhy this is active_misconception: the student is reasoning consistently from a wrong model of assessment (purpose = catching guessers; trickier = better). The reasoning is coherent within that model, which is exactly why it needs replacing rather than repairing.",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Scenarios",
+      "Education: Critique a quiz question"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html",
+    "href": "workshop/build/index.html",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "",
+    "text": "Pick scenario (10 min)\nLab 1: Domain examples of each load type (15 min)\nBreak (10 min)\nLab 2: Map diagnosis to intervention (15 min)\nLab 3: Write the diagnostic prompt (25 min)\nLab 4: Test, refine, export (25 min)\nPair-test and gallery (15 min)",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#duration-115-minutes-including-a-10-minute-break",
+    "href": "workshop/build/index.html#duration-115-minutes-including-a-10-minute-break",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "",
+    "text": "Pick scenario (10 min)\nLab 1: Domain examples of each load type (15 min)\nBreak (10 min)\nLab 2: Map diagnosis to intervention (15 min)\nLab 3: Write the diagnostic prompt (25 min)\nLab 4: Test, refine, export (25 min)\nPair-test and gallery (15 min)",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#what-you-are-building",
+    "href": "workshop/build/index.html#what-you-are-building",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "What you are building",
+    "text": "What you are building\nA working AI tool that takes a student response (written work, a short answer, an explanation) and returns a CLT-grounded diagnosis plus a targeted intervention. The output structure is fixed: it is the cognitive-load-theory taxonomy from the theory section of this workshop.\nYour job is not to design the tool’s structure. Your job is to instruct an LLM how to apply that fixed structure in your discipline. The work happens in the system prompt.",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#what-developing-means-here",
+    "href": "workshop/build/index.html#what-developing-means-here",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "What “developing” means here",
+    "text": "What “developing” means here\nYou will not write Python. You will not edit a notebook. You will not deploy an app. The “developing” experience is something more focused: prompt craft against a fixed CLT-grounded structure, with immediate feedback from a real LLM running on real student artifacts.\nIf at the end of the workshop you can sit at any LLM interface (Copilot, ChatGPT, Claude.ai) and produce reliable diagnoses-and-responses for student work in your discipline, you have built something useful.",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#the-diagnostic-shell",
+    "href": "workshop/build/index.html#the-diagnostic-shell",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "The diagnostic shell",
+    "text": "The diagnostic shell\nOpen the shell in a new tab\n\n\nThe shell has three surfaces: a system prompt editor (left), a test pane (right) where you pick a scenario and run the diagnostic, and an export portable prompt section (bottom). The output schema is documented in the collapsed accordion below the prompt editor.",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#pick-your-scenario-10-minutes",
+    "href": "workshop/build/index.html#pick-your-scenario-10-minutes",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "Pick your scenario (10 minutes)",
+    "text": "Pick your scenario (10 minutes)",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#choose-one-of-the-six-scenarios",
+    "href": "workshop/build/index.html#choose-one-of-the-six-scenarios",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "Choose one of the six scenarios",
+    "text": "Choose one of the six scenarios\nSix discipline scenarios are loaded in the shell’s scenario picker. Each provides a teaching task and three calibrated student responses, each exemplifying a different load_signal category.\n\nNursing: Warfarin and INR\nEducation: Critique a quiz question\nBusiness: Bakery pricing\nSocial work: Missed appointments\nEngineering: Stale-data bug\nStatistics: Interpreting r = 0.3\n\nPick the scenario closest to your discipline. If none is close, pick the scenario whose teaching task most resembles a real moment in your teaching: a moment when you would benefit from a quick read on what a student response reveals.\nYou will work with this scenario through Labs 1 to 4. Browse the scenario page for the full task framing and the calibration notes.",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#lab-1-domain-examples-of-each-load-type-15-minutes",
+    "href": "workshop/build/index.html#lab-1-domain-examples-of-each-load-type-15-minutes",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "Lab 1: Domain examples of each load type (15 minutes)",
+    "text": "Lab 1: Domain examples of each load type (15 minutes)\n\nHard limit: 15 minutes. This is a recall and instantiation exercise, not a research task.\n\nLearning question: what does each load_signal category actually look like in your discipline?",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#instructions",
+    "href": "workshop/build/index.html#instructions",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "Instructions",
+    "text": "Instructions\nFor each of the five load_signal categories, write one sentence describing a student response from your discipline that would exemplify that category. You can use the chosen scenario’s calibrated responses as starting points, but write the examples in your own discipline’s idiom.\nThe five categories:\n\nintrinsic_overload: too much element interactivity for the learner’s current schema\nextrinsic_distractor: irrelevant complexity in material or task design pulling effort to the wrong place\ngermane_disengagement: technically correct retrieval without effortful processing\nschema_gap: foundational prior knowledge is simply absent\nactive_misconception: a coherent but wrong model is being applied\n\nYou will reuse this list in Lab 3 as cues in your system prompt.",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#reflection",
+    "href": "workshop/build/index.html#reflection",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "Reflection",
+    "text": "Reflection\n\nWhich category was hardest to instantiate in your discipline? That is often the category your teaching most needs help diagnosing.\nDid any two categories blur together? In your discipline, what observable cue distinguishes them?",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#break-10-minutes",
+    "href": "workshop/build/index.html#break-10-minutes",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "Break (10 minutes)",
+    "text": "Break (10 minutes)",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#lab-2-map-diagnosis-to-intervention-15-minutes",
+    "href": "workshop/build/index.html#lab-2-map-diagnosis-to-intervention-15-minutes",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "Lab 2: Map diagnosis to intervention (15 minutes)",
+    "text": "Lab 2: Map diagnosis to intervention (15 minutes)\n\nHard limit: 15 minutes.\n\nLearning question: which response strategy fits which diagnosis, and when does severity flip the call?",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#instructions-1",
+    "href": "workshop/build/index.html#instructions-1",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "Instructions",
+    "text": "Instructions\nFor each of the five load_signal categories, decide which intervention category you would deploy in your discipline at moderate severity:\n\n\n\n\n\n\n\n\nDiagnosis\nIntervention you would choose\nWhy this one and not another\n\n\n\n\nintrinsic_overload\n\n\n\n\nextrinsic_distractor\n\n\n\n\ngermane_disengagement\n\n\n\n\nschema_gap\n\n\n\n\nactive_misconception\n\n\n\n\n\nThe plan will look obvious for some pairs (a schema_gap calls for activate_prior_schema) and contested for others. The contested ones are the interesting ones.",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#with-your-neighbour-last-5-minutes-of-the-lab",
+    "href": "workshop/build/index.html#with-your-neighbour-last-5-minutes-of-the-lab",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "With your neighbour (last 5 minutes of the lab)",
+    "text": "With your neighbour (last 5 minutes of the lab)\nCompare your matrices. Where you disagreed, was it because the discipline differs, or because you had different intuitions about what an intervention does?",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#reflection-1",
+    "href": "workshop/build/index.html#reflection-1",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "Reflection",
+    "text": "Reflection\nWhen does severity change which intervention you reach for? A mild active_misconception and a fundamental active_misconception may need different responses. Note one example from your discipline.",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#lab-3-write-the-diagnostic-prompt-25-minutes",
+    "href": "workshop/build/index.html#lab-3-write-the-diagnostic-prompt-25-minutes",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "Lab 3: Write the diagnostic prompt (25 minutes)",
+    "text": "Lab 3: Write the diagnostic prompt (25 minutes)\n\nTime limit: 25 minutes. Iterate; do not perfect.\n\nLearning question: how do you instruct an LLM to apply the CLT taxonomy in your specific discipline?\nThe shell ships with a starter system prompt that explains the CLT categories generically. Your job is to localise it: replace generic guidance with your discipline’s cues for what each load_signal looks like.",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#instructions-2",
+    "href": "workshop/build/index.html#instructions-2",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "Instructions",
+    "text": "Instructions\nIn the shell’s system prompt editor, do the following:\n\nRead the starter prompt. Note where it talks about how to identify each load_signal.\nReplace the generic cues with your discipline’s cues. Use your Lab 1 sentences directly: “In , intrinsic_overload looks like ”.\nAdd any discipline-specific failure modes that the generic categories miss. (You cannot add new categories, but you can teach the LLM what they look like in your context.)\nSpecify how you want the domain_notes field used. What discipline-specific observations should the tool surface?\n\nThe prompt is your pedagogical thinking written down. The clearer your thinking, the cleaner the tool’s diagnoses.",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#what-good-prompts-look-like",
+    "href": "workshop/build/index.html#what-good-prompts-look-like",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "What good prompts look like",
+    "text": "What good prompts look like\n\nConcrete cues beat abstract definitions. “Look for partial reasoning that breaks down mid-sentence” beats “tracks element-interactivity poorly”.\nWorked examples inside the prompt are powerful. A short “for instance, in nursing, an active_misconception looks like …” anchors the LLM.\nBe explicit about what NOT to do. “Do not classify a response as germane_disengagement if it shows novel application — that is engaged retrieval, not disengaged.”",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#lab-4-test-refine-export-25-minutes",
+    "href": "workshop/build/index.html#lab-4-test-refine-export-25-minutes",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "Lab 4: Test, refine, export (25 minutes)",
+    "text": "Lab 4: Test, refine, export (25 minutes)\n\nTime limit: 25 minutes.\n\nLearning question: does your tool actually distinguish the five load signals on real responses?",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#calibration-test",
+    "href": "workshop/build/index.html#calibration-test",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "Calibration test",
+    "text": "Calibration test\nYour scenario provides three calibrated student responses. Each is tagged with the load_signal it is meant to exemplify (open the scenario page in another tab to see the tags and rationales).\nFor each calibrated response:\n\nPaste it into the test pane (or pick it from the dropdown)\nRun the diagnostic\nCompare the tool’s load_signal to the calibrated tag\nIf they disagree: was the tool wrong, was your prompt unclear, or was the calibration debatable?\nIterate the prompt based on what you learn\n\nAim for the tool to produce the calibrated load_signal on at least 2 of the 3 responses. If the third one is genuinely ambiguous in your discipline, that is a useful finding to bring to the gallery.",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#export-the-portable-prompt",
+    "href": "workshop/build/index.html#export-the-portable-prompt",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "Export the portable prompt",
+    "text": "Export the portable prompt\nOnce you are reasonably happy with your prompt:\n\nOpen the Export portable prompt section at the bottom of the shell\nCopy the entire markdown block\nPaste it into Microsoft Copilot, ChatGPT, or Claude.ai\nReplace &lt;&lt;student response&gt;&gt; with one of the calibrated responses\nCompare the result against your shell’s output\n\nThe portable prompt is your tool’s recipe. It works in any LLM interface you have access to. It is the artifact you take back to your teaching.",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#pair-test-and-gallery-15-minutes",
+    "href": "workshop/build/index.html#pair-test-and-gallery-15-minutes",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "Pair-test and gallery (15 minutes)",
+    "text": "Pair-test and gallery (15 minutes)",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#cross-discipline-test",
+    "href": "workshop/build/index.html#cross-discipline-test",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "Cross-discipline test",
+    "text": "Cross-discipline test\nTrade scenario-and-prompt pairs with your neighbour. Run their tool against your scenario’s calibrated responses (and vice versa).\nDiscuss:\n\nGeneralisation: did their domain-tuned prompt produce sensible diagnoses on a discipline they did not write for? If yes, why? If not, what would have to change?\nBrittleness: where does your tool fail on a response from a different discipline? Is the failure in the prompt, in the categories, or in the underlying model?\nPortability: what happens when you run their portable prompt in your LLM of choice (Copilot vs. ChatGPT vs. Claude)? Same diagnoses? Different ones?",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
+    ]
+  },
+  {
+    "objectID": "workshop/build/index.html#what-you-have-at-the-end-of-this-block",
+    "href": "workshop/build/index.html#what-you-have-at-the-end-of-this-block",
+    "title": "Build: Implementing CLT in a Diagnostic Tool",
+    "section": "What you have at the end of this block",
+    "text": "What you have at the end of this block\n\nA configured tool URL with your system prompt baked in (the URL state captures it)\nA markdown recipe of your tool that you can paste into any LLM interface\nA calibration record: which load signals your prompt distinguishes reliably and which it does not\nA view from another discipline of where your tool generalises and where it does not\n\nYou will use these in the closing block to plan one concrete change for your next teaching cycle.",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Build: Implementing CLT in a Diagnostic Tool"
     ]
   },
   {
@@ -443,14 +968,14 @@
     "href": "index.html",
     "title": "KI in der Lehre: Advanced",
     "section": "",
-    "text": "A 3-hour hands-on workshop on creating AI-powered educational tools grounded in Cognitive Load Theory (Sweller 1988).\n\n\nYou’ll modify a working template to understand how to create personalized worked example generators:\n\nSee the demo: Experience a complete application with 3 domains and 16 concepts\nStudy the code: Understand how Pydantic structures AI outputs\nModify and extend: Add concepts to a simplified starter template (1 domain, 3 concepts)\nDesign applications: Plan how to apply this pattern to your own teaching\n\n\n\n\nThe complete demo generates personalized worked examples in three domains:\n\nProgramming (Python): For loops, list comprehensions, functions, etc.\nHealth Sciences (Statistics): Correlation, t-tests, confidence intervals, etc.\nAgronomy: Yield prediction, NPK optimization, growing degree days, etc.\n\n\n\n\nBy the end of this workshop, you will:\n\nUnderstand the worked example effect and personalization principle from Cognitive Load Theory\nModify a working template to add your own concepts (in your browser)\nRecognize the pattern for building educational AI tools with structured outputs\nDesign extensions for your own teaching context\n\n\n\n\n Begin Workshop"
+    "text": "A 3-hour workshop in which participants build a CLT-grounded diagnostic AI tool for their own discipline. Without writing code.\nYou will iterate a system prompt against a fixed cognitive-load-theory taxonomy. The tool reads a student response (written work, a short answer, an explanation) and returns a structured diagnosis plus a targeted intervention. The categories are fixed; the discipline-specific cues are yours.\n\n\n\nSee the diagnostic shell: a working tool that classifies student responses into five CLT-grounded categories\nPick a discipline scenario from a set of six, each with three calibrated student responses\nWrite a system prompt that teaches the LLM how the CLT taxonomy looks in your discipline\nTest, iterate, export: run on calibrated responses, refine, then export a portable prompt for use in any LLM interface\n\n\n\n\nA hosted diagnostic shell with three surfaces: a system prompt editor, a test pane that runs against real student responses, and an export feature that turns your prompt into a portable recipe usable in Microsoft Copilot, ChatGPT, or Claude.\nThe output schema is fixed: five load_signal categories (intrinsic_overload, extrinsic_distractor, germane_disengagement, schema_gap, active_misconception) and five intervention categories. Participants do not edit the schema. They iterate the prompt.\n\n\n\nBy the end of this workshop, you will:\n\nIdentify five CLT-grounded diagnostic signals in student work, derived from cognitive load theory and schema-acquisition research\nWrite a system prompt that instructs an LLM to apply those categories in your discipline\nCalibrate a diagnostic prompt against tagged student responses to know where to trust it and where to second-guess it\nProduce a portable prompt recipe usable in any LLM interface you have access to\n\n\n\n\n Begin Workshop"
   },
   {
     "objectID": "index.html#workshop-overview",
     "href": "index.html#workshop-overview",
     "title": "KI in der Lehre: Advanced",
     "section": "",
-    "text": "A 3-hour hands-on workshop on creating AI-powered educational tools grounded in Cognitive Load Theory (Sweller 1988).\n\n\nYou’ll modify a working template to understand how to create personalized worked example generators:\n\nSee the demo: Experience a complete application with 3 domains and 16 concepts\nStudy the code: Understand how Pydantic structures AI outputs\nModify and extend: Add concepts to a simplified starter template (1 domain, 3 concepts)\nDesign applications: Plan how to apply this pattern to your own teaching\n\n\n\n\nThe complete demo generates personalized worked examples in three domains:\n\nProgramming (Python): For loops, list comprehensions, functions, etc.\nHealth Sciences (Statistics): Correlation, t-tests, confidence intervals, etc.\nAgronomy: Yield prediction, NPK optimization, growing degree days, etc.\n\n\n\n\nBy the end of this workshop, you will:\n\nUnderstand the worked example effect and personalization principle from Cognitive Load Theory\nModify a working template to add your own concepts (in your browser)\nRecognize the pattern for building educational AI tools with structured outputs\nDesign extensions for your own teaching context\n\n\n\n\n Begin Workshop"
+    "text": "A 3-hour workshop in which participants build a CLT-grounded diagnostic AI tool for their own discipline. Without writing code.\nYou will iterate a system prompt against a fixed cognitive-load-theory taxonomy. The tool reads a student response (written work, a short answer, an explanation) and returns a structured diagnosis plus a targeted intervention. The categories are fixed; the discipline-specific cues are yours.\n\n\n\nSee the diagnostic shell: a working tool that classifies student responses into five CLT-grounded categories\nPick a discipline scenario from a set of six, each with three calibrated student responses\nWrite a system prompt that teaches the LLM how the CLT taxonomy looks in your discipline\nTest, iterate, export: run on calibrated responses, refine, then export a portable prompt for use in any LLM interface\n\n\n\n\nA hosted diagnostic shell with three surfaces: a system prompt editor, a test pane that runs against real student responses, and an export feature that turns your prompt into a portable recipe usable in Microsoft Copilot, ChatGPT, or Claude.\nThe output schema is fixed: five load_signal categories (intrinsic_overload, extrinsic_distractor, germane_disengagement, schema_gap, active_misconception) and five intervention categories. Participants do not edit the schema. They iterate the prompt.\n\n\n\nBy the end of this workshop, you will:\n\nIdentify five CLT-grounded diagnostic signals in student work, derived from cognitive load theory and schema-acquisition research\nWrite a system prompt that instructs an LLM to apply those categories in your discipline\nCalibrate a diagnostic prompt against tagged student responses to know where to trust it and where to second-guess it\nProduce a portable prompt recipe usable in any LLM interface you have access to\n\n\n\n\n Begin Workshop"
   },
   {
     "objectID": "index.html#instructor",
@@ -467,409 +992,376 @@
     "text": "Resources\n\nWorkshop Materials: Start here \nRelated Workshop: KI in der Lehre: Intermediate (Learning science foundations)"
   },
   {
-    "objectID": "workshop/build/index.html",
-    "href": "workshop/build/index.html",
-    "title": "Build: Interactive Exploration Labs",
+    "objectID": "workshop/build/scenarios/business.html",
+    "href": "workshop/build/scenarios/business.html",
+    "title": "Business: Bakery pricing",
     "section": "",
-    "text": "Lab 1: Prompt Design (15 min)\nLab 2: Personalization A/B Test (15 min)\nLab 3: Data Model Designer (20 min)\nLab 4: Parameter Playground (10 min)\nLab 5: CLT Analyzer (20 min)\nFinal Reflection (10 min)",
+    "text": "Domain: Business / economics — pricing strategy",
     "crumbs": [
       "Workshop",
-      "Build (90 min)",
-      "Build: Interactive Exploration Labs"
+      "Build (115 min, incl. break)",
+      "Scenarios",
+      "Business: Bakery pricing"
     ]
   },
   {
-    "objectID": "workshop/build/index.html#duration-90-minutes",
-    "href": "workshop/build/index.html#duration-90-minutes",
-    "title": "Build: Interactive Exploration Labs",
+    "objectID": "workshop/build/scenarios/business.html#teaching-task",
+    "href": "workshop/build/scenarios/business.html#teaching-task",
+    "title": "Business: Bakery pricing",
+    "section": "Teaching task",
+    "text": "Teaching task\n\nA small bakery sells bread at CHF 5 per loaf and sells 100 loaves a day. They are considering raising the price to CHF 6. Should they? Justify your answer.",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Scenarios",
+      "Business: Bakery pricing"
+    ]
+  },
+  {
+    "objectID": "workshop/build/scenarios/business.html#calibrated-student-responses",
+    "href": "workshop/build/scenarios/business.html#calibrated-student-responses",
+    "title": "Business: Bakery pricing",
+    "section": "Calibrated student responses",
+    "text": "Calibrated student responses\n\nResponse A — active_misconception\n\nYes, they should raise the price. At CHF 5 they make CHF 500 a day, at CHF 6 they make CHF 600 a day, so they make CHF 100 more per day. That’s CHF 36,500 more per year. It’s better revenue.\n\n\nWhy this is active_misconception: the student applies linear arithmetic confidently and never questions whether quantity sold stays constant when price changes. They have a coherent (but wrong) model: price up = revenue up, period.\n\n\n\nResponse B — germane_disengagement\n\nIt depends on a lot of factors. Like the cost of ingredients, what competitors are charging, how loyal the customers are, whether the bakery has unique products, the location, the demographic of the neighborhood, seasonal variation in demand, the weather, what time of year it is, marketing budget, and the bakery’s brand. You’d need to consider all of these.\n\n\nWhy this is germane_disengagement: the student lists many real factors but does no actual analysis. Retrieval-without-elaboration: they have produced a checklist instead of applying the core concept (price elasticity of demand).\n\n\n\nResponse C — schema_gap\n\nI’m not sure how to think about this. If they raise the price they get more money per loaf but I don’t know how to figure out if customers will still buy as many. Is there a formula?\n\n\nWhy this is schema_gap: the student correctly identifies what they don’t know (how to model demand response) and explicitly asks for the missing concept (price elasticity). The prerequisite schema is simply absent.",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Scenarios",
+      "Business: Bakery pricing"
+    ]
+  },
+  {
+    "objectID": "workshop/build/scenarios/engineering.html",
+    "href": "workshop/build/scenarios/engineering.html",
+    "title": "Engineering: Stale-data bug",
     "section": "",
-    "text": "Lab 1: Prompt Design (15 min)\nLab 2: Personalization A/B Test (15 min)\nLab 3: Data Model Designer (20 min)\nLab 4: Parameter Playground (10 min)\nLab 5: CLT Analyzer (20 min)\nFinal Reflection (10 min)",
+    "text": "Domain: Technical / engineering — software diagnosis",
     "crumbs": [
       "Workshop",
-      "Build (90 min)",
-      "Build: Interactive Exploration Labs"
+      "Build (115 min, incl. break)",
+      "Scenarios",
+      "Engineering: Stale-data bug"
     ]
   },
   {
-    "objectID": "workshop/build/index.html#learning-objectives",
-    "href": "workshop/build/index.html#learning-objectives",
-    "title": "Build: Interactive Exploration Labs",
-    "section": "Learning Objectives",
-    "text": "Learning Objectives\nBy the end of this section, you will:\n\nExperience how prompt design shapes learning outcomes\nFeel the cognitive load difference between generic and personalized examples\nDesign the data structure for pedagogically sound worked examples\nUnderstand how model parameters affect educational quality\nEvaluate generated examples using CLT criteria\n\n\n\n\n\n\n\nImportantA Different Kind of “Building”\n\n\n\nThis isn’t about writing code. You won’t become a Python developer in 90 minutes.\nThis is about understanding design principles. You’ll explore the key decisions that make AI educational tools effective or ineffective.\nWhy this matters: When you understand the principles, you can:\n\nCritically evaluate existing AI tools\nRequest informed modifications from developers\nDesign tools grounded in learning science\nAdapt templates to your teaching context",
+    "objectID": "workshop/build/scenarios/engineering.html#teaching-task",
+    "href": "workshop/build/scenarios/engineering.html#teaching-task",
+    "title": "Engineering: Stale-data bug",
+    "section": "Teaching task",
+    "text": "Teaching task\n\nA web form sometimes shows old data after a user submits an update. The bug only happens for some users. Where would you start investigating, and why?",
     "crumbs": [
       "Workshop",
-      "Build (90 min)",
-      "Build: Interactive Exploration Labs"
+      "Build (115 min, incl. break)",
+      "Scenarios",
+      "Engineering: Stale-data bug"
     ]
   },
   {
-    "objectID": "workshop/build/index.html#the-interactive-exploration-app",
-    "href": "workshop/build/index.html#the-interactive-exploration-app",
-    "title": "Build: Interactive Exploration Labs",
-    "section": "The Interactive Exploration App",
-    "text": "The Interactive Exploration App\nBelow is a live marimo notebook with 5 hands-on labs. You’ll experiment with the design decisions that shape AI educational tools.\nHow to use it:\n\nScroll through the labs in order\nFill in text fields with YOUR information\nClick buttons to generate examples\nCompare results and reflect on what you notice\n\nOpen in new window",
+    "objectID": "workshop/build/scenarios/engineering.html#calibrated-student-responses",
+    "href": "workshop/build/scenarios/engineering.html#calibrated-student-responses",
+    "title": "Engineering: Stale-data bug",
+    "section": "Calibrated student responses",
+    "text": "Calibrated student responses\n\nResponse A — active_misconception\n\nIt’s a database issue. The database is not being updated when the form is submitted. I would look at the database write logic in the code and find where the SQL UPDATE statement is failing. The data is clearly not being saved.\n\n\nWhy this is active_misconception: the student commits to one cause (database write failure) on the basis of a coherent but wrong model. They ignore the “sometimes” and “some users” clues that point at caching, session, or CDN layers.\n\n\n\nResponse B — schema_gap\n\nI’d check the HTML form to make sure all the fields have the right names, and verify the CSS isn’t hiding anything. Maybe the form isn’t displaying the new data correctly because of a styling issue or the form fields aren’t connected properly to the submit button.\n\n\nWhy this is schema_gap: the student reasons from front-end-only concepts (HTML, CSS, form fields) and never reaches for the relevant prerequisite concept (caching, request-response state, server-side data flow). The schema needed for this kind of bug is not present.\n\n\n\nResponse C — intrinsic_overload\n\nThe bug could be caused by: browser caching, CDN caching, server-side caching, session-state desync, replica lag in the database, an outdated build deployed to some servers, race conditions in the request handler, eventual consistency in distributed storage, a stale local-storage value, a service worker serving cached responses, missing cache-control headers, A/B test bucket assignment, or a load balancer routing some users to an older server version. I would investigate all of these.\n\n\nWhy this is intrinsic_overload: the student names many real and plausible causes but cannot strategise. The interactivity between possibilities exceeds working-memory and the response stops at enumeration rather than producing a triage plan.",
     "crumbs": [
       "Workshop",
-      "Build (90 min)",
-      "Build: Interactive Exploration Labs"
+      "Build (115 min, incl. break)",
+      "Scenarios",
+      "Engineering: Stale-data bug"
     ]
   },
   {
-    "objectID": "workshop/build/index.html#lab-1-prompt-design-laboratory-15-minutes",
-    "href": "workshop/build/index.html#lab-1-prompt-design-laboratory-15-minutes",
-    "title": "Build: Interactive Exploration Labs",
-    "section": "Lab 1: Prompt Design Laboratory (15 minutes)",
-    "text": "Lab 1: Prompt Design Laboratory (15 minutes)\n\nWhat You’ll Explore\nLearning Question: How does prompt engineering affect the quality of worked examples?\n\n\nInstructions\n\nRead both prompts in the app:\n\nBasic Prompt (no pedagogical grounding)\nCLT-Grounded Prompt (reduces cognitive load)\n\nClick “Generate Both Examples”\nCompare the results:\n\nWhich problem is clearer and more specific?\nWhich solution breaks down steps better?\nWhich explanation helps you understand WHY, not just WHAT?\n\n\n\n\nKey Insight\nThe prompt IS your pedagogical design encoded in language.\nEvery word in your prompt shapes the language model’s output. Generic prompts produce generic examples. Pedagogically grounded prompts produce learning-focused examples.",
-    "crumbs": [
-      "Workshop",
-      "Build (90 min)",
-      "Build: Interactive Exploration Labs"
-    ]
-  },
-  {
-    "objectID": "workshop/build/index.html#reflection-questions",
-    "href": "workshop/build/index.html#reflection-questions",
-    "title": "Build: Interactive Exploration Labs",
-    "section": "Reflection Questions",
-    "text": "Reflection Questions\nThink about:\n\nWhat specific phrases in the CLT-grounded prompt improved the output?\nHow could you apply this to prompts in YOUR teaching domain?\nWhat CLT principles are explicitly mentioned in the grounded prompt?\n\nDiscussion: Share one phrase from the CLT prompt that you found particularly effective.",
-    "crumbs": [
-      "Workshop",
-      "Build (90 min)",
-      "Build: Interactive Exploration Labs"
-    ]
-  },
-  {
-    "objectID": "workshop/build/index.html#lab-2-personalization-ab-test-15-minutes",
-    "href": "workshop/build/index.html#lab-2-personalization-ab-test-15-minutes",
-    "title": "Build: Interactive Exploration Labs",
-    "section": "Lab 2: Personalization A/B Test (15 minutes)",
-    "text": "Lab 2: Personalization A/B Test (15 minutes)\n\nWhat You’ll Explore\nLearning Question: Can you FEEL the difference in cognitive load?\n\n\nInstructions\n\nEnter YOUR context:\n\nYour hobby or interest (e.g., photography, cooking, gaming)\nWhat you want to achieve (e.g., build a recipe app, automate photo editing)\n\nClick “Generate A/B Comparison”\nRead both examples:\n\nGeneric (standard textbook style)\nPersonalized (using your context)\n\nNotice how each one FEELS:\n\nWhich is more engaging to read?\nWhich feels easier to process mentally?\nCan you visualize the personalized example more easily?\n\n\n\n\nKey Insight\nThis is the personalization effect in action!\nFamiliar contexts require less cognitive effort to process. When you don’t have to decode an unfamiliar scenario, more working memory is available for learning the target concept.",
-    "crumbs": [
-      "Workshop",
-      "Build (90 min)",
-      "Build: Interactive Exploration Labs"
-    ]
-  },
-  {
-    "objectID": "workshop/build/index.html#try-this",
-    "href": "workshop/build/index.html#try-this",
-    "title": "Build: Interactive Exploration Labs",
-    "section": "Try This",
-    "text": "Try This\nExperiment further:\n\nGenerate examples for 2-3 different hobbies\nNotice how the SAME concept (Python dictionaries) gets explained differently\nWhich personalized context resonated most with you?\n\nThe takeaway: Personalization isn’t just “nice to have”—it’s a cognitive load reduction strategy.",
-    "crumbs": [
-      "Workshop",
-      "Build (90 min)",
-      "Build: Interactive Exploration Labs"
-    ]
-  },
-  {
-    "objectID": "workshop/build/index.html#reflection-questions-1",
-    "href": "workshop/build/index.html#reflection-questions-1",
-    "title": "Build: Interactive Exploration Labs",
-    "section": "Reflection Questions",
-    "text": "Reflection Questions\nThink about:\n\nHow did the personalized example reduce extraneous cognitive load?\nCould you use personalization in YOUR teaching context?\nWhat student interests/contexts could you leverage?\n\nDiscussion: Share your most effective personalized example with a neighbor.",
-    "crumbs": [
-      "Workshop",
-      "Build (90 min)",
-      "Build: Interactive Exploration Labs"
-    ]
-  },
-  {
-    "objectID": "workshop/build/index.html#lab-3-data-model-designer-20-minutes",
-    "href": "workshop/build/index.html#lab-3-data-model-designer-20-minutes",
-    "title": "Build: Interactive Exploration Labs",
-    "section": "Lab 3: Data Model Designer (20 minutes)",
-    "text": "Lab 3: Data Model Designer (20 minutes)\n\nWhat You’ll Explore\nLearning Question: What makes a worked example “worked”?\n\n\nInstructions\n\nRead the current data model shown in the app\nSelect fields you think support learning:\n\nproblem: str (The problem statement)\nsolution_steps: list[str] (Steps as a list for chunking!)\nsolution: str (Solution as one big block)\nfinal_answer: str (Explicit conclusion)\nkey_insight: str (Why this approach works)\ncode_with_comments: str (Annotated code)\ncommon_mistakes: str (What to avoid)\nconnection_to_real_world: str (Practical relevance)\n\nSee the pedagogical analysis:\n\nWhat CLT principles do your choices implement?\nWhat’s your design score?\nWhat feedback does the analyzer provide?\n\n\n\n\nKey Insight\nThe data structure IS the pedagogy.\nWhen you design a Pydantic model (the structure that controls generated outputs), you’re making pedagogical choices. Each field implements (or undermines) a CLT principle.\n\n\n\n\n\n\nImportantCritical Design Choice: Chunking\n\n\n\nNotice the difference between:\n\nsolution_steps: list[str] (Forces GPT-5.1 to break the solution into chunks)\nsolution: str (Allows GPT-5.1 to generate everything in one block)\n\nFor novices: Chunked steps reduce intrinsic cognitive load (Sweller, 1988)\nFor experts: One block may be fine (expertise reversal effect)\nYour choice of data type (list vs. str) controls this!",
-    "crumbs": [
-      "Workshop",
-      "Build (90 min)",
-      "Build: Interactive Exploration Labs"
-    ]
-  },
-  {
-    "objectID": "workshop/build/index.html#reflection-questions-2",
-    "href": "workshop/build/index.html#reflection-questions-2",
-    "title": "Build: Interactive Exploration Labs",
-    "section": "Reflection Questions",
-    "text": "Reflection Questions\nThink about:\n\nWhy is solution_steps: list[str] better than solution: str for novices?\nWhat field would you ADD for your teaching domain?\nHow does structure guide (or constrain) what the model generates?\n\nDiscussion: Design the ideal data model for worked examples in YOUR subject area. What fields would you include?",
-    "crumbs": [
-      "Workshop",
-      "Build (90 min)",
-      "Build: Interactive Exploration Labs"
-    ]
-  },
-  {
-    "objectID": "workshop/build/index.html#lab-4-parameter-playground-10-minutes",
-    "href": "workshop/build/index.html#lab-4-parameter-playground-10-minutes",
-    "title": "Build: Interactive Exploration Labs",
-    "section": "Lab 4: Parameter Playground (10 minutes)",
-    "text": "Lab 4: Parameter Playground (10 minutes)\n\nWhat You’ll Explore\nLearning Question: How do model parameters affect pedagogical quality?\n\n\nInstructions\n\nAdjust the parameters:\n\nReasoning Effort (none, low, medium, high)\nVerbosity (low, medium, high)\n\nRead the guidance:\n\nFor novices: Low reasoning (fast), medium-high verbosity (detailed)\nFor experts: Higher reasoning (better solutions), lower verbosity (concise)\n\nConsider the tradeoffs:\n\nMore reasoning = better quality but slower and more expensive\nHigher verbosity = clearer explanations but longer to read\n\n\n\n\nKey Insight\nThe “best” parameters depend on your learners!\nThere’s no universal setting. You must match technical parameters to pedagogical needs:\n\nNovice learners: Need detailed, step-by-step explanations (high verbosity)\nExpert learners: Want concise, sophisticated solutions (low verbosity, high reasoning)\nBudget constraints: Lower reasoning is faster and cheaper\nQuality requirements: Higher reasoning produces better examples\n\n\n\n\n\n\n\nNoteCost vs. Quality Tradeoffs\n\n\n\nReal-world considerations:\n\n\n\n\n\n\n\n\n\n\nSetting\nSpeed\nCost\nQuality\nBest For\n\n\n\n\nLow reasoning, low verbosity\nFast\nLow\nBasic\nQuick practice problems\n\n\nLow reasoning, high verbosity\nFast\nMedium\nGood\nNovice learners at scale\n\n\nHigh reasoning, high verbosity\nSlow\nHigh\nExcellent\nPremium personalized tutoring\n\n\n\nYour choice depends on: budget, learner needs, time constraints, and learning objectives.",
-    "crumbs": [
-      "Workshop",
-      "Build (90 min)",
-      "Build: Interactive Exploration Labs"
-    ]
-  },
-  {
-    "objectID": "workshop/build/index.html#reflection-questions-3",
-    "href": "workshop/build/index.html#reflection-questions-3",
-    "title": "Build: Interactive Exploration Labs",
-    "section": "Reflection Questions",
-    "text": "Reflection Questions\nThink about:\n\nWhat parameters would you use for YOUR learners?\nHow would you balance cost and quality?\nWhen might you use different settings for different students?",
-    "crumbs": [
-      "Workshop",
-      "Build (90 min)",
-      "Build: Interactive Exploration Labs"
-    ]
-  },
-  {
-    "objectID": "workshop/build/index.html#lab-5-clt-analyzer-20-minutes",
-    "href": "workshop/build/index.html#lab-5-clt-analyzer-20-minutes",
-    "title": "Build: Interactive Exploration Labs",
-    "section": "Lab 5: CLT Analyzer (20 minutes)",
-    "text": "Lab 5: CLT Analyzer (20 minutes)\n\nWhat You’ll Explore\nLearning Question: Can you evaluate examples using CLT principles?\n\n\nInstructions\n\nClick “Generate Random Example”\nRead the example carefully\nEvaluate it using the checklist:\n\n✅ Reduces extraneous cognitive load (no unnecessary complexity)\n✅ Manages intrinsic load (breaks problem into chunks)\n✅ Optimizes germane load (helps build schemas/patterns)\n✅ Is a WORKED example (shows complete solution, not a puzzle)\n✅ Has clear step-by-step progression\n✅ Explains WHY, not just WHAT\n\nSee your score:\n\n5-6: Excellent pedagogical design\n3-4: Good, but room for improvement\n1-2: Needs significant pedagogical revision\n\n\n\n\nKey Insight\nYou’re developing a CLT-grounded critical lens for evaluating AI tools!\nThis skill is more valuable than coding. When you can evaluate generated outputs using learning science principles, you can:\n\nSpot pedagogically weak examples\nRequest specific improvements\nCompare competing language models and tools\nDesign better prompts and data models",
-    "crumbs": [
-      "Workshop",
-      "Build (90 min)",
-      "Build: Interactive Exploration Labs"
-    ]
-  },
-  {
-    "objectID": "workshop/build/index.html#try-this-1",
-    "href": "workshop/build/index.html#try-this-1",
-    "title": "Build: Interactive Exploration Labs",
-    "section": "Try This",
-    "text": "Try This\nGenerate 3-4 examples and evaluate each:\n\nDo you see patterns in what GPT-5.1 generates well?\nWhat does it consistently miss?\nHow would you revise the prompt to improve low-scoring areas?\n\nThe goal: Develop your critical evaluation instinct.",
-    "crumbs": [
-      "Workshop",
-      "Build (90 min)",
-      "Build: Interactive Exploration Labs"
-    ]
-  },
-  {
-    "objectID": "workshop/build/index.html#reflection-questions-4",
-    "href": "workshop/build/index.html#reflection-questions-4",
-    "title": "Build: Interactive Exploration Labs",
-    "section": "Reflection Questions",
-    "text": "Reflection Questions\nThink about:\n\nWhich CLT criteria are hardest for language models to meet?\nWhat prompt changes would improve low-scoring examples?\nHow would you use this checklist when evaluating tools you already use?\n\nDiscussion: Share one example you evaluated. What was its score? What would you improve?",
-    "crumbs": [
-      "Workshop",
-      "Build (90 min)",
-      "Build: Interactive Exploration Labs"
-    ]
-  },
-  {
-    "objectID": "workshop/build/index.html#final-reflection-10-minutes",
-    "href": "workshop/build/index.html#final-reflection-10-minutes",
-    "title": "Build: Interactive Exploration Labs",
-    "section": "Final Reflection (10 minutes)",
-    "text": "Final Reflection (10 minutes)",
-    "crumbs": [
-      "Workshop",
-      "Build (90 min)",
-      "Build: Interactive Exploration Labs"
-    ]
-  },
-  {
-    "objectID": "workshop/build/index.html#what-youve-learned",
-    "href": "workshop/build/index.html#what-youve-learned",
-    "title": "Build: Interactive Exploration Labs",
-    "section": "What You’ve Learned",
-    "text": "What You’ve Learned\nThrough these 5 labs, you explored:\n\n✅ Prompts encode pedagogy (Design drives outputs)\n✅ Personalization reduces load (Context matters)\n✅ Structure shapes learning (Data models are pedagogical choices)\n✅ Parameters affect quality (Settings have learning implications)\n✅ Critical evaluation is a skill (You can assess AI tools with CLT)\n\n\nIntegration Questions\nConsider:\n\nWhat surprised you most?\n\nWhich lab challenged your assumptions?\nWhat principle seemed most powerful?\n\nWhat will you change?\n\nHow will you modify prompts you write for language models?\nWhat will you look for when evaluating educational technology tools?\n\nWhat will you build?\n\nCould you adapt this pattern to your teaching domain?\nWhat concepts would you include in your worked example generator?\n\nWhat questions remain?\n\nWhat do you still want to understand?\nWhat would you need to deploy this in your context?",
-    "crumbs": [
-      "Workshop",
-      "Build (90 min)",
-      "Build: Interactive Exploration Labs"
-    ]
-  },
-  {
-    "objectID": "workshop/build/index.html#checkpoint-can-you-answer-these",
-    "href": "workshop/build/index.html#checkpoint-can-you-answer-these",
-    "title": "Build: Interactive Exploration Labs",
-    "section": "Checkpoint: Can You Answer These?",
-    "text": "Checkpoint: Can You Answer These?\nPedagogical Understanding:\n\nWhy does chunking (solution_steps: list[str]) reduce cognitive load?\nHow does personalization reduce extraneous cognitive load?\nWhat makes a worked example “worked” versus a problem to solve?\n\nPractical Skills:\n\nCan you write a CLT-grounded prompt for your subject?\nCan you evaluate a generated example using CLT criteria?\nCan you design a data model for worked examples in your domain?\n\nCritical Thinking:\n\nWhat’s the difference between technically impressive and pedagogically sound?\nWhen should you prioritize speed/cost vs. quality?\nWhat ethical considerations arise from personalized learning tools powered by language models?",
-    "crumbs": [
-      "Workshop",
-      "Build (90 min)",
-      "Build: Interactive Exploration Labs"
-    ]
-  },
-  {
-    "objectID": "workshop/build/index.html#whats-next",
-    "href": "workshop/build/index.html#whats-next",
-    "title": "Build: Interactive Exploration Labs",
-    "section": "What’s Next?",
-    "text": "What’s Next?\nYou’ve explored the design principles. Now you’re ready to:\nOption 1: Use the Complete Tool\nTry the full Worked Example Weaver\n\nSee all 3 domains (Programming, Health Sciences, Agronomy)\n16 concepts to explore\nGenerate personalized examples for real learners\n\nOption 2: Design Your Extensions\nMove to the Extend section where you’ll:\n\nPlan how to adapt this to YOUR teaching context\nSketch your personalized worked example tool\n\nOption 3: Dive Into the Code\nIf you want to understand the technical implementation:\n\nView the complete app.py on HuggingFace\nExplore the Marimo and Pydantic documentation\n\nNext: Extend Section (Design your own extensions)",
-    "crumbs": [
-      "Workshop",
-      "Build (90 min)",
-      "Build: Interactive Exploration Labs"
-    ]
-  },
-  {
-    "objectID": "workshop/diskussion/index.html",
-    "href": "workshop/diskussion/index.html",
-    "title": "Closing: Transfer & Reflection",
+    "objectID": "workshop/build/scenarios/nursing.html",
+    "href": "workshop/build/scenarios/nursing.html",
+    "title": "Nursing: Warfarin and INR",
     "section": "",
-    "text": "Note⏱️ Duration: 10 minutes"
+    "text": "Domain: Health sciences / nursing — pharmacology",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Scenarios",
+      "Nursing: Warfarin and INR"
+    ]
   },
   {
-    "objectID": "workshop/diskussion/index.html#reflection",
-    "href": "workshop/diskussion/index.html#reflection",
-    "title": "Closing: Transfer & Reflection",
-    "section": "Reflection",
-    "text": "Reflection\nLet’s close by connecting today’s work to your teaching practice.\n\nWhat We Built\nIn 3 hours, you created a complete educational AI application that:\n✅ Generates personalized worked examples ✅ Demonstrates Cognitive Load Theory principles ✅ Scales personalization impossibly for manual creation ✅ Deploys as a shareable web application\nThat’s significant! Most educational AI tools don’t ground themselves in learning science. Yours does."
+    "objectID": "workshop/build/scenarios/nursing.html#teaching-task",
+    "href": "workshop/build/scenarios/nursing.html#teaching-task",
+    "title": "Nursing: Warfarin and INR",
+    "section": "Teaching task",
+    "text": "Teaching task\n\nA patient on long-term warfarin presents at the clinic with an INR of 5.2. Explain what you would do next and why.",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Scenarios",
+      "Nursing: Warfarin and INR"
+    ]
   },
   {
-    "objectID": "workshop/diskussion/index.html#transfer-questions",
-    "href": "workshop/diskussion/index.html#transfer-questions",
-    "title": "Closing: Transfer & Reflection",
-    "section": "Transfer Questions",
-    "text": "Transfer Questions\n\n\n\n\n\n\nNote💭 Think-Share (8 minutes)\n\n\n\nIndividual Reflection (3 minutes):\nConsider your own teaching context:\n\nWhat concept or skill do your students struggle to learn?\nHow could personalized worked examples help with that specific challenge?\nWhat domain/context would be most relevant to your students?\nWhat would you need to adapt from today’s tool for your context?\n\nGroup Share (5 minutes):\nVolunteers share their ideas. Instructor facilitates quick discussion of:\n\nCommon themes across responses\nChallenges in adaptation\nNext steps for implementation"
+    "objectID": "workshop/build/scenarios/nursing.html#calibrated-student-responses",
+    "href": "workshop/build/scenarios/nursing.html#calibrated-student-responses",
+    "title": "Nursing: Warfarin and INR",
+    "section": "Calibrated student responses",
+    "text": "Calibrated student responses\n\nResponse A — intrinsic_overload\n\nI would check the patient’s vitamin K intake recently and also their last dose of warfarin and look at their kidney and liver function and ask about any new medications they started because that all affects INR… so I would check the dosing schedule too and probably reduce the dose or hold it, depending on bleeding risk, but it’s also important to see if they have any signs of bleeding because that changes the urgency, and we’d also need to consider if vitamin K should be given but only if the INR is really high or there’s bleeding so I think we’d hold the dose first and recheck.\n\n\nWhy this is intrinsic_overload: the student is tracking many interacting elements (vitamin K, dosing, comorbidities, bleeding risk, drug interactions) at once. Each element is correct on its own, but the response loses its thread and never lands on a clear plan.\n\n\n\nResponse B — active_misconception\n\nSince the INR is high at 5.2, I would increase the warfarin dose so the patient’s blood doesn’t clot too much. INR shows how thick the blood is, and high INR means the blood is too thick.\n\n\nWhy this is active_misconception: the student has a coherent but inverted mental model — they believe high INR means thick blood. The reasoning is internally consistent, the wrong schema is being applied confidently.\n\n\n\nResponse C — schema_gap\n\nI would tell the doctor and ask what they want me to do. I’m not sure what 5.2 means: is that high or normal? What’s the normal range supposed to be?\n\n\nWhy this is schema_gap: the student lacks the prerequisite concept (the therapeutic INR range for warfarin patients). They are not confused or overloaded; the relevant prior knowledge is simply absent.",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Scenarios",
+      "Nursing: Warfarin and INR"
+    ]
   },
   {
-    "objectID": "workshop/diskussion/index.html#beyond-this-workshop",
-    "href": "workshop/diskussion/index.html#beyond-this-workshop",
-    "title": "Closing: Transfer & Reflection",
-    "section": "Beyond This Workshop",
-    "text": "Beyond This Workshop\n\nImmediate Next Steps\n\n\n\n\n\n\nTip🚀 What to Do Monday Morning\n\n\n\nWeek 1: Customize\n\nAdapt concepts for your domain\nTest with 3-5 students informally\nCollect feedback on personalization quality\n\nWeek 2: Iterate\n\nRefine system prompt based on feedback\nAdd domain-specific concepts\nShare with colleagues for peer review\n\nWeek 3: Integrate\n\nAdd to your LMS or website\nCreate assignment around studying examples\nMeasure impact (quiz scores, student feedback)\n\n\n\n\n\nBroader Applications\nThe patterns you learned today apply to many educational AI tools:\nStructure Outputs (Pydantic):\n\nQuiz generation\nFeedback on student work\nLearning path recommendations\n\nPersonalization (profiles):\n\nAdaptive practice problems\nContextualized case studies\nProject idea generation\n\nDeployment (HuggingFace):\n\nShare tools with colleagues\nStudent-facing applications\nResearch prototypes"
+    "objectID": "workshop/build/scenarios/statistics.html",
+    "href": "workshop/build/scenarios/statistics.html",
+    "title": "Statistics: Interpreting r = 0.3",
+    "section": "",
+    "text": "Domain: Statistics / research methods — interpreting effects",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Scenarios",
+      "Statistics: Interpreting r = 0.3"
+    ]
+  },
+  {
+    "objectID": "workshop/build/scenarios/statistics.html#teaching-task",
+    "href": "workshop/build/scenarios/statistics.html#teaching-task",
+    "title": "Statistics: Interpreting r = 0.3",
+    "section": "Teaching task",
+    "text": "Teaching task\n\nA study reports a correlation of \\(r = 0.3\\) between hours studied per week and end-of-semester exam grade. How would you interpret this for a colleague who hasn’t seen the data?",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Scenarios",
+      "Statistics: Interpreting r = 0.3"
+    ]
+  },
+  {
+    "objectID": "workshop/build/scenarios/statistics.html#calibrated-student-responses",
+    "href": "workshop/build/scenarios/statistics.html#calibrated-student-responses",
+    "title": "Statistics: Interpreting r = 0.3",
+    "section": "Calibrated student responses",
+    "text": "Calibrated student responses\n\nResponse A — active_misconception\n\nThis shows that studying causes higher grades. The more hours you study, the better your grade will be. So we should tell students to study more if they want to do better on exams.\n\n\nWhy this is active_misconception: the student reasons confidently from a wrong model (correlation = causation) and produces an actionable but inappropriate conclusion. The model needs replacing.\n\n\n\nResponse B — germane_disengagement\n\nCorrelation is a measure of the linear relationship between two variables, ranging from \\(-1\\) to \\(+1\\). A value of \\(0\\) means no relationship, \\(+1\\) means perfect positive relationship, \\(-1\\) means perfect negative relationship. So \\(r = 0.3\\) means there is a positive correlation between the two variables.\n\n\nWhy this is germane_disengagement: the student recites the textbook definition correctly but never applies it to interpret the specific value. They retrieve without elaborating on what \\(r = 0.3\\) actually means in this context.\n\n\n\nResponse C — schema_gap\n\nI’m not sure how to interpret \\(0.3\\). Is that a strong correlation or a weak one? I know that \\(1.0\\) would be perfect but I don’t have a sense of what counts as meaningful in between.\n\n\nWhy this is schema_gap: the student honestly identifies the missing piece (a sense of effect-size magnitude in their field). The prerequisite calibration is not yet in place; this is a gap, not a misconception.",
+    "crumbs": [
+      "Workshop",
+      "Build (115 min, incl. break)",
+      "Scenarios",
+      "Statistics: Interpreting r = 0.3"
+    ]
+  },
+  {
+    "objectID": "workshop/diskussion/index.html#what-you-have",
+    "href": "workshop/diskussion/index.html#what-you-have",
+    "title": "Closing: One Commitment",
+    "section": "What you have",
+    "text": "What you have\nIn three hours you have built a diagnostic AI tool grounded in cognitive load theory and tuned to one of six discipline scenarios. Concretely you have:\n\nA configured tool URL with your system prompt\nA portable prompt recipe usable in Microsoft Copilot, ChatGPT, or Claude.ai\nA calibration record from Lab 4\nA view from another discipline’s tool through the pair-test\n\nYou did this without writing code, without designing data structures, and without deploying anything yourself. The pedagogical work was the work.",
+    "crumbs": [
+      "Workshop",
+      "Closing (5-10 min)",
+      "Closing: One Commitment"
+    ]
+  },
+  {
+    "objectID": "workshop/diskussion/index.html#one-monday-commitment",
+    "href": "workshop/diskussion/index.html#one-monday-commitment",
+    "title": "Closing: One Commitment",
+    "section": "One Monday commitment",
+    "text": "One Monday commitment",
+    "crumbs": [
+      "Workshop",
+      "Closing (5-10 min)",
+      "Closing: One Commitment"
+    ]
+  },
+  {
+    "objectID": "workshop/diskussion/index.html#write-it-down",
+    "href": "workshop/diskussion/index.html#write-it-down",
+    "title": "Closing: One Commitment",
+    "section": "Write it down",
+    "text": "Write it down\nPick one concrete change for your next teaching cycle. Something you would not have done before this workshop.\nExamples of the right size:\n\nTry the portable prompt on the next batch of student work in subject X\nRun three of your typical exam responses through the tool to see what it flags\nUse the five-category vocabulary in your next teaching team meeting when discussing a struggling student\nAdapt the prompt for one specific assignment type you give regularly\n\nWrite your commitment on paper. Tell your neighbour. Put a date on it.",
+    "crumbs": [
+      "Workshop",
+      "Closing (5-10 min)",
+      "Closing: One Commitment"
+    ]
   },
   {
     "objectID": "workshop/diskussion/index.html#the-meta-lesson",
     "href": "workshop/diskussion/index.html#the-meta-lesson",
-    "title": "Closing: Transfer & Reflection",
-    "section": "The Meta-Lesson",
-    "text": "The Meta-Lesson\n\n\n\n\n\n\nTip🎓 Pedagogy-First AI\n\n\n\nCritical insight from today:\nWe didn’t start with “What can AI do?”\nWe started with “What does research say about learning?”\nThen we asked: “How can AI scale those principles?”\nThis is the right order.\nTechnology should serve pedagogy, not vice versa."
+    "title": "Closing: One Commitment",
+    "section": "The meta-lesson",
+    "text": "The meta-lesson",
+    "crumbs": [
+      "Workshop",
+      "Closing (5-10 min)",
+      "Closing: One Commitment"
+    ]
   },
   {
-    "objectID": "workshop/diskussion/index.html#connection-to-make-it-stick",
-    "href": "workshop/diskussion/index.html#connection-to-make-it-stick",
-    "title": "Closing: Transfer & Reflection",
-    "section": "Connection to Make It Stick",
-    "text": "Connection to Make It Stick\nToday’s tool addresses multiple evidence-based strategies:\n\nWorked Examples (swellerCognitiveLoadProblem1988?) - Core feature\nVariation - Different personal contexts for transfer\nUnderstanding - Complete explanations, not just answers\nApplication - Real-world problems in familiar contexts\n\nFor deeper exploration of these learning principles, see:\n\nki-lehre-intermediate - Learning science foundations\nMake It Stick - Practical applications of cognitive science"
+    "objectID": "workshop/diskussion/index.html#pedagogy-provides-structure-practitioners-provide-cues",
+    "href": "workshop/diskussion/index.html#pedagogy-provides-structure-practitioners-provide-cues",
+    "title": "Closing: One Commitment",
+    "section": "Pedagogy provides structure; practitioners provide cues",
+    "text": "Pedagogy provides structure; practitioners provide cues\nThe decomposition this workshop turned on was:\n\nTheory provides structure. The five load_signal categories were not invented for this tool; they were derived from CLT and schema-acquisition research. They are the same five whatever discipline you teach.\nPractitioners provide cues. What an intrinsic_overload looks like in nursing differs from what it looks like in business or social work. Your discipline expertise is what makes the structure usable.\n\nThis is the move we want you to take back to your teaching with AI. When you reach for a new AI tool, ask: where is the theory in this, and where is the discipline expertise? If the answer is “neither,” the tool is doing something other than supporting learning.",
+    "crumbs": [
+      "Workshop",
+      "Closing (5-10 min)",
+      "Closing: One Commitment"
+    ]
   },
   {
-    "objectID": "workshop/diskussion/index.html#questions-discussion",
-    "href": "workshop/diskussion/index.html#questions-discussion",
-    "title": "Closing: Transfer & Reflection",
-    "section": "Questions & Discussion",
-    "text": "Questions & Discussion\n\n\n\n\n\n\nNote❓ Open Floor (2 minutes)\n\n\n\nFinal questions, clarifications, or insights?\nCommon questions:\nQ: “Won’t students just copy examples without learning?”\nA: Valid concern! This is why we:\n\nInclude “connection to goal” (Why does this matter?)\nProvide “practice suggestion” (Try this yourself)\nRecommend spacing (Don’t binge examples)\nEncourage self-explanation (Explain each step to yourself)\n\nWorked examples are most effective when followed by practice problems. They’re a starting point, not the whole curriculum.\nQ: “What if the AI generates incorrect examples?”\nA: Important! Always:\n\nSpot-check generated examples\nUse structured outputs (reduces errors)\nInclude disclaimers for students\nTreat AI as a draft generator, not oracle\nHave domain experts review output\n\nQ: “How much does OpenAI API cost?”\nA: Remarkably little for educational use:\n\nGPT-4o: ~$0.01-0.02 per example\n100 examples ≈ $1-2\nConsider GPT-4o-mini for even lower costs\nMost institutions can afford this for pilot programs"
+    "objectID": "workshop/diskussion/index.html#going-further",
+    "href": "workshop/diskussion/index.html#going-further",
+    "title": "Closing: One Commitment",
+    "section": "Going further",
+    "text": "Going further\nIf you want to see a more elaborated example of CLT-grounded tool design, the Worked Example Weaver is a sister tool that generates personalized worked examples across three domains. It is a deliberately heavier piece of software than today’s diagnostic shell, and serves as a reference for what a fuller tool with a more complex structure looks like.\nFor the cognitive science behind the diagnostic taxonomy:\n\nki-lehre-intermediate for the offloading-vs-outsourcing framing\nSweller, Ayres and Kalyuga (2019), Cognitive Architecture and Instructional Design, for the updated CLT framework\nKalyuga (2009) for why severity and learner expertise modulate intervention choice",
+    "crumbs": [
+      "Workshop",
+      "Closing (5-10 min)",
+      "Closing: One Commitment"
+    ]
+  },
+  {
+    "objectID": "workshop/diskussion/index.html#frequently-asked-questions",
+    "href": "workshop/diskussion/index.html#frequently-asked-questions",
+    "title": "Closing: One Commitment",
+    "section": "Frequently asked questions",
+    "text": "Frequently asked questions\n\nQ: What if my discipline does not fit any of the five categories?\nThis is the most common pushback and worth taking seriously. Two responses:\nFirst, the categories are deliberately broad. intrinsic_overload is not “exam stress” but “too much element-interactivity for current schemas” — that shows up in every discipline, including yours.\nSecond, if a response genuinely falls outside the categories, that is information. The tool will produce a low-confidence diagnosis, the domain_notes field will surface what the categories missed, and you have a research finding: in your discipline, here is a load signal not captured by the standard taxonomy. That is interesting and worth keeping.\nQ: How do I trust the LLM’s diagnosis?\nYou don’t, fully. The tool is a triage aid, not an oracle. Workshop Lab 4’s calibration test exists exactly to map where your prompt produces reliable diagnoses and where it does not. Use the tool where it is reliable; second-guess it where it is not. Note that the same caution applies to your own diagnostic intuitions, which is partly the workshop’s point.\nQ: What about students using Copilot themselves on the same artifact?\nDifferent question. The tool you built is a teacher’s diagnostic aid: it reads student work for the cognitive signal. A student running their own work through Copilot for feedback is doing something different (and often something we worry about). The intermediate workshop’s offloading-vs-outsourcing framing applies here.\nQ: Will this scale to a class of 200?\nYes, with caveats. The portable prompt runs on whatever institutional LLM you have access to, and the per-call cost is small. The cap is your time spent reviewing the diagnoses. A reasonable workflow is to use the tool for first-pass triage and then deeply read the responses the tool flags as severity: fundamental.",
+    "crumbs": [
+      "Workshop",
+      "Closing (5-10 min)",
+      "Closing: One Commitment"
+    ]
   },
   {
     "objectID": "workshop/diskussion/index.html#thank-you",
     "href": "workshop/diskussion/index.html#thank-you",
-    "title": "Closing: Transfer & Reflection",
-    "section": "Thank You!",
-    "text": "Thank You!\nYou’ve accomplished something significant today.\nYou built a pedagogically-grounded AI tool in 3 hours. Most educational technology development takes months. You compressed that by:\n\nUsing modern frameworks (Marimo, OpenAI structured outputs)\nStanding on research foundations (CLT)\nFocusing on one clear use case\nBuilding together collaboratively\n\n\nStay Connected\n\nShare your extensions - Post to social media with #eduAI #CognitiveLoad\nJoin the community - Marimo Discord, AI in Education forums\nPublish your variants - HuggingFace Spaces, GitHub\nResearch opportunities - Test effectiveness, publish findings\n\n\n\nFinal Thought\n\n\n\n\n\n\nTip💡 The Real Power\n\n\n\nThe real power of today’s tool isn’t just personalization. It’s that you now understand:\n\nWhy worked examples reduce cognitive load\nHow to structure AI outputs for learning\nWhen to apply personalization\nWhere to ground technology in research\n\nYou can apply these principles to any educational AI tool you build.\nThat knowledge transfers far beyond this workshop.\n\n\n\nWorkshop complete! Thank you for your engagement, curiosity, and commitment to evidence-based teaching. 🎓\n\n\n\n\n\n\nNote📚 Additional Resources\n\n\n\nWorkshop Materials:\n\nComplete code: GitHub repository\nInstructor guide: download PDF\nSlides: view presentation\n\nLearning Science:\n\nCentre for Education Statistics and Evaluation (2023)\n(swellerCognitiveLoadProblem1988?)\nBrown, III, and McDaniel (2014)\n\nTechnical Documentation:\n\nMarimo\nOpenAI Structured Outputs\nHuggingFace Spaces"
+    "title": "Closing: One Commitment",
+    "section": "Thank you",
+    "text": "Thank you\nYou came in expecting to develop something. You did: a diagnostic vocabulary, a working tool, and a recipe. None of it required code. All of it was pedagogical thinking made operational.\nUse it on Monday.",
+    "crumbs": [
+      "Workshop",
+      "Closing (5-10 min)",
+      "Closing: One Commitment"
+    ]
   },
   {
     "objectID": "workshop/index.html",
     "href": "workshop/index.html",
-    "title": "Building Personalized Worked Example Generators with AI",
+    "title": "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory",
     "section": "",
-    "text": "Welcome to this 3-hour workshop on building AI-powered educational tools grounded in Cognitive Load Theory. You’ll learn a pattern for creating personalized worked examples by modifying a working template.\n\n\n\nSee a complete demo: Experience the full complex application (3 domains, 16 concepts)\nStudy the code: Understand how Pydantic and Marimo create structured AI outputs\nModify a template: Add concepts to a simplified version (1 domain, 3 concepts)\nDesign extensions: Plan how to apply this to YOUR teaching\n\n\n\n\nYou’ll modify a working Personalised Worked Example Generator (in your browser) that:\n\nCollects learner profile information (name, domain, interests, hobbies, goals, skill level)\nGenerates customised worked examples in ONE domain (Programming)\nWeaves learner interests naturally into educational content\nProvides step-by-step solutions with personal relevance\nRuns in your browser (no installation required)\n\nNote: The demo shows all 3 domains with 16 concepts. You’ll work with a SIMPLIFIED version (1 domain, 3 concepts) and add 1-2 more concepts to learn the pattern.\n\n\n\nBy the end of this workshop, you will:\n\nUnderstand the worked example effect and personalisation principle from Cognitive Load Theory\nModify a working template to add your own concepts (in your browser)\nSee how Pydantic ensures structured outputs from AI\nRecognise the pattern for building educational AI tools\nDesign extensions for your own teaching context\n\n\n\n\nThis workshop is grounded in Cognitive Load Theory (Sweller 1988), specifically:\nThe Worked Example Effect:\n\n“A ‘worked example’ is a problem that has already been solved for the learner, with every step fully explained and clearly shown. The ‘worked example effect’ is the widely replicated finding that novice learners who are given worked examples to study perform better on subsequent tests than learners who are required to solve the equivalent problems themselves.”\nCentre for Education Statistics and Evaluation (2023)\n\nWhy It Works:\n\nUnguided problem-solving overloads working memory\nStudying worked examples reduces cognitive load\nMore working memory capacity available for schema construction\nBetter learning outcomes for novices\n\nOur Addition - Personalization:\n\nFamiliar contexts reduce extraneous cognitive load\nPersonal relevance increases germane load (motivation)\nBetter schema formation and transfer",
+    "text": "A 3-hour workshop in which participants build a CLT-grounded diagnostic AI tool for their own discipline. The output schema is fixed; participants iterate the system prompt. They never write code, never edit data structures, and never deploy anything themselves.\nParticipants leave with two artifacts: a configured tool URL with their prompt baked in, and a portable prompt recipe usable in Microsoft Copilot, ChatGPT, or Claude.\n\n\n\nSee the diagnostic shell in action: a working tool that classifies student responses into five CLT-grounded categories\nPick a discipline scenario from a set of six, each with three calibrated student responses\nWrite a system prompt that teaches the LLM how the CLT taxonomy shows up in your discipline\nTest, iterate, export: run on calibrated responses, refine, then export a portable prompt for any LLM interface\n\n\n\n\nA diagnostic tool that takes a student response (written work, a short answer, an explanation) and returns:\n\nA Diagnosis containing one of five load_signal categories, the evidence for that classification, a severity rating, and discipline-specific notes\nA Response containing one of five intervention categories and a concrete piece of text to say to the student\n\nThe five load_signal categories are derived from cognitive load theory and schema-acquisition research: intrinsic_overload, extrinsic_distractor, germane_disengagement, schema_gap, active_misconception. They are fixed across all disciplines. Your discipline expertise lives in the system prompt.\n\n\n\nBy the end of this workshop, you will:\n\nIdentify five CLT-grounded diagnostic signals in student work\nMatch each diagnostic signal to a corresponding intervention strategy\nWrite a system prompt that instructs an LLM to apply those categories in your discipline\nCalibrate a diagnostic prompt against tagged student responses to know where to trust it and where to second-guess it\nProduce a portable prompt recipe usable in any LLM interface you have access to\n\n\n\n\nThis workshop applies Cognitive Load Theory (Sweller 1988) (with the updated germane-processing framing in Sweller, Ayres and Kalyuga 2019) and schema-acquisition research (Kalyuga 2009) to the practical problem of reading student work.\nThe five diagnostic categories correspond to the cognitive architecture CLT describes:\n\nintrinsic_overload and extrinsic_distractor map onto the classical intrinsic and extraneous load types\ngermane_disengagement flags the absence of germane processing\nschema_gap and active_misconception extend the framework to two distinct schema-acquisition failure modes (absent schema vs. wrong schema)\n\nThe decomposition matters because each category implies a distinct intervention. Diagnostic precision drives instructional choice.\nThe Build block has its own internal structure: 10 min picking a scenario, four labs of 15 to 25 min each, a 10-min break, and 15 min of pair-testing. See the Build page for the lab-by-lab breakdown.",
     "crumbs": [
       "Workshop",
-      "Building Personalized Worked Example Generators with AI"
+      "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory"
     ]
   },
   {
     "objectID": "workshop/index.html#workshop-overview",
     "href": "workshop/index.html#workshop-overview",
-    "title": "Building Personalized Worked Example Generators with AI",
+    "title": "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory",
     "section": "",
-    "text": "Welcome to this 3-hour workshop on building AI-powered educational tools grounded in Cognitive Load Theory. You’ll learn a pattern for creating personalized worked examples by modifying a working template.\n\n\n\nSee a complete demo: Experience the full complex application (3 domains, 16 concepts)\nStudy the code: Understand how Pydantic and Marimo create structured AI outputs\nModify a template: Add concepts to a simplified version (1 domain, 3 concepts)\nDesign extensions: Plan how to apply this to YOUR teaching\n\n\n\n\nYou’ll modify a working Personalised Worked Example Generator (in your browser) that:\n\nCollects learner profile information (name, domain, interests, hobbies, goals, skill level)\nGenerates customised worked examples in ONE domain (Programming)\nWeaves learner interests naturally into educational content\nProvides step-by-step solutions with personal relevance\nRuns in your browser (no installation required)\n\nNote: The demo shows all 3 domains with 16 concepts. You’ll work with a SIMPLIFIED version (1 domain, 3 concepts) and add 1-2 more concepts to learn the pattern.\n\n\n\nBy the end of this workshop, you will:\n\nUnderstand the worked example effect and personalisation principle from Cognitive Load Theory\nModify a working template to add your own concepts (in your browser)\nSee how Pydantic ensures structured outputs from AI\nRecognise the pattern for building educational AI tools\nDesign extensions for your own teaching context\n\n\n\n\nThis workshop is grounded in Cognitive Load Theory (Sweller 1988), specifically:\nThe Worked Example Effect:\n\n“A ‘worked example’ is a problem that has already been solved for the learner, with every step fully explained and clearly shown. The ‘worked example effect’ is the widely replicated finding that novice learners who are given worked examples to study perform better on subsequent tests than learners who are required to solve the equivalent problems themselves.”\nCentre for Education Statistics and Evaluation (2023)\n\nWhy It Works:\n\nUnguided problem-solving overloads working memory\nStudying worked examples reduces cognitive load\nMore working memory capacity available for schema construction\nBetter learning outcomes for novices\n\nOur Addition - Personalization:\n\nFamiliar contexts reduce extraneous cognitive load\nPersonal relevance increases germane load (motivation)\nBetter schema formation and transfer",
+    "text": "A 3-hour workshop in which participants build a CLT-grounded diagnostic AI tool for their own discipline. The output schema is fixed; participants iterate the system prompt. They never write code, never edit data structures, and never deploy anything themselves.\nParticipants leave with two artifacts: a configured tool URL with their prompt baked in, and a portable prompt recipe usable in Microsoft Copilot, ChatGPT, or Claude.\n\n\n\nSee the diagnostic shell in action: a working tool that classifies student responses into five CLT-grounded categories\nPick a discipline scenario from a set of six, each with three calibrated student responses\nWrite a system prompt that teaches the LLM how the CLT taxonomy shows up in your discipline\nTest, iterate, export: run on calibrated responses, refine, then export a portable prompt for any LLM interface\n\n\n\n\nA diagnostic tool that takes a student response (written work, a short answer, an explanation) and returns:\n\nA Diagnosis containing one of five load_signal categories, the evidence for that classification, a severity rating, and discipline-specific notes\nA Response containing one of five intervention categories and a concrete piece of text to say to the student\n\nThe five load_signal categories are derived from cognitive load theory and schema-acquisition research: intrinsic_overload, extrinsic_distractor, germane_disengagement, schema_gap, active_misconception. They are fixed across all disciplines. Your discipline expertise lives in the system prompt.\n\n\n\nBy the end of this workshop, you will:\n\nIdentify five CLT-grounded diagnostic signals in student work\nMatch each diagnostic signal to a corresponding intervention strategy\nWrite a system prompt that instructs an LLM to apply those categories in your discipline\nCalibrate a diagnostic prompt against tagged student responses to know where to trust it and where to second-guess it\nProduce a portable prompt recipe usable in any LLM interface you have access to\n\n\n\n\nThis workshop applies Cognitive Load Theory (Sweller 1988) (with the updated germane-processing framing in Sweller, Ayres and Kalyuga 2019) and schema-acquisition research (Kalyuga 2009) to the practical problem of reading student work.\nThe five diagnostic categories correspond to the cognitive architecture CLT describes:\n\nintrinsic_overload and extrinsic_distractor map onto the classical intrinsic and extraneous load types\ngermane_disengagement flags the absence of germane processing\nschema_gap and active_misconception extend the framework to two distinct schema-acquisition failure modes (absent schema vs. wrong schema)\n\nThe decomposition matters because each category implies a distinct intervention. Diagnostic precision drives instructional choice.",
     "crumbs": [
       "Workshop",
-      "Building Personalized Worked Example Generators with AI"
+      "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory"
     ]
   },
   {
     "objectID": "workshop/index.html#workshop-schedule",
     "href": "workshop/index.html#workshop-schedule",
-    "title": "Building Personalized Worked Example Generators with AI",
+    "title": "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory",
     "section": "Workshop Schedule",
     "text": "Workshop Schedule",
     "crumbs": [
       "Workshop",
-      "Building Personalized Worked Example Generators with AI"
+      "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory"
     ]
   },
   {
     "objectID": "workshop/index.html#hour-schedule",
     "href": "workshop/index.html#hour-schedule",
-    "title": "Building Personalized Worked Example Generators with AI",
-    "section": "3-Hour Schedule",
-    "text": "3-Hour Schedule\n\n\n\nTime\nDuration\nSection\nActivity\n\n\n\n\n9:00-0:10\n10 min\nOpening\nThink-pair-share: Learning from examples\n\n\n9:10-9:40\n30 min\nTheory\nCognitive Load Theory principles\n\n\n9:40-10:00\n20 min\nDemo\nSee the complete application (all 3 domains)\n\n\n10:00-11:30\n90 min\nBuild\nHands-on: Modify starter template, add concepts\n\n\n11:30-11:50\n15-20 min\nExtend\nChoose: Discussion or Gallery Walk",
+    "title": "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory",
+    "section": "3-hour schedule",
+    "text": "3-hour schedule\n\n\n\nTime\nDuration\nSection\nActivity\n\n\n\n\n0:00-0:10\n10 min\nOpening\nThink-pair-share: a misdiagnosis you remember\n\n\n0:10-0:40\n30 min\nTheory\nThe CLT-grounded diagnostic taxonomy\n\n\n0:40-0:55\n15 min\nDemo\nThe diagnostic shell walked through with a calibrated example\n\n\n0:55-2:50\n115 min\nBuild\nPick scenario, four labs against the shell, pair-test (10-min break included)\n\n\n2:50-3:00\n10 min\nClosing\nOne Monday commitment",
     "crumbs": [
       "Workshop",
-      "Building Personalized Worked Example Generators with AI"
+      "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory"
     ]
   },
   {
     "objectID": "workshop/index.html#prerequisites",
     "href": "workshop/index.html#prerequisites",
-    "title": "Building Personalized Worked Example Generators with AI",
+    "title": "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory",
     "section": "Prerequisites",
-    "text": "Prerequisites\n\nRequired Knowledge\n\nBasic Python: lists, dictionaries, functions (reading code, not writing from scratch)\nNo statistics background required\nNo prior AI/ML experience needed\n\n\n\nMaterials Required",
+    "text": "Prerequisites\n\nRequired Knowledge\n\nNone technical. Participants do not write code, edit data structures, or run notebooks.\nSome teaching experience in any discipline. The workshop’s central activity is reading a student response and asking what cognitive signal it reveals.\n\n\n\nMaterials Required",
     "crumbs": [
       "Workshop",
-      "Building Personalized Worked Example Generators with AI"
+      "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory"
     ]
   },
   {
-    "objectID": "workshop/index.html#setup-required-before-workshop",
-    "href": "workshop/index.html#setup-required-before-workshop",
-    "title": "Building Personalized Worked Example Generators with AI",
-    "section": "Setup Required Before Workshop",
-    "text": "Setup Required Before Workshop\nThat’s it. No installation needed.\nWhat you need:\n\nLaptop with modern browser\nInternet connection (workshop uses HuggingFace Spaces)\nOptional: Notebook for reflecting on how you’d apply this to your teaching\n\nNo Python installation. No API keys. No troubleshooting.\nEverything runs in your browser via an interactive web application.",
+    "objectID": "workshop/index.html#setup-before-the-workshop",
+    "href": "workshop/index.html#setup-before-the-workshop",
+    "title": "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory",
+    "section": "Setup before the workshop",
+    "text": "Setup before the workshop\nWhat you need:\n\nA laptop with a modern browser\nAn internet connection (the diagnostic shell runs on Hugging Face Spaces)\nOptional but useful: a notebook or document where you can paste your final exported prompt\n\nWhat you do not need:\n\nPython, an IDE, or a development environment\nAn API key for any LLM\nA Hugging Face account\nAny preparation reading",
     "crumbs": [
       "Workshop",
-      "Building Personalized Worked Example Generators with AI"
+      "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory"
     ]
   },
   {
-    "objectID": "workshop/index.html#workshop-structure-a-worked-example-approach",
-    "href": "workshop/index.html#workshop-structure-a-worked-example-approach",
-    "title": "Building Personalized Worked Example Generators with AI",
-    "section": "Workshop Structure: A Worked Example Approach",
-    "text": "Workshop Structure: A Worked Example Approach\n\n\n\n\n\n\nImportantThis Workshop IS a Worked Example\n\n\n\nThis workshop demonstrates the principle it teaches by being structured as a worked example itself.\nTraditional approach (problem-solving):\nGive you requirements → You struggle to build → Instructor helps when stuck\nHigh cognitive load, potential frustration, pattern harder to see\nThis approach (worked example):\nShow complete solution → Study each component → Explain design choices → Apply to your domain\nLower cognitive load, clearer pattern, better transfer\nWhy? Most of you are novices at building educational AI tools. Research shows studying worked examples is more effective than unguided problem-solving for novices.\n\n\n\nThe Worked Example Approach\nThis workshop follows the worked example pattern:\n\nACTIVATE (Opening): Prior knowledge activation\nPRESENT (Theory + Demo): See the complete solution\nSTUDY (Build): Examine and modify the code\nUNDERSTAND (Extend): Connect to pedagogical applications\nTRANSFER (Resources): Apply to your own teaching\n\n\n\nFading Scaffolding\nNotice how support gradually decreases:\n\nTheory/Demo: Full explanation, complete working application shown\nBuild: Scaffolded practice—modify template, add concepts\nExtend: Independent design—plan your own extensions\nAfter workshop: Transfer to new domains on your own\n\n\n\n\n\n\n\nTipMeta-Learning Moment\n\n\n\nAs you progress through today, notice:\n\nWhen does studying the complete solution help vs. confuse?\nWhen do you want to start experimenting on your own?\nHow does seeing the “big picture” first affect your understanding?\n\nThese insights will inform how you design worked examples for your students.",
+    "objectID": "workshop/index.html#workshop-structure-an-applied-worked-example",
+    "href": "workshop/index.html#workshop-structure-an-applied-worked-example",
+    "title": "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory",
+    "section": "Workshop Structure: An Applied Worked Example",
+    "text": "Workshop Structure: An Applied Worked Example\n\n\n\n\n\n\nImportantThis Workshop IS a Worked Example\n\n\n\nThis workshop demonstrates the principle it teaches by being structured as a worked example of CLT-grounded design.\nTraditional approach (problem-solving):\n\nDefine your tool’s data structures, design the schema, implement the LLM call, build a UI, deploy.\n\nThis is too much for a 3-hour workshop and not what most participants need to know.\nThis approach (worked example):\n\nThe structure is given. The intelligence lives in the prompt. Your work is making the structure speak your discipline’s language.\n\nWhy? The decomposition (theory provides structure, practitioner provides cues) is the move we want participants to take back to their teaching with AI. Doing it once at workshop scale lets participants feel the leverage.",
     "crumbs": [
       "Workshop",
-      "Building Personalized Worked Example Generators with AI"
+      "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory"
+    ]
+  },
+  {
+    "objectID": "workshop/index.html#meta-learning-moment",
+    "href": "workshop/index.html#meta-learning-moment",
+    "title": "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory",
+    "section": "Meta-learning moment",
+    "text": "Meta-learning moment\nAs you progress through today, notice when the fixed schema is helping you think and when it feels constraining. Notice the categories you found easy to instantiate in your discipline and the ones that required real effort. The categories that required effort are usually the ones your teaching most needs help diagnosing.",
+    "crumbs": [
+      "Workshop",
+      "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory"
     ]
   },
   {
     "objectID": "workshop/index.html#technical-stack",
     "href": "workshop/index.html#technical-stack",
-    "title": "Building Personalized Worked Example Generators with AI",
+    "title": "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory",
     "section": "Technical Stack",
-    "text": "Technical Stack\n\nCore Technologies\n\nOpenAI GPT-5.1: Latest language model with structured outputs\nPydantic: Data validation using Python type hints\nGradio: Web interface for the production tool\nMarimo: Reactive Python notebooks for interactive exploration\nHuggingFace Spaces: Free deployment platform\n\n\n\nTwo Applications in This Workshop\nThis workshop uses two different applications with distinct purposes:\n1. Interactive Exploration App (Marimo)\n\n5 hands-on labs for exploring concepts\nEmbedded throughout this website\nExperiment with prompt design, personalization, data models\nLearn by doing, no installation required\n\n2. Production Tool (Gradio)\n\nComplete deployable worked example generator\nDeployed to HuggingFace Spaces",
+    "text": "Technical Stack\n\n\n\n\n\n\nYou do not need to know any of this. It is documented for instructors and for the curious.\n\n\n\n\nAnthropic Claude Haiku 4.5: structured-output language model used by the diagnostic shell\nPydantic: defines the fixed Diagnosis and Response schema in models.py\nGradio: hosts the three-surface shell UI\nHugging Face Spaces: free deployment for the shell",
     "crumbs": [
       "Workshop",
-      "Building Personalized Worked Example Generators with AI"
+      "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory"
     ]
   },
   {
-    "objectID": "workshop/index.html#connection-to-learning-science",
-    "href": "workshop/index.html#connection-to-learning-science",
-    "title": "Building Personalized Worked Example Generators with AI",
-    "section": "Connection to Learning Science",
-    "text": "Connection to Learning Science\nThis workshop demonstrates several evidence-based learning principles:\n\n\n\n\n\n\nNoteMake It Stick Connections\n\n\n\nThis tool addresses multiple strategies from Make It Stick (Brown, III, and McDaniel 2014):\n\nWorked Examples: Reduce cognitive load for novices\nVariation: Practice in different personal contexts\nUnderstanding vs. Familiarity: Personalisation helps distinguish the two\nApplication: Real-world contexts for transfer\n\nSee the ki-lehre-intermediate workshop for deeper exploration of learning science principles.",
+    "objectID": "workshop/index.html#connection-to-the-trilogy",
+    "href": "workshop/index.html#connection-to-the-trilogy",
+    "title": "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory",
+    "section": "Connection to the Trilogy",
+    "text": "Connection to the Trilogy\nThis is the advanced workshop in a three-workshop sequence on AI in education at the BFH Virtuelle Akademie:\n\nThe beginner workshop introduces AI in education broadly.\nThe intermediate workshop establishes cognitive load theory, the offloading-vs-outsourcing distinction, and a diagnostic vocabulary for analysing assignments.\nThis advanced workshop turns that diagnostic vocabulary into a working tool.\n\nIf you have not done the intermediate workshop, this workshop will still work for you, but the theory section will move quickly through the CLT background that workshop establishes more carefully.",
     "crumbs": [
       "Workshop",
-      "Building Personalized Worked Example Generators with AI"
+      "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory"
     ]
   },
   {
     "objectID": "workshop/index.html#get-started",
     "href": "workshop/index.html#get-started",
-    "title": "Building Personalized Worked Example Generators with AI",
+    "title": "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory",
     "section": "Get Started",
-    "text": "Get Started\nReady to begin? Start with the opening activity!",
+    "text": "Get Started\nReady to begin? Start with the opening activity.",
     "crumbs": [
       "Workshop",
-      "Building Personalized Worked Example Generators with AI"
+      "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory"
     ]
   },
   {
@@ -912,7 +1404,7 @@
     "href": "workshop/resources/index.html#learning-science-resources",
     "title": "Resources & Next Steps",
     "section": "Learning Science Resources",
-    "text": "Learning Science Resources\n\nCognitive Load Theory\nNSW CESE Report (2017):\nhttps://education.nsw.gov.au/about-us/education-data-and-research/\ncese/publications/literature-reviews/cognitive-load-theory\n\nAccessible introduction\nPractical implications\nEvidence summary\n\nKey Papers:\n\n(swellerCognitiveLoadProblem1988?)\n\nOriginal worked example effect paper\n\nCooper and Sweller (1987)\n\nSchema construction through worked examples\n\nCordova, D. I., & Lepper, M. R. (1996). Intrinsic motivation and the process of learning. Journal of Educational Psychology, 88(4), 715.\n\nPersonalization and engagement\n\n\n\n\nRelated Workshop\nKI in der Lehre: Intermediate\nhttps://virtuelleakademie.github.io/ki-lehre-intermediate/\n\nDeeper dive into learning science\nMake It Stick strategies\nAI agent design patterns\nPrerequisite for advanced topics"
+    "text": "Learning Science Resources\n\nCognitive Load Theory\nNSW CESE Report (2017):\nhttps://education.nsw.gov.au/about-us/education-data-and-research/\ncese/publications/literature-reviews/cognitive-load-theory\n\nAccessible introduction\nPractical implications\nEvidence summary\n\nKey Papers:\n\nSweller (1988)\n\nOriginal worked example effect paper\n\nCooper and Sweller (1987)\n\nSchema construction through worked examples\n\nCordova, D. I., & Lepper, M. R. (1996). Intrinsic motivation and the process of learning. Journal of Educational Psychology, 88(4), 715.\n\nPersonalization and engagement\n\n\n\n\nRelated Workshop\nKI in der Lehre: Intermediate\nhttps://virtuelleakademie.github.io/ki-lehre-intermediate/\n\nDeeper dive into learning science\nMake It Stick strategies\nAI agent design patterns\nPrerequisite for advanced topics"
   },
   {
     "objectID": "workshop/resources/index.html#extension-ideas",

@@ -1,0 +1,31 @@
+---
+title: "Scenario Pack"
+---
+
+Six discipline scenarios for the Build block. Each provides:
+
+- A **teaching task**: a short instruction the student was responding to
+- **Three calibrated student responses**: each tagged with the `load_signal` it is meant to exemplify, plus a short note on why it falls in that category
+
+The calibration is your answer key for Lab 4: when you test your prompt against a scenario, the tool should produce the tagged `load_signal` for at least two of the three responses.
+
+## The scenarios
+
+- **[Nursing: Warfarin and INR](nursing.qmd)** — pharmacology decision under uncertainty
+- **[Education: Critique a quiz question](education.qmd)** — assessment design analysis
+- **[Business: Bakery pricing](business.qmd)** — pricing strategy with elasticity
+- **[Social work: Missed appointments](social-work.qmd)** — case engagement assessment
+- **[Engineering: Stale-data bug](engineering.qmd)** — software diagnosis
+- **[Statistics: Interpreting r = 0.3](statistics.qmd)** — interpreting effect sizes
+
+## Why calibrated responses
+
+The calibration is a teaching device, not a claim that a response can only mean one thing. Real student responses are messy and often blend signals. The calibrated responses are constructed to lean strongly toward one `load_signal` so that you can:
+
+1. Test whether your prompt distinguishes that signal from the others
+2. Iterate when it does not
+3. Notice the cases where two signals genuinely co-occur (those will be your discipline's hardest diagnostic edges)
+
+::: {.callout-pro-tip icon=false}
+The scenario you pick determines which three of the five `load_signal` categories you will exercise. The combinations are deliberate: each scenario covers categories that are particularly distinguishable in that discipline's idiom.
+:::

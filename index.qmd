@@ -23,33 +23,31 @@ bibliography: ./bibliography.bib
 
 ## Workshop Overview
 
-A 3-hour hands-on workshop on creating AI-powered educational tools grounded in Cognitive Load Theory [@swellerCognitiveLoadProblem1988].
+A 3-hour workshop in which participants build a CLT-grounded diagnostic AI tool for their own discipline. Without writing code.
+
+You will iterate a system prompt against a fixed cognitive-load-theory taxonomy. The tool reads a student response (written work, a short answer, an explanation) and returns a structured diagnosis plus a targeted intervention. The categories are fixed; the discipline-specific cues are yours.
 
 ### What You'll Do
 
-You'll **modify** a working template to understand how to create personalized worked example generators:
+- **See the diagnostic shell**: a working tool that classifies student responses into five CLT-grounded categories
+- **Pick a discipline scenario** from a set of six, each with three calibrated student responses
+- **Write a system prompt** that teaches the LLM how the CLT taxonomy looks in your discipline
+- **Test, iterate, export**: run on calibrated responses, refine, then export a portable prompt for use in any LLM interface
 
-- **See the demo:** Experience a complete application with 3 domains and 16 concepts
-- **Study the code:** Understand how Pydantic structures AI outputs
-- **Modify and extend:** Add concepts to a simplified starter template (1 domain, 3 concepts)
-- **Design applications:** Plan how to apply this pattern to your own teaching
+### The Tool
 
-### The Demo Application
+A hosted diagnostic shell with three surfaces: a system prompt editor, a test pane that runs against real student responses, and an export feature that turns your prompt into a portable recipe usable in Microsoft Copilot, ChatGPT, or Claude.
 
-The complete demo generates personalized worked examples in three domains:
-
-- **Programming (Python):** For loops, list comprehensions, functions, etc.
-- **Health Sciences (Statistics):** Correlation, t-tests, confidence intervals, etc.
-- **Agronomy:** Yield prediction, NPK optimization, growing degree days, etc.
+The output schema is **fixed**: five `load_signal` categories (intrinsic_overload, extrinsic_distractor, germane_disengagement, schema_gap, active_misconception) and five `intervention` categories. Participants do not edit the schema. They iterate the prompt.
 
 ### Learning Objectives
 
 By the end of this workshop, you will:
 
-1. **Understand** the worked example effect and personalization principle from Cognitive Load Theory
-2. **Modify** a working template to add your own concepts (in your browser)
-3. **Recognize** the pattern for building educational AI tools with structured outputs
-4. **Design** extensions for your own teaching context
+1. **Identify** five CLT-grounded diagnostic signals in student work, derived from cognitive load theory and schema-acquisition research
+2. **Write** a system prompt that instructs an LLM to apply those categories in your discipline
+3. **Calibrate** a diagnostic prompt against tagged student responses to know where to trust it and where to second-guess it
+4. **Produce** a portable prompt recipe usable in any LLM interface you have access to
 
 ### Get Started
 

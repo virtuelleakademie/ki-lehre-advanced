@@ -1,175 +1,78 @@
 ---
-title: "Demo: The Complete Application"
+title: "Demo: The Diagnostic Shell in Action"
 ---
 
 ::: {.callout-schedule icon=false}
-## Duration: 20 minutes
+## Duration: 15 minutes
 :::
 
-## What You'll See
+## What you'll see
 
-In this demonstration, you'll explore a complete AI-powered personalised worked example generator. The application demonstrates how AI can create customized learning materials tailored to individual student contexts.
+In this demonstration, the instructor walks through the diagnostic shell using one of the calibrated scenarios. The aim is to show how the three surfaces of the shell work together: a system prompt that encodes how the CLT taxonomy applies in a discipline, a test pane that exercises the prompt against real student responses, and an export feature that turns your work into a portable recipe.
 
-**What makes this interesting:**
+## Open the shell
 
-- Generates examples across 3 different domains (Programming, Health Sciences, Agronomy)
-- Personalizes content based on student interests, goals, and background
-- Creates unique worked examples on demand
-
----
-
-## Try the Interactive Demo
-
-Explore the complete application below. You can interact with it directly or open it in a new window for a larger view.
-
-[Open demo in new window](https://awellis-worked-example-weaver-app.hf.space){target="_blank" .btn .btn-primary}
+[Open the diagnostic shell in a new tab](https://awellis-diagnostic-tool-shell.hf.space){target="_blank" .btn .btn-primary}
 
 <iframe
-	src="https://awellis-worked-example-weaver-app.hf.space"
+	src="https://awellis-diagnostic-tool-shell.hf.space"
 	frameborder="0"
-	width="850"
-	height="450"
+	width="100%"
+	height="700"
+	style="border: 1px solid #ddd; border-radius: 4px;"
 ></iframe>
 
----
+## What the instructor will demonstrate
 
-## How to Explore the Demo
+### 1. The fixed schema (2 minutes)
 
-### Step 1: Examine the Interface
+Open the **Output schema (fixed, not editable)** accordion below the prompt editor. The five `load_signal` categories and five `intervention` categories are visible. These are the cognitive-load-theory taxonomy from the theory section, rendered as data fields. They are not editable: this is the deliberate design choice the workshop turns on.
 
-Notice the clean, simple layout:
+### 2. The starter system prompt (3 minutes)
 
-- Learner profile section (name, domain, interests, goals)
-- Concept selection dropdown
-- Generate button
-- Display area for the personalized example
+Read through the starter system prompt. Notice three things:
 
-This interface was built using Marimo, a reactive Python notebook framework.
+- It names each `load_signal` and gives a generic cue for what it looks like.
+- It maps each diagnosis to a default intervention.
+- It is generic on purpose: it works across disciplines but says nothing specific about any one of them. Your work in the Build block will be to localise it.
 
-### Step 2: Try Different Learner Profiles
+### 3. Test on a calibrated response (5 minutes)
 
-**Example 1: Programming Domain**
+Pick the **Nursing: Warfarin and INR** scenario. Three calibrated student responses are loaded; the instructor will run **Response B** (the `active_misconception`: "high INR means thick blood, increase the dose").
 
-Create a profile like this:
+Watch the structured output:
 
-```
-Name: Sarah
-Domain: Programming (Python)
-Specific interest: Web development
-Hobby/passion: Baking
-Goal: Build a recipe sharing website
-Level: Beginner
-```
+- `load_signal`: should report `active_misconception`
+- `evidence`: should quote or paraphrase the wrong-model line
+- `severity`: usually `fundamental` for an inverted dosing model
+- `intervention`: should default to `replace_misconception`
+- `content`: should be specific corrective text
 
-Select a concept (e.g., "For Loops") and click Generate.
+The diagnosis is grounded in the schema. The flexibility is in the prompt and the discipline-specific cues.
 
-**What to notice:**
+### 4. Edit the prompt, watch behaviour change (3 minutes)
 
-- The example uses baking contexts (recipes, ingredients)
-- Code examples relate to her recipe website goal
-- The worked solution is complete and step-by-step
-- Practice suggestions continue the baking theme
+The instructor will add one nursing-specific cue to the system prompt (e.g., "in pharmacology contexts, watch for inverted dose-response models — students sometimes invert the relationship between a lab value and the drug it monitors"). Re-run the same response and observe how the diagnosis becomes more confident or the `domain_notes` becomes more useful.
 
-**Example 2: Health Sciences Domain**
+This is what you will do in Lab 3, in your own discipline.
 
-Try a different profile:
+### 5. The export (2 minutes)
 
-```
-Name: Marcus
-Domain: Health Sciences (Statistics)
-Specific interest: Sports performance
-Hobby/passion: Running
-Goal: Improve marathon time
-Level: Intermediate
-```
+Open the **Export portable prompt** section. The markdown block you see contains your full prompt plus the schema description, ready to paste into Microsoft Copilot, ChatGPT, or Claude.ai. The instructor will copy it into a separate Copilot or ChatGPT tab and run it on the same nursing response. Same diagnosis, different tool.
 
-Select "Linear Regression" and generate.
+## What this demo is showing
 
-**What to notice:**
-
-- Same tool, completely different domain
-- Examples now use running and race data
-- Statistical concepts applied to sports performance
-- Personalization adapts to the new context
-
-**Example 3: Agronomy Domain**
-
-If you have time, try:
-
-```
-Name: Elena
-Domain: Agronomy
-Specific interest: Coffee farming
-Hobby/passion: Sustainability
-Goal: Increase yield sustainably
-Level: Beginner
-```
-
-This demonstrates the breadth: 3 domains, 16 concepts total.
-
----
-
-## What Makes This Powerful?
-
-### Why This Matters
-
-**The traditional challenge:**
-
-Creating personalized learning materials is time-intensive. Writing a single customized worked example takes 15-30 minutes. For a class of 20 students learning 16 different concepts, you'd need to create 320 unique examples. This is simply not feasible for most educators.
-
-**The AI-powered solution:**
-
-The application generates personalized examples in 30-60 seconds. Each student gets content tailored to their interests and goals, and the approach scales to any number of learners.
-
-### How It Works
-
-The application follows a simple three-step process:
-
-1. **Collect context:** Learner fills in their profile (interests, goals, background)
-2. **Generate example:** AI creates a worked example tailored to that specific learner
-3. **Display result:** The personalized example appears with complete solution steps
-
-Behind the scenes, the AI uses the learner's context to weave familiar scenarios into the teaching content, making abstract concepts more concrete and relatable.
-
-### Domains and Concepts
-
-**Current coverage:**
-
-- **Programming (Python):** For loops, list comprehensions, dictionaries, functions, string formatting (and more)
-- **Health Sciences (Statistics):** Correlation, mean/SD, t-tests, confidence intervals, linear regression (and more)
-- **Agronomy:** Yield prediction, NPK optimization, growing degree days, water efficiency
-
-The pattern can extend to any domain where worked examples support learning.
-
----
-
-## Reflection Questions
-
-::: {.callout-reflect icon=false}
-## Think About
-
-Consider these questions as you explore the demo:
-
-1. What aspects of the personalization impressed you most?
-2. How could personalized worked examples benefit YOUR students?
-3. What domain or subject area would be relevant for your teaching context?
-4. What types of student interests or goals could you leverage for personalization?
-
-**Key insight:** AI-powered tools can scale individualized instruction in ways that were previously impractical. The pattern demonstrated here (structured data + AI generation + interactive UI) can apply across many educational contexts.
+::: {.callout-pro-tip icon=false}
+- The **structure** of a diagnostic AI tool can be fixed once and reused across disciplines, *if* the structure is grounded in something the disciplines share (like CLT).
+- The **discipline-specific intelligence** lives in the system prompt, not in code or data structures.
+- The **portable prompt export** detaches your work from any specific deployment — your Monday-morning artifact does not depend on our hosting.
 :::
 
----
+::: {.callout-reflect icon=false}
+## Watch for
 
-## Pedagogical Foundation
+- How much of the diagnostic feels like CLT, and how much feels like the LLM's general intelligence? Where would you want more of one and less of the other?
+- Where does the structured output help, and where does it constrain? Notice your own pull toward "but my discipline needs an extra field." We will return to that pull at the end.
+:::
 
-This tool is grounded in **Cognitive Load Theory** research:
-
-**Worked Example Effect:** Novice learners benefit more from studying complete solutions than from problem-solving alone (effect size 0.52).
-
-**Personalization Principle:** Familiar contexts reduce extraneous cognitive load, allowing learners to focus on the target concept rather than decoding unfamiliar scenarios.
-
-By combining these principles with AI generation, we can provide:
-
-- High-quality worked examples (supporting novice learning)
-- Personalized to individual contexts (reducing cognitive load)
-- At scale (reaching all learners, not just a privileged few)
+**Next:** [Build](../build/index.qmd)

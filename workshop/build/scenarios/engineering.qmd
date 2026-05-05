@@ -1,0 +1,37 @@
+---
+title: "Engineering: Stale-data bug"
+---
+
+::: {.callout-note icon=false}
+**Domain:** Technical / engineering — software diagnosis
+:::
+
+## Teaching task
+
+> A web form sometimes shows old data after a user submits an update. The bug only happens for some users. Where would you start investigating, and why?
+
+## Calibrated student responses
+
+### Response A — `active_misconception`
+
+> It's a database issue. The database is not being updated when the form is submitted. I would look at the database write logic in the code and find where the SQL UPDATE statement is failing. The data is clearly not being saved.
+
+::: {.callout-feedback}
+**Why this is `active_misconception`:** the student commits to one cause (database write failure) on the basis of a coherent but wrong model. They ignore the "sometimes" and "some users" clues that point at caching, session, or CDN layers.
+:::
+
+### Response B — `schema_gap`
+
+> I'd check the HTML form to make sure all the fields have the right names, and verify the CSS isn't hiding anything. Maybe the form isn't displaying the new data correctly because of a styling issue or the form fields aren't connected properly to the submit button.
+
+::: {.callout-feedback}
+**Why this is `schema_gap`:** the student reasons from front-end-only concepts (HTML, CSS, form fields) and never reaches for the relevant prerequisite concept (caching, request-response state, server-side data flow). The schema needed for this kind of bug is not present.
+:::
+
+### Response C — `intrinsic_overload`
+
+> The bug could be caused by: browser caching, CDN caching, server-side caching, session-state desync, replica lag in the database, an outdated build deployed to some servers, race conditions in the request handler, eventual consistency in distributed storage, a stale local-storage value, a service worker serving cached responses, missing cache-control headers, A/B test bucket assignment, or a load balancer routing some users to an older server version. I would investigate all of these.
+
+::: {.callout-feedback}
+**Why this is `intrinsic_overload`:** the student names many real and plausible causes but cannot strategise. The interactivity between possibilities exceeds working-memory and the response stops at enumeration rather than producing a triage plan.
+:::

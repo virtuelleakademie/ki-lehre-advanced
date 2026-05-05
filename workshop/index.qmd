@@ -1,6 +1,6 @@
 ---
-title: "Building Personalized Worked Example Generators with AI"
-subtitle: "Demonstrating Cognitive Load Theory Principles through Structured AI Outputs"
+title: "Building Diagnostic AI Tools, Grounded in Cognitive Load Theory"
+subtitle: "A 3-hour workshop on implementing CLT principles in a working diagnostic tool, without writing code"
 format:
   html:
     toc: true
@@ -9,204 +9,137 @@ format:
 
 ## Workshop Overview
 
-Welcome to this 3-hour workshop on building AI-powered educational tools grounded in Cognitive Load Theory. You'll learn a pattern for creating personalized worked examples by modifying a working template.
+A 3-hour workshop in which participants build a CLT-grounded diagnostic AI tool for their own discipline. The output schema is fixed; participants iterate the system prompt. They never write code, never edit data structures, and never deploy anything themselves.
+
+Participants leave with two artifacts: a configured tool URL with their prompt baked in, and a portable prompt recipe usable in Microsoft Copilot, ChatGPT, or Claude.
 
 ### What You'll Do
 
-1. **See a complete demo:** Experience the full complex application (3 domains, 16 concepts)
-2. **Study the code:** Understand how Pydantic and Marimo create structured AI outputs
-3. **Modify a template:** Add concepts to a simplified version (1 domain, 3 concepts)
-4. **Design extensions:** Plan how to apply this to YOUR teaching
+1. **See the diagnostic shell** in action: a working tool that classifies student responses into five CLT-grounded categories
+2. **Pick a discipline scenario** from a set of six, each with three calibrated student responses
+3. **Write a system prompt** that teaches the LLM how the CLT taxonomy shows up in your discipline
+4. **Test, iterate, export**: run on calibrated responses, refine, then export a portable prompt for any LLM interface
 
 ### What You'll Build
 
-You'll **modify** a working **Personalised Worked Example Generator** (in your browser) that:
+A diagnostic tool that takes a student response (written work, a short answer, an explanation) and returns:
 
-- Collects learner profile information (name, domain, interests, hobbies, goals, skill level)
-- Generates customised worked examples in ONE domain (Programming)
-- Weaves learner interests naturally into educational content
-- Provides step-by-step solutions with personal relevance
-- Runs in your browser (no installation required)
+- A `Diagnosis` containing one of five `load_signal` categories, the evidence for that classification, a severity rating, and discipline-specific notes
+- A `Response` containing one of five `intervention` categories and a concrete piece of text to say to the student
 
-**Note:** The demo shows all 3 domains with 16 concepts. You'll work with a SIMPLIFIED version (1 domain, 3 concepts) and add 1-2 more concepts to learn the pattern.
+The five `load_signal` categories are derived from cognitive load theory and schema-acquisition research: `intrinsic_overload`, `extrinsic_distractor`, `germane_disengagement`, `schema_gap`, `active_misconception`. They are fixed across all disciplines. Your discipline expertise lives in the system prompt.
 
 ### Learning Objectives
 
 By the end of this workshop, you will:
 
-1. **Understand** the worked example effect and personalisation principle from Cognitive Load Theory
-2. **Modify** a working template to add your own concepts (in your browser)
-3. **See** how Pydantic ensures structured outputs from AI
-4. **Recognise** the pattern for building educational AI tools
-5. **Design** extensions for your own teaching context
+1. **Identify** five CLT-grounded diagnostic signals in student work
+2. **Match** each diagnostic signal to a corresponding intervention strategy
+3. **Write** a system prompt that instructs an LLM to apply those categories in your discipline
+4. **Calibrate** a diagnostic prompt against tagged student responses to know where to trust it and where to second-guess it
+5. **Produce** a portable prompt recipe usable in any LLM interface you have access to
 
 ### Pedagogical Foundation
 
-This workshop is grounded in **Cognitive Load Theory** [@swellerCognitiveLoadProblem1988], specifically:
+This workshop applies **Cognitive Load Theory** [@swellerCognitiveLoadProblem1988] (with the updated germane-processing framing in Sweller, Ayres and Kalyuga 2019) and schema-acquisition research [@kalyugaExpertiseReversalEffect2009] to the practical problem of reading student work.
 
-**The Worked Example Effect:**
+The five diagnostic categories correspond to the cognitive architecture CLT describes:
 
-> "A 'worked example' is a problem that has already been solved for the learner, with every step fully explained and clearly shown. The 'worked example effect' is the widely replicated finding that novice learners who are given worked examples to study perform better on subsequent tests than learners who are required to solve the equivalent problems themselves."
->
-> @centreforeducationstatisticsandevaluationCognitiveLoadTheory2023
+- `intrinsic_overload` and `extrinsic_distractor` map onto the classical intrinsic and extraneous load types
+- `germane_disengagement` flags the absence of germane processing
+- `schema_gap` and `active_misconception` extend the framework to two distinct schema-acquisition failure modes (absent schema vs. wrong schema)
 
-**Why It Works:**
-
-- Unguided problem-solving overloads working memory
-- Studying worked examples reduces cognitive load
-- More working memory capacity available for schema construction
-- Better learning outcomes for novices
-
-**Our Addition - Personalization:**
-
-- Familiar contexts reduce extraneous cognitive load
-- Personal relevance increases germane load (motivation)
-- Better schema formation and transfer
+The decomposition matters because each category implies a distinct intervention. Diagnostic precision drives instructional choice.
 
 ## Workshop Schedule
 
 ::: {.callout-schedule icon=false}
-## 3-Hour Schedule
+## 3-hour schedule
 
 | Time | Duration | Section | Activity |
 |------|----------|---------|----------|
-| 9:00-0:10 | 10 min | [**Opening**](opening/index.qmd) | Think-pair-share: Learning from examples |
-| 9:10-9:40 | 30 min | [**Theory**](theory/index.qmd) | Cognitive Load Theory principles |
-| 9:40-10:00 | 20 min | [**Demo**](demo/index.qmd) | See the complete application (all 3 domains) |
-| 10:00-11:30 | 90 min | [**Build**](build/index.qmd) | Hands-on: Modify starter template, add concepts |
-| 11:30-11:50 | 15-20 min | [**Extend**](extend/index.qmd) | Choose: Discussion or Gallery Walk |
-<!-- | 12:00-12:10 | 10 min | [**Resources**](resources/index.qmd) | Links, documentation, next steps | -->
+| 0:00-0:10 | 10 min | [**Opening**](opening/index.qmd) | Think-pair-share: a misdiagnosis you remember |
+| 0:10-0:40 | 30 min | [**Theory**](theory/index.qmd) | The CLT-grounded diagnostic taxonomy |
+| 0:40-0:55 | 15 min | [**Demo**](demo/index.qmd) | The diagnostic shell walked through with a calibrated example |
+| 0:55-2:50 | 115 min | [**Build**](build/index.qmd) | Pick scenario, four labs against the shell, pair-test (10-min break included) |
+| 2:50-3:00 | 10 min | [**Closing**](diskussion/index.qmd) | One Monday commitment |
 :::
+
+The Build block has its own internal structure: 10 min picking a scenario, four labs of 15 to 25 min each, a 10-min break, and 15 min of pair-testing. See the [Build page](build/index.qmd) for the lab-by-lab breakdown.
 
 ## Prerequisites
 
 ### Required Knowledge
 
-- **Basic Python**: lists, dictionaries, functions (reading code, not writing from scratch)
-- **No statistics background required**
-- **No prior AI/ML experience needed**
+- **None technical.** Participants do not write code, edit data structures, or run notebooks.
+- **Some teaching experience** in any discipline. The workshop's central activity is reading a student response and asking what cognitive signal it reveals.
 
 ### Materials Required
 
 ::: {.callout-setup icon=false}
-## Setup Required Before Workshop
-
-**That's it. No installation needed.**
+## Setup before the workshop
 
 What you need:
 
-1. **Laptop with modern browser**
-2. **Internet connection** (workshop uses HuggingFace Spaces)
-3. **Optional:** Notebook for reflecting on how you'd apply this to your teaching
+1. A laptop with a modern browser
+2. An internet connection (the diagnostic shell runs on Hugging Face Spaces)
+3. Optional but useful: a notebook or document where you can paste your final exported prompt
 
-**No Python installation. No API keys. No troubleshooting.**
+What you do **not** need:
 
-Everything runs in your browser via an interactive web application.
+- Python, an IDE, or a development environment
+- An API key for any LLM
+- A Hugging Face account
+- Any preparation reading
 :::
 
-
-## Workshop Structure: A Worked Example Approach
+## Workshop Structure: An Applied Worked Example
 
 ::: {.callout-important}
 ## This Workshop IS a Worked Example
 
-This workshop **demonstrates the principle it teaches** by being structured as a worked example itself.
+This workshop demonstrates the principle it teaches by being structured as a worked example of CLT-grounded design.
 
 **Traditional approach** (problem-solving):
-```
-Give you requirements → You struggle to build → Instructor helps when stuck
-```
-*High cognitive load, potential frustration, pattern harder to see*
+
+> Define your tool's data structures, design the schema, implement the LLM call, build a UI, deploy.
+
+This is too much for a 3-hour workshop and not what most participants need to know.
 
 **This approach** (worked example):
-```
-Show complete solution → Study each component → Explain design choices → Apply to your domain
-```
-*Lower cognitive load, clearer pattern, better transfer*
 
-**Why?** Most of you are novices at building educational AI tools. Research shows studying worked examples is more effective than unguided problem-solving for novices.
+> The structure is given. The intelligence lives in the prompt. Your work is making the structure speak your discipline's language.
+
+**Why?** The decomposition (theory provides structure, practitioner provides cues) is the move we want participants to take back to their teaching with AI. Doing it once at workshop scale lets participants feel the leverage.
 :::
 
-### The Worked Example Approach
+::: {.callout-pro-tip}
+## Meta-learning moment
 
-This workshop follows the worked example pattern:
-
-1. **ACTIVATE** (Opening): Prior knowledge activation
-2. **PRESENT** (Theory + Demo): See the complete solution
-3. **STUDY** (Build): Examine and modify the code
-4. **UNDERSTAND** (Extend): Connect to pedagogical applications
-5. **TRANSFER** (Resources): Apply to your own teaching
-
-### Fading Scaffolding
-
-Notice how support gradually decreases:
-
-- **Theory/Demo**: Full explanation, complete working application shown
-- **Build**: Scaffolded practice---modify template, add concepts
-- **Extend**: Independent design---plan your own extensions
-- **After workshop**: Transfer to new domains on your own
-
-
-::: {.callout-tip}
-## Meta-Learning Moment
-
-**As you progress through today, notice:**
-
-- When does studying the complete solution help vs. confuse?
-- When do you want to start experimenting on your own?
-- How does seeing the "big picture" first affect your understanding?
-
-These insights will inform how you design worked examples for your students.
+As you progress through today, notice when the **fixed schema** is helping you think and when it feels constraining. Notice the categories you found easy to instantiate in your discipline and the ones that required real effort. The categories that required effort are usually the ones your teaching most needs help diagnosing.
 :::
 
 ## Technical Stack
 
-### Core Technologies
-
-- **[OpenAI GPT-5.1](https://platform.openai.com/docs/guides/latest-model):** Latest language model with structured outputs
-- **[Pydantic](https://pydantic.dev):** Data validation using Python type hints
-- **[Gradio](https://gradio.app):** Web interface for the production tool
-- **[Marimo](https://marimo.io):** Reactive Python notebooks for interactive exploration
-- **[HuggingFace Spaces](https://huggingface.co/spaces):** Free deployment platform
-
-### Two Applications in This Workshop
-
-This workshop uses **two different applications** with distinct purposes:
-
-**1. Interactive Exploration App (Marimo)**
-
-- 5 hands-on labs for exploring concepts
-- Embedded throughout this website
-- Experiment with prompt design, personalization, data models
-- Learn by doing, no installation required
-
-**2. Production Tool (Gradio)**
-
-- Complete deployable worked example generator
-- Deployed to HuggingFace Spaces
-
-
-## Connection to Learning Science
-
-This workshop demonstrates several evidence-based learning principles:
-
 ::: {.callout-note icon=false}
-## Make It Stick Connections
-
-This tool addresses multiple strategies from *Make It Stick* [@brownMakeItStick2014]:
-
-1. **Worked Examples:** Reduce cognitive load for novices
-2. **Variation:** Practice in different personal contexts
-3. **Understanding vs. Familiarity:** Personalisation helps distinguish the two
-4. **Application:** Real-world contexts for transfer
-
-See the [ki-lehre-intermediate workshop](https://virtuelleakademie.github.io/ki-lehre-intermediate/) for deeper exploration of learning science principles.
+You do not need to know any of this. It is documented for instructors and for the curious.
 :::
+
+- **[Anthropic Claude Haiku 4.5](https://docs.claude.com)**: structured-output language model used by the diagnostic shell
+- **[Pydantic](https://pydantic.dev)**: defines the fixed `Diagnosis` and `Response` schema in `models.py`
+- **[Gradio](https://gradio.app)**: hosts the three-surface shell UI
+- **[Hugging Face Spaces](https://huggingface.co/spaces)**: free deployment for the shell
+
+## Connection to the Trilogy
+
+This is the **advanced** workshop in a three-workshop sequence on AI in education at the BFH Virtuelle Akademie:
+
+- The [**beginner**](https://virtuelleakademie.github.io/ki-lehre-beginner/) workshop introduces AI in education broadly.
+- The [**intermediate**](https://virtuelleakademie.github.io/ki-lehre-intermediate/) workshop establishes cognitive load theory, the offloading-vs-outsourcing distinction, and a diagnostic vocabulary for analysing assignments.
+- This **advanced** workshop turns that diagnostic vocabulary into a working tool.
+
+If you have not done the intermediate workshop, this workshop will still work for you, but the theory section will move quickly through the CLT background that workshop establishes more carefully.
 
 ## Get Started
 
-Ready to begin? Start with the [opening activity](opening/index.qmd)!
-
-
-
-
+Ready to begin? Start with the [opening activity](opening/index.qmd).

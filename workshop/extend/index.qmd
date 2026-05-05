@@ -1,70 +1,81 @@
 ---
-title: "Extend: Design Your Extensions"
+title: "Extend: From Tool to Practice"
 ---
 
 ::: {.callout-schedule icon=false}
-## Duration: 15-20 minutes
+## Duration: 15 minutes
 :::
-
 
 ## Purpose
 
-In this final workshop segment, you will:
+You now have a configured tool, a portable prompt, and a calibration record. This block is for stepping back and asking what you actually have, where it serves your teaching, and where it does not.
 
-- Reflect on what you've learned
-- Design extensions for YOUR teaching context
-- Share ideas with community
+This is reflection and design thinking, not coding.
 
-This is _not_ coding, it's design thinking and pedagogical reflection.
+## Question 1: tool versus recipe
 
+::: {.callout-individual icon=false}
+## Think (3 minutes)
 
-## Activity Instructions
+You leave this workshop with two artifacts of different kinds:
 
-::: {.callout-activity-individual icon=false collapse="true"}
-## Think Individually (3-5 minutes)
+- **The deployed tool**: the shell URL with your prompt baked in. Anyone with the link can run diagnostics through your prompt against student responses.
+- **The portable recipe**: the exported markdown block. Pastes into any LLM you have institutional access to, including Microsoft Copilot.
 
-Reflect on these questions:
+When does each one serve you better?
 
-- What subject do you teach?
-- Which 3-5 concepts from your domain could work as personalized examples?
-- What's ONE feature that would make this tool more useful for your students?
-- What's one barrier you foresee to using this?
-
-Write down your ideas.
+| Situation | Tool | Recipe | Why |
+|---|---|---|---|
+| Quick diagnostic on a single student response in office hours | | | |
+| Routine triage of a class set of short answers | | | |
+| Sharing the diagnostic approach with a colleague | | | |
+| Working without a network connection | | | |
+| Working with sensitive student data that cannot leave the institution | | | |
 :::
 
-::: {.callout-activity-group icon=false collapse="true"}
-## Share and Discuss (10-15 minutes)
+::: {.callout-pair icon=false}
+## Discuss (4 minutes)
 
-**Option 1: Small Group Discussion**
+Compare with your neighbour. Where you marked different cells, was the difference about your discipline, your institutional context, or your personal workflow?
 
-Form groups of 3-4 and discuss:
-
-- Your domain and which concepts might work
-- One practical challenge to using this tool
-- One idea for extending or improving it
-
-**Option 2: Gallery Walk**
-
-On sticky notes or paper, write:
-
-1. Your domain + 3-5 key concepts
-2. One feature you'd add
-3. One barrier you foresee
-
-Post your notes on the wall, then walk around and place checkmarks next to ideas you find interesting.
+The answer "the recipe is always better than the tool" is a perfectly defensible position. So is the opposite. The interesting work is in articulating *why* one is better for *you*.
 :::
 
+## Question 2: the load signal that matters most
 
-## Wrap-Up (5 minutes)
+::: {.callout-individual icon=false}
+## Think (3 minutes)
+
+Of the five `load_signal` categories, which one do you most need to be able to detect reliably in your discipline?
+
+Reasons it might matter most:
+
+- It is the most common failure mode among your students
+- It is the one you are most likely to misdiagnose without help
+- It is the one whose intervention your teaching currently lacks
+- It is the one that distinguishes "still learning" from "needs a different approach"
+
+Pick the category and write one sentence on why.
+:::
+
+::: {.callout-group icon=false}
+## Share (5 minutes)
+
+Volunteers share their pick and reasoning. The instructor will note which categories cluster across the room. The clustering itself is informative: it shows where this audience's teaching most needs diagnostic help.
+:::
+
+## What you take back
 
 ::: {.callout-checkpoint icon=false}
-## Final Reflections
+## The minimum useful thing
 
-**Key questions:**
+If you do nothing else after this workshop, you have:
 
-1. "Who will try using this type of tool with students?"
-2. "What's your next step?"
-3. "What questions remain?"
+1. **A diagnostic vocabulary**: five categories that name what is happening in a student response, grounded in cognitive load theory and schema-acquisition research.
+2. **A portable prompt**: a markdown recipe you can paste into Microsoft Copilot, ChatGPT, or Claude on Monday morning, and use on real student work.
+3. **A calibration record**: knowledge of which signals your prompt distinguishes reliably and which it does not, so you know where to trust the tool and where to second-guess it.
 
+The vocabulary is the point. The tool is the medium.
 :::
+
+**Next:** [Closing](../diskussion/index.qmd)

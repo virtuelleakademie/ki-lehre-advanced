@@ -1,418 +1,227 @@
 ---
-title: "Build: Interactive Exploration Labs"
+title: "Build: Implementing CLT in a Diagnostic Tool"
 ---
 
 ::: {.callout-schedule icon=false}
-## Duration: 90 minutes
+## Duration: 115 minutes (including a 10-minute break)
 
-- Lab 1: Prompt Design (15 min)
-- Lab 2: Personalization A/B Test (15 min)
-- Lab 3: Data Model Designer (20 min)
-- Lab 4: Parameter Playground (10 min)
-- Lab 5: CLT Analyzer (20 min)
-- Final Reflection (10 min)
+- Pick scenario (10 min)
+- Lab 1: Domain examples of each load type (15 min)
+- **Break (10 min)**
+- Lab 2: Map diagnosis to intervention (15 min)
+- Lab 3: Write the diagnostic prompt (25 min)
+- Lab 4: Test, refine, export (25 min)
+- Pair-test and gallery (15 min)
 :::
 
+## What you are building
 
-## Learning Objectives
+A working AI tool that takes a student response (written work, a short answer, an explanation) and returns a CLT-grounded diagnosis plus a targeted intervention. The output structure is fixed: it is the cognitive-load-theory taxonomy from the theory section of this workshop.
 
-By the end of this section, you will:
+Your job is not to design the tool's structure. Your job is to **instruct an LLM how to apply that fixed structure in your discipline**. The work happens in the system prompt.
 
-1. **Experience** how prompt design shapes learning outcomes
-2. **Feel** the cognitive load difference between generic and personalized examples
-3. **Design** the data structure for pedagogically sound worked examples
-4. **Understand** how model parameters affect educational quality
-5. **Evaluate** generated examples using CLT criteria
+::: {.callout-pro-tip icon=false}
+## What "developing" means here
 
-::: {.callout-important}
-## A Different Kind of "Building"
+You will not write Python. You will not edit a notebook. You will not deploy an app. The "developing" experience is something more focused: prompt craft against a fixed CLT-grounded structure, with immediate feedback from a real LLM running on real student artifacts.
 
-**This isn't about writing code.** You won't become a Python developer in 90 minutes.
-
-**This is about understanding design principles.** You'll explore the key decisions that make AI educational tools effective or ineffective.
-
-**Why this matters:** When you understand the principles, you can:
-
-- Critically evaluate existing AI tools
-- Request informed modifications from developers
-- Design tools grounded in learning science
-- Adapt templates to your teaching context
+If at the end of the workshop you can sit at any LLM interface (Copilot, ChatGPT, Claude.ai) and produce reliable diagnoses-and-responses for student work in your discipline, you have built something useful.
 :::
 
+## The diagnostic shell
 
-## The Interactive Exploration App
-
-Below is a **live marimo notebook** with 5 hands-on labs. You'll experiment with the design decisions that shape AI educational tools.
-
-**How to use it:**
-
-- Scroll through the labs in order
-- Fill in text fields with YOUR information
-- Click buttons to generate examples
-- Compare results and reflect on what you notice
-
-[Open in new window](https://awellis-worked-example-weaver.hf.space){target="_blank" .btn .btn-primary}
+[Open the shell in a new tab](https://awellis-diagnostic-tool-shell.hf.space){target="_blank" .btn .btn-primary}
 
 <iframe
-	src="https://awellis-worked-example-weaver.hf.space"
+	src="https://awellis-diagnostic-tool-shell.hf.space"
 	frameborder="0"
 	width="100%"
-	height="600"
+	height="700"
 	style="border: 1px solid #ddd; border-radius: 4px;"
 ></iframe>
 
+The shell has three surfaces: a **system prompt editor** (left), a **test pane** (right) where you pick a scenario and run the diagnostic, and an **export portable prompt** section (bottom). The output schema is documented in the collapsed accordion below the prompt editor.
 
-## Lab 1: Prompt Design Laboratory (15 minutes)
+## Pick your scenario (10 minutes)
 
-### What You'll Explore
+::: {.callout-individual icon=false}
+## Choose one of the six scenarios
 
-**Learning Question:** How does prompt engineering affect the quality of worked examples?
+Six discipline scenarios are loaded in the shell's scenario picker. Each provides a teaching task and three calibrated student responses, each exemplifying a different `load_signal` category.
 
-### Instructions
+- **Nursing**: Warfarin and INR
+- **Education**: Critique a quiz question
+- **Business**: Bakery pricing
+- **Social work**: Missed appointments
+- **Engineering**: Stale-data bug
+- **Statistics**: Interpreting r = 0.3
 
-1. **Read both prompts** in the app:
-   - Basic Prompt (no pedagogical grounding)
-   - CLT-Grounded Prompt (reduces cognitive load)
+**Pick the scenario closest to your discipline.** If none is close, pick the scenario whose teaching task most resembles a real moment in your teaching: a moment when you would benefit from a quick read on what a student response reveals.
 
-2. **Click "Generate Both Examples"**
-
-3. **Compare the results:**
-   - Which problem is clearer and more specific?
-   - Which solution breaks down steps better?
-   - Which explanation helps you understand WHY, not just WHAT?
-
-### Key Insight
-
-**The prompt IS your pedagogical design encoded in language.**
-
-Every word in your prompt shapes the language model's output. Generic prompts produce generic examples. Pedagogically grounded prompts produce learning-focused examples.
-
-::: {.callout-reflect icon=false}
-## Reflection Questions
-
-**Think about:**
-
-- What specific phrases in the CLT-grounded prompt improved the output?
-- How could you apply this to prompts in YOUR teaching domain?
-- What CLT principles are explicitly mentioned in the grounded prompt?
-
-**Discussion:** Share one phrase from the CLT prompt that you found particularly effective.
+You will work with this scenario through Labs 1 to 4. Browse the [scenario page](scenarios/index.qmd){target="_blank"} for the full task framing and the calibration notes.
 :::
 
+## Lab 1: Domain examples of each load type (15 minutes)
 
-## Lab 2: Personalization A/B Test (15 minutes)
+::: {.callout-timing icon=false}
+**Hard limit: 15 minutes.** This is a recall and instantiation exercise, not a research task.
+:::
 
-### What You'll Explore
+**Learning question:** what does each `load_signal` category actually look like in your discipline?
 
-**Learning Question:** Can you FEEL the difference in cognitive load?
+::: {.callout-individual icon=false}
+## Instructions
 
-### Instructions
+For each of the five `load_signal` categories, write **one sentence** describing a student response from your discipline that would exemplify that category. You can use the chosen scenario's calibrated responses as starting points, but write the examples in your own discipline's idiom.
 
-1. **Enter YOUR context:**
-   - Your hobby or interest (e.g., photography, cooking, gaming)
-   - What you want to achieve (e.g., build a recipe app, automate photo editing)
+The five categories:
 
-2. **Click "Generate A/B Comparison"**
+1. **`intrinsic_overload`**: too much element interactivity for the learner's current schema
+2. **`extrinsic_distractor`**: irrelevant complexity in material or task design pulling effort to the wrong place
+3. **`germane_disengagement`**: technically correct retrieval without effortful processing
+4. **`schema_gap`**: foundational prior knowledge is simply absent
+5. **`active_misconception`**: a coherent but wrong model is being applied
 
-3. **Read both examples:**
-   - Generic (standard textbook style)
-   - Personalized (using your context)
-
-4. **Notice how each one FEELS:**
-   - Which is more engaging to read?
-   - Which feels easier to process mentally?
-   - Can you visualize the personalized example more easily?
-
-### Key Insight
-
-**This is the personalization effect in action!**
-
-Familiar contexts require less cognitive effort to process. When you don't have to decode an unfamiliar scenario, more working memory is available for learning the target concept.
-
-::: {.callout-try icon=false}
-## Try This
-
-**Experiment further:**
-
-1. Generate examples for 2-3 different hobbies
-2. Notice how the SAME concept (Python dictionaries) gets explained differently
-3. Which personalized context resonated most with you?
-
-**The takeaway:** Personalization isn't just "nice to have"—it's a cognitive load reduction strategy.
+You will reuse this list in Lab 3 as cues in your system prompt.
 :::
 
 ::: {.callout-reflect icon=false}
-## Reflection Questions
+## Reflection
 
-**Think about:**
-
-- How did the personalized example reduce extraneous cognitive load?
-- Could you use personalization in YOUR teaching context?
-- What student interests/contexts could you leverage?
-
-**Discussion:** Share your most effective personalized example with a neighbor.
+- Which category was hardest to instantiate in your discipline? That is often the category your teaching most needs help diagnosing.
+- Did any two categories blur together? In your discipline, what observable cue distinguishes them?
 :::
 
+::: {.callout-break icon=false}
+## Break (10 minutes)
+:::
 
-## Lab 3: Data Model Designer (20 minutes)
+## Lab 2: Map diagnosis to intervention (15 minutes)
 
-### What You'll Explore
+::: {.callout-timing icon=false}
+**Hard limit: 15 minutes.**
+:::
 
-**Learning Question:** What makes a worked example "worked"?
+**Learning question:** which response strategy fits which diagnosis, and when does severity flip the call?
 
-### Instructions
+::: {.callout-individual icon=false}
+## Instructions
 
-1. **Read the current data model** shown in the app
+For each of the five `load_signal` categories, decide which `intervention` category you would deploy in your discipline at **moderate** severity:
 
-2. **Select fields** you think support learning:
-   - `problem: str` (The problem statement)
-   - `solution_steps: list[str]` (Steps as a list for chunking!)
-   - `solution: str` (Solution as one big block)
-   - `final_answer: str` (Explicit conclusion)
-   - `key_insight: str` (Why this approach works)
-   - `code_with_comments: str` (Annotated code)
-   - `common_mistakes: str` (What to avoid)
-   - `connection_to_real_world: str` (Practical relevance)
+| Diagnosis | Intervention you would choose | Why this one and not another |
+|---|---|---|
+| `intrinsic_overload` | | |
+| `extrinsic_distractor` | | |
+| `germane_disengagement` | | |
+| `schema_gap` | | |
+| `active_misconception` | | |
 
-3. **See the pedagogical analysis:**
-   - What CLT principles do your choices implement?
-   - What's your design score?
-   - What feedback does the analyzer provide?
+The plan will look obvious for some pairs (a `schema_gap` calls for `activate_prior_schema`) and contested for others. The contested ones are the interesting ones.
+:::
 
-### Key Insight
+::: {.callout-pair icon=false}
+## With your neighbour (last 5 minutes of the lab)
 
-**The data structure IS the pedagogy.**
-
-When you design a Pydantic model (the structure that controls generated outputs), you're making pedagogical choices. Each field implements (or undermines) a CLT principle.
-
-::: {.callout-important}
-## Critical Design Choice: Chunking
-
-**Notice the difference between:**
-
-- `solution_steps: list[str]` (Forces GPT-5.1 to break the solution into chunks)
-- `solution: str` (Allows GPT-5.1 to generate everything in one block)
-
-**For novices:** Chunked steps reduce intrinsic cognitive load (Sweller, 1988)
-
-**For experts:** One block may be fine (expertise reversal effect)
-
-**Your choice of data type (list vs. str) controls this!**
+Compare your matrices. Where you disagreed, was it because the discipline differs, or because you had different intuitions about what an intervention does?
 :::
 
 ::: {.callout-reflect icon=false}
-## Reflection Questions
+## Reflection
 
-**Think about:**
-
-- Why is `solution_steps: list[str]` better than `solution: str` for novices?
-- What field would you ADD for your teaching domain?
-- How does structure guide (or constrain) what the model generates?
-
-**Discussion:** Design the ideal data model for worked examples in YOUR subject area. What fields would you include?
+When does **severity** change which intervention you reach for? A `mild` `active_misconception` and a `fundamental` `active_misconception` may need different responses. Note one example from your discipline.
 :::
 
+## Lab 3: Write the diagnostic prompt (25 minutes)
 
-## Lab 4: Parameter Playground (10 minutes)
-
-### What You'll Explore
-
-**Learning Question:** How do model parameters affect pedagogical quality?
-
-### Instructions
-
-1. **Adjust the parameters:**
-   - Reasoning Effort (none, low, medium, high)
-   - Verbosity (low, medium, high)
-
-2. **Read the guidance:**
-   - For novices: Low reasoning (fast), medium-high verbosity (detailed)
-   - For experts: Higher reasoning (better solutions), lower verbosity (concise)
-
-3. **Consider the tradeoffs:**
-   - More reasoning = better quality but slower and more expensive
-   - Higher verbosity = clearer explanations but longer to read
-
-### Key Insight
-
-**The "best" parameters depend on your learners!**
-
-There's no universal setting. You must match technical parameters to pedagogical needs:
-
-- **Novice learners:** Need detailed, step-by-step explanations (high verbosity)
-- **Expert learners:** Want concise, sophisticated solutions (low verbosity, high reasoning)
-- **Budget constraints:** Lower reasoning is faster and cheaper
-- **Quality requirements:** Higher reasoning produces better examples
-
-::: {.callout-note}
-## Cost vs. Quality Tradeoffs
-
-**Real-world considerations:**
-
-| Setting | Speed | Cost | Quality | Best For |
-|---------|-------|------|---------|----------|
-| Low reasoning, low verbosity | Fast | Low | Basic | Quick practice problems |
-| Low reasoning, high verbosity | Fast | Medium | Good | Novice learners at scale |
-| High reasoning, high verbosity | Slow | High | Excellent | Premium personalized tutoring |
-
-**Your choice depends on:** budget, learner needs, time constraints, and learning objectives.
+::: {.callout-timing icon=false}
+**Time limit: 25 minutes.** Iterate; do not perfect.
 :::
 
-::: {.callout-reflect icon=false}
-## Reflection Questions
+**Learning question:** how do you instruct an LLM to apply the CLT taxonomy in your specific discipline?
 
-**Think about:**
+The shell ships with a **starter system prompt** that explains the CLT categories generically. Your job is to localise it: replace generic guidance with your discipline's cues for what each `load_signal` looks like.
 
-- What parameters would you use for YOUR learners?
-- How would you balance cost and quality?
-- When might you use different settings for different students?
+::: {.callout-individual icon=false}
+## Instructions
+
+In the shell's system prompt editor, do the following:
+
+1. **Read** the starter prompt. Note where it talks about how to identify each `load_signal`.
+2. **Replace** the generic cues with your discipline's cues. Use your Lab 1 sentences directly: "In <discipline>, `intrinsic_overload` looks like <your sentence>".
+3. **Add** any discipline-specific failure modes that the generic categories miss. (You cannot add new categories, but you can teach the LLM what they look like in your context.)
+4. **Specify** how you want the `domain_notes` field used. What discipline-specific observations should the tool surface?
+
+The prompt is your pedagogical thinking written down. The clearer your thinking, the cleaner the tool's diagnoses.
 :::
 
+::: {.callout-pro-tip icon=false}
+## What good prompts look like
 
-## Lab 5: CLT Analyzer (20 minutes)
-
-### What You'll Explore
-
-**Learning Question:** Can you evaluate examples using CLT principles?
-
-### Instructions
-
-1. **Click "Generate Random Example"**
-
-2. **Read the example carefully**
-
-3. **Evaluate it using the checklist:**
-   - ✅ Reduces extraneous cognitive load (no unnecessary complexity)
-   - ✅ Manages intrinsic load (breaks problem into chunks)
-   - ✅ Optimizes germane load (helps build schemas/patterns)
-   - ✅ Is a WORKED example (shows complete solution, not a puzzle)
-   - ✅ Has clear step-by-step progression
-   - ✅ Explains WHY, not just WHAT
-
-4. **See your score:**
-   - 5-6: Excellent pedagogical design
-   - 3-4: Good, but room for improvement
-   - 1-2: Needs significant pedagogical revision
-
-### Key Insight
-
-**You're developing a CLT-grounded critical lens for evaluating AI tools!**
-
-This skill is more valuable than coding. When you can evaluate generated outputs using learning science principles, you can:
-
-- Spot pedagogically weak examples
-- Request specific improvements
-- Compare competing language models and tools
-- Design better prompts and data models
-
-::: {.callout-try icon=false}
-## Try This
-
-**Generate 3-4 examples and evaluate each:**
-
-1. Do you see patterns in what GPT-5.1 generates well?
-2. What does it consistently miss?
-3. How would you revise the prompt to improve low-scoring areas?
-
-**The goal:** Develop your critical evaluation instinct.
+- Concrete cues beat abstract definitions. "Look for partial reasoning that breaks down mid-sentence" beats "tracks element-interactivity poorly".
+- Worked examples inside the prompt are powerful. A short "for instance, in nursing, an `active_misconception` looks like ..." anchors the LLM.
+- Be explicit about what NOT to do. "Do not classify a response as `germane_disengagement` if it shows novel application — that is engaged retrieval, not disengaged."
 :::
 
-::: {.callout-reflect icon=false}
-## Reflection Questions
+## Lab 4: Test, refine, export (25 minutes)
 
-**Think about:**
-
-- Which CLT criteria are hardest for language models to meet?
-- What prompt changes would improve low-scoring examples?
-- How would you use this checklist when evaluating tools you already use?
-
-**Discussion:** Share one example you evaluated. What was its score? What would you improve?
+::: {.callout-timing icon=false}
+**Time limit: 25 minutes.**
 :::
 
+**Learning question:** does your tool actually distinguish the five load signals on real responses?
 
-## Final Reflection (10 minutes)
+::: {.callout-testing icon=false}
+## Calibration test
 
-::: {.callout-reflect icon=false}
-## What You've Learned
+Your scenario provides three calibrated student responses. Each is tagged with the `load_signal` it is meant to exemplify (open the scenario page in another tab to see the tags and rationales).
 
-Through these 5 labs, you explored:
+For each calibrated response:
 
-1. ✅ **Prompts encode pedagogy** (Design drives outputs)
-2. ✅ **Personalization reduces load** (Context matters)
-3. ✅ **Structure shapes learning** (Data models are pedagogical choices)
-4. ✅ **Parameters affect quality** (Settings have learning implications)
-5. ✅ **Critical evaluation is a skill** (You can assess AI tools with CLT)
+1. Paste it into the test pane (or pick it from the dropdown)
+2. Run the diagnostic
+3. Compare the tool's `load_signal` to the calibrated tag
+4. If they disagree: was the tool wrong, was your prompt unclear, or was the calibration debatable?
+5. **Iterate the prompt** based on what you learn
 
-### Integration Questions
+Aim for the tool to produce the calibrated `load_signal` on at least 2 of the 3 responses. If the third one is genuinely ambiguous in your discipline, that is a useful finding to bring to the gallery.
+:::
 
-**Consider:**
+::: {.callout-export icon=false}
+## Export the portable prompt
 
-1. **What surprised you most?**
-   - Which lab challenged your assumptions?
-   - What principle seemed most powerful?
+Once you are reasonably happy with your prompt:
 
-2. **What will you change?**
-   - How will you modify prompts you write for language models?
-   - What will you look for when evaluating educational technology tools?
+1. Open the **Export portable prompt** section at the bottom of the shell
+2. Copy the entire markdown block
+3. Paste it into Microsoft Copilot, ChatGPT, or Claude.ai
+4. Replace `<<student response>>` with one of the calibrated responses
+5. Compare the result against your shell's output
 
-3. **What will you build?**
-   - Could you adapt this pattern to your teaching domain?
-   - What concepts would you include in your worked example generator?
+The portable prompt is your tool's recipe. It works in any LLM interface you have access to. It is the artifact you take back to your teaching.
+:::
 
-4. **What questions remain?**
-   - What do you still want to understand?
-   - What would you need to deploy this in your context?
+## Pair-test and gallery (15 minutes)
+
+::: {.callout-pair icon=false}
+## Cross-discipline test
+
+Trade scenario-and-prompt pairs with your neighbour. Run their tool against your scenario's calibrated responses (and vice versa).
+
+Discuss:
+
+- **Generalisation**: did their domain-tuned prompt produce sensible diagnoses on a discipline they did not write for? If yes, why? If not, what would have to change?
+- **Brittleness**: where does your tool fail on a response from a different discipline? Is the failure in the prompt, in the categories, or in the underlying model?
+- **Portability**: what happens when you run their portable prompt in your LLM of choice (Copilot vs. ChatGPT vs. Claude)? Same diagnoses? Different ones?
 :::
 
 ::: {.callout-checkpoint icon=false}
-## Checkpoint: Can You Answer These?
+## What you have at the end of this block
 
-**Pedagogical Understanding:**
+- A configured tool URL with your system prompt baked in (the URL state captures it)
+- A markdown recipe of your tool that you can paste into any LLM interface
+- A calibration record: which load signals your prompt distinguishes reliably and which it does not
+- A view from another discipline of where your tool generalises and where it does not
 
-- Why does chunking (`solution_steps: list[str]`) reduce cognitive load?
-- How does personalization reduce extraneous cognitive load?
-- What makes a worked example "worked" versus a problem to solve?
-
-**Practical Skills:**
-
-- Can you write a CLT-grounded prompt for your subject?
-- Can you evaluate a generated example using CLT criteria?
-- Can you design a data model for worked examples in your domain?
-
-**Critical Thinking:**
-
-- What's the difference between technically impressive and pedagogically sound?
-- When should you prioritize speed/cost vs. quality?
-- What ethical considerations arise from personalized learning tools powered by language models?
+You will use these in the closing block to plan one concrete change for your next teaching cycle.
 :::
-
-
-## What's Next?
-
-You've explored the **design principles**. Now you're ready to:
-
-**Option 1: Use the Complete Tool**
-
-[Try the full Worked Example Weaver](https://huggingface.co/spaces/awellis/worked-example-weaver-app){target="_blank"}
-
-- See all 3 domains (Programming, Health Sciences, Agronomy)
-- 16 concepts to explore
-- Generate personalized examples for real learners
-
-**Option 2: Design Your Extensions**
-
-Move to the [Extend section](../extend/index.qmd) where you'll:
-
-- Plan how to adapt this to YOUR teaching context
-- Sketch your personalized worked example tool
-
-**Option 3: Dive Into the Code**
-
-If you want to understand the technical implementation:
-
-- [View the complete app.py on HuggingFace](https://huggingface.co/spaces/awellis/worked-example-weaver-app/blob/main/app.py){target="_blank"}
-- Explore the Marimo and Pydantic documentation
-
-
-
-**Next:** [Extend Section](../extend/index.qmd) (Design your own extensions)
