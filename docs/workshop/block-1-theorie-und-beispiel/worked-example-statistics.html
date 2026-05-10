@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Worked Example: Spec Sheet für eine Statistik-Teilaufgabe – KI in der Lehre: Advanced</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../workshop/spec-card-statistics/index.html" rel="next">
+<link href="../../vorbereitung/index.html" rel="prev">
+<link href="../..//assets/robot.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e365b28d8a0182811adae2bd819f4b55.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-c05a37d400b741d7e2a962bf5f58d257.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e365b28d8a0182811adae2bd819f4b55.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-9532168f8b5389fccfc875d5a33a4e28.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-9532168f8b5389fccfc875d5a33a4e28.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-9532168f8b5389fccfc875d5a33a4e28.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.js"></script>
+<link href="../../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean"
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+<style>
+div.callout-pair.callout {
+  border-left-color: forestgreen;
+}
+div.callout-pair.callout-style-default > .callout-header {
+  background-color: rgb(from forestgreen r g b / 13%);
+}
+div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
+  content: '👥';
+  background-image: none;
+}
+div.callout-tutor-example.callout {
+  border-left-color: purple;
+}
+div.callout-tutor-example.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
+  content: '📄';
+  background-image: none;
+}
+div.callout-break.callout {
+  border-left-color: yellow;
+}
+div.callout-break.callout-style-default > .callout-header {
+  background-color: rgb(from yellow r g b / 13%);
+}
+div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
+  content: '☕';
+  background-image: none;
+}
+div.callout-schedule.callout {
+  border-left-color: steelblue;
+}
+div.callout-schedule.callout-style-default > .callout-header {
+  background-color: rgb(from steelblue r g b / 13%);
+}
+div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
+  content: '⏰︎';
+  background-image: none;
+}
+div.callout-group.callout {
+  border-left-color: purple;
+}
+div.callout-group.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
+  content: '👥';
+  background-image: none;
+}
+div.callout-checkpoint.callout {
+  border-left-color: purple;
+}
+div.callout-checkpoint.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
+  content: '🎯';
+  background-image: none;
+}
+div.callout-prompt-template.callout {
+  border-left-color: indigo;
+}
+div.callout-prompt-template.callout-style-default > .callout-header {
+  background-color: rgb(from indigo r g b / 13%);
+}
+div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
+  content: '📋';
+  background-image: none;
+}
+div.callout-try.callout {
+  border-left-color: blue;
+}
+div.callout-try.callout-style-default > .callout-header {
+  background-color: rgb(from blue r g b / 13%);
+}
+div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
+  content: '🔄';
+  background-image: none;
+}
+div.callout-testing.callout {
+  border-left-color: green;
+}
+div.callout-testing.callout-style-default > .callout-header {
+  background-color: rgb(from green r g b / 13%);
+}
+div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
+  content: '🧪';
+  background-image: none;
+}
+div.callout-individual.callout {
+  border-left-color: steelblue;
+}
+div.callout-individual.callout-style-default > .callout-header {
+  background-color: rgb(from steelblue r g b / 13%);
+}
+div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
+  content: '💻';
+  background-image: none;
+}
+div.callout-screens-up.callout {
+  border-left-color: green;
+}
+div.callout-screens-up.callout-style-default > .callout-header {
+  background-color: rgb(from green r g b / 13%);
+}
+div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
+  content: '🔼';
+  background-image: none;
+}
+div.callout-prompt-example.callout {
+  border-left-color: steelblue;
+}
+div.callout-prompt-example.callout-style-default > .callout-header {
+  background-color: rgb(from steelblue r g b / 13%);
+}
+div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
+  content: '👩🏼‍🔧';
+  background-image: none;
+}
+div.callout-timing.callout {
+  border-left-color: red;
+}
+div.callout-timing.callout-style-default > .callout-header {
+  background-color: rgb(from red r g b / 13%);
+}
+div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
+  content: '⏱️';
+  background-image: none;
+}
+div.callout-caution.callout {
+  border-left-color: orange;
+}
+div.callout-caution.callout-style-default > .callout-header {
+  background-color: rgb(from orange r g b / 13%);
+}
+div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
+  content: '⚠️';
+  background-image: none;
+}
+div.callout-feedback.callout {
+  border-left-color: teal;
+}
+div.callout-feedback.callout-style-default > .callout-header {
+  background-color: rgb(from teal r g b / 13%);
+}
+div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
+  content: '📝';
+  background-image: none;
+}
+div.callout-pro-tip.callout {
+  border-left-color: gold;
+}
+div.callout-pro-tip.callout-style-default > .callout-header {
+  background-color: rgb(from gold r g b / 13%);
+}
+div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
+  content: '💡';
+  background-image: none;
+}
+div.callout-export.callout {
+  border-left-color: brown;
+}
+div.callout-export.callout-style-default > .callout-header {
+  background-color: rgb(from brown r g b / 13%);
+}
+div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
+  content: '📤';
+  background-image: none;
+}
+div.callout-setup.callout {
+  border-left-color: gray;
+}
+div.callout-setup.callout-style-default > .callout-header {
+  background-color: rgb(from gray r g b / 13%);
+}
+div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
+  content: '⚙️';
+  background-image: none;
+}
+div.callout-reflect.callout {
+  border-left-color: purple;
+}
+div.callout-reflect.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
+  content: '💭';
+  background-image: none;
+}
+div.callout-screens-down.callout {
+  border-left-color: orange;
+}
+div.callout-screens-down.callout-style-default > .callout-header {
+  background-color: rgb(from orange r g b / 13%);
+}
+div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
+  content: '🔽';
+  background-image: none;
+}
+</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="Worked Example: Spec Sheet für eine Statistik-Teilaufgabe – KI in der Lehre: Advanced">
+<meta property="og:description" content="">
+<meta property="og:site_name" content="KI in der Lehre: Advanced">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">KI in der Lehre: Advanced</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../workshop/index.html" aria-current="page"> <i class="bi bi-card-list" role="img">
+</i> 
+<span class="menu-text">Workshop</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../vorbereitung/index.html"> <i class="bi bi-book" role="img">
+</i> 
+<span class="menu-text">Vorbereitung</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://virtuelleakademie.ch/knowledge-base/" title="Knowledge Base" class="quarto-navigation-tool px-1" aria-label="Knowledge Base"><i class="bi bi-lightbulb-fill"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../vorbereitung/index.html">Vorbereitung</a></li><li class="breadcrumb-item"><a href="../../workshop/block-1-theorie-und-beispiel/worked-example-statistics.html">Worked Example: Spec Sheet für eine Statistik-Teilaufgabe</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spec Sheets bauen, mit LLMs als Hypothesengenerator und Lernende-Simulator</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Vorbereitung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../vorbereitung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vorbereitung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/block-1-theorie-und-beispiel/worked-example-statistics.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Worked Example: Spec Sheet für eine Statistik-Teilaufgabe</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/spec-card-statistics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erweiterte Hintergrundlektüre</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Einstieg (7 min)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/einstieg/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einstieg: Was du nicht siehst (7 min)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Block 1: Theorie und Beispiel (48 min)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/block-1-theorie-und-beispiel/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Block 1: Theorie und Beispiel (48 min)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/block-1-theorie-und-beispiel/worked-example-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Worked Example: Spec Sheet für eine Statistik-Teilaufgabe</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Block 2: Eigenes Spec Sheet (55 min)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/block-2-spec-card/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Block 2: Eigenes Spec Sheet (55 min)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/spec-sheet-template/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spec-Sheet-Vorlage: Eine Teilaufgabe</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/spec-sheet-template/prompt-scaffolds.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prompt-Scaffolds für das Spec Sheet</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Block 3: Rendering (25 min)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/block-3-multi-tool/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Block 3: Spec Sheet → System-Prompt (25 min)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/spec-sheet-template/system-prompt-template.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">System-Prompt-Vorlage: Spec Sheet → Werkzeug</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Backup-Szenarien</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/build/scenarios/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Scenario Pack</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/build/scenarios/nursing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nursing: Warfarin and INR</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/build/scenarios/education.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Education: Critique a quiz question</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/build/scenarios/business.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Business: Bakery pricing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/build/scenarios/social-work.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Social work: Missed appointments</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/build/scenarios/engineering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Engineering: Stale-data bug</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/build/scenarios/statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics: Interpreting r = 0.3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/build/scenarios/math.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mathematics: Recognising the substitution pattern</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Closing (10 min)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/closing/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Closing: Reflexion und eine Verpflichtung (10 min)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#a.-die-teilaufgabe" id="toc-a.-die-teilaufgabe" class="nav-link active" data-scroll-target="#a.-die-teilaufgabe">A. Die Teilaufgabe</a>
+  <ul class="collapse">
+  <li><a href="#a1.-wortlaut" id="toc-a1.-wortlaut" class="nav-link" data-scroll-target="#a1.-wortlaut">A1. Wortlaut</a></li>
+  <li><a href="#a2.-kurskontext" id="toc-a2.-kurskontext" class="nav-link" data-scroll-target="#a2.-kurskontext">A2. Kurskontext</a></li>
+  <li><a href="#a3.-lernziel-der-teilaufgabe" id="toc-a3.-lernziel-der-teilaufgabe" class="nav-link" data-scroll-target="#a3.-lernziel-der-teilaufgabe">A3. Lernziel der Teilaufgabe</a></li>
+  </ul></li>
+  <li><a href="#b.-wissensbausteine" id="toc-b.-wissensbausteine" class="nav-link" data-scroll-target="#b.-wissensbausteine">B. Wissensbausteine</a>
+  <ul class="collapse">
+  <li><a href="#baustein-1" id="toc-baustein-1" class="nav-link" data-scroll-target="#baustein-1">Baustein 1</a></li>
+  <li><a href="#baustein-2" id="toc-baustein-2" class="nav-link" data-scroll-target="#baustein-2">Baustein 2</a></li>
+  <li><a href="#baustein-3" id="toc-baustein-3" class="nav-link" data-scroll-target="#baustein-3">Baustein 3</a></li>
+  <li><a href="#baustein-4" id="toc-baustein-4" class="nav-link" data-scroll-target="#baustein-4">Baustein 4</a></li>
+  <li><a href="#baustein-5" id="toc-baustein-5" class="nav-link" data-scroll-target="#baustein-5">Baustein 5</a></li>
+  </ul></li>
+  <li><a href="#c.-wahrscheinliche-fehlkonzepte" id="toc-c.-wahrscheinliche-fehlkonzepte" class="nav-link" data-scroll-target="#c.-wahrscheinliche-fehlkonzepte">C. Wahrscheinliche Fehlkonzepte</a>
+  <ul class="collapse">
+  <li><a href="#fehlkonzept-1" id="toc-fehlkonzept-1" class="nav-link" data-scroll-target="#fehlkonzept-1">Fehlkonzept 1</a></li>
+  <li><a href="#fehlkonzept-2" id="toc-fehlkonzept-2" class="nav-link" data-scroll-target="#fehlkonzept-2">Fehlkonzept 2</a></li>
+  <li><a href="#fehlkonzept-3" id="toc-fehlkonzept-3" class="nav-link" data-scroll-target="#fehlkonzept-3">Fehlkonzept 3</a></li>
+  </ul></li>
+  <li><a href="#d.-wahrscheinliche-wissenslücken" id="toc-d.-wahrscheinliche-wissenslücken" class="nav-link" data-scroll-target="#d.-wahrscheinliche-wissenslücken">D. Wahrscheinliche Wissenslücken</a>
+  <ul class="collapse">
+  <li><a href="#lücke-1" id="toc-lücke-1" class="nav-link" data-scroll-target="#lücke-1">Lücke 1</a></li>
+  <li><a href="#lücke-2" id="toc-lücke-2" class="nav-link" data-scroll-target="#lücke-2">Lücke 2</a></li>
+  <li><a href="#lücke-3" id="toc-lücke-3" class="nav-link" data-scroll-target="#lücke-3">Lücke 3</a></li>
+  </ul></li>
+  <li><a href="#e.-falsifikationsnotiz" id="toc-e.-falsifikationsnotiz" class="nav-link" data-scroll-target="#e.-falsifikationsnotiz">E. Falsifikationsnotiz</a></li>
+  <li><a href="#pruning-protokoll" id="toc-pruning-protokoll" class="nav-link" data-scroll-target="#pruning-protokoll">Pruning-Protokoll</a></li>
+  <li><a href="#was-die-pruning-liste-zeigt" id="toc-was-die-pruning-liste-zeigt" class="nav-link" data-scroll-target="#was-die-pruning-liste-zeigt">Was die Pruning-Liste zeigt</a></li>
+  <li><a href="#demonstration-reaktive-simulation" id="toc-demonstration-reaktive-simulation" class="nav-link" data-scroll-target="#demonstration-reaktive-simulation">Demonstration: Reaktive Simulation</a></li>
+  <li><a href="#was-diese-probe-ergeben-hat" id="toc-was-diese-probe-ergeben-hat" class="nav-link" data-scroll-target="#was-diese-probe-ergeben-hat">Was diese Probe ergeben hat</a></li>
+  <li><a href="#demonstration-produktive-simulation" id="toc-demonstration-produktive-simulation" class="nav-link" data-scroll-target="#demonstration-produktive-simulation">Demonstration: Produktive Simulation</a></li>
+  <li><a href="#was-diese-probe-ergeben-hat-1" id="toc-was-diese-probe-ergeben-hat-1" class="nav-link" data-scroll-target="#was-diese-probe-ergeben-hat-1">Was diese Probe ergeben hat</a></li>
+  <li><a href="#wenn-dieses-spec-sheet-gerendert-wird" id="toc-wenn-dieses-spec-sheet-gerendert-wird" class="nav-link" data-scroll-target="#wenn-dieses-spec-sheet-gerendert-wird">Wenn dieses Spec Sheet gerendert wird</a></li>
+  <li><a href="#kurze-notiz-zur-übertragung" id="toc-kurze-notiz-zur-übertragung" class="nav-link" data-scroll-target="#kurze-notiz-zur-übertragung">Kurze Notiz zur Übertragung</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../vorbereitung/index.html">Vorbereitung</a></li><li class="breadcrumb-item"><a href="../../workshop/block-1-theorie-und-beispiel/worked-example-statistics.html">Worked Example: Spec Sheet für eine Statistik-Teilaufgabe</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Worked Example: Spec Sheet für eine Statistik-Teilaufgabe</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Was du hier liest
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Das ausgearbeitete Beispiel, das wir in Block 1 gemeinsam durchgehen. Es zeigt, wie aus <em>einer einzelnen Teilaufgabe</em> einer Statistik-Klausur ein <strong>Spec Sheet</strong> entsteht.</p>
+<p>Du nutzt diese Seite zwei Mal:</p>
+<ul>
+<li>als Live-Demo in Block 1, während die Instruktorin das LLM mit der Teilaufgabe konfrontiert und die Validierung Schritt für Schritt vorführt.</li>
+<li>als Vorlage in Block 2, wenn du dasselbe für eine Teilaufgabe aus deiner eigenen Lehre machst.</li>
+</ul>
+<p>Die Methode überträgt sich auf jedes Fach. Statistik ist nur das demonstrative Beispiel.</p>
+</div>
+</div>
+<section id="a.-die-teilaufgabe" class="level2">
+<h2 class="anchored" data-anchor-id="a.-die-teilaufgabe">A. Die Teilaufgabe</h2>
+<section id="a1.-wortlaut" class="level3">
+<h3 class="anchored" data-anchor-id="a1.-wortlaut">A1. Wortlaut</h3>
+<blockquote class="blockquote">
+<p>Eine Studie berichtet eine Korrelation von <span class="math inline">\(r = 0.3\)</span> zwischen der Schlafdauer in der Nacht vor einer Klausur und der Klausurleistung, basierend auf einer Stichprobe von 200 Erstsemester-Studierenden. Interpretiere diesen Befund: Was sagt er substantiell aus, und wie gut gestützt ist die Aussage?</p>
+</blockquote>
+</section>
+<section id="a2.-kurskontext" class="level3">
+<h3 class="anchored" data-anchor-id="a2.-kurskontext">A2. Kurskontext</h3>
+<p>Erstsemester-Studierende in einem Service-Statistik-Modul für Psychologie, Wirtschaft oder Sozialarbeit. Sie haben ein Semester deskriptive Statistik abgeschlossen, kennen Mittelwert, Median, Varianz, Standardabweichung. Korrelationen wurden im Modul behandelt: die Studierenden können <span class="math inline">\(r\)</span> rechnen, wenn die Daten und die Formel gegeben sind. Inferenzstatistik haben sie noch nicht. Diese Teilaufgabe ist die letzte einer dreiteiligen Klausuraufgabe; die vorhergehenden Teile waren Berechnung von <span class="math inline">\(r\)</span> und ein Streudiagramm.</p>
+</section>
+<section id="a3.-lernziel-der-teilaufgabe" class="level3">
+<h3 class="anchored" data-anchor-id="a3.-lernziel-der-teilaufgabe">A3. Lernziel der Teilaufgabe</h3>
+<p>Die Studierende soll zeigen, dass sie eine berechnete Korrelation in einen substantiellen Kontext zurück übersetzen kann: Effektgrösse einordnen, Stichprobengrösse berücksichtigen, Grenzen der Aussage benennen. Es geht nicht um die Berechnung, sondern um die Interpretation.</p>
+</section>
+</section>
+<section id="b.-wissensbausteine" class="level2">
+<h2 class="anchored" data-anchor-id="b.-wissensbausteine">B. Wissensbausteine</h2>
+<p>Fünf Bausteine, jeder mit Typ und Quelle.</p>
+<section id="baustein-1" class="level3">
+<h3 class="anchored" data-anchor-id="baustein-1">Baustein 1</h3>
+<ul>
+<li><strong>Name:</strong> <span class="math inline">\(r\)</span> liegt zwischen <span class="math inline">\(-1\)</span> und <span class="math inline">\(+1\)</span></li>
+<li><strong>Typ:</strong> Faktenwissen</li>
+<li><strong>Quelle:</strong> B</li>
+<li><strong>Wo der Baustein vorkommt:</strong> ohne diesen Baustein ist die Magnitude <span class="math inline">\(0.3\)</span> unverankert; eine Studierende ohne ihn kann nicht beurteilen, ob <span class="math inline">\(0.3\)</span> “viel” oder “wenig” ist.</li>
+<li><strong>Was schiefgeht, wenn er fehlt:</strong> die Studierende interpretiert <span class="math inline">\(0.3\)</span> wie eine Wahrscheinlichkeit oder einen Prozentsatz, ohne den Bezug zur theoretischen Skalierung der Korrelation.</li>
+</ul>
+</section>
+<section id="baustein-2" class="level3">
+<h3 class="anchored" data-anchor-id="baustein-2">Baustein 2</h3>
+<ul>
+<li><strong>Name:</strong> <span class="math inline">\(r\)</span> misst lineare Assoziation, nicht Kausalität</li>
+<li><strong>Typ:</strong> begriffliches Wissen</li>
+<li><strong>Quelle:</strong> B</li>
+<li><strong>Wo der Baustein vorkommt:</strong> die Aufgabe verlangt eine <em>Interpretation</em>; ohne diesen Baustein gleitet die Antwort in kausale Behauptungen ab (“mehr Schlaf führt zu besserer Leistung”).</li>
+<li><strong>Was schiefgeht, wenn er fehlt:</strong> die Studierende schreibt “Schlaf verbessert Klausurleistung” oder “Schlafmangel verursacht schlechte Noten”, ohne die Korrelation-Kausalität-Lücke zu markieren.</li>
+</ul>
+</section>
+<section id="baustein-3" class="level3">
+<h3 class="anchored" data-anchor-id="baustein-3">Baustein 3</h3>
+<ul>
+<li><strong>Name:</strong> Effektgrösse ist kontext-abhängig zu beurteilen</li>
+<li><strong>Typ:</strong> Erklärungswissen</li>
+<li><strong>Quelle:</strong> V</li>
+<li><strong>Wo der Baustein vorkommt:</strong> die Aufgabe fragt explizit nach der substantiellen Bedeutung, nicht nach der numerischen Magnitude.</li>
+<li><strong>Was schiefgeht, wenn er fehlt:</strong> die Studierende übernimmt eine Daumenregel (“<span class="math inline">\(0.3\)</span> ist mittel” oder “<span class="math inline">\(0.3\)</span> ist klein”) ohne Bezug auf den Kontext der Bildungsforschung; oder sie schliesst, <span class="math inline">\(0.3\)</span> sei “vernachlässigbar”.</li>
+</ul>
+</section>
+<section id="baustein-4" class="level3">
+<h3 class="anchored" data-anchor-id="baustein-4">Baustein 4</h3>
+<ul>
+<li><strong>Name:</strong> Korrelation und Stichprobenunsicherheit sind getrennte Dimensionen</li>
+<li><strong>Typ:</strong> Erklärungswissen</li>
+<li><strong>Quelle:</strong> B</li>
+<li><strong>Wo der Baustein vorkommt:</strong> die Aufgabe nennt <span class="math inline">\(n = 200\)</span> explizit; die Studierende soll erkennen, dass die Aussage zwei Dimensionen hat: Effektgrösse und Sicherheit der Schätzung.</li>
+<li><strong>Was schiefgeht, wenn er fehlt:</strong> die Studierende kollabiert beide in eine einzige Aussage (“0.3 ist signifikant, also bedeutsam”) oder ignoriert die Sicherheitsdimension komplett.</li>
+</ul>
+</section>
+<section id="baustein-5" class="level3">
+<h3 class="anchored" data-anchor-id="baustein-5">Baustein 5</h3>
+<ul>
+<li><strong>Name:</strong> <span class="math inline">\(r^2\)</span> ist nicht <span class="math inline">\(r\)</span></li>
+<li><strong>Typ:</strong> Faktenwissen</li>
+<li><strong>Quelle:</strong> B</li>
+<li><strong>Wo der Baustein vorkommt:</strong> ohne diesen Baustein interpretiert die Studierende <span class="math inline">\(r = 0.3\)</span> als “30% erklärt”; tatsächlich erklärt <span class="math inline">\(r^2 = 0.09\)</span> etwa neun Prozent gemeinsamer Varianz.</li>
+<li><strong>Was schiefgeht, wenn er fehlt:</strong> “die Korrelation von <span class="math inline">\(0.3\)</span> erklärt <span class="math inline">\(30\%\)</span> der Variabilität in der Klausurleistung” steht in der Antwort.</li>
+</ul>
+</section>
+</section>
+<section id="c.-wahrscheinliche-fehlkonzepte" class="level2">
+<h2 class="anchored" data-anchor-id="c.-wahrscheinliche-fehlkonzepte">C. Wahrscheinliche Fehlkonzepte</h2>
+<section id="fehlkonzept-1" class="level3">
+<h3 class="anchored" data-anchor-id="fehlkonzept-1">Fehlkonzept 1</h3>
+<ul>
+<li><strong>So würde die Studierende es sagen:</strong> “Eine Korrelation von <span class="math inline">\(0.3\)</span> heisst, <span class="math inline">\(30\%\)</span> der Klausurleistung lassen sich durch Schlafdauer erklären.”</li>
+<li><strong>Typ:</strong> kohärent-intuitiv</li>
+<li><strong>Quelle:</strong> B</li>
+<li><strong>Diskriminiert die Teilaufgabe Studierende mit diesem Fehlkonzept?</strong> Ja, wenn die Korrektur explizit zwischen <span class="math inline">\(r\)</span> und <span class="math inline">\(r^2\)</span> trennt. Wenn die Korrektur “<span class="math inline">\(r = 0.3\)</span> ist eine moderate Korrelation” akzeptiert, ohne die <span class="math inline">\(30\%\)</span>-Übersetzung zu prüfen, schlüpft das Fehlkonzept durch.</li>
+</ul>
+</section>
+<section id="fehlkonzept-2" class="level3">
+<h3 class="anchored" data-anchor-id="fehlkonzept-2">Fehlkonzept 2</h3>
+<ul>
+<li><strong>So würde die Studierende es sagen:</strong> “Bei einer so grossen Stichprobe (<span class="math inline">\(n = 200\)</span>) ist das Ergebnis sehr genau. Wir können davon ausgehen, dass die Korrelation in der Population fast identisch ist.”</li>
+<li><strong>Typ:</strong> kohärent-intuitiv</li>
+<li><strong>Quelle:</strong> V</li>
+<li><strong>Diskriminiert die Teilaufgabe?</strong> Teilweise. Die Aufgabe fragt nach Sicherheit der Aussage, aber ohne explizite Frage nach Konfidenzintervallen oder Stichprobenfehler bleibt unklar, ob die Studierende das Konzept “Stichprobenunsicherheit ist nicht null” hat. Eine zusätzliche Teilfrage (“Wie sicher ist diese Schätzung?”) würde das Fehlkonzept gezielter prüfen.</li>
+</ul>
+</section>
+<section id="fehlkonzept-3" class="level3">
+<h3 class="anchored" data-anchor-id="fehlkonzept-3">Fehlkonzept 3</h3>
+<ul>
+<li><strong>So würde die Studierende es sagen:</strong> “<span class="math inline">\(r = 0.3\)</span> ist klein. Schlafdauer hat also keinen praktischen Einfluss auf die Klausurleistung.”</li>
+<li><strong>Typ:</strong> oberflächlich (ungeprüfte Anwendung einer Daumenregel ohne Kontextkalibrierung)</li>
+<li><strong>Quelle:</strong> B</li>
+<li><strong>Diskriminiert die Teilaufgabe?</strong> Bedingt. Die Aufgabe fragt nach Substanz; eine Antwort, die <span class="math inline">\(0.3\)</span> pauschal als “klein” abtut, ist nicht falsch, aber dünn. Ob “dünn” als Misserfolg gewertet wird, hängt vom Bewertungsraster ab.</li>
+</ul>
+</section>
+</section>
+<section id="d.-wahrscheinliche-wissenslücken" class="level2">
+<h2 class="anchored" data-anchor-id="d.-wahrscheinliche-wissenslücken">D. Wahrscheinliche Wissenslücken</h2>
+<section id="lücke-1" class="level3">
+<h3 class="anchored" data-anchor-id="lücke-1">Lücke 1</h3>
+<ul>
+<li><strong>Was fehlt:</strong> das Konzept “Effektgrössen-Konventionen sind diszipliären, nicht universal”</li>
+<li><strong>Wo es eigentlich erworben werden sollte:</strong> im Modul wurde die Cohen-Klassifikation (<span class="math inline">\(r = 0.1\)</span> klein, <span class="math inline">\(0.3\)</span> mittel, <span class="math inline">\(0.5\)</span> gross) erwähnt, aber ohne Diskussion der Domänen-Kalibrierung in Bildungsforschung.</li>
+<li><strong>Quelle:</strong> V</li>
+<li><strong>Wie sich die Lücke zeigt:</strong> die Studierende übernimmt die Cohen-Klassifikation pauschal (“<span class="math inline">\(0.3\)</span> ist mittel”), ohne zu prüfen, ob das in der Bildungsforschung sinnvoll ist (wo Effekte typisch klein sind).</li>
+</ul>
+</section>
+<section id="lücke-2" class="level3">
+<h3 class="anchored" data-anchor-id="lücke-2">Lücke 2</h3>
+<ul>
+<li><strong>Was fehlt:</strong> der Begriff “lineare Assoziation” als spezifische, nicht generelle Beziehung</li>
+<li><strong>Wo es eigentlich erworben werden sollte:</strong> im Korrelations-Block des laufenden Moduls.</li>
+<li><strong>Quelle:</strong> B</li>
+<li><strong>Wie sich die Lücke zeigt:</strong> die Studierende behandelt Korrelation als generelle Aussage über “Zusammenhang”, ohne die Linearitätsannahme zu erwähnen oder zu erkennen, dass nicht-lineare Zusammenhänge unentdeckt bleiben.</li>
+</ul>
+</section>
+<section id="lücke-3" class="level3">
+<h3 class="anchored" data-anchor-id="lücke-3">Lücke 3</h3>
+<ul>
+<li><strong>Was fehlt:</strong> der Unterschied zwischen Stichproben-<span class="math inline">\(r\)</span> und Populations-<span class="math inline">\(\rho\)</span></li>
+<li><strong>Wo es eigentlich erworben werden sollte:</strong> würde im nachfolgenden Inferenzstatistik-Modul behandelt; zum Zeitpunkt dieser Aufgabe ist das ein bekannter Lückenpunkt.</li>
+<li><strong>Quelle:</strong> B</li>
+<li><strong>Wie sich die Lücke zeigt:</strong> die Studierende behandelt <span class="math inline">\(r = 0.3\)</span> als die Korrelation, statt als eine Schätzung der Korrelation. Sie hat keine Sprache für “die wahre Korrelation in der Population könnte etwas anderes sein”.</li>
+</ul>
+</section>
+</section>
+<section id="e.-falsifikationsnotiz" class="level2">
+<h2 class="anchored" data-anchor-id="e.-falsifikationsnotiz">E. Falsifikationsnotiz</h2>
+<blockquote class="blockquote">
+<p>Wenn Studierende, die ich aus Gesprächsanlässen klar als kompetente Korrelationsinterpretiererinnen einschätze, an dieser Teilaufgabe systematisch scheitern, dann ist Baustein 3 (Effektgrösse ist kontext-abhängig zu beurteilen) wahrscheinlich nicht das, was die Aufgabe wirklich testet. Wahrscheinlicher wäre dann, dass die Aufgabe zu offen formuliert ist und die Studierenden raten lässt, welche der vielen möglichen Interpretationsdimensionen gemeint ist.</p>
+</blockquote>
+</section>
+<section id="pruning-protokoll" class="level2">
+<h2 class="anchored" data-anchor-id="pruning-protokoll">Pruning-Protokoll</h2>
+<p>Drei Vorschläge, die das LLM gemacht hat und die nicht in das Spec Sheet aufgenommen wurden.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Verworfener Vorschlag</th>
+<th>Grund</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“Kennt das Konzept der Wahrscheinlichkeit”</td>
+<td>zu abstrakt; ist eher ein Sammelbegriff als ein operationalisierbarer Baustein. Wenn nötig, in spezifischere Bausteine zerlegen.</td>
+</tr>
+<tr class="even">
+<td>“Weiss, dass Korrelation Kausalität nicht impliziert, aber bei kontrollierten Studien näher liegt”</td>
+<td>inhaltlich missverständlich; das LLM hat ein populärwissenschaftliches Halbwissen reproduziert, das beim Erstsemester-Niveau nicht trägt und falsche Sicherheit suggeriert.</td>
+</tr>
+<tr class="odd">
+<td>“Versteht <span class="math inline">\(p\)</span>-Werte und ihre Interpretation”</td>
+<td>kommt im Kontext der Aufgabe nicht vor (Inferenzstatistik wurde noch nicht behandelt). Die Studierende soll <em>nicht</em> mit <span class="math inline">\(p\)</span>-Werten arbeiten.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="was-die-pruning-liste-zeigt" class="level2 callout-checkpoint" data-icon="false">
+<h2 class="anchored" data-anchor-id="was-die-pruning-liste-zeigt">Was die Pruning-Liste zeigt</h2>
+<p>Drei Vorschläge des LLM, drei verschiedene Probleme: zu abstrakt, inhaltlich falsch, kurskontextlich daneben. Die Pruning-Notiz hält das fest, damit die Validierung nachvollziehbar ist und nicht jeder LLM-Vorschlag stillschweigend ins Spec Sheet rutscht.</p>
+<p>Eine leere Pruning-Liste bei einem vollen Spec Sheet ist ein Warnsignal.</p>
+</section>
+<section id="demonstration-reaktive-simulation" class="level2">
+<h2 class="anchored" data-anchor-id="demonstration-reaktive-simulation">Demonstration: Reaktive Simulation</h2>
+<p>Wir geben dem LLM die Teilaufgabe und die Vorgabe: “Du bist eine Studierende, der Baustein 1 fehlt (du weisst nicht, dass <span class="math inline">\(r\)</span> zwischen <span class="math inline">\(-1\)</span> und <span class="math inline">\(+1\)</span> liegt). Sonst bist du auf dem Niveau deines Kurses kompetent. Lies die Aufgabe und sag, was unklar wird.”</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Beispielhaftes LLM-Output
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p><em>Was unklar wird:</em></p>
+<ol type="1">
+<li><em>Die Zahl 0.3 hat keinen Anker.</em> Ich kann nicht entscheiden, ob das viel oder wenig ist. In Prozenten ausgedrückt wäre das 30% irgendetwas, aber ich verstehe nicht, was die Skala nach oben begrenzen würde. Ist 1 das Maximum? Oder 100? Oder gibt es kein Maximum?</li>
+<li><em>“Korrelation” als Wort ist mir bekannt, aber ohne den Wertebereich kann ich keinen Vergleich anstellen.</em> Ich würde gerne sagen “stark” oder “schwach”, aber ich habe keine Referenz.</li>
+<li><em>Die Stichprobengrösse 200 fühlt sich gross an, aber wenn ich nicht weiss, was 0.3 in der Skala der Korrelation bedeutet, kann ich auch nicht beurteilen, ob 200 Personen “viele” sind, um eine Korrelation in dieser Grössenordnung zu schätzen.</em></li>
+</ol>
+<p><em>Was ich trotzdem noch kann:</em></p>
+<ul>
+<li>Ich kann beschreiben, was eine Korrelation untersucht (Zusammenhang zwischen zwei Variablen).</li>
+<li>Ich kann sagen, dass eine grössere Stichprobe in der Regel verlässlichere Ergebnisse liefert.</li>
+<li>Ich kann die Frage stellen, ob die Studierenden ausgeschlafen waren, weil sie schon vorbereitet hatten, oder ob der Schlaf selbst die Leistung beeinflusste.</li>
+</ul>
+</blockquote>
+</div>
+</div>
+</section>
+<section id="was-diese-probe-ergeben-hat" class="level2 callout-pro-tip" data-icon="false">
+<h2 class="anchored" data-anchor-id="was-diese-probe-ergeben-hat">Was diese Probe ergeben hat</h2>
+<p>Die Simulation hat einen Punkt aufgedeckt, der im Spec Sheet schon enthalten war (Baustein 1 ist tatsächlich tragend), aber sie hat zusätzlich eine Aufgabenstellungs-Schwäche markiert: die Aufgabe stützt sich auf die implizite Annahme, dass Studierende den Wertebereich von <span class="math inline">\(r\)</span> kennen. Wenn diese Annahme im Kurs nicht aktiv überprüft wurde, fängt die Aufgabe zwar Baustein 1 als Lücke, ohne ihn explizit zu thematisieren.</p>
+<p>Folge im Spec Sheet: keine Anpassung an Baustein 1 selbst, aber eine kleine Erweiterung der Aufgabenstellung wäre sinnvoll: ein Hinweissatz “Erinnerung: <span class="math inline">\(r\)</span> liegt zwischen <span class="math inline">\(-1\)</span> und <span class="math inline">\(+1\)</span>” am Anfang der Klausur. Diese Beobachtung kommt in den Block 2 oder Closing-Notizen, nicht ins Spec Sheet selbst.</p>
+</section>
+<section id="demonstration-produktive-simulation" class="level2">
+<h2 class="anchored" data-anchor-id="demonstration-produktive-simulation">Demonstration: Produktive Simulation</h2>
+<p>Wir geben dem LLM die Teilaufgabe und die Vorgabe: “Du bist eine Studierende, die Fehlkonzept 1 hält (du denkst, <span class="math inline">\(r = 0.3\)</span> heisse 30% Erklärung). Schreibe die Antwort, die du in der Klausur abgeben würdest.”</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Beispielhaftes LLM-Output
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p><em>Antwort der simulierten Studierenden:</em></p>
+<p>“Die Korrelation von <span class="math inline">\(r = 0.3\)</span> zwischen Schlafdauer und Klausurleistung bedeutet, dass etwa 30% der Klausurleistung durch die Schlafdauer in der Nacht vor der Klausur erklärt werden. Das ist ein moderater Effekt: nicht riesig, aber auch nicht vernachlässigbar. Bei einer Stichprobe von 200 Personen ist das Ergebnis recht verlässlich.</p>
+<p>Substantiell heisst das, dass mehr Schlaf in der Nacht vor der Klausur tatsächlich einen Beitrag zur besseren Leistung leistet, allerdings nicht den Hauptbeitrag. Andere Faktoren wie Vorbereitung oder Vorwissen spielen wahrscheinlich grössere Rollen, weil sie die übrigen 70% erklären.”</p>
+<p><em>Beobachtbare Merkmale, an denen das Fehlkonzept zu erkennen ist:</em></p>
+<ol type="1">
+<li>Direkte Übersetzung der Korrelation in eine Prozentaussage (“30% der Klausurleistung durch Schlafdauer erklärt”). Korrekt wäre <span class="math inline">\(r^2 \approx 9\%\)</span> gemeinsame Varianz, nicht 30%.</li>
+<li>Gleitende Bewegung von “30% erklärt” zu “70% erklären andere Faktoren” als Komplement, was die <span class="math inline">\(r\)</span>-zu-<span class="math inline">\(r^2\)</span>-Verwirrung als Rechenoperation sichtbar macht.</li>
+</ol>
+<p><em>Würde eine Dozentin unter Zeitdruck den Misserfolg bemerken?</em> Wahrscheinlich nicht zuverlässig. Die Antwort liest sich kompetent. Sie ist sprachlich flüssig, methodisch geordnet, und der einzige diagnostische Hinweis ist die spezifische numerische Übersetzung. Wer beim Korrigieren auf “moderater Effekt” achtet, wird das Fehlkonzept übersehen. Wer auf die genaue Zahl achtet, wird es fangen.</p>
+</blockquote>
+</div>
+</div>
+</section>
+<section id="was-diese-probe-ergeben-hat-1" class="level2 callout-pro-tip" data-icon="false">
+<h2 class="anchored" data-anchor-id="was-diese-probe-ergeben-hat-1">Was diese Probe ergeben hat</h2>
+<p>Die Simulation bestätigt, dass Fehlkonzept 1 tatsächlich kohärent ist: die simulierte Antwort liest sich plausibel und schlüssig, gerade weil sie aus einer in sich konsistenten falschen Regel ableitet. Sie zeigt zugleich, dass die Aufgabe den Misserfolg fängt <strong>wenn die Korrektur darauf achtet</strong> und ihn übersieht, wenn die Korrektur sich nur an der Oberfläche orientiert.</p>
+<p>Konkrete Konsequenzen für die Aufgabenbewertung:</p>
+<ul>
+<li>Im Bewertungsraster: explizit auf die Interpretation der Magnitude achten (<span class="math inline">\(0.3\)</span> vs.&nbsp;<span class="math inline">\(9\%\)</span>).</li>
+<li>In der Aufgabenstellung: eventuell präzisieren, dass die Antwort die <em>Stärke</em> und die <em>Erklärungskraft</em> getrennt diskutieren soll. Das macht das Fehlkonzept schwerer durchzuschmuggeln.</li>
+</ul>
+</section>
+<section id="wenn-dieses-spec-sheet-gerendert-wird" class="level2">
+<h2 class="anchored" data-anchor-id="wenn-dieses-spec-sheet-gerendert-wird">Wenn dieses Spec Sheet gerendert wird</h2>
+<p>Beim Übersetzen in einen System-Prompt für die diagnostische Rolle (siehe <a href="../../workshop/spec-sheet-template/system-prompt-template.html">System-Prompt-Vorlage</a>) erscheinen die Sektionen B, C und D als Listen im Prompt. Die Verbote (“erfinde keine Bausteine, die nicht oben gelistet sind”; “spiele kein künstlich überhöhtes Selbstvertrauen”) werden ebenfalls eingefügt.</p>
+<p>Der Prompt landet dann in Microsoft Copilot oder einem anderen Chat-Werkzeug. Wenn er gut funktioniert, kann die Dozentin reale Klausurantworten von Studierenden eingeben und vom LLM eine Analyse-Hypothese bekommen, die sich an der Sprache des Spec Sheets orientiert.</p>
+<p>Das Spec Sheet selbst bleibt das Bezugsdokument. Wenn das LLM Antworten produziert, die nicht zur Spec passen, ist die Antwort: zurück zum Spec Sheet, prüfen, ob ein Baustein vage, eine Beschreibung zu generisch oder ein Verbot zu schwach formuliert ist.</p>
+</section>
+<section id="kurze-notiz-zur-übertragung" class="level2">
+<h2 class="anchored" data-anchor-id="kurze-notiz-zur-übertragung">Kurze Notiz zur Übertragung</h2>
+<p>Was diese Demonstration auf andere Fächer überträgt: nicht die Korrelations-Inhalte, sondern die <em>Methode</em>. Die Methode ist:</p>
+<ol type="1">
+<li>Eine einzelne Teilaufgabe identifizieren (nicht die ganze Aufgabe).</li>
+<li>Wissensbausteine vom LLM vorschlagen lassen, dann validieren, prunen, ergänzen.</li>
+<li>Bei jedem Eintrag die Quelle markieren: V (vermutet) oder B (beobachtet).</li>
+<li>Mindestens einen Baustein im reaktiven und produktiven Modus simulieren lassen, um die Aufgabenstellung und die Diskriminationsfähigkeit zu prüfen.</li>
+<li>Eine Falsifikationsnotiz festhalten: wann wäre meine Decomposition widerlegt?</li>
+</ol>
+<p>Diese fünf Schritte gelten für Pflegewissenschaft, Wirtschaft, Sozialarbeit, Mathematik, Technik gleichermassen. Im Block 2 wendest du sie auf eine Teilaufgabe aus deinem eigenen Fach an.</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/virtuelleakademie\.github\.io\/ki-lehre-advanced\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../vorbereitung/index.html" class="pagination-link" aria-label="Vorbereitung">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Vorbereitung</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../workshop/spec-card-statistics/index.html" class="pagination-link" aria-label="Erweiterte Hintergrundlektüre">
+        <span class="nav-page-text">Erweiterte Hintergrundlektüre</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

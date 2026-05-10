@@ -11,7 +11,9 @@ project:
   output-dir: docs
   render:
     - index.qmd
+    - vorbereitung/**/*.qmd
     - workshop/**/*.qmd
+    - workshop/**/*.md
     - workshop/**/*.ipynb
     - slides/**/*.qmd
     - hf-spaces/**/*.md
@@ -38,25 +40,9 @@ website:
         href: workshop/index.qmd
         text: Workshop
 
-      - icon: mortarboard
-        href: workshop/theory/index.qmd
-        text: Theory
-
-      - icon: easel
-        href: workshop/demo/index.qmd
-        text: Demo
-
-      - icon: code-square
-        href: workshop/build/index.qmd
-        text: Build
-
-      - icon: people
-        href: workshop/extend/index.qmd
-        text: Extend
-
-      # - icon: book
-      #   href: workshop/resources/index.qmd
-      #   text: Resources
+      - icon: book
+        href: vorbereitung/index.qmd
+        text: Vorbereitung
 
 
     tools:
@@ -79,19 +65,29 @@ website:
       contents:
         - workshop/index.qmd
         - text: "---"
-        - section: "Opening (10 min)"
+        - section: "Vorbereitung"
           contents:
-            - workshop/opening/index.qmd
-        - section: "Theory (30 min)"
+            - vorbereitung/index.qmd
+            - workshop/block-1-theorie-und-beispiel/worked-example-statistics.qmd
+            - text: "Erweiterte Hintergrundlektüre"
+              href: workshop/spec-card-statistics/index.qmd
+        - section: "Einstieg (7 min)"
           contents:
-            - workshop/theory/index.qmd
-        - section: "Demo (15 min)"
+            - workshop/einstieg/index.qmd
+        - section: "Block 1: Theorie und Beispiel (48 min)"
           contents:
-            - workshop/demo/index.qmd
-        - section: "Build (115 min, incl. break)"
+            - workshop/block-1-theorie-und-beispiel/index.qmd
+            - workshop/block-1-theorie-und-beispiel/worked-example-statistics.qmd
+        - section: "Block 2: Eigenes Spec Sheet (55 min)"
           contents:
-            - workshop/build/index.qmd
-            - section: "Scenarios"
+            - workshop/block-2-spec-card/index.qmd
+            - workshop/spec-sheet-template/index.qmd
+            - workshop/spec-sheet-template/prompt-scaffolds.md
+        - section: "Block 3: Rendering (25 min)"
+          contents:
+            - workshop/block-3-multi-tool/index.qmd
+            - workshop/spec-sheet-template/system-prompt-template.md
+            - section: "Backup-Szenarien"
               contents:
                 - workshop/build/scenarios/index.qmd
                 - workshop/build/scenarios/nursing.qmd
@@ -100,12 +96,10 @@ website:
                 - workshop/build/scenarios/social-work.qmd
                 - workshop/build/scenarios/engineering.qmd
                 - workshop/build/scenarios/statistics.qmd
-        - section: "Extend (15 min)"
+                - workshop/build/scenarios/math.qmd
+        - section: "Closing (10 min)"
           contents:
-            - workshop/extend/index.qmd
-        - section: "Closing (5-10 min)"
-          contents:
-            - workshop/diskussion/index.qmd
+            - workshop/closing/index.qmd
 
 page-footer:
   right:

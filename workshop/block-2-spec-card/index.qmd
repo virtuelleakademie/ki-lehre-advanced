@@ -1,0 +1,172 @@
+---
+title: "Block 2: Eigenes Spec Sheet (55 min)"
+---
+
+::: {.callout-timing icon=false}
+## Zeitbudget Block 2
+
+- 5 min: Orientierung an der Vorlage; Teilaufgabe wählen
+- 25 min: Wissensbausteine inventarisieren und validieren
+- 20 min: Fehlkonzepte prüfen; Wissenslücken benennen
+- 10 min: Paar-Feedback
+:::
+
+## Was Block 2 leistet
+
+In Block 2 baust du das, was du in Block 1 gesehen hast: ein **Spec Sheet für eine Teilaufgabe deiner eigenen Lehre**. Du arbeitest dafür mit der [Spec-Sheet-Vorlage](../spec-sheet-template/index.qmd) und den fünf [Prompt-Scaffolds](../spec-sheet-template/prompt-scaffolds.md). Das LLM nutzt du in den beiden in Block 1 vorgestellten Rollen: Hypothesengenerator und Lernende-Simulator.
+
+Dein Ziel: am Ende der 55 Minuten hast du **vier bis acht Wissensbausteine, zwei bis vier Fehlkonzepte, zwei bis fünf Wissenslücken** und eine **Falsifikationsnotiz**, jeweils mit der Quelle markiert (vermutet vs. beobachtet).
+
+::: {.callout-pro-tip icon=false}
+## Worauf es heute *nicht* ankommt
+
+Vollständigkeit. Du wirst dein Spec Sheet zu Hause weiter ergänzen können. Was es jetzt braucht, ist eine *erste vollständige Version*: jede Sektion mit mindestens den Mindestanzahlen ausgefüllt, Validierung sauber durchgeführt, mindestens eine Simulation gelaufen.
+
+Lieber wenig und scharf als viel und unscharf.
+:::
+
+## Schritt 1: Orientierung und Teilaufgabe wählen (5 min)
+
+::: {.callout-individual icon=false}
+## Aufgabe
+
+Öffne die [Spec-Sheet-Vorlage](../spec-sheet-template/index.qmd) und überflieg sie. Du kennst die Struktur aus Block 1.
+
+Wähle dann eine **Teilaufgabe** aus einer deiner Aufgaben:
+
+- Eine Teilaufgabe, nicht die ganze Aufgabe (z.B. "Identifiziere das passende Verfahren" innerhalb einer mehrteiligen Klausuraufgabe).
+- Eine, die mindestens einen Wissensbaustein hat, der über reines Faktenwissen hinausgeht. Sonst ist die Übung dünn.
+- Eine, bei der du mindestens eine reale Studierenden-Antwort vor Augen hast. Das wird dir helfen, V (vermutet) von B (beobachtet) zu trennen.
+
+Wenn du keine eigene Aufgabe dabei hast, wähle eines der [Backup-Szenarien](../build/scenarios/index.qmd) als Ersatz.
+
+Trage Sektion A (A1, A2, A3) deines Spec Sheets ein.
+:::
+
+## Schritt 2: Wissensbausteine inventarisieren und validieren (25 min)
+
+Diese Phase besteht aus drei Bewegungen: generieren, validieren, Lernaktivitäten markieren.
+
+::: {.callout-individual icon=false}
+## Generieren mit Prompt 1 (5 min)
+
+Öffne ein Chat-LLM deiner Wahl (Microsoft Copilot, HuggingChat, Claude, ChatGPT).
+
+Kopiere [Prompt 1: Wissensbausteine inventarisieren](../spec-sheet-template/prompt-scaffolds.md) und füge deinen Sektion-A-Inhalt ein.
+
+Lass das LLM vier bis acht Bausteine vorschlagen.
+:::
+
+::: {.callout-individual icon=false}
+## Validieren (15 min)
+
+Lies die LLM-Liste mit einem Stift oder Cursor in der Hand. Pro Vorschlag entscheidest du eines von vier:
+
+- **Behalten als V** (vermutet): plausibel, aber du hast keinen konkreten Fall in deiner Lehrerfahrung.
+- **Behalten als B** (beobachtet): du hast diesen Baustein bei mindestens einer realen Studierenden gesehen oder gehört.
+- **Korrigieren**: der Baustein ist teilweise richtig; du formulierst um (Name, Typ, Beschreibung).
+- **Verwerfen**: trag den LLM-Vorschlag ins Pruning-Protokoll ein, mit einer Halbzeile Begründung.
+
+Ergänze Bausteine, die das LLM übersehen hat. Vor allem **TACIT-Punkte**: Wissen, das in deinem Fach kompetente Praktikerinnen erkennen, das aber selten verschriftlicht wird (perceptive Kompetenzen, eingespielte Routinen).
+
+Trage die behaltenen Bausteine in Sektion B des Spec Sheets ein.
+:::
+
+::: {.callout-pair icon=false}
+## Wenn du beim Validieren ins Stocken kommst
+
+Frag deine Sitznachbarin: *"Würdest du diesen Baustein in deinem Fach übernehmen, oder ist er zu spezifisch oder zu generisch?"* Eine kurze Aussenperspektive löst die meisten Stolperstellen schnell auf.
+:::
+
+::: {.callout-individual icon=false}
+## Lernaktivitäten markieren (5 min)
+
+Verwende [Prompt 2](../spec-sheet-template/prompt-scaffolds.md) für deine validierte Liste. Pro Baustein notiert das LLM:
+
+- Was *entwickelt* den Baustein (welche Lernhandlung).
+- Was *entwickelt ihn nicht* (welche Abkürzung produziert die Oberfläche, ohne den Lernschritt zu machen).
+
+Diese Liste wirst du im Closing brauchen, wenn wir die Frage stellen, wo KI-Substitution die Lernhandlung unterläuft.
+:::
+
+## Schritt 3: Fehlkonzepte und Wissenslücken (20 min)
+
+::: {.callout-individual icon=false}
+## Reaktive Simulation: was setzt deine Aufgabe voraus? (10 min)
+
+Wähle einen zentralen Wissensbaustein aus deiner Liste, dessen Fehlen du untersuchen willst.
+
+Verwende [Prompt 3: Reaktive Simulation](../spec-sheet-template/prompt-scaffolds.md). Gib den Wortlaut deiner Teilaufgabe und den Baustein "den die Studierende nicht hat" ein.
+
+Lies das LLM-Output sorgfältig. Markierungen in deinem Aufgabentext, die nicht offensichtlich waren? Annahmen, die unausgesprochen geblieben sind?
+
+Trage relevante Punkte in **Sektion D** des Spec Sheets ein (Wissenslücken). Quelle: V, falls dies eine Hypothese ist; B, falls du diese Lücke schon mal bei einer Studierenden gesehen hast.
+:::
+
+::: {.callout-individual icon=false}
+## Produktive Simulation: fängt deine Aufgabe Misserfolge? (10 min)
+
+Wähle ein wahrscheinliches Fehlkonzept (eines, von dem du vermutest, dass es Studierende deines Niveaus haben könnten).
+
+Verwende [Prompt 4: Produktive Simulation](../spec-sheet-template/prompt-scaffolds.md). Lass das LLM eine Studierendenantwort produzieren, die dieses Fehlkonzept reflektiert.
+
+Beim Lesen der Antwort:
+
+- **Fängt deine Aufgabenstellung diesen Misserfolg?** Würdest du beim Korrigieren das Fehlkonzept zuverlässig bemerken, oder schmuggelt sich die fluessig-aber-falsche Antwort durch?
+- **An welchen Beobachtungspunkten** lässt sich das Fehlkonzept erkennen, wenn man darauf achtet?
+
+Trage das Fehlkonzept in **Sektion C** ein, mit der Diskriminationseinschätzung.
+
+Wiederhole für ein bis zwei weitere Fehlkonzepte oder fehlende Bausteine, falls die Zeit reicht.
+:::
+
+::: {.callout-pro-tip icon=false}
+## Wenn dein Spec Sheet ungleich gefüllt ist
+
+Sektion B mit acht Einträgen, Sektion C mit nur einem? Das ist normal: nicht alle Aufgaben prüfen explizit Fehlkonzepte. Lass das so. Lieber eine ehrliche Spec mit ungleicher Tiefe als eine, die der Symmetrie zuliebe Inhalte erfindet.
+:::
+
+## Schritt 4: Falsifikationsnotiz (3 min)
+
+::: {.callout-individual icon=false}
+## Aufgabe
+
+Wähle einen Wissensbaustein aus Sektion B, den du als zentral für deine Teilaufgabe einschätzt.
+
+Schreibe einen Satz: *Welches Verhalten von Studierenden würde mir zeigen, dass meine Decomposition für diesen Baustein falsch ist?*
+
+Trage den Satz in Sektion E ein.
+
+Diese Notiz hält dein Spec Sheet als empirisches Instrument fest, nicht als plausibles Dokument.
+:::
+
+## Schritt 5: Paar-Feedback (10 min)
+
+::: {.callout-pair icon=false}
+## Strukturiertes Feedback
+
+Tauscht in Paaren die Spec Sheets aus. Pro Paar: 5 Minuten zu deinem, 5 Minuten zum Gegenüber.
+
+Drei Fragen, in dieser Reihenfolge:
+
+1. **Welcher Eintrag ist der unschärfste?** Welcher Baustein, welches Fehlkonzept, welche Lücke ist am wenigsten konkret? Worauf beruht die Vermutung?
+2. **Welcher Eintrag ist als V markiert, könnte aber B sein?** Hast du diesen Punkt vielleicht schon gesehen, ohne ihn als Beobachtung zu notieren?
+3. **Wo fehlt etwas?** Welche Bausteine, Fehlkonzepte oder Lücken aus deinem Fach würdest du erwarten, die hier nicht stehen?
+
+Notiere Stichworte, aber überarbeite das Spec Sheet noch nicht. Die Überarbeitung passiert nach dem Workshop.
+:::
+
+::: {.callout-checkpoint icon=false}
+## Was du nach Block 2 hast
+
+Ein erstes vollständiges Spec Sheet:
+
+- Sektion A: Teilaufgabe verankert.
+- Sektion B: vier bis acht Wissensbausteine, je mit V/B-Markierung und Lernaktivitäten.
+- Sektion C: zwei bis vier Fehlkonzepte, je mit Diskriminationseinschätzung.
+- Sektion D: zwei bis fünf Wissenslücken, je mit Curriculum-Verweis.
+- Sektion E: eine Falsifikationsnotiz.
+- Pruning-Protokoll: zwei bis vier Einträge.
+
+In Block 3 übersetzt du dieses Spec Sheet in einen System-Prompt und testest es einmal.
+:::

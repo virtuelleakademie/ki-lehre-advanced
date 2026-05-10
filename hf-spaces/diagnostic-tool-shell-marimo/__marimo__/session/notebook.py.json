@@ -1,0 +1,172 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.23.5",
+    "script_metadata_hash": null
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "801931ebb9b5330486ba06a8bf39f35e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"tier-3-demonstration-spec-card-als-strukturierter-api-aufruf\">Tier-3 Demonstration: Spec Card als strukturierter API-Aufruf</h1>\n<span class=\"paragraph\">Diese Notebook-Demo zeigt, wie eine Spec Card in einen strukturierten\nAPI-Aufruf \u00fcbersetzt wird. Jede Zelle macht einen Schritt des Datenflusses\nsichtbar:</span>\n<ol>\n<li><strong>Schema</strong> definieren (Pydantic): die Struktur, die das Modell zur\u00fcckgeben muss</li>\n<li><strong>Szenario</strong> ausw\u00e4hlen (eine kalibrierte Studierendenantwort)</li>\n<li><strong>System-Prompt</strong> schreiben: deine Spec Card als Text</li>\n<li><strong>API-Aufruf</strong>: Claude Haiku 4.5 mit erzwungenem Tool-Use</li>\n<li><strong>Ergebnis</strong> validieren: aus JSON wird ein typsicheres Pydantic-Objekt</li>\n<li><strong>Export</strong>: portabler Prompt, den du in jeden anderen LLM einf\u00fcgen kannst</li>\n</ol></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "bc4af2cdc7f8dfd334f23f5497b56596",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "82fc51571c93ab4861f240e2baed5ad2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "01e22bce6d933c7966b971987e0f46c9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&#x27;Geladen: 6 Szenarien mit 18 kalibrierten Antworten.&#x27;</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "273294acabf1bf40af93d5d1e9fb97a3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='lEQa-0' random-id='667c54cf-e3d5-9162-a6a7-1a8adcd5ed08'><marimo-dropdown data-initial-value='[&quot;Nursing: Warfarin and INR&quot;]' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Szenario&lt;/span&gt;&lt;/span&gt;&quot;' data-options='[&quot;Nursing: Warfarin and INR&quot;,&quot;Education: Critique a quiz question&quot;,&quot;Business: Bakery pricing&quot;,&quot;Social work: Missed appointments&quot;,&quot;Engineering: Stale-data bug&quot;,&quot;Statistics: Interpreting r = 0.3&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false'></marimo-dropdown></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "7cc9c504dd2ca72567c8cf8272c79c92",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='PKri-0' random-id='b370740b-05ed-525b-9f40-e2844c9bcb35'><marimo-dropdown data-initial-value='[&quot;Response A&quot;]' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Kalibrierte Antwort&lt;/span&gt;&lt;/span&gt;&quot;' data-options='[&quot;Response A&quot;,&quot;Response B&quot;,&quot;Response C&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false'></marimo-dropdown></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "fc7c6993a1999c40d7aa013242027a7e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Aufgabe (Health sciences / nursing \u2014 pharmacology):</strong> A patient on long-term warfarin presents at the clinic with an INR of 5.2. Explain what you would do next and why.</span>\n<span class=\"paragraph\"><strong>Studierendenantwort (Tag: <code>intrinsic_overload</code>):</strong></span>\n<blockquote>\n<span class=\"paragraph\">I would check the patient's vitamin K intake recently and also their last dose of warfarin and look at their kidney and liver function and ask about any new medications they started because that all affects INR... so I would check the dosing schedule too and probably reduce the dose or hold it, depending on bleeding risk, but it's also important to see if they have any signs of bleeding because that changes the urgency, and we'd also need to consider if vitamin K should be given but only if the INR is really high or there's bleeding so I think we'd hold the dose first and recheck.</span>\n</blockquote></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "b99d30d76451c179de6d8179cdb20a0f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='SFPL-0' random-id='eef75fb1-26da-5f63-d38b-3483cd8c584d'><marimo-text-area data-initial-value='&quot;Du bist eine Lehrperson, die eine schriftliche Studierendenantwort analysiert.&#92;n&#92;nWende kognitive Belastungstheorie an: identifiziere, welches Signal die Antwort&#92;nzeigt, und schlage eine zielgerichtete Intervention vor.&#92;n&#92;nWahl des `load_signal`:&#92;n- intrinsic_overload: zu viel Element-Interaktivit\u00e4t f\u00fcr das aktuelle Schema&#92;n- extrinsic_distractor: irrelevante Komplexit\u00e4t f\u00e4ngt die Aufmerksamkeit&#92;n- germane_disengagement: fehlerfreier Abruf ohne Verarbeitung&#92;n- schema_gap: notwendiges Vorwissen fehlt schlicht&#92;n- active_misconception: ein koh\u00e4rentes, aber falsches Modell ist aktiv&#92;n&#92;nDas `evidence`-Feld muss aus der Antwort der Studierenden zitieren oder&#92;nparaphrasieren. Das `content`-Feld muss konkreter Text sein, den du dieser&#92;nStudierenden sagen w\u00fcrdest, nicht generische Ratschl\u00e4ge.&quot;' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;System-Prompt (deine Spec Card)&lt;/span&gt;&lt;/span&gt;&quot;' data-placeholder='&quot;&quot;' data-disabled='false' data-debounce='true' data-full-width='true' data-rows='14'></marimo-text-area></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "37d105dcf2aa39f7ce9ff2f78584f833",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='BYtC-0' random-id='511f8d0a-2f89-acd1-0d9f-bc63d1970bad'><marimo-button data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Diagnose ausf\u00fchren&lt;/span&gt;&lt;/span&gt;&quot;' data-kind='&quot;success&quot;' data-disabled='false' data-full-width='false'></marimo-button></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "395ebe6da37f8765ba65a766641176b2",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "1 validation error for DiagnosticResult\nresponse\n  Field required [type=missing, input_value={'diagnosis': {'load_sign...sk-benefit decisions.\"}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.12/v/missing",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">&quot;/var/folders/gk/qpt5f9210d9g6w7z0wwmnmlw0000gn/T/marimo_63833/__marimo__cell_RGSE_.py&quot;</span>, line <span class=\"m\">26</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">result</span> <span class=\"o\">=</span> <span class=\"n\">DiagnosticResult</span><span class=\"o\">.</span><span class=\"n\">model_validate</span><span class=\"p\">(</span><span class=\"n\">tool_use</span><span class=\"o\">.</span><span class=\"n\">input</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;/Users/andrew/.cache/uv/archive-v0/sqIEMKAvsVhmlzDi/lib/python3.14/site-packages/pydantic/main.py&quot;</span>, line <span class=\"m\">716</span>, in <span class=\"n\">model_validate</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"bp\">cls</span><span class=\"o\">.</span><span class=\"n\">__pydantic_validator__</span><span class=\"o\">.</span><span class=\"n\">validate_python</span><span class=\"p\">(</span>\n<span class=\"w\">           </span><span class=\"pm\">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^</span>\n<span class=\"w\">    </span>    <span class=\"n\">obj</span><span class=\"p\">,</span>\n<span class=\"w\">        </span><span class=\"pm\">^^^^</span>\n<span class=\"w\">    </span><span class=\"o\">...&lt;</span><span class=\"mi\">5</span> <span class=\"n\">lines</span><span class=\"o\">&gt;...</span>\n<span class=\"w\">    </span>    <span class=\"n\">by_name</span><span class=\"o\">=</span><span class=\"n\">by_name</span><span class=\"p\">,</span>\n<span class=\"w\">        </span><span class=\"pm\">^^^^^^^^^^^^^^^^</span>\n<span class=\"w\">    </span><span class=\"p\">)</span>\n<span class=\"w\">    </span><span class=\"pm\">^</span>\n<span class=\"gr\">pydantic_core._pydantic_core.ValidationError</span>: <span class=\"n\">1 validation error for DiagnosticResult</span>\n<span class=\"x\">response</span>\n<span class=\"x\">  Field required [type=missing, input_value={&#39;diagnosis&#39;: {&#39;load_sign...sk-benefit decisions.&quot;}}, input_type=dict]</span>\n<span class=\"x\">    For further information visit https://errors.pydantic.dev/2.12/v/missing</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "c2db7caad06b8805d44bed1a28c89a22",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (ValidationError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "67fa3131adce27d8f851b6d689cb2e0b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><div class=\"language-gdscript codehilite\"><pre><span></span><code><span class=\"c1\"># Portabler Prompt</span>\n\n<span class=\"n\">Du</span><span class=\"w\"> </span><span class=\"n\">bist</span><span class=\"w\"> </span><span class=\"n\">eine</span><span class=\"w\"> </span><span class=\"n\">Lehrperson</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">die</span><span class=\"w\"> </span><span class=\"n\">eine</span><span class=\"w\"> </span><span class=\"n\">schriftliche</span><span class=\"w\"> </span><span class=\"n\">Studierendenantwort</span><span class=\"w\"> </span><span class=\"n\">analysiert</span><span class=\"o\">.</span>\n<span class=\"n\">Antworte</span><span class=\"w\"> </span><span class=\"n\">AUSSCHLIESSLICH</span><span class=\"w\"> </span><span class=\"n\">als</span><span class=\"w\"> </span><span class=\"n\">JSON</span><span class=\"o\">-</span><span class=\"n\">Objekt</span><span class=\"w\"> </span><span class=\"ow\">in</span><span class=\"w\"> </span><span class=\"n\">der</span><span class=\"w\"> </span><span class=\"n\">unten</span><span class=\"w\"> </span><span class=\"n\">angegebenen</span><span class=\"w\"> </span><span class=\"n\">Form</span><span class=\"o\">.</span><span class=\"w\"> </span><span class=\"n\">Keine</span>\n<span class=\"n\">Prosa</span><span class=\"w\"> </span><span class=\"n\">um</span><span class=\"w\"> </span><span class=\"n\">das</span><span class=\"w\"> </span><span class=\"n\">JSON</span><span class=\"o\">.</span>\n\n<span class=\"c1\">## System</span>\n\n<span class=\"n\">Du</span><span class=\"w\"> </span><span class=\"n\">bist</span><span class=\"w\"> </span><span class=\"n\">eine</span><span class=\"w\"> </span><span class=\"n\">Lehrperson</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">die</span><span class=\"w\"> </span><span class=\"n\">eine</span><span class=\"w\"> </span><span class=\"n\">schriftliche</span><span class=\"w\"> </span><span class=\"n\">Studierendenantwort</span><span class=\"w\"> </span><span class=\"n\">analysiert</span><span class=\"o\">.</span>\n\n<span class=\"n\">Wende</span><span class=\"w\"> </span><span class=\"n\">kognitive</span><span class=\"w\"> </span><span class=\"n\">Belastungstheorie</span><span class=\"w\"> </span><span class=\"n\">an</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"n\">identifiziere</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">welches</span><span class=\"w\"> </span><span class=\"n\">Signal</span><span class=\"w\"> </span><span class=\"n\">die</span><span class=\"w\"> </span><span class=\"n\">Antwort</span>\n<span class=\"n\">zeigt</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">und</span><span class=\"w\"> </span><span class=\"n\">schlage</span><span class=\"w\"> </span><span class=\"n\">eine</span><span class=\"w\"> </span><span class=\"n\">zielgerichtete</span><span class=\"w\"> </span><span class=\"n\">Intervention</span><span class=\"w\"> </span><span class=\"n\">vor</span><span class=\"o\">.</span>\n\n<span class=\"n\">Wahl</span><span class=\"w\"> </span><span class=\"n\">des</span><span class=\"w\"> </span><span class=\"err\">`</span><span class=\"n\">load_signal</span><span class=\"err\">`</span><span class=\"p\">:</span>\n\n<span class=\"o\">-</span><span class=\"w\"> </span><span class=\"n\">intrinsic_overload</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"n\">zu</span><span class=\"w\"> </span><span class=\"n\">viel</span><span class=\"w\"> </span><span class=\"n\">Element</span><span class=\"o\">-</span><span class=\"n\">Interaktivit\u00e4t</span><span class=\"w\"> </span><span class=\"n\">f\u00fcr</span><span class=\"w\"> </span><span class=\"n\">das</span><span class=\"w\"> </span><span class=\"n\">aktuelle</span><span class=\"w\"> </span><span class=\"n\">Schema</span>\n\n<span class=\"o\">-</span><span class=\"w\"> </span><span class=\"n\">extrinsic_distractor</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"n\">irrelevante</span><span class=\"w\"> </span><span class=\"n\">Komplexit\u00e4t</span><span class=\"w\"> </span><span class=\"n\">f\u00e4ngt</span><span class=\"w\"> </span><span class=\"n\">die</span><span class=\"w\"> </span><span class=\"n\">Aufmerksamkeit</span>\n\n<span class=\"o\">-</span><span class=\"w\"> </span><span class=\"n\">germane_disengagement</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"n\">fehlerfreier</span><span class=\"w\"> </span><span class=\"n\">Abruf</span><span class=\"w\"> </span><span class=\"n\">ohne</span><span class=\"w\"> </span><span class=\"n\">Verarbeitung</span>\n\n<span class=\"o\">-</span><span class=\"w\"> </span><span class=\"n\">schema_gap</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"n\">notwendiges</span><span class=\"w\"> </span><span class=\"n\">Vorwissen</span><span class=\"w\"> </span><span class=\"n\">fehlt</span><span class=\"w\"> </span><span class=\"n\">schlicht</span>\n\n<span class=\"o\">-</span><span class=\"w\"> </span><span class=\"n\">active_misconception</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"n\">ein</span><span class=\"w\"> </span><span class=\"n\">koh\u00e4rentes</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">aber</span><span class=\"w\"> </span><span class=\"n\">falsches</span><span class=\"w\"> </span><span class=\"n\">Modell</span><span class=\"w\"> </span><span class=\"n\">ist</span><span class=\"w\"> </span><span class=\"n\">aktiv</span>\n\n<span class=\"n\">Das</span><span class=\"w\"> </span><span class=\"err\">`</span><span class=\"n\">evidence</span><span class=\"err\">`</span><span class=\"o\">-</span><span class=\"n\">Feld</span><span class=\"w\"> </span><span class=\"n\">muss</span><span class=\"w\"> </span><span class=\"n\">aus</span><span class=\"w\"> </span><span class=\"n\">der</span><span class=\"w\"> </span><span class=\"n\">Antwort</span><span class=\"w\"> </span><span class=\"n\">der</span><span class=\"w\"> </span><span class=\"n\">Studierenden</span><span class=\"w\"> </span><span class=\"n\">zitieren</span><span class=\"w\"> </span><span class=\"n\">oder</span>\n<span class=\"n\">paraphrasieren</span><span class=\"o\">.</span><span class=\"w\"> </span><span class=\"n\">Das</span><span class=\"w\"> </span><span class=\"err\">`</span><span class=\"n\">content</span><span class=\"err\">`</span><span class=\"o\">-</span><span class=\"n\">Feld</span><span class=\"w\"> </span><span class=\"n\">muss</span><span class=\"w\"> </span><span class=\"n\">konkreter</span><span class=\"w\"> </span><span class=\"n\">Text</span><span class=\"w\"> </span><span class=\"n\">sein</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">den</span><span class=\"w\"> </span><span class=\"n\">du</span><span class=\"w\"> </span><span class=\"n\">dieser</span>\n<span class=\"n\">Studierenden</span><span class=\"w\"> </span><span class=\"n\">sagen</span><span class=\"w\"> </span><span class=\"n\">w\u00fcrdest</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">nicht</span><span class=\"w\"> </span><span class=\"n\">generische</span><span class=\"w\"> </span><span class=\"n\">Ratschl\u00e4ge</span><span class=\"o\">.</span>\n\n<span class=\"c1\">## Erwartete JSON-Struktur</span>\n\n<span class=\"err\">```</span><span class=\"n\">json</span>\n<span class=\"p\">{</span>\n<span class=\"w\">  </span><span class=\"s2\">&quot;diagnosis&quot;</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"p\">{</span>\n<span class=\"s2\">&quot;load_signal&quot;</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"s2\">&quot;&lt;intrinsic_overload | extrinsic_distractor | germane_disengagement | schema_gap | active_misconception&gt;&quot;</span><span class=\"p\">,</span>\n<span class=\"s2\">&quot;evidence&quot;</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"s2\">&quot;&lt;kurzes Zitat aus der Antwort&gt;&quot;</span><span class=\"p\">,</span>\n<span class=\"s2\">&quot;severity&quot;</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"s2\">&quot;&lt;mild | moderate | fundamental&gt;&quot;</span><span class=\"p\">,</span>\n<span class=\"s2\">&quot;domain_notes&quot;</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"s2\">&quot;&lt;1-2 S\u00e4tze disziplinspezifischer Beobachtungen&gt;&quot;</span>\n<span class=\"w\">  </span><span class=\"p\">},</span>\n<span class=\"w\">  </span><span class=\"s2\">&quot;response&quot;</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"p\">{</span>\n<span class=\"s2\">&quot;intervention&quot;</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"s2\">&quot;&lt;segment_intrinsic_load | reduce_extrinsic_load | prompt_germane_processing | activate_prior_schema | replace_misconception&gt;&quot;</span><span class=\"p\">,</span>\n<span class=\"s2\">&quot;content&quot;</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"s2\">&quot;&lt;konkreter Text f\u00fcr die Studierenden&gt;&quot;</span>\n<span class=\"w\">  </span><span class=\"p\">}</span>\n<span class=\"p\">}</span>\n</code></pre></div>\n<h2 id=\"studierendenantwort\">Studierendenantwort</h2>\n<span class=\"paragraph\">&lt;<hier einf\u00fcgen>&gt;</span>\n<span class=\"paragraph\">```</span></span>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

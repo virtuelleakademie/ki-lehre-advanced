@@ -4,20 +4,29 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Documentation Files
 
-- **CLAUDE.md** (this file) - Quick developer reference and commands
-- **marimo-quarto-integration.md** - Detailed technical guide for marimo + Quarto integration
-- **workshop-redesign-overview.md** - Comprehensive explanation of the workshop redesign
-- **resources/prompt-templates/pedagogical-prompts.qmd** - 14 evidence-based prompt templates
+- **CLAUDE.md** (this file): quick developer reference and commands
+- **2026-05-06-advanced-workshop-design.md**: the design doc for the Spec Card workshop (the user's own theoretical design statement; current authoritative source for what the workshop is)
+- **2026-05-06-spec-card-redesign.md**: implementation plan for the Spec Card design (load-bearing claims, vocabulary policy, file inventory, sequence)
+- **2026-05-07-redesign-comparison.md**: side-by-side comparison of Redesign A (diagnostic-tool-shell) vs. Redesign B (Spec Card). Useful as the historical record of the design choice
+- **instructor-notes/spec-card-statistics-internal.md**: the worked Statistics-Novice Spec Card in the internal-precise register (architectures named)
+- **marimo-quarto-integration.md**: technical guide for marimo + Quarto. Not used by the current workshop's main flow; preserved because the integration remains valid for other content
+- **resources/prompt-templates/pedagogical-prompts.qmd**: legacy prompt templates from earlier iterations
 
 ## Project Overview
 
 Educational website and workshop materials for the **KI in der Lehre: Advanced** workshop, the third in a three-workshop trilogy on AI in education at the BFH Virtuelle Akademie.
 
-This 3-hour workshop has participants build a CLT-grounded **diagnostic AI tool** for their own discipline, **without writing code**. The output schema is fixed (it IS the cognitive-load-theory taxonomy: five `load_signal` and five `intervention` enum categories); participants iterate the system prompt against a hosted Gradio shell. They leave with a configured tool URL and a portable prompt recipe usable in Microsoft Copilot, ChatGPT, or Claude.
+This 3-hour workshop has participants build a **Spec Card**: a 6-section falsifiable specification of a learner in their own discipline. Participants then deploy the spec across four tools (Microsoft Copilot, HuggingChat, a Marimo notebook with structured outputs, a coding agent like Claude Code or pi.dev) and apply four diagnostic roles (clarity stress-test, intervention/observation mapper, misconception probe, performance-learning dissociation detector) to a real assignment from their teaching.
 
-Built with Quarto, delivered in English, maintained by the Virtual Academy at Bern University of Applied Sciences (BFH). Published at https://virtuelleakademie.github.io/ki-lehre-advanced/
+The workshop's central claim is that **AI substitution disables (rather than degrades) the metacognitive update**. Without the learner's first-order action, the second-order metacognitive computation does not run. This is the sharp, falsifiable form of the offloading-vs-outsourcing distinction the intermediate workshop establishes informally.
 
-The marimo + PydanticAI iteration of this workshop has been moved to `archive/marimo-iteration/`. See `workshop-redesign-overview.md` for the redesign rationale.
+Built with Quarto, **delivered in German**, maintained by the Virtual Academy at Bern University of Applied Sciences (BFH). Published at https://virtuelleakademie.github.io/ki-lehre-advanced/
+
+Two prior iterations of this workshop have been archived:
+- `archive/marimo-iteration/` — the original PydanticAI + Marimo design
+- `archive/diagnostic-shell-iteration/` — the simpler Gradio-based diagnostic-tool-shell design (English content)
+
+See `2026-05-06-spec-card-redesign.md` and `2026-05-06-advanced-workshop-design.md` for the design rationale.
 
 ## Development Commands
 
@@ -50,33 +59,43 @@ make diff                   # Show word-level diff
 
 ### Content Organization
 
-**Workshop Structure (3-hour workshop, English):**
+**Workshop Structure (3-hour workshop, German):**
 
-- **workshop/index.qmd**: Main workshop overview, schedule, learning objectives
-- **workshop/opening/**: Opening (10 min): think-pair-share on a misdiagnosis you remember
-- **workshop/theory/**: Theory (30 min): the CLT-grounded diagnostic taxonomy (five `load_signal` and five `intervention` categories)
-- **workshop/demo/**: Demo (15 min): walkthrough of the diagnostic shell on a calibrated nursing example
-- **workshop/build/**: Build (115 min, includes break): the four CLT-anchored labs against the hosted shell
-  - **workshop/build/scenarios/**: six discipline scenarios (nursing, education, business, social work, engineering, statistics), each with three calibrated student responses tagged to `load_signal` categories
-- **workshop/extend/**: Extend (15 min): tool-vs-recipe and most-diagnostic-load-signal reflection
-- **workshop/diskussion/**: Closing (5-10 min): one Monday commitment + the meta-lesson
+- **vorbereitung/index.qmd**: pre-workshop reading (~30 min) + the worked Statistics-Novice spec card
+- **workshop/index.qmd**: workshop overview, schedule, learning objectives
+- **workshop/einstieg/**: Einstieg (10 min): curse-of-knowledge activator
+- **workshop/block-1-performanz-lernen/**: Block 1 (35 min): two posteriors, Pearl's intervention vs. observation, action-as-input metacognitive update, performance vs. learning
+- **workshop/block-2-spec-card/**: Block 2 (45 min): walkthrough of the worked spec card; participants build their own
+  - **workshop/spec-card-statistics/**: the worked Statistics-Novice Spec Card (participant-facing, German)
+  - **workshop/spec-card-template/**: fillable 6-section template
+- **workshop/block-3-multi-tool/**: Block 3 (30 min): four-tier deployment spectrum
+  - `index.qmd`: the block content
+  - `copilot-template.md`: tier 1 (chat, BFH-licensed)
+  - `huggingchat-template.md`: tier 2 (open-weight)
+  - `coding-agent-walkthrough.md`: tier 4 (Claude Code or pi.dev)
+- **workshop/block-4-diagnostische-rollen/**: Block 4 (35 min): the four diagnostic roles applied to participant's own assignment
+- **workshop/closing/**: Closing (10 min): resource-rational analysis + one concrete commitment
+- **workshop/build/scenarios/**: six discipline scenarios (nursing, education, business, social work, engineering, statistics) with three calibrated student responses each. Used in Block 4 as backup assignments and as the Role 3 misconception bank. (The directory name `build/` is a legacy from the previous iteration; the scenarios remain there to keep URLs stable.)
 
-**The Hosted Shell:**
+**The Hosted Tools:**
 
-- **hf-spaces/diagnostic-tool-shell/**: the Gradio app participants use during the Build block
-  - `models.py`: fixed Pydantic schema (Diagnosis, Response, DiagnosticResult)
-  - `app.py`: three surfaces (system prompt editor, test pane, export portable prompt). Uses Anthropic Claude Haiku 4.5 with structured output via tool-use.
-  - `scenarios.json`: source of truth for the scenario pack (mirrored as .qmd files under workshop/build/scenarios/)
-- **hf-spaces/worked-example-weaver-app/**: the older personalized-worked-example tool. Stays deployed and is linked from the closing as optional further exploration. Not used in the workshop's main flow.
+- **hf-spaces/diagnostic-tool-shell-marimo/**: marimo notebook for the **tier-3 demonstration in Block 3**. Same Pydantic schema and Anthropic API call as the Gradio shell, but laid out as reactive cells so the data flow is visible.
+- **hf-spaces/diagnostic-tool-shell/**: the Gradio shell from the previous iteration. Stays live as a fallback deployment for participants who prefer a finished tool over a notebook view.
+- **hf-spaces/worked-example-weaver-app/**: an older personalized-worked-example tool. Stays deployed. Not linked from the new workshop content.
+
+**Reference / instructor notes:**
+
+- **instructor-notes/spec-card-statistics-internal.md**: the Statistics-Novice Spec Card in the internal-precise register (Marr, ACT-R, Bayesian, Daw & Fleming, Pearl, conceptual change theory all named). For instructor audit; the participant-facing version is at `workshop/spec-card-statistics/`.
 
 **Supporting Directories:**
 
-- **resources/**: Prompt templates library, supporting materials
-- **tutorials/**: Optional local setup guides
-- **slides/**: RevealJS presentations
-- **assets/**: Images, PDFs, logos, backgrounds
-- **docs/**: Build output (GitHub Pages, auto-generated). **Do not edit.**
-- **archive/marimo-iteration/**: prior iteration of the workshop (marimo + PydanticAI). Not in the live render. See `archive/marimo-iteration/README.md` for context.
+- **resources/**: legacy prompt templates library
+- **tutorials/**: optional local setup guides
+- **slides/**: RevealJS presentations (legacy from prior iteration; need updating to match the new design)
+- **assets/**: images, PDFs, logos, backgrounds
+- **docs/**: build output (GitHub Pages, auto-generated). **Do not edit.**
+- **archive/marimo-iteration/**: PydanticAI + Marimo iteration. Not rendered.
+- **archive/diagnostic-shell-iteration/**: English-language diagnostic-tool-shell iteration. Not rendered.
 
 ### Key Configuration Files
 
@@ -235,7 +254,7 @@ workshop/01-module-name/
 ## Important Context
 
 - **License**: CC0 1.0 Universal (public domain)
-- **Language**: English (workshop content and materials)
+- **Language**: German (workshop content and materials). Instructor notes and design docs are English. Variable names and code identifiers stay English (programming convention). Archived iterations (under `archive/`) are in their original languages.
 - **Bibliography**: Uses bibliography.bib and ai-for-research.bib
 - **Search**: Navbar overlay search enabled
 - **Comments**: Hypothesis integration for collaborative annotation
@@ -265,67 +284,70 @@ This workshop is grounded in cognitive science principles from "Make it Stick" a
 
 ## Workshop Structure
 
-**Building Diagnostic AI Tools, Grounded in Cognitive Load Theory** - A 3-hour workshop in which participants build a working diagnostic tool for their discipline without writing code.
+**Spec Cards bauen, vier diagnostische Rollen** — A 3-hour workshop in which participants build a falsifiable cognitive specification of a learner (a Spec Card) and apply four diagnostic roles to their own assignments.
 
 ### Learning Objectives
 
 By the end of this workshop, participants will:
 
-1. **Identify** five CLT-grounded diagnostic signals in student work
-2. **Match** each diagnostic signal to a corresponding intervention strategy
-3. **Write** a system prompt that instructs an LLM to apply those categories in their discipline
-4. **Calibrate** the prompt against tagged student responses
-5. **Produce** a portable prompt recipe usable in any LLM interface (Microsoft Copilot, ChatGPT, Claude.ai)
+1. **Write** a six-section Spec Card for a novice in their own discipline, with particular focus on Section 4 (misconceptions with intuitive basis) and Section 5 (metacognitive posterior with action-as-input requirement)
+2. **Translate** the spec into multiple tools and observe where model defaults diverge from specified behavior
+3. **Apply** four diagnostic roles to their own teaching materials (clarity stress-test; intervention-vs-observation mapping; misconception probe; performance-learning dissociation detection)
+4. **Justify** why AI substitution disables (rather than degrades) metacognitive update, and what that means for assignment design
 
 ### Workshop Flow
 
 | Block | Duration | What Participants Do |
 |------|----------|---------------------|
-| Opening | 10 min | Think-pair-share: a misdiagnosis you remember |
-| Theory | 30 min | The five `load_signal` categories grounded in CLT and schema research |
-| Demo | 15 min | Walkthrough of the shell on a calibrated nursing example |
-| Build: Pick scenario | 10 min | Choose one of six discipline scenarios |
-| Build: Lab 1 | 15 min | Domain examples of each load type |
-| **Break** | 10 min | |
-| Build: Lab 2 | 15 min | Map diagnosis to intervention |
-| Build: Lab 3 | 25 min | Write the diagnostic system prompt for your discipline |
-| Build: Lab 4 | 25 min | Test on calibrated responses, refine, export portable prompt |
-| Build: Pair-test + gallery | 15 min | Run a partner's tool against your scenario |
-| Extend | 15 min | Tool-vs-recipe and most-diagnostic-load-signal reflection |
-| Closing | 5-10 min | One Monday commitment |
+| Einstieg | 10 min | Curse-of-knowledge activator: explain a key concept assuming a specific schema is missing |
+| Block 1 | 35 min | Performance vs. learning, two posteriors, Pearl's intervention/observation, paired sketch on own assignment |
+| Block 2 | 45 min | Walkthrough of the worked Statistics-Novice Spec Card; participants build their own |
+| **Break** | 15 min | |
+| Block 3 | 30 min | Four-tier deployment spectrum (instructor demo): Copilot, HuggingChat, Marimo notebook, coding agent |
+| Block 4 | 35 min | Four diagnostic roles applied to participant's own assignment |
+| Closing | 10 min | Resource-rational analysis applied to institutional adoption + one concrete commitment |
+
+### The Spec Card: 6 Sections
+
+Each section commits to a specific theoretical claim. Internal-precise labels (in `instructor-notes/`) preserve the architecture names; participant-facing labels (in `workshop/`) use accessible German.
+
+| # | Internal label (English) | Participant-facing label (German) | Theoretical commitment |
+|---|---|---|---|
+| 1 | Role + expertise level | Rolle und Erfahrungsstand | Stable point on novice-expert continuum |
+| 2 | What's not yet built (overhypotheses + uncompiled productions) | Was noch nicht aufgebaut ist | Hierarchical priors + ACT-R element interactivity |
+| 3 | Schemas held + automatised patterns | Vorhandene Schemata und automatisierte Muster | ACT-R chunks + compiled productions |
+| 4 | Misconceptions with intuitive basis | Fehlkonzepte und ihr intuitiver Hintergrund | Conceptual change theory (Vosniadou, diSessa, Chi) |
+| 5 | Metacognitive posterior with action-as-input requirement | Selbsteinschätzung und ihre Aktualisierungsbedingungen | Daw & Fleming + active inference |
+| 6 | What this novice does when stuck | Was diese Novizin tut, wenn sie nicht weiterkommt | ACT-R production rules under uncertainty |
+
+### Vocabulary Policy
+
+Two registers, kept distinct:
+
+- **Internal docs** (instructor-notes/, design docs, this CLAUDE.md): full theoretical naming preserved
+- **Participant materials** (workshop/, vorbereitung/): only Pearl's intervention/observation and Kapur's productive failure are named. Marr's levels, ACT-R, Bayesian framing, Daw & Fleming, active inference, and conceptual change as a tradition are *used as concepts* but not *named as architectures*.
+
+### Four Diagnostic Roles
+
+Applied to participant's own teaching material in Block 4:
+
+1. **Klarheits-Stresstest** (clarity stress-test): hand the Twin your instructional material; where it fails for missing schemas, you've found tacit knowledge
+2. **Intervention vs. Beobachtung** (intervention/observation mapper): decompose your assignment into subtasks; ask which generate input to the metacognitive computation
+3. **Fehlkonzept-Sonde** (misconception probe): configure Twin to hold a misconception; does the assignment force a visibly failing prediction (productive failure)?
+4. **Performanz-Lernen-Detektor** (performance-learning dissociation detector): Twin produces fluent-confident-wrong work; lecturer evaluates and notices what they catch and miss
 
 ### Technical Stack
 
-- **Anthropic Claude Haiku 4.5**: structured-output language model used by the diagnostic shell
-- **Pydantic**: defines the fixed `Diagnosis` and `Response` schema
-- **Gradio**: hosts the three-surface shell UI
+- **Anthropic Claude Haiku 4.5**: structured-output language model used by the marimo notebook (tier 3) and the legacy Gradio shell
+- **Pydantic**: defines the `Diagnosis` and `Response` schema (the load_signal taxonomy from the previous iteration is reused as concrete content for Section 4 of the Statistics-Novice spec)
+- **Gradio**: legacy shell, fallback deployment
+- **Marimo**: tier-3 demonstration notebook (visible code, reactive cells)
 - **HuggingFace Spaces**: free deployment platform
+- **Coding agents** (Claude Code or pi.dev): tier-4 demonstration
 
-### The Fixed Schema (CLT Load Taxonomy)
+### Six Backup Scenarios
 
-The schema is the workshop's central object. Participants never edit it; they iterate the system prompt that uses it.
-
-`load_signal` (diagnostic categories):
-
-1. `intrinsic_overload`: too much element interactivity for the learner's current schema
-2. `extrinsic_distractor`: irrelevant complexity in material or task design
-3. `germane_disengagement`: going through motions without effortful processing
-4. `schema_gap`: relevant prior knowledge is missing
-5. `active_misconception`: a wrong schema is in place and being applied
-
-`intervention` (response strategies, default mapping to load signals above):
-
-1. `segment_intrinsic_load`
-2. `reduce_extrinsic_load`
-3. `prompt_germane_processing`
-4. `activate_prior_schema`
-5. `replace_misconception`
-
-`severity`: `mild`, `moderate`, `fundamental`.
-
-### Six Discipline Scenarios
-
-Located at `workshop/build/scenarios/` and mirrored in `hf-spaces/diagnostic-tool-shell/scenarios.json`:
+Located at `workshop/build/scenarios/` and mirrored in `hf-spaces/diagnostic-tool-shell/scenarios.json` and `hf-spaces/diagnostic-tool-shell-marimo/scenarios.json`:
 
 1. Nursing: Warfarin and INR
 2. Education: Critique a quiz question
@@ -334,15 +356,19 @@ Located at `workshop/build/scenarios/` and mirrored in `hf-spaces/diagnostic-too
 5. Engineering: Stale-data bug
 6. Statistics: Interpreting r = 0.3
 
-Each scenario provides three calibrated student responses tagged with the `load_signal` they exemplify, used as the answer key for Lab 4.
+Each scenario provides three calibrated student responses. In the new design these serve as backup assignments for Block 4 (for participants without their own material) and as Role 3's misconception bank.
 
 ### Pedagogical Grounding
 
-Based on **Cognitive Load Theory** [@swellerCognitiveLoadProblem1988] (with the updated germane-processing framing in Sweller, Ayres and Kalyuga 2019) and schema-acquisition research:
+Layered on top of the intermediate workshop's CLT framing. The new design adds:
 
-- **Three classical load types**: intrinsic, extraneous, germane (the latter reframed as germane *processing* in 2019)
-- **Diagnostic taxonomy extension**: schema_gap and active_misconception add two distinct schema-acquisition failure modes (absent vs. wrong schema)
-- **Workshop design principle**: theory provides structure (the fixed schema); practitioners provide cues (the system prompt)
+- **Computational vs. algorithmic levels** (Marr): used implicitly; not named in participant materials
+- **Bayesian framing of belief revision**: priors, posteriors, conditioning variables; named as concepts (Posteriore, Aktualisierungsbedingungen) but not as a framework
+- **ACT-R-style decomposition**: chunks and compiled productions as schemas + automatised patterns; named as concepts only
+- **Pearl's intervention vs. observation**: named explicitly in participant materials. Mechanises the offloading-vs-outsourcing distinction
+- **Daw & Fleming second-order metacognition**: the action-as-input claim is the workshop's strongest claim. The citation lives in instructor notes; the claim is stated in plain German for participants
+- **Productive failure (Kapur)**: named in Block 4, Role 3
+- **Conceptual change theory** (Vosniadou, diSessa, Chi): used in Section 4's "intuitive basis" requirement
 
 ## Notes for Development
 

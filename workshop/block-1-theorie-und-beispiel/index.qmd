@@ -1,0 +1,146 @@
+---
+title: "Block 1: Theorie und Beispiel (48 min)"
+---
+
+::: {.callout-timing icon=false}
+## Zeitbudget Block 1
+
+- 5 min: kurze Theorie zur Methode
+- 35 min: gemeinsamer Durchgang durch ein ausgearbeitetes Spec Sheet (Statistik-Beispiel)
+- 8 min: Werkzeug-Tour: drei Affordance-Typen
+:::
+
+## Was Block 1 leistet
+
+Bevor du in Block 2 dein eigenes Spec Sheet baust, schaust du jemand anders einmal beim Bauen zu. Das ist der Sinn des ausgearbeiteten Beispiels: du siehst die Methode in Aktion, einschliesslich der Stellen, an denen LLM-Vorschläge geprüft, korrigiert oder verworfen werden.
+
+Ohne dieses Vorbeispiel wäre die Aufgabe in Block 2 zu offen. Mit ihm hast du eine konkrete Schablone, an der du dich orientieren kannst, auch dann, wenn dein Fach völlig anders ist als Statistik.
+
+## 1. Kurze Theorie (5 min)
+
+::: {.callout-note icon=false}
+## Was du aus den vorherigen Workshops mitbringst
+
+Du kennst die Cognitive Load Theory in Grundzügen: das Arbeitsgedächtnis hat begrenzte Kapazität, und je mehr Elemente einer Aufgabe gleichzeitig gehalten werden müssen (Element-Interaktivität), desto höher die Last. Diese Grundeinsicht trägt auch heute, aber wir gehen einen Schritt weiter.
+
+Die Cognitive Load Theory beantwortet die Frage *warum* eine Aufgabe zu schwer ist. Sie beantwortet weniger gut die Frage *welcher konkrete Wissensbaustein gerade fehlt*. Genau dafür arbeiten wir heute mit einer feineren Auflösung.
+:::
+
+### Die drei Wissensbaustein-Typen
+
+Wir unterscheiden drei Typen von Wissensbausteinen, weil sie sich auf unterschiedliche Weise erwerben lassen:
+
+- **Faktenwissen.** Ein Fakt, eine Formel, ein Begriff, der abgerufen werden muss. Beispiel: "kennt die Formel der Standardabweichung". Erwirbt sich durch *aktives Abrufen* aus dem Gedächtnis (nicht durch Wiedererkennen aus einer Liste).
+- **Begriffliches Wissen.** Eine Kategorie oder ein Muster, das über mehrere Beispiele hinweg erkannt werden muss. Beispiel: "erkennt eine Frage als Korrelationsfrage und nicht als Mittelwertvergleich". Erwirbt sich durch *Klassifikationsübung* mit vielen Beispielen und Gegenbeispielen.
+- **Erklärungswissen.** Eine Regel mit erklärender Struktur, die mit Verständnis angewandt werden muss. Beispiel: "weiss, warum eine Korrelation von $r = 0.3$ in einem Kontext bedeutsam und in einem anderen vernachlässigbar ist". Erwirbt sich durch *Selbsterklärung*, durch worked examples mit Reflexionsfragen, durch kontrastive Fälle.
+
+Die Unterscheidung trägt für uns drei Lasten:
+
+1. Sie verhindert, dass wir alle Wissensformen gleich behandeln, was im Klassenraum oft passiert (alles wird "erklärt" oder alles wird "geübt").
+2. Sie macht sichtbar, **welche Aktivität welche Wissensform überhaupt entwickeln kann**. Eine Studierende kann eine Erklärung *lesen*, ohne ein Erklärungswissen aufzubauen. Sie muss sich an einer eigenen Erklärung versuchen.
+3. Sie liefert die Grundlage für die Frage, welche Aufgabenteile durch KI substituiert werden können, ohne den Lernweg zu unterbrechen, und welche nicht.
+
+### Spec ist dauerhaft, Prompt ist Übersetzung
+
+Eine zweite Unterscheidung, die heute den ganzen Workshop trägt:
+
+- Ein **Spec Sheet** beschreibt, was eine Studierende kognitiv für eine Aufgabe mitbringen muss. Es ist werkzeug-unabhängig.
+- Ein **Prompt** ist die Übersetzung des Spec Sheets in ein konkretes Werkzeug zu einem konkreten Zeitpunkt.
+
+Diese Trennung ist nicht nur ordnungstheoretisch. Sie hat eine pragmatische Konsequenz: das Spec Sheet überlebt mehrere Modellgenerationen. Ein Prompt, den du heute für GPT-4 schreibst, funktioniert in zwei Jahren möglicherweise nicht mehr. Ein Spec Sheet, das du heute baust, ist in zwei Jahren noch genau so gültig (weil dort nicht steht, was das Werkzeug tun soll, sondern was die Studierende im Kopf hat).
+
+### Zwei Rollen für das LLM
+
+Wir nutzen heute LLMs in zwei klar getrennten Rollen, die du dir einprägen solltest:
+
+- **Hypothesengenerator.** Das LLM schlägt dir eine erste Liste von Wissensbausteinen, Fehlkonzepten, Wissenslücken vor. Es zieht aus der Lehrforschungsliteratur, die es gelesen hat. Das ist hilfreich gegen das Blank-Page-Problem, aber kein Befund: was es vorschlägt, prüfst du an *deiner* Lehrerfahrung und markierst entsprechend (vermutet vs. beobachtet).
+- **Lernende-Simulator**, mit zwei Probemodi:
+  - **Reaktiv** (das LLM liest dein Aufgabenmaterial als eine Studierende, der Baustein X fehlt, und meldet, was unklar ist): operationalisiert den Fluch des Wissens. Es zeigt dir, was deine Aufgabenstellung implizit voraussetzt.
+  - **Produktiv** (das LLM produziert eine Antwort einer Studierenden mit fehlendem Baustein oder Fehlkonzept): testet, ob deine Aufgabe diesen Misserfolg überhaupt fängt.
+
+Beide Rollen sind heute klar zu unterscheiden. Du fragst dich beim Arbeiten: *Bin ich gerade in der Hypothesen-Phase oder in der Simulations-Phase? Welche Rolle hat das LLM gerade?*
+
+## 2. Worked Example: Spec Sheet zu einer Statistik-Teilaufgabe (35 min)
+
+Die Live-Demo arbeitet sich durch das ausgearbeitete Beispiel. Du folgst auf der Seite [Worked Example: Spec Sheet für eine Statistik-Teilaufgabe](worked-example-statistics.qmd) mit, während die Instruktorin Schritt für Schritt vorführt:
+
+1. Sektion A des Spec Sheets ausfüllen (Teilaufgabe, Kontext, Lernziel).
+2. Prompt 1 in einem Chat-LLM laufen lassen: das LLM schlägt Wissensbausteine vor.
+3. Vorschläge **validieren**: einige übernehmen, einige korrigieren, einige verwerfen. Die Pruning-Bewegungen werden laut kommentiert.
+4. Reaktive Simulation für einen zentralen Baustein: das LLM liest die Aufgabenstellung "ohne Baustein X" und meldet zurück, was unklar ist.
+5. Produktive Simulation für ein Fehlkonzept: das LLM produziert eine plausible Studierendenantwort mit dem Fehlkonzept.
+6. Falsifikationsnotiz festhalten: woran würde ich erkennen, dass meine Decomposition falsch ist?
+
+::: {.callout-pro-tip icon=false}
+## Worauf du beim Mitschauen achtest
+
+Drei Stellen verdienen besondere Aufmerksamkeit:
+
+- **Wenn das LLM einen Vorschlag macht, der falsch oder daneben ist:** wie geht die Instruktorin damit um? Welches Argument benutzt sie, um den Vorschlag zu verwerfen?
+- **Wenn die reaktive Simulation eine Stelle markiert, die niemand erwartet hatte:** das ist ein Treffer und gehört in das Spec Sheet (typischerweise als Wissenslücke).
+- **Wenn die produktive Simulation eine plausible-aber-falsche Antwort produziert:** würde dir der Misserfolg beim Korrigieren auffallen?
+:::
+
+## 3. Werkzeug-Tour: drei Affordance-Typen (8 min)
+
+Bevor du in Block 3 dein Spec Sheet selbst in einen Prompt überführst, siehst du kurz drei verschiedene Arten, wie LLMs eingesetzt werden können. Wir sprechen nicht von Produkten (die ändern sich), sondern von **Affordance-Typen** (die bleiben stabil).
+
+### Typ 1: Chat-Werkzeug
+
+Beispiele: Microsoft Copilot, ChatGPT, Claude, HuggingChat. Du gibst einen System-Prompt vor, dann gibst du Texte ein und bekommst Texte zurück. Einfachste, breitflächig verfügbare Form. Genau das, was du in Block 3 selbst machst.
+
+Vorteile: niedrige Einstiegsschwelle, keine Programmierung, jeder Browser tut es.
+
+Grenzen: keine garantierte Struktur in der Antwort. Das LLM kann einfach in Prosa antworten, wie es ihm gerade passt.
+
+### Typ 2: Strukturierte API-Generierung
+
+Beispiel: ein Marimo-Notebook (live-Demo), das den Datenfluss eines strukturierten API-Aufrufs Zelle für Zelle sichtbar macht. Das LLM wird via API angesteuert, mit einer **erzwungenen Ausgabestruktur** (hier: ein Pydantic-Schema). Es muss in genau dem geforderten Format antworten.
+
+Im Notebook siehst du sechs Schritte als separate Zellen:
+
+1. Schema definieren (Pydantic).
+2. Szenario auswählen (eine kalibrierte Studierendenantwort).
+3. System-Prompt schreiben (das gerenderte Spec Sheet).
+4. API-Aufruf an das LLM mit erzwungenem Tool-Use.
+5. Validierung der Antwort gegen das Schema.
+6. Export in einen portablen Prompt.
+
+Genau dieser Aufbau macht den Unterschied zwischen *Spec* und *Prompt* sichtbar: das Schema ist ein eigenes, durables Objekt; der Prompt ist nur Teil des API-Aufrufs in Schritt 4.
+
+Vorteile: garantierte Struktur, weiterverarbeitbar in nachfolgenden Schritten, Datenfluss komplett sichtbar.
+
+Grenzen: erfordert Python-Verständnis im Lesen (nicht im Schreiben). Die Struktur ist im Vorfeld festgelegt.
+
+Das Notebook liegt unter `hf-spaces/diagnostic-tool-shell-marimo/notebook.py`. Es wird im Workshop von der Instruktorin per `marimo edit` vorgeführt; du musst nichts installieren. Wenn du es zu Hause selbst laufen lassen willst, brauchst du Python und einen `ANTHROPIC_API_KEY`.
+
+### Typ 3: Agentisches Werkzeug
+
+Beispiele: Claude Code, pi.dev, Cursor (kurze Aufzeichnung als Demo). Hier hat das LLM nicht nur Text-Input, sondern Werkzeuge: es kann Dateien lesen, Code ausführen, im Web suchen.
+
+Vorteile: kann komplexe Aufgaben übernehmen, die mehrere Schritte verlangen (z.B. einen Aufgabentext lesen, eine Beispielantwort generieren, sie gegen eine Musterlösung testen).
+
+Grenzen: deutlich höhere Komplexität, Kostenfaktor, oft (noch) nicht institutionell freigegeben.
+
+::: {.callout-checkpoint icon=false}
+## Was du aus der Tour mitnehmen solltest
+
+Drei Affordance-Typen, drei verschiedene Aufgaben:
+
+- Chat: für Hypothesengeneration, Simulation, alltägliche Anwendung.
+- Strukturiert: für Pipeline-Anwendung, Wiederverwendung in nachfolgenden Schritten.
+- Agentisch: für komplexere, mehrstufige Aufgaben mit Werkzeugzugriff.
+
+Dein Spec Sheet ist für **alle drei** verwendbar. Was sich ändert, ist die Übersetzung. Im Block 3 machst du die Übersetzung in einen Chat-System-Prompt; die anderen beiden Affordance-Typen sind für später.
+:::
+
+## Übergang in Block 2
+
+Mit dem Worked Example als Vorbild und der Werkzeug-Tour als Landschaft im Hintergrund gehst du jetzt in Block 2: dein eigenes Spec Sheet.
+
+Halte die Vorlage und die Prompt-Scaffolds bereit:
+
+- [Spec-Sheet-Vorlage](../spec-sheet-template/index.qmd)
+- [Prompt-Scaffolds](../spec-sheet-template/prompt-scaffolds.md)
+
+Nach der Pause beginnt Block 2 mit fünf Minuten Orientierung an der Vorlage. Bring eine Teilaufgabe aus deiner eigenen Lehre mit. Wenn du keine dabei hast, kannst du auf eines der [Backup-Szenarien](../build/scenarios/index.qmd) zurückgreifen.

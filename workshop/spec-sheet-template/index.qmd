@@ -1,0 +1,192 @@
+---
+title: "Spec-Sheet-Vorlage: Eine Teilaufgabe"
+---
+
+::: {.callout-note icon=false}
+## Was diese Vorlage ist
+
+Du füllst diese Vorlage in Block 2 für **eine einzelne Teilaufgabe** aus einer deiner eigenen Aufgaben aus. Nicht die ganze Aufgabe, sondern einen einzelnen Teilschritt: zum Beispiel "Interpretiere die berechnete Korrelation $r = 0.3$ in einer Stichprobe von 200 Personen" innerhalb einer grösseren Aufgabe.
+
+Das ausgefüllte Spec Sheet ist dein zentrales Workshop-Ergebnis. Es ist:
+
+- **Werkzeug-unabhängig.** Du kannst es später in jedes KI-Werkzeug übersetzen, das es heute oder in zwei Jahren gibt.
+- **Nachprüfbar.** Es trennt klar, was du *vermutest* (per LLM-Vorschlag, plausibilitätsgeprüft) von dem, was du *beobachtet* hast (an realen Studierenden).
+- **Falsifizierbar.** Am Schluss legst du fest, woran du erkennen würdest, dass deine Decomposition falsch ist.
+
+Du hast drei Möglichkeiten, mit der Vorlage zu arbeiten:
+
+- Ausdrucken und handschriftlich ausfüllen.
+- Markdown kopieren und in einem Texteditor (Obsidian, Notion, Word) ausfüllen.
+- Direkt im Browser in den Notizfeldern (nicht garantiert über Sessions).
+:::
+
+## Die *vermutet vs. beobachtet*-Markierung
+
+In den Sektionen B, C und D markiert jeder Eintrag, woher er stammt:
+
+- **vermutet (V):** von einem LLM vorgeschlagen oder von dir aus dem Bauch heraus formuliert, von dir auf Plausibilität geprüft. Du hältst es für möglich, hast es aber nicht selbst bei deinen Studierenden gesehen.
+- **beobachtet (B):** du hast es bei tatsächlichen Studierenden gesehen oder gehört. Mindestens ein konkreter Fall hängt daran.
+
+Diese Trennung ist die wichtigste Disziplin der Vorlage. Ohne sie wird ein gut-klingendes LLM-Output zu einem autoritativ wirkenden Dokument, das du eigentlich gar nicht überprüft hast. Mit ihr wird sichtbar, wo dein Spec Sheet auf eigener Lehrerfahrung steht und wo es noch eine offene Frage ist.
+
+## A. Die Teilaufgabe
+
+### A1. Wortlaut der Teilaufgabe
+
+**Anleitung:** Schreibe die Teilaufgabe wortwörtlich aus deiner Aufgabenstellung ab. Ein bis drei Sätze.
+
+> *(Hier eintragen)*
+
+### A2. Kurskontext
+
+**Anleitung:** Beschreibe in zwei bis vier Sätzen: in welchem Studiengang, in welchem Semester, mit welchen Vorkenntnissen begegnen die Studierenden dieser Teilaufgabe? Welche Module haben sie davor gemacht?
+
+> *(Hier eintragen)*
+
+### A3. Lernziel der Teilaufgabe
+
+**Anleitung:** Was soll diese Teilaufgabe bei der Studierenden entwickeln oder prüfen, in deinen eigenen Worten? Ein bis zwei Sätze, ohne Fachjargon.
+
+> *(Hier eintragen)*
+
+## B. Wissensbausteine
+
+**Was hier rein gehört:** die kleinsten Einheiten, die eine Studierende mitbringen muss, damit sie diese Teilaufgabe erfolgreich bearbeiten kann.
+
+Wir unterscheiden drei Typen von Wissensbausteinen:
+
+- **Faktenwissen:** ein Fakt, ein Begriff, eine Formel, die abgerufen werden muss. Beispiel: "kennt die Formel für die Standardabweichung", "weiss, dass $r$ zwischen $-1$ und $+1$ liegt".
+- **Begriffliches Wissen:** ein Muster oder eine Kategorie, die über mehrere Beispiele hinweg erkannt werden muss. Beispiel: "erkennt eine Frage als Korrelationsfrage und nicht als Mittelwertvergleich".
+- **Erklärungswissen:** eine Regel mit erklärender Struktur, die mit Verständnis angewandt werden muss. Beispiel: "weiss, warum eine Korrelation von $r = 0.3$ in einem Kontext bedeutsam und in einem anderen vernachlässigbar ist".
+
+Ziel: vier bis acht Bausteine. Lieber wenige präzise als viele unscharfe.
+
+::: {.callout-pro-tip icon=false}
+## Tipp zur Granularität
+
+Zu abstrakt ("Statistik-Theorie") lässt sich der Baustein im LLM-Simulator schlecht "wegnehmen". Zu detailliert ("kennt die Formel für $s$ in einer 3-Werte-Stichprobe") liefert keine relevanten Unterschiede. Die richtige Stufe ist die, auf der ein LLM, das so tut, als hätte es diesen Baustein nicht, eine erkennbar andere und schlechtere Antwort produziert.
+:::
+
+### Baustein 1
+
+- **Name** (3 bis 7 Wörter):
+- **Typ:** Faktenwissen / Begriffswissen / Erklärungswissen
+- **Quelle:** V / B
+- **Wo der Baustein in der Teilaufgabe vorkommt** (1 Satz):
+- **Was eine Studierende konkret schreibt oder tut, wenn der Baustein fehlt** (1 Satz, beobachtbar):
+
+### Baustein 2
+
+- **Name:**
+- **Typ:** Faktenwissen / Begriffswissen / Erklärungswissen
+- **Quelle:** V / B
+- **Wo der Baustein vorkommt:**
+- **Was schiefgeht, wenn er fehlt:**
+
+### Baustein 3
+
+- **Name:**
+- **Typ:** Faktenwissen / Begriffswissen / Erklärungswissen
+- **Quelle:** V / B
+- **Wo der Baustein vorkommt:**
+- **Was schiefgeht, wenn er fehlt:**
+
+### Baustein 4
+
+- **Name:**
+- **Typ:** Faktenwissen / Begriffswissen / Erklärungswissen
+- **Quelle:** V / B
+- **Wo der Baustein vorkommt:**
+- **Was schiefgeht, wenn er fehlt:**
+
+*(Bei Bedarf weitere Bausteine ergänzen, bis du vier bis acht hast.)*
+
+## C. Wahrscheinliche Fehlkonzepte
+
+**Was hier rein gehört:** kohärente, aber falsche Modelle, die deine Studierenden festhalten könnten und die diese Teilaufgabe testen sollte oder leider nicht testet.
+
+Ein Fehlkonzept ist nicht ein zufälliger Fehler, sondern eine Sichtweise, die für die Studierende intern stimmig ist. Genau deshalb ist es widerständig: man weist es nicht durch eine korrekte Erklärung weg.
+
+### Fehlkonzept 1
+
+- **So würde die Studierende es selbst aussprechen** (in Ich-Form, 1 bis 2 Sätze):
+- **Typ:** oberflächlich (z.B. einfach falsche Formel) / kohärent-intuitiv (basiert auf einer Alltagsintuition oder einer plausiblen Übergeneralisierung)
+- **Quelle:** V / B
+- **Diskriminiert die Teilaufgabe Studierende mit diesem Fehlkonzept von Studierenden mit korrektem Verständnis?** Ja / Nein / Unklar (mit kurzer Begründung):
+
+### Fehlkonzept 2
+
+- **So würde die Studierende es selbst aussprechen:**
+- **Typ:** oberflächlich / kohärent-intuitiv
+- **Quelle:** V / B
+- **Diskriminiert die Teilaufgabe?**
+
+### Fehlkonzept 3
+
+- **So würde die Studierende es selbst aussprechen:**
+- **Typ:** oberflächlich / kohärent-intuitiv
+- **Quelle:** V / B
+- **Diskriminiert die Teilaufgabe?**
+
+*(Bei Bedarf weitere ergänzen. Mehr als vier wird selten produktiv.)*
+
+## D. Wahrscheinliche Wissenslücken
+
+**Was hier rein gehört:** Vorwissen, das die Aufgabe annimmt und das bei einem Teil der Studierenden tatsächlich fehlen könnte.
+
+Im Unterschied zu Sektion C beschreibt eine Lücke kein falsches Modell, sondern einfach das *Fehlen* eines Bausteins, der eigentlich vor dieser Aufgabe schon da sein sollte.
+
+### Lücke 1
+
+- **Was fehlt** (1 Satz):
+- **Wo es eigentlich erworben werden sollte** (z.B. konkretes Modul, Vorlesung, Selbststudium):
+- **Quelle:** V / B
+- **Wie sich die Lücke in der Teilaufgabe konkret zeigt** (1 Satz):
+
+### Lücke 2
+
+- **Was fehlt:**
+- **Wo es eigentlich erworben werden sollte:**
+- **Quelle:** V / B
+- **Wie sich die Lücke zeigt:**
+
+### Lücke 3
+
+- **Was fehlt:**
+- **Wo es eigentlich erworben werden sollte:**
+- **Quelle:** V / B
+- **Wie sich die Lücke zeigt:**
+
+*(Bei Bedarf weitere ergänzen.)*
+
+## E. Falsifikationsnotiz
+
+**Anleitung:** Wähle einen Wissensbaustein aus Sektion B. Am besten den, den du als zentralsten für diese Teilaufgabe einschätzt.
+
+Beschreibe in einem Satz, welches Verhalten von Studierenden dir zeigen würde, dass deine Decomposition für diesen Baustein falsch ist.
+
+Beispiel: "Wenn Studierende, die ich klar als kompetente Korrelationsinterpretiererinnen einschätze, an dieser Teilaufgabe systematisch scheitern, dann ist Baustein 3 nicht das, was diese Aufgabe wirklich testet."
+
+Ohne diese Notiz bleibt das Spec Sheet eine plausible Hypothese ohne Bedingungen, unter denen du sie aufgeben würdest.
+
+> *(Hier eintragen)*
+
+## Optional: Pruning-Protokoll
+
+**Was hier rein gehört:** Vorschläge, die das LLM dir gemacht hat (in der Inventar- oder Simulationsphase), die du aber abgelehnt hast.
+
+Diese Liste ist diagnostisch wichtig. Sie zeigt, ob du den LLM-Output kritisch bewertet oder einfach abgenickt hast. Eine leere Pruning-Liste bei einem vollen Spec Sheet ist ein Warnsignal.
+
+| Verworfener Vorschlag | Grund (1 Satz) |
+|---|---|
+| | |
+| | |
+| | |
+
+## Wenn dein Spec Sheet fertig ist
+
+In Block 3 übersetzt du dein Spec Sheet in einen System-Prompt für ein KI-Werkzeug deiner Wahl, zum Beispiel Microsoft Copilot oder HuggingChat. Die Vorlage dafür findest du unter [System-Prompt-Vorlage](system-prompt-template.md).
+
+Die Übersetzung ist mechanisch: du kopierst Bausteine, Fehlkonzepte und Lücken in feste Platzhalter im Template. Wo das Template etwas verlangt, das in deinem Spec Sheet nicht steht, gehst du *zurück zum Spec Sheet* und ergänzt es. Das ist die produktivste Lehre des Block 3: die Qualität des Prompts ist eine Funktion der Qualität des Spec Sheets.
+
+Das Spec Sheet bleibt durch die Modellgenerationen hindurch nutzbar. Der gerenderte Prompt ist nur eine spezifische Übersetzung für ein spezifisches Werkzeug zu einem spezifischen Zeitpunkt.

@@ -1,0 +1,37 @@
+---
+title: "Mathematics: Recognising the substitution pattern"
+---
+
+::: {.callout-note icon=false}
+**Domain:** Calculus / integration techniques --- recognising when substitution applies
+:::
+
+## Teaching task
+
+> Compute $\int x \cdot \cos(x^2) \, dx$. Show your work and briefly explain the choice of method.
+
+## Calibrated student responses
+
+### Response A --- `active_misconception`
+
+> I will use integration by parts with $u = x$ and $dv = \cos(x^2) \, dx$. Then $du = dx$ and $v = \int \cos(x^2) \, dx$. Since I don't immediately know $\int \cos(x^2) \, dx$, I'll set $v = \sin(x^2)$. So the integral becomes $x \sin(x^2) - \int \sin(x^2) \, dx \approx x \sin(x^2) + \cos(x^2) + C$.
+
+::: {.callout-feedback}
+**Why this is `active_misconception`:** the student reasons confidently from a wrong model. They commit to integration by parts without noticing that the integrand has the structural cue ($x$ multiplying $\cos(x^2)$) that signals substitution. They then "fix" the missing antiderivative of $\cos(x^2)$ by guessing $\sin(x^2)$, which is wrong (and would require the chain rule to even exist). The misconception is that integration by parts is a default tool when the integrand is a product, regardless of whether the structure fits.
+:::
+
+### Response B --- `schema_gap`
+
+> I'm not sure which method to use. We learned several techniques: substitution, integration by parts, partial fractions, trig identities. This integrand has both a polynomial ($x$) and a trig function ($\cos(x^2)$), so it could be substitution or by parts. Without knowing which one applies, I would try substitution first, but I'm not sure how to set it up.
+
+::: {.callout-feedback}
+**Why this is `schema_gap`:** the student honestly identifies the missing piece. They have the *list* of techniques but not the *recognition pattern* that tells them which one fits. The compiled production "if integrand contains $f'(x) \cdot g(f(x))$ for some inner function, use $u = f(x)$" has not yet formed. This is a gap (a not-yet-built schema), not a misconception.
+:::
+
+### Response C --- `germane_disengagement`
+
+> Substitution: $u = x^2$, $du = 2x \, dx$, so $x \, dx = \frac{1}{2} du$. The integral becomes $\int \cos(u) \cdot \frac{1}{2} \, du = \frac{1}{2} \sin(u) + C = \frac{1}{2} \sin(x^2) + C$.
+
+::: {.callout-feedback}
+**Why this is `germane_disengagement`:** the student executes the procedure correctly and arrives at the right answer, but does not articulate *why* substitution applies (the chain-rule structure of the integrand) or *why* this technique was chosen over alternatives. The mechanical application is fluent; the rationale is absent. Asking the student to explain the choice would surface whether the recognition pattern is in place or whether it was a trained reflex.
+:::

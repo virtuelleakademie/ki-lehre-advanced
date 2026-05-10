@@ -1,0 +1,106 @@
+---
+title: "Block 3: Spec Sheet → System-Prompt (25 min)"
+---
+
+::: {.callout-timing icon=false}
+## Zeitbudget Block 3
+
+- 5 min: Vorgehen erklären; Beispiel kurz vorführen
+- 15 min: dein Spec Sheet in einen System-Prompt übersetzen; im Chat-Werkzeug testen
+- 5 min: Beobachtungen sammeln; zurück zum Spec Sheet
+:::
+
+## Was Block 3 leistet
+
+Du hast in Block 2 ein Spec Sheet gebaut. In Block 3 machst du genau einen weiteren Schritt: du übersetzst dein Spec Sheet in einen **System-Prompt** für ein Chat-Werkzeug deiner Wahl, und du testest den Prompt einmal.
+
+Der Punkt der Übung ist nicht, dass du am Ende einen perfekten Prompt hast. Der Punkt ist, dass du die **Trennung Spec / Prompt** an deinem eigenen Material erlebst:
+
+- Wo dein Spec Sheet konkret ist, fällt der Prompt fast von alleine.
+- Wo dein Spec Sheet vage ist, merkst du es beim Übersetzen, weil das Template eine Konkretisierung verlangt, die im Spec Sheet fehlt.
+
+Diese Erfahrung ist der eigentliche Lerntransfer aus Block 3: nicht ein Prompt, sondern die *Methode*, mit der du in Zukunft Spec Sheets in beliebige Werkzeuge übersetzst.
+
+## Schritt 1: Vorgehen (5 min)
+
+::: {.callout-pro-tip icon=false}
+## Die Übersetzung ist mechanisch
+
+Aus jedem Eintrag deines Spec Sheets wird ein Eintrag im System-Prompt:
+
+- Sektion B (Wissensbausteine) wird zu einer Liste im Prompt, gruppiert nach Typ.
+- Sektion C (Fehlkonzepte) wird zu einer "Häufige Fehlkonzepte"-Liste.
+- Sektion D (Wissenslücken) wird zu einer "Häufige Wissenslücken"-Liste.
+
+Die feste Vorlage findest du unter [System-Prompt-Vorlage](../spec-sheet-template/system-prompt-template.md). Du kopierst die Variante 1 (Diagnostische Rolle) und ersetzt die eckigen Klammern mit deinem Spec-Sheet-Inhalt.
+:::
+
+::: {.callout-individual icon=false}
+## Demo des Vorgehens
+
+Die Instruktorin zeigt das einmal kurz vor: das Spec Sheet aus Block 1 (Statistik-r=0.3) wird in den System-Prompt-Template kopiert. Die Stelle, an der eine Klammer im Template noch nicht im Spec Sheet abgedeckt war, wird hervorgehoben.
+
+Beobachte besonders, an welcher Stelle die Übersetzung *nicht* mechanisch ist, sondern eine Entscheidung verlangt.
+:::
+
+## Schritt 2: Übersetzen und testen (15 min)
+
+::: {.callout-individual icon=false}
+## Übersetzen (8 min)
+
+Öffne die [System-Prompt-Vorlage](../spec-sheet-template/system-prompt-template.md), Variante 1 (Diagnostische Rolle).
+
+Kopiere das Template-Gerüst.
+
+Ersetze die Platzhalter in eckigen Klammern mit Inhalten aus deinem Spec Sheet. Wenn ein Platzhalter etwas verlangt, das in deinem Spec Sheet nicht steht, **markiere die Stelle** und mach mit dem Rest weiter. Wir kommen am Ende dazu.
+
+Häufige Stolperstellen:
+
+- **Die Wissensbaustein-Liste ist sehr lang.** Picke die zwei oder drei wichtigsten heraus, lass den Rest erstmal weg. Du kannst später ergänzen.
+- **Das "Was schiefgeht"-Feld ist leer.** Geh zurück zum Spec Sheet und fülle den Satz aus. Ohne ihn fehlt dem Prompt die Spezifik.
+- **Die Verbote am Ende des Templates** (keine Bausteine erfinden, kein künstliches Selbstvertrauen). Lass sie wörtlich stehen, sie sind allgemeingültig.
+:::
+
+::: {.callout-individual icon=false}
+## Testen (7 min)
+
+Füge den fertigen System-Prompt in dein Werkzeug ein:
+
+- **Microsoft Copilot:** im "Anweisungen"-Feld eines neuen Chats oder im Custom-Agent-Setup.
+- **HuggingChat:** im "System Prompt"-Feld.
+- **ChatGPT (Custom GPT):** im Anweisungs-Feld eines neuen Custom GPT.
+- **Claude:** im System-Prompt-Feld eines neuen Chats.
+
+Teste mit einer **konkreten Studierenden-Antwort**: entweder einer realen, die du dabei hast, oder einer aus den [Backup-Szenarien](../build/scenarios/index.qmd).
+
+Beobachte:
+
+1. Identifiziert das Werkzeug die richtigen Wissensbausteine? Quotiert es plausibel die Stelle in der Antwort? Schlägt es eine sinnvolle Intervention vor?
+2. Wo bricht es ab? Erfindet es Bausteine, die nicht in deinem Spec Sheet stehen? Wird es generisch?
+:::
+
+## Schritt 3: Zurück zum Spec Sheet (5 min)
+
+::: {.callout-reflect icon=false}
+## Reflexion: was hat das Testen offengelegt?
+
+Drei Fragen für dich allein:
+
+1. **Welche Stelle im Spec Sheet war zu vage**, um in einen guten Prompt überführt zu werden? Trag eine Notiz in dein Spec Sheet ein, was geschärft werden muss.
+2. **Wo war das Werkzeug auch trotz vagem Spec Sheet erstaunlich gut?** Das hilft dir, zwischen "der Prompt ist Magie" und "der Prompt nutzt die Schärfe des Spec Sheets" zu unterscheiden.
+3. **Welche Verbote im Template waren nötig?** Welche hätten weggelassen werden können, ohne dass das Verhalten leidet? Das ist eine werkzeug-spezifische Beobachtung; sie gehört nicht ins Spec Sheet, sondern ins Pruning-Protokoll der Übersetzung.
+:::
+
+::: {.callout-checkpoint icon=false}
+## Die Lehre aus Block 3
+
+Der Spec / Prompt-Trennung ist nicht nur ordnungstheoretisch:
+
+- Der Prompt ist eine *Funktion* des Spec Sheets. Die Qualität des Prompts steigt mit der Qualität des Spec Sheets, nicht umgekehrt.
+- Wenn das Werkzeug nicht das tut, was du erwartet hast, ist der erste Reflex: zurück zum Spec Sheet, nicht den Prompt umformulieren.
+- Das Spec Sheet überlebt Modellgenerationen. Der Prompt ist eine spezifische Übersetzung für ein spezifisches Werkzeug zu einem spezifischen Zeitpunkt.
+:::
+
+## Übergang ins Closing
+
+Du hast jetzt ein Spec Sheet (durch Block 2) und einen lauffähigen System-Prompt (durch Block 3). Im Closing reflektierst du, was du mit dem Spec Sheet noch machen kannst, jenseits der diagnostischen Rolle: insbesondere, **welche Teilaufgaben deines Auftrags KI-Substitution zulassen und welche nicht**.

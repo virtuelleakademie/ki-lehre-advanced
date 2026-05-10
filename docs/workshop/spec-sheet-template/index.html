@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Build: Implementing CLT in a Diagnostic Tool – KI in der Lehre: Advanced</title>
+<title>Spec-Sheet-Vorlage: Eine Teilaufgabe – KI in der Lehre: Advanced</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,8 +33,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../workshop/build/scenarios/index.html" rel="next">
-<link href="../../workshop/demo/index.html" rel="prev">
+<link href="../../workshop/spec-sheet-template/prompt-scaffolds.html" rel="next">
+<link href="../../workshop/block-2-spec-card/index.html" rel="prev">
 <link href="../..//assets/robot.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -91,15 +91,15 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 <style>
-div.callout-setup.callout {
-  border-left-color: gray;
+div.callout-timing.callout {
+  border-left-color: red;
 }
-div.callout-setup.callout-style-default > .callout-header {
-  background-color: rgb(from gray r g b / 13%);
+div.callout-timing.callout-style-default > .callout-header {
+  background-color: rgb(from red r g b / 13%);
 }
-div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
-  content: '⚙️';
+div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
+  content: '⏱️';
   background-image: none;
 }
 div.callout-caution.callout {
@@ -113,72 +113,6 @@ div.callout-caution.callout-style-default .callout-icon::before, div.callout-cau
   content: '⚠️';
   background-image: none;
 }
-div.callout-export.callout {
-  border-left-color: brown;
-}
-div.callout-export.callout-style-default > .callout-header {
-  background-color: rgb(from brown r g b / 13%);
-}
-div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
-  content: '📤';
-  background-image: none;
-}
-div.callout-tutor-example.callout {
-  border-left-color: purple;
-}
-div.callout-tutor-example.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
-  content: '📄';
-  background-image: none;
-}
-div.callout-prompt-example.callout {
-  border-left-color: steelblue;
-}
-div.callout-prompt-example.callout-style-default > .callout-header {
-  background-color: rgb(from steelblue r g b / 13%);
-}
-div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
-  content: '👩🏼‍🔧';
-  background-image: none;
-}
-div.callout-reflect.callout {
-  border-left-color: purple;
-}
-div.callout-reflect.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
-  content: '💭';
-  background-image: none;
-}
-div.callout-schedule.callout {
-  border-left-color: steelblue;
-}
-div.callout-schedule.callout-style-default > .callout-header {
-  background-color: rgb(from steelblue r g b / 13%);
-}
-div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
-  content: '⏰︎';
-  background-image: none;
-}
-div.callout-prompt-template.callout {
-  border-left-color: indigo;
-}
-div.callout-prompt-template.callout-style-default > .callout-header {
-  background-color: rgb(from indigo r g b / 13%);
-}
-div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
-  content: '📋';
-  background-image: none;
-}
 div.callout-try.callout {
   border-left-color: blue;
 }
@@ -188,61 +122,6 @@ div.callout-try.callout-style-default > .callout-header {
 div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
   content: '🔄';
-  background-image: none;
-}
-div.callout-screens-down.callout {
-  border-left-color: orange;
-}
-div.callout-screens-down.callout-style-default > .callout-header {
-  background-color: rgb(from orange r g b / 13%);
-}
-div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
-  content: '🔽';
-  background-image: none;
-}
-div.callout-break.callout {
-  border-left-color: yellow;
-}
-div.callout-break.callout-style-default > .callout-header {
-  background-color: rgb(from yellow r g b / 13%);
-}
-div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
-  content: '☕';
-  background-image: none;
-}
-div.callout-feedback.callout {
-  border-left-color: teal;
-}
-div.callout-feedback.callout-style-default > .callout-header {
-  background-color: rgb(from teal r g b / 13%);
-}
-div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
-  content: '📝';
-  background-image: none;
-}
-div.callout-timing.callout {
-  border-left-color: red;
-}
-div.callout-timing.callout-style-default > .callout-header {
-  background-color: rgb(from red r g b / 13%);
-}
-div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
-  content: '⏱️';
-  background-image: none;
-}
-div.callout-individual.callout {
-  border-left-color: steelblue;
-}
-div.callout-individual.callout-style-default > .callout-header {
-  background-color: rgb(from steelblue r g b / 13%);
-}
-div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
-  content: '💻';
   background-image: none;
 }
 div.callout-screens-up.callout {
@@ -256,26 +135,81 @@ div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-
   content: '🔼';
   background-image: none;
 }
-div.callout-pro-tip.callout {
-  border-left-color: gold;
+div.callout-setup.callout {
+  border-left-color: gray;
 }
-div.callout-pro-tip.callout-style-default > .callout-header {
-  background-color: rgb(from gold r g b / 13%);
+div.callout-setup.callout-style-default > .callout-header {
+  background-color: rgb(from gray r g b / 13%);
 }
-div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
-  content: '💡';
+div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
+  content: '⚙️';
   background-image: none;
 }
-div.callout-checkpoint.callout {
+div.callout-reflect.callout {
   border-left-color: purple;
 }
-div.callout-checkpoint.callout-style-default > .callout-header {
+div.callout-reflect.callout-style-default > .callout-header {
   background-color: rgb(from purple r g b / 13%);
 }
-div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
-  content: '🎯';
+div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
+  content: '💭';
+  background-image: none;
+}
+div.callout-individual.callout {
+  border-left-color: steelblue;
+}
+div.callout-individual.callout-style-default > .callout-header {
+  background-color: rgb(from steelblue r g b / 13%);
+}
+div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
+  content: '💻';
+  background-image: none;
+}
+div.callout-screens-down.callout {
+  border-left-color: orange;
+}
+div.callout-screens-down.callout-style-default > .callout-header {
+  background-color: rgb(from orange r g b / 13%);
+}
+div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
+  content: '🔽';
+  background-image: none;
+}
+div.callout-schedule.callout {
+  border-left-color: steelblue;
+}
+div.callout-schedule.callout-style-default > .callout-header {
+  background-color: rgb(from steelblue r g b / 13%);
+}
+div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
+  content: '⏰︎';
+  background-image: none;
+}
+div.callout-feedback.callout {
+  border-left-color: teal;
+}
+div.callout-feedback.callout-style-default > .callout-header {
+  background-color: rgb(from teal r g b / 13%);
+}
+div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
+  content: '📝';
+  background-image: none;
+}
+div.callout-export.callout {
+  border-left-color: brown;
+}
+div.callout-export.callout-style-default > .callout-header {
+  background-color: rgb(from brown r g b / 13%);
+}
+div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
+  content: '📤';
   background-image: none;
 }
 div.callout-pair.callout {
@@ -289,6 +223,61 @@ div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.c
   content: '👥';
   background-image: none;
 }
+div.callout-prompt-template.callout {
+  border-left-color: indigo;
+}
+div.callout-prompt-template.callout-style-default > .callout-header {
+  background-color: rgb(from indigo r g b / 13%);
+}
+div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
+  content: '📋';
+  background-image: none;
+}
+div.callout-prompt-example.callout {
+  border-left-color: steelblue;
+}
+div.callout-prompt-example.callout-style-default > .callout-header {
+  background-color: rgb(from steelblue r g b / 13%);
+}
+div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
+  content: '👩🏼‍🔧';
+  background-image: none;
+}
+div.callout-tutor-example.callout {
+  border-left-color: purple;
+}
+div.callout-tutor-example.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
+  content: '📄';
+  background-image: none;
+}
+div.callout-break.callout {
+  border-left-color: yellow;
+}
+div.callout-break.callout-style-default > .callout-header {
+  background-color: rgb(from yellow r g b / 13%);
+}
+div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
+  content: '☕';
+  background-image: none;
+}
+div.callout-pro-tip.callout {
+  border-left-color: gold;
+}
+div.callout-pro-tip.callout-style-default > .callout-header {
+  background-color: rgb(from gold r g b / 13%);
+}
+div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
+  content: '💡';
+  background-image: none;
+}
 div.callout-testing.callout {
   border-left-color: green;
 }
@@ -298,6 +287,17 @@ div.callout-testing.callout-style-default > .callout-header {
 div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
   content: '🧪';
+  background-image: none;
+}
+div.callout-checkpoint.callout {
+  border-left-color: purple;
+}
+div.callout-checkpoint.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
+  content: '🎯';
   background-image: none;
 }
 div.callout-group.callout {
@@ -313,8 +313,37 @@ div.callout-group.callout-style-default .callout-icon::before, div.callout-group
 }
 </style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="Build: Implementing CLT in a Diagnostic Tool – KI in der Lehre: Advanced">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="Spec-Sheet-Vorlage: Eine Teilaufgabe – KI in der Lehre: Advanced">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="KI in der Lehre: Advanced">
 </head>
@@ -342,24 +371,9 @@ div.callout-group.callout-style-default .callout-icon::before, div.callout-group
 <span class="menu-text">Workshop</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../workshop/theory/index.html"> <i class="bi bi-mortarboard" role="img">
+    <a class="nav-link" href="../../vorbereitung/index.html"> <i class="bi bi-book" role="img">
 </i> 
-<span class="menu-text">Theory</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../workshop/demo/index.html"> <i class="bi bi-easel" role="img">
-</i> 
-<span class="menu-text">Demo</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../workshop/build/index.html"> <i class="bi bi-code-square" role="img">
-</i> 
-<span class="menu-text">Build</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../workshop/extend/index.html"> <i class="bi bi-people" role="img">
-</i> 
-<span class="menu-text">Extend</span></a>
+<span class="menu-text">Vorbereitung</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -373,7 +387,7 @@ div.callout-group.callout-style-default .callout-icon::before, div.callout-group
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../workshop/build/index.html">Build (115 min, incl.&nbsp;break)</a></li><li class="breadcrumb-item"><a href="../../workshop/build/index.html">Build: Implementing CLT in a Diagnostic Tool</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../workshop/block-2-spec-card/index.html">Block 2: Eigenes Spec Sheet (55 min)</a></li><li class="breadcrumb-item"><a href="../../workshop/spec-sheet-template/index.html">Spec-Sheet-Vorlage: Eine Teilaufgabe</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -396,14 +410,14 @@ div.callout-group.callout-style-default .callout-icon::before, div.callout-group
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../workshop/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Building Diagnostic AI Tools, Grounded in Cognitive Load Theory</span></a>
+ <span class="menu-text">Spec Sheets bauen, mit LLMs als Hypothesengenerator und Lernende-Simulator</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Opening (10 min)</span></a>
+ <span class="menu-text">Vorbereitung</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -411,8 +425,20 @@ div.callout-group.callout-style-default .callout-icon::before, div.callout-group
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../workshop/opening/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Opening: A Diagnostic Moment</span></a>
+  <a href="../../vorbereitung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vorbereitung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/block-1-theorie-und-beispiel/worked-example-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Worked Example: Spec Sheet für eine Statistik-Teilaufgabe</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/spec-card-statistics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erweiterte Hintergrundlektüre</span></a>
   </div>
 </li>
       </ul>
@@ -420,7 +446,7 @@ div.callout-group.callout-style-default .callout-icon::before, div.callout-group
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Theory (30 min)</span></a>
+ <span class="menu-text">Einstieg (7 min)</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -428,8 +454,8 @@ div.callout-group.callout-style-default .callout-icon::before, div.callout-group
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../workshop/theory/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Theory: A CLT-Grounded Diagnostic Taxonomy</span></a>
+  <a href="../../workshop/einstieg/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einstieg: Was du nicht siehst (7 min)</span></a>
   </div>
 </li>
       </ul>
@@ -437,7 +463,7 @@ div.callout-group.callout-style-default .callout-icon::before, div.callout-group
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Demo (15 min)</span></a>
+ <span class="menu-text">Block 1: Theorie und Beispiel (48 min)</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -445,8 +471,14 @@ div.callout-group.callout-style-default .callout-icon::before, div.callout-group
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../workshop/demo/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Demo: The Diagnostic Shell in Action</span></a>
+  <a href="../../workshop/block-1-theorie-und-beispiel/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Block 1: Theorie und Beispiel (48 min)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/block-1-theorie-und-beispiel/worked-example-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Worked Example: Spec Sheet für eine Statistik-Teilaufgabe</span></a>
   </div>
 </li>
       </ul>
@@ -454,7 +486,7 @@ div.callout-group.callout-style-default .callout-icon::before, div.callout-group
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Build (115 min, incl.&nbsp;break)</span></a>
+ <span class="menu-text">Block 2: Eigenes Spec Sheet (55 min)</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -462,19 +494,54 @@ div.callout-group.callout-style-default .callout-icon::before, div.callout-group
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../workshop/build/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Build: Implementing CLT in a Diagnostic Tool</span></a>
+  <a href="../../workshop/block-2-spec-card/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Block 2: Eigenes Spec Sheet (55 min)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/spec-sheet-template/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Spec-Sheet-Vorlage: Eine Teilaufgabe</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/spec-sheet-template/prompt-scaffolds.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prompt-Scaffolds für das Spec Sheet</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Block 3: Rendering (25 min)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/block-3-multi-tool/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Block 3: Spec Sheet → System-Prompt (25 min)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/spec-sheet-template/system-prompt-template.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">System-Prompt-Vorlage: Spec Sheet → Werkzeug</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
- <span class="menu-text">Scenarios</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Backup-Szenarien</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../workshop/build/scenarios/index.html" class="sidebar-item-text sidebar-link">
@@ -517,31 +584,20 @@ div.callout-group.callout-style-default .callout-icon::before, div.callout-group
  <span class="menu-text">Statistics: Interpreting r = 0.3</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Extend (15 min)</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../workshop/extend/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Extend: From Tool to Practice</span></a>
+  <a href="../../workshop/build/scenarios/math.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mathematics: Recognising the substitution pattern</span></a>
   </div>
 </li>
+      </ul>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">Closing (5-10 min)</span></a>
+ <span class="menu-text">Closing (10 min)</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -549,8 +605,8 @@ div.callout-group.callout-style-default .callout-icon::before, div.callout-group
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../workshop/diskussion/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Closing: One Commitment</span></a>
+  <a href="../../workshop/closing/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Closing: Reflexion und eine Verpflichtung (10 min)</span></a>
   </div>
 </li>
       </ul>
@@ -565,38 +621,43 @@ div.callout-group.callout-style-default .callout-icon::before, div.callout-group
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#duration-115-minutes-including-a-10-minute-break" id="toc-duration-115-minutes-including-a-10-minute-break" class="nav-link active" data-scroll-target="#duration-115-minutes-including-a-10-minute-break">Duration: 115 minutes (including a 10-minute break)</a></li>
-  <li><a href="#what-you-are-building" id="toc-what-you-are-building" class="nav-link" data-scroll-target="#what-you-are-building">What you are building</a></li>
-  <li><a href="#what-developing-means-here" id="toc-what-developing-means-here" class="nav-link" data-scroll-target="#what-developing-means-here">What “developing” means here</a></li>
-  <li><a href="#the-diagnostic-shell" id="toc-the-diagnostic-shell" class="nav-link" data-scroll-target="#the-diagnostic-shell">The diagnostic shell</a></li>
-  <li><a href="#pick-your-scenario-10-minutes" id="toc-pick-your-scenario-10-minutes" class="nav-link" data-scroll-target="#pick-your-scenario-10-minutes">Pick your scenario (10 minutes)</a></li>
-  <li><a href="#choose-one-of-the-six-scenarios" id="toc-choose-one-of-the-six-scenarios" class="nav-link" data-scroll-target="#choose-one-of-the-six-scenarios">Choose one of the six scenarios</a></li>
-  <li><a href="#lab-1-domain-examples-of-each-load-type-15-minutes" id="toc-lab-1-domain-examples-of-each-load-type-15-minutes" class="nav-link" data-scroll-target="#lab-1-domain-examples-of-each-load-type-15-minutes">Lab 1: Domain examples of each load type (15 minutes)</a></li>
-  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a></li>
-  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
-  <li><a href="#break-10-minutes" id="toc-break-10-minutes" class="nav-link" data-scroll-target="#break-10-minutes">Break (10 minutes)</a></li>
-  <li><a href="#lab-2-map-diagnosis-to-intervention-15-minutes" id="toc-lab-2-map-diagnosis-to-intervention-15-minutes" class="nav-link" data-scroll-target="#lab-2-map-diagnosis-to-intervention-15-minutes">Lab 2: Map diagnosis to intervention (15 minutes)</a></li>
-  <li><a href="#instructions-1" id="toc-instructions-1" class="nav-link" data-scroll-target="#instructions-1">Instructions</a></li>
-  <li><a href="#with-your-neighbour-last-5-minutes-of-the-lab" id="toc-with-your-neighbour-last-5-minutes-of-the-lab" class="nav-link" data-scroll-target="#with-your-neighbour-last-5-minutes-of-the-lab">With your neighbour (last 5 minutes of the lab)</a></li>
-  <li><a href="#reflection-1" id="toc-reflection-1" class="nav-link" data-scroll-target="#reflection-1">Reflection</a></li>
-  <li><a href="#lab-3-write-the-diagnostic-prompt-25-minutes" id="toc-lab-3-write-the-diagnostic-prompt-25-minutes" class="nav-link" data-scroll-target="#lab-3-write-the-diagnostic-prompt-25-minutes">Lab 3: Write the diagnostic prompt (25 minutes)</a></li>
-  <li><a href="#instructions-2" id="toc-instructions-2" class="nav-link" data-scroll-target="#instructions-2">Instructions</a></li>
-  <li><a href="#what-good-prompts-look-like" id="toc-what-good-prompts-look-like" class="nav-link" data-scroll-target="#what-good-prompts-look-like">What good prompts look like</a></li>
-  <li><a href="#lab-4-test-refine-export-25-minutes" id="toc-lab-4-test-refine-export-25-minutes" class="nav-link" data-scroll-target="#lab-4-test-refine-export-25-minutes">Lab 4: Test, refine, export (25 minutes)</a></li>
-  <li><a href="#calibration-test" id="toc-calibration-test" class="nav-link" data-scroll-target="#calibration-test">Calibration test</a></li>
-  <li><a href="#export-the-portable-prompt" id="toc-export-the-portable-prompt" class="nav-link" data-scroll-target="#export-the-portable-prompt">Export the portable prompt</a></li>
-  <li><a href="#pair-test-and-gallery-15-minutes" id="toc-pair-test-and-gallery-15-minutes" class="nav-link" data-scroll-target="#pair-test-and-gallery-15-minutes">Pair-test and gallery (15 minutes)</a></li>
-  <li><a href="#cross-discipline-test" id="toc-cross-discipline-test" class="nav-link" data-scroll-target="#cross-discipline-test">Cross-discipline test</a></li>
-  <li><a href="#what-you-have-at-the-end-of-this-block" id="toc-what-you-have-at-the-end-of-this-block" class="nav-link" data-scroll-target="#what-you-have-at-the-end-of-this-block">What you have at the end of this block</a></li>
+  <li><a href="#die-vermutet-vs.-beobachtet-markierung" id="toc-die-vermutet-vs.-beobachtet-markierung" class="nav-link active" data-scroll-target="#die-vermutet-vs.-beobachtet-markierung">Die <em>vermutet vs.&nbsp;beobachtet</em>-Markierung</a></li>
+  <li><a href="#a.-die-teilaufgabe" id="toc-a.-die-teilaufgabe" class="nav-link" data-scroll-target="#a.-die-teilaufgabe">A. Die Teilaufgabe</a>
+  <ul class="collapse">
+  <li><a href="#a1.-wortlaut-der-teilaufgabe" id="toc-a1.-wortlaut-der-teilaufgabe" class="nav-link" data-scroll-target="#a1.-wortlaut-der-teilaufgabe">A1. Wortlaut der Teilaufgabe</a></li>
+  <li><a href="#a2.-kurskontext" id="toc-a2.-kurskontext" class="nav-link" data-scroll-target="#a2.-kurskontext">A2. Kurskontext</a></li>
+  <li><a href="#a3.-lernziel-der-teilaufgabe" id="toc-a3.-lernziel-der-teilaufgabe" class="nav-link" data-scroll-target="#a3.-lernziel-der-teilaufgabe">A3. Lernziel der Teilaufgabe</a></li>
+  </ul></li>
+  <li><a href="#b.-wissensbausteine" id="toc-b.-wissensbausteine" class="nav-link" data-scroll-target="#b.-wissensbausteine">B. Wissensbausteine</a></li>
+  <li><a href="#tipp-zur-granularität" id="toc-tipp-zur-granularität" class="nav-link" data-scroll-target="#tipp-zur-granularität">Tipp zur Granularität</a></li>
+  <li><a href="#baustein-1" id="toc-baustein-1" class="nav-link" data-scroll-target="#baustein-1">Baustein 1</a></li>
+  <li><a href="#baustein-2" id="toc-baustein-2" class="nav-link" data-scroll-target="#baustein-2">Baustein 2</a></li>
+  <li><a href="#baustein-3" id="toc-baustein-3" class="nav-link" data-scroll-target="#baustein-3">Baustein 3</a></li>
+  <li><a href="#baustein-4" id="toc-baustein-4" class="nav-link" data-scroll-target="#baustein-4">Baustein 4</a></li>
+  <li><a href="#c.-wahrscheinliche-fehlkonzepte" id="toc-c.-wahrscheinliche-fehlkonzepte" class="nav-link" data-scroll-target="#c.-wahrscheinliche-fehlkonzepte">C. Wahrscheinliche Fehlkonzepte</a>
+  <ul class="collapse">
+  <li><a href="#fehlkonzept-1" id="toc-fehlkonzept-1" class="nav-link" data-scroll-target="#fehlkonzept-1">Fehlkonzept 1</a></li>
+  <li><a href="#fehlkonzept-2" id="toc-fehlkonzept-2" class="nav-link" data-scroll-target="#fehlkonzept-2">Fehlkonzept 2</a></li>
+  <li><a href="#fehlkonzept-3" id="toc-fehlkonzept-3" class="nav-link" data-scroll-target="#fehlkonzept-3">Fehlkonzept 3</a></li>
+  </ul></li>
+  <li><a href="#d.-wahrscheinliche-wissenslücken" id="toc-d.-wahrscheinliche-wissenslücken" class="nav-link" data-scroll-target="#d.-wahrscheinliche-wissenslücken">D. Wahrscheinliche Wissenslücken</a>
+  <ul class="collapse">
+  <li><a href="#lücke-1" id="toc-lücke-1" class="nav-link" data-scroll-target="#lücke-1">Lücke 1</a></li>
+  <li><a href="#lücke-2" id="toc-lücke-2" class="nav-link" data-scroll-target="#lücke-2">Lücke 2</a></li>
+  <li><a href="#lücke-3" id="toc-lücke-3" class="nav-link" data-scroll-target="#lücke-3">Lücke 3</a></li>
+  </ul></li>
+  <li><a href="#e.-falsifikationsnotiz" id="toc-e.-falsifikationsnotiz" class="nav-link" data-scroll-target="#e.-falsifikationsnotiz">E. Falsifikationsnotiz</a></li>
+  <li><a href="#optional-pruning-protokoll" id="toc-optional-pruning-protokoll" class="nav-link" data-scroll-target="#optional-pruning-protokoll">Optional: Pruning-Protokoll</a></li>
+  <li><a href="#wenn-dein-spec-sheet-fertig-ist" id="toc-wenn-dein-spec-sheet-fertig-ist" class="nav-link" data-scroll-target="#wenn-dein-spec-sheet-fertig-ist">Wenn dein Spec Sheet fertig ist</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../workshop/build/index.html">Build (115 min, incl.&nbsp;break)</a></li><li class="breadcrumb-item"><a href="../../workshop/build/index.html">Build: Implementing CLT in a Diagnostic Tool</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../workshop/block-2-spec-card/index.html">Block 2: Eigenes Spec Sheet (55 min)</a></li><li class="breadcrumb-item"><a href="../../workshop/spec-sheet-template/index.html">Spec-Sheet-Vorlage: Eine Teilaufgabe</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Build: Implementing CLT in a Diagnostic Tool</h1>
+<h1 class="title">Spec-Sheet-Vorlage: Eine Teilaufgabe</h1>
 </div>
 
 
@@ -613,227 +674,231 @@ div.callout-group.callout-style-default .callout-icon::before, div.callout-group
 </header>
 
 
-<section id="duration-115-minutes-including-a-10-minute-break" class="level2 callout-schedule" data-icon="false">
-<h2 class="anchored" data-anchor-id="duration-115-minutes-including-a-10-minute-break">Duration: 115 minutes (including a 10-minute break)</h2>
-<ul>
-<li>Pick scenario (10 min)</li>
-<li>Lab 1: Domain examples of each load type (15 min)</li>
-<li><strong>Break (10 min)</strong></li>
-<li>Lab 2: Map diagnosis to intervention (15 min)</li>
-<li>Lab 3: Write the diagnostic prompt (25 min)</li>
-<li>Lab 4: Test, refine, export (25 min)</li>
-<li>Pair-test and gallery (15 min)</li>
-</ul>
-</section>
-<section id="what-you-are-building" class="level2">
-<h2 class="anchored" data-anchor-id="what-you-are-building">What you are building</h2>
-<p>A working AI tool that takes a student response (written work, a short answer, an explanation) and returns a CLT-grounded diagnosis plus a targeted intervention. The output structure is fixed: it is the cognitive-load-theory taxonomy from the theory section of this workshop.</p>
-<p>Your job is not to design the tool’s structure. Your job is to <strong>instruct an LLM how to apply that fixed structure in your discipline</strong>. The work happens in the system prompt.</p>
-</section>
-<section id="what-developing-means-here" class="level2 callout-pro-tip" data-icon="false">
-<h2 class="anchored" data-anchor-id="what-developing-means-here">What “developing” means here</h2>
-<p>You will not write Python. You will not edit a notebook. You will not deploy an app. The “developing” experience is something more focused: prompt craft against a fixed CLT-grounded structure, with immediate feedback from a real LLM running on real student artifacts.</p>
-<p>If at the end of the workshop you can sit at any LLM interface (Copilot, ChatGPT, Claude.ai) and produce reliable diagnoses-and-responses for student work in your discipline, you have built something useful.</p>
-</section>
-<section id="the-diagnostic-shell" class="level2">
-<h2 class="anchored" data-anchor-id="the-diagnostic-shell">The diagnostic shell</h2>
-<p><a href="https://awellis-diagnostic-tool-shell.hf.space" class="btn btn-primary" target="_blank">Open the shell in a new tab</a></p>
-<iframe src="https://awellis-diagnostic-tool-shell.hf.space" frameborder="0" width="100%" height="700" style="border: 1px solid #ddd; border-radius: 4px;">
-</iframe>
-<p>The shell has three surfaces: a <strong>system prompt editor</strong> (left), a <strong>test pane</strong> (right) where you pick a scenario and run the diagnostic, and an <strong>export portable prompt</strong> section (bottom). The output schema is documented in the collapsed accordion below the prompt editor.</p>
-</section>
-<section id="pick-your-scenario-10-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="pick-your-scenario-10-minutes">Pick your scenario (10 minutes)</h2>
-</section>
-<section id="choose-one-of-the-six-scenarios" class="level2 callout-individual" data-icon="false">
-<h2 class="anchored" data-anchor-id="choose-one-of-the-six-scenarios">Choose one of the six scenarios</h2>
-<p>Six discipline scenarios are loaded in the shell’s scenario picker. Each provides a teaching task and three calibrated student responses, each exemplifying a different <code>load_signal</code> category.</p>
-<ul>
-<li><strong>Nursing</strong>: Warfarin and INR</li>
-<li><strong>Education</strong>: Critique a quiz question</li>
-<li><strong>Business</strong>: Bakery pricing</li>
-<li><strong>Social work</strong>: Missed appointments</li>
-<li><strong>Engineering</strong>: Stale-data bug</li>
-<li><strong>Statistics</strong>: Interpreting r = 0.3</li>
-</ul>
-<p><strong>Pick the scenario closest to your discipline.</strong> If none is close, pick the scenario whose teaching task most resembles a real moment in your teaching: a moment when you would benefit from a quick read on what a student response reveals.</p>
-<p>You will work with this scenario through Labs 1 to 4. Browse the <a href="../../workshop/build/scenarios/index.html" target="_blank">scenario page</a> for the full task framing and the calibration notes.</p>
-</section>
-<section id="lab-1-domain-examples-of-each-load-type-15-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="lab-1-domain-examples-of-each-load-type-15-minutes">Lab 1: Domain examples of each load type (15 minutes)</h2>
-<div class="callout-timing" data-icon="false">
-<p><strong>Hard limit: 15 minutes.</strong> This is a recall and instantiation exercise, not a research task.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<p><strong>Learning question:</strong> what does each <code>load_signal</code> category actually look like in your discipline?</p>
-</section>
-<section id="instructions" class="level2 callout-individual" data-icon="false">
-<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
-<p>For each of the five <code>load_signal</code> categories, write <strong>one sentence</strong> describing a student response from your discipline that would exemplify that category. You can use the chosen scenario’s calibrated responses as starting points, but write the examples in your own discipline’s idiom.</p>
-<p>The five categories:</p>
-<ol type="1">
-<li><strong><code>intrinsic_overload</code></strong>: too much element interactivity for the learner’s current schema</li>
-<li><strong><code>extrinsic_distractor</code></strong>: irrelevant complexity in material or task design pulling effort to the wrong place</li>
-<li><strong><code>germane_disengagement</code></strong>: technically correct retrieval without effortful processing</li>
-<li><strong><code>schema_gap</code></strong>: foundational prior knowledge is simply absent</li>
-<li><strong><code>active_misconception</code></strong>: a coherent but wrong model is being applied</li>
-</ol>
-<p>You will reuse this list in Lab 3 as cues in your system prompt.</p>
-</section>
-<section id="reflection" class="level2 callout-reflect" data-icon="false">
-<h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Was diese Vorlage ist
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Du füllst diese Vorlage in Block 2 für <strong>eine einzelne Teilaufgabe</strong> aus einer deiner eigenen Aufgaben aus. Nicht die ganze Aufgabe, sondern einen einzelnen Teilschritt: zum Beispiel “Interpretiere die berechnete Korrelation <span class="math inline">\(r = 0.3\)</span> in einer Stichprobe von 200 Personen” innerhalb einer grösseren Aufgabe.</p>
+<p>Das ausgefüllte Spec Sheet ist dein zentrales Workshop-Ergebnis. Es ist:</p>
 <ul>
-<li>Which category was hardest to instantiate in your discipline? That is often the category your teaching most needs help diagnosing.</li>
-<li>Did any two categories blur together? In your discipline, what observable cue distinguishes them?</li>
+<li><strong>Werkzeug-unabhängig.</strong> Du kannst es später in jedes KI-Werkzeug übersetzen, das es heute oder in zwei Jahren gibt.</li>
+<li><strong>Nachprüfbar.</strong> Es trennt klar, was du <em>vermutest</em> (per LLM-Vorschlag, plausibilitätsgeprüft) von dem, was du <em>beobachtet</em> hast (an realen Studierenden).</li>
+<li><strong>Falsifizierbar.</strong> Am Schluss legst du fest, woran du erkennen würdest, dass deine Decomposition falsch ist.</li>
+</ul>
+<p>Du hast drei Möglichkeiten, mit der Vorlage zu arbeiten:</p>
+<ul>
+<li>Ausdrucken und handschriftlich ausfüllen.</li>
+<li>Markdown kopieren und in einem Texteditor (Obsidian, Notion, Word) ausfüllen.</li>
+<li>Direkt im Browser in den Notizfeldern (nicht garantiert über Sessions).</li>
+</ul>
+</div>
+</div>
+<section id="die-vermutet-vs.-beobachtet-markierung" class="level2">
+<h2 class="anchored" data-anchor-id="die-vermutet-vs.-beobachtet-markierung">Die <em>vermutet vs.&nbsp;beobachtet</em>-Markierung</h2>
+<p>In den Sektionen B, C und D markiert jeder Eintrag, woher er stammt:</p>
+<ul>
+<li><strong>vermutet (V):</strong> von einem LLM vorgeschlagen oder von dir aus dem Bauch heraus formuliert, von dir auf Plausibilität geprüft. Du hältst es für möglich, hast es aber nicht selbst bei deinen Studierenden gesehen.</li>
+<li><strong>beobachtet (B):</strong> du hast es bei tatsächlichen Studierenden gesehen oder gehört. Mindestens ein konkreter Fall hängt daran.</li>
+</ul>
+<p>Diese Trennung ist die wichtigste Disziplin der Vorlage. Ohne sie wird ein gut-klingendes LLM-Output zu einem autoritativ wirkenden Dokument, das du eigentlich gar nicht überprüft hast. Mit ihr wird sichtbar, wo dein Spec Sheet auf eigener Lehrerfahrung steht und wo es noch eine offene Frage ist.</p>
+</section>
+<section id="a.-die-teilaufgabe" class="level2">
+<h2 class="anchored" data-anchor-id="a.-die-teilaufgabe">A. Die Teilaufgabe</h2>
+<section id="a1.-wortlaut-der-teilaufgabe" class="level3">
+<h3 class="anchored" data-anchor-id="a1.-wortlaut-der-teilaufgabe">A1. Wortlaut der Teilaufgabe</h3>
+<p><strong>Anleitung:</strong> Schreibe die Teilaufgabe wortwörtlich aus deiner Aufgabenstellung ab. Ein bis drei Sätze.</p>
+<blockquote class="blockquote">
+<p><em>(Hier eintragen)</em></p>
+</blockquote>
+</section>
+<section id="a2.-kurskontext" class="level3">
+<h3 class="anchored" data-anchor-id="a2.-kurskontext">A2. Kurskontext</h3>
+<p><strong>Anleitung:</strong> Beschreibe in zwei bis vier Sätzen: in welchem Studiengang, in welchem Semester, mit welchen Vorkenntnissen begegnen die Studierenden dieser Teilaufgabe? Welche Module haben sie davor gemacht?</p>
+<blockquote class="blockquote">
+<p><em>(Hier eintragen)</em></p>
+</blockquote>
+</section>
+<section id="a3.-lernziel-der-teilaufgabe" class="level3">
+<h3 class="anchored" data-anchor-id="a3.-lernziel-der-teilaufgabe">A3. Lernziel der Teilaufgabe</h3>
+<p><strong>Anleitung:</strong> Was soll diese Teilaufgabe bei der Studierenden entwickeln oder prüfen, in deinen eigenen Worten? Ein bis zwei Sätze, ohne Fachjargon.</p>
+<blockquote class="blockquote">
+<p><em>(Hier eintragen)</em></p>
+</blockquote>
+</section>
+</section>
+<section id="b.-wissensbausteine" class="level2">
+<h2 class="anchored" data-anchor-id="b.-wissensbausteine">B. Wissensbausteine</h2>
+<p><strong>Was hier rein gehört:</strong> die kleinsten Einheiten, die eine Studierende mitbringen muss, damit sie diese Teilaufgabe erfolgreich bearbeiten kann.</p>
+<p>Wir unterscheiden drei Typen von Wissensbausteinen:</p>
+<ul>
+<li><strong>Faktenwissen:</strong> ein Fakt, ein Begriff, eine Formel, die abgerufen werden muss. Beispiel: “kennt die Formel für die Standardabweichung”, “weiss, dass <span class="math inline">\(r\)</span> zwischen <span class="math inline">\(-1\)</span> und <span class="math inline">\(+1\)</span> liegt”.</li>
+<li><strong>Begriffliches Wissen:</strong> ein Muster oder eine Kategorie, die über mehrere Beispiele hinweg erkannt werden muss. Beispiel: “erkennt eine Frage als Korrelationsfrage und nicht als Mittelwertvergleich”.</li>
+<li><strong>Erklärungswissen:</strong> eine Regel mit erklärender Struktur, die mit Verständnis angewandt werden muss. Beispiel: “weiss, warum eine Korrelation von <span class="math inline">\(r = 0.3\)</span> in einem Kontext bedeutsam und in einem anderen vernachlässigbar ist”.</li>
+</ul>
+<p>Ziel: vier bis acht Bausteine. Lieber wenige präzise als viele unscharfe.</p>
+</section>
+<section id="tipp-zur-granularität" class="level2 callout-pro-tip" data-icon="false">
+<h2 class="anchored" data-anchor-id="tipp-zur-granularität">Tipp zur Granularität</h2>
+<p>Zu abstrakt (“Statistik-Theorie”) lässt sich der Baustein im LLM-Simulator schlecht “wegnehmen”. Zu detailliert (“kennt die Formel für <span class="math inline">\(s\)</span> in einer 3-Werte-Stichprobe”) liefert keine relevanten Unterschiede. Die richtige Stufe ist die, auf der ein LLM, das so tut, als hätte es diesen Baustein nicht, eine erkennbar andere und schlechtere Antwort produziert.</p>
+</section>
+<section id="baustein-1" class="level3">
+<h3 class="anchored" data-anchor-id="baustein-1">Baustein 1</h3>
+<ul>
+<li><strong>Name</strong> (3 bis 7 Wörter):</li>
+<li><strong>Typ:</strong> Faktenwissen / Begriffswissen / Erklärungswissen</li>
+<li><strong>Quelle:</strong> V / B</li>
+<li><strong>Wo der Baustein in der Teilaufgabe vorkommt</strong> (1 Satz):</li>
+<li><strong>Was eine Studierende konkret schreibt oder tut, wenn der Baustein fehlt</strong> (1 Satz, beobachtbar):</li>
 </ul>
 </section>
-<section id="break-10-minutes" class="level2 callout-break" data-icon="false">
-<h2 class="anchored" data-anchor-id="break-10-minutes">Break (10 minutes)</h2>
+<section id="baustein-2" class="level3">
+<h3 class="anchored" data-anchor-id="baustein-2">Baustein 2</h3>
+<ul>
+<li><strong>Name:</strong></li>
+<li><strong>Typ:</strong> Faktenwissen / Begriffswissen / Erklärungswissen</li>
+<li><strong>Quelle:</strong> V / B</li>
+<li><strong>Wo der Baustein vorkommt:</strong></li>
+<li><strong>Was schiefgeht, wenn er fehlt:</strong></li>
+</ul>
 </section>
-<section id="lab-2-map-diagnosis-to-intervention-15-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="lab-2-map-diagnosis-to-intervention-15-minutes">Lab 2: Map diagnosis to intervention (15 minutes)</h2>
-<div class="callout-timing" data-icon="false">
-<p><strong>Hard limit: 15 minutes.</strong></p>
-</div>
-<p><strong>Learning question:</strong> which response strategy fits which diagnosis, and when does severity flip the call?</p>
+<section id="baustein-3" class="level3">
+<h3 class="anchored" data-anchor-id="baustein-3">Baustein 3</h3>
+<ul>
+<li><strong>Name:</strong></li>
+<li><strong>Typ:</strong> Faktenwissen / Begriffswissen / Erklärungswissen</li>
+<li><strong>Quelle:</strong> V / B</li>
+<li><strong>Wo der Baustein vorkommt:</strong></li>
+<li><strong>Was schiefgeht, wenn er fehlt:</strong></li>
+</ul>
 </section>
-<section id="instructions-1" class="level2 callout-individual" data-icon="false">
-<h2 class="anchored" data-anchor-id="instructions-1">Instructions</h2>
-<p>For each of the five <code>load_signal</code> categories, decide which <code>intervention</code> category you would deploy in your discipline at <strong>moderate</strong> severity:</p>
+<section id="baustein-4" class="level3">
+<h3 class="anchored" data-anchor-id="baustein-4">Baustein 4</h3>
+<ul>
+<li><strong>Name:</strong></li>
+<li><strong>Typ:</strong> Faktenwissen / Begriffswissen / Erklärungswissen</li>
+<li><strong>Quelle:</strong> V / B</li>
+<li><strong>Wo der Baustein vorkommt:</strong></li>
+<li><strong>Was schiefgeht, wenn er fehlt:</strong></li>
+</ul>
+<p><em>(Bei Bedarf weitere Bausteine ergänzen, bis du vier bis acht hast.)</em></p>
+</section>
+<section id="c.-wahrscheinliche-fehlkonzepte" class="level2">
+<h2 class="anchored" data-anchor-id="c.-wahrscheinliche-fehlkonzepte">C. Wahrscheinliche Fehlkonzepte</h2>
+<p><strong>Was hier rein gehört:</strong> kohärente, aber falsche Modelle, die deine Studierenden festhalten könnten und die diese Teilaufgabe testen sollte oder leider nicht testet.</p>
+<p>Ein Fehlkonzept ist nicht ein zufälliger Fehler, sondern eine Sichtweise, die für die Studierende intern stimmig ist. Genau deshalb ist es widerständig: man weist es nicht durch eine korrekte Erklärung weg.</p>
+<section id="fehlkonzept-1" class="level3">
+<h3 class="anchored" data-anchor-id="fehlkonzept-1">Fehlkonzept 1</h3>
+<ul>
+<li><strong>So würde die Studierende es selbst aussprechen</strong> (in Ich-Form, 1 bis 2 Sätze):</li>
+<li><strong>Typ:</strong> oberflächlich (z.B. einfach falsche Formel) / kohärent-intuitiv (basiert auf einer Alltagsintuition oder einer plausiblen Übergeneralisierung)</li>
+<li><strong>Quelle:</strong> V / B</li>
+<li><strong>Diskriminiert die Teilaufgabe Studierende mit diesem Fehlkonzept von Studierenden mit korrektem Verständnis?</strong> Ja / Nein / Unklar (mit kurzer Begründung):</li>
+</ul>
+</section>
+<section id="fehlkonzept-2" class="level3">
+<h3 class="anchored" data-anchor-id="fehlkonzept-2">Fehlkonzept 2</h3>
+<ul>
+<li><strong>So würde die Studierende es selbst aussprechen:</strong></li>
+<li><strong>Typ:</strong> oberflächlich / kohärent-intuitiv</li>
+<li><strong>Quelle:</strong> V / B</li>
+<li><strong>Diskriminiert die Teilaufgabe?</strong></li>
+</ul>
+</section>
+<section id="fehlkonzept-3" class="level3">
+<h3 class="anchored" data-anchor-id="fehlkonzept-3">Fehlkonzept 3</h3>
+<ul>
+<li><strong>So würde die Studierende es selbst aussprechen:</strong></li>
+<li><strong>Typ:</strong> oberflächlich / kohärent-intuitiv</li>
+<li><strong>Quelle:</strong> V / B</li>
+<li><strong>Diskriminiert die Teilaufgabe?</strong></li>
+</ul>
+<p><em>(Bei Bedarf weitere ergänzen. Mehr als vier wird selten produktiv.)</em></p>
+</section>
+</section>
+<section id="d.-wahrscheinliche-wissenslücken" class="level2">
+<h2 class="anchored" data-anchor-id="d.-wahrscheinliche-wissenslücken">D. Wahrscheinliche Wissenslücken</h2>
+<p><strong>Was hier rein gehört:</strong> Vorwissen, das die Aufgabe annimmt und das bei einem Teil der Studierenden tatsächlich fehlen könnte.</p>
+<p>Im Unterschied zu Sektion C beschreibt eine Lücke kein falsches Modell, sondern einfach das <em>Fehlen</em> eines Bausteins, der eigentlich vor dieser Aufgabe schon da sein sollte.</p>
+<section id="lücke-1" class="level3">
+<h3 class="anchored" data-anchor-id="lücke-1">Lücke 1</h3>
+<ul>
+<li><strong>Was fehlt</strong> (1 Satz):</li>
+<li><strong>Wo es eigentlich erworben werden sollte</strong> (z.B. konkretes Modul, Vorlesung, Selbststudium):</li>
+<li><strong>Quelle:</strong> V / B</li>
+<li><strong>Wie sich die Lücke in der Teilaufgabe konkret zeigt</strong> (1 Satz):</li>
+</ul>
+</section>
+<section id="lücke-2" class="level3">
+<h3 class="anchored" data-anchor-id="lücke-2">Lücke 2</h3>
+<ul>
+<li><strong>Was fehlt:</strong></li>
+<li><strong>Wo es eigentlich erworben werden sollte:</strong></li>
+<li><strong>Quelle:</strong> V / B</li>
+<li><strong>Wie sich die Lücke zeigt:</strong></li>
+</ul>
+</section>
+<section id="lücke-3" class="level3">
+<h3 class="anchored" data-anchor-id="lücke-3">Lücke 3</h3>
+<ul>
+<li><strong>Was fehlt:</strong></li>
+<li><strong>Wo es eigentlich erworben werden sollte:</strong></li>
+<li><strong>Quelle:</strong> V / B</li>
+<li><strong>Wie sich die Lücke zeigt:</strong></li>
+</ul>
+<p><em>(Bei Bedarf weitere ergänzen.)</em></p>
+</section>
+</section>
+<section id="e.-falsifikationsnotiz" class="level2">
+<h2 class="anchored" data-anchor-id="e.-falsifikationsnotiz">E. Falsifikationsnotiz</h2>
+<p><strong>Anleitung:</strong> Wähle einen Wissensbaustein aus Sektion B. Am besten den, den du als zentralsten für diese Teilaufgabe einschätzt.</p>
+<p>Beschreibe in einem Satz, welches Verhalten von Studierenden dir zeigen würde, dass deine Decomposition für diesen Baustein falsch ist.</p>
+<p>Beispiel: “Wenn Studierende, die ich klar als kompetente Korrelationsinterpretiererinnen einschätze, an dieser Teilaufgabe systematisch scheitern, dann ist Baustein 3 nicht das, was diese Aufgabe wirklich testet.”</p>
+<p>Ohne diese Notiz bleibt das Spec Sheet eine plausible Hypothese ohne Bedingungen, unter denen du sie aufgeben würdest.</p>
+<blockquote class="blockquote">
+<p><em>(Hier eintragen)</em></p>
+</blockquote>
+</section>
+<section id="optional-pruning-protokoll" class="level2">
+<h2 class="anchored" data-anchor-id="optional-pruning-protokoll">Optional: Pruning-Protokoll</h2>
+<p><strong>Was hier rein gehört:</strong> Vorschläge, die das LLM dir gemacht hat (in der Inventar- oder Simulationsphase), die du aber abgelehnt hast.</p>
+<p>Diese Liste ist diagnostisch wichtig. Sie zeigt, ob du den LLM-Output kritisch bewertet oder einfach abgenickt hast. Eine leere Pruning-Liste bei einem vollen Spec Sheet ist ein Warnsignal.</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Diagnosis</th>
-<th>Intervention you would choose</th>
-<th>Why this one and not another</th>
+<th>Verworfener Vorschlag</th>
+<th>Grund (1 Satz)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>intrinsic_overload</code></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><code>extrinsic_distractor</code></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><code>germane_disengagement</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><code>schema_gap</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><code>active_misconception</code></td>
 <td></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<p>The plan will look obvious for some pairs (a <code>schema_gap</code> calls for <code>activate_prior_schema</code>) and contested for others. The contested ones are the interesting ones.</p>
 </section>
-<section id="with-your-neighbour-last-5-minutes-of-the-lab" class="level2 callout-pair" data-icon="false">
-<h2 class="anchored" data-anchor-id="with-your-neighbour-last-5-minutes-of-the-lab">With your neighbour (last 5 minutes of the lab)</h2>
-<p>Compare your matrices. Where you disagreed, was it because the discipline differs, or because you had different intuitions about what an intervention does?</p>
-</section>
-<section id="reflection-1" class="level2 callout-reflect" data-icon="false">
-<h2 class="anchored" data-anchor-id="reflection-1">Reflection</h2>
-<p>When does <strong>severity</strong> change which intervention you reach for? A <code>mild</code> <code>active_misconception</code> and a <code>fundamental</code> <code>active_misconception</code> may need different responses. Note one example from your discipline.</p>
-</section>
-<section id="lab-3-write-the-diagnostic-prompt-25-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="lab-3-write-the-diagnostic-prompt-25-minutes">Lab 3: Write the diagnostic prompt (25 minutes)</h2>
-<div class="callout-timing" data-icon="false">
-<p><strong>Time limit: 25 minutes.</strong> Iterate; do not perfect.</p>
-</div>
-<p><strong>Learning question:</strong> how do you instruct an LLM to apply the CLT taxonomy in your specific discipline?</p>
-<p>The shell ships with a <strong>starter system prompt</strong> that explains the CLT categories generically. Your job is to localise it: replace generic guidance with your discipline’s cues for what each <code>load_signal</code> looks like.</p>
-</section>
-<section id="instructions-2" class="level2 callout-individual" data-icon="false">
-<h2 class="anchored" data-anchor-id="instructions-2">Instructions</h2>
-<p>In the shell’s system prompt editor, do the following:</p>
-<ol type="1">
-<li><strong>Read</strong> the starter prompt. Note where it talks about how to identify each <code>load_signal</code>.</li>
-<li><strong>Replace</strong> the generic cues with your discipline’s cues. Use your Lab 1 sentences directly: “In <discipline>, <code>intrinsic_overload</code> looks like <your sentence="">”.</your></discipline></li>
-<li><strong>Add</strong> any discipline-specific failure modes that the generic categories miss. (You cannot add new categories, but you can teach the LLM what they look like in your context.)</li>
-<li><strong>Specify</strong> how you want the <code>domain_notes</code> field used. What discipline-specific observations should the tool surface?</li>
-</ol>
-<p>The prompt is your pedagogical thinking written down. The clearer your thinking, the cleaner the tool’s diagnoses.</p>
-</section>
-<section id="what-good-prompts-look-like" class="level2 callout-pro-tip" data-icon="false">
-<h2 class="anchored" data-anchor-id="what-good-prompts-look-like">What good prompts look like</h2>
-<ul>
-<li>Concrete cues beat abstract definitions. “Look for partial reasoning that breaks down mid-sentence” beats “tracks element-interactivity poorly”.</li>
-<li>Worked examples inside the prompt are powerful. A short “for instance, in nursing, an <code>active_misconception</code> looks like …” anchors the LLM.</li>
-<li>Be explicit about what NOT to do. “Do not classify a response as <code>germane_disengagement</code> if it shows novel application — that is engaged retrieval, not disengaged.”</li>
-</ul>
-</section>
-<section id="lab-4-test-refine-export-25-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="lab-4-test-refine-export-25-minutes">Lab 4: Test, refine, export (25 minutes)</h2>
-<div class="callout-timing" data-icon="false">
-<p><strong>Time limit: 25 minutes.</strong></p>
-</div>
-<p><strong>Learning question:</strong> does your tool actually distinguish the five load signals on real responses?</p>
-</section>
-<section id="calibration-test" class="level2 callout-testing" data-icon="false">
-<h2 class="anchored" data-anchor-id="calibration-test">Calibration test</h2>
-<p>Your scenario provides three calibrated student responses. Each is tagged with the <code>load_signal</code> it is meant to exemplify (open the scenario page in another tab to see the tags and rationales).</p>
-<p>For each calibrated response:</p>
-<ol type="1">
-<li>Paste it into the test pane (or pick it from the dropdown)</li>
-<li>Run the diagnostic</li>
-<li>Compare the tool’s <code>load_signal</code> to the calibrated tag</li>
-<li>If they disagree: was the tool wrong, was your prompt unclear, or was the calibration debatable?</li>
-<li><strong>Iterate the prompt</strong> based on what you learn</li>
-</ol>
-<p>Aim for the tool to produce the calibrated <code>load_signal</code> on at least 2 of the 3 responses. If the third one is genuinely ambiguous in your discipline, that is a useful finding to bring to the gallery.</p>
-</section>
-<section id="export-the-portable-prompt" class="level2 callout-export" data-icon="false">
-<h2 class="anchored" data-anchor-id="export-the-portable-prompt">Export the portable prompt</h2>
-<p>Once you are reasonably happy with your prompt:</p>
-<ol type="1">
-<li>Open the <strong>Export portable prompt</strong> section at the bottom of the shell</li>
-<li>Copy the entire markdown block</li>
-<li>Paste it into Microsoft Copilot, ChatGPT, or Claude.ai</li>
-<li>Replace <code>&lt;&lt;student response&gt;&gt;</code> with one of the calibrated responses</li>
-<li>Compare the result against your shell’s output</li>
-</ol>
-<p>The portable prompt is your tool’s recipe. It works in any LLM interface you have access to. It is the artifact you take back to your teaching.</p>
-</section>
-<section id="pair-test-and-gallery-15-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="pair-test-and-gallery-15-minutes">Pair-test and gallery (15 minutes)</h2>
-</section>
-<section id="cross-discipline-test" class="level2 callout-pair" data-icon="false">
-<h2 class="anchored" data-anchor-id="cross-discipline-test">Cross-discipline test</h2>
-<p>Trade scenario-and-prompt pairs with your neighbour. Run their tool against your scenario’s calibrated responses (and vice versa).</p>
-<p>Discuss:</p>
-<ul>
-<li><strong>Generalisation</strong>: did their domain-tuned prompt produce sensible diagnoses on a discipline they did not write for? If yes, why? If not, what would have to change?</li>
-<li><strong>Brittleness</strong>: where does your tool fail on a response from a different discipline? Is the failure in the prompt, in the categories, or in the underlying model?</li>
-<li><strong>Portability</strong>: what happens when you run their portable prompt in your LLM of choice (Copilot vs.&nbsp;ChatGPT vs.&nbsp;Claude)? Same diagnoses? Different ones?</li>
-</ul>
-</section>
-<section id="what-you-have-at-the-end-of-this-block" class="level2 callout-checkpoint" data-icon="false">
-<h2 class="anchored" data-anchor-id="what-you-have-at-the-end-of-this-block">What you have at the end of this block</h2>
-<ul>
-<li>A configured tool URL with your system prompt baked in (the URL state captures it)</li>
-<li>A markdown recipe of your tool that you can paste into any LLM interface</li>
-<li>A calibration record: which load signals your prompt distinguishes reliably and which it does not</li>
-<li>A view from another discipline of where your tool generalises and where it does not</li>
-</ul>
-<p>You will use these in the closing block to plan one concrete change for your next teaching cycle.</p>
-</section>
+<section id="wenn-dein-spec-sheet-fertig-ist" class="level2">
+<h2 class="anchored" data-anchor-id="wenn-dein-spec-sheet-fertig-ist">Wenn dein Spec Sheet fertig ist</h2>
+<p>In Block 3 übersetzt du dein Spec Sheet in einen System-Prompt für ein KI-Werkzeug deiner Wahl, zum Beispiel Microsoft Copilot oder HuggingChat. Die Vorlage dafür findest du unter <a href="../../workshop/spec-sheet-template/system-prompt-template.html">System-Prompt-Vorlage</a>.</p>
+<p>Die Übersetzung ist mechanisch: du kopierst Bausteine, Fehlkonzepte und Lücken in feste Platzhalter im Template. Wo das Template etwas verlangt, das in deinem Spec Sheet nicht steht, gehst du <em>zurück zum Spec Sheet</em> und ergänzt es. Das ist die produktivste Lehre des Block 3: die Qualität des Prompts ist eine Funktion der Qualität des Spec Sheets.</p>
+<p>Das Spec Sheet bleibt durch die Modellgenerationen hindurch nutzbar. Der gerenderte Prompt ist nur eine spezifische Übersetzung für ein spezifisches Werkzeug zu einem spezifischen Zeitpunkt.</p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1245,13 +1310,13 @@ div.callout-group.callout-style-default .callout-icon::before, div.callout-group
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../workshop/demo/index.html" class="pagination-link" aria-label="Demo: The Diagnostic Shell in Action">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Demo: The Diagnostic Shell in Action</span>
+      <a href="../../workshop/block-2-spec-card/index.html" class="pagination-link" aria-label="Block 2: Eigenes Spec Sheet (55 min)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Block 2: Eigenes Spec Sheet (55 min)</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../workshop/build/scenarios/index.html" class="pagination-link" aria-label="Scenario Pack">
-        <span class="nav-page-text">Scenario Pack</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../workshop/spec-sheet-template/prompt-scaffolds.html" class="pagination-link" aria-label="Prompt-Scaffolds für das Spec Sheet">
+        <span class="nav-page-text">Prompt-Scaffolds für das Spec Sheet</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -21,50 +21,49 @@ about:
 bibliography: ./bibliography.bib
 ---
 
-## Workshop Overview
+## Workshop-Überblick
 
-A 3-hour workshop in which participants build a CLT-grounded diagnostic AI tool for their own discipline. Without writing code.
+Ein 3-Stunden-Workshop, in dem du eine **Spec Card** baust: eine möglichst klare Spezifikation einer Lernerin in deinem Fach. Die Karte ist tool-unabhängig. Sie überlebt jeden konkreten Prompt und jedes konkrete Werkzeug.
 
-You will iterate a system prompt against a fixed cognitive-load-theory taxonomy. The tool reads a student response (written work, a short answer, an explanation) and returns a structured diagnosis plus a targeted intervention. The categories are fixed; the discipline-specific cues are yours.
+Du wendest deine Spec Card dann in vier diagnostischen Rollen auf eine eigene Aufgabe oder ein Lehrmaterial an. Du verlässt den Workshop mit konkreten Diagnosen für deine Lehre und einem portablen Prompt für jedes LLM, mit dem du arbeitest.
 
-### What You'll Do
+### Was du im Workshop tust
 
-- **See the diagnostic shell**: a working tool that classifies student responses into five CLT-grounded categories
-- **Pick a discipline scenario** from a set of six, each with three calibrated student responses
-- **Write a system prompt** that teaches the LLM how the CLT taxonomy looks in your discipline
-- **Test, iterate, export**: run on calibrated responses, refine, then export a portable prompt for use in any LLM interface
+- **Eine Spec Card bauen** mit sechs Sektionen: Rolle, fehlende Strukturen, vorhandene Schemata, Fehlkonzepte mit intuitivem Hintergrund, Selbsteinschätzung mit Aktualisierungs-Bedingungen, Verhalten unter Unsicherheit.
+- **Vier Werkzeuge sehen**, in denen die Karte rendert: Microsoft Copilot, HuggingChat, ein Marimo-Notebook mit strukturierten API-Aufrufen, ein Coding-Agent.
+- **Vier diagnostische Rollen anwenden**: Klarheits-Stresstest, Intervention vs. Beobachtung, Fehlkonzept-Sonde, Performanz-Lernen-Detektor.
 
-### The Tool
+### Die zentrale Behauptung
 
-A hosted diagnostic shell with three surfaces: a system prompt editor, a test pane that runs against real student responses, and an export feature that turns your prompt into a portable recipe usable in Microsoft Copilot, ChatGPT, or Claude.
+KI-Substitution liefert nicht *schlechte* Eingaben für die Selbsteinschätzung der Studentin: sie liefert *gar keine Eingaben*. Die Aktualisierung findet schlicht nicht statt. Das ist die schärfere Fassung der Frage, was beim Outsourcing von Denkarbeit verloren geht. In Block 1 wird sie hergeleitet, in Block 4 angewendet.
 
-The output schema is **fixed**: five `load_signal` categories (intrinsic_overload, extrinsic_distractor, germane_disengagement, schema_gap, active_misconception) and five `intervention` categories. Participants do not edit the schema. They iterate the prompt.
+### Lernziele
 
-### Learning Objectives
+Am Ende des Workshops kannst du:
 
-By the end of this workshop, you will:
+1. **Eine Spec Card** für eine Novizin in deinem Fach schreiben.
+2. **Diese Spezifikation in mehrere Werkzeuge übersetzen** und nachvollziehen, wo Modell-Defaults vom spezifizierten Verhalten abweichen.
+3. **Vier diagnostische Rollen anwenden** auf eine eigene Aufgabe oder ein Lehrmaterial und konkrete Verbesserungsstellen identifizieren.
+4. **Einen portablen Prompt** mitnehmen, den du in Copilot, ChatGPT oder Claude direkt einsetzen kannst.
 
-1. **Identify** five CLT-grounded diagnostic signals in student work, derived from cognitive load theory and schema-acquisition research
-2. **Write** a system prompt that instructs an LLM to apply those categories in your discipline
-3. **Calibrate** a diagnostic prompt against tagged student responses to know where to trust it and where to second-guess it
-4. **Produce** a portable prompt recipe usable in any LLM interface you have access to
+### Voraussetzungen
 
-### Get Started
+Dieser Workshop ist der dritte Teil der Trilogie. Die Inhalte aus dem [Aufbauworkshop](https://virtuelleakademie.github.io/ki-lehre-intermediate/) (insbesondere Cognitive Load Theory, Cognitive Offloading vs. Outsourcing, Evaluationsparadox) werden vorausgesetzt. Programmierkenntnisse sind nicht erforderlich.
 
-**{{< bi arrow-right-circle >}} [Begin Workshop](workshop/index.qmd)**
+### Loslegen
+
+**{{< bi arrow-right-circle >}} [Vorbereitung lesen](vorbereitung/index.qmd)**
+
+**{{< bi arrow-right-circle >}} [Workshop starten](workshop/index.qmd)**
 
 ---
 
-## Instructor
+## Lehrperson
 
-[Dr. Andrew Ellis](mailto:andrew.ellis@bfh.ch) is a cognitive psychologist and researcher at the [Virtual Academy](https://virtuelleakademie.ch/) at Bern University of Applied Sciences. He researches how artificial intelligence can be effectively used in educational systems.
+[Dr. Andrew Ellis](mailto:andrew.ellis@bfh.ch) ist Kognitionspsychologe und Forscher an der [Virtuellen Akademie](https://virtuelleakademie.ch/) der Berner Fachhochschule. Er erforscht, wie künstliche Intelligenz wirksam in Bildungssystemen eingesetzt werden kann.
 
-## Resources
+## Ressourcen
 
-- **Workshop Materials**: [Start here](workshop/index.qmd)
-<!-- - **GitHub Repository**: [View source code](https://github.com/virtuelleakademie/ki-lehre-advanced) -->
-- **Related Workshop**: [KI in der Lehre: Intermediate](https://virtuelleakademie.github.io/ki-lehre-intermediate/) (Learning science foundations)
-
-
-
-
+- **Workshop-Material:** [Hier starten](workshop/index.qmd)
+- **Vorbereitung:** [Vor dem Workshop lesen](vorbereitung/index.qmd)
+- **Verwandter Workshop:** [KI in der Lehre: Aufbau](https://virtuelleakademie.github.io/ki-lehre-intermediate/) (kognitionswissenschaftliche Grundlagen, Voraussetzung für diesen Workshop)

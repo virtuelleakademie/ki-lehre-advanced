@@ -1,0 +1,83 @@
+---
+title: "Vorbereitung"
+---
+
+::: {.callout-schedule icon=false}
+## Aufwand: ungefähr 30 Minuten vor dem Workshop
+:::
+
+## Was du im Workshop tun wirst
+
+Du wirst für **eine einzelne Teilaufgabe** aus deiner eigenen Lehre ein **Spec Sheet** bauen: eine möglichst klare Beschreibung dessen, was eine Studierende für diese Teilaufgabe an Wissen mitbringen muss, was sie wahrscheinlich nicht hat, und welche Fehlkonzepte plausibel sind. Das Spec Sheet ist werkzeug-unabhängig: was du heute baust, ist in zwei Jahren noch genau so gültig, weil dort nicht steht, was ein Werkzeug tun soll, sondern was die Studierende im Kopf hat.
+
+Dabei nutzt du LLMs in zwei klar unterscheidbaren Rollen:
+
+- als **Hypothesengenerator** (das LLM schlägt Wissensbausteine, Fehlkonzepte, Wissenslücken vor; du prüfst und korrigierst)
+- als **Lernende-Simulator** (das LLM liest dein Aufgabenmaterial oder antwortet auf deine Aufgabe so, als hätte es einen bestimmten Wissensbaustein nicht; du liest die Antwort als Diagnose deiner Aufgabenstellung)
+
+Was du *nicht* tun wirst: einen Prompt schreiben, der "intelligent" wirkt. Prompt-Engineering ist Volkswissen, brüchig gegenüber Wortwahl, modellabhängig, alle sechs Monate veraltet. Wir machen etwas Anderes: wir bauen eine Spezifikation, die mehrere Modellgenerationen überlebt.
+
+## Was du mitbringst
+
+::: {.callout-individual icon=false}
+## Drei konkrete Dinge
+
+1. **Eine Aufgabe** aus deinem eigenen Unterricht, bei der du *eine Teilaufgabe* genau anschauen willst. Eine Übung, eine Klausurfrage, eine Hausaufgabe. Möglichst eine, die du kürzlich gestellt hast und über deren Ergebnisse du etwas weisst.
+2. **Ein Stück Lehrmaterial**: eine Folienerklärung, eine Anleitung, ein kurzer Erklärtext, der zur Aufgabe passt.
+3. **Falls möglich:** zwei oder drei Beispiele tatsächlicher Studierendenarbeiten zur gewählten Aufgabe, die typische Verwirrungen oder Fehlkonzepte zeigen.
+
+Wenn du diese Sachen nicht hast, ist das nicht weiter schlimm. Wir haben sechs Backup-Szenarien aus verschiedenen Disziplinen, die du im Workshop verwenden kannst.
+:::
+
+## Das Worked Example kennenlernen
+
+Lies vor dem Workshop einmal das ausgearbeitete Beispiel durch:
+
+[Worked Example: Spec Sheet für eine Statistik-Teilaufgabe](../workshop/block-1-theorie-und-beispiel/worked-example-statistics.qmd)
+
+Du musst es nicht auswendig lernen. Was du aus dem Lesen mitnehmen sollst:
+
+- **Welche Sektionen ein Spec Sheet hat** (A bis E plus optionales Pruning-Protokoll).
+- **Welche Art von Aussage** in jeder Sektion erwartet wird.
+- **Wie die V/B-Markierung funktioniert** (vermutet vs. beobachtet): die wichtigste methodische Disziplin.
+
+Im Workshop wird das Worked Example in Block 1 live durchgegangen. Wenn du es vorher gelesen hast, kannst du im Block 1 stärker auf die *Methode* achten (Validierung, Pruning, Simulation) statt nur auf den Inhalt.
+
+## Optional: Erweiterte Hintergrundlektüre
+
+Wer mehr Tiefe sucht, kann zusätzlich die [erweiterte Sechs-Sektionen-Spec-Card einer Statistik-Novizin](../workshop/spec-card-statistics/index.qmd) lesen. Sie zeigt eine vollständige Lernerinnen-Modellierung in voller Breite. Das ist deutlich mehr Aufwand und für den Workshop nicht erforderlich; nimm es als Vertiefung mit, falls Zeit und Interesse vorhanden sind.
+
+## Die Hauptbehauptung des Workshops, in defensibler Form
+
+Der Workshop hängt an einer scharfen, falsifizierbaren Behauptung:
+
+::: {.callout-pro-tip icon=false}
+**Wenn ein Lernschritt verlangt, dass eine Studierende selbst eine Position einnimmt, dann substituiert KI diesen Schritt nicht teilweise, sondern entfernt die *Aktions-Eingabe* in die Selbsteinschätzung der Studierenden vollständig. Was die Studierende über sich selbst lernen kann, hängt davon ab, dass sie selbst gehandelt hat.**
+:::
+
+Diese Behauptung ist im Hintergrund des Workshops aktiv, ohne dass wir sie ständig benennen. Sie wird in der Closing-Reflexion zum Ankerpunkt für die Frage: *Welche Teilschritte deiner Aufgabe sind Aktion-erforderlich, welche sind Beobachtung-zulässig?*
+
+## Werkzeug-Zugang
+
+::: {.callout-setup icon=false}
+## Was du gut zur Hand haben solltest
+
+- Zugriff auf Microsoft Copilot (mit deiner BFH-Lizenz).
+- Optional: ein Account auf [HuggingChat](https://huggingface.co/chat) (kostenlos, ohne Anmeldung mit Limitationen nutzbar).
+- Optional: ein Account auf [Claude.ai](https://claude.ai) oder ChatGPT (kostenlose Stufe genügt).
+
+In Block 1 zeigt die Instruktorin drei verschiedene **Affordance-Typen**: Chat-Werkzeug (Copilot oder ähnlich), strukturierte API-Generierung (ein Marimo-Notebook, in dem der Datenfluss zellenweise sichtbar ist), und kurz ein agentisches Werkzeug. Du musst nichts installieren; alle Demos laufen im Browser oder als Aufzeichnung.
+
+In Block 3 nutzt du *ein* Chat-Werkzeug deiner Wahl, um dein Spec Sheet als System-Prompt zu testen. Microsoft Copilot reicht aus.
+:::
+
+## Was du am Ende des Workshops haben wirst
+
+- Ein eigenes Spec Sheet für eine Teilaufgabe deiner Lehre, mit Wissensbausteinen, Fehlkonzepten, Wissenslücken und Falsifikationsnotiz.
+- Ein in einem Chat-Werkzeug getesteter System-Prompt, gerendert aus deinem Spec Sheet.
+- Eine Markierung pro Wissensbaustein: Aktion-erforderlich oder Beobachtung-zulässig (für die KI-Substitutions-Frage).
+- Eine konkrete Verpflichtung, was du in den nächsten zwei Wochen in deiner Lehre tun wirst.
+
+::: {.callout-checkpoint icon=false}
+**Bevor du in den Workshop kommst:** lies das Worked Example durch. Bring die drei Materialien mit. Und denk vor dem Workshop kurz darüber nach, welche Studierende du in deiner Lehre am häufigsten falsch eingeschätzt hast und was du im Nachhinein hättest sehen sollen.
+:::
