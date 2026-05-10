@@ -56,7 +56,7 @@ Programmiererfahrung brauchst du nicht. Eine Aufgabe aus deiner Lehre solltest d
 :::
 
 
-# Block 1: Theorie und Beispiel {.center .smaller background-color="#1E3A5F" data-background-color="#1E3A5F" style="color: white;"}
+# Block 1: Theorie und Beispiel {.center .section-divider .section-navy}
 
 
 ## Cognitive Load Theory: der Engpass {.smaller}
@@ -162,16 +162,127 @@ Die disziplinierte Form dieser Diagnose ist das **Spec Sheet**.
 
 ## Drei Wissensbaustein-Typen {.smaller}
 
-Nicht alle Wissensformen werden gleich erworben. Die Typ-Unterscheidung macht sichtbar, *welche Aktivität welche Wissensform überhaupt entwickeln kann*.
+Jeder Typ ist durch die kognitive **Operation** definiert; aus der Operation folgt der Lern-**Mechanismus**; aus dem Mechanismus folgt, was die **KI ersetzen darf** und was nicht.
 
 {{< include ../../resources/figures/fig-wissensbaustein-typen.qmd >}}
 
-::: {style="text-align: center; font-size: 0.9em; color: #6E6560; max-width: 80%; margin: 0.3em auto 0;"}
-Diese drei Typen kommen in deinem Spec Sheet (Sektion B) explizit vor.
+::: {style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold; max-width: 90%; margin: 0.3em auto 0;"}
+Typ : Mechanismus : Operation, die die Studierende ausführen muss : was die KI substituieren darf.
 :::
 
 ::: {.notes}
-~2 Min. Drei Typen, drei Erwerbsmechanismen. Pointe: nicht alles ist "Erklärung anhören"; jede Wissensform verlangt eine andere Aktivität, sonst entsteht der Baustein nicht. Wichtige Unterscheidung für das Closing (Selbst-Tun vs. Zuschauen).
+~45s. Die Entscheidungsregel laut vorlesen. Die folgenden drei Slides geben pro Typ den Mechanismus und die KI-Konsequenz. Im Closing wird genau diese Regel auf die eigenen Bausteine angewendet.
+:::
+
+
+## Faktenwissen : Abrufen {.smaller}
+
+::::{.columns}
+:::{.column width="40%"}
+**Faktenwissen**
+
+Operation: **Abrufen**
+
+Beispiel: *"$r$ liegt zwischen $-1$ und $+1$"*
+:::
+
+:::{.column width="30%"}
+**Mechanismus**
+
+Aktives Abrufen, gestaffelt (Roediger & Karpicke, 2006).
+
+Wiederholte Exposition baut Vertrautheit, **nicht** Abrufstärke.
+:::
+
+:::{.column width="30%"}
+::: {style="background: rgba(166, 61, 47, 0.08); padding: 0.8em; border-radius: 8px; border-left: 4px solid #A63D2F;"}
+**KI-Konsequenz**
+
+Praxis hosten: möglich.
+
+Den Abruf ersetzen: nicht möglich.
+
+→ **Selbst-Tun**
+:::
+:::
+::::
+
+::: {.notes}
+~25s. Lesen ist nicht Abrufen. Wer die Antwort gesehen hat, hat sie nicht abgerufen.
+:::
+
+
+## Klassifikationswissen : Erkennen {.smaller}
+
+::::{.columns}
+:::{.column width="40%"}
+**Klassifikationswissen**
+
+Operation: **Erkennen**
+
+Beispiel: *"erkennt: Korrelationsfrage vs. Mittelwertvergleich"*
+:::
+
+:::{.column width="30%"}
+**Mechanismus**
+
+Interleaved varied examples mit Diskriminations-Feedback (Rohrer & Pashler, 2010).
+
+Blockweises Üben erzwingt den Diskriminations-Entscheid nie.
+:::
+
+:::{.column width="30%"}
+::: {style="background: rgba(166, 61, 47, 0.08); padding: 0.8em; border-radius: 8px; border-left: 4px solid #A63D2F;"}
+**KI-Konsequenz**
+
+Beispiele und Verwechslungsfälle generieren: hoher Hebel.
+
+Den Klassifikations-Entscheid ersetzen: nicht möglich.
+
+→ **Selbst-Tun (der Entscheid)**
+:::
+:::
+::::
+
+::: {.notes}
+~25s. KI ist exzellent für varied examples, aber das Label muss *nach* dem Entscheid kommen, nicht vorher.
+:::
+
+
+## Erklärungswissen : Begründen {.smaller}
+
+::::{.columns}
+:::{.column width="40%"}
+**Erklärungswissen**
+
+Operation: **Begründen**
+
+Beispiel: *"weiss, warum $r = 0.3$ in Bildung bedeutsam, in Physik vernachlässigbar"*
+:::
+
+:::{.column width="30%"}
+**Mechanismus**
+
+Selbsterklärung (Chi, 1989/1994); Worked Examples mit Erklärungs-Prompt; productive failure (Kapur, 2008).
+
+Eine fluente Erklärung *lesen* produziert keine Integration.
+:::
+
+:::{.column width="30%"}
+::: {style="background: rgba(166, 61, 47, 0.08); padding: 0.8em; border-radius: 8px; border-left: 4px solid #A63D2F;"}
+**KI-Konsequenz**
+
+Zur Selbsterklärung *auffordern*: ja.
+
+Die Erklärung *liefern*: nein.
+
+→ **Selbst-Tun (riskantester Typ)**
+:::
+:::
+::::
+
+::: {.notes}
+~25s. Riskanteste Substitution: der KI-Output *sieht aus* wie Verstehen, aber die Integration mit dem Vorwissen findet nicht statt.
 :::
 
 
@@ -194,20 +305,8 @@ Spec Sheet bleibt; der Prompt wird für jede Modellgeneration neu gerendert. Blo
 
 ::::{.columns}
 :::{.column width="50%"}
-::: {style="background: rgba(166, 61, 47, 0.06); padding: 1.2em; border-radius: 8px; border-left: 4px solid #A63D2F;"}
-**Hypothesengenerator**
-
-Das LLM schlägt Wissensbausteine vor.
-
-Du **prüfst** und markierst V (vermutet) oder B (beobachtet) oder verwirfst.
-
-→ Vor der Validierung.
-:::
-:::
-
-:::{.column width="50%"}
 ::: {style="background: rgba(30, 58, 95, 0.06); padding: 1.2em; border-radius: 8px; border-left: 4px solid #1E3A5F;"}
-**Lernende-Simulator**
+**Lernende-Simulator** *(Hauptaffordanz)*
 
 Das LLM spielt eine Studierende ohne Baustein X.
 
@@ -215,6 +314,20 @@ Zwei Probemodi:
 
 - *Reaktiv*: liest dein Material, meldet was unklar ist
 - *Produktiv*: schreibt eine Antwort mit Fehlkonzept
+
+→ Der externe Test deines Modells der Lernenden.
+:::
+:::
+
+:::{.column width="50%"}
+::: {style="background: rgba(166, 61, 47, 0.06); padding: 1.2em; border-radius: 8px; border-left: 4px solid #A63D2F;"}
+**Hypothesengenerator** *(unterstützend)*
+
+Das LLM schlägt Wissensbausteine vor.
+
+Du **prüfst** und markierst V (vermutet) oder B (beobachtet) oder verwirfst.
+
+→ Vor der Validierung.
 :::
 :::
 ::::
@@ -226,7 +339,7 @@ Beim Arbeiten in Block 2 immer fragen: *In welcher Rolle ist das LLM gerade?*
 :::
 
 ::: {.notes}
-~1 Min. Zwei klar getrennte Rollen. Mehr als das brauchen wir heute nicht.
+~1 Min. Lernende-Simulator zuerst, weil er die zentrale Affordanz dieses Workshops ist: ohne ihn ist die cognitive task analysis ein blinder Versuch. Der Hypothesengenerator beschleunigt nur das Auflisten in Sektion B. Mehr als diese Trennung brauchen wir heute nicht.
 :::
 
 
@@ -285,7 +398,7 @@ Dein Spec Sheet ist für alle drei Typen verwendbar. Nur die Übersetzung änder
 :::
 
 
-# Block 2: dein eigenes Spec Sheet {#block-2 .center .smaller background-color="#A63D2F" data-background-color="#A63D2F" style="color: white;"}
+# Block 2: dein eigenes Spec Sheet {#block-2 .center .section-divider .section-accent}
 
 
 ## Block 2 in 60 Min {.smaller}
@@ -310,7 +423,7 @@ Ziel: erste vollständige Version. Nicht perfekt. Nicht alle Felder.
 :::
 
 
-# Block 3: Spec → Prompt → Test {#block-3 .center .smaller background-color="#1E3A5F" data-background-color="#1E3A5F" style="color: white;"}
+# Block 3: Spec → Prompt → Test {#block-3 .center .section-divider .section-navy}
 
 
 ## Spec → Prompt ist mechanisch {.smaller}
@@ -361,7 +474,7 @@ Pass / Fail soft / Fail hard. Zwei der drei Ausgänge führen zurück: Fail soft
 :::
 
 
-# Closing {#closing .center .smaller background-color="#6E6560" data-background-color="#6E6560" style="color: white;"}
+# Closing {#closing .center .section-divider .section-muted}
 
 
 ## Falsifikationsnotiz: was würde dich widerlegen? {.smaller}
@@ -400,11 +513,60 @@ Markiere jeden Baustein in deiner Sektion B mit einem Tag:
 {{< include ../../resources/figures/fig-selbst-tun-zuschauen.qmd >}}
 
 ::: {style="font-size: 0.85em; max-width: 92%; margin: 0.3em auto 0;"}
-**Faustregel:** Faktenwissen, Klassifikationswissen, Erklärungswissen sind *meist* Selbst-Tun. Hilfsschritte (Tabelle formatieren, Standardabschnitt schreiben) sind oft Zuschauen-erlaubt. Und: was bei einer Anfängerin Selbst-Tun ist, kann bei einer Fortgeschrittenen Zuschauen-reicht sein.
+**Entscheidungsregel aus Block 1:** Typ : Mechanismus : Operation : was die KI ersetzen darf. Faktenwissen, Klassifikationswissen, Erklärungswissen sind *meist* Selbst-Tun, weil die KI die jeweilige Operation nicht für die Studierende leisten kann. Hilfsschritte sind oft Zuschauen-erlaubt. Staging zählt: was bei einer Anfängerin Selbst-Tun ist, kann bei einer Fortgeschrittenen Zuschauen-reicht sein.
 :::
 
 ::: {.notes}
-~5 Min in Eigenarbeit. Auf das Diagramm zeigen: links die Aktion verändert die Lernerin, rechts die Beobachtung lässt sie weitgehend gleich. Tags sind eine erste Diskussionsgrundlage, nicht endgültig. Wenn alle Bausteine Selbst-Tun sind, ist das ein normales Ergebnis.
+~4 Min in Eigenarbeit. Auf das Diagramm zeigen: links die Aktion verändert die Lernerin, rechts die Beobachtung lässt sie weitgehend gleich. Tags sind eine erste Diskussionsgrundlage, nicht endgültig. Wenn alle Bausteine Selbst-Tun sind, ist das ein normales Ergebnis. Direkt anschliessend: Spec-als-Datenstruktur-Slide.
+:::
+
+
+## Spec ist bereits eine Datenstruktur {.smaller}
+
+::::{.columns}
+:::{.column width="50%"}
+
+**Spec Sheet, Sektion B (Auszug)**
+
+- **B1, Faktenwissen (Abrufen):** *$r$* ist dimensionslos, $-1 \leq r \leq +1$. V; Selbst-Tun.
+- **B3, Klassifikationswissen (Erkennen):** Korrelation vs. Mittelwertvergleich. B; Selbst-Tun.
+- **B5, Erklärungswissen (Begründen):** warum $r = 0.3$ in Bildung bedeutsam ist. V; Selbst-Tun.
+
+**Sektion C:** *verwechselt $r$ mit $R^2$*; *Korrelation als Kausalität*.
+
+:::
+:::{.column width="50%"}
+
+**adaptive-scaffolding (Python)**
+
+```python
+Exercise(
+    title="r = 0.3 interpretieren",
+    target_sub_skills=[
+        SubSkill.r_squared_meaning,
+        SubSkill.coefficient_interpretation,
+    ],
+    cognitive_demand=CognitiveDemand.CONCEPTUAL,
+    common_errors=[
+        "verwechselt r mit R²",
+        "Korrelation als Kausalität",
+    ],
+    expected_answer_fragments=[
+        "zwischen -1 und +1",
+        "kontextabhängige Bedeutsamkeit",
+    ],
+)
+```
+
+:::
+::::
+
+::: {style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold; max-width: 90%; margin: 0.3em auto 0;"}
+Dieselbe Information, zwei Oberflächen. Was du in 60 Minuten geschrieben hast, ist das Format, das adaptive Systeme als Eingabe brauchen.
+:::
+
+::: {.notes}
+~2 Min. Nicht durch die Felder gehen, nur darauf zeigen. Botschaft: du musst nie Python schreiben. Aber die Lehrperson, die ein Spec Sheet pflegt, hat das Format, das ein adaptives System braucht. Feldzuordnung im Detail steht im Nachlesen-Tab.
 :::
 
 

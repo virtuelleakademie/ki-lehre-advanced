@@ -92,6 +92,94 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 <style>
+div.callout-setup.callout {
+  border-left-color: #6E6560;
+}
+div.callout-setup.callout-style-default > .callout-header {
+  background-color: rgba(110, 101, 96, 0.13);
+}
+div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f7d9' !important;
+  background-image: none;
+}
+div.callout-individual.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-individual.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f007' !important;
+  background-image: none;
+}
+div.callout-export.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-export.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f56e' !important;
+  background-image: none;
+}
+div.callout-work-in-progress.callout {
+  border-left-color: #B8821A;
+}
+div.callout-work-in-progress.callout-style-default > .callout-header {
+  background-color: rgba(184, 130, 26, 0.13);
+}
+div.callout-work-in-progress .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-work-in-progress.callout-style-default .callout-icon::before, div.callout-work-in-progress.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f0c3' !important;
+  background-image: none;
+}
+div.callout-fallstudie.callout {
+  border-left-color: #6E6560;
+}
+div.callout-fallstudie.callout-style-default > .callout-header {
+  background-color: rgba(110, 101, 96, 0.13);
+}
+div.callout-fallstudie .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-fallstudie.callout-style-default .callout-icon::before, div.callout-fallstudie.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236E6560" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-schedule.callout {
+  border-left-color: #6E6560;
+}
+div.callout-schedule.callout-style-default > .callout-header {
+  background-color: rgba(110, 101, 96, 0.13);
+}
+div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f017' !important;
+  background-image: none;
+}
+div.callout-pro-tip.callout {
+  border-left-color: #1E3A5F;
+}
+div.callout-pro-tip.callout-style-default > .callout-header {
+  background-color: rgba(30, 58, 95, 0.13);
+}
+div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\e2ca' !important;
+  background-image: none;
+}
 div.callout-tutor-example.callout {
   border-left-color: #A63D2F;
 }
@@ -118,17 +206,17 @@ div.callout-feedback.callout-style-default .callout-icon::before, div.callout-fe
   content: '\f4ad' !important;
   background-image: none;
 }
-div.callout-testing.callout {
-  border-left-color: #A63D2F;
+div.callout-reflect.callout {
+  border-left-color: #1E3A5F;
 }
-div.callout-testing.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
+div.callout-reflect.callout-style-default > .callout-header {
+  background-color: rgba(30, 58, 95, 0.13);
 }
-div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
+div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\e4f3' !important;
+  content: '\f0eb' !important;
   background-image: none;
 }
 div.callout-screens-up.callout {
@@ -144,30 +232,17 @@ div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-
   content: '\f06e' !important;
   background-image: none;
 }
-div.callout-group.callout {
-  border-left-color: #A63D2F;
+div.callout-facilitator.callout {
+  border-left-color: #6E6560;
 }
-div.callout-group.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
+div.callout-facilitator.callout-style-default > .callout-header {
+  background-color: rgba(110, 101, 96, 0.13);
 }
-div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
+div.callout-facilitator .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-facilitator.callout-style-default .callout-icon::before, div.callout-facilitator.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f0c0' !important;
-  background-image: none;
-}
-div.callout-prompt-template.callout {
-  border-left-color: #1E3A5F;
-}
-div.callout-prompt-template.callout-style-default > .callout-header {
-  background-color: rgba(30, 58, 95, 0.13);
-}
-div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f328' !important;
+  content: '\f46d' !important;
   background-image: none;
 }
 div.callout-nachlesen.callout {
@@ -183,19 +258,6 @@ div.callout-nachlesen.callout-style-default .callout-icon::before, div.callout-n
   content: '\f518' !important;
   background-image: none;
 }
-div.callout-individual.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-individual.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f007' !important;
-  background-image: none;
-}
 div.callout-screens-down.callout {
   border-left-color: #A63D2F;
 }
@@ -209,92 +271,17 @@ div.callout-screens-down.callout-style-default .callout-icon::before, div.callou
   content: '\f070' !important;
   background-image: none;
 }
-div.callout-fallstudie.callout {
-  border-left-color: #6E6560;
-}
-div.callout-fallstudie.callout-style-default > .callout-header {
-  background-color: rgba(110, 101, 96, 0.13);
-}
-div.callout-fallstudie .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-fallstudie.callout-style-default .callout-icon::before, div.callout-fallstudie.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236E6560" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-checkpoint.callout {
+div.callout-prompt-template.callout {
   border-left-color: #1E3A5F;
 }
-div.callout-checkpoint.callout-style-default > .callout-header {
+div.callout-prompt-template.callout-style-default > .callout-header {
   background-color: rgba(30, 58, 95, 0.13);
 }
-div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
+div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f11e' !important;
-  background-image: none;
-}
-div.callout-reflect.callout {
-  border-left-color: #1E3A5F;
-}
-div.callout-reflect.callout-style-default > .callout-header {
-  background-color: rgba(30, 58, 95, 0.13);
-}
-div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f0eb' !important;
-  background-image: none;
-}
-div.callout-export.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-export.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f56e' !important;
-  background-image: none;
-}
-div.callout-break.callout {
-  border-left-color: #6E6560;
-}
-div.callout-break.callout-style-default > .callout-header {
-  background-color: rgba(110, 101, 96, 0.13);
-}
-div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f7b6' !important;
-  background-image: none;
-}
-div.callout-caution.callout {
-  border-left-color: #B8821A;
-}
-div.callout-caution.callout-style-default > .callout-header {
-  background-color: rgba(184, 130, 26, 0.13);
-}
-div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f071' !important;
-  background-image: none;
-}
-div.callout-timing.callout {
-  border-left-color: #6E6560;
-}
-div.callout-timing.callout-style-default > .callout-header {
-  background-color: rgba(110, 101, 96, 0.13);
-}
-div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f2f2' !important;
+  content: '\f328' !important;
   background-image: none;
 }
 div.callout-active-processing.callout {
@@ -310,82 +297,43 @@ div.callout-active-processing.callout-style-default .callout-icon::before, div.c
   content: '\f044' !important;
   background-image: none;
 }
-div.callout-try.callout {
+div.callout-group.callout {
   border-left-color: #A63D2F;
 }
-div.callout-try.callout-style-default > .callout-header {
+div.callout-group.callout-style-default > .callout-header {
   background-color: rgba(166, 61, 47, 0.13);
 }
-div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
+div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f021' !important;
+  content: '\f0c0' !important;
   background-image: none;
 }
-div.callout-facilitator.callout {
-  border-left-color: #6E6560;
-}
-div.callout-facilitator.callout-style-default > .callout-header {
-  background-color: rgba(110, 101, 96, 0.13);
-}
-div.callout-facilitator .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-facilitator.callout-style-default .callout-icon::before, div.callout-facilitator.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f46d' !important;
-  background-image: none;
-}
-div.callout-schedule.callout {
-  border-left-color: #6E6560;
-}
-div.callout-schedule.callout-style-default > .callout-header {
-  background-color: rgba(110, 101, 96, 0.13);
-}
-div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f017' !important;
-  background-image: none;
-}
-div.callout-prompt-example.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-prompt-example.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f120' !important;
-  background-image: none;
-}
-div.callout-pro-tip.callout {
+div.callout-checkpoint.callout {
   border-left-color: #1E3A5F;
 }
-div.callout-pro-tip.callout-style-default > .callout-header {
+div.callout-checkpoint.callout-style-default > .callout-header {
   background-color: rgba(30, 58, 95, 0.13);
 }
-div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
+div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\e2ca' !important;
+  content: '\f11e' !important;
   background-image: none;
 }
-div.callout-work-in-progress.callout {
-  border-left-color: #B8821A;
+div.callout-break.callout {
+  border-left-color: #6E6560;
 }
-div.callout-work-in-progress.callout-style-default > .callout-header {
-  background-color: rgba(184, 130, 26, 0.13);
+div.callout-break.callout-style-default > .callout-header {
+  background-color: rgba(110, 101, 96, 0.13);
 }
-div.callout-work-in-progress .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-work-in-progress.callout-style-default .callout-icon::before, div.callout-work-in-progress.callout-titled .callout-icon::before {
+div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f0c3' !important;
+  content: '\f7b6' !important;
   background-image: none;
 }
 div.callout-pair.callout {
@@ -401,17 +349,69 @@ div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.c
   content: '\f500' !important;
   background-image: none;
 }
-div.callout-setup.callout {
-  border-left-color: #6E6560;
+div.callout-caution.callout {
+  border-left-color: #B8821A;
 }
-div.callout-setup.callout-style-default > .callout-header {
-  background-color: rgba(110, 101, 96, 0.13);
+div.callout-caution.callout-style-default > .callout-header {
+  background-color: rgba(184, 130, 26, 0.13);
 }
-div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
+div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f7d9' !important;
+  content: '\f071' !important;
+  background-image: none;
+}
+div.callout-prompt-example.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-prompt-example.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f120' !important;
+  background-image: none;
+}
+div.callout-testing.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-testing.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\e4f3' !important;
+  background-image: none;
+}
+div.callout-try.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-try.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f021' !important;
+  background-image: none;
+}
+div.callout-timing.callout {
+  border-left-color: #6E6560;
+}
+div.callout-timing.callout-style-default > .callout-header {
+  background-color: rgba(110, 101, 96, 0.13);
+}
+div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f2f2' !important;
   background-image: none;
 }
 </style>
@@ -424,6 +424,35 @@ div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup
   </style>
   
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles/styles.css">
 <meta property="og:title" content="Block 1: Theorie und Beispiel (45 min) – KI in der Lehre: Advanced">
@@ -573,6 +602,12 @@ div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup
  <span class="menu-text">Worked Example: Spec Sheet für eine Statistik-Teilaufgabe</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../workshop/block-1-theorie-und-beispiel/wissens-typen-mechanismen-ki.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Drei Wissens-Typen, drei Lern-Mechanismen, drei KI-Konsequenzen</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item">
@@ -636,8 +671,9 @@ div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup
 <section id="zeitbudget-block-1" class="level2 callout-timing" data-icon="false">
 <h2 class="anchored" data-anchor-id="zeitbudget-block-1">Zeitbudget Block 1</h2>
 <ul>
-<li>11 min: Theorie und CLT-Auffrischung (Engpass, Vorwissen, Scaffolding-Leiter, Brücke ins Spec Sheet, drei Wissensbaustein-Typen, Spec-vs-Prompt, zwei LLM-Rollen)</li>
-<li>30 min: Worked Example (live durch die Statistik-Spec-Sheet-Seite)</li>
+<li>11 min: Theorie und CLT-Auffrischung (Engpass, Vorwissen, Scaffolding-Leiter, Brücke ins Spec Sheet, drei Wissensbaustein-Typen mit Lern-Mechanismen, Spec-vs-Prompt, zwei LLM-Rollen)</li>
+<li>3 min: Einstieg-Liste typisieren (Faktenwissen / Klassifikationswissen / Erklärungswissen)</li>
+<li>27 min: Worked Example (live durch die Statistik-Spec-Sheet-Seite)</li>
 <li>3 min: Werkzeug-Tour (drei Affordance-Typen, abgekürzt)</li>
 <li>1 min: Übergang in Block 2</li>
 </ul>
@@ -669,9 +705,10 @@ div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup
 <li><em>Brücke ins Spec Sheet</em> (~1 min): “Die Refresher-Präsentation hat gesagt, wir müssen diagnostizieren. Heute machen wir die Diagnose explizit, schriftlich und falsifizierbar. Genau das ist das Spec Sheet.”</li>
 </ol>
 <p>Wer die Auffrischung in Volllänge braucht, findet sie im <em>Nachlesen</em>-Tab.</p>
-<p><strong>Sequenz 2: Drei Wissensbaustein-Typen</strong> (~2 min). Faktenwissen (Abrufen) / Klassifikationswissen (Erkennen) / Erklärungswissen (Begründen), je mit Lernmechanismus (aktives Abrufen / Klassifikationsübung / Selbsterklärung). Jeder Typ ist durch die kognitive Operation definiert, die die Studierende beim Anwenden ausführt; diese Operation bestimmt, welche Aktivität den Baustein überhaupt aufbauen kann.</p>
+<p><strong>Sequenz 2: Drei Wissensbaustein-Typen, drei Lern-Mechanismen</strong> (~2 min, vier Slides). Faktenwissen (Abrufen, aufgebaut durch aktives Abrufen / Roediger &amp; Karpicke 2006) / Klassifikationswissen (Erkennen, aufgebaut durch interleaved varied examples mit Diskriminations-Feedback / Rohrer &amp; Pashler 2010) / Erklärungswissen (Begründen, aufgebaut durch Selbsterklärung, gesteuerte Worked Examples, productive failure / Chi 1989, Kapur 2008). Jeder Typ ist durch die kognitive Operation definiert, die die Studierende ausführt; aus der Operation folgt der Mechanismus; aus dem Mechanismus folgt, was die KI substituieren darf und was nicht. Diese Kette ist die Entscheidungsregel für das Selbst-Tun-vs-Zuschauen-Tagging im Closing. Volltext im <em>Nachlesen</em>-Tab.</p>
+<p><strong>Direkt nach Sequenz 2: Einstieg-Liste typisieren</strong> (~3 min, Aktivität). Die Teilnehmenden tagen die drei Sätze, die ihre Partnerin im Einstieg aus ihrem Absatz rekonstruiert hat. Details im <em>Aktivitäten</em>-Tab.</p>
 <p><strong>Sequenz 3: Spec ist dauerhaft, Prompt ist Übersetzung</strong> (~1 min). Eine pragmatische Trennung: das Spec Sheet überlebt Modellgenerationen, der Prompt ist Werkzeug-spezifisch und altert mit dem Modell.</p>
-<p><strong>Sequenz 4: Zwei LLM-Rollen</strong> (~1 min). Hypothesengenerator (vor der Validierung) vs.&nbsp;Lernende-Simulator (nach der Validierung, in zwei Probemodi: reaktiv und produktiv). Beim Arbeiten in Block 2 immer fragen: <em>In welcher Rolle ist das LLM gerade?</em></p>
+<p><strong>Sequenz 4: Zwei LLM-Rollen</strong> (~1 min). <strong>Lernende-Simulator</strong> (die zentrale Affordanz dieses Workshops, in zwei Probemodi: reaktiv und produktiv) und <strong>Hypothesengenerator</strong> (unterstützende Rolle vor der Validierung). Beim Arbeiten in Block 2 immer fragen: <em>In welcher Rolle ist das LLM gerade?</em></p>
 <p><strong>Worked Example</strong> (30 min): Live-Walkthrough durch die <a href="../../workshop/block-1-theorie-und-beispiel/worked-example-statistics.html">Worked-Example-Seite</a>. Drei Stellen besonders kommentieren (siehe <em>Aktivitäten</em>-Tab).</p>
 <p><strong>Werkzeug-Tour</strong> (3 min): kurz die drei Affordance-Typen nennen (Chat / Strukturierte API / Agentisch), je 30 Sekunden. Volllänge im <em>Nachlesen</em>-Tab. Live-Demo nur fürs Marimo-Notebook (1 min).</p>
 <p><strong>Übergang in Block 2</strong> (1 min): Verweis auf Vorlage, Prompt-Scaffolds, eigene Aufgabe parathalten. Direkt in die Pause.</p>
@@ -692,15 +729,27 @@ div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup
 <p>Halte während Block 1 <em>eine konkrete Teilaufgabe aus deiner eigenen Lehre</em> gedanklich parat. Idealerweise eine, die du in Block 2 verwenden willst. Beim Mitschauen prüfst du laufend: <em>Würde dieser Schritt auch für meine Aufgabe gehen? Welche Stelle wäre bei meiner Aufgabe anders?</em></p>
 <p>Ohne diesen Bezugspunkt wird der Worked Example abstrakt. Mit ihm wird er zum Vorbild.</p>
 </section>
-<section id="beim-worked-example-drei-stellen-genau-beobachten" class="level4 callout-individual" data-icon="false">
-<h4 class="anchored" data-anchor-id="beim-worked-example-drei-stellen-genau-beobachten">Beim Worked Example: drei Stellen genau beobachten</h4>
-<p>Drei Stellen verdienen besondere Aufmerksamkeit, während die Instruktorin durch die <a href="../../workshop/block-1-theorie-und-beispiel/worked-example-statistics.html">Worked-Example-Seite</a> geht:</p>
+<section id="nach-sequenz-2-deine-einstieg-liste-typisieren-3-min" class="level4 callout-individual" data-icon="false">
+<h4 class="anchored" data-anchor-id="nach-sequenz-2-deine-einstieg-liste-typisieren-3-min">Nach Sequenz 2: deine Einstieg-Liste typisieren (~3 min)</h4>
+<p>Hol die Liste hervor, die deine Partnerin im Einstieg für dich produziert hat (die drei Sätze, “Damit deine Studierende … wissen / erkennen / erklären können”). Tagge jeden Eintrag mit einer der drei eben eingeführten Typen:</p>
+<ul>
+<li><strong>Faktenwissen</strong> (Operation: Abrufen)</li>
+<li><strong>Klassifikationswissen</strong> (Operation: Erkennen)</li>
+<li><strong>Erklärungswissen</strong> (Operation: Begründen)</li>
+</ul>
+<p>Wenn zwei deiner drei Einträge denselben Typ haben, sagt das schon etwas über die kognitive Struktur deiner Aufgabe. Wenn die Sätze deiner Partnerin nicht zur Vorlage “wissen / erkennen / erklären” passen, ist auch das informativ: bedeutet es, dass aus deinem Absatz nicht klar war, welches Wissen das eigentliche Lernziel ist?</p>
+<p>Halte die getaggten Einträge griffbereit. In Block 2 baust du Sektion B deines Spec Sheets aus genau diesen Typen auf.</p>
+</section>
+<section id="beim-worked-example-vier-stellen-genau-beobachten" class="level4 callout-individual" data-icon="false">
+<h4 class="anchored" data-anchor-id="beim-worked-example-vier-stellen-genau-beobachten">Beim Worked Example: vier Stellen genau beobachten</h4>
+<p>Vier Stellen verdienen besondere Aufmerksamkeit, während die Instruktorin durch die <a href="../../workshop/block-1-theorie-und-beispiel/worked-example-statistics.html">Worked-Example-Seite</a> geht:</p>
 <ul>
 <li><strong>Wenn das LLM einen Vorschlag macht, der falsch oder daneben ist:</strong> wie geht die Instruktorin damit um? Welches Argument benutzt sie, um den Vorschlag zu verwerfen?</li>
 <li><strong>Wenn die reaktive Simulation eine Stelle markiert, die niemand erwartet hatte:</strong> das ist ein Treffer und gehört in das Spec Sheet, typischerweise als zusätzlicher Baustein in Sektion B oder als Erwerb-Hinweis bei einem bestehenden Baustein.</li>
 <li><strong>Wenn die produktive Simulation eine plausible-aber-falsche Antwort produziert:</strong> würde dir der Misserfolg beim Korrigieren auffallen?</li>
+<li><strong>Wenn die Instruktorin zwischen den LLM-Rollen wechselt:</strong> achte darauf, <em>welche Rolle gerade was tut</em>. Der Hypothesengenerator schlägt vor (kritisch zu prüfen, oft falsch). Der Lernende-Simulator probt dein Material oder produziert eine Antwort aus Studierendensicht (gibt Feedback auf dein Modell der Lernenden). Der Simulator ist die zentrale Affordanz dieses Workshops; der Hypothesengenerator unterstützt.</li>
 </ul>
-<p>Diese drei Beobachtungen sind die Hauptlehre aus Block 1. In Block 2 wirst du dieselben drei Bewegungen an deiner eigenen Aufgabe machen.</p>
+<p>Diese vier Beobachtungen sind die Hauptlehre aus Block 1. In Block 2 wirst du dieselben Bewegungen an deiner eigenen Aufgabe machen.</p>
 </section>
 <section id="werkzeug-tour-drei-affordance-typen-kurz-mitnehmen" class="level4">
 <h4 class="anchored" data-anchor-id="werkzeug-tour-drei-affordance-typen-kurz-mitnehmen">Werkzeug-Tour: drei Affordance-Typen, kurz mitnehmen</h4>
@@ -748,6 +797,34 @@ div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup
 </ul>
 <p>Das Spec Sheet ist genau diese Diagnose, in schriftlich-falsifizierbarer Form.</p>
 </section>
+<div class="callout-nachlesen" data-icon="false">
+<section id="drei-wissens-typen-drei-lern-mechanismen-drei-ki-konsequenzen" class="level4">
+<h4 class="anchored" data-anchor-id="drei-wissens-typen-drei-lern-mechanismen-drei-ki-konsequenzen">Drei Wissens-Typen, drei Lern-Mechanismen, drei KI-Konsequenzen</h4>
+<p>Die drei Wissensbaustein-Typen aus Sequenz 2 sind nicht drei Etiketten für dasselbe. Jeder Typ ist durch die <em>kognitive Operation</em> definiert, die die Studierende ausführt; jede Operation hat einen eigenen Lern-Mechanismus, der den Baustein überhaupt aufbaut; und aus dem Mechanismus folgt, was die KI substituieren darf und was nicht. Diese Kette ist die operative Substanz des Spec Sheets: ohne sie ist Sektion B nur eine Aufzählung.</p>
+<p><strong>Faktenwissen (Operation: Abrufen, Mechanismus: aktives Abrufen)</strong></p>
+<p>Items, die die Studierende auf Abruf aus dem Langzeitgedächtnis produzieren muss: Definitionen, Formeln, Eigennamen, Konventionen. Beispiel: “<span class="math inline">\(r\)</span> liegt zwischen <span class="math inline">\(-1\)</span> und <span class="math inline">\(+1\)</span>.” Die Operation ist Abrufen, nicht Wiedererkennen: die Studierende muss den Eintrag selbst produzieren, nicht aus einer Liste auswählen.</p>
+<p>Was den Baustein aufbaut: der Abrufakt selbst, wiederholt und über die Zeit verteilt. Der <em>testing effect</em> (Roediger &amp; Karpicke, 2006) zeigt: das Hervorrufen eines Eintrags festigt den Eintrag stärker als wiederholtes Lesen oder Hören. Wiederholte Exposition produziert Vertrautheit, die sich wie Lernen anfühlt, aber keine Abrufstärke aufbaut.</p>
+<p>Was das für KI bedeutet: die KI kann die Praxis hosten (Karteikarten generieren, abfragen, gestaffeltes Wiederholen steuern). Sie kann den Abruf nicht <em>für</em> die Studierende leisten. Wenn das Chat-Werkzeug die Antwort gibt, wird der Mechanismus umgangen: die Studierende hat den Eintrag gesehen, aber nicht aktiv abgerufen. Der klarste <em>Selbst-Tun</em>-Fall.</p>
+<p><strong>Klassifikationswissen (Operation: Erkennen, Mechanismus: interleaved varied examples mit Diskriminations-Feedback)</strong></p>
+<p>Mustererkennung unter Merkmals-Unsicherheit. Beispiel: “Ist das eine Korrelations- oder eine Mittelwertvergleichs-Frage?” “Ist das Nieren- oder Rückenschmerz?” “Ist diese Vertragsklausel fair oder einseitig?” Die Studierende sieht eine konkrete Instanz und muss entscheiden, welcher Kategorie sie angehört.</p>
+<p>Was den Baustein aufbaut: interleaved Exposition gegen verschiedenartige Beispiele, einschliesslich naher Verwechslungsfälle, mit Feedback <em>nach</em> dem Klassifikations-Entscheid (Rohrer &amp; Pashler, 2010). Blockweises Üben lässt die Studierende auf die Merkmale einer Kategorie isoliert achten und zwingt den Diskriminations-Entscheid nie. Interleaved Üben erzwingt den Entscheid, der die zu trainierende Operation ist. Kontrastfälle sind essenziell: das Schema wird aus der Variation <em>zwischen</em> Instanzen induziert, nicht aus sauberen Positiv-Beispielen.</p>
+<p>Was das für KI bedeutet: die KI ist ausgesprochen nützlich für das <em>Generieren</em> der varied examples und der nahen Verwechslungsfälle. Das ist hoher Hebel. Sie ist schädlich, wenn sie das Beispiel etikettiert, bevor die Studierende klassifiziert hat. Der Klassifikations-Entscheid muss vom Lernenden selbst kommen. <em>Selbst-Tun:</em> der Entscheid. <em>Zuschauen-reicht:</em> das Angebot der Beispiele und das Feedback danach.</p>
+<p><strong>Erklärungswissen (Operation: Begründen, Mechanismus: Selbsterklärung, gesteuerte Worked Examples, productive failure)</strong></p>
+<p>Generative Prinzipien, die Transfer auf neue Situationen erlauben. Beispiel: “Warum ist <span class="math inline">\(r = 0.3\)</span> in der Bildungsforschung bedeutsam und in der Physik vernachlässigbar?” Die Studierende ruft nicht ab und erkennt nicht; sie konstruiert eine Argumentationskette aus Prinzipien.</p>
+<p>Was den Baustein aufbaut: Selbsterklärung (Chi, 1989, 1994). Die Studierende rekonstruiert in eigenen Worten, <em>warum</em> ein Worked Example funktioniert. Worked Examples mit gesteuerter Selbsterklärung. Productive failure (Kapur, 2008): erst versuchen, dann erklären, dann die Musterlösung. Der Mechanismus ist die Integration des neuen Stoffs mit dem Vorwissen, und diese Integration geschieht nur, wenn die Studierende die generative Arbeit selbst leistet. Eine fluent geschriebene Erklärung zu lesen produziert sie nicht.</p>
+<p>Was das für KI bedeutet: der riskanteste Typ. Wenn die KI die Erklärung generiert, bekommt die Studierende ein fluentes Surrogat, das den Integrationsschritt überspringt. Der Output ist kohärent, also fühlt sich die Studierende verstanden, aber die Integration mit ihrem eigenen Vorwissen findet nicht statt. Die produktive Rolle der KI hier: zur Selbsterklärung <em>auffordern</em> (“kannst du in eigenen Worten sagen, warum dieser Schritt funktioniert?”) und vorsichtig herausfordern (“was würde passieren, wenn…”), nicht Erklärungen auf Anfrage liefern. Der schwerste <em>Selbst-Tun</em>-Fall, weil der KI-Output <em>wie Verstehen aussieht</em>.</p>
+</section>
+<section id="die-entscheidungsregel" class="level4 callout-pro-tip" data-icon="false">
+<h4 class="anchored" data-anchor-id="die-entscheidungsregel">Die Entscheidungsregel</h4>
+<p>Typ : Mechanismus : Operation, die die Studierende ausführen muss : was die KI substituieren darf.</p>
+<ul>
+<li><strong>Faktenwissen:</strong> die KI kann nicht das Abrufen ersetzen.</li>
+<li><strong>Klassifikationswissen:</strong> die KI kann nicht den Klassifikations-Entscheid ersetzen (aber alles drumherum schon).</li>
+<li><strong>Erklärungswissen:</strong> die KI kann nicht die Konstruktion der Erklärung ersetzen. Die Falle ist, dass es so aussieht, als könnte sie das, weil der Output kohärent klingt.</li>
+</ul>
+<p>Diese drei Sätze sind die Grundlage für das <em>Selbst-Tun-vs-Zuschauen-Tagging</em> im Closing. Eine kompakte Tabellenfassung findest du im Handout <a href="../../workshop/block-1-theorie-und-beispiel/wissens-typen-mechanismen-ki.html">Drei Wissens-Typen, drei Mechanismen, drei KI-Konsequenzen</a>.</p>
+</section>
+</div>
 <section id="warum-vb-die-zentrale-disziplin-ist" class="level4 callout-nachlesen" data-icon="false">
 <h4 class="anchored" data-anchor-id="warum-vb-die-zentrale-disziplin-ist">Warum V/B die zentrale Disziplin ist</h4>
 <p>V/B ist nicht ein Verwaltungsdetail, sondern die methodische Substanz des Spec Sheets. Vier Mechanismen aus der Kognitionspsychologie machen sie nötig, und jeder dieser Mechanismen verlangt eine <em>eigene</em> Bewegung. V/B alleine deckt nur einen davon sauber ab; die anderen drei brauchen zusätzliche Schritte, die im Spec-Sheet-Verfahren explizit eingebaut sind.</p>
@@ -801,7 +878,7 @@ div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup
 </section>
 <section id="vertiefung-kompetenzerwerb-und-expertise-reversal" class="level4 callout-nachlesen" data-icon="false">
 <h4 class="anchored" data-anchor-id="vertiefung-kompetenzerwerb-und-expertise-reversal">Vertiefung: Kompetenzerwerb und Expertise-Reversal</h4>
-<p>Das Wissensbaustein-Modell im Spec Sheet (Faktenwissen / Begriffliches Wissen / Erklärungswissen) hat seine Wurzel in der Forschung zu Kompetenzerwerb (ACT-R Wissenskompilation, schwache Methoden → Proceduralisierung → Compilation) und im Expertise-Reversal-Effekt: was Anfängerinnen hilft, schadet Expertinnen, und umgekehrt.</p>
+<p>Das Wissensbaustein-Modell im Spec Sheet (Faktenwissen / Klassifikationswissen / Erklärungswissen) hat seine Wurzel in der Forschung zu Kompetenzerwerb (ACT-R Wissenskompilation, schwache Methoden → Proceduralisierung → Compilation) und im Expertise-Reversal-Effekt: was Anfängerinnen hilft, schadet Expertinnen, und umgekehrt.</p>
 <p>Das ist auch die theoretische Heimat des <em>Curse-of-Knowledge</em>, der den Workshop-Einstieg trägt: Expertinnen verwechseln die Epistemologie der Expertise mit der Pädagogik für Lernende.</p>
 <p>Vertiefung: <a href="https://virtuelleakademie.github.io/cas-lernpsychologie/01-lernen-verstehen/kompetenz-erwerben/" target="_blank">01-lernen-verstehen / kompetenz-erwerben, CAS Lernpsychologie</a>.</p>
 </section>

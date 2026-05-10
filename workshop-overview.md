@@ -12,6 +12,10 @@ Using AI tools in teaching defaults, in practice, to whatever the tool happens t
 
 Before touching a tool, the lecturer writes a Spec Sheet: a four-section, falsifiable decomposition of what the learner needs to construct in order to perform a single teaching task. The Spec Sheet is not a prompt. It is a structured-introspection scaffold for cognitive content, with two LLMs assisting (Hypothesengenerator and Lernende-Simulator) and a falsification procedure attached.
 
+## Why this matters: AI as forcing function for cognitive task analysis
+
+The motive that drives this design is not, in the first instance, defence against tool churn. It is that lecturers who teach a task for years rarely sit down to write out, at the resolution that matters, what is supposed to happen in the learner's head. Cognitive task analysis (Clark & Estes, 1996; Schraagen, Chipman & Shalin, 2000) has remained an expert-only technique partly because it has had no fast feedback loop: until recently, no tool existed that could externalise the lecturer's tacit model of the student and probe it in minutes. The Lernende-Simulator is that loop. The Hypothesengenerator accelerates the authoring. AI, in this design, is the forcing function and the microscope; the cognitive task analysis is the product. "Spec is durable, Prompt is rendering" is a by-product justification of that arrangement: the artifact happens to survive tool churn because it specifies content rather than tool behaviour.
+
 ## Central claim, narrowly stated
 
 The Spec is the durable design artifact for the lecturer's reasoning about the task. The Prompt is its rendering for a specific tool. The two encode claims about different systems with different stability profiles: the Spec is about the learner's required cognitive architecture; the Prompt is about a specific LLM's quirks. Tool churn does not invalidate the Spec.

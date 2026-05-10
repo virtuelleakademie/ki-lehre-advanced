@@ -164,5 +164,35 @@ $presentation-heading-font: "Space Grotesk", sans-serif;
   margin-top: 1.5em;
 }
 
+// Section divider slides: warm-paper inversion.
+// Replaces the previous full-saturation block backgrounds with the brand
+// cream background, a slim coloured left bar, and the section title in the
+// section colour. Variant classes drive the colour assignment.
+.reveal .slides section.section-divider {
+  background: transparent;
+
+  h1 {
+    font-size: 2.2em;
+    font-weight: 700;
+    text-align: left;
+    padding-left: 0.9em;
+    border-left: 6px solid currentColor;
+    line-height: 1.15;
+    margin: 0;
+  }
+}
+
+.reveal .slides section.section-divider.section-navy h1 {
+  color: $brand-navy;
+}
+
+.reveal .slides section.section-divider.section-accent h1 {
+  color: $brand-accent;
+}
+
+.reveal .slides section.section-divider.section-muted h1 {
+  color: $brand-text-secondary;
+}
+
 // Diagram tokens (CSS custom properties for inline SVG figures)
 @import "diagrams";
