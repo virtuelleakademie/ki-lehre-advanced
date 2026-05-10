@@ -35,7 +35,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-6e1fb6a2219f8515ddf38e7c7e7a3e28.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-3649072424401201c47eef39d5b8a01a.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -141,83 +141,21 @@
       margin-right: 0; 
     }
   </style>
+  <script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <style>
-  div.callout-caution.callout {
-    border-left-color: #B8821A;
-  }
-  div.callout-caution.callout-style-default > .callout-header {
-    background-color: rgba(184, 130, 26, 0.13);
-  }
-  div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: 'nil' !important;
-    background-image: none;
-  }
-  div.callout-facilitator.callout {
-    border-left-color: #6E6560;
-  }
-  div.callout-facilitator.callout-style-default > .callout-header {
-    background-color: rgba(110, 101, 96, 0.13);
-  }
-  div.callout-facilitator .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-facilitator.callout-style-default .callout-icon::before, div.callout-facilitator.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f46d' !important;
-    background-image: none;
-  }
-  div.callout-reflect.callout {
-    border-left-color: #1E3A5F;
-  }
-  div.callout-reflect.callout-style-default > .callout-header {
-    background-color: rgba(30, 58, 95, 0.13);
-  }
-  div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f0eb' !important;
-    background-image: none;
-  }
-  div.callout-individual.callout {
+  div.callout-try.callout {
     border-left-color: #A63D2F;
   }
-  div.callout-individual.callout-style-default > .callout-header {
+  div.callout-try.callout-style-default > .callout-header {
     background-color: rgba(166, 61, 47, 0.13);
   }
-  div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
+  div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\f007' !important;
-    background-image: none;
-  }
-  div.callout-checkpoint.callout {
-    border-left-color: #1E3A5F;
-  }
-  div.callout-checkpoint.callout-style-default > .callout-header {
-    background-color: rgba(30, 58, 95, 0.13);
-  }
-  div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f11e' !important;
-    background-image: none;
-  }
-  div.callout-setup.callout {
-    border-left-color: #6E6560;
-  }
-  div.callout-setup.callout-style-default > .callout-header {
-    background-color: rgba(110, 101, 96, 0.13);
-  }
-  div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: 'nil' !important;
+    content: '\f021' !important;
     background-image: none;
   }
   div.callout-pro-tip.callout {
@@ -233,17 +171,17 @@
     content: '\e2ca' !important;
     background-image: none;
   }
-  div.callout-try.callout {
-    border-left-color: #A63D2F;
+  div.callout-setup.callout {
+    border-left-color: #6E6560;
   }
-  div.callout-try.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
+  div.callout-setup.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
   }
-  div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
+  div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: 'nil' !important;
+    content: '\f7d9' !important;
     background-image: none;
   }
   div.callout-timing.callout {
@@ -259,19 +197,6 @@
     content: '\f2f2' !important;
     background-image: none;
   }
-  div.callout-schedule.callout {
-    border-left-color: #6E6560;
-  }
-  div.callout-schedule.callout-style-default > .callout-header {
-    background-color: rgba(110, 101, 96, 0.13);
-  }
-  div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f017' !important;
-    background-image: none;
-  }
   div.callout-break.callout {
     border-left-color: #6E6560;
   }
@@ -283,19 +208,6 @@
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
     content: '\f7b6' !important;
-    background-image: none;
-  }
-  div.callout-tutor-example.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-tutor-example.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f086' !important;
     background-image: none;
   }
   div.callout-prompt-template.callout {
@@ -324,6 +236,19 @@
     content: '\f0c0' !important;
     background-image: none;
   }
+  div.callout-reflect.callout {
+    border-left-color: #1E3A5F;
+  }
+  div.callout-reflect.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
+  }
+  div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f0eb' !important;
+    background-image: none;
+  }
   div.callout-feedback.callout {
     border-left-color: #1E3A5F;
   }
@@ -334,33 +259,33 @@
   div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: 'nil' !important;
+    content: '\f4ad' !important;
     background-image: none;
   }
-  div.callout-export.callout {
+  div.callout-prompt-example.callout {
     border-left-color: #A63D2F;
   }
-  div.callout-export.callout-style-default > .callout-header {
+  div.callout-prompt-example.callout-style-default > .callout-header {
     background-color: rgba(166, 61, 47, 0.13);
   }
-  div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
+  div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\f56e' !important;
+    content: '\f120' !important;
     background-image: none;
   }
-  div.callout-screens-down.callout {
+  div.callout-individual.callout {
     border-left-color: #A63D2F;
   }
-  div.callout-screens-down.callout-style-default > .callout-header {
+  div.callout-individual.callout-style-default > .callout-header {
     background-color: rgba(166, 61, 47, 0.13);
   }
-  div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
+  div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\f070' !important;
+    content: '\f007' !important;
     background-image: none;
   }
   div.callout-testing.callout {
@@ -389,17 +314,53 @@
     content: '\f500' !important;
     background-image: none;
   }
-  div.callout-nachlesen.callout {
+  div.callout-fallstudie.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-fallstudie.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-fallstudie .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-fallstudie.callout-style-default .callout-icon::before, div.callout-fallstudie.callout-titled .callout-icon::before {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236E6560" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+  }
+  div.callout-checkpoint.callout {
     border-left-color: #1E3A5F;
   }
-  div.callout-nachlesen.callout-style-default > .callout-header {
+  div.callout-checkpoint.callout-style-default > .callout-header {
     background-color: rgba(30, 58, 95, 0.13);
   }
-  div.callout-nachlesen .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-nachlesen.callout-style-default .callout-icon::before, div.callout-nachlesen.callout-titled .callout-icon::before {
+  div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\f518' !important;
+    content: '\f11e' !important;
+    background-image: none;
+  }
+  div.callout-tutor-example.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-tutor-example.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f086' !important;
+    background-image: none;
+  }
+  div.callout-export.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-export.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f56e' !important;
     background-image: none;
   }
   div.callout-screens-up.callout {
@@ -415,29 +376,6 @@
     content: '\f06e' !important;
     background-image: none;
   }
-  div.callout-work-in-progress.callout {
-    border-left-color: #B8821A;
-  }
-  div.callout-work-in-progress.callout-style-default > .callout-header {
-    background-color: rgba(184, 130, 26, 0.13);
-  }
-  div.callout-work-in-progress .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-work-in-progress.callout-style-default .callout-icon::before, div.callout-work-in-progress.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f0c3' !important;
-    background-image: none;
-  }
-  div.callout-fallstudie.callout {
-    border-left-color: #6E6560;
-  }
-  div.callout-fallstudie.callout-style-default > .callout-header {
-    background-color: rgba(110, 101, 96, 0.13);
-  }
-  div.callout-fallstudie .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-fallstudie.callout-style-default .callout-icon::before, div.callout-fallstudie.callout-titled .callout-icon::before {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236E6560" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-  }
   div.callout-active-processing.callout {
     border-left-color: #A63D2F;
   }
@@ -451,17 +389,82 @@
     content: '\f044' !important;
     background-image: none;
   }
-  div.callout-prompt-example.callout {
-    border-left-color: #A63D2F;
+  div.callout-caution.callout {
+    border-left-color: #B8821A;
   }
-  div.callout-prompt-example.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
+  div.callout-caution.callout-style-default > .callout-header {
+    background-color: rgba(184, 130, 26, 0.13);
   }
-  div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
+  div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\f120' !important;
+    content: '\f071' !important;
+    background-image: none;
+  }
+  div.callout-nachlesen.callout {
+    border-left-color: #1E3A5F;
+  }
+  div.callout-nachlesen.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
+  }
+  div.callout-nachlesen .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-nachlesen.callout-style-default .callout-icon::before, div.callout-nachlesen.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f518' !important;
+    background-image: none;
+  }
+  div.callout-facilitator.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-facilitator.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-facilitator .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-facilitator.callout-style-default .callout-icon::before, div.callout-facilitator.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f46d' !important;
+    background-image: none;
+  }
+  div.callout-schedule.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-schedule.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f017' !important;
+    background-image: none;
+  }
+  div.callout-screens-down.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-screens-down.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f070' !important;
+    background-image: none;
+  }
+  div.callout-work-in-progress.callout {
+    border-left-color: #B8821A;
+  }
+  div.callout-work-in-progress.callout-style-default > .callout-header {
+    background-color: rgba(184, 130, 26, 0.13);
+  }
+  div.callout-work-in-progress .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-work-in-progress.callout-style-default .callout-icon::before, div.callout-work-in-progress.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f0c3' !important;
     background-image: none;
   }
   </style>
@@ -537,32 +540,80 @@ Andrew Ellis
 </section>
 <section id="cognitive-load-theory-der-engpass" class="slide level2 smaller">
 <h2>Cognitive Load Theory: der Engpass</h2>
-<p>Das Arbeitsgedächtnis verarbeitet etwa <strong>4 Elemente</strong> gleichzeitig, für <strong>15-30 Sekunden</strong>. Jeder Denkakt muss durch dieses Nadelöhr.</p>
-<p><br></p>
-<div class="columns">
-<div class="column" style="width:33%;">
-<div style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #6E6560;">
-<p><strong>Sensorischer Input</strong></p>
-<p>aus der Umwelt</p>
+<p>Das Arbeitsgedächtnis verarbeitet etwa <strong>4 Elemente</strong> gleichzeitig, für <strong>15-30 Sekunden</strong>.</p>
+<div class="fig-diagram" aria-label="CLT-Engpass: ein Datenfluss von links nach rechts. Sensorischer Input fliesst breit ein, verengt sich auf das schmale Arbeitsgedächtnis (vier Elemente, fünfzehn bis dreissig Sekunden) und öffnet sich wieder zum breiten Langzeitgedächtnis.">
+<svg viewbox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="bottleneck-title bottleneck-desc">
+  <title id="bottleneck-title">CLT-Engpass: das Arbeitsgedächtnis als Nadelöhr</title>
+  <desc id="bottleneck-desc">Drei Bereiche von links nach rechts. Links breit: Sensorischer Input. Mitte schmal: Arbeitsgedächtnis mit etwa vier Elementen über fünfzehn bis dreissig Sekunden. Rechts wieder breit: Langzeitgedächtnis mit Schemata. Trichterförmige Übergänge zwischen den Bereichen zeigen die Engstelle.</desc>
+
+  <!-- LEFT: Sensorischer Input (wide) -->
+  <rect x="20" y="60" width="160" height="160" rx="6" fill="#EDE7DA" stroke="var(--diagram-neutral)" stroke-width="1.5" stroke-linejoin="round"></rect>
+  <text x="100" y="135" font-size="13" font-weight="600" text-anchor="middle" font-family="var(--diagram-font-family)" fill="#1A1714">
+    Sensorischer
+  </text>
+  <text x="100" y="153" font-size="13" font-weight="600" text-anchor="middle" font-family="var(--diagram-font-family)" fill="#1A1714">
+    Input
+  </text>
+  <text x="100" y="180" font-size="11" text-anchor="middle" font-style="italic" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+    aus der Umwelt
+  </text>
+
+  <!-- TAPER: from wide LEFT to narrow MIDDLE -->
+  <path d="M 180 60 L 280 110 L 280 170 L 180 220 Z" fill="#EDE7DA" stroke="var(--diagram-neutral)" stroke-width="1.5" stroke-linejoin="round" opacity="0.65"></path>
+
+  <!-- MIDDLE: Arbeitsgedächtnis (narrow — the bottleneck) -->
+  <rect x="280" y="110" width="160" height="60" rx="4" fill="var(--diagram-spec)" stroke="var(--diagram-spec)" stroke-width="1.5"></rect>
+  <text x="360" y="134" font-size="13" font-weight="600" text-anchor="middle" font-family="var(--diagram-font-family)" fill="#ffffff">
+    Arbeitsgedächtnis
+  </text>
+  <text x="360" y="152" font-size="11" text-anchor="middle" font-family="var(--diagram-font-family)" fill="#ffffff" opacity="0.9">
+    ~4 Elemente · 15-30 Sek.
+  </text>
+
+  <!-- "Engpass"-label below middle -->
+  <text x="360" y="200" font-size="12" font-weight="600" text-anchor="middle" font-style="italic" font-family="var(--diagram-font-family)" fill="var(--diagram-prompt)">
+    Engpass
+  </text>
+  <line x1="330" y1="208" x2="390" y2="208" stroke="var(--diagram-prompt)" stroke-width="1.5" stroke-linecap="round"></line>
+
+  <!-- EXPAND: from narrow MIDDLE to wide RIGHT -->
+  <path d="M 440 110 L 540 60 L 540 220 L 440 170 Z" fill="#EDE7DA" stroke="var(--diagram-neutral)" stroke-width="1.5" stroke-linejoin="round" opacity="0.65"></path>
+
+  <!-- RIGHT: Langzeitgedächtnis (wide) -->
+  <rect x="540" y="60" width="160" height="160" rx="6" fill="#EDE7DA" stroke="var(--diagram-neutral)" stroke-width="1.5" stroke-linejoin="round"></rect>
+  <text x="620" y="135" font-size="13" font-weight="600" text-anchor="middle" font-family="var(--diagram-font-family)" fill="#1A1714">
+    Langzeit-
+  </text>
+  <text x="620" y="153" font-size="13" font-weight="600" text-anchor="middle" font-family="var(--diagram-font-family)" fill="#1A1714">
+    gedächtnis
+  </text>
+  <text x="620" y="180" font-size="11" text-anchor="middle" font-style="italic" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+    Schemata, ~unbegrenzt
+  </text>
+
+  <!-- Flow arrows (subtle, inside the tapers) -->
+  <g stroke="var(--diagram-neutral)" stroke-width="1" stroke-linecap="round" opacity="0.55">
+    <line x1="200" y1="100" x2="270" y2="135"></line>
+    <line x1="200" y1="140" x2="270" y2="140"></line>
+    <line x1="200" y1="180" x2="270" y2="145"></line>
+  </g>
+  <g stroke="var(--diagram-neutral)" stroke-width="1" stroke-linecap="round" opacity="0.55">
+    <line x1="450" y1="135" x2="520" y2="100"></line>
+    <line x1="450" y1="140" x2="520" y2="140"></line>
+    <line x1="450" y1="145" x2="520" y2="180"></line>
+  </g>
+
+  <!-- Bottom caption -->
+  <text x="360" y="252" font-size="12" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+    Jeder Denkakt muss durch dieses Nadelöhr.
+  </text>
+</svg>
 </div>
-</div><div class="column" style="width:33%;">
-<div style="background: #faf0f0; padding: 1.0em; border-radius: 8px; border-top: 3px solid #E69F00;">
-<p><strong>Arbeitsgedächtnis</strong></p>
-<p>~4 Elemente, 15-30 Sek.</p>
-<p>→ der Engpass</p>
-</div>
-</div><div class="column" style="width:33%;">
-<div style="background: #f0f4f8; padding: 1.0em; border-radius: 8px; border-top: 3px solid #0072B2;">
-<p><strong>Langzeitgedächtnis</strong></p>
-<p>Schemata, ~unbegrenzt</p>
-</div>
-</div></div>
-<p><br></p>
-<div style="text-align: center; font-size: 1.0em; color: #1E3A5F;">
+<div style="text-align: center; font-size: 0.95em; color: #1E3A5F; max-width: 80%; margin: 0.4em auto 0;">
 <p>Diese Engstelle ist der Grund, warum Lernen Mühe macht. Keine Technologie umgeht sie.</p>
 </div>
 <aside class="notes">
-<p>~1.5 Min. CLT-Engpass: 4 Elemente, 15-30 Sek. Fluss von links nach rechts. Keine Technologie umgeht das.</p>
+<p>~1.5 Min. Auf den Engpass im Diagramm zeigen: links breit, Mitte schmal (4 Elemente / 15-30 Sek.), rechts wieder breit. Fluss von links nach rechts. Keine Technologie umgeht diese Engstelle.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -703,33 +754,50 @@ Andrew Ellis
 <section id="drei-wissensbaustein-typen" class="slide level2 smaller">
 <h2>Drei Wissensbaustein-Typen</h2>
 <p>Nicht alle Wissensformen werden gleich erworben. Die Typ-Unterscheidung macht sichtbar, <em>welche Aktivität welche Wissensform überhaupt entwickeln kann</em>.</p>
-<p><br></p>
-<div class="columns">
-<div class="column" style="width:33%;">
-<div style="background: #faf0f0; padding: 1.0em; border-radius: 8px; border-top: 3px solid #D55E00;">
-<p><strong>Faktenwissen</strong></p>
-<p>z.B. “kennt die Formel für <span class="math inline">\(s\)</span>”</p>
-<p>→ Erwerb: aktives Abrufen</p>
+<div class="fig-diagram" aria-label="Drei Wissensbaustein-Typen mit jeweils zugehörigem Erwerbsmechanismus, paarweise verbunden">
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-wissensbaustein-typen" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-wissensbaustein-typen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-wissensbaustein-typen">%%{init: {'theme':'base', 'themeVariables': {'fontFamily':'Space Grotesk, -apple-system, sans-serif', 'fontSize':'13px'}}}%%
+flowchart LR
+  F["&lt;b&gt;Faktenwissen&lt;/b&gt;&lt;br&gt;&lt;i&gt;'kennt die Formel für s'&lt;/i&gt;"]
+  B["&lt;b&gt;Begriffliches Wissen&lt;/b&gt;&lt;br&gt;&lt;i&gt;'erkennt eine Korrelationsfrage'&lt;/i&gt;"]
+  E["&lt;b&gt;Erklärungswissen&lt;/b&gt;&lt;br&gt;&lt;i&gt;'weiss, warum r=0.3 kontextabhängig'&lt;/i&gt;"]
+
+  AR["Aktives Abrufen"]
+  KU["Klassifikationsübung"]
+  SE["Selbsterklärung"]
+
+  F ==&gt; AR
+  B ==&gt; KU
+  E ==&gt; SE
+
+  classDef type fill:#1E3A5F,stroke:#1E3A5F,color:#ffffff,rx:6,ry:6
+  classDef mech fill:#FAF0EE,stroke:#A63D2F,stroke-width:1.5px,color:#A63D2F,rx:6,ry:6
+
+  class F,B,E type
+  class AR,KU,SE mech
+
+  linkStyle 0,1,2 stroke:#A63D2F,stroke-width:2px
+</pre>
 </div>
-</div><div class="column" style="width:33%;">
-<div style="background: #f0f4f8; padding: 1.0em; border-radius: 8px; border-top: 3px solid #0072B2;">
-<p><strong>Begriffliches Wissen</strong></p>
-<p>z.B. “erkennt eine Korrelationsfrage”</p>
-<p>→ Erwerb: Klassifikationsübung</p>
 </div>
-</div><div class="column" style="width:33%;">
-<div style="background: #f5f5eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #1E3A5F;">
-<p><strong>Erklärungswissen</strong></p>
-<p>z.B. “weiss, warum <span class="math inline">\(r=0.3\)</span> kontextabhängig ist”</p>
-<p>→ Erwerb: Selbsterklärung</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-wissensbaustein-typen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
 </div>
-</div></div>
-<p><br></p>
-<div style="text-align: center; font-size: 1.0em; color: #6E6560;">
+</div>
+</div>
+</div>
+<div style="text-align: center; font-size: 0.9em; color: #6E6560; max-width: 80%; margin: 0.3em auto 0;">
 <p>Diese drei Typen kommen in deinem Spec Sheet (Sektion B) explizit vor.</p>
 </div>
 <aside class="notes">
-<p>~2 Min. Drei Typen, drei Erwerbsmechanismen. Pointen: nicht alles ist “Erklärung anhören”; wichtige Unterscheidung für Block 4 (Selbst-Tun-vs-Zuschauen).</p>
+<p>~2 Min. Drei Typen, drei Erwerbsmechanismen. Pointe: nicht alles ist “Erklärung anhören”; jede Wissensform verlangt eine andere Aktivität, sonst entsteht der Baustein nicht. Wichtige Unterscheidung für das Closing (Selbst-Tun vs.&nbsp;Zuschauen).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -744,31 +812,87 @@ Andrew Ellis
 </section>
 <section id="spec-ist-dauerhaft-prompt-ist-übersetzung" class="slide level2 smaller">
 <h2>Spec ist dauerhaft, Prompt ist Übersetzung</h2>
-<p><br></p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div style="background: rgba(0, 114, 178, 0.06); padding: 1.4em; border-radius: 8px; border-left: 4px solid #1E3A5F; min-height: 220px;">
-<p><strong>Spec Sheet</strong></p>
-<p>Was eine Studierende kognitiv für die Aufgabe braucht.</p>
-<p>→ Werkzeug-unabhängig.</p>
-<p>→ Überlebt Modellgenerationen.</p>
-<p>→ Substanz.</p>
+<div class="fig-diagram" aria-label="Zeitachse: Spec Sheet bleibt über mehrere Modellgenerationen gültig, während der Prompt jeweils neu gerendert wird">
+<svg viewbox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="spec-prompt-title spec-prompt-desc">
+  <title id="spec-prompt-title">Spec ist dauerhaft, Prompt ist Übersetzung</title>
+  <desc id="spec-prompt-desc">Eine horizontale Zeitachse mit Markierungen für vier Modellgenerationen. Über der Zeitachse zieht sich ein durchgehender Balken (Spec Sheet, Brand-Navy) ungebrochen über alle Generationen. Darunter steht für jede Generation ein eigener, terracotta-umrandeter Block (Prompt), der mit der jeweiligen Generation neu gerendert wird.</desc>
+
+  <!-- Spec bar: persistent across all generations -->
+  <g class="spec-bar">
+    <rect x="60" y="58" width="600" height="46" rx="6" fill="var(--diagram-spec)"></rect>
+    <text x="76" y="86" font-size="14" font-weight="600" font-family="var(--diagram-font-family)" fill="#ffffff">
+      Spec Sheet
+    </text>
+    <text x="644" y="86" font-size="12" font-style="italic" text-anchor="end" font-family="var(--diagram-font-family)" fill="#ffffff" opacity="0.85">
+      bleibt gültig
+    </text>
+  </g>
+
+  <!-- Subtle connectors: each prompt is rendered from the spec at that moment -->
+  <g class="connectors" stroke="var(--diagram-neutral)" stroke-width="0.8" stroke-dasharray="2 4" opacity="0.5">
+    <line x1="135" y1="104" x2="135" y2="150"></line>
+    <line x1="285" y1="104" x2="285" y2="150"></line>
+    <line x1="435" y1="104" x2="435" y2="150"></line>
+    <line x1="585" y1="104" x2="585" y2="150"></line>
+  </g>
+
+  <!-- Prompt instances: regenerated for each model generation -->
+  <g class="prompt-instances" stroke="var(--diagram-prompt)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <g>
+      <rect x="90" y="150" width="90" height="38" rx="4"></rect>
+      <text x="135" y="174" font-size="12" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-prompt)" stroke="none">
+        Prompt v1
+      </text>
+    </g>
+    <g>
+      <rect x="240" y="150" width="90" height="38" rx="4"></rect>
+      <text x="285" y="174" font-size="12" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-prompt)" stroke="none">
+        Prompt v2
+      </text>
+    </g>
+    <g>
+      <rect x="390" y="150" width="90" height="38" rx="4"></rect>
+      <text x="435" y="174" font-size="12" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-prompt)" stroke="none">
+        Prompt v3
+      </text>
+    </g>
+    <g>
+      <rect x="540" y="150" width="90" height="38" rx="4" stroke-dasharray="5 3"></rect>
+      <text x="585" y="174" font-size="12" font-style="italic" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-prompt)" stroke="none">
+        Prompt vN
+      </text>
+    </g>
+  </g>
+
+  <!-- Time axis -->
+  <g class="time-axis">
+    <line x1="60" y1="220" x2="660" y2="220" stroke="var(--diagram-neutral)" stroke-width="1" stroke-linecap="round"></line>
+    <!-- Tick marks under each prompt centre -->
+    <g stroke="var(--diagram-neutral)" stroke-width="1" stroke-linecap="round">
+      <line x1="135" y1="216" x2="135" y2="224"></line>
+      <line x1="285" y1="216" x2="285" y2="224"></line>
+      <line x1="435" y1="216" x2="435" y2="224"></line>
+      <line x1="585" y1="216" x2="585" y2="224"></line>
+    </g>
+    <!-- Generation labels -->
+    <g font-size="11" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      <text x="135" y="244">2024</text>
+      <text x="285" y="244">2025</text>
+      <text x="435" y="244">2026</text>
+      <text x="585" y="244" font-style="italic">…</text>
+    </g>
+    <!-- Axis caption -->
+    <text x="660" y="244" font-size="11" text-anchor="end" font-style="italic" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)" opacity="0.7">
+      Modellgeneration
+    </text>
+  </g>
+</svg>
 </div>
-</div><div class="column" style="width:50%;">
-<div style="background: rgba(213, 94, 0, 0.06); padding: 1.4em; border-radius: 8px; border-left: 4px solid #D55E00; min-height: 220px;">
-<p><strong>Prompt</strong></p>
-<p>Eine Übersetzung des Spec Sheets in ein konkretes Werkzeug zu einem konkreten Zeitpunkt.</p>
-<p>→ Werkzeug-spezifisch.</p>
-<p>→ Altert mit dem Modell.</p>
-<p>→ Rendering.</p>
-</div>
-</div></div>
-<p><br></p>
-<div style="text-align: center; font-size: 1.0em; color: #6E6560;">
-<p>Block 3 macht diese Trennung an deinem eigenen Material erlebbar.</p>
+<div style="text-align: center; font-size: 0.95em; color: #6E6560; max-width: 80%; margin: 0.6em auto 0;">
+<p>Spec Sheet bleibt; der Prompt wird für jede Modellgeneration neu gerendert. Block 3 macht die Trennung an deinem eigenen Material erlebbar.</p>
 </div>
 <aside class="notes">
-<p>~1 Min. Pragmatische Trennung. Ein Prompt, den du heute für GPT-4 schreibst, funktioniert in zwei Jahren möglicherweise nicht. Ein Spec Sheet, das du heute baust, ist in zwei Jahren noch genauso gültig.</p>
+<p>~1 Min. Pragmatische Trennung. Auf das Diagramm zeigen: oben durchgehend Spec, unten diskrete Prompts pro Modellgeneration. Ein Prompt, den du heute schreibst, kann in zwei Jahren obsolet sein, das Spec Sheet nicht.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -966,34 +1090,58 @@ Andrew Ellis
 </section>
 <section id="test-protokoll-drei-mögliche-ausgänge" class="slide level2 smaller">
 <h2>Test-Protokoll: drei mögliche Ausgänge</h2>
-<p>Wähle einen Baustein aus deiner Spec, den du als <strong>B (beobachtet)</strong> markiert hast. Du hast eine konkrete Studierenden-Antwort vor Augen, die auf diesem Baustein scheitert. Gib die Antwort ans Werkzeug.</p>
-<p><br></p>
-<div class="columns">
-<div class="column" style="width:33%;">
-<div style="background: rgba(0, 114, 178, 0.08); padding: 1.0em; border-radius: 8px; border-top: 3px solid #0072B2; min-height: 200px;">
-<p><strong>Pass</strong></p>
-<p>LLM identifiziert den erwarteten Baustein (oder einen nahe liegenden), zitiert plausible Stelle.</p>
-<p>→ Spec hat funktioniert.</p>
+<p>Wähle einen Baustein aus deiner Spec, den du als <strong>B (beobachtet)</strong> markiert hast. Gib die zugehörige Studierenden-Antwort ans Werkzeug.</p>
+<div class="fig-diagram" aria-label="Test-Protokoll: drei mögliche Ausgänge eines Tests, mit Rückkopplungen zum Spec Sheet beziehungsweise Prompt">
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-test-protokoll" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-test-protokoll-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-test-protokoll">%%{init: {'theme':'base', 'themeVariables': {'fontFamily':'Space Grotesk, -apple-system, sans-serif', 'fontSize':'14px'}}}%%
+flowchart TD
+  Test["Test mit bekannter&lt;br&gt;Studierenden-Antwort"]
+
+  Test --&gt; Pass["&lt;b&gt;Pass&lt;/b&gt;&lt;br&gt;Erwarteter Baustein,&lt;br&gt;plausible Stelle zitiert"]
+  Test --&gt; Soft["&lt;b&gt;Fail soft&lt;/b&gt;&lt;br&gt;Anderer Baustein&lt;br&gt;oder generisch"]
+  Test --&gt; Hard["&lt;b&gt;Fail hard&lt;/b&gt;&lt;br&gt;Erfundener Baustein,&lt;br&gt;nicht in Spec"]
+
+  Pass --&gt; PassEnd["Spec hat funktioniert"]
+  Soft -.-&gt;|"zurück zum Spec"| SoftAct["'Was schiefgeht' schärfen"]
+  Hard -.-&gt;|"zurück zum Prompt"| HardAct["Anderes Modell&lt;br&gt;oder Klausel verstärken"]
+
+  classDef test fill:#F5F0E8,stroke:#6E6560,stroke-width:1.5px,color:#1A1714,rx:6,ry:6
+  classDef pass fill:#1E3A5F,stroke:#1E3A5F,color:#ffffff,rx:6,ry:6
+  classDef soft fill:#FAF5EC,stroke:#B8821A,stroke-width:1.5px,color:#B8821A,rx:6,ry:6
+  classDef hard fill:#FAF0EE,stroke:#A63D2F,stroke-width:1.5px,color:#A63D2F,rx:6,ry:6
+  classDef action fill:transparent,stroke:#C8C2B8,stroke-width:1px,color:#1A1714,rx:4,ry:4
+
+  class Test test
+  class Pass pass
+  class Soft soft
+  class Hard hard
+  class PassEnd,SoftAct,HardAct action
+
+  linkStyle 0,1,2 stroke:#6E6560,stroke-width:1.5px
+  linkStyle 3 stroke:#1E3A5F,stroke-width:1.5px
+  linkStyle 4 stroke:#B8821A,stroke-width:1.5px,stroke-dasharray:4 3
+  linkStyle 5 stroke:#A63D2F,stroke-width:1.5px,stroke-dasharray:4 3
+</pre>
 </div>
-</div><div class="column" style="width:33%;">
-<div style="background: rgba(184, 130, 26, 0.08); padding: 1.0em; border-radius: 8px; border-top: 3px solid #B8821A; min-height: 200px;">
-<p><strong>Fail soft</strong></p>
-<p>LLM identifiziert anderen Baustein oder bleibt generisch.</p>
-<p>→ Spec war zu vage. Zurück zum Spec Sheet, “Was schiefgeht” schärfen.</p>
 </div>
-</div><div class="column" style="width:33%;">
-<div style="background: rgba(166, 61, 47, 0.08); padding: 1.0em; border-radius: 8px; border-top: 3px solid #A63D2F; min-height: 200px;">
-<p><strong>Fail hard</strong></p>
-<p>LLM erfindet einen Baustein, der nicht in der Spec steht.</p>
-<p>→ Verbotsklausel hat versagt. Anderes Modell oder verstärken.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-test-protokoll-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2
+</figcaption>
+</figure>
 </div>
-</div></div>
-<p><br></p>
-<div style="text-align: center; font-size: 0.95em; color: #6E6560;">
-<p>Ohne dieses Protokoll ist “Beobachte was passiert” zu unklar, um daraus zu lernen.</p>
+</div>
+</div>
+</div>
+<div style="text-align: center; font-size: 0.9em; color: #6E6560; max-width: 85%; margin: 0.4em auto 0;">
+<p>Pass / Fail soft / Fail hard. Zwei der drei Ausgänge führen zurück: Fail soft zum Spec Sheet, Fail hard zum Prompt.</p>
 </div>
 <aside class="notes">
-<p>~2 Min. Das Test-Protokoll vorlesen. Drei Ausgänge sind klare Pass/Fail-Kriterien. Übergang in 15 min Eigenarbeit.</p>
+<p>~2 Min. Auf das Diagramm zeigen. Drei Branches sind die drei klaren Pass/Fail-Kriterien; die zwei gestrichelten Pfeile sind die Rückkopplungen — Fail soft ist Spec-Diagnose, Fail hard ist Prompt-Diagnose. Übergang in 15 min Eigenarbeit.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1044,27 +1192,97 @@ Andrew Ellis
 <section id="selbst-tun-vs.-zuschauen" class="slide level2 smaller">
 <h2>Selbst-Tun vs.&nbsp;Zuschauen</h2>
 <p>Markiere jeden Baustein in deiner Sektion B mit einem Tag:</p>
-<p><br></p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div style="background: rgba(213, 94, 0, 0.08); padding: 1.2em; border-radius: 8px; border-left: 4px solid #D55E00;">
-<p><strong>Selbst-Tun erforderlich</strong></p>
-<p>Studierende muss selbst handeln, sonst entsteht der Baustein nicht.</p>
-<p>KI, die diesen Schritt übernimmt, <strong>unterläuft</strong> den Lernprozess.</p>
+<div class="fig-diagram" aria-label="Zwei Panels nebeneinander. Links Selbst-Tun: ein Pfeil mit Aktions-Label führt zu einer veränderten Lernerin-Form. Rechts Zuschauen: ein gestrichelter Pfeil mit Beobachtungs-Label führt zu einer unveränderten Lernerin-Form.">
+<svg viewbox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="selbst-tun-title selbst-tun-desc">
+  <title id="selbst-tun-title">Selbst-Tun vs. Zuschauen</title>
+  <desc id="selbst-tun-desc">Links: das Selbst-Tun-Panel mit einem soliden Pfeil von der Ausgangs-Lernerin zur veränderten Lernerin (Wissen ändert sich). Rechts: das Zuschauen-Panel mit einem gestrichelten Beobachtungs-Pfeil zwischen zwei identischen Lernerin-Formen (Wissen weitgehend unverändert).</desc>
+
+  <!-- =================== LEFT PANEL: Selbst-Tun =================== -->
+  <g class="panel-left">
+    <text x="170" y="44" font-size="16" font-weight="600" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-spec)">
+      Selbst-Tun
+    </text>
+
+    <!-- Lernerin vorher: outline circle -->
+    <circle cx="80" cy="170" r="34" fill="none" stroke="var(--diagram-neutral)" stroke-width="1.5"></circle>
+    <text x="80" y="174" font-size="11" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      Lernerin
+    </text>
+    <text x="80" y="222" font-size="10" text-anchor="middle" font-style="italic" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      vorher
+    </text>
+
+    <!-- Solid arrow with "Aktion" label -->
+    <line x1="124" y1="170" x2="220" y2="170" stroke="var(--diagram-spec)" stroke-width="2" stroke-linecap="round"></line>
+    <polygon points="218,164 233,170 218,176" fill="var(--diagram-spec)"></polygon>
+    <text x="174" y="156" font-size="12" font-weight="600" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-spec)">
+      Aktion
+    </text>
+
+    <!-- Lernerin nachher: filled circle (changed) -->
+    <circle cx="270" cy="170" r="38" fill="var(--diagram-spec)" stroke="var(--diagram-spec)" stroke-width="1.5"></circle>
+    <text x="270" y="167" font-size="11" text-anchor="middle" font-family="var(--diagram-font-family)" fill="#ffffff">
+      Lernerin
+    </text>
+    <text x="270" y="180" font-size="11" text-anchor="middle" font-family="var(--diagram-font-family)" fill="#ffffff">
+      ′
+    </text>
+    <text x="270" y="222" font-size="10" text-anchor="middle" font-style="italic" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      verändert
+    </text>
+
+    <!-- Bottom takeaway -->
+    <text x="170" y="280" font-size="13" font-weight="500" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-spec)">
+      Wissen ändert sich
+    </text>
+  </g>
+
+  <!-- Vertical separator -->
+  <line x1="360" y1="60" x2="360" y2="290" stroke="var(--diagram-neutral)" stroke-width="0.8" stroke-dasharray="2 4" opacity="0.4"></line>
+
+  <!-- =================== RIGHT PANEL: Zuschauen =================== -->
+  <g class="panel-right">
+    <text x="540" y="44" font-size="16" font-weight="600" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      Zuschauen
+    </text>
+
+    <!-- Lernerin vorher: outline circle -->
+    <circle cx="450" cy="170" r="34" fill="none" stroke="var(--diagram-neutral)" stroke-width="1.5"></circle>
+    <text x="450" y="174" font-size="11" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      Lernerin
+    </text>
+    <text x="450" y="222" font-size="10" text-anchor="middle" font-style="italic" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      vorher
+    </text>
+
+    <!-- Dashed arrow with "Beobachtung" label -->
+    <line x1="494" y1="170" x2="590" y2="170" stroke="var(--diagram-neutral)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4"></line>
+    <polygon points="588,164 603,170 588,176" fill="var(--diagram-neutral)"></polygon>
+    <text x="544" y="156" font-size="12" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      Beobachtung
+    </text>
+
+    <!-- Lernerin nachher: SAME outline circle (unchanged) -->
+    <circle cx="640" cy="170" r="34" fill="none" stroke="var(--diagram-neutral)" stroke-width="1.5"></circle>
+    <text x="640" y="174" font-size="11" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      Lernerin
+    </text>
+    <text x="640" y="222" font-size="10" text-anchor="middle" font-style="italic" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      kaum verändert
+    </text>
+
+    <!-- Bottom takeaway -->
+    <text x="540" y="280" font-size="13" font-weight="500" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      Wissen weitgehend gleich
+    </text>
+  </g>
+</svg>
 </div>
-</div><div class="column" style="width:50%;">
-<div style="background: rgba(0, 114, 178, 0.08); padding: 1.2em; border-radius: 8px; border-left: 4px solid #0072B2;">
-<p><strong>Zuschauen reicht</strong></p>
-<p>Baustein kann auch durch Lesen, Hören, Anschauen entwickelt werden.</p>
-<p>KI-Unterstützung kann hier sinnvoll sein, ohne den Lernweg zu unterbrechen.</p>
-</div>
-</div></div>
-<p><br></p>
-<div style="font-size: 0.9em; max-width: 90%; margin: 0 auto;">
+<div style="font-size: 0.85em; max-width: 92%; margin: 0.3em auto 0;">
 <p><strong>Faustregel:</strong> Faktenwissen, Begriffliches, Erklärungswissen sind <em>meist</em> Selbst-Tun. Hilfsschritte (Tabelle formatieren, Standardabschnitt schreiben) sind oft Zuschauen-erlaubt. Und: was bei einer Anfängerin Selbst-Tun ist, kann bei einer Fortgeschrittenen Zuschauen-reicht sein.</p>
 </div>
 <aside class="notes">
-<p>~5 Min in Eigenarbeit. Die Tags sind nicht endgültig, sondern eine erste Diskussionsgrundlage. Wenn alle Bausteine Selbst-Tun sind, ist das ein normales Ergebnis.</p>
+<p>~5 Min in Eigenarbeit. Auf das Diagramm zeigen: links die Aktion verändert die Lernerin, rechts die Beobachtung lässt sie weitgehend gleich. Tags sind eine erste Diskussionsgrundlage, nicht endgültig. Wenn alle Bausteine Selbst-Tun sind, ist das ein normales Ergebnis.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;

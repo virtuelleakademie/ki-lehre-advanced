@@ -1,0 +1,29 @@
+::: {.fig-diagram aria-label="Drei Wissensbaustein-Typen mit jeweils zugehörigem Erwerbsmechanismus, paarweise verbunden"}
+
+```{mermaid}
+%%| label: fig-wissensbaustein-typen
+%%| fig-cap: ""
+%%{init: {'theme':'base', 'themeVariables': {'fontFamily':'Space Grotesk, -apple-system, sans-serif', 'fontSize':'13px'}}}%%
+flowchart LR
+  F["<b>Faktenwissen</b><br><i>'kennt die Formel für s'</i>"]
+  B["<b>Begriffliches Wissen</b><br><i>'erkennt eine Korrelationsfrage'</i>"]
+  E["<b>Erklärungswissen</b><br><i>'weiss, warum r=0.3 kontextabhängig'</i>"]
+
+  AR["Aktives Abrufen"]
+  KU["Klassifikationsübung"]
+  SE["Selbsterklärung"]
+
+  F ==> AR
+  B ==> KU
+  E ==> SE
+
+  classDef type fill:#1E3A5F,stroke:#1E3A5F,color:#ffffff,rx:6,ry:6
+  classDef mech fill:#FAF0EE,stroke:#A63D2F,stroke-width:1.5px,color:#A63D2F,rx:6,ry:6
+
+  class F,B,E type
+  class AR,KU,SE mech
+
+  linkStyle 0,1,2 stroke:#A63D2F,stroke-width:2px
+```
+
+:::
