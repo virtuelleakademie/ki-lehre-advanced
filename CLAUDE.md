@@ -18,7 +18,9 @@ Educational website and workshop materials for the **KI in der Lehre: Advanced**
 
 This 3-hour workshop has participants build a **Spec Sheet**: a 4-section, falsifiable specification of what a learner needs for one teaching task in the participant's own discipline. Participants then translate the Spec Sheet into a system prompt for a chat tool of their choice and test it against a known student answer using the pass / fail-soft / fail-hard protocol. In the Closing they tag each Wissensbaustein as Selbst-Tun-erforderlich or Zuschauen-reicht.
 
-The workshop's central operative claim is **Spec is durable, Prompt is rendering**: the hard work of using AI in teaching is not choosing tools or writing prompts but specifying what is supposed to happen in the learner's head. The deeper theoretical claim, inherited from the design's earlier iteration, is that **AI substitution disables (rather than degrades) the metacognitive update**: without the learner's first-order action, the second-order metacognitive computation does not run. The Selbst-Tun-vs-Zuschauen tagging in the Closing operationalises this for the participant's own teaching task.
+The workshop's central operative claim is **Spec is durable, Prompt is rendering**: the hard work of using AI in teaching is not choosing tools or writing prompts but specifying what is supposed to happen in the learner's head. The deeper theoretical claim, inherited from the design's earlier iteration and narrowed in the 2026-05 redesign, is that **AI substitution removes the action-contingent inputs to second-order metacognition**: without the learner's first-order action, the inputs the metacognitive computation would condition on are not generated. The empirical anchor is the *doer effect* (Koedinger, Kim, Jia, McLaughlin & Bier, 2015; Van Campenhout, Johnson & Olsen, 2022): doing predicts learning roughly six times more strongly than reading or video, with causal-strength controls. Daw & Fleming (2018) supplies the mechanism explanation. The Selbst-Tun-vs-Zuschauen tagging in the Closing operationalises this for the participant's own teaching task.
+
+**Claims and limits.** The Spec Sheet is a structured-introspection scaffold producing a KC-decomposition *hypothesis* about what the learner needs, grounded in Koedinger's KLI framework (Memory-and-Fluency / Induction-and-Refinement / Understanding-and-Sense-Making mapped onto Faktenwissen / Klassifikationswissen / Erklärungswissen, with each type labelled by its cognitive operation: Abrufen / Erkennen / Begründen). It is not a validated cognitive model: the pass / fail-soft / fail-hard procedure is a workshop-scale falsification step on one LLM-simulated and one real student response, not a learning-curve fit on accumulated student data. The durability claim is about the Spec's relationship to *tool churn*, not about its empirical validation. Lecturers leave the workshop in a position to test their Spec against real student work after the workshop ends; that post-workshop validation is what would graduate the Spec from hypothesis to model.
 
 Built with Quarto, **delivered in German**, maintained by the Virtual Academy at Bern University of Applied Sciences (BFH). Published at https://virtuelleakademie.github.io/ki-lehre-advanced/
 
@@ -289,7 +291,7 @@ This workshop is grounded in cognitive science principles from "Make it Stick" a
 
 By the end of this workshop, participants will:
 
-1. **Decompose** one of their own teaching tasks into Wissensbausteine (three types: Faktenwissen / Begriffliches Wissen / Erklärungswissen) with the V/B-discipline (vermutet vs. beobachtet) separating LLM hypotheses from teacher observations
+1. **Decompose** one of their own teaching tasks into Wissensbausteine (three types defined by cognitive operation: Faktenwissen / Klassifikationswissen / Erklärungswissen, with the operations Abrufen / Erkennen / Begründen made explicit) with the V/B-discipline (vermutet vs. beobachtet) separating LLM hypotheses from teacher observations
 2. **Identify** likely misconceptions and knowledge prerequisite-sources, using an LLM in two operational roles: Hypothesengenerator and Lernende-Simulator (reactive and productive)
 3. **Translate** the Spec Sheet into a system prompt and test it using the pass / fail-soft / fail-hard protocol
 4. **Tag** each Wissensbaustein as Selbst-Tun-erforderlich or Zuschauen-reicht, and write a one-sentence student-facing AI-use policy
@@ -314,7 +316,7 @@ The 4-section participant template (in `workshop/spec-sheet-template/index.qmd`)
 | # | Section (German participant label) | Theoretical commitment |
 |---|---|---|
 | A | Die Teilaufgabe (Wortlaut, Kontext, Lernziel) | Anchoring the spec to a specific subtask, not a whole assignment |
-| B | Wissensbausteine (with optional Erwerb-field replacing the prior separate Wissenslücken section) | Three types: Faktenwissen / Begriff / Erklärung; V/B-marked; "Was schiefgeht" sentence per entry |
+| B | Wissensbausteine (with optional Erwerb-field replacing the prior separate Wissenslücken section) | Three types defined by cognitive operation: Faktenwissen (Abrufen) / Klassifikationswissen (Erkennen) / Erklärungswissen (Begründen); V/B-marked; "Was schiefgeht" sentence per entry |
 | C | Wahrscheinliche Fehlkonzepte | Conceptual change theory (used as concept, not named as framework); diskriminiert-or-not assessment |
 | D | Falsifikationsnotiz (filled in Closing) | Empirical accountability: what student behaviour would falsify the decomposition? |
 

@@ -52,13 +52,16 @@ Pro Baustein liefere:
 
 1. NAME: ein 3-7-Wort-Label.
 
-2. TYP: einer von drei:
-   - Faktenwissen: ein Fakt, ein Begriff, eine Formel, die abgerufen werden
-     muss.
-   - Begriffliches Wissen: eine Kategorie oder ein Muster, das über mehrere
-     Beispiele hinweg erkannt werden muss.
-   - Erklärungswissen: eine Regel mit erklärender Struktur, die mit
-     Verständnis angewandt werden muss.
+2. TYP: einer von drei (definiert durch die kognitive Operation, die die
+   Studierende mit dem Wissen ausführt):
+   - Faktenwissen (Abrufen): ein Item, das die Studierende aus dem Gedächtnis
+     abruft - ein Fakt, ein Wert, eine Formel, eine Definition.
+   - Klassifikationswissen (Erkennen): ein Muster oder eine Kategorie, die die
+     Studierende an einer neuen Instanz wiedererkennen muss, oft im Unterschied
+     zu einer ähnlich aussehenden falschen Kategorie.
+   - Erklärungswissen (Begründen): eine Regel mit erklärender Struktur, deren
+     richtige Anwendung sich mit dem Kontext ändert; die Studierende
+     begründet, beurteilt oder überträgt auf einen neuen Fall.
 
 3. WO ES VORKOMMT: ein Satz, wie sich der Baustein in dieser konkreten
    Teilaufgabe zeigt.
@@ -110,8 +113,8 @@ Pro Baustein liefere zwei Felder:
 
    - Faktenwissen wird durch aktives Abrufen aus dem Gedächtnis gefestigt
      (nicht durch Wiedererkennen aus einer Liste).
-   - Begriffliches Wissen wird durch Klassifikationsübung über mehrere
-     Beispiele und Gegenbeispiele gefestigt.
+   - Klassifikationswissen wird durch verschachtelte Klassifikationsübung
+     über mehrere kontrastierende Beispiele und Nicht-Beispiele gefestigt.
    - Erklärungswissen wird durch Selbsterklärung, Vergleich von Lösungen,
      oder kontrastive Fälle gefestigt, in denen die Studierende
      artikulieren muss, *warum* eine Regel gilt und eine andere nicht.
@@ -215,11 +218,11 @@ als ausreichend durchgehen könnte.
 
 **Zweck:** Das LLM erzeugt nicht nur einen oberflächlichen Fehler, sondern ein **kohärentes Fehlkonzept**: eine Sichtweise, die in manchen Fällen die richtige Antwort liefert und in anderen die falsche. Du prüfst, ob deine Teilaufgabe Studierende mit diesem Fehlkonzept von Studierenden mit korrektem Verständnis unterscheidet.
 
-**Wann verwenden:** für die zentralen begrifflichen oder Erklärungs-Bausteine. Optional, aber wichtig für Aufgaben, die Verständnis prüfen sollen.
+**Wann verwenden:** für die zentralen Klassifikations- oder Erklärungs-Bausteine. Optional, aber wichtig für Aufgaben, die Verständnis prüfen sollen.
 
 ```
 Für den Wissensbaustein
-[NAME einfügen, ein begrifflicher oder Erklärungs-Baustein]
+[NAME einfügen, ein Klassifikations- oder Erklärungs-Baustein]
 in der Teilaufgabe
 [Teilaufgabe einfügen]
 

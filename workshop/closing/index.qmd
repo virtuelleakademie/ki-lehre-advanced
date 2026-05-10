@@ -38,7 +38,7 @@ Drei Slides, je ~1 min:
 
 **Slide 1: Falsifikationsnotiz**: Anweisung kurz vorlesen. Botschaft: "Ohne diese Notiz bleibt das Spec Sheet eine plausible Hypothese ohne Bedingungen, unter denen du sie aufgeben würdest."
 
-**Slide 2: Selbst-Tun vs. Zuschauen**: die Faustregel anzeigen (Faktenwissen, Begriffliches, Erklärungswissen alle meist Selbst-Tun-erforderlich; "Zubehör"-Schritte oft Zuschauen-erlaubt). 30 Sek lesen lassen, dann in die Eigenarbeit.
+**Slide 2: Selbst-Tun vs. Zuschauen**: die Faustregel anzeigen (Faktenwissen, Klassifikationswissen, Erklärungswissen alle meist Selbst-Tun-erforderlich; "Zubehör"-Schritte oft Zuschauen-erlaubt). 30 Sek lesen lassen, dann in die Eigenarbeit.
 
 **Slide 3: Eine Verpflichtung**: die drei Felder (Aufgabe / Schritt / Datum) und der "Erzähl es deiner Nachbarin"-Cue.
 
@@ -84,7 +84,7 @@ Markiere jetzt jeden Baustein mit einer von zwei Kategorien:
 Faustregel:
 
 - Faktenwissen ist *meist* Selbst-Tun-erforderlich (aktives Abrufen, nicht Wiedererkennen).
-- Begriffliches Wissen ist Selbst-Tun-erforderlich (Klassifizieren mehrerer Beispiele).
+- Klassifikationswissen ist Selbst-Tun-erforderlich (Klassifizieren mehrerer Beispiele).
 - Erklärungswissen ist Selbst-Tun-erforderlich (Selbsterklärung).
 - Hilfsschritte (eine Tabelle formatieren, einen Standardabschnitt schreiben), die nicht der Hauptlernzweck sind, sind oft Zuschauen-reicht.
 
@@ -119,8 +119,7 @@ Der Constraint auf einen Satz erzwingt eine Festlegung. Diese Festlegung ist das
 Schreibe auf Papier:
 
 1. **Eine konkrete Aufgabe** deiner Lehre, an der du das Spec Sheet anwenden wirst (auch wenn es eine andere als deine heutige ist). Nicht "ich werde nachdenken über..." sondern: diese spezifische Aufgabe.
-2. **Ein konkreter Schritt**, den du machen wirst:
-   - das Spec Sheet anwenden und prüfen, ob die Aufgabe diskriminiert wie erwartet, oder
+2. **Ein konkreter Schritt**, den du machen wirst. Empfohlen (siehe *Nachlesen*-Tab zur Begründung): drei reale Studierenden-Antworten sammeln (aktuell oder aus dem letzten Semester), die Block-3-Test-Prozedur auf jede anwenden, das Spec Sheet revidieren, wo das Ergebnis von deiner Vorhersage abweicht. Alternativ:
    - eine Anpassung der Aufgabenstellung, die aus deinem Spec Sheet folgt, oder
    - die Studierenden-orientierte Konsequenz aus Punkt 3 in deinen Aufgabentext einbauen.
 3. **Ein Datum**, bis zu dem du es getan haben wirst.
@@ -129,6 +128,23 @@ Erzähl es deiner Nachbarin, bevor du den Raum verlässt.
 :::
 
 ### {{< bi book >}} Nachlesen
+
+::: {.callout-nachlesen icon=false}
+#### Nach dem Workshop: die Validierungsschleife
+
+Das Spec Sheet, das du heute gebaut hast, ist nach drei Stunden eine *Hypothese* darüber, was deine Studierenden für diese Teilaufgabe brauchen. Es ist noch kein validiertes Modell. Die pass / fail-soft / fail-hard-Prozedur in Block 3 war ein Falsifikationsschritt an einer einzigen Antwort, nicht eine empirische Anpassung über viele Fälle.
+
+Was den Schritt von Hypothese zu Modell macht, ist eine kleine Validierungsschleife mit realen Studierenden-Antworten:
+
+1. Sammle drei bis fünf Antworten von realen Studierenden auf diese Teilaufgabe (aktuell oder aus dem letzten Semester).
+2. Wende die Block-3-Test-Prozedur auf jede an: lass dein System-Prompt-LLM die Antwort lesen und einen Wissensbaustein oder ein Fehlkonzept zuordnen.
+3. Vergleiche die LLM-Diagnose mit deiner eigenen. Wo sie übereinstimmt: der Baustein ist scharf genug formuliert. Wo sie auseinandergeht: prüfe, ob das Spec Sheet vage ist, oder ob das LLM eine Hypothese liefert, die du in der eigenen Lehre nicht gesehen hast.
+4. Revidiere Sektion B (Wissensbausteine) und Sektion C (Fehlkonzepte) entsprechend. Trage neue Bausteine als **B (beobachtet)** ein; verwerfe oder schärfe Bausteine, die in keiner realen Antwort sichtbar wurden.
+
+Diese Schleife ist die methodische Bewegung, die das Spec Sheet vom Designartefakt zum diagnostischen Werkzeug macht. Ohne sie bleibt es eine plausible Skizze. Mit ihr wird es eine kalibrierte Beschreibung dessen, was in den Köpfen *deiner* Studierenden tatsächlich vorgeht.
+
+Praktischer Tipp: drei Antworten reichen für die erste Schleife. Mehr als fünf macht den Schritt zu gross und du wirst ihn nicht durchführen. Die wichtigste Frage ist nicht, ob du es perfekt machst, sondern ob du es einmal machst.
+:::
 
 ::: {.callout-nachlesen icon=false}
 #### Warum die Methode nicht von alleine angenommen wird

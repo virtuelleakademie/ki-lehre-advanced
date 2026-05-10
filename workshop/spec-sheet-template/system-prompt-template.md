@@ -67,8 +67,8 @@ Wissensbausteine, die diese Teilaufgabe verlangt
 Faktenwissen:
 [Liste der Faktenwissen-Bausteine aus Sektion B, je mit "Was schiefgeht"-Satz]
 
-Begriffliches Wissen:
-[Liste der begrifflichen Bausteine, je mit "Was schiefgeht"-Satz]
+Klassifikationswissen:
+[Liste der Klassifikations-Bausteine, je mit "Was schiefgeht"-Satz]
 
 Erklärungswissen:
 [Liste der Erklärungs-Bausteine, je mit "Was schiefgeht"-Satz]

@@ -32,7 +32,7 @@ Five KCs, mapped to the KLI typology.
 
 ### KC 2: $r$ measures linear association, not causation
 
-- **KLI type:** induction and refinement (Begriffswissen). A boundary-condition concept that must be recognised across instances to discriminate appropriate from inappropriate inferences.
+- **KLI type:** induction and refinement (Klassifikationswissen). A boundary-condition concept that must be recognised across instances to discriminate appropriate from inappropriate inferences.
 - **Anderson correlate:** declarative knowledge with classification productions ("when stem says X, do not infer Y"); acquired through multiple cases of correlation-without-causation and counter-examples.
 - **Why it earns its place:** the subtask asks for interpretation; without this KC, the student slides into causal language ("more sleep leads to better performance") without flagging the inferential gap.
 - **Acquisition signature:** multiple varied examples and non-examples; classification practice across instances. Self-explanation can substitute for some of the inductive work but not all of it.
