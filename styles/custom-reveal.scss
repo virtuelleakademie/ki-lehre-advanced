@@ -1,93 +1,165 @@
-/*-- scss:rules --*/
-
 /*-- scss:defaults --*/
 
-@import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
-// fonts
-$font-family-sans-serif: Lato, sans-serif !default;
-$presentation-font-size-root : 32px !default;
+// Fonts
+$font-family-sans-serif: "Space Grotesk", sans-serif;
+$presentation-font-size-root: 32px;
 
-// colors
-$body-bg: #fff !default;
-$body-color: #000 !default;
-$link-color: #00008b !default;
-$selection-bg: rgba(0, 0, 0, 0.99);
+// Brand palette (from _brand.yml)
+$brand-background: #F5F0E8;
+$brand-text: #1A1714;
+$brand-text-secondary: #6E6560;
+$brand-accent: #A63D2F;
+$brand-accent-dark: #8A3226;
+$brand-navy: #1E3A5F;
+$brand-border: #C8C2B8;
+$brand-surface: #EDE7DA;
 
-// headings
-$presentation-heading-font: "News Cycle", sans-serif !default;
+// Data colors (Okabe-Ito)
+$color-positive: #0072B2;
+$color-negative: #D55E00;
+$color-attention: #E69F00;
 
+// Base colors
+$body-bg: $brand-background !default;
+$body-color: $brand-text !default;
+$link-color: $brand-navy !default;
+$selection-bg: rgba(30, 58, 95, 0.3);
+
+// Headings
+$presentation-heading-font: "Space Grotesk", sans-serif;
+
+
+/*-- scss:rules --*/
+
+// Space Grotesk for all slide text (override brand serif via specificity)
+.reveal,
+.reveal .slides,
+.reveal .slides section {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+// Sharp corners everywhere
+.reveal * {
+  border-radius: 0 !important;
+}
+
+// Typography hierarchy
+.reveal h2 {
+  font-size: 1.6em;
+  font-weight: 700;
+  color: $brand-text;
+  margin-bottom: 0.8em;
+  margin-top: 0.3em;
+  letter-spacing: -0.02em;
+}
+
+.reveal h3 {
+  font-size: 1.15em;
+  font-weight: 600;
+  color: $brand-navy;
+  margin-bottom: 0.6em;
+}
+
+// Columns layout
 .columns {
   display: flex;
   justify-content: space-between;
 }
 
-.discussion {
-  border-left: solid 5px rgb(198, 234, 241);
-  background-color: rgb(231, 251, 255);
-  margin-top: 50px;
+// Footer
+.reveal .footer a {
+  color: $brand-text;
 }
 
-.discussion:before {
-  content: "🤔";
-  font-weight: bold;
-  margin-bottom: 10px;
+// Links — hover with accent
+.reveal a:hover {
+  color: $brand-accent;
 }
 
-.reveal h2 {
-  margin-bottom: 20px;
-  margin-top: -10px;
-}
-
-.your-turn {
-  border-left: solid 5px #f4dbb3;
-  background-color: #fdf8f1;
-}
-
-.your-turn:before {
-  content: "✍️";
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.larger {
-  font-size: 2.4rem;
-}
-
-.even-smaller :not(h2) {
-  font-size: 1.6rem;
-}
-
-.even-even-smaller :not(h2) {
-  font-size: 1.4rem;
-}
-
-.topic-number {
-  font-size: 25rem;
-  margin-top: 4rem;
-}
-
-.topic-text {
-  font-size: 5rem;
-  margin-top: 11rem;
-}
-
-.width-75 {
-  width: 75%;
-}
-
-.width-80 {
-  width: 80%;
-}
-
-.reveal .footer {
-  a {
-    color: black;
-  }
-}
-
+// Code blocks
 .reveal div.sourceCode {
   margin-bottom: 0.3rem !important;
   margin-top: 0.3rem !important;
+}
+
+// Callout boxes — subtle left-border styling for slides
+.reveal .callout {
+  border-left: 4px solid $brand-accent;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  padding: 0.6em 1em;
+  background: rgba(166, 61, 47, 0.05);
+  border-radius: 0;
+  margin: 0.8em 0;
+}
+
+.reveal .callout .callout-header {
+  font-weight: 700;
+  color: $brand-accent;
+}
+
+.reveal .callout-important {
+  border-left-color: $brand-accent;
+  background: rgba(166, 61, 47, 0.05);
+}
+
+.reveal .callout-warning {
+  border-left-color: $color-attention;
+  background: rgba(230, 159, 0, 0.06);
+}
+
+.reveal .callout-tip {
+  border-left-color: $color-positive;
+  background: rgba(0, 114, 178, 0.06);
+}
+
+.reveal .callout-note {
+  border-left-color: $brand-text-secondary;
+  background: rgba(110, 101, 96, 0.06);
+}
+
+// Tables — polished with navy header
+.reveal table {
+  border-collapse: collapse;
+  font-size: 0.85em;
+}
+
+.reveal table thead {
+  border-bottom: 2px solid $brand-navy;
+}
+
+.reveal table thead th {
+  font-weight: 700;
+  color: $brand-navy;
+  padding: 0.5em 0.8em;
+  text-align: left;
+}
+
+.reveal table tbody tr {
+  border-bottom: 1px solid $brand-border;
+}
+
+.reveal table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.reveal table tbody td {
+  padding: 0.5em 0.8em;
+  vertical-align: top;
+}
+
+.reveal table tbody td:first-child {
+  font-weight: 600;
+  color: $brand-navy;
+}
+
+// Aside citations — smaller and greyer
+.reveal aside,
+.reveal .aside {
+  font-size: 0.6em;
+  color: $brand-text-secondary;
+  margin-top: 1.5em;
 }

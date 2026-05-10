@@ -1,17 +1,30 @@
 color:
   palette:
-    dark-grey: "#222222"
-    lightgrey: "#F5F5F5"
-  background: lightgrey
-  foreground: dark-grey
-  primary: black
-
-# logo: 
-#   large: assets/bfh-logo.png
+    # Core palette — warm paper
+    background: "#F5F0E8"
+    surface: "#EDE7DA"
+    border: "#C8C2B8"
+    text: "#1A1714"
+    text-muted: "#6E6560"
+    # Deep terracotta — interactive accent
+    accent: "#A63D2F"
+    accent-dark: "#8A3226"
+    # Ink navy — structural
+    navy: "#1E3A5F"
+    # Warm gold — ornamental
+    gold: "#B8821A"
+  background: background
+  foreground: text
+  primary: navy
+  secondary: text-muted
 
 typography:
   fonts:
-    - family: Urbanist
+    - family: Space Grotesk
       source: google
-  base: Urbanist
-  headings: Urbanist
+    - family: Literata
+      source: google
+    - family: IBM Plex Mono
+      source: google
+  base: Space Grotesk
+  headings: Space Grotesk

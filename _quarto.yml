@@ -4,7 +4,6 @@ project:
     - assets/*
     - assets/images/*
     - assets/essays/*
-    - workshop/api-tricks/images/*
   preview:
     port: 8800
     browser: false
@@ -39,23 +38,26 @@ website:
       - icon: card-list
         href: workshop/index.qmd
         text: Workshop
-
       - icon: book
         href: vorbereitung/index.qmd
         text: Vorbereitung
 
+    right:
+      - icon: folder
+        text: "Ressourcen"
+        menu:
+          - text: "Beispiel-Spec-Card (Statistik)"
+            file: workshop/spec-card-statistics/index.qmd
+          - text: "Spec-Sheet-Vorlage"
+            file: workshop/spec-sheet-template/index.qmd
+          - text: "---"
+          - text: "Backup-Szenarien"
+            file: workshop/build/scenarios/index.qmd
 
     tools:
       - icon: lightbulb-fill
         text: Knowledge Base
         href: https://virtuelleakademie.ch/knowledge-base/
-
-      # - icon: github
-      #   menu:
-      #     - text: Source code
-      #       url:  https://github.com/virtuelleakademie/cas-hochschuldidaktik/
-      #     - text: Report an issue
-      #       url:  https://github.com/virtuelleakademie/cas-hochschuldidaktik/issues
 
   sidebar:
     - title: "Workshop"
@@ -63,43 +65,49 @@ website:
       search: true
       background: light
       contents:
-        - workshop/index.qmd
-        - text: "---"
-        - section: "Vorbereitung"
+        - section: "Einführung"
           contents:
             - vorbereitung/index.qmd
-            - workshop/block-1-theorie-und-beispiel/worked-example-statistics.qmd
-            - text: "Erweiterte Hintergrundlektüre"
-              href: workshop/spec-card-statistics/index.qmd
-        - section: "Einstieg (7 min)"
+            - workshop/index.qmd
+        - section: "Programm"
           contents:
-            - workshop/einstieg/index.qmd
-        - section: "Block 1: Theorie und Beispiel (48 min)"
-          contents:
-            - workshop/block-1-theorie-und-beispiel/index.qmd
-            - workshop/block-1-theorie-und-beispiel/worked-example-statistics.qmd
-        - section: "Block 2: Eigenes Spec Sheet (55 min)"
-          contents:
-            - workshop/block-2-spec-card/index.qmd
-            - workshop/spec-sheet-template/index.qmd
-            - workshop/spec-sheet-template/prompt-scaffolds.md
-        - section: "Block 3: Rendering (25 min)"
-          contents:
-            - workshop/block-3-multi-tool/index.qmd
-            - workshop/spec-sheet-template/system-prompt-template.md
-            - section: "Backup-Szenarien"
+            - text: "Einstieg (7 min)"
+              file: workshop/einstieg/index.qmd
+            - section: "Block 1: Theorie und Beispiel (48 min)"
               contents:
-                - workshop/build/scenarios/index.qmd
-                - workshop/build/scenarios/nursing.qmd
-                - workshop/build/scenarios/education.qmd
-                - workshop/build/scenarios/business.qmd
-                - workshop/build/scenarios/social-work.qmd
-                - workshop/build/scenarios/engineering.qmd
-                - workshop/build/scenarios/statistics.qmd
-                - workshop/build/scenarios/math.qmd
-        - section: "Closing (10 min)"
+                - workshop/block-1-theorie-und-beispiel/index.qmd
+                - workshop/block-1-theorie-und-beispiel/worked-example-statistics.qmd
+            - text: "Block 2: Eigenes Spec Sheet (55 min)"
+              file: workshop/block-2-spec-card/index.qmd
+            - text: "Block 3: Rendering (25 min)"
+              file: workshop/block-3-multi-tool/index.qmd
+            - text: "Closing (10 min)"
+              file: workshop/closing/index.qmd
+
+    - title: "Ressourcen"
+      style: "docked"
+      search: true
+      background: light
+      contents:
+        - section: "Beispiel und Vorlage"
           contents:
-            - workshop/closing/index.qmd
+            - text: "Beispiel-Spec-Card (Statistik)"
+              file: workshop/spec-card-statistics/index.qmd
+            - section: "Spec-Sheet-Vorlage"
+              contents:
+                - workshop/spec-sheet-template/index.qmd
+                - workshop/spec-sheet-template/prompt-scaffolds.md
+                - workshop/spec-sheet-template/system-prompt-template.md
+        - section: "Backup-Szenarien"
+          contents:
+            - workshop/build/scenarios/index.qmd
+            - workshop/build/scenarios/nursing.qmd
+            - workshop/build/scenarios/education.qmd
+            - workshop/build/scenarios/business.qmd
+            - workshop/build/scenarios/social-work.qmd
+            - workshop/build/scenarios/engineering.qmd
+            - workshop/build/scenarios/statistics.qmd
+            - workshop/build/scenarios/math.qmd
 
 page-footer:
   right:
@@ -109,15 +117,16 @@ page-footer:
 format:
   html:
     theme:
-      light:
-        - simplex
-        - styles/custom.scss
+      - simplex
+      - styles/custom.scss
+    css: styles/styles.css
+    code-copy: true
     toc: true
     link-external-icon: true
     link-external-newwindow: true
     anchor-sections: true
     smooth-scroll: true
-    linkcolor: "#000000"
+    linkcolor: "#1A1714"
 
 comments:
   hypothesis:
@@ -140,137 +149,191 @@ filters:
   - custom-callout
 
 custom-callout:
-  # todo:
-  #   icon-symbol: "📝"
-  #   collapse: true
-  #   color: "pink"
+  # =============================================================
+  # Action callouts — Terracotta (#A63D2F)
+  # What participants DO
+  # =============================================================
+  active-processing:
+    title: "Aktive Verarbeitung"
+    icon-symbol: "fa-pen-to-square"
+    appearance: default
+    color: "#A63D2F"
+    collapse: false
 
-  # thumbs-up:
-  #   title: "Great job!"
-  #   icon-symbol: "👍🏼"
-  #   color: "steelblue"
-
-  # Activity Types
   individual:
-    title: "Individual Work"
-    icon-symbol: "💻"
-    color: "steelblue"
+    title: "Einzelarbeit"
+    icon-symbol: "fa-user"
+    appearance: default
+    color: "#A63D2F"
     collapse: false
 
   pair:
-    title: "Pair Work"
-    icon-symbol: "👥"
-    color: "forestgreen"
+    title: "Partnerarbeit"
+    icon-symbol: "fa-user-group"
+    appearance: default
+    color: "#A63D2F"
     collapse: false
 
   group:
-    title: "Group Work"
-    icon-symbol: "👥"
-    color: "purple"
+    title: "Gruppenarbeit"
+    icon-symbol: "fa-users"
+    appearance: default
+    color: "#A63D2F"
     collapse: false
 
   screens-down:
-    title: "Screens Down"
-    icon-symbol: "🔽"
-    color: "orange"
+    title: "Bildschirme zu"
+    icon-symbol: "fa-eye-slash"
+    appearance: default
+    color: "#A63D2F"
     collapse: false
 
   screens-up:
-    title: "Screens Up"
-    icon-symbol: "🔼"
-    color: "green"
+    title: "Bildschirme auf"
+    icon-symbol: "fa-eye"
+    appearance: default
+    color: "#A63D2F"
     collapse: false
 
-  # Learning Process
   try:
-    title: "Try It"
-    icon-symbol: "🔄"
-    color: "blue"
+    title: "Probier's aus"
+    icon-symbol: "fa-arrows-rotate"
+    appearance: default
+    color: "#A63D2F"
     collapse: false
 
-  reflect:
-    title: "Reflection"
-    icon-symbol: "💭"
-    color: "purple"
+  testing:
+    title: "Prompt testen"
+    icon-symbol: "fa-flask-vial"
+    appearance: default
+    color: "#A63D2F"
     collapse: false
 
-  feedback:
-    title: "Feedback"
-    icon-symbol: "📝"
-    color: "teal"
-    collapse: true
-
-  caution:
-    title: "Watch Out"
-    icon-symbol: "⚠️"
-    color: "orange"
-    collapse: true
-
-  pro-tip:
-    title: "Pro Tip"
-    icon-symbol: "💡"
-    color: "gold"
-    collapse: true
-
-  # Technical Elements
   prompt-example:
-    title: "Example Prompt:"
-    icon-symbol: "👩🏼‍🔧"
-    color: "steelblue"
+    title: "Beispiel-Prompt"
+    icon-symbol: "fa-terminal"
+    appearance: default
+    color: "#A63D2F"
     collapse: false
 
   tutor-example:
-    title: "Tutor:"
-    icon-symbol: "📄"
-    color: "purple"
-    collapse: false
-
-  prompt-template:
-    title: "Prompt Template"
-    icon-symbol: "📋"
-    color: "indigo"
-    collapse: true
-
-  testing:
-    title: "Test Your Prompt"
-    icon-symbol: "🧪"
-    color: "green"
+    title: "Tutor-Beispiel"
+    icon-symbol: "fa-comments"
+    appearance: default
+    color: "#A63D2F"
     collapse: false
 
   export:
     title: "Export"
-    icon-symbol: "📤"
-    color: "brown"
+    icon-symbol: "fa-file-export"
+    appearance: default
+    color: "#A63D2F"
     collapse: true
 
-  # Workshop Flow
-  setup:
-    title: "Setup"
-    icon-symbol: "⚙️"
-    color: "gray"
+  # =============================================================
+  # Insight callouts — Navy (#1E3A5F)
+  # Reflection, reading, review
+  # =============================================================
+  reflect:
+    title: "Reflexion"
+    icon-symbol: "fa-lightbulb"
+    appearance: default
+    color: "#1E3A5F"
+    collapse: false
+
+  pro-tip:
+    title: "Tipp"
+    icon-symbol: "fa-wand-magic-sparkles"
+    appearance: default
+    color: "#1E3A5F"
     collapse: true
 
-  timing:
-    title: "Time Check"
-    icon-symbol: "⏱️"
-    color: "red"
-    collapse: false
+  nachlesen:
+    title: "Zum Nachlesen"
+    icon-symbol: "fa-book-open"
+    appearance: default
+    color: "#1E3A5F"
+    collapse: true
 
-  break:
-    title: "Break Time"
-    icon-symbol: "☕"
-    color: "yellow"
-    collapse: false
+  feedback:
+    title: "Feedback"
+    icon-symbol: "fa-comment-dots"
+    appearance: default
+    color: "#1E3A5F"
+    collapse: true
+
+  prompt-template:
+    title: "Prompt-Vorlage"
+    icon-symbol: "fa-clipboard"
+    appearance: default
+    color: "#1E3A5F"
+    collapse: true
 
   checkpoint:
     title: "Checkpoint"
-    icon-symbol: "🎯"
-    color: "purple"
+    icon-symbol: "fa-flag-checkered"
+    appearance: default
+    color: "#1E3A5F"
+    collapse: false
+
+  # =============================================================
+  # Warning / WIP — Warm gold (#B8821A)
+  # =============================================================
+  caution:
+    title: "Achtung"
+    icon-symbol: "fa-triangle-exclamation"
+    appearance: default
+    color: "#B8821A"
+    collapse: true
+
+  work-in-progress:
+    title: "Work in Progress"
+    icon-symbol: "fa-flask"
+    appearance: default
+    color: "#B8821A"
+    collapse: false
+
+  # =============================================================
+  # Facilitator / process — Warm grey (#6E6560)
+  # =============================================================
+  facilitator:
+    title: "Moderationshinweis"
+    icon-symbol: "fa-clipboard-list"
+    appearance: default
+    color: "#6E6560"
+    collapse: true
+
+  fallstudie:
+    title: "Fallstudie"
+    appearance: minimal
+    color: "#6E6560"
+    collapse: true
+
+  setup:
+    title: "Setup"
+    icon-symbol: "fa-screwdriver-wrench"
+    appearance: default
+    color: "#6E6560"
+    collapse: true
+
+  timing:
+    title: "Zeitcheck"
+    icon-symbol: "fa-stopwatch"
+    appearance: default
+    color: "#6E6560"
+    collapse: false
+
+  break:
+    title: "Pause"
+    icon-symbol: "fa-mug-hot"
+    appearance: default
+    color: "#6E6560"
     collapse: false
 
   schedule:
-    title: "Schedule"
-    icon-symbol: "⏰︎"
-    color: "steelblue"
+    title: "Programm"
+    icon-symbol: "fa-clock"
+    appearance: default
+    color: "#6E6560"
     collapse: false
 

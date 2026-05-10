@@ -1,5 +1,5 @@
 ---
-# title: "KI in der Lehre: Advanced"
+title: "KI in der Lehre: Advanced"
 format:
   html:
     toc: false
@@ -21,23 +21,67 @@ about:
 bibliography: ./bibliography.bib
 ---
 
-## Workshop-Überblick
+**Vertiefungsworkshop** | Berner Fachhochschule
 
-Ein 3-Stunden-Workshop, in dem du eine **Spec Card** baust: eine möglichst klare Spezifikation einer Lernerin in deinem Fach. Die Karte ist tool-unabhängig. Sie überlebt jeden konkreten Prompt und jedes konkrete Werkzeug.
+{{< bi clock >}} 3-Stunden-Workshop
 
-Du wendest deine Spec Card dann in vier diagnostischen Rollen auf eine eigene Aufgabe oder ein Lehrmaterial an. Du verlässt den Workshop mit konkreten Diagnosen für deine Lehre und einem portablen Prompt für jedes LLM, mit dem du arbeitest.
+{{< bi signpost-2 >}} Dritter Workshop der Trilogie "KI in der Lehre"
+<br>
 
-### Was du im Workshop tust
+## Dozent
 
-- **Eine Spec Card bauen** mit sechs Sektionen: Rolle, fehlende Strukturen, vorhandene Schemata, Fehlkonzepte mit intuitivem Hintergrund, Selbsteinschätzung mit Aktualisierungs-Bedingungen, Verhalten unter Unsicherheit.
-- **Vier Werkzeuge sehen**, in denen die Karte rendert: Microsoft Copilot, HuggingChat, ein Marimo-Notebook mit strukturierten API-Aufrufen, ein Coding-Agent.
-- **Vier diagnostische Rollen anwenden**: Klarheits-Stresstest, Intervention vs. Beobachtung, Fehlkonzept-Sonde, Performanz-Lernen-Detektor.
+[Dr. Andrew Ellis](mailto:andrew.ellis@bfh.ch) ist Kognitionspsychologe und wissenschaftlicher Mitarbeiter an der [Virtuellen Akademie](https://virtuelleakademie.ch/) der Berner Fachhochschule. Er befasst sich mit der Frage, wie KI in der Hochschullehre lernförderlich integriert werden kann.
 
-### Die zentrale Behauptung
+## Website
 
-KI-Substitution liefert nicht *schlechte* Eingaben für die Selbsteinschätzung der Studentin: sie liefert *gar keine Eingaben*. Die Aktualisierung findet schlicht nicht statt. Das ist die schärfere Fassung der Frage, was beim Outsourcing von Denkarbeit verloren geht. In Block 1 wird sie hergeleitet, in Block 4 angewendet.
+{{< bi link >}} [virtuelleakademie.github.io/ki-lehre-advanced/](https://virtuelleakademie.github.io/ki-lehre-advanced/)
 
-### Lernziele
+
+## {{< bi signpost-split >}} Workshop-Struktur
+
+In diesem 3-Stunden-Workshop baust du eine **Spec Card**: eine möglichst klare, falsifizierbare Spezifikation einer Lernerin in deinem Fach. Die Karte ist tool-unabhängig, sie überlebt jeden konkreten Prompt und jedes konkrete Werkzeug. Anschliessend wendest du die Karte auf eine eigene Aufgabe oder ein Lehrmaterial an.
+
+{{< include resources/figures/fig-workshop-flow.qmd >}}
+
+
+## {{< bi compass >}} Wie du diese Website nutzt
+
+Diese Website begleitet dich durch den Workshop und steht dir danach als Nachschlagewerk zur Verfügung. So findest du dich zurecht:
+
+- **Navigation oben:** Über die Navigationsleiste erreichst du die [Vorbereitung](vorbereitung/index.qmd) und den [Workshop-Bereich](workshop/index.qmd). Innerhalb des Workshops zeigt die Seitenleiste links die einzelnen Blöcke.
+- **Eingebettete Slides:** Auf vielen Seiten sind Präsentationen eingebettet. Du kannst sie direkt auf der Seite durchblättern oder mit dem Button rechts unten im Vollbild öffnen.
+- **Suche:** Über die Suchfunktion oben rechts findest du Inhalte auf allen Seiten.
+- **Kommentare:** Am rechten Rand kannst du mit [Hypothesis](https://web.hypothes.is/) eigene Notizen und Markierungen hinterlassen. Sie erscheinen, sobald du Text markierst.
+
+
+## {{< bi signpost-split >}} Vor, während und nach dem Workshop
+
+Die Website funktioniert auf zwei Ebenen: als Live-Begleitung während des Workshops und als Nachschlagewerk für das Selbststudium.
+
+**Vor dem Workshop**
+
+- Arbeite den [Vorbereitungsauftrag](vorbereitung/index.qmd) durch (ca. 30 Min.)
+- Bring eine eigene Aufgabe oder ein Lehrmaterial mit, das wir gemeinsam analysieren
+
+**Während des Workshops**
+
+- Folge den Präsentationen und Aktivitäten
+- Der umgebende Text auf den Seiten liefert Kontext, wird aber nicht vorgelesen
+- Die grauen "Zum Nachlesen"-Boxen sind für später, du musst sie jetzt nicht lesen
+
+**Nach dem Workshop**
+
+- Komm zu den Seiten zurück und lies in deinem Tempo
+- Öffne die zusammengeklappten Abschnitte (Tipps, Nachlesen)
+- Die "Vertiefenden Ressourcen" am Ende jedes Blocks erweitern die Workshop-Inhalte
+
+
+## Die zentrale Behauptung
+
+KI-Substitution liefert nicht *schlechte* Eingaben für die Selbsteinschätzung der Studierenden: sie liefert *gar keine Eingaben*. Die Aktualisierung findet schlicht nicht statt. Das ist die schärfere Fassung der Frage, was beim Outsourcing von Denkarbeit verloren geht. In Block 1 wird sie hergeleitet, in Block 4 angewendet.
+
+
+## Lernziele
 
 Am Ende des Workshops kannst du:
 
@@ -46,24 +90,100 @@ Am Ende des Workshops kannst du:
 3. **Vier diagnostische Rollen anwenden** auf eine eigene Aufgabe oder ein Lehrmaterial und konkrete Verbesserungsstellen identifizieren.
 4. **Einen portablen Prompt** mitnehmen, den du in Copilot, ChatGPT oder Claude direkt einsetzen kannst.
 
-### Voraussetzungen
+
+## Voraussetzungen
 
 Dieser Workshop ist der dritte Teil der Trilogie. Die Inhalte aus dem [Aufbauworkshop](https://virtuelleakademie.github.io/ki-lehre-intermediate/) (insbesondere Cognitive Load Theory, Cognitive Offloading vs. Outsourcing, Evaluationsparadox) werden vorausgesetzt. Programmierkenntnisse sind nicht erforderlich.
 
-### Loslegen
+
+## Loslegen
 
 **{{< bi arrow-right-circle >}} [Vorbereitung lesen](vorbereitung/index.qmd)**
 
 **{{< bi arrow-right-circle >}} [Workshop starten](workshop/index.qmd)**
 
----
 
-## Lehrperson
+::::::: {.callout-note collapse="true" appearance="minimal" icon="false"}
+## {{< bi palette >}} Was die farbigen Boxen bedeuten
 
-[Dr. Andrew Ellis](mailto:andrew.ellis@bfh.ch) ist Kognitionspsychologe und Forscher an der [Virtuellen Akademie](https://virtuelleakademie.ch/) der Berner Fachhochschule. Er erforscht, wie künstliche Intelligenz wirksam in Bildungssystemen eingesetzt werden kann.
+Auf den Workshop-Seiten findest du verschiedene farbige Boxen, die dir anzeigen, welche Art von Aktivität oder Information folgt.
 
-## Ressourcen
+### Aktivitäten
 
-- **Workshop-Material:** [Hier starten](workshop/index.qmd)
-- **Vorbereitung:** [Vor dem Workshop lesen](vorbereitung/index.qmd)
-- **Verwandter Workshop:** [KI in der Lehre: Aufbau](https://virtuelleakademie.github.io/ki-lehre-intermediate/) (kognitionswissenschaftliche Grundlagen, Voraussetzung für diesen Workshop)
+::: {.active-processing}
+### Aktive Verarbeitung
+Allgemeine Aktivitäten, bei denen du selbst denkst und arbeitest.
+:::
+
+::: {.individual}
+### Einzelarbeit
+Aufgaben, die du allein bearbeitest.
+:::
+
+::: {.pair}
+### Partnerarbeit
+Aufgaben, die du mit einer anderen Person zusammen bearbeitest.
+:::
+
+::: {.group}
+### Gruppenarbeit
+Aktivitäten in grösseren Gruppen.
+:::
+
+::: {.try}
+### Probier's aus
+Konkrete Übungen, bei denen du etwas mit einem Werkzeug ausprobierst.
+:::
+
+::: {.testing}
+### Prompt testen
+Du gibst einen Prompt in ein Werkzeug ein und beobachtest das Ergebnis.
+:::
+
+### Reflexion und Vertiefung
+
+::: {.reflect}
+### Reflexion
+Fragen zum Nachdenken oder Selbstüberprüfung. Versuche, sie zu beantworten, bevor du weiterliest.
+:::
+
+::: {.pro-tip}
+### Tipp
+Vertiefende Tipps, die du bei Interesse öffnen kannst.
+:::
+
+::: {.nachlesen}
+### Zum Nachlesen
+Ausführlichere Texte für das Selbststudium. Im Workshop werden sie nicht vorgelesen.
+:::
+
+::: {.feedback}
+### Feedback
+Hinweise zu deiner Arbeit oder zu typischen Stolperstellen.
+:::
+
+### Beispiele und Vorlagen
+
+::: {.prompt-example}
+### Beispiel-Prompt
+Ein konkreter Prompt, den du als Ausgangspunkt verwenden kannst.
+:::
+
+::: {.prompt-template}
+### Prompt-Vorlage
+Eine Vorlage mit Platzhaltern, die du an deine Lehre anpassen kannst.
+:::
+
+### Hinweise und Prozess
+
+::: {.caution}
+### Achtung
+Wichtige Hinweise zu möglichen Fallstricken oder häufigen Fehlern.
+:::
+
+::: {.facilitator}
+### Moderationshinweis
+Hinweise für die Kursleitung. Als Teilnehmende kannst du sie ignorieren oder reinschauen, wenn du neugierig bist.
+:::
+
+:::::

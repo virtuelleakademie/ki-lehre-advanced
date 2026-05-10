@@ -1,129 +1,154 @@
 /*-- scss:defaults --*/
 
 // =============================================================================
-// DESIGN TOKENS - Change these to customize the entire design
+// DESIGN TOKENS - Warm Paper Editorial Design System
 // =============================================================================
 
 // Typography
-@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400;1,7..72,500&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap');
 
-$font-family-sans-serif: "Urbanist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-$font-family-monospace: "JetBrains Mono", "Fira Code", monospace;
-$headings-font-family: "Urbanist", sans-serif;
+$font-family-base:       "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
+$font-family-serif:      "Literata", Georgia, "Times New Roman", serif;
+$font-family-sans-serif: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
+$font-family-monospace:  "IBM Plex Mono", "Fira Code", monospace;
+$headings-font-family:   "Space Grotesk", sans-serif;
 
 // Font sizes
-$font-size-base: 1rem;
-$font-size-sm: 0.9rem;
-$font-size-xs: 0.85rem;
-$font-size-h1: 2.75rem;
-$font-size-h2: 2rem;
-$font-size-h3: 1.5rem;
-$font-size-h1-mobile: 2rem;
-$font-size-h2-mobile: 1.5rem;
+$font-size-base:      1.0rem;
+$font-size-sm:        0.875rem;
+$font-size-xs:        0.75rem;
+$font-size-h1:        2.5rem;
+$font-size-h2:        1.75rem;
+$font-size-h3:        1.35rem;
+$font-size-h1-mobile: 1.85rem;
+$font-size-h2-mobile: 1.4rem;
 
 // Font weights
-$font-weight-normal: 400;
-$font-weight-medium: 500;
-$font-weight-semibold: 600;
-$font-weight-bold: 700;
-$font-weight-extrabold: 800;
+$font-weight-light:     300;
+$font-weight-normal:    400;
+$font-weight-medium:    500;
+$font-weight-semibold:  600;
+$font-weight-bold:      700;
 
 // Line heights
-$line-height-base: 1.6;
-$line-height-tight: 1.1;
-$line-height-relaxed: 1.7;
+$line-height-base:    1.55;
+$line-height-tight:   1.2;
+$line-height-relaxed: 1.75;
 
-// Colors - Core palette
-$color-black: #000000;
+// --- PALETTE --- warm paper + three-color editorial
+$color-background:      #F5F0E8;
+$color-surface:         #EDE7DA;
+$color-border:          #C8C2B8;
+$color-border-subtle:   #D8D2CA;
+
+// Text
+$color-text:            #1A1714;
+$color-text-secondary:  #6E6560;
+$color-text-muted:      #9A9490;
+
+// Deep terracotta — interactive
+$color-accent:          #A63D2F;
+$color-accent-dark:     #8A3226;
+$color-accent-light:    rgba(#A63D2F, 0.08);
+
+// Ink navy — structural
+$color-navy:            #1E3A5F;
+$color-navy-light:      rgba(#1E3A5F, 0.07);
+
+// Warm gold — ornamental
+$color-gold:            #B8821A;
+$color-gold-light:      rgba(#B8821A, 0.1);
+
 $color-white: #FFFFFF;
-$color-grey-100: #F5F5F5;  // Light backgrounds
-$color-grey-300: #E0E0E0;  // Subtle borders (unused in current design)
-$color-grey-500: #666666;  // Secondary text
-$color-grey-700: #333333;  // Dark text alternative
+$color-black: #000000;
 
-// Color assignments
-$color-background: $color-white;
-$color-text: $color-black;
-$color-text-secondary: $color-grey-500;
-$color-text-muted: $color-grey-700;
-$color-primary: $color-black;
-$color-surface: $color-grey-100;
-$color-border: $color-black;
-
-// Quarto theme variables
-$body-bg: $color-background;
+// Quarto theme variable overrides
+$body-bg:    $color-background;
 $body-color: $color-text;
-$primary: $color-primary;
-$secondary: $color-text-secondary;
-$light: $color-surface;
+$primary:    $color-navy;
+$secondary:  $color-text-secondary;
+$light:      $color-surface;
+$link-color: $color-text;
 
 // Borders
-$border-width: 2px;
-$border-width-thick: 4px;
-$border-style: solid;
-$border-color: $color-border;
-$border: $border-width $border-style $border-color;
-$border-thick: $border-width-thick $border-style $border-color;
+$border-width:       1px;
+$border-width-thick: 2px;
+$border-style:       solid;
+$border-color:       $color-border;
+$border:             $border-width $border-style $border-color;
 
 // Spacing
-$spacing-xs: 0.25rem;
-$spacing-sm: 0.5rem;
-$spacing-md: 1rem;
-$spacing-lg: 1.5rem;
-$spacing-xl: 2rem;
+$spacing-xs:  0.25rem;
+$spacing-sm:  0.5rem;
+$spacing-md:  1rem;
+$spacing-lg:  1.5rem;
+$spacing-xl:  2rem;
 $spacing-2xl: 3rem;
 $spacing-3xl: 4rem;
 
 // Transitions
-$transition-speed: 0.2s;
-$transition-ease: ease;
-$transition-default: all $transition-speed $transition-ease;
+$transition-fast:     0.15s;
+$transition-base:     0.25s;
+$transition-ease:     cubic-bezier(0.25, 0.1, 0.25, 1.0);
+$transition-ease-out: cubic-bezier(0.0, 0.0, 0.2, 1.0);
+
+$transition-color:     color $transition-fast $transition-ease,
+                       border-color $transition-fast $transition-ease;
 
 // Breakpoints
 $breakpoint-mobile: 900px;
 
+
 /*-- scss:rules --*/
 
 // =============================================================================
-// MIXINS - Reusable patterns
+// MIXINS
 // =============================================================================
-
-@mixin border-bottom {
-  border-bottom: $border;
-}
-
-@mixin border-top {
-  border-top: $border;
-}
-
-@mixin border-left {
-  border-left: $border;
-}
-
-@mixin border-right {
-  border-right: $border;
-}
-
-@mixin border-all {
-  border: $border;
-}
 
 @mixin surface-background {
   background-color: $color-surface;
 }
 
-@mixin transition-default {
-  transition: $transition-default;
+@mixin transition-color {
+  transition: $transition-color;
 }
 
 @mixin text-secondary {
   color: $color-text-secondary;
   font-size: $font-size-sm;
+  font-family: $font-family-base;
+}
+
+@mixin label-caps {
+  font-family: $font-family-monospace;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-text-muted;
 }
 
 @mixin active-indicator {
-  border-left: $border-thick;
+  border-left: $border-width-thick solid $color-accent;
   padding-left: calc($spacing-md - $border-width-thick);
+}
+
+// =============================================================================
+// GLOBAL RESET - Sharp corners everywhere
+// =============================================================================
+
+* {
+  border-radius: 0 !important;
+}
+
+// Global reduced-motion
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 // =============================================================================
@@ -133,7 +158,7 @@ $breakpoint-mobile: 900px;
 body {
   background-color: $color-background;
   color: $color-text;
-  font-family: $font-family-sans-serif;
+  font-family: $font-family-base;
   line-height: $line-height-base;
   font-size: $font-size-base;
   font-weight: $font-weight-normal;
@@ -149,35 +174,46 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: $font-weight-bold;
   margin-top: $spacing-xl;
   margin-bottom: $spacing-md;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.025em;
 }
 
 h1 {
-  font-weight: $font-weight-extrabold;
   font-size: $font-size-h1;
   margin-top: 0;
   margin-bottom: $spacing-lg;
-  letter-spacing: -0.02em;
-  line-height: $line-height-tight;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
 }
 
 h2 {
   font-size: $font-size-h2;
+  font-weight: $font-weight-bold;
   margin-top: $spacing-2xl;
+  letter-spacing: -0.025em;
 }
 
 h3 {
   font-size: $font-size-h3;
-  margin-top: $spacing-xl;
   font-weight: $font-weight-semibold;
+  margin-top: $spacing-xl;
 }
 
 p {
   margin-bottom: $spacing-lg;
   font-size: $font-size-base;
-  line-height: $line-height-relaxed;
+  line-height: $line-height-base;
   font-weight: $font-weight-normal;
   color: $color-text;
+}
+
+// Prose content — restore serif for readability
+#quarto-document-content p,
+#quarto-document-content li,
+#quarto-document-content blockquote {
+  font-family: $font-family-serif;
+  font-size: 1rem;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-relaxed;
 }
 
 // =============================================================================
@@ -185,17 +221,17 @@ p {
 // =============================================================================
 
 a {
-  color: $color-text;
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  text-underline-offset: 3px;
-  font-weight: $font-weight-medium;
-  @include transition-default;
-}
+  color: $color-navy;
+  text-decoration: none;
+  font-weight: $font-weight-normal;
+  border-bottom: 1px solid transparent;
+  transition: color $transition-fast $transition-ease,
+              border-color $transition-base $transition-ease;
 
-a:hover {
-  color: $color-text;
-  text-decoration-color: $color-text;
+  &:hover {
+    color: $color-accent;
+    border-bottom-color: $color-accent;
+  }
 }
 
 // =============================================================================
@@ -204,68 +240,69 @@ a:hover {
 
 .navbar {
   background-color: $color-background;
-  padding: $spacing-lg 0;
-  @include border-bottom;
-  box-shadow: none;
+  border-bottom: 1px solid $color-border;
+  padding: $spacing-sm 0;
+  box-shadow: none !important;
 }
 
-.navbar-brand, .navbar-nav .nav-link {
-  color: $color-text !important;
-  font-family: $font-family-sans-serif;
-  font-weight: $font-weight-semibold;
+.navbar-brand {
+  font-family: $font-family-base;
+  font-weight: $font-weight-medium;
+  color: $color-navy !important;
   font-size: $font-size-sm;
-}
-
-.navbar-nav .nav-item {
-  margin: 0 $spacing-lg;
+  letter-spacing: 0.02em;
 }
 
 .navbar-nav .nav-link {
-  padding: $spacing-sm 0 !important;
-  margin: 0;
-  font-weight: $font-weight-semibold;
-  border-bottom: $border-width solid transparent;
-  text-decoration: none !important;
-  @include transition-default;
+  color: $color-text-secondary !important;
+  font-family: $font-family-base;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
+  letter-spacing: 0.02em;
+  padding: $spacing-xs $spacing-sm !important;
+  border-bottom: 1px solid transparent;
+  transition: color $transition-fast $transition-ease,
+              border-color $transition-base $transition-ease;
 }
 
-.navbar-nav .nav-link:hover,
+.navbar-nav .nav-item {
+  margin: 0 $spacing-xs;
+}
+
+.navbar-nav .nav-link:hover {
+  color: $color-navy !important;
+  border-bottom-color: $color-accent;
+}
+
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link[aria-current="page"] {
-  border-bottom: $border;
-  color: $color-text !important;
+  color: $color-navy !important;
+  border-bottom-color: $color-accent;
 }
 
 // Navbar tools
 .quarto-navbar-tools .quarto-navigation-tool {
-  color: $color-text !important;
-  font-size: 1.1rem;
+  color: $color-text-secondary !important;
+  font-size: 0.9rem;
   padding: $spacing-sm !important;
   background: none;
-  @include transition-default;
+  transition: color $transition-fast $transition-ease;
+
+  &:hover {
+    color: $color-navy !important;
+    background: none;
+  }
 }
 
-.quarto-navbar-tools .quarto-navigation-tool:hover {
+// Search
+#quarto-search .aa-DetachedSearchButtonIcon {
   color: $color-text-secondary !important;
-  background: none;
 }
 
-// Search styling
-#quarto-search .aa-DetachedSearchButtonIcon,
-#quarto-search .aa-DetachedSearchButton .aa-DetachedSearchButtonIcon,
-.navbar #quarto-search .aa-DetachedSearchButtonIcon {
-  color: $color-text !important;
-  opacity: 1 !important;
-  fill: $color-text !important;
+#quarto-search:hover .aa-DetachedSearchButtonIcon {
+  color: $color-navy !important;
 }
 
-#quarto-search:hover .aa-DetachedSearchButtonIcon,
-.navbar #quarto-search:hover .aa-DetachedSearchButtonIcon {
-  color: $color-text-secondary !important;
-  fill: $color-text-secondary !important;
-}
-
-// Remove list styling from navbar
 .navbar ul {
   list-style: none;
   padding-left: 0;
@@ -276,22 +313,60 @@ a:hover {
 }
 
 // =============================================================================
+// SIDEBAR
+// =============================================================================
+
+#quarto-sidebar {
+  background-color: $color-background;
+}
+
+#quarto-sidebar .sidebar-item a {
+  color: $color-text-secondary;
+  padding: $spacing-sm $spacing-md;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
+  font-family: $font-family-base;
+  display: block;
+  transition: color $transition-fast $transition-ease,
+              background-color $transition-base $transition-ease,
+              border-color $transition-fast $transition-ease;
+}
+
+#quarto-sidebar .sidebar-item a:hover {
+  color: $color-navy;
+  background-color: $color-navy-light;
+}
+
+#quarto-sidebar .sidebar-item a.active,
+#quarto-sidebar .sidebar-link.active {
+  color: $color-navy;
+  font-weight: $font-weight-bold;
+  background-color: transparent;
+  @include active-indicator;
+}
+
+// =============================================================================
 // BUTTONS
 // =============================================================================
 
 .btn-primary {
-  background-color: $color-primary;
-  border-color: $color-primary;
-  padding: $spacing-sm $spacing-lg;
-  font-weight: $font-weight-semibold;
-  border-radius: 0;
+  background-color: $color-navy;
+  border: 1px solid $color-navy;
+  color: $color-background;
+  padding: $spacing-xs $spacing-md;
+  font-weight: $font-weight-medium;
   font-size: $font-size-sm;
-  @include transition-default;
-}
+  border-radius: 0;
+  transition: background-color $transition-fast $transition-ease,
+              border-color $transition-fast $transition-ease,
+              color $transition-fast $transition-ease;
 
-.btn-primary:hover {
-  background-color: $color-grey-700;
-  border-color: $color-grey-700;
+  &:hover,
+  &:focus {
+    background-color: $color-accent;
+    border-color: $color-accent;
+    color: $color-white;
+  }
 }
 
 // =============================================================================
@@ -299,36 +374,90 @@ a:hover {
 // =============================================================================
 
 .card, .feature-card, .section-card {
-  background: $color-background;
+  background-color: transparent;
   border-radius: 0;
-  @include border-all;
-  padding: $spacing-xl;
-  margin-bottom: $spacing-xl;
-  box-shadow: none;
-  @include transition-default;
+  border: none;
+  border-top: 1px solid $color-border;
+  padding: $spacing-xl 0;
+  margin-bottom: 0;
+  box-shadow: none !important;
+}
+
+.card, .feature-card {
+  transition: border-color $transition-base $transition-ease;
 }
 
 .card:hover, .feature-card:hover {
-  border-color: $color-border;
-  box-shadow: none;
-}
-
-.feature-card h3 {
-  color: $color-text;
-  margin-top: 0;
-  margin-bottom: $spacing-md;
-  font-weight: $font-weight-bold;
+  transform: none;
+  border-top-color: $color-navy;
+  box-shadow: none !important;
 }
 
 // =============================================================================
-// CONTENT GRID
+// CALLOUTS - Sharp corners, keep semantic colors
 // =============================================================================
 
-.content-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: $spacing-xl;
-  margin: $spacing-2xl 0;
+.callout {
+  border-radius: 0 !important;
+  border-left-width: 4px;
+}
+
+.callout-header {
+  border-radius: 0 !important;
+}
+
+.callout-body-container {
+  border-radius: 0 !important;
+}
+
+.callout .callout-body {
+  border-radius: 0 !important;
+}
+
+// =============================================================================
+// TABLES — three differentiators only: header, alternating rows, hover
+// =============================================================================
+
+table,
+table.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: $spacing-lg 0;
+  font-size: $font-size-sm;
+  line-height: 1.5;
+}
+
+th, td {
+  padding: 0.65rem 0.85rem;
+  text-align: left;
+  border-bottom: 1px solid $color-border-subtle;
+  vertical-align: top;
+}
+
+// Header: navy on surface, uppercase label style
+th,
+.quarto-table-container table thead th,
+table.table thead th {
+  background-color: $color-surface;
+  color: $color-navy;
+  font-family: $font-family-base;
+  font-weight: $font-weight-semibold;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-bottom: $border-width-thick solid $color-navy;
+  padding: 0.55rem 0.85rem;
+}
+
+// Alternating rows
+tbody tr:nth-child(even) {
+  background-color: rgba($color-navy, 0.03);
+}
+
+// Hover
+tbody tr:hover {
+  background-color: rgba($color-navy, 0.06);
 }
 
 // =============================================================================
@@ -338,28 +467,53 @@ a:hover {
 .quarto-title-block {
   padding-bottom: $spacing-xl;
   margin-bottom: $spacing-xl;
-  @include border-bottom;
+  border-bottom: $border-width-thick solid $color-navy;
 }
 
 .quarto-title-block .quarto-title .title {
   margin-bottom: $spacing-md;
-  font-weight: $font-weight-extrabold;
+  font-weight: $font-weight-bold;
   color: $color-text;
 }
 
 // =============================================================================
-// META INFORMATION
+// CODE BLOCKS
 // =============================================================================
 
-.meta strong {
-  color: $color-text;
-  font-weight: $font-weight-semibold;
+pre {
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  padding: $spacing-md $spacing-lg;
+  border-radius: 0;
+  font-size: 0.875em;
 }
 
-.meta {
-  @include text-secondary;
-  margin-bottom: $spacing-lg;
-  font-weight: $font-weight-medium;
+code {
+  font-family: $font-family-monospace;
+  font-size: 0.875em;
+  color: $color-navy;
+  background-color: $color-navy-light;
+  padding: 0.15em 0.4em;
+  border-radius: 0;
+}
+
+pre code {
+  color: $color-text;
+  background-color: transparent;
+  padding: 0;
+}
+
+// =============================================================================
+// BLOCKQUOTES
+// =============================================================================
+
+blockquote {
+  border-left: 3px solid $color-navy;
+  padding: $spacing-md $spacing-lg;
+  margin: $spacing-xl 0;
+  font-style: normal;
+  color: $color-text-secondary;
+  background-color: $color-navy-light;
 }
 
 // =============================================================================
@@ -377,122 +531,7 @@ li {
 }
 
 li::marker {
-  color: $color-text;
-}
-
-// =============================================================================
-// BLOCKQUOTES
-// =============================================================================
-
-blockquote {
-  border-left: 3px $border-style $color-border;
-  padding-left: $spacing-lg;
-  margin: $spacing-lg 0;
-  font-style: normal;
-  color: $color-grey-700;
-  font-weight: $font-weight-normal;
-}
-
-// =============================================================================
-// TABLES
-// =============================================================================
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: $spacing-lg 0;
-}
-
-th, td {
-  padding: $spacing-sm $spacing-md;
-  text-align: left;
-  @include border-bottom;
-}
-
-th {
-  @include surface-background;
-  color: $color-text;
-  font-weight: $font-weight-semibold;
-}
-
-// =============================================================================
-// SIDEBAR
-// =============================================================================
-
-#quarto-sidebar {
-  background-color: $color-background;
-  @include border-left;
-  @include border-right;
-}
-
-#quarto-sidebar .sidebar-menu-container {
-  padding: 0;
-}
-
-#quarto-sidebar .sidebar-menu-container > ul {
-  padding: 0;
-  margin: 0;
-}
-
-#quarto-sidebar .sidebar-item {
-  @include border-bottom;
-  margin: 0;
-  padding: 0;
-}
-
-#quarto-sidebar .sidebar-item a {
-  color: $color-text;
-  padding: $spacing-sm $spacing-md;
-  font-weight: $font-weight-medium;
-  font-size: $font-size-sm;
-  display: block;
-}
-
-#quarto-sidebar .sidebar-item a:hover {
-  @include surface-background;
-  color: $color-text;
-}
-
-#quarto-sidebar .sidebar-item a.active,
-#quarto-sidebar .sidebar-link.active {
-  @include surface-background;
-  color: $color-text;
-  font-weight: $font-weight-semibold;
-  @include active-indicator;
-  margin-left: 0;
-}
-
-// =============================================================================
-// BLOG LISTING
-// =============================================================================
-
-.quarto-listing .listing-item {
-  background: $color-background;
-  @include border-all;
-  padding: $spacing-lg;
-  margin-bottom: $spacing-lg;
-  @include transition-default;
-}
-
-.quarto-listing .listing-item:hover {
-  border-color: $color-border;
-}
-
-.quarto-listing .listing-item .listing-title {
-  color: $color-text;
-  font-weight: $font-weight-bold;
-  font-size: 1.25rem;
-  margin-bottom: $spacing-sm;
-}
-
-.quarto-listing .listing-item .listing-subtitle {
-  @include text-secondary;
-  margin-bottom: $spacing-sm;
-}
-
-.quarto-listing .listing-item .listing-description {
-  color: $color-grey-700;
-  line-height: $line-height-base;
+  color: $color-text-secondary;
 }
 
 // =============================================================================
@@ -500,38 +539,92 @@ th {
 // =============================================================================
 
 .page-footer {
-  @include surface-background;
-  color: $color-text;
+  background-color: transparent;
+  border-top: $border-width-thick solid $color-navy;
+  color: $color-text-secondary;
+  font-size: $font-size-sm;
   padding: $spacing-xl 0;
   margin-top: $spacing-3xl;
-  @include border-top;
 }
 
 .page-footer a {
-  color: $color-text;
-  text-decoration: underline;
-  text-decoration-color: transparent;
-}
+  color: $color-text-secondary;
+  text-decoration: none;
+  border-bottom: none;
+  transition: color $transition-fast $transition-ease;
 
-.page-footer a:hover {
-  color: $color-text;
-  text-decoration-color: $color-text;
+  &:hover {
+    color: $color-accent;
+    border-bottom: none;
+  }
 }
 
 // =============================================================================
-// CODE BLOCKS
+// TIMER - Clean minimal styling with accent
 // =============================================================================
 
-pre {
-  @include surface-background;
-  @include border-all;
-  padding: $spacing-md;
-  border-radius: 0;
+.base-timer {
+  border: none !important;
+  box-shadow: none !important;
 }
 
-code {
-  font-family: $font-family-monospace;
-  font-size: 0.9em;
+.base-timer__svg {
+  stroke: $color-accent;
+}
+
+.base-timer__path-remaining {
+  stroke: $color-accent !important;
+}
+
+// =============================================================================
+// TABSETS - Minimal tabs with accent
+// =============================================================================
+
+.nav-tabs {
+  border-bottom: 1px solid $color-border;
+  gap: 0;
+}
+
+.nav-tabs .nav-link {
+  border: none !important;
+  border-bottom: 3px solid transparent !important;
+  background: none !important;
+  color: $color-text-secondary;
+  font-weight: $font-weight-medium;
+  padding: $spacing-sm $spacing-md;
+  margin-bottom: -1px;
+  transition: $transition-color;
+}
+
+.nav-tabs .nav-link:hover {
+  color: $color-text;
+  border-bottom-color: $color-border !important;
+}
+
+.nav-tabs .nav-link.active {
+  color: $color-text !important;
+  border-bottom-color: $color-accent !important;
+  font-weight: $font-weight-semibold;
+  background: none !important;
+}
+
+.tab-content {
+  border: none !important;
+  padding: $spacing-lg 0;
+}
+
+.tab-pane {
+  border: none !important;
+}
+
+// =============================================================================
+// HR
+// =============================================================================
+
+hr {
+  border: none;
+  border-top: 1px solid $color-border;
+  margin: $spacing-2xl 0;
 }
 
 // =============================================================================
@@ -547,25 +640,10 @@ code {
 // =============================================================================
 
 @media (max-width: $breakpoint-mobile) {
-  .content-grid {
-    grid-template-columns: 1fr;
-    gap: $spacing-lg;
-    margin: $spacing-xl 0;
-  }
-
-  .card, .feature-card {
-    padding: $spacing-lg;
-  }
-
-  h1 {
-    font-size: $font-size-h1-mobile;
-  }
-
-  h2 {
-    font-size: $font-size-h2-mobile;
-  }
+  h1 { font-size: $font-size-h1-mobile; }
+  h2 { font-size: $font-size-h2-mobile; }
 
   .navbar-nav .nav-item {
-    margin: 0 $spacing-sm;
+    margin: 0 $spacing-xs;
   }
 }
