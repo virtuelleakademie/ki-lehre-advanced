@@ -1,0 +1,42 @@
+// =============================================================================
+// Diagram tokens — shared by website pages and RevealJS slides
+// =============================================================================
+// CSS custom properties consumed by inline SVG diagrams under
+// resources/figures/fig-*.qmd. Defining them here means a single rebrand
+// in the SCSS layer propagates to every diagram without re-authoring SVG.
+
+:root {
+  // Semantic colours
+  --diagram-spec:     #1E3A5F;  // brand navy: durable / structural / Selbst-Tun
+  --diagram-prompt:   #A63D2F;  // brand terracotta: action / rendering / Aktivität
+  --diagram-warning:  #B8821A;  // brand gold: warning / Fail-hard
+  --diagram-neutral:  #6E6560;  // brand warm grey: facilitator / time / axis
+  --diagram-paper:    #F5F0E8;  // brand paper: background
+
+  // Stroke and shape conventions
+  --diagram-stroke:        1.5px;
+  --diagram-stroke-thin:   0.8px;
+  --diagram-radius:        4px;
+
+  // Type scale (for SVG <text> only — page text uses Bootstrap scale)
+  --diagram-font-size-label:  12px;
+  --diagram-font-size-axis:   11px;
+  --diagram-font-size-title:  14px;
+  --diagram-font-family:      "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+// Wrapper for inline SVG figures: gives them consistent spacing and centring
+.fig-diagram {
+  display: block;
+  margin: 1.5rem auto;
+  max-width: 100%;
+  height: auto;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+}
