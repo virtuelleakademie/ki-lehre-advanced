@@ -1,0 +1,104 @@
+```{ojs}
+//| echo: false
+
+viewof cl_controls = {
+  const div = html`<div style="display:flex;flex-direction:column;gap:8px;font-size:15px;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span style="white-space:nowrap;">Extrinsische Belastung: <strong>60%</strong></span>
+      <input type="range" min="5" max="70" step="5" value="60" style="width:250px;accent-color:#D55E00;">
+    </div>
+    <div>
+      <button style="padding:4px 14px;font-size:14px;border:1.5px solid #1E3A5F;border-radius:4px;background:transparent;color:#1E3A5F;cursor:pointer;white-space:nowrap;">Gutes Lerndesign</button>
+    </div>
+  </div>`;
+
+  const slider = div.querySelector("input[type=range]");
+  const label = div.querySelector("strong");
+  const resetBtn = div.querySelector("button");
+
+  function emit() {
+    div.value = +slider.value;
+    div.dispatchEvent(new Event("input", { bubbles: true }));
+  }
+
+  slider.oninput = () => {
+    label.textContent = slider.value + "%";
+    emit();
+  };
+
+  resetBtn.onclick = () => {
+    slider.value = 10;
+    label.textContent = "10%";
+    emit();
+  };
+
+  div.value = 60;
+  return div;
+}
+```
+
+```{ojs}
+//| echo: false
+
+cognitive_load_chart = {
+  const w = 700;
+  const h = 400;
+
+  const intrinsic = 30;
+  const ext = Math.min(cl_controls, 100 - intrinsic);
+  const learning = Math.max(0, 100 - ext - intrinsic);
+
+  const colors = {
+    "Extrinsische Belastung": "#D55E00",
+    "Intrinsische Belastung": "#64748b",
+    "Lernrelevante Verarbeitung": "#0072B2",
+  };
+
+  const data = [
+    {type: "Extrinsische Belastung", value: ext, order: 3},
+    {type: "Lernrelevante Verarbeitung", value: learning, order: 2},
+    {type: "Intrinsische Belastung", value: intrinsic, order: 1},
+  ].filter(d => d.value > 0);
+
+  const marks = [
+    Plot.barY(data, Plot.stackY({
+      x: d => "",
+      y: "value",
+      fill: "type",
+      order: "order",
+      tip: true,
+      title: d => `${d.type}: ${d.value}%`
+    })),
+    Plot.ruleY([100], {stroke: "#1A1714", strokeDasharray: "6,4", strokeWidth: 1.5}),
+  ];
+
+  if (learning > 8) {
+    marks.push(
+      Plot.text([{y: intrinsic + learning / 2}],
+        {x: d => "", y: "y", text: [`${learning}%`], fill: "white", fontWeight: "bold", fontSize: 16})
+    );
+  }
+
+  return Plot.plot({
+    width: w,
+    height: h,
+    marginLeft: 60,
+    marginBottom: 30,
+    marginTop: 30,
+    style: {fontSize: "13px", background: "transparent"},
+    x: { label: null, padding: 0.7 },
+    y: {
+      label: "Arbeitsgedächtniskapazität",
+      domain: [0, 105],
+      ticks: [0, 25, 50, 75, 100],
+      tickFormat: d => d + "%"
+    },
+    color: {
+      domain: ["Lernrelevante Verarbeitung", "Intrinsische Belastung", "Extrinsische Belastung"],
+      range: [colors["Lernrelevante Verarbeitung"], colors["Intrinsische Belastung"], colors["Extrinsische Belastung"]],
+      legend: true
+    },
+    marks
+  });
+}
+```

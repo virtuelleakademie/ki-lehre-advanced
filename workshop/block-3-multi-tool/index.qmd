@@ -5,48 +5,83 @@ title: "Block 3: Spec Sheet → System-Prompt (25 min)"
 ::: {.callout-timing icon=false}
 ## Zeitbudget Block 3
 
-- 5 min: Vorgehen erklären; Beispiel kurz vorführen
+- 5 min: Vorgehen erklären; Test-Protokoll vorstellen
 - 15 min: dein Spec Sheet in einen System-Prompt übersetzen; im Chat-Werkzeug testen
 - 5 min: Beobachtungen sammeln; zurück zum Spec Sheet
 :::
 
 ## Was Block 3 leistet
 
-Du hast in Block 2 ein Spec Sheet gebaut. In Block 3 machst du genau einen weiteren Schritt: du übersetzst dein Spec Sheet in einen **System-Prompt** für ein Chat-Werkzeug deiner Wahl, und du testest den Prompt einmal.
+Du hast in Block 2 ein Spec Sheet gebaut. In Block 3 machst du genau einen weiteren Schritt: du übersetzt dein Spec Sheet in einen **System-Prompt** für ein Chat-Werkzeug deiner Wahl, und du testest den Prompt einmal nach einem klaren Protokoll.
 
 Der Punkt der Übung ist nicht, dass du am Ende einen perfekten Prompt hast. Der Punkt ist, dass du die **Trennung Spec / Prompt** an deinem eigenen Material erlebst:
 
 - Wo dein Spec Sheet konkret ist, fällt der Prompt fast von alleine.
 - Wo dein Spec Sheet vage ist, merkst du es beim Übersetzen, weil das Template eine Konkretisierung verlangt, die im Spec Sheet fehlt.
 
-Diese Erfahrung ist der eigentliche Lerntransfer aus Block 3: nicht ein Prompt, sondern die *Methode*, mit der du in Zukunft Spec Sheets in beliebige Werkzeuge übersetzst.
+Diese Erfahrung ist der eigentliche Lerntransfer aus Block 3: nicht ein Prompt, sondern die *Methode*, mit der du in Zukunft Spec Sheets in beliebige Werkzeuge übersetzt.
 
-## Schritt 1: Vorgehen (5 min)
+:::: {.panel-tabset}
+
+### {{< bi file-slides >}} Präsentation
+
+#### Slides Block 3
+
+{{< revealjs file="../../slides/workshop/index.html#/block-3" height="500px" class="ratio ratio-16x9" >}}
+
+::: {.callout-facilitator}
+#### Facilitator-Notizen Block 3
+
+Zwei Slides, je ~2 min:
+
+**Slide 1: Spec → Prompt ist mechanisch (~2 min).** Vorführen am Statistik-Beispiel aus Block 1: die Statistik-Spec wird in den System-Prompt-Template kopiert, die Stelle hervorheben, an der eine Klammer im Template noch nicht im Spec Sheet abgedeckt ist. Botschaft: *die Übersetzung ist mechanisch, ausser an der einen Stelle, an der das Spec Sheet nachgebessert werden muss*.
+
+**Slide 2: Test-Protokoll (~2 min).** Drei mögliche Ausgänge des Tests:
+
+- *Pass:* das LLM identifiziert den erwarteten Baustein und zitiert eine plausible Stelle aus der Antwort.
+- *Fail soft:* anderer Baustein oder generisch. Spec war zu vage. Zurück zum Spec Sheet, "Was schiefgeht"-Feld schärfen.
+- *Fail hard:* das LLM erfindet einen Baustein, der nicht in der Spec steht. Die "erfinde nichts"-Klausel im Template hat versagt: anderes Modell probieren oder Klausel verstärken.
+
+Übergang in die 15-min Eigenarbeit. Wandern, Teilnehmenden helfen, die richtige Stelle in ihrem Spec Sheet zu finden, wenn sie ins Stocken kommen. Hauptproblem: zu lange Bausteinlisten im Prompt. Erinnern: zwei oder drei wichtigste Bausteine reichen.
 
 ::: {.callout-pro-tip icon=false}
-## Die Übersetzung ist mechanisch
+#### Bei der Diskussion in Schritt 3
+
+Nicht über den "besten Prompt" diskutieren. Über *die Stelle*, an der das Spec Sheet sich beim Übersetzen als vage erwiesen hat. Das ist die methodisch interessante Beobachtung; alles andere ist Werkzeug-Trivia.
+:::
+:::
+
+### {{< bi pencil-square >}} Aktivitäten
+
+#### Schritt 1: Vorgehen und Test-Protokoll (5 min)
+
+::: {.callout-pro-tip icon=false}
+#### Die Übersetzung ist mechanisch
 
 Aus jedem Eintrag deines Spec Sheets wird ein Eintrag im System-Prompt:
 
 - Sektion B (Wissensbausteine) wird zu einer Liste im Prompt, gruppiert nach Typ.
 - Sektion C (Fehlkonzepte) wird zu einer "Häufige Fehlkonzepte"-Liste.
-- Sektion D (Wissenslücken) wird zu einer "Häufige Wissenslücken"-Liste.
 
 Die feste Vorlage findest du unter [System-Prompt-Vorlage](../spec-sheet-template/system-prompt-template.md). Du kopierst die Variante 1 (Diagnostische Rolle) und ersetzt die eckigen Klammern mit deinem Spec-Sheet-Inhalt.
 :::
 
-::: {.callout-individual icon=false}
-## Demo des Vorgehens
+::: {.callout-checkpoint icon=false}
+#### Test-Protokoll: drei mögliche Ausgänge
 
-Die Instruktorin zeigt das einmal kurz vor: das Spec Sheet aus Block 1 (Statistik-r=0.3) wird in den System-Prompt-Template kopiert. Die Stelle, an der eine Klammer im Template noch nicht im Spec Sheet abgedeckt war, wird hervorgehoben.
+Wenn du gleich deinen Prompt testest, achte auf einen der drei Ausgänge:
 
-Beobachte besonders, an welcher Stelle die Übersetzung *nicht* mechanisch ist, sondern eine Entscheidung verlangt.
+- **Pass:** das LLM identifiziert den Baustein, den du erwartest hast (oder einen nahe daran liegenden), und zitiert eine plausible Stelle aus der Studierenden-Antwort. Die Spec hat funktioniert.
+- **Fail soft:** das LLM identifiziert einen anderen Baustein oder bleibt generisch. Das ist informativ, kein Misserfolg: meist war die Spec-Beschreibung dieses Bausteins zu vage, oder das "Was schiefgeht"-Feld trug die diskriminierende Information nicht. *Notiz machen, zurück zum Spec Sheet.*
+- **Fail hard:** das LLM erfindet einen Baustein, der nicht in deinem Spec Sheet steht. Dafür ist die "erfinde nichts"-Klausel im Template da; wenn sie nicht greift, folgt das Modell dem System-Prompt nicht streng genug. *Anderes Modell ausprobieren oder die Klausel verstärken.*
+
+Diese drei Ausgänge sind der Massstab für deinen Test in Schritt 2. Ohne diesen Massstab ist "Beobachte was passiert" zu unklar, um daraus zu lernen.
 :::
 
-## Schritt 2: Übersetzen und testen (15 min)
+#### Schritt 2: Übersetzen und testen (15 min)
 
 ::: {.callout-individual icon=false}
-## Übersetzen (8 min)
+#### Übersetzen (8 min)
 
 Öffne die [System-Prompt-Vorlage](../spec-sheet-template/system-prompt-template.md), Variante 1 (Diagnostische Rolle).
 
@@ -62,7 +97,7 @@ Häufige Stolperstellen:
 :::
 
 ::: {.callout-individual icon=false}
-## Testen (7 min)
+#### Testen mit Test-Protokoll (7 min)
 
 Füge den fertigen System-Prompt in dein Werkzeug ein:
 
@@ -71,18 +106,21 @@ Füge den fertigen System-Prompt in dein Werkzeug ein:
 - **ChatGPT (Custom GPT):** im Anweisungs-Feld eines neuen Custom GPT.
 - **Claude:** im System-Prompt-Feld eines neuen Chats.
 
-Teste mit einer **konkreten Studierenden-Antwort**: entweder einer realen, die du dabei hast, oder einer aus den [Backup-Szenarien](../build/scenarios/index.qmd).
+**Wähle für deinen Test einen Baustein aus deinem Spec Sheet, den du als B (beobachtet) markiert hast.** Das heisst: du hast eine konkrete Studierenden-Antwort vor Augen, die genau auf diesem Baustein scheitert. Die Antwort kann real oder aus den [Backup-Szenarien](../build/scenarios/index.qmd) sein.
 
-Beobachte:
+Gib die Studierenden-Antwort ans Werkzeug. Lies das Output und ordne es einem der drei Ausgänge zu (Pass / Fail soft / Fail hard).
 
-1. Identifiziert das Werkzeug die richtigen Wissensbausteine? Quotiert es plausibel die Stelle in der Antwort? Schlägt es eine sinnvolle Intervention vor?
-2. Wo bricht es ab? Erfindet es Bausteine, die nicht in deinem Spec Sheet stehen? Wird es generisch?
+Notiere kurz:
+
+- Welchen Baustein hast du erwartet? Welchen hat das Werkzeug identifiziert?
+- Wenn Fail soft: welche Stelle in deinem Spec Sheet war zu vage?
+- Wenn Fail hard: hat das Werkzeug einen Baustein erfunden? Welchen?
 :::
 
-## Schritt 3: Zurück zum Spec Sheet (5 min)
+#### Schritt 3: Zurück zum Spec Sheet (5 min)
 
 ::: {.callout-reflect icon=false}
-## Reflexion: was hat das Testen offengelegt?
+#### Reflexion: was hat das Testen offengelegt?
 
 Drei Fragen für dich allein:
 
@@ -92,15 +130,48 @@ Drei Fragen für dich allein:
 :::
 
 ::: {.callout-checkpoint icon=false}
-## Die Lehre aus Block 3
+#### Die Lehre aus Block 3
 
-Der Spec / Prompt-Trennung ist nicht nur ordnungstheoretisch:
+Die Spec / Prompt-Trennung ist nicht nur ordnungstheoretisch:
 
 - Der Prompt ist eine *Funktion* des Spec Sheets. Die Qualität des Prompts steigt mit der Qualität des Spec Sheets, nicht umgekehrt.
 - Wenn das Werkzeug nicht das tut, was du erwartet hast, ist der erste Reflex: zurück zum Spec Sheet, nicht den Prompt umformulieren.
 - Das Spec Sheet überlebt Modellgenerationen. Der Prompt ist eine spezifische Übersetzung für ein spezifisches Werkzeug zu einem spezifischen Zeitpunkt.
 :::
 
+### {{< bi book >}} Nachlesen
+
+::: {.callout-nachlesen icon=false}
+#### Spec ist dauerhaft, Prompt-Praktiken sind es nicht
+
+Diese Vorlage ist ein **Ausgangspunkt**, kein für immer richtiger Prompt. Die konkrete Form eines guten System-Prompts hängt vom Werkzeug und vom Modellstand ab und wird sich mit jeder Modellgeneration verschieben.
+
+Der Workshop lehrt also nicht "der heutige beste Prompt", sondern die meta-methodische Praxis: *Spec Sheet von Prompt trennen. Wenn die Prompt-Best-Practice sich ändert, das Spec Sheet bleibt; nur das Rendering wird neu gebaut.*
+
+Drei Wege, dieselbe Übersetzung zu produzieren:
+
+- **Manuell rendern.** Was Block 3 dich tun lässt: Einträge aus Spec-Sektionen in die Platzhalter im Template kopieren. Default für Nicht-Programmierende.
+- **Aktuelle Anbieter-Dokumentation lesen.** Anthropic veröffentlicht laufend einen [Prompt-Engineering-Guide](https://docs.anthropic.com/){target="_blank"}; OpenAI hat den [Cookbook](https://cookbook.openai.com/){target="_blank"}; Google, Mistral und andere ähnliche Ressourcen. Was dort steht, ist häufig der momentan beste Stand und ändert sich.
+- **Prompt-Generierungs-Tools nutzen.** [Anthropic Console](https://console.anthropic.com/) hat einen Prompt-Generator, der aus einer Beschreibung deiner Aufgabe einen strukturierten Prompt vorschlägt. OpenAI Playground hat etwas Ähnliches. Du kannst dein Spec Sheet in einer Anfrage übergeben und einen Prompt-Entwurf zurückbekommen. Das ist Rendering, nicht Spezifikation.
+
+Welcher Weg auch immer: das Spec Sheet bleibt die Substanz. Was sich ändert, ist die Werkzeug-spezifische Übersetzung.
+:::
+
+::: {.callout-nachlesen icon=false}
+#### Wenn dein Test "Fail soft" produziert: Diagnoseheuristiken
+
+Aus der Erfahrung mit der Vorlage und unterschiedlichen Modellen:
+
+- **Das LLM produziert generischen Text.** Im Prompt fehlt die Spezifik aus deinem Spec Sheet, vor allem die "Was schiefgeht"-Sätze. Geh zurück zur Sektion B und schärfe die Beschreibungen.
+- **Das LLM identifiziert immer denselben Baustein.** Wahrscheinlich überlappen mehrere Bausteine im Spec Sheet. Geh zurück und prüfe, ob du sie schärfer trennen kannst.
+- **Das LLM bricht aus der Rolle aus** (bei Variante 2 oder 3 des Templates, dem Lernende-Simulator oder Sokratischen Tutor). Die Verhaltensregel ist nicht stark genug formuliert, oder das Modell ist auf "hilfreich" getuned, ohne Rollenstabilität. Teste mit einem anderen Modell oder verstärke die Klausel.
+- **Das LLM ist zu pedantisch.** Du hast wahrscheinlich zu viele Verbote eingebaut. Reduziere sie auf die zwei oder drei wichtigsten.
+
+In jedem Fall ist der erste Reflex: zurück zum Spec Sheet, nicht der Prompt umformulieren. Der Prompt ist Rendering, das Spec Sheet ist Substanz.
+:::
+
+::::
+
 ## Übergang ins Closing
 
-Du hast jetzt ein Spec Sheet (durch Block 2) und einen lauffähigen System-Prompt (durch Block 3). Im Closing reflektierst du, was du mit dem Spec Sheet noch machen kannst, jenseits der diagnostischen Rolle: insbesondere, **welche Teilaufgaben deines Auftrags KI-Substitution zulassen und welche nicht**.
+Du hast jetzt ein Spec Sheet (durch Block 2) und einen lauffähigen System-Prompt (durch Block 3). Im Closing reflektierst du, was du mit dem Spec Sheet noch machen kannst, jenseits der diagnostischen Rolle: insbesondere, **welche Teilaufgaben deines Auftrags KI-Substitution zulassen und welche nicht**. Du schreibst zudem die Falsifikationsnotiz, die in Block 2 noch ausgespart blieb.

@@ -12,7 +12,7 @@ Du wirst für **eine einzelne Teilaufgabe** aus deiner eigenen Lehre ein **Spec 
 
 Dabei nutzt du LLMs in zwei klar unterscheidbaren Rollen:
 
-- als **Hypothesengenerator** (das LLM schlägt Wissensbausteine, Fehlkonzepte, Wissenslücken vor; du prüfst und korrigierst)
+- als **Hypothesengenerator** (das LLM schlägt Wissensbausteine und Fehlkonzepte vor; du prüfst und korrigierst, mit V/B-Markierung)
 - als **Lernende-Simulator** (das LLM liest dein Aufgabenmaterial oder antwortet auf deine Aufgabe so, als hätte es einen bestimmten Wissensbaustein nicht; du liest die Antwort als Diagnose deiner Aufgabenstellung)
 
 Was du *nicht* tun wirst: einen Prompt schreiben, der "intelligent" wirkt. Prompt-Engineering ist Volkswissen, brüchig gegenüber Wortwahl, modellabhängig, alle sechs Monate veraltet. Wir machen etwas Anderes: wir bauen eine Spezifikation, die mehrere Modellgenerationen überlebt.
@@ -55,7 +55,7 @@ Der Workshop hängt an einer scharfen, falsifizierbaren Behauptung:
 **Wenn ein Lernschritt verlangt, dass eine Studierende selbst eine Position einnimmt, dann substituiert KI diesen Schritt nicht teilweise, sondern entfernt die *Aktions-Eingabe* in die Selbsteinschätzung der Studierenden vollständig. Was die Studierende über sich selbst lernen kann, hängt davon ab, dass sie selbst gehandelt hat.**
 :::
 
-Diese Behauptung ist im Hintergrund des Workshops aktiv, ohne dass wir sie ständig benennen. Sie wird in der Closing-Reflexion zum Ankerpunkt für die Frage: *Welche Teilschritte deiner Aufgabe sind Aktion-erforderlich, welche sind Beobachtung-zulässig?*
+Diese Behauptung ist im Hintergrund des Workshops aktiv, ohne dass wir sie ständig benennen. Sie wird in der Closing-Reflexion zum Ankerpunkt für die Frage: *Welche Teilschritte deiner Aufgabe sind Selbst-Tun-erforderlich, welche sind Zuschauen-reicht?*
 
 ## Werkzeug-Zugang
 
@@ -73,9 +73,9 @@ In Block 3 nutzt du *ein* Chat-Werkzeug deiner Wahl, um dein Spec Sheet als Syst
 
 ## Was du am Ende des Workshops haben wirst
 
-- Ein eigenes Spec Sheet für eine Teilaufgabe deiner Lehre, mit Wissensbausteinen, Fehlkonzepten, Wissenslücken und Falsifikationsnotiz.
+- Ein eigenes Spec Sheet für eine Teilaufgabe deiner Lehre, mit Wissensbausteinen (mit Erwerb-Hinweisen), Fehlkonzepten und Falsifikationsnotiz.
 - Ein in einem Chat-Werkzeug getesteter System-Prompt, gerendert aus deinem Spec Sheet.
-- Eine Markierung pro Wissensbaustein: Aktion-erforderlich oder Beobachtung-zulässig (für die KI-Substitutions-Frage).
+- Eine Markierung pro Wissensbaustein: Selbst-Tun-erforderlich oder Zuschauen-reicht (für die KI-Substitutions-Frage).
 - Eine konkrete Verpflichtung, was du in den nächsten zwei Wochen in deiner Lehre tun wirst.
 
 ::: {.callout-checkpoint icon=false}

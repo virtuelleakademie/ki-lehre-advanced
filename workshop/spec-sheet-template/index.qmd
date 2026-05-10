@@ -22,7 +22,7 @@ Du hast drei Möglichkeiten, mit der Vorlage zu arbeiten:
 
 ## Die *vermutet vs. beobachtet*-Markierung
 
-In den Sektionen B, C und D markiert jeder Eintrag, woher er stammt:
+In den Sektionen B und C markiert jeder Eintrag, woher er stammt:
 
 - **vermutet (V):** von einem LLM vorgeschlagen oder von dir aus dem Bauch heraus formuliert, von dir auf Plausibilität geprüft. Du hältst es für möglich, hast es aber nicht selbst bei deinen Studierenden gesehen.
 - **beobachtet (B):** du hast es bei tatsächlichen Studierenden gesehen oder gehört. Mindestens ein konkreter Fall hängt daran.
@@ -61,6 +61,8 @@ Wir unterscheiden drei Typen von Wissensbausteinen:
 
 Ziel: vier bis acht Bausteine. Lieber wenige präzise als viele unscharfe.
 
+Das **Erwerb-Feld** hält fest, wo dieser Baustein eigentlich aufgebaut werden sollte: in deinem aktuellen Kurs, in einem vorgelagerten Modul (also als Voraussetzung), oder als tacites Wissen aus der Praxis. Diese Information war früher in einer separaten "Wissenslücken"-Sektion; sie passt aber besser hierhin, weil sie den Baustein selbst beschreibt, nicht ein eigenes Objekt.
+
 ::: {.callout-pro-tip icon=false}
 ## Tipp zur Granularität
 
@@ -72,6 +74,7 @@ Zu abstrakt ("Statistik-Theorie") lässt sich der Baustein im LLM-Simulator schl
 - **Name** (3 bis 7 Wörter):
 - **Typ:** Faktenwissen / Begriffswissen / Erklärungswissen
 - **Quelle:** V / B
+- **Erwerb** (optional): in diesem Kurs / vorausgesetzt aus [Modul] / Tacit-Wissen
 - **Wo der Baustein in der Teilaufgabe vorkommt** (1 Satz):
 - **Was eine Studierende konkret schreibt oder tut, wenn der Baustein fehlt** (1 Satz, beobachtbar):
 
@@ -80,6 +83,7 @@ Zu abstrakt ("Statistik-Theorie") lässt sich der Baustein im LLM-Simulator schl
 - **Name:**
 - **Typ:** Faktenwissen / Begriffswissen / Erklärungswissen
 - **Quelle:** V / B
+- **Erwerb** (optional):
 - **Wo der Baustein vorkommt:**
 - **Was schiefgeht, wenn er fehlt:**
 
@@ -88,6 +92,7 @@ Zu abstrakt ("Statistik-Theorie") lässt sich der Baustein im LLM-Simulator schl
 - **Name:**
 - **Typ:** Faktenwissen / Begriffswissen / Erklärungswissen
 - **Quelle:** V / B
+- **Erwerb** (optional):
 - **Wo der Baustein vorkommt:**
 - **Was schiefgeht, wenn er fehlt:**
 
@@ -96,6 +101,7 @@ Zu abstrakt ("Statistik-Theorie") lässt sich der Baustein im LLM-Simulator schl
 - **Name:**
 - **Typ:** Faktenwissen / Begriffswissen / Erklärungswissen
 - **Quelle:** V / B
+- **Erwerb** (optional):
 - **Wo der Baustein vorkommt:**
 - **Was schiefgeht, wenn er fehlt:**
 
@@ -130,36 +136,7 @@ Ein Fehlkonzept ist nicht ein zufälliger Fehler, sondern eine Sichtweise, die f
 
 *(Bei Bedarf weitere ergänzen. Mehr als vier wird selten produktiv.)*
 
-## D. Wahrscheinliche Wissenslücken
-
-**Was hier rein gehört:** Vorwissen, das die Aufgabe annimmt und das bei einem Teil der Studierenden tatsächlich fehlen könnte.
-
-Im Unterschied zu Sektion C beschreibt eine Lücke kein falsches Modell, sondern einfach das *Fehlen* eines Bausteins, der eigentlich vor dieser Aufgabe schon da sein sollte.
-
-### Lücke 1
-
-- **Was fehlt** (1 Satz):
-- **Wo es eigentlich erworben werden sollte** (z.B. konkretes Modul, Vorlesung, Selbststudium):
-- **Quelle:** V / B
-- **Wie sich die Lücke in der Teilaufgabe konkret zeigt** (1 Satz):
-
-### Lücke 2
-
-- **Was fehlt:**
-- **Wo es eigentlich erworben werden sollte:**
-- **Quelle:** V / B
-- **Wie sich die Lücke zeigt:**
-
-### Lücke 3
-
-- **Was fehlt:**
-- **Wo es eigentlich erworben werden sollte:**
-- **Quelle:** V / B
-- **Wie sich die Lücke zeigt:**
-
-*(Bei Bedarf weitere ergänzen.)*
-
-## E. Falsifikationsnotiz
+## D. Falsifikationsnotiz
 
 **Anleitung:** Wähle einen Wissensbaustein aus Sektion B. Am besten den, den du als zentralsten für diese Teilaufgabe einschätzt.
 
@@ -187,6 +164,6 @@ Diese Liste ist diagnostisch wichtig. Sie zeigt, ob du den LLM-Output kritisch b
 
 In Block 3 übersetzt du dein Spec Sheet in einen System-Prompt für ein KI-Werkzeug deiner Wahl, zum Beispiel Microsoft Copilot oder HuggingChat. Die Vorlage dafür findest du unter [System-Prompt-Vorlage](system-prompt-template.md).
 
-Die Übersetzung ist mechanisch: du kopierst Bausteine, Fehlkonzepte und Lücken in feste Platzhalter im Template. Wo das Template etwas verlangt, das in deinem Spec Sheet nicht steht, gehst du *zurück zum Spec Sheet* und ergänzt es. Das ist die produktivste Lehre des Block 3: die Qualität des Prompts ist eine Funktion der Qualität des Spec Sheets.
+Die Übersetzung ist mechanisch: du kopierst Bausteine und Fehlkonzepte in feste Platzhalter im Template. Wo das Template etwas verlangt, das in deinem Spec Sheet nicht steht, gehst du *zurück zum Spec Sheet* und ergänzt es. Das ist die produktivste Lehre des Block 3: die Qualität des Prompts ist eine Funktion der Qualität des Spec Sheets.
 
 Das Spec Sheet bleibt durch die Modellgenerationen hindurch nutzbar. Der gerenderte Prompt ist nur eine spezifische Übersetzung für ein spezifisches Werkzeug zu einem spezifischen Zeitpunkt.

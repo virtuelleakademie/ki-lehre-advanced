@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Block 1: Theorie und Beispiel (48 min) – KI in der Lehre: Advanced</title>
+<title>Block 1: Theorie und Beispiel (45 min) – KI in der Lehre: Advanced</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -52,6 +52,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/bootstrap/bootstrap-2d7411766ca476b175277191dd6233bd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.js"></script>
 <link href="../../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -91,45 +92,6 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 <style>
-div.callout-nachlesen.callout {
-  border-left-color: #1E3A5F;
-}
-div.callout-nachlesen.callout-style-default > .callout-header {
-  background-color: rgba(30, 58, 95, 0.13);
-}
-div.callout-nachlesen .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-nachlesen.callout-style-default .callout-icon::before, div.callout-nachlesen.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f518' !important;
-  background-image: none;
-}
-div.callout-prompt-example.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-prompt-example.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f120' !important;
-  background-image: none;
-}
-div.callout-screens-down.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-screens-down.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f070' !important;
-  background-image: none;
-}
 div.callout-active-processing.callout {
   border-left-color: #A63D2F;
 }
@@ -141,224 +103,6 @@ div.callout-active-processing.callout-style-default .callout-icon::before, div.c
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
   content: '\f044' !important;
-  background-image: none;
-}
-div.callout-tutor-example.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-tutor-example.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f086' !important;
-  background-image: none;
-}
-div.callout-schedule.callout {
-  border-left-color: #6E6560;
-}
-div.callout-schedule.callout-style-default > .callout-header {
-  background-color: rgba(110, 101, 96, 0.13);
-}
-div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f017' !important;
-  background-image: none;
-}
-div.callout-export.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-export.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f56e' !important;
-  background-image: none;
-}
-div.callout-group.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-group.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f0c0' !important;
-  background-image: none;
-}
-div.callout-individual.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-individual.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f007' !important;
-  background-image: none;
-}
-div.callout-fallstudie.callout {
-  border-left-color: #6E6560;
-}
-div.callout-fallstudie.callout-style-default > .callout-header {
-  background-color: rgba(110, 101, 96, 0.13);
-}
-div.callout-fallstudie .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-fallstudie.callout-style-default .callout-icon::before, div.callout-fallstudie.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236E6560" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-break.callout {
-  border-left-color: #6E6560;
-}
-div.callout-break.callout-style-default > .callout-header {
-  background-color: rgba(110, 101, 96, 0.13);
-}
-div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f7b6' !important;
-  background-image: none;
-}
-div.callout-reflect.callout {
-  border-left-color: #1E3A5F;
-}
-div.callout-reflect.callout-style-default > .callout-header {
-  background-color: rgba(30, 58, 95, 0.13);
-}
-div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f0eb' !important;
-  background-image: none;
-}
-div.callout-facilitator.callout {
-  border-left-color: #6E6560;
-}
-div.callout-facilitator.callout-style-default > .callout-header {
-  background-color: rgba(110, 101, 96, 0.13);
-}
-div.callout-facilitator .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-facilitator.callout-style-default .callout-icon::before, div.callout-facilitator.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f46d' !important;
-  background-image: none;
-}
-div.callout-setup.callout {
-  border-left-color: #6E6560;
-}
-div.callout-setup.callout-style-default > .callout-header {
-  background-color: rgba(110, 101, 96, 0.13);
-}
-div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: 'nil' !important;
-  background-image: none;
-}
-div.callout-pair.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-pair.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f500' !important;
-  background-image: none;
-}
-div.callout-feedback.callout {
-  border-left-color: #1E3A5F;
-}
-div.callout-feedback.callout-style-default > .callout-header {
-  background-color: rgba(30, 58, 95, 0.13);
-}
-div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: 'nil' !important;
-  background-image: none;
-}
-div.callout-checkpoint.callout {
-  border-left-color: #1E3A5F;
-}
-div.callout-checkpoint.callout-style-default > .callout-header {
-  background-color: rgba(30, 58, 95, 0.13);
-}
-div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f11e' !important;
-  background-image: none;
-}
-div.callout-timing.callout {
-  border-left-color: #6E6560;
-}
-div.callout-timing.callout-style-default > .callout-header {
-  background-color: rgba(110, 101, 96, 0.13);
-}
-div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f2f2' !important;
-  background-image: none;
-}
-div.callout-caution.callout {
-  border-left-color: #B8821A;
-}
-div.callout-caution.callout-style-default > .callout-header {
-  background-color: rgba(184, 130, 26, 0.13);
-}
-div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: 'nil' !important;
-  background-image: none;
-}
-div.callout-testing.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-testing.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\e4f3' !important;
-  background-image: none;
-}
-div.callout-pro-tip.callout {
-  border-left-color: #1E3A5F;
-}
-div.callout-pro-tip.callout-style-default > .callout-header {
-  background-color: rgba(30, 58, 95, 0.13);
-}
-div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\e2ca' !important;
   background-image: none;
 }
 div.callout-screens-up.callout {
@@ -387,17 +131,30 @@ div.callout-try.callout-style-default .callout-icon::before, div.callout-try.cal
   content: 'nil' !important;
   background-image: none;
 }
-div.callout-work-in-progress.callout {
-  border-left-color: #B8821A;
+div.callout-prompt-example.callout {
+  border-left-color: #A63D2F;
 }
-div.callout-work-in-progress.callout-style-default > .callout-header {
-  background-color: rgba(184, 130, 26, 0.13);
+div.callout-prompt-example.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
 }
-div.callout-work-in-progress .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-work-in-progress.callout-style-default .callout-icon::before, div.callout-work-in-progress.callout-titled .callout-icon::before {
+div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f0c3' !important;
+  content: '\f120' !important;
+  background-image: none;
+}
+div.callout-schedule.callout {
+  border-left-color: #6E6560;
+}
+div.callout-schedule.callout-style-default > .callout-header {
+  background-color: rgba(110, 101, 96, 0.13);
+}
+div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f017' !important;
   background-image: none;
 }
 div.callout-prompt-template.callout {
@@ -413,40 +170,263 @@ div.callout-prompt-template.callout-style-default .callout-icon::before, div.cal
   content: '\f328' !important;
   background-image: none;
 }
-</style>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
+div.callout-break.callout {
+  border-left-color: #6E6560;
 }
-window.Quarto = {
-  typesetMath
-};
-</script>
+div.callout-break.callout-style-default > .callout-header {
+  background-color: rgba(110, 101, 96, 0.13);
+}
+div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f7b6' !important;
+  background-image: none;
+}
+div.callout-feedback.callout {
+  border-left-color: #1E3A5F;
+}
+div.callout-feedback.callout-style-default > .callout-header {
+  background-color: rgba(30, 58, 95, 0.13);
+}
+div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: 'nil' !important;
+  background-image: none;
+}
+div.callout-export.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-export.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f56e' !important;
+  background-image: none;
+}
+div.callout-nachlesen.callout {
+  border-left-color: #1E3A5F;
+}
+div.callout-nachlesen.callout-style-default > .callout-header {
+  background-color: rgba(30, 58, 95, 0.13);
+}
+div.callout-nachlesen .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-nachlesen.callout-style-default .callout-icon::before, div.callout-nachlesen.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f518' !important;
+  background-image: none;
+}
+div.callout-testing.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-testing.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\e4f3' !important;
+  background-image: none;
+}
+div.callout-fallstudie.callout {
+  border-left-color: #6E6560;
+}
+div.callout-fallstudie.callout-style-default > .callout-header {
+  background-color: rgba(110, 101, 96, 0.13);
+}
+div.callout-fallstudie .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-fallstudie.callout-style-default .callout-icon::before, div.callout-fallstudie.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236E6560" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-pro-tip.callout {
+  border-left-color: #1E3A5F;
+}
+div.callout-pro-tip.callout-style-default > .callout-header {
+  background-color: rgba(30, 58, 95, 0.13);
+}
+div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\e2ca' !important;
+  background-image: none;
+}
+div.callout-tutor-example.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-tutor-example.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f086' !important;
+  background-image: none;
+}
+div.callout-reflect.callout {
+  border-left-color: #1E3A5F;
+}
+div.callout-reflect.callout-style-default > .callout-header {
+  background-color: rgba(30, 58, 95, 0.13);
+}
+div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f0eb' !important;
+  background-image: none;
+}
+div.callout-caution.callout {
+  border-left-color: #B8821A;
+}
+div.callout-caution.callout-style-default > .callout-header {
+  background-color: rgba(184, 130, 26, 0.13);
+}
+div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: 'nil' !important;
+  background-image: none;
+}
+div.callout-individual.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-individual.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f007' !important;
+  background-image: none;
+}
+div.callout-screens-down.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-screens-down.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f070' !important;
+  background-image: none;
+}
+div.callout-checkpoint.callout {
+  border-left-color: #1E3A5F;
+}
+div.callout-checkpoint.callout-style-default > .callout-header {
+  background-color: rgba(30, 58, 95, 0.13);
+}
+div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f11e' !important;
+  background-image: none;
+}
+div.callout-facilitator.callout {
+  border-left-color: #6E6560;
+}
+div.callout-facilitator.callout-style-default > .callout-header {
+  background-color: rgba(110, 101, 96, 0.13);
+}
+div.callout-facilitator .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-facilitator.callout-style-default .callout-icon::before, div.callout-facilitator.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f46d' !important;
+  background-image: none;
+}
+div.callout-pair.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-pair.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f500' !important;
+  background-image: none;
+}
+div.callout-group.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-group.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f0c0' !important;
+  background-image: none;
+}
+div.callout-setup.callout {
+  border-left-color: #6E6560;
+}
+div.callout-setup.callout-style-default > .callout-header {
+  background-color: rgba(110, 101, 96, 0.13);
+}
+div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: 'nil' !important;
+  background-image: none;
+}
+div.callout-timing.callout {
+  border-left-color: #6E6560;
+}
+div.callout-timing.callout-style-default > .callout-header {
+  background-color: rgba(110, 101, 96, 0.13);
+}
+div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f2f2' !important;
+  background-image: none;
+}
+div.callout-work-in-progress.callout {
+  border-left-color: #B8821A;
+}
+div.callout-work-in-progress.callout-style-default > .callout-header {
+  background-color: rgba(184, 130, 26, 0.13);
+}
+div.callout-work-in-progress .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-work-in-progress.callout-style-default .callout-icon::before, div.callout-work-in-progress.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f0c3' !important;
+  background-image: none;
+}
+</style>
+ 
+  <style>
+  .slide-deck {
+      border: 3px solid #dee2e6;
+      width: 100%;
+  }
+  </style>
+  
+
 
 <link rel="stylesheet" href="../../styles/styles.css">
-<meta property="og:title" content="Block 1: Theorie und Beispiel (48 min) – KI in der Lehre: Advanced">
+<meta property="og:title" content="Block 1: Theorie und Beispiel (45 min) – KI in der Lehre: Advanced">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="KI in der Lehre: Advanced">
 </head>
@@ -514,7 +494,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../workshop/einstieg/index.html">Programm</a></li><li class="breadcrumb-item"><a href="../../workshop/block-1-theorie-und-beispiel/index.html">Block 1: Theorie und Beispiel (48 min)</a></li><li class="breadcrumb-item"><a href="../../workshop/block-1-theorie-und-beispiel/index.html">Block 1: Theorie und Beispiel (48 min)</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../workshop/einstieg/index.html">Programm</a></li><li class="breadcrumb-item"><a href="../../workshop/block-1-theorie-und-beispiel/index.html">Block 1: Theorie und Beispiel (48 min)</a></li><li class="breadcrumb-item"><a href="../../workshop/block-1-theorie-und-beispiel/index.html">Block 1: Theorie und Beispiel (45 min)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -584,7 +564,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../workshop/block-1-theorie-und-beispiel/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Block 1: Theorie und Beispiel (48 min)</span></a>
+ <span class="menu-text">Block 1: Theorie und Beispiel (45 min)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -627,31 +607,16 @@ window.Quarto = {
   <ul>
   <li><a href="#zeitbudget-block-1" id="toc-zeitbudget-block-1" class="nav-link active" data-scroll-target="#zeitbudget-block-1">Zeitbudget Block 1</a></li>
   <li><a href="#was-block-1-leistet" id="toc-was-block-1-leistet" class="nav-link" data-scroll-target="#was-block-1-leistet">Was Block 1 leistet</a></li>
-  <li><a href="#kurze-theorie-5-min" id="toc-kurze-theorie-5-min" class="nav-link" data-scroll-target="#kurze-theorie-5-min">1. Kurze Theorie (5 min)</a>
-  <ul class="collapse">
-  <li><a href="#die-drei-wissensbaustein-typen" id="toc-die-drei-wissensbaustein-typen" class="nav-link" data-scroll-target="#die-drei-wissensbaustein-typen">Die drei Wissensbaustein-Typen</a></li>
-  <li><a href="#spec-ist-dauerhaft-prompt-ist-übersetzung" id="toc-spec-ist-dauerhaft-prompt-ist-übersetzung" class="nav-link" data-scroll-target="#spec-ist-dauerhaft-prompt-ist-übersetzung">Spec ist dauerhaft, Prompt ist Übersetzung</a></li>
-  <li><a href="#zwei-rollen-für-das-llm" id="toc-zwei-rollen-für-das-llm" class="nav-link" data-scroll-target="#zwei-rollen-für-das-llm">Zwei Rollen für das LLM</a></li>
-  </ul></li>
-  <li><a href="#worked-example-spec-sheet-zu-einer-statistik-teilaufgabe-35-min" id="toc-worked-example-spec-sheet-zu-einer-statistik-teilaufgabe-35-min" class="nav-link" data-scroll-target="#worked-example-spec-sheet-zu-einer-statistik-teilaufgabe-35-min">2. Worked Example: Spec Sheet zu einer Statistik-Teilaufgabe (35 min)</a></li>
-  <li><a href="#worauf-du-beim-mitschauen-achtest" id="toc-worauf-du-beim-mitschauen-achtest" class="nav-link" data-scroll-target="#worauf-du-beim-mitschauen-achtest">Worauf du beim Mitschauen achtest</a></li>
-  <li><a href="#werkzeug-tour-drei-affordance-typen-8-min" id="toc-werkzeug-tour-drei-affordance-typen-8-min" class="nav-link" data-scroll-target="#werkzeug-tour-drei-affordance-typen-8-min">3. Werkzeug-Tour: drei Affordance-Typen (8 min)</a>
-  <ul class="collapse">
-  <li><a href="#typ-1-chat-werkzeug" id="toc-typ-1-chat-werkzeug" class="nav-link" data-scroll-target="#typ-1-chat-werkzeug">Typ 1: Chat-Werkzeug</a></li>
-  <li><a href="#typ-2-strukturierte-api-generierung" id="toc-typ-2-strukturierte-api-generierung" class="nav-link" data-scroll-target="#typ-2-strukturierte-api-generierung">Typ 2: Strukturierte API-Generierung</a></li>
-  <li><a href="#typ-3-agentisches-werkzeug" id="toc-typ-3-agentisches-werkzeug" class="nav-link" data-scroll-target="#typ-3-agentisches-werkzeug">Typ 3: Agentisches Werkzeug</a></li>
-  </ul></li>
-  <li><a href="#was-du-aus-der-tour-mitnehmen-solltest" id="toc-was-du-aus-der-tour-mitnehmen-solltest" class="nav-link" data-scroll-target="#was-du-aus-der-tour-mitnehmen-solltest">Was du aus der Tour mitnehmen solltest</a></li>
-  <li><a href="#übergang-in-block-2" id="toc-übergang-in-block-2" class="nav-link" data-scroll-target="#übergang-in-block-2">Übergang in Block 2</a></li>
+  <li><a href="#worked-example-spec-sheet-zu-einer-statistik-teilaufgabe" id="toc-worked-example-spec-sheet-zu-einer-statistik-teilaufgabe" class="nav-link" data-scroll-target="#worked-example-spec-sheet-zu-einer-statistik-teilaufgabe">Worked Example: Spec Sheet zu einer Statistik-Teilaufgabe</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../workshop/einstieg/index.html">Programm</a></li><li class="breadcrumb-item"><a href="../../workshop/block-1-theorie-und-beispiel/index.html">Block 1: Theorie und Beispiel (48 min)</a></li><li class="breadcrumb-item"><a href="../../workshop/block-1-theorie-und-beispiel/index.html">Block 1: Theorie und Beispiel (48 min)</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../workshop/einstieg/index.html">Programm</a></li><li class="breadcrumb-item"><a href="../../workshop/block-1-theorie-und-beispiel/index.html">Block 1: Theorie und Beispiel (48 min)</a></li><li class="breadcrumb-item"><a href="../../workshop/block-1-theorie-und-beispiel/index.html">Block 1: Theorie und Beispiel (45 min)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Block 1: Theorie und Beispiel (48 min)</h1>
+<h1 class="title">Block 1: Theorie und Beispiel (45 min)</h1>
 </div>
 
 
@@ -671,103 +636,141 @@ window.Quarto = {
 <section id="zeitbudget-block-1" class="level2 callout-timing" data-icon="false">
 <h2 class="anchored" data-anchor-id="zeitbudget-block-1">Zeitbudget Block 1</h2>
 <ul>
-<li>5 min: kurze Theorie zur Methode</li>
-<li>35 min: gemeinsamer Durchgang durch ein ausgearbeitetes Spec Sheet (Statistik-Beispiel)</li>
-<li>8 min: Werkzeug-Tour: drei Affordance-Typen</li>
+<li>11 min: Theorie und CLT-Auffrischung (Engpass, Vorwissen, Scaffolding-Leiter, Brücke ins Spec Sheet, drei Wissensbaustein-Typen, Spec-vs-Prompt, zwei LLM-Rollen)</li>
+<li>30 min: Worked Example (live durch die Statistik-Spec-Sheet-Seite)</li>
+<li>3 min: Werkzeug-Tour (drei Affordance-Typen, abgekürzt)</li>
+<li>1 min: Übergang in Block 2</li>
 </ul>
 </section>
 <section id="was-block-1-leistet" class="level2">
 <h2 class="anchored" data-anchor-id="was-block-1-leistet">Was Block 1 leistet</h2>
 <p>Bevor du in Block 2 dein eigenes Spec Sheet baust, schaust du jemand anders einmal beim Bauen zu. Das ist der Sinn des ausgearbeiteten Beispiels: du siehst die Methode in Aktion, einschliesslich der Stellen, an denen LLM-Vorschläge geprüft, korrigiert oder verworfen werden.</p>
 <p>Ohne dieses Vorbeispiel wäre die Aufgabe in Block 2 zu offen. Mit ihm hast du eine konkrete Schablone, an der du dich orientieren kannst, auch dann, wenn dein Fach völlig anders ist als Statistik.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href=""><i class="bi-file-slides " style="" role="img" aria-hidden="true"></i> Präsentation</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href=""><i class="bi-pencil-square " style="" role="img" aria-hidden="true"></i> Aktivitäten</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href=""><i class="bi-book " style="" role="img" aria-hidden="true"></i> Nachlesen</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<section id="slides-block-1" class="level4">
+<h4 class="anchored" data-anchor-id="slides-block-1">Slides Block 1</h4>
+    <p><a href="../../slides/workshop/index.html" target="_blank">View slides in full screen</a></p>
+       <div class="ratio ratio-16x9">
+      <iframe class="slide-deck" src="../../slides/workshop/index.html" height="500px"></iframe>
+    </div>
+  
 </section>
-<section id="kurze-theorie-5-min" class="level2">
-<h2 class="anchored" data-anchor-id="kurze-theorie-5-min">1. Kurze Theorie (5 min)</h2>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Was du aus den vorherigen Workshops mitbringst
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Du kennst die Cognitive Load Theory in Grundzügen: das Arbeitsgedächtnis hat begrenzte Kapazität, und je mehr Elemente einer Aufgabe gleichzeitig gehalten werden müssen (Element-Interaktivität), desto höher die Last. Diese Grundeinsicht trägt auch heute, aber wir gehen einen Schritt weiter.</p>
-<p>Die Cognitive Load Theory beantwortet die Frage <em>warum</em> eine Aufgabe zu schwer ist. Sie beantwortet weniger gut die Frage <em>welcher konkrete Wissensbaustein gerade fehlt</em>. Genau dafür arbeiten wir heute mit einer feineren Auflösung.</p>
-</div>
-</div>
-<section id="die-drei-wissensbaustein-typen" class="level3">
-<h3 class="anchored" data-anchor-id="die-drei-wissensbaustein-typen">Die drei Wissensbaustein-Typen</h3>
-<p>Wir unterscheiden drei Typen von Wissensbausteinen, weil sie sich auf unterschiedliche Weise erwerben lassen:</p>
-<ul>
-<li><strong>Faktenwissen.</strong> Ein Fakt, eine Formel, ein Begriff, der abgerufen werden muss. Beispiel: “kennt die Formel der Standardabweichung”. Erwirbt sich durch <em>aktives Abrufen</em> aus dem Gedächtnis (nicht durch Wiedererkennen aus einer Liste).</li>
-<li><strong>Begriffliches Wissen.</strong> Eine Kategorie oder ein Muster, das über mehrere Beispiele hinweg erkannt werden muss. Beispiel: “erkennt eine Frage als Korrelationsfrage und nicht als Mittelwertvergleich”. Erwirbt sich durch <em>Klassifikationsübung</em> mit vielen Beispielen und Gegenbeispielen.</li>
-<li><strong>Erklärungswissen.</strong> Eine Regel mit erklärender Struktur, die mit Verständnis angewandt werden muss. Beispiel: “weiss, warum eine Korrelation von <span class="math inline">\(r = 0.3\)</span> in einem Kontext bedeutsam und in einem anderen vernachlässigbar ist”. Erwirbt sich durch <em>Selbsterklärung</em>, durch worked examples mit Reflexionsfragen, durch kontrastive Fälle.</li>
-</ul>
-<p>Die Unterscheidung trägt für uns drei Lasten:</p>
+<div class="callout-facilitator">
+<section id="slides-block-1-vier-sequenzen-11-min-insgesamt" class="level4">
+<h4 class="anchored" data-anchor-id="slides-block-1-vier-sequenzen-11-min-insgesamt">Slides Block 1: vier Sequenzen (~11 min insgesamt)</h4>
+<p><strong>Sequenz 1: CLT-Auffrischung</strong> (~7 min). Vier Slides aus der Refresher-Präsentation:</p>
 <ol type="1">
-<li>Sie verhindert, dass wir alle Wissensformen gleich behandeln, was im Klassenraum oft passiert (alles wird “erklärt” oder alles wird “geübt”).</li>
-<li>Sie macht sichtbar, <strong>welche Aktivität welche Wissensform überhaupt entwickeln kann</strong>. Eine Studierende kann eine Erklärung <em>lesen</em>, ohne ein Erklärungswissen aufzubauen. Sie muss sich an einer eigenen Erklärung versuchen.</li>
-<li>Sie liefert die Grundlage für die Frage, welche Aufgabenteile durch KI substituiert werden können, ohne den Lernweg zu unterbrechen, und welche nicht.</li>
+<li><em>CLT-Engpass</em> (~1.5 min): Sensorischer Input → Arbeitsgedächtnis (4 Elemente, 15-30 Sek.) → Langzeitgedächtnis. Diese Engstelle ist der Grund, warum Lernen Mühe macht.</li>
+<li><em>Vorwissen bestimmt die intrinsische Last</em> (~1.5 min): Gleiche Aufgabe, unterschiedliche kognitive Kosten je nach Vorwissen. Konsequenz: Aufgaben müssen sich an Vorwissen anpassen, was Diagnose verlangt.</li>
+<li><em>Scaffolding-Leiter</em> (~1.5 min): Worked Example → Completion → Hinweis-gestützt → eigenständig. Welche Stufe greift, hängt von der Diagnose ab.</li>
+<li><em>Brücke ins Spec Sheet</em> (~1 min): “Die Refresher-Präsentation hat gesagt, wir müssen diagnostizieren. Heute machen wir die Diagnose explizit, schriftlich und falsifizierbar. Genau das ist das Spec Sheet.”</li>
 </ol>
+<p>Wer die Auffrischung in Volllänge braucht, findet sie im <em>Nachlesen</em>-Tab.</p>
+<p><strong>Sequenz 2: Drei Wissensbaustein-Typen</strong> (~2 min). Faktenwissen / Begriffliches Wissen / Erklärungswissen, je mit Lernmechanismus (aktives Abrufen / Klassifikationsübung / Selbsterklärung). Kernbotschaft: die Typ-Unterscheidung macht sichtbar, <em>welche Aktivität welche Wissensform überhaupt entwickeln kann</em>.</p>
+<p><strong>Sequenz 3: Spec ist dauerhaft, Prompt ist Übersetzung</strong> (~1 min). Eine pragmatische Trennung: das Spec Sheet überlebt Modellgenerationen, der Prompt ist Werkzeug-spezifisch und altert mit dem Modell.</p>
+<p><strong>Sequenz 4: Zwei LLM-Rollen</strong> (~1 min). Hypothesengenerator (vor der Validierung) vs.&nbsp;Lernende-Simulator (nach der Validierung, in zwei Probemodi: reaktiv und produktiv). Beim Arbeiten in Block 2 immer fragen: <em>In welcher Rolle ist das LLM gerade?</em></p>
+<p><strong>Worked Example</strong> (30 min): Live-Walkthrough durch die <a href="../../workshop/block-1-theorie-und-beispiel/worked-example-statistics.html">Worked-Example-Seite</a>. Drei Stellen besonders kommentieren (siehe <em>Aktivitäten</em>-Tab).</p>
+<p><strong>Werkzeug-Tour</strong> (3 min): kurz die drei Affordance-Typen nennen (Chat / Strukturierte API / Agentisch), je 30 Sekunden. Volllänge im <em>Nachlesen</em>-Tab. Live-Demo nur fürs Marimo-Notebook (1 min).</p>
+<p><strong>Übergang in Block 2</strong> (1 min): Verweis auf Vorlage, Prompt-Scaffolds, eigene Aufgabe parathalten. Direkt in die Pause.</p>
 </section>
-<section id="spec-ist-dauerhaft-prompt-ist-übersetzung" class="level3">
-<h3 class="anchored" data-anchor-id="spec-ist-dauerhaft-prompt-ist-übersetzung">Spec ist dauerhaft, Prompt ist Übersetzung</h3>
-<p>Eine zweite Unterscheidung, die heute den ganzen Workshop trägt:</p>
-<ul>
-<li>Ein <strong>Spec Sheet</strong> beschreibt, was eine Studierende kognitiv für eine Aufgabe mitbringen muss. Es ist werkzeug-unabhängig.</li>
-<li>Ein <strong>Prompt</strong> ist die Übersetzung des Spec Sheets in ein konkretes Werkzeug zu einem konkreten Zeitpunkt.</li>
-</ul>
-<p>Diese Trennung ist nicht nur ordnungstheoretisch. Sie hat eine pragmatische Konsequenz: das Spec Sheet überlebt mehrere Modellgenerationen. Ein Prompt, den du heute für GPT-4 schreibst, funktioniert in zwei Jahren möglicherweise nicht mehr. Ein Spec Sheet, das du heute baust, ist in zwei Jahren noch genau so gültig (weil dort nicht steht, was das Werkzeug tun soll, sondern was die Studierende im Kopf hat).</p>
+<section id="was-vb-vermutet-vs.-beobachtet-eigentlich-leistet" class="level4 callout-pro-tip" data-icon="false">
+<h4 class="anchored" data-anchor-id="was-vb-vermutet-vs.-beobachtet-eigentlich-leistet">Was V/B (vermutet vs.&nbsp;beobachtet) eigentlich leistet</h4>
+<p>Beim Worked Example explizit ansprechen: V/B ist nicht eine Bürokratie, sondern eine kognitive Disziplin. Vier Mechanismen machen sie nötig: Source-Monitoring-Failure, Processing-Fluency-als-Wahrheit, Curse-of-Knowledge, Categories-precede-Data. Detail im <em>Nachlesen</em>-Tab. Im Worked Example zeigen, dass V/B genau in dem Moment markiert wird, in dem das LLM den Vorschlag macht: nur dann ist die Quelle psychologisch noch zugänglich.</p>
 </section>
-<section id="zwei-rollen-für-das-llm" class="level3">
-<h3 class="anchored" data-anchor-id="zwei-rollen-für-das-llm">Zwei Rollen für das LLM</h3>
-<p>Wir nutzen heute LLMs in zwei klar getrennten Rollen, die du dir einprägen solltest:</p>
-<ul>
-<li><strong>Hypothesengenerator.</strong> Das LLM schlägt dir eine erste Liste von Wissensbausteinen, Fehlkonzepten, Wissenslücken vor. Es zieht aus der Lehrforschungsliteratur, die es gelesen hat. Das ist hilfreich gegen das Blank-Page-Problem, aber kein Befund: was es vorschlägt, prüfst du an <em>deiner</em> Lehrerfahrung und markierst entsprechend (vermutet vs.&nbsp;beobachtet).</li>
-<li><strong>Lernende-Simulator</strong>, mit zwei Probemodi:
-<ul>
-<li><strong>Reaktiv</strong> (das LLM liest dein Aufgabenmaterial als eine Studierende, der Baustein X fehlt, und meldet, was unklar ist): operationalisiert den Fluch des Wissens. Es zeigt dir, was deine Aufgabenstellung implizit voraussetzt.</li>
-<li><strong>Produktiv</strong> (das LLM produziert eine Antwort einer Studierenden mit fehlendem Baustein oder Fehlkonzept): testet, ob deine Aufgabe diesen Misserfolg überhaupt fängt.</li>
-</ul></li>
-</ul>
-<p>Beide Rollen sind heute klar zu unterscheiden. Du fragst dich beim Arbeiten: <em>Bin ich gerade in der Hypothesen-Phase oder in der Simulations-Phase? Welche Rolle hat das LLM gerade?</em></p>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<section id="was-du-in-block-1-aktiv-tust" class="level4">
+<h4 class="anchored" data-anchor-id="was-du-in-block-1-aktiv-tust">Was du in Block 1 aktiv tust</h4>
+<p>Block 1 ist überwiegend Mitschauen. Aber du brauchst dabei nicht passiv zu sein: zwei Dinge bringst du selbst ein.</p>
 </section>
+<section id="mitbringen-deine-eigene-teilaufgabe" class="level4 callout-individual" data-icon="false">
+<h4 class="anchored" data-anchor-id="mitbringen-deine-eigene-teilaufgabe">Mitbringen: deine eigene Teilaufgabe</h4>
+<p>Halte während Block 1 <em>eine konkrete Teilaufgabe aus deiner eigenen Lehre</em> gedanklich parat. Idealerweise eine, die du in Block 2 verwenden willst. Beim Mitschauen prüfst du laufend: <em>Würde dieser Schritt auch für meine Aufgabe gehen? Welche Stelle wäre bei meiner Aufgabe anders?</em></p>
+<p>Ohne diesen Bezugspunkt wird der Worked Example abstrakt. Mit ihm wird er zum Vorbild.</p>
 </section>
-<section id="worked-example-spec-sheet-zu-einer-statistik-teilaufgabe-35-min" class="level2">
-<h2 class="anchored" data-anchor-id="worked-example-spec-sheet-zu-einer-statistik-teilaufgabe-35-min">2. Worked Example: Spec Sheet zu einer Statistik-Teilaufgabe (35 min)</h2>
-<p>Die Live-Demo arbeitet sich durch das ausgearbeitete Beispiel. Du folgst auf der Seite <a href="../../workshop/block-1-theorie-und-beispiel/worked-example-statistics.html">Worked Example: Spec Sheet für eine Statistik-Teilaufgabe</a> mit, während die Instruktorin Schritt für Schritt vorführt:</p>
-<ol type="1">
-<li>Sektion A des Spec Sheets ausfüllen (Teilaufgabe, Kontext, Lernziel).</li>
-<li>Prompt 1 in einem Chat-LLM laufen lassen: das LLM schlägt Wissensbausteine vor.</li>
-<li>Vorschläge <strong>validieren</strong>: einige übernehmen, einige korrigieren, einige verwerfen. Die Pruning-Bewegungen werden laut kommentiert.</li>
-<li>Reaktive Simulation für einen zentralen Baustein: das LLM liest die Aufgabenstellung “ohne Baustein X” und meldet zurück, was unklar ist.</li>
-<li>Produktive Simulation für ein Fehlkonzept: das LLM produziert eine plausible Studierendenantwort mit dem Fehlkonzept.</li>
-<li>Falsifikationsnotiz festhalten: woran würde ich erkennen, dass meine Decomposition falsch ist?</li>
-</ol>
-</section>
-<section id="worauf-du-beim-mitschauen-achtest" class="level2 callout-pro-tip" data-icon="false">
-<h2 class="anchored" data-anchor-id="worauf-du-beim-mitschauen-achtest">Worauf du beim Mitschauen achtest</h2>
-<p>Drei Stellen verdienen besondere Aufmerksamkeit:</p>
+<section id="beim-worked-example-drei-stellen-genau-beobachten" class="level4 callout-individual" data-icon="false">
+<h4 class="anchored" data-anchor-id="beim-worked-example-drei-stellen-genau-beobachten">Beim Worked Example: drei Stellen genau beobachten</h4>
+<p>Drei Stellen verdienen besondere Aufmerksamkeit, während die Instruktorin durch die <a href="../../workshop/block-1-theorie-und-beispiel/worked-example-statistics.html">Worked-Example-Seite</a> geht:</p>
 <ul>
 <li><strong>Wenn das LLM einen Vorschlag macht, der falsch oder daneben ist:</strong> wie geht die Instruktorin damit um? Welches Argument benutzt sie, um den Vorschlag zu verwerfen?</li>
-<li><strong>Wenn die reaktive Simulation eine Stelle markiert, die niemand erwartet hatte:</strong> das ist ein Treffer und gehört in das Spec Sheet (typischerweise als Wissenslücke).</li>
+<li><strong>Wenn die reaktive Simulation eine Stelle markiert, die niemand erwartet hatte:</strong> das ist ein Treffer und gehört in das Spec Sheet, typischerweise als zusätzlicher Baustein in Sektion B oder als Erwerb-Hinweis bei einem bestehenden Baustein.</li>
 <li><strong>Wenn die produktive Simulation eine plausible-aber-falsche Antwort produziert:</strong> würde dir der Misserfolg beim Korrigieren auffallen?</li>
 </ul>
+<p>Diese drei Beobachtungen sind die Hauptlehre aus Block 1. In Block 2 wirst du dieselben drei Bewegungen an deiner eigenen Aufgabe machen.</p>
 </section>
-<section id="werkzeug-tour-drei-affordance-typen-8-min" class="level2">
-<h2 class="anchored" data-anchor-id="werkzeug-tour-drei-affordance-typen-8-min">3. Werkzeug-Tour: drei Affordance-Typen (8 min)</h2>
-<p>Bevor du in Block 3 dein Spec Sheet selbst in einen Prompt überführst, siehst du kurz drei verschiedene Arten, wie LLMs eingesetzt werden können. Wir sprechen nicht von Produkten (die ändern sich), sondern von <strong>Affordance-Typen</strong> (die bleiben stabil).</p>
-<section id="typ-1-chat-werkzeug" class="level3">
-<h3 class="anchored" data-anchor-id="typ-1-chat-werkzeug">Typ 1: Chat-Werkzeug</h3>
+<section id="werkzeug-tour-drei-affordance-typen-kurz-mitnehmen" class="level4">
+<h4 class="anchored" data-anchor-id="werkzeug-tour-drei-affordance-typen-kurz-mitnehmen">Werkzeug-Tour: drei Affordance-Typen, kurz mitnehmen</h4>
+<p>Bevor du in Block 3 dein Spec Sheet selbst in einen Prompt überführst, siehst du in 3 Minuten drei Arten, wie LLMs eingesetzt werden können. Wir sprechen nicht von Produkten (die ändern sich), sondern von <strong>Affordance-Typen</strong> (die bleiben stabil):</p>
+<ul>
+<li><strong>Typ 1: Chat-Werkzeug</strong> (Microsoft Copilot, ChatGPT, Claude, HuggingChat). Niedrige Einstiegsschwelle, keine garantierte Antwortstruktur. Genau das, was du in Block 3 selbst machst.</li>
+<li><strong>Typ 2: Strukturierte API-Generierung</strong> (kurz vorgeführt im Marimo-Notebook). Erzwungene Ausgabestruktur via Schema. Für Pipeline-Anwendung.</li>
+<li><strong>Typ 3: Agentisches Werkzeug</strong> (Claude Code, Cursor, pi.dev). LLM hat Werkzeugzugriff: kann Dateien lesen, Code ausführen, im Web suchen.</li>
+</ul>
+<p>Volllängenbeschreibung mit Vor- und Nachteilen pro Typ findest du im <em>Nachlesen</em>-Tab.</p>
+</section>
+<section id="was-du-aus-der-tour-mitnehmen-solltest" class="level4 callout-checkpoint" data-icon="false">
+<h4 class="anchored" data-anchor-id="was-du-aus-der-tour-mitnehmen-solltest">Was du aus der Tour mitnehmen solltest</h4>
+<p>Drei Affordance-Typen, drei verschiedene Aufgaben:</p>
+<ul>
+<li>Chat: für Hypothesengeneration, Simulation, alltägliche Anwendung.</li>
+<li>Strukturiert: für Pipeline-Anwendung, Wiederverwendung in nachfolgenden Schritten.</li>
+<li>Agentisch: für komplexere, mehrstufige Aufgaben mit Werkzeugzugriff.</li>
+</ul>
+<p>Dein Spec Sheet ist für <strong>alle drei</strong> verwendbar. Was sich ändert, ist die Übersetzung. In Block 3 machst du die Übersetzung in einen Chat-System-Prompt; die anderen beiden Affordance-Typen sind für später.</p>
+</section>
+<section id="übergang-in-block-2" class="level4">
+<h4 class="anchored" data-anchor-id="übergang-in-block-2">Übergang in Block 2</h4>
+<p>Mit dem Worked Example als Vorbild und der Werkzeug-Tour als Landschaft im Hintergrund gehst du nach der Pause in Block 2: dein eigenes Spec Sheet.</p>
+<p>Halte die Vorlage und die Prompt-Scaffolds bereit:</p>
+<ul>
+<li><a href="../../workshop/spec-sheet-template/index.html">Spec-Sheet-Vorlage</a></li>
+<li><a href="../../workshop/spec-sheet-template/prompt-scaffolds.html">Prompt-Scaffolds</a></li>
+</ul>
+<p>Bring eine Teilaufgabe aus deiner eigenen Lehre mit. Wenn du keine dabei hast, kannst du auf eines der <a href="../../workshop/build/scenarios/index.html">Backup-Szenarien</a> zurückgreifen.</p>
+</section>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<section id="cognitive-load-theory-vollständige-auffrischung" class="level4 callout-nachlesen" data-icon="false">
+<h4 class="anchored" data-anchor-id="cognitive-load-theory-vollständige-auffrischung">Cognitive Load Theory: vollständige Auffrischung</h4>
+<p>Wer in der Block-1-Auffrischung das Gefühl hatte, zu schnell durchgegangen zu sein, oder den Aufbauworkshop schon länger her hat: der <strong>Refresher</strong> der Virtuellen Akademie ist die kompakte 30-Minuten-Volllänge zu CLT, Schemata, Expertise-Reversal-Effekt und scaffolding-basierter KI-Nutzung.</p>
+<p><a href="https://virtuelleakademie.github.io/ki-lehre-refresher/presentation/" target="_blank">Refresher-Präsentation: Von der kognitiven Architektur zum KI-gestützten Scaffolding</a></p>
+<p>Die wichtigsten Konzepte für heute:</p>
+<ul>
+<li><strong>Arbeitsgedächtnis als Engpass:</strong> etwa 4 Elemente, 15-30 Sekunden. Jeder Denkakt muss durch dieses Nadelöhr.</li>
+<li><strong>Schemata im Langzeitgedächtnis:</strong> komprimieren viele Elemente zu wenigen Chunks, dadurch Entlastung des Engpasses. Schemata aufbauen erfordert eigene Denkarbeit.</li>
+<li><strong>Drei Lastarten</strong> (CLT): extrinsisch (reduzieren), intrinsisch (steuern via Aufgabendesign), lernrelevant (maximieren).</li>
+<li><strong>Vorwissen verändert die intrinsische Last:</strong> dieselbe Aufgabe ist für Anfängerin und Fortgeschrittene unterschiedlich kostenintensiv. Konsequenz: Aufgaben müssen sich an Vorwissen anpassen, was Diagnose verlangt.</li>
+<li><strong>Scaffolding-Leiter</strong> (Fading): Worked Example → Completion → Hinweis-gestützt → eigenständig. Stufe richtet sich nach Diagnose.</li>
+</ul>
+<p>Das Spec Sheet ist genau diese Diagnose, in schriftlich-falsifizierbarer Form.</p>
+</section>
+<section id="warum-vb-die-zentrale-disziplin-ist" class="level4 callout-nachlesen" data-icon="false">
+<h4 class="anchored" data-anchor-id="warum-vb-die-zentrale-disziplin-ist">Warum V/B die zentrale Disziplin ist</h4>
+<p>V/B ist nicht ein Verwaltungsdetail, sondern die methodische Substanz des Spec Sheets. Vier Mechanismen aus der Kognitionspsychologie machen sie nötig:</p>
+<ul>
+<li><strong>Source-Monitoring-Failure</strong> (Johnson, Hashtroudi &amp; Lindsay, 1993). Menschen sind schlecht darin, sich daran zu erinnern, ob sie etwas gelesen, erzählt bekommen oder selbst gedacht haben, besonders nach kurzer Verzögerung. Fünf Minuten nach dem Lesen des LLM-Outputs kann eine Lehrperson nicht mehr zuverlässig sagen, welche Einträge aus ihrer eigenen Lehrerinnerung stammten und welche das LLM gerade vorgeschlagen hat. V/B erzwingt die Quellen-Markierung <em>im Moment des Lesens</em>, wenn die Unterscheidung psychologisch noch abrufbar ist.</li>
+<li><strong>Processing-Fluency = gefühlte Wahrheit</strong> (Reber &amp; Schwarz, 1999; illusory-truth-Effekt: Hasher, Goldstein &amp; Toppino, 1977). Fluent geschriebener Text fühlt sich wahrer an als weniger fluenter Text, unabhängig von der Evidenz. LLM-Output ist gleichmässig fluent. Ohne explizite Quellen-Markierung rutschen fluente Behauptungen über Studierende in den Status von Defaultwahrheiten.</li>
+<li><strong>Curse of Knowledge</strong> (Camerer, Loewenstein &amp; Weber, 1989). Sobald eine Kategorie einmal sprachlich für dich ausformuliert ist, beginnst du sie in deinen Daten zu sehen, ob sie da ist oder nicht. Wenn das LLM sagt “Studierende verwechseln Korrelation und Kausalität”, siehst du diese Verwechslung rückwirkend in alten Aufgaben. Die B-Bedingung (“welche Studierende konkret? welche Klausur?”) erzwingt eine konkrete Bindung, bevor das rückwirkende Sehen ein V zu einem B befördern kann.</li>
+<li><strong>Categories precede Data</strong>. In der qualitativen Forschung bekannt: wenn Kategorien vor den Daten gebildet werden, werden die Daten in die Kategorien hineingezwungen. V/B kehrt den Default um: Kategorien kommen vom LLM, aber jede muss gegen die eigene konkrete Erinnerung geprüft werden, bevor sie zu B befördert wird.</li>
+</ul>
+<p>V/B reicht alleine nicht. Ehrlich: eine Lehrperson, die alles als B markiert, ohne nachzudenken, hebt die Disziplin auf. Die paarweise Überarbeitung am Ende von Block 2 macht den V/B-Mix sichtbar; das hilft, ist aber kein Garant. Die Falsifikationsnotiz im Closing und das Test-Protokoll in Block 3 sind die anderen beiden Teile derselben Anti-Fluenz-Bewegung. Zusammen fragen sie: <em>Was würde mich widerlegen?</em> statt <em>Was klingt plausibel?</em></p>
+</section>
+<div class="callout-nachlesen" data-icon="false">
+<section id="drei-affordance-typen-in-volllänge" class="level4">
+<h4 class="anchored" data-anchor-id="drei-affordance-typen-in-volllänge">Drei Affordance-Typen in Volllänge</h4>
+</section>
+<section id="typ-1-chat-werkzeug" class="level4">
+<h4 class="anchored" data-anchor-id="typ-1-chat-werkzeug">Typ 1: Chat-Werkzeug</h4>
 <p>Beispiele: Microsoft Copilot, ChatGPT, Claude, HuggingChat. Du gibst einen System-Prompt vor, dann gibst du Texte ein und bekommst Texte zurück. Einfachste, breitflächig verfügbare Form. Genau das, was du in Block 3 selbst machst.</p>
-<p>Vorteile: niedrige Einstiegsschwelle, keine Programmierung, jeder Browser tut es.</p>
-<p>Grenzen: keine garantierte Struktur in der Antwort. Das LLM kann einfach in Prosa antworten, wie es ihm gerade passt.</p>
+<p><em>Vorteile:</em> niedrige Einstiegsschwelle, keine Programmierung, jeder Browser tut es. <em>Grenzen:</em> keine garantierte Struktur in der Antwort. Das LLM kann einfach in Prosa antworten, wie es ihm gerade passt.</p>
 </section>
-<section id="typ-2-strukturierte-api-generierung" class="level3">
-<h3 class="anchored" data-anchor-id="typ-2-strukturierte-api-generierung">Typ 2: Strukturierte API-Generierung</h3>
-<p>Beispiel: ein Marimo-Notebook (live-Demo), das den Datenfluss eines strukturierten API-Aufrufs Zelle für Zelle sichtbar macht. Das LLM wird via API angesteuert, mit einer <strong>erzwungenen Ausgabestruktur</strong> (hier: ein Pydantic-Schema). Es muss in genau dem geforderten Format antworten.</p>
+<section id="typ-2-strukturierte-api-generierung" class="level4">
+<h4 class="anchored" data-anchor-id="typ-2-strukturierte-api-generierung">Typ 2: Strukturierte API-Generierung</h4>
+<p>Beispiel: ein Marimo-Notebook (live-Demo in Block 1), das den Datenfluss eines strukturierten API-Aufrufs Zelle für Zelle sichtbar macht. Das LLM wird via API angesteuert, mit einer <strong>erzwungenen Ausgabestruktur</strong> (hier: ein Pydantic-Schema). Es muss in genau dem geforderten Format antworten.</p>
 <p>Im Notebook siehst du sechs Schritte als separate Zellen:</p>
 <ol type="1">
 <li>Schema definieren (Pydantic).</li>
@@ -778,36 +781,45 @@ window.Quarto = {
 <li>Export in einen portablen Prompt.</li>
 </ol>
 <p>Genau dieser Aufbau macht den Unterschied zwischen <em>Spec</em> und <em>Prompt</em> sichtbar: das Schema ist ein eigenes, durables Objekt; der Prompt ist nur Teil des API-Aufrufs in Schritt 4.</p>
-<p>Vorteile: garantierte Struktur, weiterverarbeitbar in nachfolgenden Schritten, Datenfluss komplett sichtbar.</p>
-<p>Grenzen: erfordert Python-Verständnis im Lesen (nicht im Schreiben). Die Struktur ist im Vorfeld festgelegt.</p>
+<p><em>Vorteile:</em> garantierte Struktur, weiterverarbeitbar in nachfolgenden Schritten, Datenfluss komplett sichtbar. <em>Grenzen:</em> erfordert Python-Verständnis im Lesen (nicht im Schreiben). Die Struktur ist im Vorfeld festgelegt.</p>
 <p>Das Notebook liegt unter <code>hf-spaces/diagnostic-tool-shell-marimo/notebook.py</code>. Es wird im Workshop von der Instruktorin per <code>marimo edit</code> vorgeführt; du musst nichts installieren. Wenn du es zu Hause selbst laufen lassen willst, brauchst du Python und einen <code>ANTHROPIC_API_KEY</code>.</p>
 </section>
-<section id="typ-3-agentisches-werkzeug" class="level3">
-<h3 class="anchored" data-anchor-id="typ-3-agentisches-werkzeug">Typ 3: Agentisches Werkzeug</h3>
+<section id="typ-3-agentisches-werkzeug" class="level4">
+<h4 class="anchored" data-anchor-id="typ-3-agentisches-werkzeug">Typ 3: Agentisches Werkzeug</h4>
 <p>Beispiele: Claude Code, pi.dev, Cursor (kurze Aufzeichnung als Demo). Hier hat das LLM nicht nur Text-Input, sondern Werkzeuge: es kann Dateien lesen, Code ausführen, im Web suchen.</p>
-<p>Vorteile: kann komplexe Aufgaben übernehmen, die mehrere Schritte verlangen (z.B. einen Aufgabentext lesen, eine Beispielantwort generieren, sie gegen eine Musterlösung testen).</p>
-<p>Grenzen: deutlich höhere Komplexität, Kostenfaktor, oft (noch) nicht institutionell freigegeben.</p>
+<p><em>Vorteile:</em> kann komplexe Aufgaben übernehmen, die mehrere Schritte verlangen (z.B. einen Aufgabentext lesen, eine Beispielantwort generieren, sie gegen eine Musterlösung testen). <em>Grenzen:</em> deutlich höhere Komplexität, Kostenfaktor, oft (noch) nicht institutionell freigegeben.</p>
 </section>
-</section>
-<section id="was-du-aus-der-tour-mitnehmen-solltest" class="level2 callout-checkpoint" data-icon="false">
-<h2 class="anchored" data-anchor-id="was-du-aus-der-tour-mitnehmen-solltest">Was du aus der Tour mitnehmen solltest</h2>
-<p>Drei Affordance-Typen, drei verschiedene Aufgaben:</p>
+</div>
+<section id="vertiefung-cognitive-offloading-vs.-outsourcing" class="level4 callout-nachlesen" data-icon="false">
+<h4 class="anchored" data-anchor-id="vertiefung-cognitive-offloading-vs.-outsourcing">Vertiefung: Cognitive Offloading vs.&nbsp;Outsourcing</h4>
+<p>Die Unterscheidung, die in Block 1 angedeutet wurde und im Closing als <em>Selbst-Tun-erforderlich vs.&nbsp;Zuschauen-reicht</em> operationalisiert wird, hat ihre theoretische Heimat im Aufbau-Workshop und im CAS Lernpsychologie. Dort findest du:</p>
 <ul>
-<li>Chat: für Hypothesengeneration, Simulation, alltägliche Anwendung.</li>
-<li>Strukturiert: für Pipeline-Anwendung, Wiederverwendung in nachfolgenden Schritten.</li>
-<li>Agentisch: für komplexere, mehrstufige Aufgaben mit Werkzeugzugriff.</li>
+<li><strong>Cognitive offloading vs.&nbsp;outsourcing</strong> mit Forschungsbezügen (Risko, Google Effect, KI-Abhängigkeit) sowie das <strong>Evaluationsparadox</strong> und die <strong>Versuch-dann-Prüfe</strong>-Sequenz: <a href="https://virtuelleakademie.github.io/cas-lernpsychologie/02-ki-und-lernen/" target="_blank">02-ki-und-lernen, CAS Lernpsychologie</a>.</li>
+<li><strong>Fünf Leitfragen</strong> als alternative Linse auf dasselbe Designproblem (Lernen-vs-Performanz, Aufbau-Phase, kognitive Arbeit, KI-Übernahme, Sequenzierung): <a href="https://virtuelleakademie.github.io/cas-lernpsychologie/02-ki-und-lernen/5-leitfragen/" target="_blank">02-ki-und-lernen / 5-leitfragen</a>.</li>
 </ul>
-<p>Dein Spec Sheet ist für <strong>alle drei</strong> verwendbar. Was sich ändert, ist die Übersetzung. Im Block 3 machst du die Übersetzung in einen Chat-System-Prompt; die anderen beiden Affordance-Typen sind für später.</p>
+<p>Das Spec Sheet ist die schriftliche Umsetzung der Diagnoseseite dieser Frameworks.</p>
 </section>
-<section id="übergang-in-block-2" class="level2">
-<h2 class="anchored" data-anchor-id="übergang-in-block-2">Übergang in Block 2</h2>
-<p>Mit dem Worked Example als Vorbild und der Werkzeug-Tour als Landschaft im Hintergrund gehst du jetzt in Block 2: dein eigenes Spec Sheet.</p>
-<p>Halte die Vorlage und die Prompt-Scaffolds bereit:</p>
-<ul>
-<li><a href="../../workshop/spec-sheet-template/index.html">Spec-Sheet-Vorlage</a></li>
-<li><a href="../../workshop/spec-sheet-template/prompt-scaffolds.html">Prompt-Scaffolds</a></li>
-</ul>
-<p>Nach der Pause beginnt Block 2 mit fünf Minuten Orientierung an der Vorlage. Bring eine Teilaufgabe aus deiner eigenen Lehre mit. Wenn du keine dabei hast, kannst du auf eines der <a href="../../workshop/build/scenarios/index.html">Backup-Szenarien</a> zurückgreifen.</p>
+<section id="vertiefung-kompetenzerwerb-und-expertise-reversal" class="level4 callout-nachlesen" data-icon="false">
+<h4 class="anchored" data-anchor-id="vertiefung-kompetenzerwerb-und-expertise-reversal">Vertiefung: Kompetenzerwerb und Expertise-Reversal</h4>
+<p>Das Wissensbaustein-Modell im Spec Sheet (Faktenwissen / Begriffliches Wissen / Erklärungswissen) hat seine Wurzel in der Forschung zu Kompetenzerwerb (ACT-R Wissenskompilation, schwache Methoden → Proceduralisierung → Compilation) und im Expertise-Reversal-Effekt: was Anfängerinnen hilft, schadet Expertinnen, und umgekehrt.</p>
+<p>Das ist auch die theoretische Heimat des <em>Curse-of-Knowledge</em>, der den Workshop-Einstieg trägt: Expertinnen verwechseln die Epistemologie der Expertise mit der Pädagogik für Lernende.</p>
+<p>Vertiefung: <a href="https://virtuelleakademie.github.io/cas-lernpsychologie/01-lernen-verstehen/kompetenz-erwerben/" target="_blank">01-lernen-verstehen / kompetenz-erwerben, CAS Lernpsychologie</a>.</p>
+</section>
+</div>
+</div>
+</div>
+</section>
+<section id="worked-example-spec-sheet-zu-einer-statistik-teilaufgabe" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-spec-sheet-zu-einer-statistik-teilaufgabe">Worked Example: Spec Sheet zu einer Statistik-Teilaufgabe</h2>
+<p>Die Live-Demo arbeitet sich durch das ausgearbeitete Beispiel. Du folgst auf der Seite <a href="../../workshop/block-1-theorie-und-beispiel/worked-example-statistics.html">Worked Example: Spec Sheet für eine Statistik-Teilaufgabe</a> mit, während die Instruktorin Schritt für Schritt vorführt:</p>
+<ol type="1">
+<li>Sektion A des Spec Sheets ausfüllen (Teilaufgabe, Kontext, Lernziel).</li>
+<li>Prompt 1 in einem Chat-LLM laufen lassen: das LLM schlägt Wissensbausteine vor.</li>
+<li>Vorschläge <strong>validieren</strong>: einige als V markieren, einige als B, einige korrigieren, einige verwerfen. Die Pruning-Bewegungen werden laut kommentiert.</li>
+<li>Reaktive Simulation für einen zentralen Baustein: das LLM liest die Aufgabenstellung “ohne Baustein X” und meldet zurück, was unklar ist. Funde fliessen als zusätzliche Bausteine oder Erwerb-Hinweise zurück in Sektion B.</li>
+<li>Produktive Simulation für ein Fehlkonzept: das LLM produziert eine plausible Studierendenantwort mit dem Fehlkonzept.</li>
+<li>(Falsifikationsnotiz: kommt nicht hier, sondern erst im Closing nach Block 3.)</li>
+</ol>
 
 
 </section>

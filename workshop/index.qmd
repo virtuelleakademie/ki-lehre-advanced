@@ -16,15 +16,15 @@ Das Spec Sheet ist werkzeug-unabhängig: was du heute baust, ist in zwei Jahren 
 ### Was du im Workshop tust
 
 1. **Eine Teilaufgabe wählen** aus einer deiner Aufgaben (oder ein Backup-Szenario).
-2. **Ein Spec Sheet bauen**: Wissensbausteine, Fehlkonzepte, Wissenslücken, Falsifikationsnotiz; jeweils markiert als vermutet (V) oder beobachtet (B).
-3. **Das Spec Sheet einmal in einen System-Prompt übersetzen** und in einem Chat-Werkzeug testen.
-4. **Reflektieren**: welche Teilaufgaben deiner Aufgabe sind Aktion-erforderlich (KI-Substitution unterläuft den Lernweg), welche sind Beobachtung-zulässig?
+2. **Ein Spec Sheet bauen**: Wissensbausteine (mit Erwerb-Hinweis), Fehlkonzepte und im Closing eine Falsifikationsnotiz; jeweils markiert als vermutet (V) oder beobachtet (B).
+3. **Das Spec Sheet einmal in einen System-Prompt übersetzen** und nach Test-Protokoll in einem Chat-Werkzeug prüfen.
+4. **Reflektieren**: welche Bausteine deiner Aufgabe sind Selbst-Tun-erforderlich (KI-Substitution unterläuft den Lernweg), welche sind Zuschauen-reicht?
 
 ### Was du am Ende hast
 
 - Ein eigenes Spec Sheet für eine Teilaufgabe deiner Lehre.
 - Ein in einem Chat-Werkzeug getesteter System-Prompt, gerendert aus deinem Spec Sheet.
-- Eine Markierung pro Wissensbaustein: Aktion-erforderlich oder Beobachtung-zulässig.
+- Eine Markierung pro Wissensbaustein: Selbst-Tun-erforderlich oder Zuschauen-reicht.
 - Eine konkrete Verpflichtung, was du in den nächsten zwei Wochen in deiner Lehre tun wirst.
 
 ### Lernziele
@@ -32,7 +32,7 @@ Das Spec Sheet ist werkzeug-unabhängig: was du heute baust, ist in zwei Jahren 
 Am Ende des Workshops kannst du:
 
 1. Eine Teilaufgabe deiner Lehre in ihre Wissensbausteine **zerlegen**, mit der Unterscheidung Faktenwissen / begriffliches Wissen / Erklärungswissen.
-2. Wahrscheinliche Fehlkonzepte und Wissenslücken **identifizieren**, mit Hilfe eines LLM als Hypothesengenerator und als Lernende-Simulator.
+2. Wahrscheinliche Fehlkonzepte und nicht-vorhandene Wissensbausteine **identifizieren**, mit Hilfe eines LLM als Hypothesengenerator und als Lernende-Simulator.
 3. Bei jedem Eintrag im Spec Sheet **Vermutung von Beobachtung trennen** und damit die methodische Disziplin der Validierung anwenden.
 4. Ein Spec Sheet **in einen System-Prompt übersetzen** und das Werkzeug-Verhalten anhand des Spec Sheets diagnostizieren, wenn es vom Erwarteten abweicht.
 5. Die Frage **beantworten**, welche Teilschritte deiner Aufgabe KI-Substitution zulassen und welche nicht.
@@ -45,11 +45,11 @@ Am Ende des Workshops kannst du:
 | Zeit | Dauer | Block | Aktivität |
 |------|-------|-------|-----------|
 | 0:00-0:07 | 7 min | [**Einstieg**](einstieg/index.qmd) | Kurze Aktivierung: Erklär etwas, ohne ein Schema vorauszusetzen |
-| 0:07-0:55 | 48 min | [**Block 1**](block-1-theorie-und-beispiel/index.qmd) | Theorie kurz; gemeinsamer Durchgang durch ein Worked Example; Werkzeug-Tour |
-| 0:55-1:10 | 15 min | **Pause** | |
-| 1:10-2:05 | 55 min | [**Block 2**](block-2-spec-card/index.qmd) | Eigenes Spec Sheet bauen: Wissensbausteine, Fehlkonzepte, Lücken |
-| 2:05-2:30 | 25 min | [**Block 3**](block-3-multi-tool/index.qmd) | Spec Sheet in einen System-Prompt übersetzen und testen |
-| 2:30-2:40 | 10 min | [**Closing**](closing/index.qmd) | Aktion-vs-Beobachtung; eine konkrete Verpflichtung |
+| 0:07-0:52 | 45 min | [**Block 1**](block-1-theorie-und-beispiel/index.qmd) | CLT-Auffrischung; Theorie kompakt; Worked Example; Werkzeug-Tour |
+| 0:52-1:07 | 15 min | **Pause** | |
+| 1:07-2:07 | 60 min | [**Block 2**](block-2-spec-card/index.qmd) | Eigenes Spec Sheet bauen: Wissensbausteine und Fehlkonzepte mit V/B-Disziplin |
+| 2:07-2:32 | 25 min | [**Block 3**](block-3-multi-tool/index.qmd) | Spec Sheet in einen System-Prompt übersetzen und nach Test-Protokoll prüfen |
+| 2:32-2:45 | 13 min | [**Closing**](closing/index.qmd) | Falsifikationsnotiz; Selbst-Tun vs. Zuschauen; eine konkrete Verpflichtung |
 :::
 
 ## Voraussetzungen

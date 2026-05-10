@@ -1,0 +1,604 @@
+---
+title: "Spec Sheets bauen, mit LLMs als Hypothesengenerator und Lernende-Simulator"
+subtitle: "KI in der Lehre: Advanced — Workshop-Slides"
+date: today
+---
+
+## {.center}
+
+**Drei Stunden, ein Spec Sheet, ein getesteter System-Prompt.**
+
+<br>
+
+::: {style="text-align: center; font-size: 1.05em; color: #6E6560;"}
+Die zentrale didaktische Arbeit beim KI-Einsatz liegt nicht im Schreiben von Prompts, sondern in der Spezifikation dessen, was im Kopf einer Lernerin tatsächlich vorgeht.
+:::
+
+::: {.notes}
+Begrüssen, Workshop-Programm in einem Satz: "Wir bauen heute ein Spec Sheet für eine deiner Aufgaben, übersetzen es in einen System-Prompt und testen es einmal." Pausen-Hinweis. Direkt in den Einstieg.
+:::
+
+
+## Was du heute tust {.smaller}
+
+<br>
+
+::::{.columns}
+:::{.column width="33%"}
+### Block 1 (45 min)
+
+*Worked Example beobachten*
+
+CLT-Auffrischung, dann gemeinsamer Durchgang durch ein ausgearbeitetes Spec Sheet.
+:::
+
+:::{.column width="33%"}
+### Block 2 (60 min)
+
+*Eigenes Spec Sheet bauen*
+
+Für eine Teilaufgabe deiner Lehre: Wissensbausteine, Fehlkonzepte, Pruning.
+:::
+
+:::{.column width="33%"}
+### Block 3 + Closing (38 min)
+
+*Spec → Prompt → Test*
+
+Übersetzen, testen, taggen für KI-Substitution, Verpflichtung.
+:::
+::::
+
+<br>
+
+::: {style="text-align: center; font-size: 1.0em; color: #6E6560;"}
+Programmiererfahrung brauchst du nicht. Eine Aufgabe aus deiner Lehre solltest du parathaben.
+:::
+
+
+# Block 1: Theorie und Beispiel {.center .smaller background-color="#1E3A5F" data-background-color="#1E3A5F" style="color: white;"}
+
+
+## Cognitive Load Theory: der Engpass {.smaller}
+
+Das Arbeitsgedächtnis verarbeitet etwa **4 Elemente** gleichzeitig, für **15-30 Sekunden**. Jeder Denkakt muss durch dieses Nadelöhr.
+
+<br>
+
+::::{.columns}
+:::{.column width="33%"}
+::: {style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #6E6560;"}
+**Sensorischer Input**
+
+aus der Umwelt
+:::
+:::
+
+:::{.column width="33%"}
+::: {style="background: #faf0f0; padding: 1.0em; border-radius: 8px; border-top: 3px solid #E69F00;"}
+**Arbeitsgedächtnis**
+
+~4 Elemente, 15-30 Sek.
+
+→ der Engpass
+:::
+:::
+
+:::{.column width="33%"}
+::: {style="background: #f0f4f8; padding: 1.0em; border-radius: 8px; border-top: 3px solid #0072B2;"}
+**Langzeitgedächtnis**
+
+Schemata, ~unbegrenzt
+:::
+:::
+::::
+
+<br>
+
+::: {style="text-align: center; font-size: 1.0em; color: #1E3A5F;"}
+Diese Engstelle ist der Grund, warum Lernen Mühe macht. Keine Technologie umgeht sie.
+:::
+
+::: {.notes}
+~1.5 Min. CLT-Engpass: 4 Elemente, 15-30 Sek. Fluss von links nach rechts. Keine Technologie umgeht das.
+:::
+
+
+## Vorwissen bestimmt die Last {.smaller}
+
+Dieselbe Aufgabe ist für Anfängerinnen und Fortgeschrittene **unterschiedlich kostenintensiv**.
+
+<br>
+
+**Aufgabe:** Löse nach $x$ auf:  $$-1(-x - 7) = 14x - 6$$
+
+::::{.columns}
+:::{.column width="50%"}
+::: {style="background: rgba(213, 94, 0, 0.06); padding: 1.0em; border-radius: 8px;"}
+**Anfängerin**
+
+Hohe intrinsische Last:
+
+- Was bedeutet das Minus vor der Klammer?
+- Wie verteile ich?
+- Welche Rechenregeln gelten?
+:::
+:::
+
+:::{.column width="50%"}
+::: {style="background: rgba(0, 114, 178, 0.06); padding: 1.0em; border-radius: 8px;"}
+**Fortgeschrittene**
+
+Niedrige intrinsische Last:
+
+- "Klammer auflösen" → Schema
+- "Terme zusammenfassen" → Schema
+- "Nach $x$ auflösen" → Schema
+:::
+:::
+::::
+
+<br>
+
+::: {style="text-align: center; font-size: 1.05em; font-weight: bold; color: #D55E00;"}
+Konsequenz: Aufgaben müssen sich an Vorwissen anpassen. Das verlangt Diagnose.
+:::
+
+::: {.notes}
+~1.5 Min. Gleiche Gleichung, völlig verschiedene Kosten. Konsequenz: ein Übungsblatt für alle ist für die meisten falsch. Brücke: Aufgaben müssen sich an Vorwissen anpassen — das verlangt Diagnose.
+:::
+
+
+## Scaffolding-Leiter (Fading) {.smaller}
+
+Wenn die intrinsische Last zu hoch ist, brauchen Lernende **gezieltes Scaffolding**.
+
+<br>
+
+| Stufe | Format | Geeignet, wenn... |
+|---|---|---|
+| 1 | **Worked Example**: vollständig durchgearbeitet | Baustein noch gar nicht da |
+| 2 | **Completion Problem**: teilweise gelöst | Baustein teilweise da |
+| 3 | **Hinweis-gestützt**: nur strategische Hinweise | Baustein da, aber unsicher |
+| 4 | **Eigenständig**: ohne Unterstützung | Baustein zuverlässig da |
+
+<br>
+
+::: {style="text-align: center; font-size: 1.0em; color: #6E6560;"}
+Welche Stufe für welchen Baustein passt, hängt von der **Diagnose** des Vorwissens ab.
+:::
+
+::: {.notes}
+~1.5 Min. Die Stufen-Leiter ist Standard CLT/Sweller. Welche Stufe greift, hängt von der Diagnose ab. Brücke: heute machen wir die Diagnose explizit.
+:::
+
+
+## Heute: die Diagnose explizit machen {#bridge .smaller}
+
+<br>
+
+::: {style="text-align: center; font-size: 1.3em; line-height: 1.6; max-width: 80%; margin: 0 auto;"}
+Die CLT sagt: wir müssen das Vorwissen diagnostizieren, sonst passt das Scaffolding nicht.
+
+[Heute machen wir diese Diagnose **explizit, schriftlich, falsifizierbar**.]{style="color: #1E3A5F; font-weight: bold;"}
+
+Die disziplinierte Form dieser Diagnose ist das **Spec Sheet**.
+:::
+
+::: {.notes}
+~1 Min. Das ist die Brücke. CLT sagt: diagnostizieren! Heute: wir schreiben die Diagnose explizit auf. Das ist das Spec Sheet. Lange Pause hier; das ist der Kerngedanke.
+:::
+
+
+## Drei Wissensbaustein-Typen {.smaller}
+
+Nicht alle Wissensformen werden gleich erworben. Die Typ-Unterscheidung macht sichtbar, *welche Aktivität welche Wissensform überhaupt entwickeln kann*.
+
+<br>
+
+::::{.columns}
+:::{.column width="33%"}
+::: {style="background: #faf0f0; padding: 1.0em; border-radius: 8px; border-top: 3px solid #D55E00;"}
+**Faktenwissen**
+
+z.B. "kennt die Formel für $s$"
+
+→ Erwerb: aktives Abrufen
+:::
+:::
+
+:::{.column width="33%"}
+::: {style="background: #f0f4f8; padding: 1.0em; border-radius: 8px; border-top: 3px solid #0072B2;"}
+**Begriffliches Wissen**
+
+z.B. "erkennt eine Korrelationsfrage"
+
+→ Erwerb: Klassifikationsübung
+:::
+:::
+
+:::{.column width="33%"}
+::: {style="background: #f5f5eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #1E3A5F;"}
+**Erklärungswissen**
+
+z.B. "weiss, warum $r=0.3$ kontextabhängig ist"
+
+→ Erwerb: Selbsterklärung
+:::
+:::
+::::
+
+<br>
+
+::: {style="text-align: center; font-size: 1.0em; color: #6E6560;"}
+Diese drei Typen kommen in deinem Spec Sheet (Sektion B) explizit vor.
+:::
+
+::: {.notes}
+~2 Min. Drei Typen, drei Erwerbsmechanismen. Pointen: nicht alles ist "Erklärung anhören"; wichtige Unterscheidung für Block 4 (Selbst-Tun-vs-Zuschauen).
+:::
+
+
+## Spec ist dauerhaft, Prompt ist Übersetzung {.smaller}
+
+<br>
+
+::::{.columns}
+:::{.column width="50%"}
+::: {style="background: rgba(0, 114, 178, 0.06); padding: 1.4em; border-radius: 8px; border-left: 4px solid #1E3A5F; min-height: 220px;"}
+**Spec Sheet**
+
+Was eine Studierende kognitiv für die Aufgabe braucht.
+
+→ Werkzeug-unabhängig.
+
+→ Überlebt Modellgenerationen.
+
+→ Substanz.
+:::
+:::
+
+:::{.column width="50%"}
+::: {style="background: rgba(213, 94, 0, 0.06); padding: 1.4em; border-radius: 8px; border-left: 4px solid #D55E00; min-height: 220px;"}
+**Prompt**
+
+Eine Übersetzung des Spec Sheets in ein konkretes Werkzeug zu einem konkreten Zeitpunkt.
+
+→ Werkzeug-spezifisch.
+
+→ Altert mit dem Modell.
+
+→ Rendering.
+:::
+:::
+::::
+
+<br>
+
+::: {style="text-align: center; font-size: 1.0em; color: #6E6560;"}
+Block 3 macht diese Trennung an deinem eigenen Material erlebbar.
+:::
+
+::: {.notes}
+~1 Min. Pragmatische Trennung. Ein Prompt, den du heute für GPT-4 schreibst, funktioniert in zwei Jahren möglicherweise nicht. Ein Spec Sheet, das du heute baust, ist in zwei Jahren noch genauso gültig.
+:::
+
+
+## Zwei LLM-Rollen heute {.smaller}
+
+<br>
+
+::::{.columns}
+:::{.column width="50%"}
+::: {style="background: rgba(166, 61, 47, 0.06); padding: 1.2em; border-radius: 8px; border-left: 4px solid #A63D2F;"}
+**Hypothesengenerator**
+
+Das LLM schlägt Wissensbausteine vor.
+
+Du **prüfst** und markierst V (vermutet) oder B (beobachtet) oder verwirfst.
+
+→ Vor der Validierung.
+:::
+:::
+
+:::{.column width="50%"}
+::: {style="background: rgba(30, 58, 95, 0.06); padding: 1.2em; border-radius: 8px; border-left: 4px solid #1E3A5F;"}
+**Lernende-Simulator**
+
+Das LLM spielt eine Studierende ohne Baustein X.
+
+Zwei Probemodi:
+
+- *Reaktiv*: liest dein Material, meldet was unklar ist
+- *Produktiv*: schreibt eine Antwort mit Fehlkonzept
+:::
+:::
+::::
+
+<br>
+
+::: {style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold;"}
+Beim Arbeiten in Block 2 immer fragen: *In welcher Rolle ist das LLM gerade?*
+:::
+
+::: {.notes}
+~1 Min. Zwei klar getrennte Rollen. Mehr als das brauchen wir heute nicht.
+:::
+
+
+## Drei Affordance-Typen (kurz) {.smaller}
+
+Werkzeuge wechseln, **Affordance-Typen** bleiben:
+
+<br>
+
+::::{.columns}
+:::{.column width="33%"}
+::: {style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #1E3A5F; min-height: 160px;"}
+**Chat-Werkzeug**
+
+Copilot, ChatGPT, HuggingChat.
+
+System-Prompt + Eingabe + Antwort.
+
+→ Block 3 nutzt Typ 1.
+:::
+:::
+
+:::{.column width="33%"}
+::: {style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #6E6560; min-height: 160px;"}
+**Strukturierte API**
+
+z.B. Marimo + Pydantic.
+
+Erzwungenes Ausgabe-Schema.
+
+→ Live-Demo (1 Min).
+:::
+:::
+
+:::{.column width="33%"}
+::: {style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #B8821A; min-height: 160px;"}
+**Agentisch**
+
+Claude Code, pi.dev.
+
+LLM mit Werkzeugzugriff.
+
+→ Volllänge im Nachlesen.
+:::
+:::
+::::
+
+<br>
+
+::: {style="text-align: center; font-size: 0.95em; color: #6E6560;"}
+Dein Spec Sheet ist für alle drei Typen verwendbar. Nur die Übersetzung ändert sich.
+:::
+
+::: {.notes}
+~3 Min insgesamt für die Tour. Marimo-Demo: 6 Zellen Pydantic-Schema, ca. 1 Min. Agentisches Werkzeug: nur kurz nennen, Volllänge im Nachlesen.
+:::
+
+
+# Block 2: dein eigenes Spec Sheet {#block-2 .center .smaller background-color="#A63D2F" data-background-color="#A63D2F" style="color: white;"}
+
+
+## Block 2 in 60 Min {.smaller}
+
+<br>
+
+| Zeit | Schritt |
+|---|---|
+| 5 min | Vorlage öffnen, Teilaufgabe wählen, Sektion A ausfüllen |
+| 25 min | Wissensbausteine inventarisieren (Prompt 1) → validieren V/B/Korrigieren/Verwerfen → Lernaktivitäten (Prompt 2) |
+| 20 min | Reaktive Simulation (Prompt 3) → Funde zurück in Sektion B; Produktive Simulation (Prompt 4) → Sektion C |
+| 10 min | Paar-Feedback (3 strukturierte Fragen) |
+
+<br>
+
+::: {style="text-align: center; font-size: 1.0em; color: #1E3A5F; font-weight: bold;"}
+Ziel: erste vollständige Version. Nicht perfekt. Nicht alle Felder.
+:::
+
+::: {.notes}
+~30 Sek Folie. Kurz orientieren, dann gehen die Teilnehmenden in die Eigenarbeit. Blockfolie, kein Lehrinhalt.
+:::
+
+
+# Block 3: Spec → Prompt → Test {#block-3 .center .smaller background-color="#1E3A5F" data-background-color="#1E3A5F" style="color: white;"}
+
+
+## Spec → Prompt ist mechanisch {.smaller}
+
+<br>
+
+::::{.columns}
+:::{.column width="50%"}
+**Aus deinem Spec Sheet**
+
+- Sektion B (Wissensbausteine, gruppiert nach Typ)
+- Sektion C (Fehlkonzepte, in Ich-Form)
+- "Was schiefgeht"-Sätze pro Baustein
+:::
+
+:::{.column width="50%"}
+**Wird zum System-Prompt**
+
+- "Wissensbausteine, die diese Teilaufgabe verlangt: [...]"
+- "Wahrscheinliche Fehlkonzepte: [...]"
+- Verbote ("erfinde nichts ausserhalb dieser Listen")
+:::
+::::
+
+<br>
+
+::: {style="text-align: center; font-size: 1.0em; color: #D55E00; font-weight: bold;"}
+Wo dein Spec vage ist, fällt der Prompt schwer. Genau das ist die Lehre aus Block 3.
+:::
+
+::: {.notes}
+~2 Min. Mechanik vorführen am Statistik-Beispiel aus Block 1. Die Stelle hervorheben, an der eine Klammer im Template noch nicht im Spec Sheet abgedeckt ist.
+:::
+
+
+## Test-Protokoll: drei mögliche Ausgänge {.smaller}
+
+Wähle einen Baustein aus deiner Spec, den du als **B (beobachtet)** markiert hast. Du hast eine konkrete Studierenden-Antwort vor Augen, die auf diesem Baustein scheitert. Gib die Antwort ans Werkzeug.
+
+<br>
+
+::::{.columns}
+:::{.column width="33%"}
+::: {style="background: rgba(0, 114, 178, 0.08); padding: 1.0em; border-radius: 8px; border-top: 3px solid #0072B2; min-height: 200px;"}
+**Pass**
+
+LLM identifiziert den erwarteten Baustein (oder einen nahe liegenden), zitiert plausible Stelle.
+
+→ Spec hat funktioniert.
+:::
+:::
+
+:::{.column width="33%"}
+::: {style="background: rgba(184, 130, 26, 0.08); padding: 1.0em; border-radius: 8px; border-top: 3px solid #B8821A; min-height: 200px;"}
+**Fail soft**
+
+LLM identifiziert anderen Baustein oder bleibt generisch.
+
+→ Spec war zu vage. Zurück zum Spec Sheet, "Was schiefgeht" schärfen.
+:::
+:::
+
+:::{.column width="33%"}
+::: {style="background: rgba(166, 61, 47, 0.08); padding: 1.0em; border-radius: 8px; border-top: 3px solid #A63D2F; min-height: 200px;"}
+**Fail hard**
+
+LLM erfindet einen Baustein, der nicht in der Spec steht.
+
+→ Verbotsklausel hat versagt. Anderes Modell oder verstärken.
+:::
+:::
+::::
+
+<br>
+
+::: {style="text-align: center; font-size: 0.95em; color: #6E6560;"}
+Ohne dieses Protokoll ist "Beobachte was passiert" zu unklar, um daraus zu lernen.
+:::
+
+::: {.notes}
+~2 Min. Das Test-Protokoll vorlesen. Drei Ausgänge sind klare Pass/Fail-Kriterien. Übergang in 15 min Eigenarbeit.
+:::
+
+
+# Closing {#closing .center .smaller background-color="#6E6560" data-background-color="#6E6560" style="color: white;"}
+
+
+## Falsifikationsnotiz: was würde dich widerlegen? {.smaller}
+
+<br>
+
+::: {style="font-size: 1.1em; max-width: 85%; margin: 0 auto; line-height: 1.5;"}
+Wähle einen Wissensbaustein aus Sektion B, den du als zentral einschätzt.
+
+Schreibe **einen Satz**: welches Verhalten von Studierenden würde dir zeigen, dass deine Decomposition für diesen Baustein falsch ist?
+
+→ Sektion D deines Spec Sheets.
+:::
+
+<br>
+
+::: {style="background: rgba(30, 58, 95, 0.06); padding: 1.0em; border-radius: 8px; max-width: 80%; margin: 0 auto; font-style: italic; font-size: 0.95em;"}
+Beispiel: "Wenn Studierende, die ich klar als kompetente Korrelationsinterpretiererinnen einschätze, an dieser Teilaufgabe systematisch scheitern, dann ist Baustein 3 nicht das, was diese Aufgabe wirklich testet."
+:::
+
+<br>
+
+::: {style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold;"}
+Ohne diese Notiz bleibt das Spec Sheet eine plausible Hypothese ohne Bedingungen, unter denen du sie aufgeben würdest.
+:::
+
+::: {.notes}
+~3 Min. Falsifikation als Disziplin. Nicht "perfekte" Notiz, eine ehrliche.
+:::
+
+
+## Selbst-Tun vs. Zuschauen {.smaller}
+
+Markiere jeden Baustein in deiner Sektion B mit einem Tag:
+
+<br>
+
+::::{.columns}
+:::{.column width="50%"}
+::: {style="background: rgba(213, 94, 0, 0.08); padding: 1.2em; border-radius: 8px; border-left: 4px solid #D55E00;"}
+**Selbst-Tun erforderlich**
+
+Studierende muss selbst handeln, sonst entsteht der Baustein nicht.
+
+KI, die diesen Schritt übernimmt, **unterläuft** den Lernprozess.
+:::
+:::
+
+:::{.column width="50%"}
+::: {style="background: rgba(0, 114, 178, 0.08); padding: 1.2em; border-radius: 8px; border-left: 4px solid #0072B2;"}
+**Zuschauen reicht**
+
+Baustein kann auch durch Lesen, Hören, Anschauen entwickelt werden.
+
+KI-Unterstützung kann hier sinnvoll sein, ohne den Lernweg zu unterbrechen.
+:::
+:::
+::::
+
+<br>
+
+::: {style="font-size: 0.9em; max-width: 90%; margin: 0 auto;"}
+**Faustregel:** Faktenwissen, Begriffliches, Erklärungswissen sind *meist* Selbst-Tun. Hilfsschritte (Tabelle formatieren, Standardabschnitt schreiben) sind oft Zuschauen-erlaubt.
+:::
+
+::: {.notes}
+~5 Min in Eigenarbeit. Die Tags sind nicht endgültig — eine erste Diskussionsgrundlage. Wenn alle Bausteine Selbst-Tun sind, ist das ein normales Ergebnis.
+:::
+
+
+## Verpflichtung: in den nächsten zwei Wochen {.smaller}
+
+<br>
+
+Schreibe auf Papier:
+
+::: {style="font-size: 1.1em; max-width: 80%; margin: 0 auto; line-height: 1.8;"}
+1. **Eine konkrete Aufgabe** deiner Lehre, an der du das Spec Sheet anwenden wirst. Nicht "ich werde nachdenken über..." sondern: diese spezifische Aufgabe.
+2. **Ein konkreter Schritt** (Spec anwenden / Aufgabenstellung anpassen / Studierenden-Konsequenz einbauen).
+3. **Ein Datum**, bis zu dem du es getan hast.
+:::
+
+<br>
+
+::: {style="text-align: center; font-size: 1.05em; color: #A63D2F; font-weight: bold;"}
+Erzähl es deiner Nachbarin, bevor du den Raum verlässt.
+:::
+
+::: {.notes}
+~2 Min. Konkretheit erzwingen. Spezifische Aufgabe, spezifischer Schritt, spezifisches Datum. Mündliche Zusage an Nachbarin als sozialer Commitment.
+:::
+
+
+## {.center}
+
+<br>
+
+::: {style="text-align: center; font-size: 1.5em; color: #1E3A5F;"}
+**Danke.**
+:::
+
+<br>
+
+::: {style="text-align: center; font-size: 1.0em; color: #6E6560; max-width: 80%; margin: 0 auto;"}
+Das Spec Sheet ist die durable Substanz deiner pädagogischen Arbeit mit KI. Werkzeuge ändern sich; was im Kopf einer Lernerin vorgeht, weniger schnell.
+:::
+
+::: {.notes}
+Verabschieden. Materialien-Hinweis in der Closing-Aktivitäten-Seite.
+:::

@@ -5,7 +5,7 @@ title: "System-Prompt-Vorlage: Spec Sheet → Werkzeug"
 ::: {.callout-note icon=false}
 ## Was du hier findest
 
-Eine Vorlage, mit der du dein ausgefülltes Spec Sheet in einen System-Prompt für ein Chat-LLM übersetzst. Die Übersetzung ist mechanisch: du kopierst Inhalte aus den Sektionen B, C, D deines Spec Sheets in feste Platzhalter im Template.
+Eine Vorlage, mit der du dein ausgefülltes Spec Sheet in einen System-Prompt für ein Chat-LLM übersetzst. Die Übersetzung ist mechanisch: du kopierst Inhalte aus den Sektionen B und C deines Spec Sheets in feste Platzhalter im Template.
 
 Drei Varianten sind unten beschrieben, je nachdem in welcher Rolle du das LLM einsetzen willst:
 
@@ -14,6 +14,19 @@ Drei Varianten sind unten beschrieben, je nachdem in welcher Rolle du das LLM ei
 - **Sokratischer Tutor**: das LLM stellt einer Studierenden Fragen, die einen bestimmten Baustein zur Selbstkonstruktion bringen.
 
 Du fängst typischerweise mit der diagnostischen Rolle an. Die anderen sind für spätere Anwendungen, wenn du dein Spec Sheet schon kennst.
+:::
+
+::: {.callout-pro-tip icon=false}
+## Spec ist dauerhaft, Prompt ist Übersetzung
+
+Diese Vorlage ist ein **Ausgangspunkt**, nicht *die* Übersetzung. Die Form eines guten System-Prompts hängt vom konkreten Werkzeug und vom aktuellen Modellstand ab und ändert sich mit jeder Modellgeneration. Dein Spec Sheet bleibt gleich; die Übersetzung wird neu gerendert.
+
+Zwei alternative Wege, dieselbe Übersetzung zu produzieren:
+
+- **Aktuelle Anbieter-Dokumentation lesen.** Anthropic, OpenAI und andere veröffentlichen Prompt-Engineering-Guides für ihre Modelle ([docs.anthropic.com](https://docs.anthropic.com/), OpenAI Cookbook). Was dort steht, ändert sich häufiger als dein Spec Sheet.
+- **Prompt-Generierungs-Tools nutzen.** Anthropic Console und OpenAI Playground haben Funktionen, mit denen du eine Beschreibung deiner Aufgabe (oder dein Spec Sheet) eingibst und einen strukturierten Prompt-Entwurf zurückbekommst. Das ist Rendering, nicht Spezifikation.
+
+In allen drei Wegen bleibt dein Spec Sheet die durable Substanz. Was sich ändert, ist die Werkzeug-spezifische Übersetzung.
 :::
 
 ## So nutzt du die Vorlage
@@ -65,11 +78,6 @@ Wahrscheinliche Fehlkonzepte
 
 [Liste aus Sektion C deines Spec Sheets, je in Ich-Form, mit Typ und
 "Diskriminiert die Aufgabe?"-Notiz]
-
-Wahrscheinliche Wissenslücken
-------------------------------
-
-[Liste aus Sektion D, je mit "Wo es eigentlich erworben werden sollte"]
 
 Deine Aufgabe
 -------------

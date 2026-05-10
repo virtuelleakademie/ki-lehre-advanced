@@ -1,0 +1,67 @@
+```{r}
+#| label: bottleneck
+#| echo: false
+#| out-width: "100%"
+#| out-height: "150px"
+
+library(DiagrammeR)
+
+grViz("
+digraph bottleneck {
+  graph [
+    rankdir = LR
+    fontname = 'Helvetica'
+    bgcolor = 'transparent'
+    nodesep = 0.6
+    ranksep = 0.8
+    size = '10,1.2!'
+    ratio = 'fill'
+  ]
+
+  node [
+    fontname = 'Helvetica'
+    style = 'filled,rounded'
+    fontcolor = 'white'
+    penwidth = 0
+    shape = box
+  ]
+
+  edge [
+    fontname = 'Helvetica'
+    fontsize = 11
+    color = '#666666'
+    arrowsize = 0.9
+  ]
+
+  input [
+    label = 'Sensorischer Input\\n\\nUmwelt'
+    fillcolor = '#94a3b8'
+    fontsize = 13
+    fontcolor = '#222222'
+    margin = '0.3,0.2'
+    width = 2
+  ]
+
+  wm [
+    label = 'Arbeitsgedächtnis\\n\\n~4 Elemente\\n15–30 Sekunden\\nAktives Lernen'
+    fillcolor = '#E69F00'
+    fontsize = 13
+    fontcolor = '#222222'
+    margin = '0.3,0.2'
+    width = 2.5
+  ]
+
+  ltm [
+    label = 'Langzeitgedächtnis\\n\\nUnbegrenzte Kapazität\\nDauerhaft\\nOrganisiert in Schemata'
+    fillcolor = '#0072B2'
+    fontsize = 13
+    margin = '0.3,0.2'
+    width = 2.8
+  ]
+
+  input -> wm [label = '  Aufmerksamkeit  ']
+  wm -> ltm [label = '  Schemabildung\\n  & Übung  ']
+  ltm -> wm [label = '  Abruf &\\n  Aktivierung  ' style = dashed]
+}
+")
+```

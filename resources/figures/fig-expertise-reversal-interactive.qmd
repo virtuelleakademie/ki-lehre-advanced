@@ -1,0 +1,137 @@
+```{ojs}
+//| echo: false
+
+viewof expertise_level = {
+  const div = html`<div style="display:flex;align-items:center;gap:12px;font-size:13px;">
+    <span style="white-space:nowrap;">Expertise-Level: <strong>Anfänger</strong></span>
+    <input type="range" min="0" max="10" step="0.5" value="2" style="width:250px;accent-color:#0072B2;">
+  </div>`;
+  const input = div.querySelector("input");
+  const label = div.querySelector("strong");
+  const levelName = (v) => v <= 3 ? "Anfänger" : v <= 7 ? "Mittel" : "Experte";
+  input.oninput = () => {
+    label.textContent = levelName(+input.value);
+    div.value = +input.value;
+    div.dispatchEvent(new Event("input", {bubbles: true}));
+  };
+  div.value = 2;
+  return div;
+}
+```
+
+```{ojs}
+//| echo: false
+
+expertise_chart = {
+  const w = 700;
+  const h = 280;
+  const fs = "13px";
+
+  // Symmetric sigmoid curves crossing at x=5
+  const sigmoid = (x, midpoint, steepness) => 1 / (1 + Math.exp(-steepness * (x - midpoint)));
+  const worked = (x) => 85 - 55 * sigmoid(x, 5, 1.0);
+  const problem = (x) => 30 + 55 * sigmoid(x, 5, 1.0);
+  const crossing_x = 5;
+
+  // Build line data
+  const line_data = [];
+  for (let x = 0; x <= 10; x += 0.2) {
+    line_data.push({x, y: worked(x), method: "Worked Examples"});
+    line_data.push({x, y: problem(x), method: "Problemlösen"});
+  }
+
+  const ex = expertise_level;
+  const we = worked(ex);
+  const ps = problem(ex);
+  const diff = Math.abs(we - ps);
+
+  // Dynamic labels near each dot — integrates table content
+  const weLabel = diff < 3 ? "" : we > ps
+    ? "Entlastet Arbeitsgedächtnis" : "Redundante Information";
+  const psLabel = diff < 3 ? "" : ps > we
+    ? "Verfeinert Schemata" : "Überfordert Arbeitsgedächtnis";
+
+  // Top annotation
+  const annotation = diff < 3
+    ? "Umschlagpunkt: beide Methoden gleich effektiv"
+    : we > ps ? "Anleitung hilft" : "Anleitung schadet";
+
+  return Plot.plot({
+    width: w,
+    height: h,
+    marginLeft: 55,
+    marginBottom: 50,
+    marginTop: 30,
+    marginRight: 150,
+    style: {fontSize: fs, background: "transparent"},
+    x: {
+      label: "Expertise-Level",
+      domain: [0, 10],
+      ticks: [0, 5, 10],
+      tickFormat: d => d === 0 ? "Anfänger" : d === 5 ? "Mittel" : "Experte"
+    },
+    y: {
+      label: "Lernergebnis",
+      domain: [20, 95],
+      ticks: [25, 85],
+      tickFormat: d => d === 25 ? "Niedrig" : "Hoch"
+    },
+    color: {
+      domain: ["Worked Examples", "Problemlösen"],
+      range: ["#0072B2", "#E69F00"],
+      legend: false
+    },
+    marks: [
+      // Curves
+      Plot.lineY(line_data, {x: "x", y: "y", stroke: "method", strokeWidth: 2.5, curve: "natural"}),
+
+      // Right-side legend labels at line endpoints
+      Plot.text([{x: 10, y: worked(10)}], {
+        x: "x", y: "y", text: ["Worked Examples"], fill: "#0072B2",
+        fontSize: 12, fontWeight: "bold", textAnchor: "start", dx: 10
+      }),
+      Plot.text([{x: 10, y: problem(10)}], {
+        x: "x", y: "y", text: ["Problemlösen"], fill: "#E69F00",
+        fontSize: 12, fontWeight: "bold", textAnchor: "start", dx: 10
+      }),
+
+      // Crossover point
+      Plot.dot([{x: crossing_x, y: worked(crossing_x)}], {
+        x: "x", y: "y", r: 6, fill: "white", stroke: "#1A1714", strokeWidth: 2
+      }),
+
+      // Vertical cursor
+      Plot.ruleX([ex], {stroke: "#1A1714", strokeDasharray: "4,3", strokeWidth: 1.5}),
+
+      // Current dots
+      Plot.dot([{x: ex, y: we}], {x: "x", y: "y", r: 7, fill: "#0072B2", stroke: "#1A1714", strokeWidth: 1.5}),
+      Plot.dot([{x: ex, y: ps}], {x: "x", y: "y", r: 7, fill: "#E69F00", stroke: "#1A1714", strokeWidth: 1.5}),
+
+      // Connecting line
+      Plot.link([{x1: ex, y1: we, x2: ex, y2: ps}], {
+        x1: "x1", y1: "y1", x2: "x2", y2: "y2",
+        stroke: "#A63D2F", strokeWidth: 2.5, strokeDasharray: "3,2"
+      }),
+
+      // Dynamic dot labels (the table info)
+      Plot.text([{x: ex, y: we}], {
+        x: "x", y: "y", text: [weLabel], fill: "#0072B2",
+        fontSize: 11, fontWeight: "600",
+        dx: ex < 5 ? 10 : -10, textAnchor: ex < 5 ? "start" : "end", dy: -12
+      }),
+      Plot.text([{x: ex, y: ps}], {
+        x: "x", y: "y", text: [psLabel], fill: "#E69F00",
+        fontSize: 11, fontWeight: "600",
+        dx: ex < 5 ? 10 : -10, textAnchor: ex < 5 ? "start" : "end", dy: 16
+      }),
+
+      // Top annotation
+      Plot.text([{x: ex, y: 93}], {
+        x: "x", y: "y",
+        text: [annotation],
+        fill: "#1A1714", fontWeight: "bold", fontSize: 13
+      }),
+    ]
+  });
+}
+```

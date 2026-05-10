@@ -8,7 +8,7 @@ title: "Prompt-Scaffolds für das Spec Sheet"
 Fünf Prompts, die du in Block 2 nutzt, um dein Spec Sheet zu bauen. Jeder Prompt entspricht einer Rolle, die das LLM für dich übernimmt:
 
 - **Hypothesengenerator** (Prompts 1 und 2): das LLM schlägt Wissensbausteine und passende Lerngelegenheiten vor.
-- **Lernende-Simulator, reaktiv** (Prompt 3): das LLM liest dein Material so, als hätte es einen bestimmten Wissensbaustein nicht, und meldet zurück, was unklar ist.
+- **Lernende-Simulator, reaktiv** (Prompt 3): das LLM liest dein Material so, als hätte es einen bestimmten Wissensbaustein nicht, und meldet zurück, was unklar ist. Die Funde fliessen als zusätzliche Bausteine oder als Erwerb-Hinweise in deine Sektion B zurück.
 - **Lernende-Simulator, produktiv** (Prompts 4 und 5): das LLM produziert eine Antwort einer Studierenden, der ein Baustein fehlt oder die ein Fehlkonzept hält.
 
 Die Prompts sind Werkzeug-unabhängig. Du kannst sie in Microsoft Copilot, HuggingChat, ChatGPT, Claude oder ein anderes Chat-Modell einfügen. Die Antworten sind dann *Vorschläge*, die du in deinem Spec Sheet als **vermutet (V)** markierst, bis du sie an realen Studierenden überprüft hast.
@@ -170,7 +170,7 @@ Bitte keinen Trost-Output ("die Aufgabe ist insgesamt verständlich, aber
 
 Die reaktive Simulation ist die methodologische Form des Fluchs des Wissens: das LLM zeigt dir, was deine Aufgabenstellung an Wissen voraussetzt, ohne es zu nennen. Das ist genau die Information, die dir selbst am schwersten zugänglich ist, weil du den Baustein längst hast.
 
-Wenn das LLM Stellen markiert, die du für selbstverständlich gehalten hast, ist das ein Treffer und gehört in dein Spec Sheet (typischerweise als Wissenslücke in Sektion D).
+Wenn das LLM Stellen markiert, die du für selbstverständlich gehalten hast, ist das ein Treffer. Trag den Fund als zusätzlichen Wissensbaustein in Sektion B ein, oder als Erwerb-Hinweis bei einem bestehenden Baustein (etwa "vorausgesetzt aus [Modul]" oder "Tacit-Wissen").
 :::
 
 ## Prompt 4: Produktive Simulation, "antworte ohne X"
