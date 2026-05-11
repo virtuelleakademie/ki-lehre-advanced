@@ -1,335 +1,99 @@
 ---
-title: "Worked Example: Spec Sheet für eine Statistik-Teilaufgabe"
+title: "Worked Example: LLM-as-Novice an einer Statistik-Aufgabe"
+subtitle: "Multiple Regression als Demonstration der Methode"
 ---
 
 ::: {.callout-note icon=false}
 ## Was du hier liest
 
-Das ausgearbeitete Beispiel, das wir in Block 1 gemeinsam durchgehen. Es zeigt, wie aus *einer einzelnen Teilaufgabe* einer Statistik-Klausur ein **Spec Sheet** entsteht.
+Eine Live-Demonstration der LLM-as-Novice-Methode an einer konkreten Statistik-Aufgabe. Du beobachtest in Block 1, wie ein LLM, das als strukturierter Novize geprompted wird, die versteckten Voraussetzungen einer Aufgabe enumeriert.
 
-Du nutzt diese Seite zwei Mal:
-
-- als Live-Demo in Block 1, während die Instruktorin das LLM mit der Teilaufgabe konfrontiert und die Validierung Schritt für Schritt vorführt.
-- als Vorlage in Block 2, wenn du dasselbe für eine Teilaufgabe aus deiner eigenen Lehre machst.
-
-Die Methode überträgt sich auf jedes Fach. Statistik ist nur das demonstrative Beispiel.
+Die Methode überträgt sich auf jedes Fach. Statistik ist nur das demonstrative Beispiel. In Block 2 machst du dasselbe für eine Teilaufgabe aus deiner eigenen Lehre.
 :::
 
-## A. Die Teilaufgabe
+## Die Teilaufgabe
 
-### A1. Wortlaut
+**Wortlaut:** Eine Studierende rechnet in R eine multiple Regression mit zwei Prädiktoren: Lernzeit ($X_1$) und Mathematik-Maturanote ($X_2$) sollen die Punktzahl in der Statistik-Klausur ($Y$) vorhersagen. Sie soll die Regressionskoeffizienten interpretieren und das Modell als Ganzes beurteilen.
 
-> Eine Studie berichtet eine Korrelation von $r = 0.3$ zwischen der Schlafdauer in der Nacht vor einer Klausur und der Klausurleistung, basierend auf einer Stichprobe von 200 Erstsemester-Studierenden. Interpretiere diesen Befund: Was sagt er substantiell aus, und wie gut gestützt ist die Aussage?
+**Kurskontext:** Übung 5 im Statistik-II-Modul, Bachelor-Psychologie. Die Studierenden haben das Semester davor Statistik I (bis und mit einfache lineare Regression) und in den ersten Wochen von Statistik II Partial- und Semipartialkorrelation behandelt. Die Aufgabe ist die erste Anwendung der multiplen Regression im Kurs.
 
-### A2. Kurskontext
+**Lernziel:** Die Studierende soll zeigen, dass sie die konditionale Bedeutung der Aussage "kontrolliert für" verstanden hat und einen Regressionskoeffizienten unter Berücksichtigung weiterer Prädiktoren angemessen interpretieren kann.
 
-Erstsemester-Studierende in einem Service-Statistik-Modul für Psychologie, Wirtschaft oder Sozialarbeit. Sie haben ein Semester deskriptive Statistik abgeschlossen, kennen Mittelwert, Median, Varianz, Standardabweichung. Korrelationen wurden im Modul behandelt: die Studierenden können $r$ rechnen, wenn die Daten und die Formel gegeben sind. Inferenzstatistik haben sie noch nicht. Diese Teilaufgabe ist die letzte einer dreiteiligen Klausuraufgabe; die vorhergehenden Teile waren Berechnung von $r$ und ein Streudiagramm.
+**Eine typische akzeptable Antwort sieht so aus:**
 
-### A3. Lernziel der Teilaufgabe
+> *Lernzeit hat einen positiven Effekt auf die Klausurpunktzahl ($b_1 = 0.45$, kontrolliert für die Mathenote). Pro zusätzliche Lernstunde steigt die Punktzahl um etwa $0.45$ Punkte. Die Mathenote zeigt keinen signifikanten Effekt ($b_2 = 1.2$, $p = 0.31$). Insgesamt erklärt das Modell etwa $48\%$ der Varianz ($R^2 = 0.48$).*
 
-Die Studierende soll zeigen, dass sie eine berechnete Korrelation in einen substantiellen Kontext zurück übersetzen kann: Effektgrösse einordnen, Stichprobengrösse berücksichtigen, Grenzen der Aussage benennen. Es geht nicht um die Berechnung, sondern um die Interpretation.
+Diese Antwort ist auf der Oberfläche kompetent. Die Lehrperson, die sie korrigiert, vergibt vermutlich die volle Punktzahl. Die Aufgabe gilt als gelöst.
 
-## B. Wissensbausteine
+## Der LLM-as-Novice-Prompt
 
-Fünf Bausteine, jeder mit Typ und Quelle.
+Wir geben das Material (Aufgabenstellung plus Musterlösung) einem LLM mit folgender Anweisung. Diesen Prompt kannst du copy-paste in Block 2 für deine eigene Aufgabe verwenden:
 
-### Baustein 1
+::: {.callout-prompt-example icon=false}
+## Prompt für die LLM-as-Novice-Rolle
 
-- **Name:** $r$ liegt zwischen $-1$ und $+1$
-- **Typ:** Faktenwissen
-- **Quelle:** B
-- **Wo der Baustein vorkommt:** ohne diesen Baustein ist die Magnitude $0.3$ unverankert; eine Studierende ohne ihn kann nicht beurteilen, ob $0.3$ "viel" oder "wenig" ist.
-- **Was schiefgeht, wenn er fehlt:** die Studierende interpretiert $0.3$ wie eine Wahrscheinlichkeit oder einen Prozentsatz, ohne den Bezug zur theoretischen Skalierung der Korrelation.
+Hier ist Material aus einem Statistik-Kurs. Spiele eine Person, die gerade die Vorgängerveranstaltung abgeschlossen hat, aber diese Aufgabe hier noch nicht gesehen hat. Für jeden Schritt in der Musterlösung, liste auf: was müsste die Person bereits wissen, erkennen oder begründen können, um den Schritt zu verstehen? Markiere alles, was das Material voraussetzt, aber nicht selbst erklärt. Unterscheide zwischen Fakten zum Abrufen, Klassifikationen zum Erkennen, Prozeduren zum Ausführen und konzeptionellen Verständnissen.
 
-### Baustein 2
+Material:
 
-- **Name:** $r$ misst lineare Assoziation, nicht Kausalität
-- **Typ:** Klassifikationswissen (Erkennen)
-- **Quelle:** B
-- **Wo der Baustein vorkommt:** die Aufgabe verlangt eine *Interpretation*; ohne diesen Baustein gleitet die Antwort in kausale Behauptungen ab ("mehr Schlaf führt zu besserer Leistung").
-- **Was schiefgeht, wenn er fehlt:** die Studierende schreibt "Schlaf verbessert Klausurleistung" oder "Schlafmangel verursacht schlechte Noten", ohne die Korrelation-Kausalität-Lücke zu markieren.
-
-### Baustein 3
-
-- **Name:** Effektgrösse ist kontext-abhängig zu beurteilen
-- **Typ:** Erklärungswissen
-- **Quelle:** V
-- **Wo der Baustein vorkommt:** die Aufgabe fragt explizit nach der substantiellen Bedeutung, nicht nach der numerischen Magnitude.
-- **Was schiefgeht, wenn er fehlt:** die Studierende übernimmt eine Daumenregel ("$0.3$ ist mittel" oder "$0.3$ ist klein") ohne Bezug auf den Kontext der Bildungsforschung; oder sie schliesst, $0.3$ sei "vernachlässigbar".
-
-### Baustein 4
-
-- **Name:** Korrelation und Stichprobenunsicherheit sind getrennte Dimensionen
-- **Typ:** Erklärungswissen
-- **Quelle:** B
-- **Wo der Baustein vorkommt:** die Aufgabe nennt $n = 200$ explizit; die Studierende soll erkennen, dass die Aussage zwei Dimensionen hat: Effektgrösse und Sicherheit der Schätzung.
-- **Was schiefgeht, wenn er fehlt:** die Studierende kollabiert beide in eine einzige Aussage ("0.3 ist signifikant, also bedeutsam") oder ignoriert die Sicherheitsdimension komplett.
-
-### Baustein 5
-
-- **Name:** $r^2$ ist nicht $r$
-- **Typ:** Faktenwissen
-- **Quelle:** B
-- **Wo der Baustein vorkommt:** ohne diesen Baustein interpretiert die Studierende $r = 0.3$ als "30% erklärt"; tatsächlich erklärt $r^2 = 0.09$ etwa neun Prozent gemeinsamer Varianz.
-- **Was schiefgeht, wenn er fehlt:** "die Korrelation von $0.3$ erklärt $30\%$ der Variabilität in der Klausurleistung" steht in der Antwort.
-
-## C. Wahrscheinliche Fehlkonzepte
-
-### Fehlkonzept 1
-
-- **So würde die Studierende es sagen:** "Eine Korrelation von $0.3$ heisst, $30\%$ der Klausurleistung lassen sich durch Schlafdauer erklären."
-- **Typ:** kohärent-intuitiv
-- **Quelle:** B
-- **Diskriminiert die Teilaufgabe Studierende mit diesem Fehlkonzept?** Ja, wenn die Korrektur explizit zwischen $r$ und $r^2$ trennt. Wenn die Korrektur "$r = 0.3$ ist eine moderate Korrelation" akzeptiert, ohne die $30\%$-Übersetzung zu prüfen, schlüpft das Fehlkonzept durch.
-
-### Fehlkonzept 2
-
-- **So würde die Studierende es sagen:** "Bei einer so grossen Stichprobe ($n = 200$) ist das Ergebnis sehr genau. Wir können davon ausgehen, dass die Korrelation in der Population fast identisch ist."
-- **Typ:** kohärent-intuitiv
-- **Quelle:** V
-- **Diskriminiert die Teilaufgabe?** Teilweise. Die Aufgabe fragt nach Sicherheit der Aussage, aber ohne explizite Frage nach Konfidenzintervallen oder Stichprobenfehler bleibt unklar, ob die Studierende das Konzept "Stichprobenunsicherheit ist nicht null" hat. Eine zusätzliche Teilfrage ("Wie sicher ist diese Schätzung?") würde das Fehlkonzept gezielter prüfen.
-
-### Fehlkonzept 3
-
-- **So würde die Studierende es sagen:** "$r = 0.3$ ist klein. Schlafdauer hat also keinen praktischen Einfluss auf die Klausurleistung."
-- **Typ:** oberflächlich (ungeprüfte Anwendung einer Daumenregel ohne Kontextkalibrierung)
-- **Quelle:** B
-- **Diskriminiert die Teilaufgabe?** Bedingt. Die Aufgabe fragt nach Substanz; eine Antwort, die $0.3$ pauschal als "klein" abtut, ist nicht falsch, aber dünn. Ob "dünn" als Misserfolg gewertet wird, hängt vom Bewertungsraster ab.
-
-## Wissenslücken (im neuen 4-Sektionen-Template als Erwerb-Hinweise zu Sektion B)
-
-Im aktuellen Spec-Sheet-Template sind diese Einträge keine eigene Sektion mehr: jeder Punkt wird stattdessen als Erwerb-Hinweis bei einem bestehenden Wissensbaustein in Sektion B festgehalten ("vorausgesetzt aus [Modul]" oder "Tacit-Wissen"). Das Worked Example erhält die ursprüngliche Liste, weil sie pädagogisch reich ist und die Anti-Symmetrie des Spec Sheets gut zeigt.
-
-### Lücke 1
-
-- **Was fehlt:** das Konzept "Effektgrössen-Konventionen sind diszipliären, nicht universal"
-- **Wo es eigentlich erworben werden sollte:** im Modul wurde die Cohen-Klassifikation ($r = 0.1$ klein, $0.3$ mittel, $0.5$ gross) erwähnt, aber ohne Diskussion der Domänen-Kalibrierung in Bildungsforschung.
-- **Quelle:** V
-- **Wie sich die Lücke zeigt:** die Studierende übernimmt die Cohen-Klassifikation pauschal ("$0.3$ ist mittel"), ohne zu prüfen, ob das in der Bildungsforschung sinnvoll ist (wo Effekte typisch klein sind).
-
-### Lücke 2
-
-- **Was fehlt:** der Begriff "lineare Assoziation" als spezifische, nicht generelle Beziehung
-- **Wo es eigentlich erworben werden sollte:** im Korrelations-Block des laufenden Moduls.
-- **Quelle:** B
-- **Wie sich die Lücke zeigt:** die Studierende behandelt Korrelation als generelle Aussage über "Zusammenhang", ohne die Linearitätsannahme zu erwähnen oder zu erkennen, dass nicht-lineare Zusammenhänge unentdeckt bleiben.
-
-### Lücke 3
-
-- **Was fehlt:** der Unterschied zwischen Stichproben-$r$ und Populations-$\rho$
-- **Wo es eigentlich erworben werden sollte:** würde im nachfolgenden Inferenzstatistik-Modul behandelt; zum Zeitpunkt dieser Aufgabe ist das ein bekannter Lückenpunkt.
-- **Quelle:** B
-- **Wie sich die Lücke zeigt:** die Studierende behandelt $r = 0.3$ als die Korrelation, statt als eine Schätzung der Korrelation. Sie hat keine Sprache für "die wahre Korrelation in der Population könnte etwas anderes sein".
-
-## D. Falsifikationsnotiz
-
-> Wenn Studierende, die ich aus Gesprächsanlässen klar als kompetente Korrelationsinterpretiererinnen einschätze, an dieser Teilaufgabe systematisch scheitern, dann ist Baustein 3 (Effektgrösse ist kontext-abhängig zu beurteilen) wahrscheinlich nicht das, was die Aufgabe wirklich testet. Wahrscheinlicher wäre dann, dass die Aufgabe zu offen formuliert ist und die Studierenden raten lässt, welche der vielen möglichen Interpretationsdimensionen gemeint ist.
-
-## Pruning-Protokoll
-
-Drei Vorschläge, die das LLM gemacht hat und die nicht in das Spec Sheet aufgenommen wurden.
-
-| Verworfener Vorschlag | Grund |
-|---|---|
-| "Kennt das Konzept der Wahrscheinlichkeit" | zu abstrakt; ist eher ein Sammelbegriff als ein operationalisierbarer Baustein. Wenn nötig, in spezifischere Bausteine zerlegen. |
-| "Weiss, dass Korrelation Kausalität nicht impliziert, aber bei kontrollierten Studien näher liegt" | inhaltlich missverständlich; das LLM hat ein populärwissenschaftliches Halbwissen reproduziert, das beim Erstsemester-Niveau nicht trägt und falsche Sicherheit suggeriert. |
-| "Versteht $p$-Werte und ihre Interpretation" | kommt im Kontext der Aufgabe nicht vor (Inferenzstatistik wurde noch nicht behandelt). Die Studierende soll *nicht* mit $p$-Werten arbeiten. |
-
-::: {.callout-checkpoint icon=false}
-## Was die Pruning-Liste zeigt
-
-Drei Vorschläge des LLM, drei verschiedene Probleme: zu abstrakt, inhaltlich falsch, kurskontextlich daneben. Die Pruning-Notiz hält das fest, damit die Validierung nachvollziehbar ist und nicht jeder LLM-Vorschlag stillschweigend ins Spec Sheet rutscht.
-
-Eine leere Pruning-Liste bei einem vollen Spec Sheet ist ein Warnsignal.
+[Hier den vollständigen Lösungsweg der Übung einfügen]
 :::
 
-## Demonstration: Reaktive Simulation
+## Was das LLM enumeriert
 
-Wir geben dem LLM die Teilaufgabe und die Vorgabe: "Du bist eine Studierende, der Baustein 1 fehlt (du weisst nicht, dass $r$ zwischen $-1$ und $+1$ liegt). Sonst bist du auf dem Niveau deines Kurses kompetent. Lies die Aufgabe und sag, was unklar wird."
+Das LLM listet, in der Rolle der noch-nicht-fortgeschrittenen Studentin, die folgenden Voraussetzungen auf. Wir reproduzieren hier die wesentlichen Punkte (mit leichter Glättung in der Reihenfolge):
 
-::: {.callout-tip icon=false}
-## Beispielhaftes LLM-Output
+**Fakten und Notation:**
 
-> *Was unklar wird:*
->
-> 1. *Die Zahl 0.3 hat keinen Anker.* Ich kann nicht entscheiden, ob das viel oder wenig ist. In Prozenten ausgedrückt wäre das 30% irgendetwas, aber ich verstehe nicht, was die Skala nach oben begrenzen würde. Ist 1 das Maximum? Oder 100? Oder gibt es kein Maximum?
-> 2. *"Korrelation" als Wort ist mir bekannt, aber ohne den Wertebereich kann ich keinen Vergleich anstellen.* Ich würde gerne sagen "stark" oder "schwach", aber ich habe keine Referenz.
-> 3. *Die Stichprobengrösse 200 fühlt sich gross an, aber wenn ich nicht weiss, was 0.3 in der Skala der Korrelation bedeutet, kann ich auch nicht beurteilen, ob 200 Personen "viele" sind, um eine Korrelation in dieser Grössenordnung zu schätzen.*
->
-> *Was ich trotzdem noch kann:*
->
-> - Ich kann beschreiben, was eine Korrelation untersucht (Zusammenhang zwischen zwei Variablen).
-> - Ich kann sagen, dass eine grössere Stichprobe in der Regel verlässlichere Ergebnisse liefert.
-> - Ich kann die Frage stellen, ob die Studierenden ausgeschlafen waren, weil sie schon vorbereitet hatten, oder ob der Schlaf selbst die Leistung beeinflusste.
-:::
+- Was $r$, $r^2$, $R^2$, $b$, $\beta$ jeweils bezeichnen und worin sie sich unterscheiden.
+- Was die Notation $r_{YX_1 \mid X_2}$ versus $r_{YX_1}$ bedeutet (Partialkorrelation vs. bivariate Korrelation).
+- Dass $b_0$ die vorhergesagte $Y$-Wert bei $X_1 = X_2 = 0$ ist und nicht "der Durchschnitt".
+- Dass die R-Syntax `lm(Y ~ X1 + X2)` ein Modell ohne Interaktion ist, während `lm(Y ~ X1 * X2)` eines mit Interaktion ist.
+
+**Klassifikationen und Erkennen:**
+
+- Eine Forschungsfrage als "Vorhersage durch mehrere Prädiktoren" erkennen und nicht als "Korrelation testen".
+- Den Output von `summary(lm(...))` als strukturiertes Ergebnis lesen: Koeffizienten, Standardfehler, $t$-Werte, $p$-Werte, $R^2$.
+- Erkennen, dass ein bivariater $r$ und das entsprechende $b$ in einer multiplen Regression unterschiedliche Grössen messen.
+- Eine signifikante bivariate Korrelation, die in der multiplen Regression nicht-signifikant wird, als hinweisendes Muster auf Multikollinearität oder Konfundierung erkennen.
+
+**Prozeduren:**
+
+- Die Daten in R einlesen, prüfen (Streudiagramm, Korrelationsmatrix), eine multiple Regression anpassen.
+- Den Koeffizienten $b_1$ in Worte übersetzen: "pro Einheit Anstieg von $X_1$ bei Konstanthaltung von $X_2$".
+- Den Anteil erklärter Varianz aus $R^2$ ablesen.
+
+**Konzeptionelle Verständnisse:**
+
+- Die konditionale Interpretation des Begriffs "kontrolliert für" ($b_1$ ist der Effekt von $X_1$ *bei gleicher Mathenote*, nicht der bereinigte Effekt nach einem Eingriff).
+- Warum $b_1$ in der bivariaten und in der multiplen Regression unterschiedliche Werte haben kann (und meistens hat).
+- Warum $R^2$ nicht die Summe der bivariaten $r^2$ ist (wegen der Korrelation zwischen den Prädiktoren).
+- Was "nicht-signifikant" über den wahren Effekt aussagt: es heisst nicht "kein Effekt", sondern "Daten reichen nicht, um Effekt von Null zu unterscheiden".
+- Dass der Modellzweck (Vorhersage vs. Erklärung) die Interpretation der Koeffizienten beeinflusst.
+
+## Der Moment, in dem es sticht
+
+Die Liste enthält etwa fünfzehn Voraussetzungen. Die meisten davon hat die Dozentin im Kurs gelehrt. Vier oder fünf hat sie nicht explizit thematisiert, weil sie ihr automatisiert waren:
+
+- Die **konditionale Interpretation** von "kontrolliert für". Die Dozentin sagt es im Vorbeigehen, ein Mal. Die Studentin denkt: "kontrolliert" wie in "Kontrollgruppe", ein experimenteller Eingriff.
+- Dass **$R^2$ nicht additiv** ist. Die Studentin überträgt die Additivität, die in der ANOVA mit orthogonalen Faktoren tatsächlich gilt, auf die Regression mit korrelierten Prädiktoren.
+- Dass **ein bivariater Effekt im multiplen Modell verschwinden kann**. Die Studentin erwartet, dass ein in einfacher Regression signifikanter Prädiktor auch hier signifikant bleibt.
+- Dass **"nicht-signifikant" nicht "kein Effekt"** heisst. Die Studentin schliesst aus $p = 0.31$, dass Mathenote keinen Einfluss hat.
+
+Das sind die typischen Blind Spots. Die Dozentin sieht sie nicht, weil ihre eigene Performance sie überspringt. Sie ist seit Jahren routiniert genug, dass sie nicht mehr daran denkt, dass diese Schritte überhaupt Schritte sind.
 
 ::: {.callout-pro-tip icon=false}
-## Was diese Probe ergeben hat
+## Was die Methode hier geleistet hat
 
-Die Simulation hat einen Punkt aufgedeckt, der im Spec Sheet schon enthalten war (Baustein 1 ist tatsächlich tragend), aber sie hat zusätzlich eine Aufgabenstellungs-Schwäche markiert: die Aufgabe stützt sich auf die implizite Annahme, dass Studierende den Wertebereich von $r$ kennen. Wenn diese Annahme im Kurs nicht aktiv überprüft wurde, fängt die Aufgabe zwar Baustein 1 als Lücke, ohne ihn explizit zu thematisieren.
+Das LLM hat nicht gewusst, welche Voraussetzungen die Dozentin in ihrem Kurs gelehrt hat. Es hat alle Voraussetzungen aufgelistet, die für die Lösung der Aufgabe notwendig sind, ohne zwischen "schon gelehrt" und "vorausgesetzt" zu unterscheiden. Genau diese Liste ist der Ausgangspunkt: die Dozentin geht sie durch und markiert, was in ihrem Kurs tatsächlich behandelt wurde und was nicht.
 
-Folge im Spec Sheet: keine Anpassung an Baustein 1 selbst, aber eine kleine Erweiterung der Aufgabenstellung wäre sinnvoll: ein Hinweissatz "Erinnerung: $r$ liegt zwischen $-1$ und $+1$" am Anfang der Klausur. Diese Beobachtung kommt in den Block 2 oder Closing-Notizen, nicht ins Spec Sheet selbst.
+Die Methode ist keine Magie. Sie ist eine Externalisierung: das, was die Dozentin nicht mehr sehen kann, wird sichtbar, weil das LLM keinen Anreiz hat, irgendetwas wegzulassen.
 :::
 
-## Demonstration: Produktive Simulation
+## Was du in Block 2 tust
 
-Wir geben dem LLM die Teilaufgabe und die Vorgabe: "Du bist eine Studierende, die Fehlkonzept 1 hält (du denkst, $r = 0.3$ heisse 30% Erklärung). Schreibe die Antwort, die du in der Klausur abgeben würdest."
+In Block 2 nimmst du diesen Prompt, fügst dein eigenes Material ein und tust dasselbe: du markierst, welche Voraussetzungen das LLM enumeriert hat, und entscheidest pro Eintrag, ob deine Studierenden diese Voraussetzung mitbringen oder nicht. Die Einträge, die du als nicht-gelehrt-und-trotzdem-vorausgesetzt markierst, sind deine Blind Spots.
 
-::: {.callout-tip icon=false}
-## Beispielhaftes LLM-Output
+Die Ergebnisse trägst du in die [Spec-Vorlage](../spec-sheet-template/index.qmd) ein. Ein vollständiges Beispiel-Spec zu dieser Aufgabe (multiple Regression) findest du unter [Beispiel: Multiple Regression](../spec-sheet-template/example-multiple-regression.md).
 
-> *Antwort der simulierten Studierenden:*
->
-> "Die Korrelation von $r = 0.3$ zwischen Schlafdauer und Klausurleistung bedeutet, dass etwa 30% der Klausurleistung durch die Schlafdauer in der Nacht vor der Klausur erklärt werden. Das ist ein moderater Effekt: nicht riesig, aber auch nicht vernachlässigbar. Bei einer Stichprobe von 200 Personen ist das Ergebnis recht verlässlich.
->
-> Substantiell heisst das, dass mehr Schlaf in der Nacht vor der Klausur tatsächlich einen Beitrag zur besseren Leistung leistet, allerdings nicht den Hauptbeitrag. Andere Faktoren wie Vorbereitung oder Vorwissen spielen wahrscheinlich grössere Rollen, weil sie die übrigen 70% erklären."
->
-> *Beobachtbare Merkmale, an denen das Fehlkonzept zu erkennen ist:*
->
-> 1. Direkte Übersetzung der Korrelation in eine Prozentaussage ("30% der Klausurleistung durch Schlafdauer erklärt"). Korrekt wäre $r^2 \approx 9\%$ gemeinsame Varianz, nicht 30%.
-> 2. Gleitende Bewegung von "30% erklärt" zu "70% erklären andere Faktoren" als Komplement, was die $r$-zu-$r^2$-Verwirrung als Rechenoperation sichtbar macht.
->
-> *Würde eine Dozentin unter Zeitdruck den Misserfolg bemerken?* Wahrscheinlich nicht zuverlässig. Die Antwort liest sich kompetent. Sie ist sprachlich flüssig, methodisch geordnet, und der einzige diagnostische Hinweis ist die spezifische numerische Übersetzung. Wer beim Korrigieren auf "moderater Effekt" achtet, wird das Fehlkonzept übersehen. Wer auf die genaue Zahl achtet, wird es fangen.
-:::
-
-::: {.callout-pro-tip icon=false}
-## Was diese Probe ergeben hat
-
-Die Simulation bestätigt, dass Fehlkonzept 1 tatsächlich kohärent ist: die simulierte Antwort liest sich plausibel und schlüssig, gerade weil sie aus einer in sich konsistenten falschen Regel ableitet. Sie zeigt zugleich, dass die Aufgabe den Misserfolg fängt **wenn die Korrektur darauf achtet** und ihn übersieht, wenn die Korrektur sich nur an der Oberfläche orientiert.
-
-Konkrete Konsequenzen für die Aufgabenbewertung:
-
-- Im Bewertungsraster: explizit auf die Interpretation der Magnitude achten ($0.3$ vs. $9\%$).
-- In der Aufgabenstellung: eventuell präzisieren, dass die Antwort die *Stärke* und die *Erklärungskraft* getrennt diskutieren soll. Das macht das Fehlkonzept schwerer durchzuschmuggeln.
-:::
-
-## Wenn dieses Spec Sheet gerendert wird: der fertig übersetzte System-Prompt
-
-Beim Übersetzen in einen System-Prompt für die diagnostische Rolle (siehe [System-Prompt-Vorlage](../spec-sheet-template/system-prompt-template.md), Variante 1) werden die Inhalte der Sektionen A, B und C in die Platzhalter des Templates kopiert. Die Verhaltensregeln am Ende bleiben wörtlich stehen. Das Ergebnis sieht so aus:
-
-::: {.callout-export icon=false}
-#### Fertig übersetzter System-Prompt für das Statistik-Spec Sheet
-
-````{.text}
-Du bist eine Lehrassistentin, die einer Hochschuldozentin hilft, Antworten
-von Studierenden zu analysieren.
-
-Kontext der Aufgabe
--------------------
-
-Teilaufgabe (Wortlaut):
-Eine Studie berichtet eine Korrelation von r = 0.3 zwischen der Schlafdauer
-in der Nacht vor einer Klausur und der Klausurleistung, basierend auf einer
-Stichprobe von 200 Erstsemester-Studierenden. Interpretiere diesen Befund:
-Was sagt er substantiell aus, und wie gut gestützt ist die Aussage?
-
-Kurskontext:
-Erstsemester-Studierende in einem Service-Statistik-Modul für Psychologie,
-Wirtschaft oder Sozialarbeit. Sie haben ein Semester deskriptive Statistik
-abgeschlossen, kennen Mittelwert, Median, Varianz, Standardabweichung.
-Korrelationen wurden im Modul behandelt: die Studierenden können r rechnen,
-wenn die Daten und die Formel gegeben sind. Inferenzstatistik haben sie
-noch nicht. Diese Teilaufgabe ist die letzte einer dreiteiligen Klausur-
-aufgabe; die vorhergehenden Teile waren Berechnung von r und ein Streu-
-diagramm.
-
-Lernziel der Teilaufgabe:
-Die Studierende soll zeigen, dass sie eine berechnete Korrelation in einen
-substantiellen Kontext zurück übersetzen kann: Effektgrösse einordnen,
-Stichprobengrösse berücksichtigen, Grenzen der Aussage benennen. Es geht
-nicht um die Berechnung, sondern um die Interpretation.
-
-Wissensbausteine, die diese Teilaufgabe verlangt
--------------------------------------------------
-
-Faktenwissen:
-- "r liegt zwischen -1 und +1". Was schiefgeht, wenn er fehlt: die
-  Studierende interpretiert 0.3 wie eine Wahrscheinlichkeit oder einen
-  Prozentsatz, ohne den Bezug zur theoretischen Skalierung der Korrelation.
-- "r² ist nicht r". Was schiefgeht, wenn er fehlt: "die Korrelation von 0.3
-  erklärt 30% der Variabilität in der Klausurleistung" steht in der Antwort.
-
-Klassifikationswissen:
-- "r misst lineare Assoziation, nicht Kausalität". Was schiefgeht, wenn er
-  fehlt: die Studierende schreibt "Schlaf verbessert Klausurleistung" oder
-  "Schlafmangel verursacht schlechte Noten", ohne die Korrelation-
-  Kausalität-Lücke zu markieren.
-
-Erklärungswissen:
-- "Effektgrösse ist kontext-abhängig zu beurteilen". Was schiefgeht, wenn er
-  fehlt: die Studierende übernimmt eine Daumenregel ("0.3 ist mittel" oder
-  "0.3 ist klein") ohne Bezug auf den Kontext der Bildungsforschung; oder
-  sie schliesst, 0.3 sei "vernachlässigbar".
-- "Korrelation und Stichprobenunsicherheit sind getrennte Dimensionen". Was
-  schiefgeht, wenn er fehlt: die Studierende kollabiert beide in eine
-  einzige Aussage ("0.3 ist signifikant, also bedeutsam") oder ignoriert
-  die Sicherheitsdimension komplett.
-
-Wahrscheinliche Fehlkonzepte
------------------------------
-
-- "Eine Korrelation von 0.3 heisst, 30% der Klausurleistung lassen sich
-  durch Schlafdauer erklären." (Typ: kohärent-intuitiv. Diskriminiert: ja,
-  wenn die Korrektur explizit zwischen r und r² trennt.)
-- "Bei einer so grossen Stichprobe (n = 200) ist das Ergebnis sehr genau.
-  Wir können davon ausgehen, dass die Korrelation in der Population fast
-  identisch ist." (Typ: kohärent-intuitiv. Diskriminiert: teilweise.)
-- "r = 0.3 ist klein. Schlafdauer hat also keinen praktischen Einfluss auf
-  die Klausurleistung." (Typ: oberflächlich. Diskriminiert: bedingt.)
-
-Deine Aufgabe
--------------
-
-Wenn ich dir eine Studierenden-Antwort gebe, mache folgendes:
-
-1. Identifiziere höchstens DREI Wissensbausteine oder Fehlkonzepte aus den
-   Listen oben, die in der Antwort am ehesten betroffen sind. Begründe je
-   in einem Satz, anhand welcher Stelle in der Antwort du das siehst.
-
-2. Gib für jeden identifizierten Punkt eine kurze beobachtbare Spur:
-   wörtlich zitiertes oder paraphrasiertes Material aus der Antwort.
-
-3. Schlage zum Schluss EINE Intervention vor: eine konkrete Frage, ein
-   Beispiel oder eine Übung, die diesen Wissensbaustein adressiert.
-   Bitte konkret und auf den Kurskontext zugeschnitten.
-
-Wichtige Einschränkungen
-------------------------
-
-- Wenn du keinen Punkt aus den Listen klar erkennst, sag das. Erfinde
-  keinen Wissensbaustein, der nicht oben gelistet ist.
-- Wenn die Antwort der Studierenden für die Teilaufgabe insgesamt korrekt
-  ist, sag das einfach. Suche nicht nach Fehlern, wo keine sind.
-- Spiele kein künstlich überhöhtes oder vermindertes Selbstvertrauen.
-  Sage "ich bin unsicher", wenn du es bist.
-- Antworte auf Deutsch.
-````
-:::
-
-Drei Beobachtungen am gerenderten Prompt:
-
-- **Sektion D (Falsifikationsnotiz) erscheint nicht.** Sie ist ein Dokument für *dich* als Lehrperson, nicht für das LLM. Das LLM braucht sie nicht, um eine Studierenden-Antwort zu analysieren.
-- **Die "Was schiefgeht"-Sätze stehen wörtlich im Prompt.** Sie sind die diskriminierende Information: ohne sie würde das LLM nur generische "Studierende könnten X verwechseln"-Aussagen produzieren. Mit ihnen hat es eine konkrete Spur, an der es prüfen kann.
-- **Die Verhaltensregeln am Ende sind soft constraints**, keine erzwungenen Constraints. Insbesondere "erfinde keinen Wissensbaustein, der nicht oben gelistet ist" ist eine Bitte, kein Schema-Verbot. Detail im [Nachlesen-Tab von Block 3](../block-3-multi-tool/index.qmd) (Abschnitt "Warum 'erfinde nichts' nur eine Soft-Constraint ist").
-
-Der Prompt landet dann in Microsoft Copilot, ChatGPT, HuggingChat oder Claude (System-Prompt-Feld). Die Dozentin gibt eine reale Klausurantwort ein und bekommt eine Analyse-Hypothese in der Sprache des Spec Sheets zurück.
-
-Das Spec Sheet selbst bleibt das Bezugsdokument. Wenn das LLM Antworten produziert, die nicht zur Spec passen, ist der erste Reflex: zurück zum Spec Sheet, prüfen, ob ein Baustein vage, eine Beschreibung zu generisch oder ein "Was schiefgeht"-Satz zu schwach war.
-
-::: {.callout-pro-tip icon=false}
-#### Nutzung dieser Seite in Block 3
-
-In Block 3 (15 min Eigenarbeit) übersetzt du dein eigenes Spec Sheet in einen System-Prompt nach demselben Schema. Wenn du beim Mappen unsicher wirst, *welche* Sektion in *welche* Stelle des Templates kommt: scroll zu diesem Block hier zurück und vergleiche Zeile für Zeile. Die Substitution ist mechanisch.
-:::
-
-## Kurze Notiz zur Übertragung
-
-Was diese Demonstration auf andere Fächer überträgt: nicht die Korrelations-Inhalte, sondern die *Methode*. Die Methode ist:
-
-1. Eine einzelne Teilaufgabe identifizieren (nicht die ganze Aufgabe).
-2. Wissensbausteine vom LLM vorschlagen lassen, dann validieren, prunen, ergänzen.
-3. Bei jedem Eintrag die Quelle markieren: V (vermutet) oder B (beobachtet).
-4. Mindestens einen Baustein im reaktiven und produktiven Modus simulieren lassen, um die Aufgabenstellung und die Diskriminationsfähigkeit zu prüfen.
-5. Eine Falsifikationsnotiz festhalten: wann wäre meine Decomposition widerlegt?
-
-Diese fünf Schritte gelten für Pflegewissenschaft, Wirtschaft, Sozialarbeit, Mathematik, Technik gleichermassen. Im Block 2 wendest du sie auf eine Teilaufgabe aus deinem eigenen Fach an.
+In Block 3 fügst du dein fertiges Spec in das laufende Werkzeug ein und beobachtest, was es produziert. Wenn der Output nicht passt, fehlt etwas im Spec.

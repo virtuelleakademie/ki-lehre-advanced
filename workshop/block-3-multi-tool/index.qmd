@@ -36,11 +36,7 @@ Zwei Slides, je ~2 min:
 
 **Slide 1: Spec → Prompt ist mechanisch (~2 min).** Vorführen am Statistik-Beispiel aus Block 1: die Statistik-Spec wird in den System-Prompt-Template kopiert, die Stelle hervorheben, an der eine Klammer im Template noch nicht im Spec Sheet abgedeckt ist. Botschaft: *die Übersetzung ist mechanisch, ausser an der einen Stelle, an der das Spec Sheet nachgebessert werden muss*.
 
-**Slide 2: Test-Protokoll (~2 min).** Drei mögliche Ausgänge des Tests:
-
-- *Pass:* das LLM identifiziert den erwarteten Baustein und zitiert eine plausible Stelle aus der Antwort.
-- *Fail soft:* anderer Baustein oder generisch. Spec war zu vage. Zurück zum Spec Sheet, "Was schiefgeht"-Feld schärfen.
-- *Fail hard:* das LLM erfindet einen Baustein, der nicht in der Spec steht. Die "erfinde nichts"-Klausel im Template hat versagt: anderes Modell probieren oder Klausel verstärken.
+**Slide 2: Test-Frage (~2 min).** Die einzige pragmatische Frage am Output des Werkzeugs ist: *Stimmt der Output mit dem überein, was deine echten Studierenden tun? Wenn nein, was fehlt im Spec?* Diese Frage ersetzt die ältere Drei-Ausgänge-Heuristik (Pass / Fail soft / Fail hard), die in den Instructor-Notes für die Workshop-Leitung dokumentiert bleibt.
 
 Übergang in die 15-min Eigenarbeit. Wandern, Teilnehmenden helfen, die richtige Stelle in ihrem Spec Sheet zu finden, wenn sie ins Stocken kommen. Hauptproblem: zu lange Bausteinlisten im Prompt. Erinnern: zwei oder drei wichtigste Bausteine reichen.
 
@@ -67,15 +63,17 @@ Die feste Vorlage findest du unter [System-Prompt-Vorlage](../spec-sheet-templat
 :::
 
 ::: {.callout-checkpoint icon=false}
-#### Test-Protokoll: drei mögliche Ausgänge
+#### Test-Frage
 
-Wenn du gleich deinen Prompt testest, achte auf einen der drei Ausgänge:
+Eine einzige pragmatische Frage entscheidet, ob dein Spec funktioniert hat: *Stimmt der Output des Werkzeugs mit dem überein, was deine echten Studierenden tun? Wenn nein, was fehlt im Spec?*
 
-- **Pass:** das LLM identifiziert den Baustein, den du erwartest hast (oder einen nahe daran liegenden), und zitiert eine plausible Stelle aus der Studierenden-Antwort. Die Spec hat funktioniert.
-- **Fail soft:** das LLM identifiziert einen anderen Baustein oder bleibt generisch. Das ist informativ, kein Misserfolg: meist war die Spec-Beschreibung dieses Bausteins zu vage, oder das "Was schiefgeht"-Feld trug die diskriminierende Information nicht. *Notiz machen, zurück zum Spec Sheet.*
-- **Fail hard:** das LLM erfindet einen Baustein, der nicht in deinem Spec Sheet steht. Dafür ist die "erfinde nichts"-Klausel im Template da; *aber* die Klausel ist eine Bitte, kein erzwungener Constraint (siehe *Nachlesen*: "Warum 'erfinde nichts' nur eine Soft-Constraint ist"). Wenn sie nicht greift, kannst du sie verstärken oder ein anderes Modell ausprobieren: das reduziert die Häufigkeit, garantiert aber nichts. Harte Garantien gibt es nur im strukturierten API-Pfad (Block 1, Affordance-Typ 2).
+Wenn ja, ist das Spec für diese Aufgabe brauchbar. Wenn nein, hast du genau die Diagnose, die du brauchst: das, was im Output fehlt oder falsch ist, ist das, was du im Spec schärfer formulieren musst.
+:::
 
-Diese drei Ausgänge sind der Massstab für deinen Test in Schritt 2. Ohne diesen Massstab ist "Beobachte was passiert" zu unklar, um daraus zu lernen.
+::: {.callout-pro-tip icon=false}
+#### Hinweis zum aktuellen Block-3-Stand
+
+Dieser Block wird derzeit auf einen No-Code-Ablauf mit eingebettetem laufendem Werkzeug umgestellt. Die Inhalte unter "Aktivitäten" beschreiben noch den älteren System-Prompt-Pfad. Der finale Block-3-Ablauf wird folgendermassen aussehen: du fügst dein Markdown-Spec in das laufende Werkzeug ein (per iframe in dieser Seite), beobachtest den strukturierten Output, schärfst das Spec, wiederholst, und übergibst in einer Cross-discipline-Paarung mit vorbereiteten Role-Play-Karten.
 :::
 
 #### Schritt 2: Übersetzen und testen (15 min)

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Worked Example: Spec Sheet für eine Statistik-Teilaufgabe – KI in der Lehre: Advanced</title>
+<title>Worked Example: LLM-as-Novice an einer Statistik-Aufgabe – KI in der Lehre: Advanced</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,7 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../workshop/block-1-theorie-und-beispiel/wissens-typen-mechanismen-ki.html" rel="next">
+<link href="../../workshop/block-2-spec-card/index.html" rel="next">
 <link href="../../workshop/block-1-theorie-und-beispiel/index.html" rel="prev">
 <link href="../..//assets/robot.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
@@ -91,6 +91,19 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 <style>
+div.callout-caution.callout {
+  border-left-color: #B8821A;
+}
+div.callout-caution.callout-style-default > .callout-header {
+  background-color: rgba(184, 130, 26, 0.13);
+}
+div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f071' !important;
+  background-image: none;
+}
 div.callout-reflect.callout {
   border-left-color: #1E3A5F;
 }
@@ -102,32 +115,6 @@ div.callout-reflect.callout-style-default .callout-icon::before, div.callout-ref
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
   content: '\f0eb' !important;
-  background-image: none;
-}
-div.callout-tutor-example.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-tutor-example.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f086' !important;
-  background-image: none;
-}
-div.callout-prompt-template.callout {
-  border-left-color: #1E3A5F;
-}
-div.callout-prompt-template.callout-style-default > .callout-header {
-  background-color: rgba(30, 58, 95, 0.13);
-}
-div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f328' !important;
   background-image: none;
 }
 div.callout-screens-up.callout {
@@ -143,6 +130,19 @@ div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-
   content: '\f06e' !important;
   background-image: none;
 }
+div.callout-screens-down.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-screens-down.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f070' !important;
+  background-image: none;
+}
 div.callout-work-in-progress.callout {
   border-left-color: #B8821A;
 }
@@ -156,31 +156,15 @@ div.callout-work-in-progress.callout-style-default .callout-icon::before, div.ca
   content: '\f0c3' !important;
   background-image: none;
 }
-div.callout-caution.callout {
-  border-left-color: #B8821A;
-}
-div.callout-caution.callout-style-default > .callout-header {
-  background-color: rgba(184, 130, 26, 0.13);
-}
-div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f071' !important;
-  background-image: none;
-}
-div.callout-setup.callout {
+div.callout-fallstudie.callout {
   border-left-color: #6E6560;
 }
-div.callout-setup.callout-style-default > .callout-header {
+div.callout-fallstudie.callout-style-default > .callout-header {
   background-color: rgba(110, 101, 96, 0.13);
 }
-div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f7d9' !important;
-  background-image: none;
+div.callout-fallstudie .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-fallstudie.callout-style-default .callout-icon::before, div.callout-fallstudie.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236E6560" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-prompt-example.callout {
   border-left-color: #A63D2F;
@@ -193,94 +177,6 @@ div.callout-prompt-example.callout-style-default .callout-icon::before, div.call
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
   content: '\f120' !important;
-  background-image: none;
-}
-div.callout-break.callout {
-  border-left-color: #6E6560;
-}
-div.callout-break.callout-style-default > .callout-header {
-  background-color: rgba(110, 101, 96, 0.13);
-}
-div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f7b6' !important;
-  background-image: none;
-}
-div.callout-export.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-export.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f56e' !important;
-  background-image: none;
-}
-div.callout-group.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-group.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f0c0' !important;
-  background-image: none;
-}
-div.callout-individual.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-individual.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f007' !important;
-  background-image: none;
-}
-div.callout-try.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-try.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f021' !important;
-  background-image: none;
-}
-div.callout-fallstudie.callout {
-  border-left-color: #6E6560;
-}
-div.callout-fallstudie.callout-style-default > .callout-header {
-  background-color: rgba(110, 101, 96, 0.13);
-}
-div.callout-fallstudie .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-fallstudie.callout-style-default .callout-icon::before, div.callout-fallstudie.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236E6560" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-active-processing.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-active-processing.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-active-processing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-active-processing.callout-style-default .callout-icon::before, div.callout-active-processing.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f044' !important;
   background-image: none;
 }
 div.callout-checkpoint.callout {
@@ -296,19 +192,6 @@ div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-
   content: '\f11e' !important;
   background-image: none;
 }
-div.callout-pro-tip.callout {
-  border-left-color: #1E3A5F;
-}
-div.callout-pro-tip.callout-style-default > .callout-header {
-  background-color: rgba(30, 58, 95, 0.13);
-}
-div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\e2ca' !important;
-  background-image: none;
-}
 div.callout-facilitator.callout {
   border-left-color: #6E6560;
 }
@@ -322,30 +205,30 @@ div.callout-facilitator.callout-style-default .callout-icon::before, div.callout
   content: '\f46d' !important;
   background-image: none;
 }
-div.callout-schedule.callout {
+div.callout-setup.callout {
   border-left-color: #6E6560;
 }
-div.callout-schedule.callout-style-default > .callout-header {
+div.callout-setup.callout-style-default > .callout-header {
   background-color: rgba(110, 101, 96, 0.13);
 }
-div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
+div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f017' !important;
+  content: '\f7d9' !important;
   background-image: none;
 }
-div.callout-feedback.callout {
-  border-left-color: #1E3A5F;
+div.callout-export.callout {
+  border-left-color: #A63D2F;
 }
-div.callout-feedback.callout-style-default > .callout-header {
-  background-color: rgba(30, 58, 95, 0.13);
+div.callout-export.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
 }
-div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
+div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f4ad' !important;
+  content: '\f56e' !important;
   background-image: none;
 }
 div.callout-timing.callout {
@@ -361,6 +244,58 @@ div.callout-timing.callout-style-default .callout-icon::before, div.callout-timi
   content: '\f2f2' !important;
   background-image: none;
 }
+div.callout-active-processing.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-active-processing.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-active-processing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-active-processing.callout-style-default .callout-icon::before, div.callout-active-processing.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f044' !important;
+  background-image: none;
+}
+div.callout-break.callout {
+  border-left-color: #6E6560;
+}
+div.callout-break.callout-style-default > .callout-header {
+  background-color: rgba(110, 101, 96, 0.13);
+}
+div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f7b6' !important;
+  background-image: none;
+}
+div.callout-group.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-group.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f0c0' !important;
+  background-image: none;
+}
+div.callout-pro-tip.callout {
+  border-left-color: #1E3A5F;
+}
+div.callout-pro-tip.callout-style-default > .callout-header {
+  background-color: rgba(30, 58, 95, 0.13);
+}
+div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\e2ca' !important;
+  background-image: none;
+}
 div.callout-pair.callout {
   border-left-color: #A63D2F;
 }
@@ -372,6 +307,32 @@ div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.c
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
   content: '\f500' !important;
+  background-image: none;
+}
+div.callout-feedback.callout {
+  border-left-color: #1E3A5F;
+}
+div.callout-feedback.callout-style-default > .callout-header {
+  background-color: rgba(30, 58, 95, 0.13);
+}
+div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f4ad' !important;
+  background-image: none;
+}
+div.callout-prompt-template.callout {
+  border-left-color: #1E3A5F;
+}
+div.callout-prompt-template.callout-style-default > .callout-header {
+  background-color: rgba(30, 58, 95, 0.13);
+}
+div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f328' !important;
   background-image: none;
 }
 div.callout-nachlesen.callout {
@@ -387,17 +348,43 @@ div.callout-nachlesen.callout-style-default .callout-icon::before, div.callout-n
   content: '\f518' !important;
   background-image: none;
 }
-div.callout-screens-down.callout {
+div.callout-try.callout {
   border-left-color: #A63D2F;
 }
-div.callout-screens-down.callout-style-default > .callout-header {
+div.callout-try.callout-style-default > .callout-header {
   background-color: rgba(166, 61, 47, 0.13);
 }
-div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
+div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f070' !important;
+  content: '\f021' !important;
+  background-image: none;
+}
+div.callout-tutor-example.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-tutor-example.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f086' !important;
+  background-image: none;
+}
+div.callout-schedule.callout {
+  border-left-color: #6E6560;
+}
+div.callout-schedule.callout-style-default > .callout-header {
+  background-color: rgba(110, 101, 96, 0.13);
+}
+div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f017' !important;
   background-image: none;
 }
 div.callout-testing.callout {
@@ -411,6 +398,19 @@ div.callout-testing.callout-style-default .callout-icon::before, div.callout-tes
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
   content: '\e4f3' !important;
+  background-image: none;
+}
+div.callout-individual.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-individual.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f007' !important;
   background-image: none;
 }
 </style>
@@ -446,8 +446,8 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../../styles/styles.css">
-<meta property="og:title" content="Worked Example: Spec Sheet für eine Statistik-Teilaufgabe – KI in der Lehre: Advanced">
-<meta property="og:description" content="">
+<meta property="og:title" content="Worked Example: LLM-as-Novice an einer Statistik-Aufgabe – KI in der Lehre: Advanced">
+<meta property="og:description" content="Multiple Regression als Demonstration der Methode">
 <meta property="og:site_name" content="KI in der Lehre: Advanced">
 </head>
 
@@ -488,12 +488,12 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-ressourcen">    
         <li>
-    <a class="dropdown-item" href="../../workshop/spec-card-statistics/index.html">
- <span class="dropdown-text">Beispiel-Spec-Card (Statistik)</span></a>
+    <a class="dropdown-item" href="../../workshop/spec-sheet-template/index.html">
+ <span class="dropdown-text">Spec-Vorlage</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../workshop/spec-sheet-template/index.html">
- <span class="dropdown-text">Spec-Sheet-Vorlage</span></a>
+    <a class="dropdown-item" href="../../workshop/spec-sheet-template/example-multiple-regression.html">
+ <span class="dropdown-text">Beispiel-Spec: Multiple Regression</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li>
@@ -514,7 +514,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../workshop/einstieg/index.html">Programm</a></li><li class="breadcrumb-item"><a href="../../workshop/block-1-theorie-und-beispiel/index.html">Block 1: Theorie und Beispiel (45 min)</a></li><li class="breadcrumb-item"><a href="../../workshop/block-1-theorie-und-beispiel/worked-example-statistics.html">Worked Example: Spec Sheet für eine Statistik-Teilaufgabe</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../workshop/einstieg/index.html">Programm</a></li><li class="breadcrumb-item"><a href="../../workshop/block-1-theorie-und-beispiel/index.html">Block 1: Theorie und Beispiel (45 min)</a></li><li class="breadcrumb-item"><a href="../../workshop/block-1-theorie-und-beispiel/worked-example-statistics.html">Worked Example: LLM-as-Novice an einer Statistik-Aufgabe</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -590,13 +590,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../workshop/block-1-theorie-und-beispiel/worked-example-statistics.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Worked Example: Spec Sheet für eine Statistik-Teilaufgabe</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../workshop/block-1-theorie-und-beispiel/wissens-typen-mechanismen-ki.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Drei Wissens-Typen, drei Lern-Mechanismen, drei KI-Konsequenzen</span></a>
+ <span class="menu-text">Worked Example: LLM-as-Novice an einer Statistik-Aufgabe</span></a>
   </div>
 </li>
       </ul>
@@ -631,50 +625,23 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#a.-die-teilaufgabe" id="toc-a.-die-teilaufgabe" class="nav-link active" data-scroll-target="#a.-die-teilaufgabe">A. Die Teilaufgabe</a>
-  <ul class="collapse">
-  <li><a href="#a1.-wortlaut" id="toc-a1.-wortlaut" class="nav-link" data-scroll-target="#a1.-wortlaut">A1. Wortlaut</a></li>
-  <li><a href="#a2.-kurskontext" id="toc-a2.-kurskontext" class="nav-link" data-scroll-target="#a2.-kurskontext">A2. Kurskontext</a></li>
-  <li><a href="#a3.-lernziel-der-teilaufgabe" id="toc-a3.-lernziel-der-teilaufgabe" class="nav-link" data-scroll-target="#a3.-lernziel-der-teilaufgabe">A3. Lernziel der Teilaufgabe</a></li>
-  </ul></li>
-  <li><a href="#b.-wissensbausteine" id="toc-b.-wissensbausteine" class="nav-link" data-scroll-target="#b.-wissensbausteine">B. Wissensbausteine</a>
-  <ul class="collapse">
-  <li><a href="#baustein-1" id="toc-baustein-1" class="nav-link" data-scroll-target="#baustein-1">Baustein 1</a></li>
-  <li><a href="#baustein-2" id="toc-baustein-2" class="nav-link" data-scroll-target="#baustein-2">Baustein 2</a></li>
-  <li><a href="#baustein-3" id="toc-baustein-3" class="nav-link" data-scroll-target="#baustein-3">Baustein 3</a></li>
-  <li><a href="#baustein-4" id="toc-baustein-4" class="nav-link" data-scroll-target="#baustein-4">Baustein 4</a></li>
-  <li><a href="#baustein-5" id="toc-baustein-5" class="nav-link" data-scroll-target="#baustein-5">Baustein 5</a></li>
-  </ul></li>
-  <li><a href="#c.-wahrscheinliche-fehlkonzepte" id="toc-c.-wahrscheinliche-fehlkonzepte" class="nav-link" data-scroll-target="#c.-wahrscheinliche-fehlkonzepte">C. Wahrscheinliche Fehlkonzepte</a>
-  <ul class="collapse">
-  <li><a href="#fehlkonzept-1" id="toc-fehlkonzept-1" class="nav-link" data-scroll-target="#fehlkonzept-1">Fehlkonzept 1</a></li>
-  <li><a href="#fehlkonzept-2" id="toc-fehlkonzept-2" class="nav-link" data-scroll-target="#fehlkonzept-2">Fehlkonzept 2</a></li>
-  <li><a href="#fehlkonzept-3" id="toc-fehlkonzept-3" class="nav-link" data-scroll-target="#fehlkonzept-3">Fehlkonzept 3</a></li>
-  </ul></li>
-  <li><a href="#wissenslücken-im-neuen-4-sektionen-template-als-erwerb-hinweise-zu-sektion-b" id="toc-wissenslücken-im-neuen-4-sektionen-template-als-erwerb-hinweise-zu-sektion-b" class="nav-link" data-scroll-target="#wissenslücken-im-neuen-4-sektionen-template-als-erwerb-hinweise-zu-sektion-b">Wissenslücken (im neuen 4-Sektionen-Template als Erwerb-Hinweise zu Sektion B)</a>
-  <ul class="collapse">
-  <li><a href="#lücke-1" id="toc-lücke-1" class="nav-link" data-scroll-target="#lücke-1">Lücke 1</a></li>
-  <li><a href="#lücke-2" id="toc-lücke-2" class="nav-link" data-scroll-target="#lücke-2">Lücke 2</a></li>
-  <li><a href="#lücke-3" id="toc-lücke-3" class="nav-link" data-scroll-target="#lücke-3">Lücke 3</a></li>
-  </ul></li>
-  <li><a href="#d.-falsifikationsnotiz" id="toc-d.-falsifikationsnotiz" class="nav-link" data-scroll-target="#d.-falsifikationsnotiz">D. Falsifikationsnotiz</a></li>
-  <li><a href="#pruning-protokoll" id="toc-pruning-protokoll" class="nav-link" data-scroll-target="#pruning-protokoll">Pruning-Protokoll</a></li>
-  <li><a href="#was-die-pruning-liste-zeigt" id="toc-was-die-pruning-liste-zeigt" class="nav-link" data-scroll-target="#was-die-pruning-liste-zeigt">Was die Pruning-Liste zeigt</a></li>
-  <li><a href="#demonstration-reaktive-simulation" id="toc-demonstration-reaktive-simulation" class="nav-link" data-scroll-target="#demonstration-reaktive-simulation">Demonstration: Reaktive Simulation</a></li>
-  <li><a href="#was-diese-probe-ergeben-hat" id="toc-was-diese-probe-ergeben-hat" class="nav-link" data-scroll-target="#was-diese-probe-ergeben-hat">Was diese Probe ergeben hat</a></li>
-  <li><a href="#demonstration-produktive-simulation" id="toc-demonstration-produktive-simulation" class="nav-link" data-scroll-target="#demonstration-produktive-simulation">Demonstration: Produktive Simulation</a></li>
-  <li><a href="#was-diese-probe-ergeben-hat-1" id="toc-was-diese-probe-ergeben-hat-1" class="nav-link" data-scroll-target="#was-diese-probe-ergeben-hat-1">Was diese Probe ergeben hat</a></li>
-  <li><a href="#wenn-dieses-spec-sheet-gerendert-wird-der-fertig-übersetzte-system-prompt" id="toc-wenn-dieses-spec-sheet-gerendert-wird-der-fertig-übersetzte-system-prompt" class="nav-link" data-scroll-target="#wenn-dieses-spec-sheet-gerendert-wird-der-fertig-übersetzte-system-prompt">Wenn dieses Spec Sheet gerendert wird: der fertig übersetzte System-Prompt</a></li>
-  <li><a href="#kurze-notiz-zur-übertragung" id="toc-kurze-notiz-zur-übertragung" class="nav-link" data-scroll-target="#kurze-notiz-zur-übertragung">Kurze Notiz zur Übertragung</a></li>
+  <li><a href="#die-teilaufgabe" id="toc-die-teilaufgabe" class="nav-link active" data-scroll-target="#die-teilaufgabe">Die Teilaufgabe</a></li>
+  <li><a href="#der-llm-as-novice-prompt" id="toc-der-llm-as-novice-prompt" class="nav-link" data-scroll-target="#der-llm-as-novice-prompt">Der LLM-as-Novice-Prompt</a></li>
+  <li><a href="#prompt-für-die-llm-as-novice-rolle" id="toc-prompt-für-die-llm-as-novice-rolle" class="nav-link" data-scroll-target="#prompt-für-die-llm-as-novice-rolle">Prompt für die LLM-as-Novice-Rolle</a></li>
+  <li><a href="#was-das-llm-enumeriert" id="toc-was-das-llm-enumeriert" class="nav-link" data-scroll-target="#was-das-llm-enumeriert">Was das LLM enumeriert</a></li>
+  <li><a href="#der-moment-in-dem-es-sticht" id="toc-der-moment-in-dem-es-sticht" class="nav-link" data-scroll-target="#der-moment-in-dem-es-sticht">Der Moment, in dem es sticht</a></li>
+  <li><a href="#was-die-methode-hier-geleistet-hat" id="toc-was-die-methode-hier-geleistet-hat" class="nav-link" data-scroll-target="#was-die-methode-hier-geleistet-hat">Was die Methode hier geleistet hat</a></li>
+  <li><a href="#was-du-in-block-2-tust" id="toc-was-du-in-block-2-tust" class="nav-link" data-scroll-target="#was-du-in-block-2-tust">Was du in Block 2 tust</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../workshop/einstieg/index.html">Programm</a></li><li class="breadcrumb-item"><a href="../../workshop/block-1-theorie-und-beispiel/index.html">Block 1: Theorie und Beispiel (45 min)</a></li><li class="breadcrumb-item"><a href="../../workshop/block-1-theorie-und-beispiel/worked-example-statistics.html">Worked Example: Spec Sheet für eine Statistik-Teilaufgabe</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../workshop/einstieg/index.html">Programm</a></li><li class="breadcrumb-item"><a href="../../workshop/block-1-theorie-und-beispiel/index.html">Block 1: Theorie und Beispiel (45 min)</a></li><li class="breadcrumb-item"><a href="../../workshop/block-1-theorie-und-beispiel/worked-example-statistics.html">Worked Example: LLM-as-Novice an einer Statistik-Aufgabe</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Worked Example: Spec Sheet für eine Statistik-Teilaufgabe</h1>
+<h1 class="title">Worked Example: LLM-as-Novice an einer Statistik-Aufgabe</h1>
+<p class="subtitle lead">Multiple Regression als Demonstration der Methode</p>
 </div>
 
 
@@ -701,381 +668,84 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Das ausgearbeitete Beispiel, das wir in Block 1 gemeinsam durchgehen. Es zeigt, wie aus <em>einer einzelnen Teilaufgabe</em> einer Statistik-Klausur ein <strong>Spec Sheet</strong> entsteht.</p>
-<p>Du nutzt diese Seite zwei Mal:</p>
-<ul>
-<li>als Live-Demo in Block 1, während die Instruktorin das LLM mit der Teilaufgabe konfrontiert und die Validierung Schritt für Schritt vorführt.</li>
-<li>als Vorlage in Block 2, wenn du dasselbe für eine Teilaufgabe aus deiner eigenen Lehre machst.</li>
-</ul>
-<p>Die Methode überträgt sich auf jedes Fach. Statistik ist nur das demonstrative Beispiel.</p>
+<p>Eine Live-Demonstration der LLM-as-Novice-Methode an einer konkreten Statistik-Aufgabe. Du beobachtest in Block 1, wie ein LLM, das als strukturierter Novize geprompted wird, die versteckten Voraussetzungen einer Aufgabe enumeriert.</p>
+<p>Die Methode überträgt sich auf jedes Fach. Statistik ist nur das demonstrative Beispiel. In Block 2 machst du dasselbe für eine Teilaufgabe aus deiner eigenen Lehre.</p>
 </div>
 </div>
-<section id="a.-die-teilaufgabe" class="level2">
-<h2 class="anchored" data-anchor-id="a.-die-teilaufgabe">A. Die Teilaufgabe</h2>
-<section id="a1.-wortlaut" class="level3">
-<h3 class="anchored" data-anchor-id="a1.-wortlaut">A1. Wortlaut</h3>
+<section id="die-teilaufgabe" class="level2">
+<h2 class="anchored" data-anchor-id="die-teilaufgabe">Die Teilaufgabe</h2>
+<p><strong>Wortlaut:</strong> Eine Studierende rechnet in R eine multiple Regression mit zwei Prädiktoren: Lernzeit (<span class="math inline">\(X_1\)</span>) und Mathematik-Maturanote (<span class="math inline">\(X_2\)</span>) sollen die Punktzahl in der Statistik-Klausur (<span class="math inline">\(Y\)</span>) vorhersagen. Sie soll die Regressionskoeffizienten interpretieren und das Modell als Ganzes beurteilen.</p>
+<p><strong>Kurskontext:</strong> Übung 5 im Statistik-II-Modul, Bachelor-Psychologie. Die Studierenden haben das Semester davor Statistik I (bis und mit einfache lineare Regression) und in den ersten Wochen von Statistik II Partial- und Semipartialkorrelation behandelt. Die Aufgabe ist die erste Anwendung der multiplen Regression im Kurs.</p>
+<p><strong>Lernziel:</strong> Die Studierende soll zeigen, dass sie die konditionale Bedeutung der Aussage “kontrolliert für” verstanden hat und einen Regressionskoeffizienten unter Berücksichtigung weiterer Prädiktoren angemessen interpretieren kann.</p>
+<p><strong>Eine typische akzeptable Antwort sieht so aus:</strong></p>
 <blockquote class="blockquote">
-<p>Eine Studie berichtet eine Korrelation von <span class="math inline">\(r = 0.3\)</span> zwischen der Schlafdauer in der Nacht vor einer Klausur und der Klausurleistung, basierend auf einer Stichprobe von 200 Erstsemester-Studierenden. Interpretiere diesen Befund: Was sagt er substantiell aus, und wie gut gestützt ist die Aussage?</p>
+<p><em>Lernzeit hat einen positiven Effekt auf die Klausurpunktzahl (<span class="math inline">\(b_1 = 0.45\)</span>, kontrolliert für die Mathenote). Pro zusätzliche Lernstunde steigt die Punktzahl um etwa <span class="math inline">\(0.45\)</span> Punkte. Die Mathenote zeigt keinen signifikanten Effekt (<span class="math inline">\(b_2 = 1.2\)</span>, <span class="math inline">\(p = 0.31\)</span>). Insgesamt erklärt das Modell etwa <span class="math inline">\(48\%\)</span> der Varianz (<span class="math inline">\(R^2 = 0.48\)</span>).</em></p>
 </blockquote>
+<p>Diese Antwort ist auf der Oberfläche kompetent. Die Lehrperson, die sie korrigiert, vergibt vermutlich die volle Punktzahl. Die Aufgabe gilt als gelöst.</p>
 </section>
-<section id="a2.-kurskontext" class="level3">
-<h3 class="anchored" data-anchor-id="a2.-kurskontext">A2. Kurskontext</h3>
-<p>Erstsemester-Studierende in einem Service-Statistik-Modul für Psychologie, Wirtschaft oder Sozialarbeit. Sie haben ein Semester deskriptive Statistik abgeschlossen, kennen Mittelwert, Median, Varianz, Standardabweichung. Korrelationen wurden im Modul behandelt: die Studierenden können <span class="math inline">\(r\)</span> rechnen, wenn die Daten und die Formel gegeben sind. Inferenzstatistik haben sie noch nicht. Diese Teilaufgabe ist die letzte einer dreiteiligen Klausuraufgabe; die vorhergehenden Teile waren Berechnung von <span class="math inline">\(r\)</span> und ein Streudiagramm.</p>
+<section id="der-llm-as-novice-prompt" class="level2">
+<h2 class="anchored" data-anchor-id="der-llm-as-novice-prompt">Der LLM-as-Novice-Prompt</h2>
+<p>Wir geben das Material (Aufgabenstellung plus Musterlösung) einem LLM mit folgender Anweisung. Diesen Prompt kannst du copy-paste in Block 2 für deine eigene Aufgabe verwenden:</p>
 </section>
-<section id="a3.-lernziel-der-teilaufgabe" class="level3">
-<h3 class="anchored" data-anchor-id="a3.-lernziel-der-teilaufgabe">A3. Lernziel der Teilaufgabe</h3>
-<p>Die Studierende soll zeigen, dass sie eine berechnete Korrelation in einen substantiellen Kontext zurück übersetzen kann: Effektgrösse einordnen, Stichprobengrösse berücksichtigen, Grenzen der Aussage benennen. Es geht nicht um die Berechnung, sondern um die Interpretation.</p>
+<section id="prompt-für-die-llm-as-novice-rolle" class="level2 callout-prompt-example" data-icon="false">
+<h2 class="anchored" data-anchor-id="prompt-für-die-llm-as-novice-rolle">Prompt für die LLM-as-Novice-Rolle</h2>
+<p>Hier ist Material aus einem Statistik-Kurs. Spiele eine Person, die gerade die Vorgängerveranstaltung abgeschlossen hat, aber diese Aufgabe hier noch nicht gesehen hat. Für jeden Schritt in der Musterlösung, liste auf: was müsste die Person bereits wissen, erkennen oder begründen können, um den Schritt zu verstehen? Markiere alles, was das Material voraussetzt, aber nicht selbst erklärt. Unterscheide zwischen Fakten zum Abrufen, Klassifikationen zum Erkennen, Prozeduren zum Ausführen und konzeptionellen Verständnissen.</p>
+<p>Material:</p>
+<p>[Hier den vollständigen Lösungsweg der Übung einfügen]</p>
 </section>
-</section>
-<section id="b.-wissensbausteine" class="level2">
-<h2 class="anchored" data-anchor-id="b.-wissensbausteine">B. Wissensbausteine</h2>
-<p>Fünf Bausteine, jeder mit Typ und Quelle.</p>
-<section id="baustein-1" class="level3">
-<h3 class="anchored" data-anchor-id="baustein-1">Baustein 1</h3>
+<section id="was-das-llm-enumeriert" class="level2">
+<h2 class="anchored" data-anchor-id="was-das-llm-enumeriert">Was das LLM enumeriert</h2>
+<p>Das LLM listet, in der Rolle der noch-nicht-fortgeschrittenen Studentin, die folgenden Voraussetzungen auf. Wir reproduzieren hier die wesentlichen Punkte (mit leichter Glättung in der Reihenfolge):</p>
+<p><strong>Fakten und Notation:</strong></p>
 <ul>
-<li><strong>Name:</strong> <span class="math inline">\(r\)</span> liegt zwischen <span class="math inline">\(-1\)</span> und <span class="math inline">\(+1\)</span></li>
-<li><strong>Typ:</strong> Faktenwissen</li>
-<li><strong>Quelle:</strong> B</li>
-<li><strong>Wo der Baustein vorkommt:</strong> ohne diesen Baustein ist die Magnitude <span class="math inline">\(0.3\)</span> unverankert; eine Studierende ohne ihn kann nicht beurteilen, ob <span class="math inline">\(0.3\)</span> “viel” oder “wenig” ist.</li>
-<li><strong>Was schiefgeht, wenn er fehlt:</strong> die Studierende interpretiert <span class="math inline">\(0.3\)</span> wie eine Wahrscheinlichkeit oder einen Prozentsatz, ohne den Bezug zur theoretischen Skalierung der Korrelation.</li>
+<li>Was <span class="math inline">\(r\)</span>, <span class="math inline">\(r^2\)</span>, <span class="math inline">\(R^2\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(\beta\)</span> jeweils bezeichnen und worin sie sich unterscheiden.</li>
+<li>Was die Notation <span class="math inline">\(r_{YX_1 \mid X_2}\)</span> versus <span class="math inline">\(r_{YX_1}\)</span> bedeutet (Partialkorrelation vs.&nbsp;bivariate Korrelation).</li>
+<li>Dass <span class="math inline">\(b_0\)</span> die vorhergesagte <span class="math inline">\(Y\)</span>-Wert bei <span class="math inline">\(X_1 = X_2 = 0\)</span> ist und nicht “der Durchschnitt”.</li>
+<li>Dass die R-Syntax <code>lm(Y ~ X1 + X2)</code> ein Modell ohne Interaktion ist, während <code>lm(Y ~ X1 * X2)</code> eines mit Interaktion ist.</li>
+</ul>
+<p><strong>Klassifikationen und Erkennen:</strong></p>
+<ul>
+<li>Eine Forschungsfrage als “Vorhersage durch mehrere Prädiktoren” erkennen und nicht als “Korrelation testen”.</li>
+<li>Den Output von <code>summary(lm(...))</code> als strukturiertes Ergebnis lesen: Koeffizienten, Standardfehler, <span class="math inline">\(t\)</span>-Werte, <span class="math inline">\(p\)</span>-Werte, <span class="math inline">\(R^2\)</span>.</li>
+<li>Erkennen, dass ein bivariater <span class="math inline">\(r\)</span> und das entsprechende <span class="math inline">\(b\)</span> in einer multiplen Regression unterschiedliche Grössen messen.</li>
+<li>Eine signifikante bivariate Korrelation, die in der multiplen Regression nicht-signifikant wird, als hinweisendes Muster auf Multikollinearität oder Konfundierung erkennen.</li>
+</ul>
+<p><strong>Prozeduren:</strong></p>
+<ul>
+<li>Die Daten in R einlesen, prüfen (Streudiagramm, Korrelationsmatrix), eine multiple Regression anpassen.</li>
+<li>Den Koeffizienten <span class="math inline">\(b_1\)</span> in Worte übersetzen: “pro Einheit Anstieg von <span class="math inline">\(X_1\)</span> bei Konstanthaltung von <span class="math inline">\(X_2\)</span>”.</li>
+<li>Den Anteil erklärter Varianz aus <span class="math inline">\(R^2\)</span> ablesen.</li>
+</ul>
+<p><strong>Konzeptionelle Verständnisse:</strong></p>
+<ul>
+<li>Die konditionale Interpretation des Begriffs “kontrolliert für” (<span class="math inline">\(b_1\)</span> ist der Effekt von <span class="math inline">\(X_1\)</span> <em>bei gleicher Mathenote</em>, nicht der bereinigte Effekt nach einem Eingriff).</li>
+<li>Warum <span class="math inline">\(b_1\)</span> in der bivariaten und in der multiplen Regression unterschiedliche Werte haben kann (und meistens hat).</li>
+<li>Warum <span class="math inline">\(R^2\)</span> nicht die Summe der bivariaten <span class="math inline">\(r^2\)</span> ist (wegen der Korrelation zwischen den Prädiktoren).</li>
+<li>Was “nicht-signifikant” über den wahren Effekt aussagt: es heisst nicht “kein Effekt”, sondern “Daten reichen nicht, um Effekt von Null zu unterscheiden”.</li>
+<li>Dass der Modellzweck (Vorhersage vs.&nbsp;Erklärung) die Interpretation der Koeffizienten beeinflusst.</li>
 </ul>
 </section>
-<section id="baustein-2" class="level3">
-<h3 class="anchored" data-anchor-id="baustein-2">Baustein 2</h3>
+<section id="der-moment-in-dem-es-sticht" class="level2">
+<h2 class="anchored" data-anchor-id="der-moment-in-dem-es-sticht">Der Moment, in dem es sticht</h2>
+<p>Die Liste enthält etwa fünfzehn Voraussetzungen. Die meisten davon hat die Dozentin im Kurs gelehrt. Vier oder fünf hat sie nicht explizit thematisiert, weil sie ihr automatisiert waren:</p>
 <ul>
-<li><strong>Name:</strong> <span class="math inline">\(r\)</span> misst lineare Assoziation, nicht Kausalität</li>
-<li><strong>Typ:</strong> Klassifikationswissen (Erkennen)</li>
-<li><strong>Quelle:</strong> B</li>
-<li><strong>Wo der Baustein vorkommt:</strong> die Aufgabe verlangt eine <em>Interpretation</em>; ohne diesen Baustein gleitet die Antwort in kausale Behauptungen ab (“mehr Schlaf führt zu besserer Leistung”).</li>
-<li><strong>Was schiefgeht, wenn er fehlt:</strong> die Studierende schreibt “Schlaf verbessert Klausurleistung” oder “Schlafmangel verursacht schlechte Noten”, ohne die Korrelation-Kausalität-Lücke zu markieren.</li>
+<li>Die <strong>konditionale Interpretation</strong> von “kontrolliert für”. Die Dozentin sagt es im Vorbeigehen, ein Mal. Die Studentin denkt: “kontrolliert” wie in “Kontrollgruppe”, ein experimenteller Eingriff.</li>
+<li>Dass <strong><span class="math inline">\(R^2\)</span> nicht additiv</strong> ist. Die Studentin überträgt die Additivität, die in der ANOVA mit orthogonalen Faktoren tatsächlich gilt, auf die Regression mit korrelierten Prädiktoren.</li>
+<li>Dass <strong>ein bivariater Effekt im multiplen Modell verschwinden kann</strong>. Die Studentin erwartet, dass ein in einfacher Regression signifikanter Prädiktor auch hier signifikant bleibt.</li>
+<li>Dass <strong>“nicht-signifikant” nicht “kein Effekt”</strong> heisst. Die Studentin schliesst aus <span class="math inline">\(p = 0.31\)</span>, dass Mathenote keinen Einfluss hat.</li>
 </ul>
+<p>Das sind die typischen Blind Spots. Die Dozentin sieht sie nicht, weil ihre eigene Performance sie überspringt. Sie ist seit Jahren routiniert genug, dass sie nicht mehr daran denkt, dass diese Schritte überhaupt Schritte sind.</p>
 </section>
-<section id="baustein-3" class="level3">
-<h3 class="anchored" data-anchor-id="baustein-3">Baustein 3</h3>
-<ul>
-<li><strong>Name:</strong> Effektgrösse ist kontext-abhängig zu beurteilen</li>
-<li><strong>Typ:</strong> Erklärungswissen</li>
-<li><strong>Quelle:</strong> V</li>
-<li><strong>Wo der Baustein vorkommt:</strong> die Aufgabe fragt explizit nach der substantiellen Bedeutung, nicht nach der numerischen Magnitude.</li>
-<li><strong>Was schiefgeht, wenn er fehlt:</strong> die Studierende übernimmt eine Daumenregel (“<span class="math inline">\(0.3\)</span> ist mittel” oder “<span class="math inline">\(0.3\)</span> ist klein”) ohne Bezug auf den Kontext der Bildungsforschung; oder sie schliesst, <span class="math inline">\(0.3\)</span> sei “vernachlässigbar”.</li>
-</ul>
+<section id="was-die-methode-hier-geleistet-hat" class="level2 callout-pro-tip" data-icon="false">
+<h2 class="anchored" data-anchor-id="was-die-methode-hier-geleistet-hat">Was die Methode hier geleistet hat</h2>
+<p>Das LLM hat nicht gewusst, welche Voraussetzungen die Dozentin in ihrem Kurs gelehrt hat. Es hat alle Voraussetzungen aufgelistet, die für die Lösung der Aufgabe notwendig sind, ohne zwischen “schon gelehrt” und “vorausgesetzt” zu unterscheiden. Genau diese Liste ist der Ausgangspunkt: die Dozentin geht sie durch und markiert, was in ihrem Kurs tatsächlich behandelt wurde und was nicht.</p>
+<p>Die Methode ist keine Magie. Sie ist eine Externalisierung: das, was die Dozentin nicht mehr sehen kann, wird sichtbar, weil das LLM keinen Anreiz hat, irgendetwas wegzulassen.</p>
 </section>
-<section id="baustein-4" class="level3">
-<h3 class="anchored" data-anchor-id="baustein-4">Baustein 4</h3>
-<ul>
-<li><strong>Name:</strong> Korrelation und Stichprobenunsicherheit sind getrennte Dimensionen</li>
-<li><strong>Typ:</strong> Erklärungswissen</li>
-<li><strong>Quelle:</strong> B</li>
-<li><strong>Wo der Baustein vorkommt:</strong> die Aufgabe nennt <span class="math inline">\(n = 200\)</span> explizit; die Studierende soll erkennen, dass die Aussage zwei Dimensionen hat: Effektgrösse und Sicherheit der Schätzung.</li>
-<li><strong>Was schiefgeht, wenn er fehlt:</strong> die Studierende kollabiert beide in eine einzige Aussage (“0.3 ist signifikant, also bedeutsam”) oder ignoriert die Sicherheitsdimension komplett.</li>
-</ul>
-</section>
-<section id="baustein-5" class="level3">
-<h3 class="anchored" data-anchor-id="baustein-5">Baustein 5</h3>
-<ul>
-<li><strong>Name:</strong> <span class="math inline">\(r^2\)</span> ist nicht <span class="math inline">\(r\)</span></li>
-<li><strong>Typ:</strong> Faktenwissen</li>
-<li><strong>Quelle:</strong> B</li>
-<li><strong>Wo der Baustein vorkommt:</strong> ohne diesen Baustein interpretiert die Studierende <span class="math inline">\(r = 0.3\)</span> als “30% erklärt”; tatsächlich erklärt <span class="math inline">\(r^2 = 0.09\)</span> etwa neun Prozent gemeinsamer Varianz.</li>
-<li><strong>Was schiefgeht, wenn er fehlt:</strong> “die Korrelation von <span class="math inline">\(0.3\)</span> erklärt <span class="math inline">\(30\%\)</span> der Variabilität in der Klausurleistung” steht in der Antwort.</li>
-</ul>
-</section>
-</section>
-<section id="c.-wahrscheinliche-fehlkonzepte" class="level2">
-<h2 class="anchored" data-anchor-id="c.-wahrscheinliche-fehlkonzepte">C. Wahrscheinliche Fehlkonzepte</h2>
-<section id="fehlkonzept-1" class="level3">
-<h3 class="anchored" data-anchor-id="fehlkonzept-1">Fehlkonzept 1</h3>
-<ul>
-<li><strong>So würde die Studierende es sagen:</strong> “Eine Korrelation von <span class="math inline">\(0.3\)</span> heisst, <span class="math inline">\(30\%\)</span> der Klausurleistung lassen sich durch Schlafdauer erklären.”</li>
-<li><strong>Typ:</strong> kohärent-intuitiv</li>
-<li><strong>Quelle:</strong> B</li>
-<li><strong>Diskriminiert die Teilaufgabe Studierende mit diesem Fehlkonzept?</strong> Ja, wenn die Korrektur explizit zwischen <span class="math inline">\(r\)</span> und <span class="math inline">\(r^2\)</span> trennt. Wenn die Korrektur “<span class="math inline">\(r = 0.3\)</span> ist eine moderate Korrelation” akzeptiert, ohne die <span class="math inline">\(30\%\)</span>-Übersetzung zu prüfen, schlüpft das Fehlkonzept durch.</li>
-</ul>
-</section>
-<section id="fehlkonzept-2" class="level3">
-<h3 class="anchored" data-anchor-id="fehlkonzept-2">Fehlkonzept 2</h3>
-<ul>
-<li><strong>So würde die Studierende es sagen:</strong> “Bei einer so grossen Stichprobe (<span class="math inline">\(n = 200\)</span>) ist das Ergebnis sehr genau. Wir können davon ausgehen, dass die Korrelation in der Population fast identisch ist.”</li>
-<li><strong>Typ:</strong> kohärent-intuitiv</li>
-<li><strong>Quelle:</strong> V</li>
-<li><strong>Diskriminiert die Teilaufgabe?</strong> Teilweise. Die Aufgabe fragt nach Sicherheit der Aussage, aber ohne explizite Frage nach Konfidenzintervallen oder Stichprobenfehler bleibt unklar, ob die Studierende das Konzept “Stichprobenunsicherheit ist nicht null” hat. Eine zusätzliche Teilfrage (“Wie sicher ist diese Schätzung?”) würde das Fehlkonzept gezielter prüfen.</li>
-</ul>
-</section>
-<section id="fehlkonzept-3" class="level3">
-<h3 class="anchored" data-anchor-id="fehlkonzept-3">Fehlkonzept 3</h3>
-<ul>
-<li><strong>So würde die Studierende es sagen:</strong> “<span class="math inline">\(r = 0.3\)</span> ist klein. Schlafdauer hat also keinen praktischen Einfluss auf die Klausurleistung.”</li>
-<li><strong>Typ:</strong> oberflächlich (ungeprüfte Anwendung einer Daumenregel ohne Kontextkalibrierung)</li>
-<li><strong>Quelle:</strong> B</li>
-<li><strong>Diskriminiert die Teilaufgabe?</strong> Bedingt. Die Aufgabe fragt nach Substanz; eine Antwort, die <span class="math inline">\(0.3\)</span> pauschal als “klein” abtut, ist nicht falsch, aber dünn. Ob “dünn” als Misserfolg gewertet wird, hängt vom Bewertungsraster ab.</li>
-</ul>
-</section>
-</section>
-<section id="wissenslücken-im-neuen-4-sektionen-template-als-erwerb-hinweise-zu-sektion-b" class="level2">
-<h2 class="anchored" data-anchor-id="wissenslücken-im-neuen-4-sektionen-template-als-erwerb-hinweise-zu-sektion-b">Wissenslücken (im neuen 4-Sektionen-Template als Erwerb-Hinweise zu Sektion B)</h2>
-<p>Im aktuellen Spec-Sheet-Template sind diese Einträge keine eigene Sektion mehr: jeder Punkt wird stattdessen als Erwerb-Hinweis bei einem bestehenden Wissensbaustein in Sektion B festgehalten (“vorausgesetzt aus [Modul]” oder “Tacit-Wissen”). Das Worked Example erhält die ursprüngliche Liste, weil sie pädagogisch reich ist und die Anti-Symmetrie des Spec Sheets gut zeigt.</p>
-<section id="lücke-1" class="level3">
-<h3 class="anchored" data-anchor-id="lücke-1">Lücke 1</h3>
-<ul>
-<li><strong>Was fehlt:</strong> das Konzept “Effektgrössen-Konventionen sind diszipliären, nicht universal”</li>
-<li><strong>Wo es eigentlich erworben werden sollte:</strong> im Modul wurde die Cohen-Klassifikation (<span class="math inline">\(r = 0.1\)</span> klein, <span class="math inline">\(0.3\)</span> mittel, <span class="math inline">\(0.5\)</span> gross) erwähnt, aber ohne Diskussion der Domänen-Kalibrierung in Bildungsforschung.</li>
-<li><strong>Quelle:</strong> V</li>
-<li><strong>Wie sich die Lücke zeigt:</strong> die Studierende übernimmt die Cohen-Klassifikation pauschal (“<span class="math inline">\(0.3\)</span> ist mittel”), ohne zu prüfen, ob das in der Bildungsforschung sinnvoll ist (wo Effekte typisch klein sind).</li>
-</ul>
-</section>
-<section id="lücke-2" class="level3">
-<h3 class="anchored" data-anchor-id="lücke-2">Lücke 2</h3>
-<ul>
-<li><strong>Was fehlt:</strong> der Begriff “lineare Assoziation” als spezifische, nicht generelle Beziehung</li>
-<li><strong>Wo es eigentlich erworben werden sollte:</strong> im Korrelations-Block des laufenden Moduls.</li>
-<li><strong>Quelle:</strong> B</li>
-<li><strong>Wie sich die Lücke zeigt:</strong> die Studierende behandelt Korrelation als generelle Aussage über “Zusammenhang”, ohne die Linearitätsannahme zu erwähnen oder zu erkennen, dass nicht-lineare Zusammenhänge unentdeckt bleiben.</li>
-</ul>
-</section>
-<section id="lücke-3" class="level3">
-<h3 class="anchored" data-anchor-id="lücke-3">Lücke 3</h3>
-<ul>
-<li><strong>Was fehlt:</strong> der Unterschied zwischen Stichproben-<span class="math inline">\(r\)</span> und Populations-<span class="math inline">\(\rho\)</span></li>
-<li><strong>Wo es eigentlich erworben werden sollte:</strong> würde im nachfolgenden Inferenzstatistik-Modul behandelt; zum Zeitpunkt dieser Aufgabe ist das ein bekannter Lückenpunkt.</li>
-<li><strong>Quelle:</strong> B</li>
-<li><strong>Wie sich die Lücke zeigt:</strong> die Studierende behandelt <span class="math inline">\(r = 0.3\)</span> als die Korrelation, statt als eine Schätzung der Korrelation. Sie hat keine Sprache für “die wahre Korrelation in der Population könnte etwas anderes sein”.</li>
-</ul>
-</section>
-</section>
-<section id="d.-falsifikationsnotiz" class="level2">
-<h2 class="anchored" data-anchor-id="d.-falsifikationsnotiz">D. Falsifikationsnotiz</h2>
-<blockquote class="blockquote">
-<p>Wenn Studierende, die ich aus Gesprächsanlässen klar als kompetente Korrelationsinterpretiererinnen einschätze, an dieser Teilaufgabe systematisch scheitern, dann ist Baustein 3 (Effektgrösse ist kontext-abhängig zu beurteilen) wahrscheinlich nicht das, was die Aufgabe wirklich testet. Wahrscheinlicher wäre dann, dass die Aufgabe zu offen formuliert ist und die Studierenden raten lässt, welche der vielen möglichen Interpretationsdimensionen gemeint ist.</p>
-</blockquote>
-</section>
-<section id="pruning-protokoll" class="level2">
-<h2 class="anchored" data-anchor-id="pruning-protokoll">Pruning-Protokoll</h2>
-<p>Drei Vorschläge, die das LLM gemacht hat und die nicht in das Spec Sheet aufgenommen wurden.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Verworfener Vorschlag</th>
-<th>Grund</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>“Kennt das Konzept der Wahrscheinlichkeit”</td>
-<td>zu abstrakt; ist eher ein Sammelbegriff als ein operationalisierbarer Baustein. Wenn nötig, in spezifischere Bausteine zerlegen.</td>
-</tr>
-<tr class="even">
-<td>“Weiss, dass Korrelation Kausalität nicht impliziert, aber bei kontrollierten Studien näher liegt”</td>
-<td>inhaltlich missverständlich; das LLM hat ein populärwissenschaftliches Halbwissen reproduziert, das beim Erstsemester-Niveau nicht trägt und falsche Sicherheit suggeriert.</td>
-</tr>
-<tr class="odd">
-<td>“Versteht <span class="math inline">\(p\)</span>-Werte und ihre Interpretation”</td>
-<td>kommt im Kontext der Aufgabe nicht vor (Inferenzstatistik wurde noch nicht behandelt). Die Studierende soll <em>nicht</em> mit <span class="math inline">\(p\)</span>-Werten arbeiten.</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="was-die-pruning-liste-zeigt" class="level2 callout-checkpoint" data-icon="false">
-<h2 class="anchored" data-anchor-id="was-die-pruning-liste-zeigt">Was die Pruning-Liste zeigt</h2>
-<p>Drei Vorschläge des LLM, drei verschiedene Probleme: zu abstrakt, inhaltlich falsch, kurskontextlich daneben. Die Pruning-Notiz hält das fest, damit die Validierung nachvollziehbar ist und nicht jeder LLM-Vorschlag stillschweigend ins Spec Sheet rutscht.</p>
-<p>Eine leere Pruning-Liste bei einem vollen Spec Sheet ist ein Warnsignal.</p>
-</section>
-<section id="demonstration-reaktive-simulation" class="level2">
-<h2 class="anchored" data-anchor-id="demonstration-reaktive-simulation">Demonstration: Reaktive Simulation</h2>
-<p>Wir geben dem LLM die Teilaufgabe und die Vorgabe: “Du bist eine Studierende, der Baustein 1 fehlt (du weisst nicht, dass <span class="math inline">\(r\)</span> zwischen <span class="math inline">\(-1\)</span> und <span class="math inline">\(+1\)</span> liegt). Sonst bist du auf dem Niveau deines Kurses kompetent. Lies die Aufgabe und sag, was unklar wird.”</p>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Beispielhaftes LLM-Output
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<blockquote class="blockquote">
-<p><em>Was unklar wird:</em></p>
-<ol type="1">
-<li><em>Die Zahl 0.3 hat keinen Anker.</em> Ich kann nicht entscheiden, ob das viel oder wenig ist. In Prozenten ausgedrückt wäre das 30% irgendetwas, aber ich verstehe nicht, was die Skala nach oben begrenzen würde. Ist 1 das Maximum? Oder 100? Oder gibt es kein Maximum?</li>
-<li><em>“Korrelation” als Wort ist mir bekannt, aber ohne den Wertebereich kann ich keinen Vergleich anstellen.</em> Ich würde gerne sagen “stark” oder “schwach”, aber ich habe keine Referenz.</li>
-<li><em>Die Stichprobengrösse 200 fühlt sich gross an, aber wenn ich nicht weiss, was 0.3 in der Skala der Korrelation bedeutet, kann ich auch nicht beurteilen, ob 200 Personen “viele” sind, um eine Korrelation in dieser Grössenordnung zu schätzen.</em></li>
-</ol>
-<p><em>Was ich trotzdem noch kann:</em></p>
-<ul>
-<li>Ich kann beschreiben, was eine Korrelation untersucht (Zusammenhang zwischen zwei Variablen).</li>
-<li>Ich kann sagen, dass eine grössere Stichprobe in der Regel verlässlichere Ergebnisse liefert.</li>
-<li>Ich kann die Frage stellen, ob die Studierenden ausgeschlafen waren, weil sie schon vorbereitet hatten, oder ob der Schlaf selbst die Leistung beeinflusste.</li>
-</ul>
-</blockquote>
-</div>
-</div>
-</section>
-<section id="was-diese-probe-ergeben-hat" class="level2 callout-pro-tip" data-icon="false">
-<h2 class="anchored" data-anchor-id="was-diese-probe-ergeben-hat">Was diese Probe ergeben hat</h2>
-<p>Die Simulation hat einen Punkt aufgedeckt, der im Spec Sheet schon enthalten war (Baustein 1 ist tatsächlich tragend), aber sie hat zusätzlich eine Aufgabenstellungs-Schwäche markiert: die Aufgabe stützt sich auf die implizite Annahme, dass Studierende den Wertebereich von <span class="math inline">\(r\)</span> kennen. Wenn diese Annahme im Kurs nicht aktiv überprüft wurde, fängt die Aufgabe zwar Baustein 1 als Lücke, ohne ihn explizit zu thematisieren.</p>
-<p>Folge im Spec Sheet: keine Anpassung an Baustein 1 selbst, aber eine kleine Erweiterung der Aufgabenstellung wäre sinnvoll: ein Hinweissatz “Erinnerung: <span class="math inline">\(r\)</span> liegt zwischen <span class="math inline">\(-1\)</span> und <span class="math inline">\(+1\)</span>” am Anfang der Klausur. Diese Beobachtung kommt in den Block 2 oder Closing-Notizen, nicht ins Spec Sheet selbst.</p>
-</section>
-<section id="demonstration-produktive-simulation" class="level2">
-<h2 class="anchored" data-anchor-id="demonstration-produktive-simulation">Demonstration: Produktive Simulation</h2>
-<p>Wir geben dem LLM die Teilaufgabe und die Vorgabe: “Du bist eine Studierende, die Fehlkonzept 1 hält (du denkst, <span class="math inline">\(r = 0.3\)</span> heisse 30% Erklärung). Schreibe die Antwort, die du in der Klausur abgeben würdest.”</p>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Beispielhaftes LLM-Output
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<blockquote class="blockquote">
-<p><em>Antwort der simulierten Studierenden:</em></p>
-<p>“Die Korrelation von <span class="math inline">\(r = 0.3\)</span> zwischen Schlafdauer und Klausurleistung bedeutet, dass etwa 30% der Klausurleistung durch die Schlafdauer in der Nacht vor der Klausur erklärt werden. Das ist ein moderater Effekt: nicht riesig, aber auch nicht vernachlässigbar. Bei einer Stichprobe von 200 Personen ist das Ergebnis recht verlässlich.</p>
-<p>Substantiell heisst das, dass mehr Schlaf in der Nacht vor der Klausur tatsächlich einen Beitrag zur besseren Leistung leistet, allerdings nicht den Hauptbeitrag. Andere Faktoren wie Vorbereitung oder Vorwissen spielen wahrscheinlich grössere Rollen, weil sie die übrigen 70% erklären.”</p>
-<p><em>Beobachtbare Merkmale, an denen das Fehlkonzept zu erkennen ist:</em></p>
-<ol type="1">
-<li>Direkte Übersetzung der Korrelation in eine Prozentaussage (“30% der Klausurleistung durch Schlafdauer erklärt”). Korrekt wäre <span class="math inline">\(r^2 \approx 9\%\)</span> gemeinsame Varianz, nicht 30%.</li>
-<li>Gleitende Bewegung von “30% erklärt” zu “70% erklären andere Faktoren” als Komplement, was die <span class="math inline">\(r\)</span>-zu-<span class="math inline">\(r^2\)</span>-Verwirrung als Rechenoperation sichtbar macht.</li>
-</ol>
-<p><em>Würde eine Dozentin unter Zeitdruck den Misserfolg bemerken?</em> Wahrscheinlich nicht zuverlässig. Die Antwort liest sich kompetent. Sie ist sprachlich flüssig, methodisch geordnet, und der einzige diagnostische Hinweis ist die spezifische numerische Übersetzung. Wer beim Korrigieren auf “moderater Effekt” achtet, wird das Fehlkonzept übersehen. Wer auf die genaue Zahl achtet, wird es fangen.</p>
-</blockquote>
-</div>
-</div>
-</section>
-<section id="was-diese-probe-ergeben-hat-1" class="level2 callout-pro-tip" data-icon="false">
-<h2 class="anchored" data-anchor-id="was-diese-probe-ergeben-hat-1">Was diese Probe ergeben hat</h2>
-<p>Die Simulation bestätigt, dass Fehlkonzept 1 tatsächlich kohärent ist: die simulierte Antwort liest sich plausibel und schlüssig, gerade weil sie aus einer in sich konsistenten falschen Regel ableitet. Sie zeigt zugleich, dass die Aufgabe den Misserfolg fängt <strong>wenn die Korrektur darauf achtet</strong> und ihn übersieht, wenn die Korrektur sich nur an der Oberfläche orientiert.</p>
-<p>Konkrete Konsequenzen für die Aufgabenbewertung:</p>
-<ul>
-<li>Im Bewertungsraster: explizit auf die Interpretation der Magnitude achten (<span class="math inline">\(0.3\)</span> vs.&nbsp;<span class="math inline">\(9\%\)</span>).</li>
-<li>In der Aufgabenstellung: eventuell präzisieren, dass die Antwort die <em>Stärke</em> und die <em>Erklärungskraft</em> getrennt diskutieren soll. Das macht das Fehlkonzept schwerer durchzuschmuggeln.</li>
-</ul>
-</section>
-<section id="wenn-dieses-spec-sheet-gerendert-wird-der-fertig-übersetzte-system-prompt" class="level2">
-<h2 class="anchored" data-anchor-id="wenn-dieses-spec-sheet-gerendert-wird-der-fertig-übersetzte-system-prompt">Wenn dieses Spec Sheet gerendert wird: der fertig übersetzte System-Prompt</h2>
-<p>Beim Übersetzen in einen System-Prompt für die diagnostische Rolle (siehe <a href="../../workshop/spec-sheet-template/system-prompt-template.html">System-Prompt-Vorlage</a>, Variante 1) werden die Inhalte der Sektionen A, B und C in die Platzhalter des Templates kopiert. Die Verhaltensregeln am Ende bleiben wörtlich stehen. Das Ergebnis sieht so aus:</p>
-<section id="fertig-übersetzter-system-prompt-für-das-statistik-spec-sheet" class="level4 callout-export" data-icon="false">
-<h4 class="anchored" data-anchor-id="fertig-übersetzter-system-prompt-für-das-statistik-spec-sheet">Fertig übersetzter System-Prompt für das Statistik-Spec Sheet</h4>
-<pre class="text"><code>Du bist eine Lehrassistentin, die einer Hochschuldozentin hilft, Antworten
-von Studierenden zu analysieren.
-
-Kontext der Aufgabe
--------------------
-
-Teilaufgabe (Wortlaut):
-Eine Studie berichtet eine Korrelation von r = 0.3 zwischen der Schlafdauer
-in der Nacht vor einer Klausur und der Klausurleistung, basierend auf einer
-Stichprobe von 200 Erstsemester-Studierenden. Interpretiere diesen Befund:
-Was sagt er substantiell aus, und wie gut gestützt ist die Aussage?
-
-Kurskontext:
-Erstsemester-Studierende in einem Service-Statistik-Modul für Psychologie,
-Wirtschaft oder Sozialarbeit. Sie haben ein Semester deskriptive Statistik
-abgeschlossen, kennen Mittelwert, Median, Varianz, Standardabweichung.
-Korrelationen wurden im Modul behandelt: die Studierenden können r rechnen,
-wenn die Daten und die Formel gegeben sind. Inferenzstatistik haben sie
-noch nicht. Diese Teilaufgabe ist die letzte einer dreiteiligen Klausur-
-aufgabe; die vorhergehenden Teile waren Berechnung von r und ein Streu-
-diagramm.
-
-Lernziel der Teilaufgabe:
-Die Studierende soll zeigen, dass sie eine berechnete Korrelation in einen
-substantiellen Kontext zurück übersetzen kann: Effektgrösse einordnen,
-Stichprobengrösse berücksichtigen, Grenzen der Aussage benennen. Es geht
-nicht um die Berechnung, sondern um die Interpretation.
-
-Wissensbausteine, die diese Teilaufgabe verlangt
--------------------------------------------------
-
-Faktenwissen:
-- "r liegt zwischen -1 und +1". Was schiefgeht, wenn er fehlt: die
-  Studierende interpretiert 0.3 wie eine Wahrscheinlichkeit oder einen
-  Prozentsatz, ohne den Bezug zur theoretischen Skalierung der Korrelation.
-- "r² ist nicht r". Was schiefgeht, wenn er fehlt: "die Korrelation von 0.3
-  erklärt 30% der Variabilität in der Klausurleistung" steht in der Antwort.
-
-Klassifikationswissen:
-- "r misst lineare Assoziation, nicht Kausalität". Was schiefgeht, wenn er
-  fehlt: die Studierende schreibt "Schlaf verbessert Klausurleistung" oder
-  "Schlafmangel verursacht schlechte Noten", ohne die Korrelation-
-  Kausalität-Lücke zu markieren.
-
-Erklärungswissen:
-- "Effektgrösse ist kontext-abhängig zu beurteilen". Was schiefgeht, wenn er
-  fehlt: die Studierende übernimmt eine Daumenregel ("0.3 ist mittel" oder
-  "0.3 ist klein") ohne Bezug auf den Kontext der Bildungsforschung; oder
-  sie schliesst, 0.3 sei "vernachlässigbar".
-- "Korrelation und Stichprobenunsicherheit sind getrennte Dimensionen". Was
-  schiefgeht, wenn er fehlt: die Studierende kollabiert beide in eine
-  einzige Aussage ("0.3 ist signifikant, also bedeutsam") oder ignoriert
-  die Sicherheitsdimension komplett.
-
-Wahrscheinliche Fehlkonzepte
------------------------------
-
-- "Eine Korrelation von 0.3 heisst, 30% der Klausurleistung lassen sich
-  durch Schlafdauer erklären." (Typ: kohärent-intuitiv. Diskriminiert: ja,
-  wenn die Korrektur explizit zwischen r und r² trennt.)
-- "Bei einer so grossen Stichprobe (n = 200) ist das Ergebnis sehr genau.
-  Wir können davon ausgehen, dass die Korrelation in der Population fast
-  identisch ist." (Typ: kohärent-intuitiv. Diskriminiert: teilweise.)
-- "r = 0.3 ist klein. Schlafdauer hat also keinen praktischen Einfluss auf
-  die Klausurleistung." (Typ: oberflächlich. Diskriminiert: bedingt.)
-
-Deine Aufgabe
--------------
-
-Wenn ich dir eine Studierenden-Antwort gebe, mache folgendes:
-
-1. Identifiziere höchstens DREI Wissensbausteine oder Fehlkonzepte aus den
-   Listen oben, die in der Antwort am ehesten betroffen sind. Begründe je
-   in einem Satz, anhand welcher Stelle in der Antwort du das siehst.
-
-2. Gib für jeden identifizierten Punkt eine kurze beobachtbare Spur:
-   wörtlich zitiertes oder paraphrasiertes Material aus der Antwort.
-
-3. Schlage zum Schluss EINE Intervention vor: eine konkrete Frage, ein
-   Beispiel oder eine Übung, die diesen Wissensbaustein adressiert.
-   Bitte konkret und auf den Kurskontext zugeschnitten.
-
-Wichtige Einschränkungen
-------------------------
-
-- Wenn du keinen Punkt aus den Listen klar erkennst, sag das. Erfinde
-  keinen Wissensbaustein, der nicht oben gelistet ist.
-- Wenn die Antwort der Studierenden für die Teilaufgabe insgesamt korrekt
-  ist, sag das einfach. Suche nicht nach Fehlern, wo keine sind.
-- Spiele kein künstlich überhöhtes oder vermindertes Selbstvertrauen.
-  Sage "ich bin unsicher", wenn du es bist.
-- Antworte auf Deutsch.</code></pre>
-</section>
-<p>Drei Beobachtungen am gerenderten Prompt:</p>
-<ul>
-<li><strong>Sektion D (Falsifikationsnotiz) erscheint nicht.</strong> Sie ist ein Dokument für <em>dich</em> als Lehrperson, nicht für das LLM. Das LLM braucht sie nicht, um eine Studierenden-Antwort zu analysieren.</li>
-<li><strong>Die “Was schiefgeht”-Sätze stehen wörtlich im Prompt.</strong> Sie sind die diskriminierende Information: ohne sie würde das LLM nur generische “Studierende könnten X verwechseln”-Aussagen produzieren. Mit ihnen hat es eine konkrete Spur, an der es prüfen kann.</li>
-<li><strong>Die Verhaltensregeln am Ende sind soft constraints</strong>, keine erzwungenen Constraints. Insbesondere “erfinde keinen Wissensbaustein, der nicht oben gelistet ist” ist eine Bitte, kein Schema-Verbot. Detail im <a href="../../workshop/block-3-multi-tool/index.html">Nachlesen-Tab von Block 3</a> (Abschnitt “Warum ‘erfinde nichts’ nur eine Soft-Constraint ist”).</li>
-</ul>
-<p>Der Prompt landet dann in Microsoft Copilot, ChatGPT, HuggingChat oder Claude (System-Prompt-Feld). Die Dozentin gibt eine reale Klausurantwort ein und bekommt eine Analyse-Hypothese in der Sprache des Spec Sheets zurück.</p>
-<p>Das Spec Sheet selbst bleibt das Bezugsdokument. Wenn das LLM Antworten produziert, die nicht zur Spec passen, ist der erste Reflex: zurück zum Spec Sheet, prüfen, ob ein Baustein vage, eine Beschreibung zu generisch oder ein “Was schiefgeht”-Satz zu schwach war.</p>
-<section id="nutzung-dieser-seite-in-block-3" class="level4 callout-pro-tip" data-icon="false">
-<h4 class="anchored" data-anchor-id="nutzung-dieser-seite-in-block-3">Nutzung dieser Seite in Block 3</h4>
-<p>In Block 3 (15 min Eigenarbeit) übersetzt du dein eigenes Spec Sheet in einen System-Prompt nach demselben Schema. Wenn du beim Mappen unsicher wirst, <em>welche</em> Sektion in <em>welche</em> Stelle des Templates kommt: scroll zu diesem Block hier zurück und vergleiche Zeile für Zeile. Die Substitution ist mechanisch.</p>
-</section>
-</section>
-<section id="kurze-notiz-zur-übertragung" class="level2">
-<h2 class="anchored" data-anchor-id="kurze-notiz-zur-übertragung">Kurze Notiz zur Übertragung</h2>
-<p>Was diese Demonstration auf andere Fächer überträgt: nicht die Korrelations-Inhalte, sondern die <em>Methode</em>. Die Methode ist:</p>
-<ol type="1">
-<li>Eine einzelne Teilaufgabe identifizieren (nicht die ganze Aufgabe).</li>
-<li>Wissensbausteine vom LLM vorschlagen lassen, dann validieren, prunen, ergänzen.</li>
-<li>Bei jedem Eintrag die Quelle markieren: V (vermutet) oder B (beobachtet).</li>
-<li>Mindestens einen Baustein im reaktiven und produktiven Modus simulieren lassen, um die Aufgabenstellung und die Diskriminationsfähigkeit zu prüfen.</li>
-<li>Eine Falsifikationsnotiz festhalten: wann wäre meine Decomposition widerlegt?</li>
-</ol>
-<p>Diese fünf Schritte gelten für Pflegewissenschaft, Wirtschaft, Sozialarbeit, Mathematik, Technik gleichermassen. Im Block 2 wendest du sie auf eine Teilaufgabe aus deinem eigenen Fach an.</p>
+<section id="was-du-in-block-2-tust" class="level2">
+<h2 class="anchored" data-anchor-id="was-du-in-block-2-tust">Was du in Block 2 tust</h2>
+<p>In Block 2 nimmst du diesen Prompt, fügst dein eigenes Material ein und tust dasselbe: du markierst, welche Voraussetzungen das LLM enumeriert hat, und entscheidest pro Eintrag, ob deine Studierenden diese Voraussetzung mitbringen oder nicht. Die Einträge, die du als nicht-gelehrt-und-trotzdem-vorausgesetzt markierst, sind deine Blind Spots.</p>
+<p>Die Ergebnisse trägst du in die <a href="../../workshop/spec-sheet-template/index.html">Spec-Vorlage</a> ein. Ein vollständiges Beispiel-Spec zu dieser Aufgabe (multiple Regression) findest du unter <a href="../../workshop/spec-sheet-template/example-multiple-regression.html">Beispiel: Multiple Regression</a>.</p>
+<p>In Block 3 fügst du dein fertiges Spec in das laufende Werkzeug ein und beobachtest, was es produziert. Wenn der Output nicht passt, fehlt etwas im Spec.</p>
 
 
 </section>
@@ -1495,8 +1165,8 @@ Wichtige Einschränkungen
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../workshop/block-1-theorie-und-beispiel/wissens-typen-mechanismen-ki.html" class="pagination-link" aria-label="Drei Wissens-Typen, drei Lern-Mechanismen, drei KI-Konsequenzen">
-        <span class="nav-page-text">Drei Wissens-Typen, drei Lern-Mechanismen, drei KI-Konsequenzen</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../workshop/block-2-spec-card/index.html" class="pagination-link" aria-label="Block 2: Eigenes Spec Sheet (60 min)">
+        <span class="nav-page-text">Block 2: Eigenes Spec Sheet (60 min)</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -47,10 +47,10 @@ website:
       - icon: folder
         text: "Ressourcen"
         menu:
-          - text: "Beispiel-Spec-Card (Statistik)"
-            file: workshop/spec-card-statistics/index.qmd
-          - text: "Spec-Sheet-Vorlage"
+          - text: "Spec-Vorlage"
             file: workshop/spec-sheet-template/index.qmd
+          - text: "Beispiel-Spec: Multiple Regression"
+            file: workshop/spec-sheet-template/example-multiple-regression.md
           - text: "---"
           - text: "Backup-Szenarien"
             file: workshop/build/scenarios/index.qmd
@@ -78,7 +78,6 @@ website:
               contents:
                 - workshop/block-1-theorie-und-beispiel/index.qmd
                 - workshop/block-1-theorie-und-beispiel/worked-example-statistics.qmd
-                - workshop/block-1-theorie-und-beispiel/wissens-typen-mechanismen-ki.qmd
             - text: "Block 2: Eigenes Spec Sheet (60 min)"
               file: workshop/block-2-spec-card/index.qmd
             - text: "Block 3: Rendering (25 min)"
@@ -91,15 +90,10 @@ website:
       search: true
       background: light
       contents:
-        - section: "Beispiel und Vorlage"
+        - section: "Spec-Vorlage und Beispiel"
           contents:
-            - text: "Beispiel-Spec-Card (Statistik)"
-              file: workshop/spec-card-statistics/index.qmd
-            - section: "Spec-Sheet-Vorlage"
-              contents:
-                - workshop/spec-sheet-template/index.qmd
-                - workshop/spec-sheet-template/prompt-scaffolds.md
-                - workshop/spec-sheet-template/system-prompt-template.md
+            - workshop/spec-sheet-template/index.qmd
+            - workshop/spec-sheet-template/example-multiple-regression.md
         - section: "Backup-Szenarien"
           contents:
             - workshop/build/scenarios/index.qmd

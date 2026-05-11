@@ -1,7 +1,10 @@
 ---
 title: "Drei Wissens-Typen, drei Lern-Mechanismen, drei KI-Konsequenzen"
-subtitle: "Handout zu Block 1, kompakt und nachschlagbar"
+subtitle: "Internes Dokument für die Workshop-Leitung"
+draft: true
 ---
+
+Internes Dokument für die Workshop-Leitung. Nicht in den Teilnehmenden-Materialien verlinkt. Diese Inhalte wurden bewusst aus den Block-1-Materialien entfernt, um die kognitive Last im Workshop zu reduzieren. Sie bleiben hier als Referenz für die Leitung und für Teilnehmende, die nach dem Workshop selbst mit der KLI-Taxonomie weiterarbeiten möchten.
 
 ## Die Entscheidungsregel in einer Zeile
 
