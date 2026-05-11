@@ -1,0 +1,47 @@
+---
+title: "Wie das Werkzeug funktioniert"
+subtitle: "Architektur in plain Deutsch"
+---
+
+Du hast in Block 3 einen Markdown-Spec in ein laufendes System eingefügt und strukturierten Output zurückbekommen. Diese Seite erklärt, wie das im Hintergrund läuft. Du musst das nicht verstehen, um das Werkzeug zu benutzen. Wenn dich die Mechanik aber interessiert: hier ist sie.
+
+## Die Pipeline in vier Schritten
+
+**1. Spec einfügen.** Du schreibst einen Markdown-Spec nach der dreigeteilten Vorlage (Lernaufgabe, Skills und Knowledge, Misconceptions). Das ist ein normales Text-Dokument. Du kannst es in jedem Editor schreiben.
+
+**2. Parser konvertiert.** Ein kleiner Python-Code (der Parser) liest deinen Markdown und füllt damit ein Python-Datenobjekt vom Typ `Exercise`. Dieses Objekt hat fest definierte Felder: `problem_statement`, `common_errors`, `cognitive_demand`, und so weiter. Der Parser zieht die richtigen Informationen aus den richtigen Abschnitten deines Markdowns.
+
+**3. API-Aufruf mit Schema-Constraint.** Das `Exercise`-Objekt wird zusammen mit dem P(know)-Wert an die Anthropic-Claude-API geschickt. Das System nutzt Pydantic, um Claude zu zwingen, in einem bestimmten Format zu antworten: nicht freier Text, sondern eine Struktur mit `hint_text`, `rationale`, `next_step_suggestion`, `metacognitive_prompt`, `estimated_difficulty`. Das ist das "Output bedürfnissgemäss einschränken" aus den offiziellen Lernzielen.
+
+**4. Strukturierte Antwort.** Das System gibt dir die strukturierte Antwort zurück. Das Werkzeug zeigt sie formatiert an.
+
+## Wo das alles liegt
+
+- **Spec-Vorlage:** dein Markdown, geschrieben nach der [Spec-Vorlage](../spec-sheet-template/index.qmd).
+- **Parser:** `src/scaffolding_workshop_tool/spec_parser.py` im Tool-Repo.
+- **Datenmodelle (Pydantic):** `src/scaffolding_workshop_tool/models.py` im Tool-Repo. Diese Datei definiert, was das System überhaupt zurückgeben darf.
+- **API-Aufruf:** `src/scaffolding_workshop_tool/agent.py` im Tool-Repo.
+- **Marimo-Notebook (was du im Werkzeug siehst):** `notebooks/workshop_tool.py` im Tool-Repo. Das ist die UI.
+
+Das Tool-Repo liegt unter `~/GitHub/projects/scaffolding-workshop-tool/` (lokale Entwicklung) und wird als HuggingFace Space deployed.
+
+## Warum Markdown und nicht Pydantic für dich?
+
+Dein Spec ist Markdown, weil du ihn in jedem Editor schreiben kannst und weil derselbe Spec auch in andere Werkzeuge (Claude.ai, ChatGPT, ein zukünftiges Werkzeug) gepasted werden kann. Pydantic ist die Sprache, in der Maschinen strukturierten Output erzwingen. Der Parser dazwischen ist die Übersetzung.
+
+Du arbeitest in der Sprache, in der Lehre stattfindet (Prosa, Beispiele, Misconceptions). Das System arbeitet in der Sprache, in der APIs funktionieren (Schemata, Felder, Typen). Der Parser ist die Brücke. Du musst sie nicht überqueren, aber sie ist dokumentiert.
+
+## Was "Output bedürfnissgemäss einschränken" konkret heisst
+
+Die offizielle Lernziel-Formulierung lautet: *Integrieren mindestens ein API-basiertes KI-System und schränken dessen Output bedürfnissgemäss ein.* Hier sind die zwei Mechanismen, die das Einschränken leisten:
+
+- **Auf Spec-Seite (was du tust):** du formulierst die Skills, Knowledge Components und Misconceptions so präzise, dass das System weiss, was es adressieren soll und was nicht. Was du in den Spec schreibst, definiert den Möglichkeitsraum des Outputs.
+- **Auf Schema-Seite (was der Parser und Pydantic tun):** das `AdaptiveHintResponse`-Schema erzwingt, dass Claude in bestimmten Feldern antwortet (Hint, Rationale, Next Step, Metakognitive Frage). Das System kann nicht einfach mit freiem Text antworten; es muss die Struktur befüllen.
+
+Beide Mechanismen wirken zusammen. Die Spec-Seite kontrolliert den Inhalt; die Schema-Seite kontrolliert die Form.
+
+## Wenn du selbst etwas bauen möchtest
+
+Im Tool-Repo findest du das Marimo-Notebook und die Pydantic-Modelle. Wenn du Python kannst, kannst du beides für deinen eigenen Lehrkontext anpassen. Wenn nicht, ist das nicht das, was wir im Workshop gemacht haben: dort hast du gelernt, **was** spezifiziert werden muss, damit ein solches System sinnvoll funktioniert. Das technische **Wie** ist eine separate Fähigkeit.
+
+Beide Fähigkeiten zusammen sind eine produktive Kombination. Wer das Spec schreibt, weiss, was das System tun soll. Wer das Schema schreibt, weiss, wie das System es tun soll. Die beiden Personen können dieselbe sein oder unterschiedliche.

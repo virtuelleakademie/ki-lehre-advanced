@@ -3,59 +3,56 @@ title: "Vorbereitung"
 ---
 
 ::: {.callout-schedule icon=false}
-## Aufwand: ungefähr 30 Minuten vor dem Workshop
+## Aufwand: ungefähr 20 Minuten vor dem Workshop
 :::
 
 ## Was du im Workshop tun wirst
 
-Du wirst für **eine einzelne Teilaufgabe** aus deiner eigenen Lehre ein **Spec Sheet** bauen: eine möglichst klare Beschreibung dessen, was eine Studierende für diese Teilaufgabe an Wissen mitbringen muss, was sie wahrscheinlich nicht hat, und welche Fehlkonzepte plausibel sind. Das Spec Sheet ist werkzeug-unabhängig: was du heute baust, ist in zwei Jahren noch genau so gültig, weil dort nicht steht, was ein Werkzeug tun soll, sondern was die Studierende im Kopf hat.
+Du wirst für **eine einzelne Teilaufgabe** aus deiner eigenen Lehre ein **Spec** schreiben: eine möglichst klare, in Markdown gefasste Beschreibung dessen, was eine Studentin für diese Teilaufgabe wissen, erkennen und erklären können muss, und welche Misconceptions plausibel sind. Das Spec ist werkzeug-unabhängig: dasselbe Markdown kannst du heute in das laufende Werkzeug einfügen, das wir in Block 3 zeigen, und in zwei Jahren in ein noch unbekanntes Werkzeug.
 
-Dabei nutzt du LLMs in zwei klar unterscheidbaren Rollen:
-
-- als **Hypothesengenerator** (das LLM schlägt Wissensbausteine und Fehlkonzepte vor; du prüfst und korrigierst, mit V/B-Markierung)
-- als **Lernende-Simulator** (das LLM liest dein Aufgabenmaterial oder antwortet auf deine Aufgabe so, als hätte es einen bestimmten Wissensbaustein nicht; du liest die Antwort als Diagnose deiner Aufgabenstellung)
+Dabei nutzt du LLMs in zwei klar unterscheidbaren Rollen: als **strukturierten Novizen** (das LLM enumeriert die Voraussetzungen deiner Aufgabe, als hätte es das Fach gerade erst kennengelernt) und als **Lernende-Simulator** (das LLM spielt eine Studentin mit einer Misconception und produziert eine entsprechende Antwort).
 
 Was du *nicht* tun wirst: einen Prompt schreiben, der "intelligent" wirkt. Prompt-Engineering ist Volkswissen, brüchig gegenüber Wortwahl, modellabhängig, alle sechs Monate veraltet. Wir machen etwas Anderes: wir bauen eine Spezifikation, die mehrere Modellgenerationen überlebt.
 
-## Was du mitbringst
+## Was du mitbringst (nicht-verhandelbar)
 
 ::: {.callout-individual icon=false}
 ## Drei konkrete Dinge
 
-1. **Eine Aufgabe** aus deinem eigenen Unterricht, bei der du *eine Teilaufgabe* genau anschauen willst. Eine Übung, eine Klausurfrage, eine Hausaufgabe. Möglichst eine, die du kürzlich gestellt hast und über deren Ergebnisse du etwas weisst.
-2. **Ein Stück Lehrmaterial**: eine Folienerklärung, eine Anleitung, ein kurzer Erklärtext, der zur Aufgabe passt.
-3. **Falls möglich:** zwei oder drei Beispiele tatsächlicher Studierendenarbeiten zur gewählten Aufgabe, die typische Verwirrungen oder Fehlkonzepte zeigen.
+1. **Eine Teilaufgabe** aus deinem eigenen Unterricht. Eine Übung, eine Klausurfrage, eine Hausaufgabe. Eine, die du regelmässig stellst und bei der du regelmässig siehst, dass Studierende daran stolpern. Bring sie in digitaler Form mit (PDF, Word, Markdown, was du hast).
+2. **Einen Satz** darüber, was Studierende daran typisch falsch machen. Aus deiner Lehrerfahrung: was geht schief? Eine konkrete Beobachtung, kein Allgemeinplatz.
+3. **Dein Laptop** mit funktionierendem Zugang zu einem LLM deiner Wahl (Microsoft Copilot, ChatGPT, Claude, HuggingChat).
 
-Wenn du diese Sachen nicht hast, ist das nicht weiter schlimm. Wir haben sechs Backup-Szenarien aus verschiedenen Disziplinen, die du im Workshop verwenden kannst.
+Ohne diese drei Dinge funktioniert der Workshop nicht: wir arbeiten an deinem konkreten Material. Falls das schwierig ist, meld dich vor dem Workshop. Falls du keine passende Aufgabe findest, haben wir Backup-Material aus sechs Disziplinen (Pflege, Pädagogik, Wirtschaft, Sozialarbeit, Engineering, Statistik).
 :::
 
-## Das Worked Example kennenlernen
+## Was als "konkrete Teilaufgabe" zählt
 
-Lies vor dem Workshop einmal das ausgearbeitete Beispiel durch:
+Ein Beispiel aus Statistik, das wir in Block 1 als Worked Example durchgehen:
 
-[Worked Example: Spec Sheet für eine Statistik-Teilaufgabe](../workshop/block-1-theorie-und-beispiel/worked-example-statistics.qmd)
+> "Die Übung 5 in Statistik II: Studierende sollen in R eine multiple Regression mit Lernzeit und Mathenote als Prädiktoren rechnen und die Koeffizienten interpretieren. Sie verstehen die Aussage 'kontrolliert für' meistens falsch."
 
-Du musst es nicht auswendig lernen. Was du aus dem Lesen mitnehmen sollst:
+So konkret reicht. Eine Teilaufgabe, ein typisches Stolperphänomen, das war's.
 
-- **Welche Sektionen ein Spec Sheet hat** (A bis D plus optionales Pruning-Protokoll).
-- **Welche Art von Aussage** in jeder Sektion erwartet wird.
-- **Wie die V/B-Markierung funktioniert** (vermutet vs. beobachtet): die wichtigste methodische Disziplin.
+## Die drei Sätze, die der Workshop trägt
 
-Im Workshop wird das Worked Example in Block 1 live durchgegangen. Wenn du es vorher gelesen hast, kannst du im Block 1 stärker auf die *Methode* achten (Validierung, Pruning, Simulation) statt nur auf den Inhalt.
+Eine kurze Vorschau auf die Anker-Slides aus Block 1. Du musst sie nicht auswendig lernen; lies sie einmal, lass sie wirken, im Workshop kommen sie noch einmal verbatim.
 
-## Optional: Erweiterte Hintergrundlektüre
+**Das harte Problem.** Die schwierigste pädagogische Bewegung beim Einsatz von KI in der Lehre ist nicht das Auswählen eines Werkzeugs, sondern das Spezifizieren dessen, was im Kopf der Lernenden passieren soll. Die meisten Dozierenden überspringen diesen Schritt und greifen direkt zum Werkzeug. Dieser Workshop kehrt die Reihenfolge um.
 
-Wer mehr Tiefe sucht, kann zusätzlich das [Beispiel-Spec zur Multiple Regression](../workshop/spec-sheet-template/example-multiple-regression.md) lesen. Es zeigt, wie ein vollständig ausgefülltes Spec für die Worked-Example-Aufgabe aus Block 1 aussieht. Das ist nicht erforderlich für den Workshop; nimm es als Vertiefung mit, falls Zeit und Interesse vorhanden sind.
+**Der Expert Blind Spot.** Dozierende sehen nicht, was ihre Studierenden noch nicht wissen, weil Automatisierung die Teilfertigkeiten unsichtbar gemacht hat. Sie sagen "wende einfach die Formel an", ohne zu sehen, dass "was zählt als relevanter Input" selbst eine nicht-triviale Klassifikation ist.
 
-## Die Hauptbehauptung des Workshops, in defensibler Form
+**LLMs als strukturierte Novizen.** Ein LLM, das als "Person, die gerade die Vorgängerveranstaltung abgeschlossen hat, aber diese hier noch nicht kennt" geprompted wird, zählt die Teilschritte auf, die ein Experte überspringt: es hat keine Automatisierung, die es überspringen könnte. Das LLM wird zum Spiegel, der zeigt, was die eigene Performance voraussetzt.
 
-Der Workshop hängt an einer scharfen, falsifizierbaren Behauptung:
+## Das Worked Example und das Beispiel-Spec
 
-::: {.callout-pro-tip icon=false}
-**Wenn ein Lernschritt verlangt, dass eine Studierende selbst eine Position einnimmt, ist KI-Substitution dort kein neutraler Teilersatz: das eigene Handeln ist die zentrale Eingabe in die Selbsteinschätzung. Ohne dieses Handeln bleibt eine schwächere Form der Selbstbeobachtung übrig, die für eine kalibrierte Selbsteinschätzung in der Regel nicht ausreicht. Was die Studierende über sich selbst lernen kann, hängt entscheidend davon ab, dass sie selbst gehandelt hat.**
-:::
+Wenn du Zeit hast, lies vor dem Workshop einmal das ausgearbeitete Beispiel durch:
 
-Diese Behauptung ist im Hintergrund des Workshops aktiv, ohne dass wir sie ständig benennen. Sie wird in der Closing-Reflexion zum Ankerpunkt für die Frage: *Welche Teilschritte deiner Aufgabe sind Selbst-Tun-erforderlich, welche sind Zuschauen-reicht?*
+[Worked Example: LLM-as-Novice an einer Statistik-Aufgabe](../workshop/block-1-theorie-und-beispiel/worked-example-statistics.qmd)
+
+Was du aus dem Lesen mitnehmen sollst: welche Methode wir in Block 1 vorführen und wie die etwa fünfzehn Voraussetzungen aussehen, die ein LLM zu einer Statistik-Übung enumeriert. Im Workshop wird das Beispiel live durchgegangen; wenn du es vorher gelesen hast, kannst du im Block 1 stärker auf die *Methode* achten statt nur auf den Inhalt.
+
+Zusätzlich: das vollständig ausgefüllte [Beispiel-Spec zur Multiple Regression](../workshop/spec-sheet-template/example-multiple-regression.md) zeigt, wie ein fertiges Spec aussieht. Auch optional, etwa 5 Minuten Lektüre.
 
 ## Werkzeug-Zugang
 
@@ -66,18 +63,15 @@ Diese Behauptung ist im Hintergrund des Workshops aktiv, ohne dass wir sie stän
 - Optional: ein Account auf [HuggingChat](https://huggingface.co/chat) (kostenlos, ohne Anmeldung mit Limitationen nutzbar).
 - Optional: ein Account auf [Claude.ai](https://claude.ai) oder ChatGPT (kostenlose Stufe genügt).
 
-In Block 1 zeigt die Instruktorin drei verschiedene **Affordance-Typen**: Chat-Werkzeug (Copilot oder ähnlich), strukturierte API-Generierung (ein Marimo-Notebook, in dem der Datenfluss zellenweise sichtbar ist), und kurz ein agentisches Werkzeug. Du musst nichts installieren; alle Demos laufen im Browser oder als Aufzeichnung.
-
-In Block 3 nutzt du *ein* Chat-Werkzeug deiner Wahl, um dein Spec Sheet als System-Prompt zu testen. Microsoft Copilot reicht aus.
+In Block 2 verwendest du dein eigenes Chat-Werkzeug, um dein Spec zu entwickeln. Microsoft Copilot reicht aus. In Block 3 fügst du dein fertiges Spec in ein laufendes Werkzeug ein, das wir bereitstellen; dort musst du nichts installieren.
 :::
 
 ## Was du am Ende des Workshops haben wirst
 
-- Ein eigenes Spec Sheet für eine Teilaufgabe deiner Lehre, mit Wissensbausteinen (mit Erwerb-Hinweisen), Fehlkonzepten und Falsifikationsnotiz.
-- Ein in einem Chat-Werkzeug getesteter System-Prompt, gerendert aus deinem Spec Sheet.
-- Eine Markierung pro Wissensbaustein: Selbst-Tun-erforderlich oder Zuschauen-reicht (für die KI-Substitutions-Frage).
+- Ein eigenes Markdown-Spec für eine Teilaufgabe deiner Lehre, mit Skills, Knowledge Components und antizipierten Misconceptions.
+- Eine Iteration deines Specs gegen das laufende Werkzeug, mit Beobachtungen darüber, wo das Spec geschärft werden muss.
 - Eine konkrete Verpflichtung, was du in den nächsten zwei Wochen in deiner Lehre tun wirst.
 
 ::: {.callout-checkpoint icon=false}
-**Bevor du in den Workshop kommst:** lies das Worked Example durch. Bring die drei Materialien mit. Und denk vor dem Workshop kurz darüber nach, welche Studierende du in deiner Lehre am häufigsten falsch eingeschätzt hast und was du im Nachhinein hättest sehen sollen.
+**Bevor du in den Workshop kommst:** wähle deine Teilaufgabe aus, schreib einen Satz dazu, was Studierende daran typisch falsch machen, und nimm dein Laptop mit LLM-Zugang mit. Wenn du das Worked Example und das Beispiel-Spec vorher gelesen hast, ist das ein Bonus, aber nicht erforderlich.
 :::

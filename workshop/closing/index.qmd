@@ -1,28 +1,23 @@
 ---
-title: "Closing: Reflexion und eine Verpflichtung (13 min)"
+title: "Closing: Doktrin, Werkzeug-Gallery, Verpflichtung (15 min)"
 ---
 
 ::: {.callout-timing icon=false}
 ## Zeitbudget Closing
 
-- 3 min: Falsifikationsnotiz schreiben (Sektion D des Spec Sheets)
-- 4 min: Selbst-Tun-erforderlich vs. Zuschauen-reicht auf dein Spec Sheet anwenden
-- 2 min: Spec als Datenstruktur (kurze Demonstration der Isomorphie)
-- 2 min: Eine Studierenden-orientierte Konsequenz formulieren
-- 2 min: Eine konkrete Verpflichtung schreiben
+- 3 min: Doktrin-Extension ("Spec ist durabel, Werkzeug ist Rendering")
+- 5 min: Downstream-Uses-Gallery (vier weitere Werkzeuge, die dein Spec antreiben kann)
+- 5 min: Persönliche Verpflichtung mit Cross-discipline-Partnerin teilen
+- 2 min: Take-Home-Pointer und Verabschiedung
 :::
 
 ## Was du jetzt hast
 
-In drei Stunden hast du:
+In drei Stunden hast du ein **Spec für eine Teilaufgabe deiner eigenen Lehre** gebaut, mit Skills, Knowledge Components und antizipierten Misconceptions. Du hast es in ein laufendes API-basiertes Werkzeug eingefügt und beobachtet, wie der Output sich verändert, wenn du das Spec schärfst.
 
-- Ein **Spec Sheet** für eine Teilaufgabe deiner eigenen Lehre gebaut, mit V/B-markierten Wissensbausteinen, Fehlkonzepten und Pruning-Protokoll.
-- Diese Spec einmal in einen System-Prompt übersetzt und nach dem Pass / Fail-soft / Fail-hard-Protokoll getestet.
-- Erlebt, dass der Prompt eine *Funktion* des Spec Sheets ist: Schwächen im Prompt verweisen zurück auf Schwächen im Spec Sheet, nicht auf den Wortlaut des Prompts.
+Du hast das alles ohne eine Zeile Code zu schreiben. Was du gemacht hast, war pädagogische Spezifikationsarbeit: möglichst klare, möglichst überprüfbare Beschreibung dessen, was im Kopf einer Lernerin in deinem Fach passieren soll.
 
-Du hast das alles ohne eine Zeile Code zu schreiben. Was du gemacht hast, war pädagogische Spezifikationsarbeit: möglichst klare, möglichst falsifizierbare Beschreibung dessen, was im Kopf einer Lernerin in deinem Fach steht.
-
-Im Closing schliesst du den Bogen mit fünf kurzen Schritten: einer empirischen Selbstbindung (Falsifikationsnotiz), einer Designentscheidung (welche Bausteine erlauben KI-Substitution), einer kurzen Demonstration, dass das Spec Sheet bereits eine Datenstruktur ist, einer Studierenden-Konsequenz und einer persönlichen Verpflichtung.
+Im Closing schliesst du den Bogen mit drei Bewegungen: eine Doktrin, die deine Arbeit verallgemeinert; eine Gallery, die zeigt, wofür dein Spec sonst noch nützlich ist; eine Verpflichtung, die das Ergebnis in deine eigene Lehre überführt.
 
 :::: {.panel-tabset}
 
@@ -35,218 +30,140 @@ Im Closing schliesst du den Bogen mit fünf kurzen Schritten: einer empirischen 
 ::: {.callout-facilitator}
 #### Facilitator-Notizen Closing
 
-Vier Slides:
+**Doktrin-Extension (3 min).** Die Kernfolie lesen, mit Pause:
 
-**Slide 1: Falsifikationsnotiz** (~1 min). Anweisung kurz vorlesen. Botschaft: "Ohne diese Notiz bleibt das Spec Sheet eine plausible Hypothese ohne Bedingungen, unter denen du sie aufgeben würdest."
+> *Das Spec ist durabel, das Werkzeug ist Rendering. Dieselbe Spezifikation kann ein Scaffolding-Tool, eine Studierendensimulation oder einen Diagnosetest treiben. Wenn nächstes Jahr ein neues Modell oder Tool kommt, bleibt das Spec gleich.*
 
-**Slide 2: Selbst-Tun vs. Zuschauen** (~30 Sek). Die Faustregel anzeigen. Botschaft kurz halten: die Entscheidungsregel aus Block 1 (Typ → Mechanismus → Operation → Substitution) jetzt auf das eigene Spec Sheet anwenden. Dann in die Eigenarbeit.
+Botschaft: was du heute geschrieben hast, ist nicht eine Worksheet-Notiz, sondern ein durabler Artefakt. Das Werkzeug, das du in Block 3 gesehen hast, ist eines von vielen möglichen Renderings dieses Specs.
 
-**Slide 3: Spec als Datenstruktur** (~2 min, neu). Side-by-side: Auszug aus dem Spec Sheet links, Pydantic-Schema aus dem adaptive-scaffolding-Projekt rechts. Botschaft: "Was du heute geschrieben hast, ist nicht eine Notiz, sondern ein Format. Das gleiche Format, das auch ein adaptives System als Eingabe braucht. Du musst nie Python schreiben; aber die Lehrperson, die ein Spec Sheet pflegt, hat das Format." Nicht durch die Felder gehen, nur darauf zeigen. Das Detail steht im *Nachlesen*-Tab.
+**Downstream-Uses-Gallery (5 min).** Eine Slide mit vier benannten Werkzeugen, je eine Zeile Beschreibung:
 
-**Slide 4: Eine Verpflichtung** (~30 Sek). Die drei Felder (Aufgabe / Schritt / Datum) und der "Erzähl es deiner Nachbarin"-Cue.
+1. *Worked-Example-Generator:* Spec rein, ausgearbeitete Lösungsbeispiele raus, mit Warnhinweisen an den Misconception-Stellen.
+2. *Misconception-Probe:* Spec rein, Diagnosefragen raus, die genau die antizipierten Misconceptions aktivieren.
+3. *Formative Assessment Generator:* Spec rein, Quiz raus, das alle Skills abdeckt und Misconceptions sondiert.
+4. *Knowledge-Tracing-Instrumentierung:* Spec als Q-Matrix-Grundlage für mastery-tracking-Systeme.
 
-Pacing-Cues (neu):
+Hinweis: nicht weiter vorführen. Skizzen mit Prompt-Vorlagen liegen unter [Weitere Werkzeuge](../take-home/weitere-werkzeuge.qmd).
 
-- **Min 3:** alle haben die Falsifikationsnotiz geschrieben? Notfalls einen lauten Beispielsatz vorlesen.
-- **Min 7:** alle haben die Tags vergeben? Wer noch zögert: "auch grobe Tags zählen, du wirst sie zu Hause präzisieren." Übergang in die Isomorphie-Demonstration.
-- **Min 9:** Isomorphie-Slide kurz gezeigt. Direkt in die Studierenden-Konsequenz.
-- **Min 11:** Studierenden-Konsequenz geschrieben? In den letzten 2 Min: Verpflichtung + Nachbarin.
+**Persönliche Verpflichtung (5 min).** Teilnehmende schreiben auf Papier oder in eine Notiz:
 
-Die "Eine ehrliche Einordnung"-Passage über Adoption-Asymmetrie ist nicht Teil des in-room Closings (zu lang, zu reflektiv). Sie steht im *Nachlesen*-Tab und kann beim Verabschieden erwähnt werden, ohne sie vorzulesen.
+- Die *eine konkrete Teilaufgabe* deiner Lehre, an der du dein Spec anwenden wirst (nicht "ich werde nachdenken über..."; diese spezifische Aufgabe).
+- Der *eine konkrete Schritt*: Spec gegen reale Studierenden-Antworten testen, oder Aufgabenstellung anpassen, oder Worked-Example-Generator nutzen, oder Misconception-Probe entwerfen.
+- Das *Datum*, bis zu dem du es getan hast.
+
+Dann: Cross-discipline-Partner aus Block 2 wieder zusammen. Erzähl ihr deine Verpflichtung in einem Satz. Sie hält dich verantwortlich, indem sie sich das Datum in den Kalender schreibt.
+
+**Take-Home-Pointer (2 min).** [Take-Home-Seite](../take-home/index.qmd) zeigen: das laufende Werkzeug bleibt erreichbar; Architektur-Erklärung liegt da; vier weitere Werkzeuge sind skizziert; optionale Hausaufgaben (Falsifikationsnotiz, Selbst-Tun-vs-Zuschauen-Tagging) sind dokumentiert. Verabschieden.
+
+::: {.callout-pro-tip icon=false}
+#### Was hier bewusst weggelassen wird
+
+In früheren Workshop-Versionen war das Closing voll mit Falsifikationsnotiz-Schreiben, Selbst-Tun-vs-Zuschauen-Tagging und einer Studierenden-Policy-Übung. Diese Inhalte sind nicht ersatzlos verschwunden: sie liegen in der [Take-Home-Seite](../take-home/index.qmd) als optionale Hausaufgaben. Im Workshop selbst trägt die Zeit sie nicht zusätzlich, ohne die Doktrin-Extension oder die Verpflichtung zu opfern.
+:::
 :::
 
 ### {{< bi pencil-square >}} Aktivitäten
 
-#### 1. Falsifikationsnotiz (3 min)
+#### 1. Doktrin-Extension hören und aufnehmen (3 min)
 
 ::: {.callout-individual icon=false}
-#### Was würde dich widerlegen?
+#### Halt einen Moment
 
-Wähle einen Wissensbaustein aus Sektion B deines Spec Sheets, den du als zentral für die Teilaufgabe einschätzt.
+Die Workshop-Leitung liest die Doktrin vor:
 
-Beschreibe in **einem Satz**, welches Verhalten von Studierenden dir zeigen würde, dass deine Decomposition für diesen Baustein falsch ist.
+> *Das Spec ist durabel, das Werkzeug ist Rendering. Dieselbe Spezifikation kann ein Scaffolding-Tool, eine Studierendensimulation oder einen Diagnosetest treiben. Wenn nächstes Jahr ein neues Modell oder Tool kommt, bleibt das Spec gleich.*
 
-Beispiel: "Wenn Studierende, die ich klar als kompetente Korrelationsinterpretiererinnen einschätze, an dieser Teilaufgabe systematisch scheitern, dann ist Baustein 3 nicht das, was diese Aufgabe wirklich testet."
-
-Trage den Satz in **Sektion D** deines Spec Sheets ein.
-
-Diese Notiz hält dein Spec Sheet als empirisches Instrument fest, nicht als plausibles Dokument. Ohne sie ist die Spec eine Sammlung plausibler Behauptungen ohne Bedingungen, unter denen du sie aufgeben würdest.
+Halt einen Moment inne. Diese Sätze sind die Pointe des Workshops. Sie verallgemeinern, was du heute an einem konkreten Werkzeug erlebt hast.
 :::
 
-#### 2. Selbst-Tun-erforderlich vs. Zuschauen-reicht (4 min)
+#### 2. Downstream-Uses-Gallery beobachten (5 min)
 
 ::: {.callout-individual icon=false}
-#### Tagging an deinem eigenen Spec Sheet
+#### Vier weitere Werkzeuge
 
-Schau dir die Wissensbausteine in Sektion B deines Spec Sheets an. Zu jedem Baustein hast du in Block 2 den Typ markiert (Faktenwissen / Klassifikationswissen / Erklärungswissen) und die Lernaktivität notiert, die ihn entwickelt.
+Die Workshop-Leitung zeigt vier weitere Einsätze, die mit demselben Spec möglich sind:
 
-Markiere jetzt jeden Baustein mit einer von zwei Kategorien:
+1. Worked-Example-Generator.
+2. Misconception-Probe.
+3. Formative Assessment Generator.
+4. Knowledge-Tracing-Instrumentierung.
 
-- **Selbst-Tun-erforderlich:** die Studierende muss selbst handeln, damit dieser Baustein gefestigt wird. Eine KI, die diesen Schritt übernimmt, unterläuft den Lernprozess.
-- **Zuschauen-reicht:** der Baustein kann auch durch Lesen, Hören, Anschauen entwickelt werden. KI-Unterstützung kann hier sinnvoll sein, ohne den Lernweg zu unterbrechen.
+Du musst dir nichts merken. Skizzen mit konkreten Prompt-Vorlagen findest du unter [Weitere Werkzeuge](../take-home/weitere-werkzeuge.qmd) zum Nachschlagen.
 
-Die Entscheidungsregel aus Block 1 anwenden: Typ : Mechanismus : Operation, die die Studierende ausführen muss : was die KI substituieren darf. Faustregel: Faktenwissen, Klassifikationswissen, Erklärungswissen sind alle *meist* Selbst-Tun-erforderlich, weil die KI die jeweilige Operation nicht für die Studierende leisten kann. Hilfsschritte (eine Tabelle formatieren, einen Standardabschnitt schreiben), die nicht der Hauptlernzweck sind, sind oft Zuschauen-reicht.
-
-Und: das Tagging gilt für die *aktuelle Aufbau-Phase*. Solange ein Baustein neu erworben wird, ist die zugehörige Aktivität meist Selbst-Tun-erforderlich. Bei einer Studierenden, die den Baustein bereits gefestigt hat, kann dieselbe Aktivität in Zuschauen-reicht kippen.
-
-Die Tags sind nicht endgültig. Sie sind eine *erste* Diskussionsgrundlage für deine eigene Aufgabe.
+Was du jetzt mitnimmst: das Spec, das du heute geschrieben hast, ist nicht an dieses eine Werkzeug gebunden.
 :::
 
-::: {.callout-pro-tip icon=false}
-#### Wenn alle deine Bausteine Selbst-Tun-erforderlich sind
-
-Das ist nicht ungewöhnlich. Es bedeutet einfach, dass deine Teilaufgabe auf den Hauptlernzweck konzentriert ist und keine grossen "Zubehör"-Schritte enthält. In diesem Fall ist deine Konsequenz für die KI-Nutzung klar: Studierende sollen die Aufgabe selbst bearbeiten. KI als Lernpartner zur *Vorbereitung* oder *Nachreflexion* bleibt möglich.
-:::
-
-#### 3. Spec als Datenstruktur, kurz gesehen (2 min)
-
-::: {.callout-pro-tip icon=false}
-#### Was du heute geschrieben hast, ist eine Datenstruktur
-
-Was du in den letzten zwei Stunden geschrieben hast, ist nicht eine pädagogische Notiz, sondern ein Format. Hier dieselbe Information, einmal als Spec Sheet, einmal als Pydantic-Schema aus einem realen adaptiven Scaffolding-Projekt (linear-regression-hints):
-
-::: {.columns}
-::: {.column width="50%"}
-
-**Spec Sheet, Sektion B (Auszug)**
-
-- **B1, Faktenwissen (Abrufen):** *$r$* ist dimensionslos, liegt zwischen $-1$ und $+1$. V; Selbst-Tun.
-- **B3, Klassifikationswissen (Erkennen):** erkennt eine Frage als Korrelations- vs. Mittelwertvergleich-Frage. B; Selbst-Tun.
-- **B5, Erklärungswissen (Begründen):** weiss, warum $r = 0.3$ in der Bildungsforschung bedeutsam und in der Physik vernachlässigbar ist. V; Selbst-Tun.
-
-**Sektion C (Auszug):** *verwechselt $r$ mit $R^2$*; *interpretiert Korrelation als Kausalität*.
-
-:::
-::: {.column width="50%"}
-
-**adaptive-scaffolding (Python)**
-
-```python
-Exercise(
-    title="r = 0.3 interpretieren",
-    target_sub_skills=[
-        SubSkill.r_squared_meaning,
-        SubSkill.coefficient_interpretation,
-    ],
-    cognitive_demand=CognitiveDemand.CONCEPTUAL,
-    common_errors=[
-        "verwechselt r mit R²",
-        "Korrelation als Kausalität",
-    ],
-    expected_answer_fragments=[
-        "zwischen -1 und +1",
-        "kontextabhängige Bedeutsamkeit",
-    ],
-)
-```
-
-:::
-:::
-
-Dieselbe Information, zwei Oberflächen. Was du heute in 60 Minuten von Hand geschrieben hast, ist die Eingabeform für adaptive Systeme, die deine Aufgabe diagnostisch unterstützen wollen. Du musst nie Python schreiben. Aber die Lehrperson, die ein Spec Sheet pflegt, hat das Format, das solche Systeme brauchen. Die Feldzuordnung im Detail steht im *Nachlesen*-Tab.
-:::
-
-#### 4. Studierenden-orientierte Konsequenz (2 min)
+#### 3. Persönliche Verpflichtung (5 min)
 
 ::: {.callout-individual icon=false}
-#### Ein Satz an deine Studierenden
+#### Schreib auf Papier
 
-Schreibe einen einzigen Satz, den du an deine Studierenden weitergeben würdest, in dem du sagst: *Wo dürft ihr für diese Aufgabe KI nutzen, und wo nicht?*
+Drei Zeilen, in dieser Reihenfolge:
 
-Begründe nicht in diesem einen Satz: nur die Aussage. Begründungen folgen, wenn dich jemand fragt. Aber die Aussage selbst muss klar genug sein, dass eine Studierende beim Lesen weiss, was sie zu tun und zu lassen hat.
-
-Der Constraint auf einen Satz erzwingt eine Festlegung. Diese Festlegung ist das eigentliche Ergebnis dieser Reflexion.
+1. **Eine konkrete Teilaufgabe** deiner Lehre, an der du dein Spec anwenden wirst. Nicht "ich werde nachdenken über..." sondern: *diese* spezifische Aufgabe.
+2. **Ein konkreter Schritt** (Spec gegen reale Studierenden-Antworten testen / Aufgabenstellung anpassen / Worked-Example-Generator nutzen / Misconception-Probe entwerfen).
+3. **Ein Datum**, bis zu dem du es getan hast.
 :::
 
-#### 5. Eine konkrete Verpflichtung (2 min)
+::: {.callout-pair icon=false}
+#### Erzähl es deiner Cross-discipline-Partnerin
 
-::: {.callout-individual icon=false}
-#### Was du in den nächsten zwei Wochen tun wirst
+Such die Partnerin, mit der du in Block 2 zusammengearbeitet hast. Erzähl ihr deine Verpflichtung in einem Satz. Sie schreibt sich das Datum auf und meldet sich danach.
 
-Schreibe auf Papier:
+Der soziale Commitment-Effekt ist nicht trivial: eine ausgesprochene Verpflichtung wird signifikant häufiger eingehalten als eine nur gedachte.
+:::
 
-1. **Eine konkrete Aufgabe** deiner Lehre, an der du das Spec Sheet anwenden wirst (auch wenn es eine andere als deine heutige ist). Nicht "ich werde nachdenken über..." sondern: diese spezifische Aufgabe.
-2. **Ein konkreter Schritt**, den du machen wirst. Empfohlen (siehe *Nachlesen*-Tab zur Begründung): drei reale Studierenden-Antworten sammeln (aktuell oder aus dem letzten Semester), die Block-3-Test-Prozedur auf jede anwenden, das Spec Sheet revidieren, wo das Ergebnis von deiner Vorhersage abweicht. Alternativ:
-   - eine Anpassung der Aufgabenstellung, die aus deinem Spec Sheet folgt, oder
-   - die Studierenden-orientierte Konsequenz aus Punkt 3 in deinen Aufgabentext einbauen.
-3. **Ein Datum**, bis zu dem du es getan haben wirst.
+#### 4. Take-Home-Pointer (2 min)
 
-Erzähl es deiner Nachbarin, bevor du den Raum verlässt.
+::: {.callout-checkpoint icon=false}
+#### Was du mitnimmst
+
+Vier Dinge liegen auf der [Take-Home-Seite](../take-home/index.qmd) für dich bereit:
+
+- Das laufende Werkzeug (URL bleibt stabil).
+- Die Architektur-Erklärung in plain Deutsch (für die technisch Interessierten).
+- Vier Skizzen für weitere Werkzeuge mit Prompt-Vorlagen.
+- Optionale Hausaufgaben: Falsifikationsnotiz und Selbst-Tun-vs-Zuschauen-Tagging.
+
+Dein Spec, deine Verpflichtung und die Take-Home-Seite zusammen sind das, was du nach drei Stunden mitnimmst.
 :::
 
 ### {{< bi book >}} Nachlesen
 
 ::: {.callout-nachlesen icon=false}
-#### Nach dem Workshop: die Validierungsschleife
+#### Adoption-Asymmetrie: warum es individuell-rationale Schritte gibt, aber kein institutionelles Update
 
-Das Spec Sheet, das du heute gebaut hast, ist nach drei Stunden eine *Hypothese* darüber, was deine Studierenden für diese Teilaufgabe brauchen. Es ist noch kein validiertes Modell. Die pass / fail-soft / fail-hard-Prozedur in Block 3 war ein Falsifikationsschritt an einer einzigen Antwort, nicht eine empirische Anpassung über viele Fälle.
+Eine ehrliche Einordnung: das, was wir heute gemacht haben, ist individuell rationaler Lehraufwand. Es ist nicht die Lösung des institutionellen Problems "wie integriert eine Hochschule KI in ihre Lehre". Diese beiden Ebenen sind asymmetrisch.
 
-Was den Schritt von Hypothese zu Modell macht, ist eine kleine Validierungsschleife mit realen Studierenden-Antworten:
+Auf der individuellen Ebene zahlt sich Spec-Schreiben aus: du gewinnst Klarheit über deine eigene Lehre, du bekommst ein Werkzeug, das deine Studierenden in geringen Dosierungen unterstützen kann, und du hast eine durable Spezifikation, die mit der nächsten Modellgeneration nicht obsolet wird.
 
-1. Sammle drei bis fünf Antworten von realen Studierenden auf diese Teilaufgabe (aktuell oder aus dem letzten Semester).
-2. Wende die Block-3-Test-Prozedur auf jede an: lass dein System-Prompt-LLM die Antwort lesen und einen Wissensbaustein oder ein Fehlkonzept zuordnen.
-3. Vergleiche die LLM-Diagnose mit deiner eigenen. Wo sie übereinstimmt: der Baustein ist scharf genug formuliert. Wo sie auseinandergeht: prüfe, ob das Spec Sheet vage ist, oder ob das LLM eine Hypothese liefert, die du in der eigenen Lehre nicht gesehen hast.
-4. Revidiere Sektion B (Wissensbausteine) und Sektion C (Fehlkonzepte) entsprechend. Trage neue Bausteine als **B (beobachtet)** ein; verwerfe oder schärfe Bausteine, die in keiner realen Antwort sichtbar wurden.
+Auf der institutionellen Ebene ist dasselbe Vorgehen viel schwerer durchzusetzen, weil die Coordination zwischen Dozierenden, Studierenden, Prüfungssystemen und Verwaltung Reibungspunkte hat, die das individuelle Verfahren nicht hat. Was du heute gelernt hast, ist eine Ausgangsposition für Coordination-Arbeit, nicht der Ersatz dafür.
 
-Diese Schleife ist die methodische Bewegung, die das Spec Sheet vom Designartefakt zum diagnostischen Werkzeug macht. Ohne sie bleibt es eine plausible Skizze. Mit ihr wird es eine kalibrierte Beschreibung dessen, was in den Köpfen *deiner* Studierenden tatsächlich vorgeht.
-
-Praktischer Tipp: drei Antworten reichen für die erste Schleife. Mehr als fünf macht den Schritt zu gross und du wirst ihn nicht durchführen. Die wichtigste Frage ist nicht, ob du es perfekt machst, sondern ob du es einmal machst.
+Diese Asymmetrie ist nicht zynisch. Sie ist die ehrliche Form der Frage "wie hilfreich war dieser Workshop, wirklich?". Antwort: er hat dir eine Disziplin gezeigt, die du selbst anwenden kannst, ohne zu warten, bis die Institution sich bewegt. Das ist nicht alles, aber es ist nicht nichts.
 :::
 
 ::: {.callout-nachlesen icon=false}
-#### Warum die Methode nicht von alleine angenommen wird
+#### Optional: Falsifikationsnotiz
 
-Die Wahrscheinlichkeit, dass deine Kollegin am Mittwoch beim Mittagessen sich das anhört und es im nächsten Semester selbst macht, ist gering. Das liegt nicht an deiner Kollegin und nicht an der Methode. Es liegt am **Aufwand-Nutzen-Verhältnis**, das die Adoption von neuen Methoden in akademischen Institutionen tatsächlich treibt.
+In früheren Workshop-Versionen schrieben Teilnehmende eine Falsifikationsnotiz: ein Satz, der beschreibt, welches Verhalten von Studierenden die eigene Decomposition widerlegen würde. Diese Bewegung ist ausgesprochen diszipliniert; sie zahlt sich aber erst voll aus, wenn du dein Spec gegen reale Studierenden-Antworten testen kannst.
 
-Ein Spec Sheet zu bauen kostet Zeit, die nicht direkt entlohnt wird. Der Nutzen ist diffus und langfristig, sichtbar erst wenn Studierende über mehrere Module hinweg verfolgt werden. Akute Belohnungen kommen aus anderen Quellen: gute Lehrevaluationen für hochpolierten Output, Forschungspublikationen, Sichtbarkeit. Spec Sheets verbessern primär *Lernen*, nicht primär *Performanz*. Lehrevaluationen messen Performanz.
-
-Diese Asymmetrie ist der strukturelle Grund dafür, dass evidenzbasierte Lehrmethoden sich langsam durchsetzen, nicht eine ungewöhnlich beratungsresistente Lehrendenkultur. Es lohnt sich, diese Asymmetrie zu kennen, weil sie auch *für dich selbst* gilt: dieselben Kräfte, die deine Kollegin zögern lassen, werden dich morgen früh ebenfalls zögern lassen, wenn du deine Methode auf eine zweite Aufgabe anwenden möchtest.
+Vollständige Beschreibung der Aufgabe und Beispiel auf der [Take-Home-Seite](../take-home/index.qmd).
 :::
 
 ::: {.callout-nachlesen icon=false}
-#### Spec als Datenstruktur, Feldmappings im Detail
+#### Optional: Selbst-Tun-vs-Zuschauen-Tagging
 
-Die Side-by-side-Demonstration in Schritt 3 zeigt nur die Spitze: die Felder eines hand-geschriebenen Spec Sheets korrespondieren zeilenweise mit den Feldern eines realen Pydantic-Modells. Hier die volle Zuordnung am Beispiel des [adaptive-scaffolding-Projekts](https://github.com/awellis/adaptive-scaffolding){target="_blank"}, einem laufenden Prototyp zur LLM-gestützten Diagnose für Regressionsaufgaben:
+Eine zweite optionale Übung: tagge jeden Eintrag in deinem Spec mit *Selbst-Tun-erforderlich* oder *Zuschauen-reicht*. Der Tag macht explizit, was die KI für diese Komponente leisten darf und was die Studentin selbst tun muss. Vollständige Beschreibung auf der [Take-Home-Seite](../take-home/index.qmd).
 
-| Spec Sheet | adaptive-scaffolding |
-|---|---|
-| Sektion A (Teilaufgabe) | `Exercise.problem_statement` + `data_context` |
-| Sektion B (Wissensbausteine) | `target_sub_skills` + `cognitive_demand` |
-| Faktenwissen-Anker (was zwingend in der Antwort stehen soll) | `expected_answer_fragments` |
-| Sektion C (Fehlkonzepte) | `common_errors` |
-| Falsifikationsnotiz / Selbst-Tun-Disziplin als Output-Constraint | Validators auf `AdaptiveHintResponse` (Mindestlänge für `hint_text`, `metacognitive_prompt` muss interrogativ sein) |
-
-Die Isomorphie ist nicht zufällig: was im Spec Sheet als pädagogische Disziplin auftritt (V/B, Falsifikation, Selbst-Tun), erscheint im Code als Schema-Constraint (typed enums, validators, Pflichtfelder). Beide Surface-Forms kodieren denselben Anspruch an Spezifität.
-
-Hier zeigt sich auch der Unterschied zur Chat-Pfad-Übersetzung in Block 3. Die "erfinde nichts ausserhalb dieser Listen"-Klausel im System-Prompt ist eine Bitte: das Modell kann sie ignorieren, und *Fail hard* im Test-Protokoll ist genau dieser Fall. Im Pydantic-Schema wird derselbe Constraint zum **Typ-Constraint**: `target_sub_skills: list[SubSkill]` mit `SubSkill` als Enum lässt eine erfundene Antwort nicht durch den Validator. Was im Chat eine soft constraint ist, wird in der strukturierten API eine harte. Wer eine Garantie braucht, statt einer Bitte, hat im Spec Sheet bereits den Inhalt, der für den strukturierten Pfad nötig wäre.
-
-Eine besondere Stelle, die heute zufällig ist und sich morgen lohnt: die `SubSkill.r_squared_meaning`-Komponente im adaptive-scaffolding-Repo ist genau der Wissensbaustein, an dem die Statistik-Novizin-Spec im Worked Example hängt. Wer in seinem Fach einen analogen Sub-Skill als Faktenwissen, Klassifikationswissen oder Erklärungswissen sauber spezifiziert hat, hat den Inhalt, den ein adaptiver Tutor an dieser Stelle bräuchte. Was du heute geschrieben hast, ist nicht ein Workshop-Artefakt, sondern eine Vorform genau dieses Inhalts.
-
-Die Botschaft dieser Schleife: das Spec Sheet bekommt sein Gewicht nicht von der Theorie, die hinter ihm steht (die Theorie ist die Rechtfertigung, nicht der Wert), sondern davon, dass es das Format ist, in dem cognitive task analysis überhaupt operativ wird. Solange du ein Spec Sheet pflegst und gegen reale Studierenden-Daten testest, baust du die Eingabeform, ohne die kein adaptives System sinnvoll arbeitet.
+Theoretische Heimat: Cognitive Offloading vs. Outsourcing im CAS Lernpsychologie: [02-ki-und-lernen](https://virtuelleakademie.github.io/cas-lernpsychologie/02-ki-und-lernen/){target="_blank"}.
 :::
 
 ::: {.callout-nachlesen icon=false}
-#### Selbst-Tun vs. Zuschauen: was im Kopf passiert
+#### Materialien zum Mitnehmen
 
-Die Tagging-Bewegung im Closing trennt zwei Arten, wie sich das Wissen einer Lernerin verändert. *Selbst-Tun* baut neue Schemata auf, festigt wiederkehrende Schritte zu eingespielten Routinen, und macht aus Vorhersagen, die geprüft werden, kalibriertes Wissen. *Zuschauen* verändert das Wissen nur in dem Mass, in dem die Studierende das Beobachtete als Worked Example oder als Modell aufnimmt: am Anfang einer Aufbau-Phase wertvoll, später nicht mehr ausreichend.
+Materialien, die nach dem Workshop weiterhelfen:
 
-Daraus folgt eine wichtige Nuance, die die Faustregel im Schritt 2 nur grob abbildet: *Staging zählt*. Während ein Baustein noch aufgebaut wird, ist die zugehörige Aktivität meist Selbst-Tun-erforderlich. Sobald derselbe Baustein bei der Studierenden gefestigt ist und sie ihn flüssig anwenden kann, reicht oft Zuschauen, um ihn aufzufrischen oder zu erweitern. Die Tags sind also nicht für die ganze Studienzeit fix, sondern für die *aktuelle* Aufbau-Phase einer Studierenden.
-
-Die volle theoretische Begründung (Schemabildung, Wissenskompilation, Expertise-Reversal) findest du im CAS Lernpsychologie:
-
-- [Cognitive offloading vs. outsourcing, 02-ki-und-lernen](https://virtuelleakademie.github.io/cas-lernpsychologie/02-ki-und-lernen/){target="_blank"}
-- [Wie man Kompetenzen erwirbt, 01-lernen-verstehen / kompetenz-erwerben](https://virtuelleakademie.github.io/cas-lernpsychologie/01-lernen-verstehen/kompetenz-erwerben/){target="_blank"}
-:::
-
-::::
-
-## Materialien zum Mitnehmen
-
-Was wir dir nach dem Workshop zur Verfügung stellen:
-
-- Deine ausgefüllte [Spec-Sheet-Vorlage](../spec-sheet-template/index.qmd).
-- Die fünf [Prompt-Scaffolds](../spec-sheet-template/prompt-scaffolds.md) (LLM-Rollen Hypothesengenerator und Lernende-Simulator).
-- Die [System-Prompt-Vorlage](../spec-sheet-template/system-prompt-template.md) für drei Einsatzvarianten, mit Pointern auf aktuelle Anbieter-Dokumentation und Prompt-Generierungs-Tools.
+- Deine ausgefüllte [Spec-Vorlage](../spec-sheet-template/index.qmd).
 - Das [Worked Example](../block-1-theorie-und-beispiel/worked-example-statistics.qmd) zum Nachschlagen.
 - Das [Beispiel-Spec zur Multiple Regression](../spec-sheet-template/example-multiple-regression.md) als gefülltes Modell.
 - Die [sechs Backup-Szenarien](../build/scenarios/index.qmd), falls du auf Beispiele aus anderen Disziplinen zurückgreifen möchtest.
@@ -254,9 +171,10 @@ Was wir dir nach dem Workshop zur Verfügung stellen:
 - Das [CAS Lernpsychologie](https://virtuelleakademie.github.io/cas-lernpsychologie/){target="_blank"} mit den vertiefenden Texten zu Cognitive Offloading, Kompetenzerwerb und den Fünf Leitfragen.
 
 ::: {.callout-checkpoint icon=false}
-## Danke
+#### Eine Übergangsregel für die nächste Woche
 
-Du hast erlebt, dass die zentrale didaktische Arbeit beim Einsatz von KI nicht im Schreiben von Prompts liegt, sondern in der Spezifikation dessen, was im Kopf einer Lernerin tatsächlich vorgeht. Genau diese Spezifikationsarbeit ist es, die deine Lehre robust gegen die nächste Modellgeneration macht.
-
-Bring dein Spec Sheet am Mittwoch beim Mittagessen mit. Das ist auch eine Form von Adoption.
+Wenn dich nach dem Workshop noch etwas nagt: das ist normal. Drei Stunden reichen nicht, um diese Disziplin zu internalisieren. Du hast jetzt eine Vorlage, ein Werkzeug und eine Verpflichtung. In den nächsten Wochen wirst du eines davon nutzen. Das genügt.
 :::
+:::
+
+::::
