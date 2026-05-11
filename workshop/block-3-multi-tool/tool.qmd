@@ -1,0 +1,41 @@
+---
+title: "Das Werkzeug"
+subtitle: "Dein Spec im laufenden System"
+format:
+  html:
+    page-layout: full
+---
+
+::: {.callout-note}
+Füge dein Markdown-Spec aus Block 2 in das Werkzeug unten ein. Wähle ein P(know) für eine hypothetische Studentin und beobachte, was das System produziert.
+
+Wenn der Output nicht überzeugt, schärfe dein Spec und führe den Lauf erneut durch.
+:::
+
+<!-- TODO: Replace placeholder URL with actual HF Space URL once deployed.
+     Expected URL: https://awellis-scaffolding-workshop-tool.hf.space
+     Source repo: ~/GitHub/projects/scaffolding-workshop-tool/ (to be created) -->
+
+<iframe
+  src="https://awellis-scaffolding-workshop-tool.hf.space"
+  width="100%"
+  height="800"
+  frameborder="0"
+  allow="clipboard-write"
+  title="Scaffolding Workshop Tool">
+</iframe>
+
+## Was passiert hier?
+
+Dein Markdown-Spec wird im Hintergrund in ein strukturiertes Python-Objekt übersetzt. Das System nutzt dieses Objekt zusammen mit dem P(know)-Wert, um die Antwort auf das richtige Scaffolding-Level zu kalibrieren: minimaler Nudge, gezielte Frage, strukturierter Hinweis, detaillierte Anleitung oder vollständige Lösungsstruktur.
+
+Die Architektur dahinter ist im Take-Home dokumentiert.
+
+[→ Wie das Werkzeug funktioniert](../take-home/api-werkzeug-erklaert.qmd)
+
+## Die pragmatische Test-Frage
+
+Wenn du den Output liest, stell dir eine Frage: *Stimmt das mit dem überein, was deine echten Studierenden brauchen würden?*
+
+- **Ja:** dein Spec hat für diese Aufgabe funktioniert.
+- **Nein:** dein Spec ist zu vage oder lückenhaft. Notiere, was im Output fehlt oder falsch ist, und schärfe den entsprechenden Eintrag in deinem Spec.

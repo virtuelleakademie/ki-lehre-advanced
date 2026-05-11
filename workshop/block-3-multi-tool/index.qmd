@@ -1,25 +1,24 @@
 ---
-title: "Block 3: Spec Sheet → System-Prompt (25 min)"
+title: "Block 3: Spec im laufenden Werkzeug (45 min)"
 ---
 
 ::: {.callout-timing icon=false}
 ## Zeitbudget Block 3
 
-- 5 min: Vorgehen erklären; Test-Protokoll vorstellen
-- 15 min: dein Spec Sheet in einen System-Prompt übersetzen; im Chat-Werkzeug testen
-- 5 min: Beobachtungen sammeln; zurück zum Spec Sheet
+- 5 min: Facilitator-Demo des Werkzeugs am Beispiel-Spec
+- 15 min: Eigenes Spec einfügen; strukturierten Output beobachten
+- 10 min: Spec schärfen, erneut testen
+- 10 min: Cross-discipline Studierenden-Role-Play
+- 5 min: Kurze Diskussion und Wrap
 :::
 
 ## Was Block 3 leistet
 
-Du hast in Block 2 ein Spec Sheet gebaut. In Block 3 machst du genau einen weiteren Schritt: du übersetzt dein Spec Sheet in einen **System-Prompt** für ein Chat-Werkzeug deiner Wahl, und du testest den Prompt einmal nach einem klaren Protokoll.
+Du hast in Block 2 ein Spec gebaut. In Block 3 fügst du es in ein laufendes Werkzeug ein und beobachtest, was es produziert. Das Werkzeug ist eine API-basierte Anwendung, die deinen Markdown-Spec als Input nimmt und kalibrierte Scaffolding-Hints zurückgibt: ein konkreter Downstream-Einsatz dessen, was du in Block 2 spezifiziert hast.
 
-Der Punkt der Übung ist nicht, dass du am Ende einen perfekten Prompt hast. Der Punkt ist, dass du die **Trennung Spec / Prompt** an deinem eigenen Material erlebst:
+Der Punkt der Übung: an deinem eigenen Material erleben, dass die Qualität des Werkzeug-Outputs eine Funktion der Qualität des Specs ist. Wo dein Spec scharf ist, wird der Output spezifisch. Wo dein Spec vage ist, wird der Output generisch.
 
-- Wo dein Spec Sheet konkret ist, fällt der Prompt fast von alleine.
-- Wo dein Spec Sheet vage ist, merkst du es beim Übersetzen, weil das Template eine Konkretisierung verlangt, die im Spec Sheet fehlt.
-
-Diese Erfahrung ist der eigentliche Lerntransfer aus Block 3: nicht ein Prompt, sondern die *Methode*, mit der du in Zukunft Spec Sheets in beliebige Werkzeuge übersetzt.
+Die eine pragmatische Test-Frage: *Stimmt der Output mit dem überein, was deine echten Studierenden tun? Wenn nein, was fehlt im Spec?*
 
 :::: {.panel-tabset}
 
@@ -32,163 +31,122 @@ Diese Erfahrung ist der eigentliche Lerntransfer aus Block 3: nicht ein Prompt, 
 ::: {.callout-facilitator}
 #### Facilitator-Notizen Block 3
 
-Zwei Slides, je ~2 min:
+**Demo (5 min).** Das Werkzeug ([tool.qmd](tool.qmd)) auf der Leinwand öffnen. Beispiel-Spec aus dem Worked Example einfügen ([example-multiple-regression.md](../spec-sheet-template/example-multiple-regression.md)). P(know)-Slider auf 0.3 setzen. Output zeigen. Botschaft: dein Spec geht oben rein, eine strukturierte Antwort kommt unten raus. Nicht auf den Mechanismus eingehen; das ist im Take-Home dokumentiert.
 
-**Slide 1: Spec → Prompt ist mechanisch (~2 min).** Vorführen am Statistik-Beispiel aus Block 1: die Statistik-Spec wird in den System-Prompt-Template kopiert, die Stelle hervorheben, an der eine Klammer im Template noch nicht im Spec Sheet abgedeckt ist. Botschaft: *die Übersetzung ist mechanisch, ausser an der einen Stelle, an der das Spec Sheet nachgebessert werden muss*.
+**Eigenes Spec einfügen (15 min).** Teilnehmende öffnen [tool.qmd](tool.qmd) auf ihren Laptops. Sie kopieren ihr Block-2-Spec hinein und beobachten, was kommt. Wandern und über die Schultern schauen. Häufigste Stolperstellen:
 
-**Slide 2: Test-Frage (~2 min).** Die einzige pragmatische Frage am Output des Werkzeugs ist: *Stimmt der Output mit dem überein, was deine echten Studierenden tun? Wenn nein, was fehlt im Spec?* Diese Frage ersetzt die ältere Drei-Ausgänge-Heuristik (Pass / Fail soft / Fail hard), die in den Instructor-Notes für die Workshop-Leitung dokumentiert bleibt.
+- "Der Output ist generisch." Spec war zu vage. Frage: welche Sektion wirkt unscharf?
+- "Der Output adressiert das Falsche." Spec hat eine wichtige Komponente nicht enthalten.
+- "Der Output erfindet etwas." Das Werkzeug interpoliert; das Spec gibt nicht genug Constraints.
 
-Übergang in die 15-min Eigenarbeit. Wandern, Teilnehmenden helfen, die richtige Stelle in ihrem Spec Sheet zu finden, wenn sie ins Stocken kommen. Hauptproblem: zu lange Bausteinlisten im Prompt. Erinnern: zwei oder drei wichtigste Bausteine reichen.
+**Spec schärfen (10 min).** Teilnehmende editieren ihr Spec und führen einen zweiten Lauf durch. Vergleichen: was hat sich verändert?
+
+**Cross-discipline Role-Play (10 min).** Paare aus Block 2 wieder zusammenbringen. Partner A's Spec läuft im Werkzeug; Partner B spielt eine Studentin aus A's Disziplin mit einer Misconception (Karten siehe [role-play-cards.qmd](role-play-cards.qmd)). A beobachtet, wie das Werkzeug auf B's Antwort reagiert. Tauschen.
+
+**Wrap (5 min).** Eine Frage in die Runde: *Welche eine Änderung an deinem Spec würde den Output am stärksten verbessern?* Kurze Antworten, keine Diskussion. Direkt ins Closing.
 
 ::: {.callout-pro-tip icon=false}
-#### Bei der Diskussion in Schritt 3
+#### Was die Workshop-Leitung in Block 3 *nicht* tut
 
-Nicht über den "besten Prompt" diskutieren. Über *die Stelle*, an der das Spec Sheet sich beim Übersetzen als vage erwiesen hat. Das ist die methodisch interessante Beobachtung; alles andere ist Werkzeug-Trivia.
+Den Mechanismus des Werkzeugs erklären (Pydantic, API-Aufrufe, Schemas). Das ist in [Wie das Werkzeug funktioniert](../take-home/api-werkzeug-erklaert.qmd) dokumentiert. Wer es technisch nachvollziehen will, liest dort nach. Im Workshop bleibt der Fokus auf der Beobachtung des Outputs und der Iteration des Specs.
+:::
+
+::: {.callout-pro-tip icon=false}
+#### Wenn das Werkzeug nicht erreichbar ist
+
+Backup-Plan: das Werkzeug ist eine HuggingFace Space mit ANTHROPIC_API_KEY. Mögliche Ausfälle: HF Down, API-Quota erreicht. Vorbereitung: Screenshots aus einer Voraufnahme der Demo, plus ein lokales `marimo run` als persönliches Fallback. Die Cross-discipline Role-Play kann auch ohne Werkzeug stattfinden: Partner B spielt eine Studentin mit Misconception, A liest ihr eigenes Spec und entscheidet, welcher Eintrag B's Antwort adressieren würde.
 :::
 :::
 
 ### {{< bi pencil-square >}} Aktivitäten
 
-#### Schritt 1: Vorgehen und Test-Protokoll (5 min)
+#### Schritt 1: Demo des Werkzeugs (5 min)
 
-::: {.callout-pro-tip icon=false}
-#### Die Übersetzung ist mechanisch
+Die Workshop-Leitung führt das Werkzeug am Beispiel-Spec vor. Du beobachtest:
 
-Aus jedem Eintrag deines Spec Sheets wird ein Eintrag im System-Prompt:
+- Wie der Markdown-Spec eingefügt wird.
+- Welche Form der Output hat (mehrere Felder: Hinweis, Begründung, nächster Schritt, metakognitive Frage).
+- Wie sich der Output ändert, wenn der P(know)-Slider verschoben wird.
 
-- Sektion B (Wissensbausteine) wird zu einer Liste im Prompt, gruppiert nach Typ.
-- Sektion C (Fehlkonzepte) wird zu einer "Häufige Fehlkonzepte"-Liste.
-
-Die feste Vorlage findest du unter [System-Prompt-Vorlage](../spec-sheet-template/system-prompt-template.md). Du kopierst die Variante 1 (Diagnostische Rolle) und ersetzt die eckigen Klammern mit deinem Spec-Sheet-Inhalt.
-:::
-
-::: {.callout-checkpoint icon=false}
-#### Test-Frage
-
-Eine einzige pragmatische Frage entscheidet, ob dein Spec funktioniert hat: *Stimmt der Output des Werkzeugs mit dem überein, was deine echten Studierenden tun? Wenn nein, was fehlt im Spec?*
-
-Wenn ja, ist das Spec für diese Aufgabe brauchbar. Wenn nein, hast du genau die Diagnose, die du brauchst: das, was im Output fehlt oder falsch ist, ist das, was du im Spec schärfer formulieren musst.
-:::
-
-::: {.callout-pro-tip icon=false}
-#### Hinweis zum aktuellen Block-3-Stand
-
-Dieser Block wird derzeit auf einen No-Code-Ablauf mit eingebettetem laufendem Werkzeug umgestellt. Die Inhalte unter "Aktivitäten" beschreiben noch den älteren System-Prompt-Pfad. Der finale Block-3-Ablauf wird folgendermassen aussehen: du fügst dein Markdown-Spec in das laufende Werkzeug ein (per iframe in dieser Seite), beobachtest den strukturierten Output, schärfst das Spec, wiederholst, und übergibst in einer Cross-discipline-Paarung mit vorbereiteten Role-Play-Karten.
-:::
-
-#### Schritt 2: Übersetzen und testen (15 min)
+#### Schritt 2: Eigenes Spec einfügen (15 min)
 
 ::: {.callout-individual icon=false}
-#### Übersetzen (8 min)
+#### Spec einfügen und Output beobachten
 
-Öffne die [System-Prompt-Vorlage](../spec-sheet-template/system-prompt-template.md), Variante 1 (Diagnostische Rolle).
+Öffne [Das Werkzeug](tool.qmd) auf deinem Laptop.
 
-Kopiere das Template-Gerüst.
+Kopiere dein Block-2-Spec in das Textfeld des Werkzeugs. Setze den P(know)-Slider auf einen Wert zwischen 0.2 und 0.4 (eine Studentin, die das Material erst teilweise beherrscht).
 
-Ersetze die Platzhalter in eckigen Klammern mit Inhalten aus deinem Spec Sheet. Wenn ein Platzhalter etwas verlangt, das in deinem Spec Sheet nicht steht, **markiere die Stelle** und mach mit dem Rest weiter. Wir kommen am Ende dazu.
+Klicke auf "Hint generieren". Lies den Output:
 
-Häufige Stolperstellen:
+- **Hinweis-Text:** was würde das Werkzeug einer Studentin in diesem Niveau sagen?
+- **Begründung:** warum dieser Hinweis, nicht ein anderer?
+- **Nächster Schritt:** wohin lenkt das Werkzeug die Studentin?
+- **Metakognitive Frage:** welche Reflexion löst das Werkzeug aus?
 
-- **Die Wissensbaustein-Liste ist sehr lang.** Picke die zwei oder drei wichtigsten heraus, lass den Rest erstmal weg. Du kannst später ergänzen.
-- **Das "Was schiefgeht"-Feld ist leer.** Geh zurück zum Spec Sheet und fülle den Satz aus. Ohne ihn fehlt dem Prompt die Spezifik.
-- **Die Verbote am Ende des Templates** (keine Bausteine erfinden, kein künstliches Selbstvertrauen). Lass sie wörtlich stehen, sie sind allgemeingültig.
+Beantworte die Test-Frage: *Stimmt der Output mit dem überein, was deine echten Studierenden brauchen würden? Wenn nein, was fehlt im Spec?*
 :::
+
+#### Schritt 3: Spec schärfen und erneut testen (10 min)
 
 ::: {.callout-individual icon=false}
-#### Testen mit Test-Protokoll (7 min)
+#### Iteration
 
-Füge den fertigen System-Prompt in dein Werkzeug ein:
+Schärfe einen oder zwei Einträge in deinem Spec, basierend auf dem, was im ersten Lauf nicht gestimmt hat:
 
-- **Microsoft Copilot:** im "Anweisungen"-Feld eines neuen Chats oder im Custom-Agent-Setup.
-- **HuggingChat:** im "System Prompt"-Feld.
-- **ChatGPT (Custom GPT):** im Anweisungs-Feld eines neuen Custom GPT.
-- **Claude:** im System-Prompt-Feld eines neuen Chats.
+- Eine Skill-Beschreibung präziser formulieren.
+- Eine Misconception spezifischer benennen.
+- Die intuitive Grundlage einer Misconception konkretisieren.
 
-**Wähle für deinen Test einen Baustein aus deinem Spec Sheet, den du als B (beobachtet) markiert hast.** Das heisst: du hast eine konkrete Studierenden-Antwort vor Augen, die genau auf diesem Baustein scheitert. Die Antwort kann real oder aus den [Backup-Szenarien](../build/scenarios/index.qmd) sein.
-
-Gib die Studierenden-Antwort ans Werkzeug. Lies das Output und ordne es einem der drei Ausgänge zu (Pass / Fail soft / Fail hard).
-
-Notiere kurz:
-
-- Welchen Baustein hast du erwartet? Welchen hat das Werkzeug identifiziert?
-- Wenn Fail soft: welche Stelle in deinem Spec Sheet war zu vage?
-- Wenn Fail hard: hat das Werkzeug einen Baustein erfunden? Welchen?
+Führe den Lauf erneut durch. Vergleiche die beiden Outputs. Notiere die zentrale Beobachtung: welche Schärfung im Spec hat welche Veränderung im Output produziert?
 :::
 
-#### Schritt 3: Zurück zum Spec Sheet (5 min)
+#### Schritt 4: Cross-discipline Role-Play (10 min)
 
-::: {.callout-reflect icon=false}
-#### Reflexion: was hat das Testen offengelegt?
+::: {.callout-pair icon=false}
+#### Role-Play mit Karten
 
-Drei Fragen für dich allein:
+Setz dich mit deiner Cross-discipline-Partnerin aus Block 2 zusammen. Eine von euch ist die "Dozentin", die andere ist die "Studentin".
 
-1. **Welche Stelle im Spec Sheet war zu vage**, um in einen guten Prompt überführt zu werden? Trag eine Notiz in dein Spec Sheet ein, was geschärft werden muss.
-2. **Wo war das Werkzeug auch trotz vagem Spec Sheet erstaunlich gut?** Das hilft dir, zwischen "der Prompt ist Magie" und "der Prompt nutzt die Schärfe des Spec Sheets" zu unterscheiden.
-3. **Welche Verbote im Template waren nötig?** Welche hätten weggelassen werden können, ohne dass das Verhalten leidet? Das ist eine werkzeug-spezifische Beobachtung; sie gehört nicht ins Spec Sheet, sondern ins Pruning-Protokoll der Übersetzung.
+**Phase 1: 5 Minuten zu Partner A's Spec.** A's Spec läuft im Werkzeug. B nimmt eine [Role-Play-Karte](role-play-cards.qmd) aus A's Disziplin (oder improvisiert eine Misconception, die A vorher genannt hat). B antwortet aus dieser Studentin-Rolle auf das, was das Werkzeug ausgibt. A beobachtet, ob das Werkzeug auf B's Antwort angemessen reagieren würde.
+
+**Phase 2: 5 Minuten zu Partner B's Spec.** Rollen wechseln.
+
+Notiert pro Spec: hat das Werkzeug auf die simulierte Misconception angemessen reagiert, oder wurde sie ignoriert?
 :::
+
+#### Schritt 5: Wrap (5 min)
 
 ::: {.callout-checkpoint icon=false}
-#### Die Lehre aus Block 3
+#### Eine Frage in die Runde
 
-Die Spec / Prompt-Trennung ist nicht nur ordnungstheoretisch:
-
-- Der Prompt ist eine *Funktion* des Spec Sheets. Die Qualität des Prompts steigt mit der Qualität des Spec Sheets, nicht umgekehrt.
-- Wenn das Werkzeug nicht das tut, was du erwartet hast, ist der erste Reflex: zurück zum Spec Sheet, nicht den Prompt umformulieren.
-- Das Spec Sheet überlebt Modellgenerationen. Der Prompt ist eine spezifische Übersetzung für ein spezifisches Werkzeug zu einem spezifischen Zeitpunkt.
+Welche eine Änderung an deinem Spec würde den Output am stärksten verbessern? Kurz formulieren, kein langes Erklären.
 :::
 
 ### {{< bi book >}} Nachlesen
 
 ::: {.callout-nachlesen icon=false}
-#### Warum "erfinde nichts ausserhalb dieser Listen" nur eine Soft-Constraint ist
+#### Wie das Werkzeug funktioniert (Architektur)
 
-Die Verhaltensregel "erfinde keinen Baustein, der nicht oben gelistet ist" im System-Prompt sieht aus wie eine Einschränkung, ist aber eine Bitte. Das LLM kann sie befolgen, muss aber nicht. *Fail hard* im Test-Protokoll ist genau der Fall, in dem die Bitte ignoriert wurde: das Modell hat einen Baustein produziert, der nicht in der Spec stand.
-
-Das ist keine Schwäche dieses spezifischen Workshops, sondern eine Eigenschaft des Chat-Werkzeug-Pfads. Chat-Werkzeuge (Copilot, ChatGPT, Claude, HuggingChat) nehmen einen System-Prompt als Vorgabe entgegen, prüfen die Ausgabe aber nicht gegen das, was du im Prompt verlangt hast. Das Modell hat keinen formalen Begriff von "der Wissensbaustein-Liste oben"; es hat nur den Eindruck, dass die Liste relevant ist. Verstärkung der Klausel ("ich wiederhole: erfinde nichts") hilft empirisch manchmal, garantiert aber nichts.
-
-**Die strukturierte Alternative.** Wenn dasselbe Spec Sheet in einem strukturierten API-Aufruf gerendert wird (Block 1, Affordance-Typ 2: Strukturierte API-Generierung), ändert sich der Mechanismus. Die Wissensbausteine werden als **Enum** definiert (in Python z.B. `SubSkill = Enum(...)`), und das LLM darf in seiner Antwort nur einen dieser Enum-Werte produzieren. Eine Antwort, die einen erfundenen Baustein vorschlägt, wird vom Pydantic-Validator gar nicht erst akzeptiert: sie scheitert an der Typprüfung, bevor sie zum aufrufenden Code zurückkommt. Was im Chat-Prompt eine Bitte ist, wird im strukturierten Aufruf ein **harter Typ-Constraint**.
-
-Das ist die zentrale Trade-off zwischen den Affordance-Typen:
-
-- **Chat-Werkzeug (Affordance-Typ 1):** niedrige Einstiegsschwelle, keine Programmierung. Alle Verbote im Prompt sind soft; der Output kann konfabulieren; manuelle Prüfung jeder Antwort nötig. Das ist die Welt, in der Block 3 dich arbeiten lässt.
-- **Strukturierte API (Affordance-Typ 2):** Programmiersprung erforderlich (Python lesen, nicht zwingend schreiben). Typprüfung erzwingt die Spec auf der Output-Seite. Konfabulation wird auf Schema-Ebene verhindert, nicht nur per Bitte abgewiesen.
-
-**Konsequenz für deine eigene Nutzung.** Solange du im Chat-Werkzeug arbeitest, ist *Fail hard* einer von drei realen Ausgängen, mit dem du rechnen musst. Die "erfinde nichts"-Klausel reduziert die Häufigkeit, eliminiert sie nicht. Wenn du das Format wirklich erzwingen willst (etwa für eine wiederkehrende Pipeline, in der du nicht jede Antwort manuell prüfen kannst), brauchst du den strukturierten API-Pfad: genau das, was das Marimo-Notebook in Block 1 demonstriert und was die [adaptive-scaffolding-Architektur](../closing/index.qmd) im Closing als Output-Schema zeigt.
-
-Diese Trade-off-Awareness gehört zur Spec / Prompt-Trennung selbst: das Spec Sheet bleibt dasselbe, aber die Härte der Constraints hängt vom Rendering-Pfad ab.
+Die ausführliche Erklärung, wie dein Markdown-Spec im Werkzeug zu einem strukturierten API-Aufruf wird, steht in [Wie das Werkzeug funktioniert](../take-home/api-werkzeug-erklaert.qmd). Lies das nach dem Workshop, wenn du den Mechanismus technisch nachvollziehen möchtest. Stichworte: Markdown-Parser, Pydantic-Schema, Anthropic-API, strukturierter Output.
 :::
 
 ::: {.callout-nachlesen icon=false}
-#### Spec ist dauerhaft, Prompt-Praktiken sind es nicht
+#### Weitere Werkzeuge, die dein Spec antreiben kann
 
-Diese Vorlage ist ein **Ausgangspunkt**, kein für immer richtiger Prompt. Die konkrete Form eines guten System-Prompts hängt vom Werkzeug und vom Modellstand ab und wird sich mit jeder Modellgeneration verschieben.
+Dein Spec ist nicht auf dieses eine Werkzeug beschränkt. Dasselbe Markdown-Dokument kann mehrere Downstream-Einsätze treiben: einen Worked-Example-Generator, eine Misconception-Probe, ein formatives Assessment-Generator, eine Knowledge-Tracing-Instrumentierung. Skizzen zu allen vier findest du unter [Weitere Werkzeuge](../take-home/weitere-werkzeuge.qmd).
 
-Der Workshop lehrt also nicht "der heutige beste Prompt", sondern die meta-methodische Praxis: *Spec Sheet von Prompt trennen. Wenn die Prompt-Best-Practice sich ändert, das Spec Sheet bleibt; nur das Rendering wird neu gebaut.*
-
-Drei Wege, dieselbe Übersetzung zu produzieren:
-
-- **Manuell rendern.** Was Block 3 dich tun lässt: Einträge aus Spec-Sektionen in die Platzhalter im Template kopieren. Default für Nicht-Programmierende.
-- **Aktuelle Anbieter-Dokumentation lesen.** Anthropic veröffentlicht laufend einen [Prompt-Engineering-Guide](https://docs.anthropic.com/){target="_blank"}; OpenAI hat den [Cookbook](https://cookbook.openai.com/){target="_blank"}; Google, Mistral und andere ähnliche Ressourcen. Was dort steht, ist häufig der momentan beste Stand und ändert sich.
-- **Prompt-Generierungs-Tools nutzen.** [Anthropic Console](https://console.anthropic.com/) hat einen Prompt-Generator, der aus einer Beschreibung deiner Aufgabe einen strukturierten Prompt vorschlägt. OpenAI Playground hat etwas Ähnliches. Du kannst dein Spec Sheet in einer Anfrage übergeben und einen Prompt-Entwurf zurückbekommen. Das ist Rendering, nicht Spezifikation.
-
-Welcher Weg auch immer: das Spec Sheet bleibt die Substanz. Was sich ändert, ist die Werkzeug-spezifische Übersetzung.
+Das ist die Pointe der Doktrin "Spec ist durabel, Werkzeug ist Rendering": dein Spec überlebt Werkzeuge und Modellgenerationen. Wenn nächstes Jahr ein anderes Werkzeug verfügbar wird, fütterst du dasselbe Spec hinein.
 :::
 
 ::: {.callout-nachlesen icon=false}
-#### Wenn dein Test "Fail soft" produziert: Diagnoseheuristiken
+#### Die ältere Drei-Ausgänge-Heuristik
 
-Aus der Erfahrung mit der Vorlage und unterschiedlichen Modellen:
-
-- **Das LLM produziert generischen Text.** Im Prompt fehlt die Spezifik aus deinem Spec Sheet, vor allem die "Was schiefgeht"-Sätze. Geh zurück zur Sektion B und schärfe die Beschreibungen.
-- **Das LLM identifiziert immer denselben Baustein.** Wahrscheinlich überlappen mehrere Bausteine im Spec Sheet. Geh zurück und prüfe, ob du sie schärfer trennen kannst.
-- **Das LLM bricht aus der Rolle aus** (bei Variante 2 oder 3 des Templates, dem Lernende-Simulator oder Sokratischen Tutor). Die Verhaltensregel ist nicht stark genug formuliert, oder das Modell ist auf "hilfreich" getuned, ohne Rollenstabilität. Teste mit einem anderen Modell oder verstärke die Klausel.
-- **Das LLM ist zu pedantisch.** Du hast wahrscheinlich zu viele Verbote eingebaut. Reduziere sie auf die zwei oder drei wichtigsten.
-
-In jedem Fall ist der erste Reflex: zurück zum Spec Sheet, nicht der Prompt umformulieren. Der Prompt ist Rendering, das Spec Sheet ist Substanz.
+In früheren Versionen des Workshops wurde der Test mit einer Drei-Ausgänge-Heuristik strukturiert: Pass / Fail soft / Fail hard. Die neue pragmatische Frage (*Stimmt der Output mit dem überein, was echte Studierende tun?*) ist eine Vereinfachung dieser Heuristik. Die ausführliche Form bleibt in den Instructor-Notes als Referenz für die Workshop-Leitung dokumentiert.
 :::
 
 ::::
 
 ## Übergang ins Closing
 
-Du hast jetzt ein Spec Sheet (durch Block 2) und einen lauffähigen System-Prompt (durch Block 3). Im Closing reflektierst du, was du mit dem Spec Sheet noch machen kannst, jenseits der diagnostischen Rolle: insbesondere, **welche Teilaufgaben deines Auftrags KI-Substitution zulassen und welche nicht**. Du schreibst zudem die Falsifikationsnotiz, die in Block 2 noch ausgespart blieb.
+Du hast jetzt ein Spec, das du an einem laufenden Werkzeug getestet hast. Du hast beobachtet, wie sich die Output-Qualität mit der Spec-Qualität verändert. Im Closing kommt die Doktrin-Extension, die diese Erfahrung verallgemeinert: dasselbe Spec kann verschiedene Werkzeuge treiben, und das Spec ist der durable Teil.

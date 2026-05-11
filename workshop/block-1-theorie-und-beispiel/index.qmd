@@ -1,22 +1,20 @@
 ---
-title: "Block 1: Theorie und Beispiel (45 min)"
+title: "Block 1: Theorie und Beispiel (35 min)"
 ---
 
 ::: {.callout-timing icon=false}
 ## Zeitbudget Block 1
 
-- 11 min: Theorie und CLT-Auffrischung (Engpass, Vorwissen, Scaffolding-Leiter, Brücke ins Spec Sheet, drei Wissensbaustein-Typen mit Lern-Mechanismen, Spec-vs-Prompt, zwei LLM-Rollen)
-- 3 min: Einstieg-Liste typisieren (Faktenwissen / Klassifikationswissen / Erklärungswissen)
-- 27 min: Worked Example (live durch die Statistik-Spec-Sheet-Seite)
-- 3 min: Werkzeug-Tour (drei Affordance-Typen, abgekürzt)
-- 1 min: Übergang in Block 2
+- 5 min: Anker-Moment (drei Slides: Das harte Problem, Der Expert Blind Spot, LLMs als strukturierte Novizen)
+- 25 min: Worked Example, live-Walkthrough an der Multiple-Regression-Aufgabe
+- 5 min: Vorschau auf Block 3 (wie ein Markdown-Spec zum Input eines laufenden Werkzeugs wird)
 :::
 
 ## Was Block 1 leistet
 
-Bevor du in Block 2 dein eigenes Spec Sheet baust, schaust du jemand anders einmal beim Bauen zu. Das ist der Sinn des ausgearbeiteten Beispiels: du siehst die Methode in Aktion, einschliesslich der Stellen, an denen LLM-Vorschläge geprüft, korrigiert oder verworfen werden.
+Im Einstieg hast du in einem Cross-discipline-Paar das Phänomen erlebt: was eine Expertin im eigenen Fach automatisiert hat, ist für eine Aussenstehende unsichtbar und nicht-trivial. Block 1 gibt diesem Phänomen einen Namen und führt vor, wie ein LLM als strukturierter Novize gezielt eingesetzt werden kann, um die eigenen Blind Spots zu externalisieren.
 
-Ohne dieses Vorbeispiel wäre die Aufgabe in Block 2 zu offen. Mit ihm hast du eine konkrete Schablone, an der du dich orientieren kannst, auch dann, wenn dein Fach völlig anders ist als Statistik.
+Du beobachtest die Methode an einer Statistik-Aufgabe (Multiple Regression aus dem Bachelor-Psychologie). Die Aufgabe ist nur das demonstrative Beispiel. Die Methode ist domain-unabhängig: dasselbe Vorgehen funktioniert für eine Pflege-Übung, eine Sozialarbeits-Fallvignette oder eine Programmieraufgabe.
 
 :::: {.panel-tabset}
 
@@ -27,35 +25,27 @@ Ohne dieses Vorbeispiel wäre die Aufgabe in Block 2 zu offen. Mit ihm hast du e
 {{< revealjs file="../../slides/workshop/index.html" height="500px" class="ratio ratio-16x9" >}}
 
 ::: {.callout-facilitator}
-#### Slides Block 1: vier Sequenzen (~11 min insgesamt)
+#### Facilitator-Notizen Block 1
 
-**Sequenz 1: CLT-Auffrischung** (~7 min). Vier Slides aus der Refresher-Präsentation:
+**Drei Anker-Slides (5 min).** Unmittelbar nach dem Einstieg. Diese drei Slides geben dem Phänomen einen Namen, das die Teilnehmenden gerade selbst erlebt haben. Wortlaut der drei Slides verbatim, mit Pausen dazwischen:
 
-1. *CLT-Engpass* (~1.5 min): Sensorischer Input → Arbeitsgedächtnis (4 Elemente, 15-30 Sek.) → Langzeitgedächtnis. Diese Engstelle ist der Grund, warum Lernen Mühe macht.
-2. *Vorwissen bestimmt die intrinsische Last* (~1.5 min): Gleiche Aufgabe, unterschiedliche kognitive Kosten je nach Vorwissen. Konsequenz: Aufgaben müssen sich an Vorwissen anpassen, was Diagnose verlangt.
-3. *Scaffolding-Leiter* (~1.5 min): Worked Example → Completion → Hinweis-gestützt → eigenständig. Welche Stufe greift, hängt von der Diagnose ab.
-4. *Brücke ins Spec Sheet* (~1 min): "Die Refresher-Präsentation hat gesagt, wir müssen diagnostizieren. Heute machen wir die Diagnose explizit, schriftlich und falsifizierbar. Genau das ist das Spec Sheet."
+1. *Das harte Problem.* Die schwierigste pädagogische Bewegung beim Einsatz von KI in der Lehre ist nicht das Auswählen eines Werkzeugs, sondern das Spezifizieren dessen, was im Kopf der Lernenden passieren soll.
+2. *Der Expert Blind Spot.* Dozierende sehen nicht, was ihre Studierenden noch nicht wissen, weil Automatisierung die Teilfertigkeiten unsichtbar gemacht hat.
+3. *LLMs als strukturierte Novizen.* Ein LLM, das als novizen-prompted wird, zählt die Teilschritte auf, die ein Experte überspringt: es hat keine Automatisierung, die es überspringen könnte.
 
-Wer die Auffrischung in Volllänge braucht, findet sie im *Nachlesen*-Tab.
+**Worked Example (25 min).** Live-Walkthrough durch die [Worked-Example-Seite](worked-example-statistics.qmd). Vier Stationen kommentieren:
 
-**Sequenz 2: Drei Wissensbaustein-Typen, drei Lern-Mechanismen** (~2 min, vier Slides). Faktenwissen (Abrufen, aufgebaut durch aktives Abrufen / Roediger & Karpicke 2006) / Klassifikationswissen (Erkennen, aufgebaut durch interleaved varied examples mit Diskriminations-Feedback / Rohrer & Pashler 2010) / Erklärungswissen (Begründen, aufgebaut durch Selbsterklärung, gesteuerte Worked Examples, productive failure / Chi 1989, Kapur 2008). Jeder Typ ist durch die kognitive Operation definiert, die die Studierende ausführt; aus der Operation folgt der Mechanismus; aus dem Mechanismus folgt, was die KI substituieren darf und was nicht. Diese Kette ist die Entscheidungsregel für das Selbst-Tun-vs-Zuschauen-Tagging im Closing. Volltext im *Nachlesen*-Tab.
+- Die typische "akzeptable" Studierenden-Antwort. Sie liest sich kompetent. Das ist der Punkt.
+- Der LLM-as-Novice-Prompt. Wortlaut zeigen, sodass Teilnehmende ihn copy-pasten können.
+- Die Enumeration. Etwa fünfzehn Voraussetzungen, durchlaufen, nicht jede einzeln kommentieren.
+- Der Blind-Spot-Moment. Auf die vier hervorgehobenen Punkte verweilen ("kontrolliert für", $R^2$-Nicht-Additivität, Verschwinden im multiplen Modell, "nicht-signifikant" $\neq$ "kein Effekt"). Das ist die dramatische Stelle.
 
-**Direkt nach Sequenz 2: Einstieg-Liste typisieren** (~3 min, Aktivität). Die Teilnehmenden tagen die drei Sätze, die ihre Partnerin im Einstieg aus ihrem Absatz rekonstruiert hat. Details im *Aktivitäten*-Tab.
-
-**Sequenz 3: Spec ist dauerhaft, Prompt ist Übersetzung** (~1 min). Eine pragmatische Trennung: das Spec Sheet überlebt Modellgenerationen, der Prompt ist Werkzeug-spezifisch und altert mit dem Modell.
-
-**Sequenz 4: Zwei LLM-Rollen** (~1 min). **Lernende-Simulator** (die zentrale Affordanz dieses Workshops, in zwei Probemodi: reaktiv und produktiv) und **Hypothesengenerator** (unterstützende Rolle vor der Validierung). Beim Arbeiten in Block 2 immer fragen: *In welcher Rolle ist das LLM gerade?*
-
-**Worked Example** (30 min): Live-Walkthrough durch die [Worked-Example-Seite](worked-example-statistics.qmd). Drei Stellen besonders kommentieren (siehe *Aktivitäten*-Tab).
-
-**Werkzeug-Tour** (3 min): kurz die drei Affordance-Typen nennen (Chat / Strukturierte API / Agentisch), je 30 Sekunden. Volllänge im *Nachlesen*-Tab. Live-Demo nur fürs Marimo-Notebook (1 min).
-
-**Übergang in Block 2** (1 min): Verweis auf Vorlage, Prompt-Scaffolds, eigene Aufgabe parathalten. Direkt in die Pause.
+**Spec-Vorschau (5 min).** Spec-Vorlage zeigen, das gefüllte Beispiel-Spec aus dem Worked Example daneben halten. Botschaft: was du in Block 2 baust, ist genau ein solches Markdown-Dokument. In Block 3 fügst du es in das laufende Werkzeug ein und beobachtest, was es produziert. Die [Spec-Vorlage](../spec-sheet-template/index.qmd) und das [Beispiel-Spec](../spec-sheet-template/example-multiple-regression.md) sind die beiden Referenzpunkte.
 
 ::: {.callout-pro-tip icon=false}
-#### Was V/B (vermutet vs. beobachtet) eigentlich leistet
+#### Was hier bewusst weggelassen wird
 
-Beim Worked Example explizit ansprechen: V/B ist nicht eine Bürokratie, sondern eine kognitive Disziplin. Vier Mechanismen machen sie nötig: Source-Monitoring-Failure, Processing-Fluency, Curse of Knowledge und Categories-precede-Data. Jeder dieser vier verlangt eine eigene Bewegung (V/B selbst, Misstrauen gegen Fluenz, Konkretheitsprobe, Pruning). Detail im *Nachlesen*-Tab. Im Worked Example zeigen, dass V/B genau in dem Moment markiert wird, in dem das LLM den Vorschlag macht: nur dann ist die Quelle psychologisch noch zugänglich.
+CLT-Recap, drei-Wissensbaustein-Typen als Taxonomie, V/B-Diskurs, Affordance-Typen-Tour. Diese Inhalte sind nicht ersatzlos verschwunden: sie liegen unter `instructor-notes/` und in den Nachlesen-Tabs. Der Workshop trägt sie in 3 Stunden nicht zusätzlich, ohne andere Inhalte zu opfern. Wer sie braucht, findet sie nach dem Workshop.
 :::
 :::
 
@@ -68,214 +58,81 @@ Block 1 ist überwiegend Mitschauen. Aber du brauchst dabei nicht passiv zu sein
 ::: {.callout-individual icon=false}
 #### Mitbringen: deine eigene Teilaufgabe
 
-Halte während Block 1 *eine konkrete Teilaufgabe aus deiner eigenen Lehre* gedanklich parat. Idealerweise eine, die du in Block 2 verwenden willst. Beim Mitschauen prüfst du laufend: *Würde dieser Schritt auch für meine Aufgabe gehen? Welche Stelle wäre bei meiner Aufgabe anders?*
+Halte während Block 1 *eine konkrete Teilaufgabe aus deiner eigenen Lehre* gedanklich parat. Idealerweise die, die du in Block 2 verwenden willst. Beim Mitschauen prüfst du laufend: *Würde dieser Schritt auch für meine Aufgabe gehen? Welche Stelle wäre bei meiner Aufgabe anders?*
 
 Ohne diesen Bezugspunkt wird der Worked Example abstrakt. Mit ihm wird er zum Vorbild.
 :::
 
 ::: {.callout-individual icon=false}
-#### Nach Sequenz 2: deine Einstieg-Liste typisieren (~3 min)
+#### Beim Worked Example: vier Stationen beobachten
 
-Hol die Liste hervor, die deine Partnerin im Einstieg für dich produziert hat (die drei Sätze, "Damit deine Studierende ... wissen / erkennen / erklären können"). Tagge jeden Eintrag mit einer der drei eben eingeführten Typen:
+Vier Stellen verdienen besondere Aufmerksamkeit, während die Workshop-Leitung durch die [Worked-Example-Seite](worked-example-statistics.qmd) geht:
 
-- **Faktenwissen** (Operation: Abrufen)
-- **Klassifikationswissen** (Operation: Erkennen)
-- **Erklärungswissen** (Operation: Begründen)
-
-Wenn zwei deiner drei Einträge denselben Typ haben, sagt das schon etwas über die kognitive Struktur deiner Aufgabe. Wenn die Sätze deiner Partnerin nicht zur Vorlage "wissen / erkennen / erklären" passen, ist auch das informativ: bedeutet es, dass aus deinem Absatz nicht klar war, welches Wissen das eigentliche Lernziel ist?
-
-Halte die getaggten Einträge griffbereit. In Block 2 baust du Sektion B deines Spec Sheets aus genau diesen Typen auf.
-:::
-
-::: {.callout-individual icon=false}
-#### Beim Worked Example: vier Stellen genau beobachten
-
-Vier Stellen verdienen besondere Aufmerksamkeit, während die Instruktorin durch die [Worked-Example-Seite](worked-example-statistics.qmd) geht:
-
-- **Wenn das LLM einen Vorschlag macht, der falsch oder daneben ist:** wie geht die Instruktorin damit um? Welches Argument benutzt sie, um den Vorschlag zu verwerfen?
-- **Wenn die reaktive Simulation eine Stelle markiert, die niemand erwartet hatte:** das ist ein Treffer und gehört in das Spec Sheet, typischerweise als zusätzlicher Baustein in Sektion B oder als Erwerb-Hinweis bei einem bestehenden Baustein.
-- **Wenn die produktive Simulation eine plausible-aber-falsche Antwort produziert:** würde dir der Misserfolg beim Korrigieren auffallen?
-- **Wenn die Instruktorin zwischen den LLM-Rollen wechselt:** achte darauf, *welche Rolle gerade was tut*. Der Hypothesengenerator schlägt vor (kritisch zu prüfen, oft falsch). Der Lernende-Simulator probt dein Material oder produziert eine Antwort aus Studierendensicht (gibt Feedback auf dein Modell der Lernenden). Der Simulator ist die zentrale Affordanz dieses Workshops; der Hypothesengenerator unterstützt.
+- **Die typische akzeptable Antwort.** Was steht in einer Antwort, die du als korrigierende Lehrperson durchgehen lassen würdest? Lies sie als Lehrperson: welche Annahmen siehst du nicht?
+- **Der LLM-as-Novice-Prompt.** Welche genaue Formulierung versetzt das LLM in die nicht-fortgeschrittene Rolle? Diesen Prompt wirst du in Block 2 selbst nutzen.
+- **Die Enumeration.** Etwa fünfzehn Voraussetzungen. Welche davon hättest du selbst gewusst, dass du sie voraussetzt? Welche nicht?
+- **Der Blind-Spot-Moment.** Vier Punkte werden hervorgehoben. Würdest du diese in deiner eigenen Lehre auch nicht explizit benennen?
 
 Diese vier Beobachtungen sind die Hauptlehre aus Block 1. In Block 2 wirst du dieselben Bewegungen an deiner eigenen Aufgabe machen.
 :::
 
-#### Werkzeug-Tour: drei Affordance-Typen, kurz mitnehmen
-
-Bevor du in Block 3 dein Spec Sheet selbst in einen Prompt überführst, siehst du in 3 Minuten drei Arten, wie LLMs eingesetzt werden können. Wir sprechen nicht von Produkten (die ändern sich), sondern von **Affordance-Typen** (die bleiben stabil):
-
-- **Typ 1: Chat-Werkzeug** (Microsoft Copilot, ChatGPT, Claude, HuggingChat). Niedrige Einstiegsschwelle, keine garantierte Antwortstruktur. Genau das, was du in Block 3 selbst machst.
-- **Typ 2: Strukturierte API-Generierung** (kurz vorgeführt im Marimo-Notebook). Erzwungene Ausgabestruktur via Schema. Für Pipeline-Anwendung.
-- **Typ 3: Agentisches Werkzeug** (Claude Code, Cursor, pi.dev). LLM hat Werkzeugzugriff: kann Dateien lesen, Code ausführen, im Web suchen.
-
-Volllängenbeschreibung mit Vor- und Nachteilen pro Typ findest du im *Nachlesen*-Tab.
-
-::: {.callout-checkpoint icon=false}
-#### Was du aus der Tour mitnehmen solltest
-
-Drei Affordance-Typen, drei verschiedene Aufgaben:
-
-- Chat: für Hypothesengeneration, Simulation, alltägliche Anwendung.
-- Strukturiert: für Pipeline-Anwendung, Wiederverwendung in nachfolgenden Schritten.
-- Agentisch: für komplexere, mehrstufige Aufgaben mit Werkzeugzugriff.
-
-Dein Spec Sheet ist für **alle drei** verwendbar. Was sich ändert, ist die Übersetzung. In Block 3 machst du die Übersetzung in einen Chat-System-Prompt; die anderen beiden Affordance-Typen sind für später.
-:::
-
 #### Übergang in Block 2
 
-Mit dem Worked Example als Vorbild und der Werkzeug-Tour als Landschaft im Hintergrund gehst du nach der Pause in Block 2: dein eigenes Spec Sheet.
+Mit dem Worked Example als Vorbild gehst du nach der Pause in Block 2: dein eigenes Spec.
 
-Halte die Vorlage und die Prompt-Scaffolds bereit:
+Halte parat:
 
-- [Spec-Sheet-Vorlage](../spec-sheet-template/index.qmd)
-- [Prompt-Scaffolds](../spec-sheet-template/prompt-scaffolds.md)
-
-Bring eine Teilaufgabe aus deiner eigenen Lehre mit. Wenn du keine dabei hast, kannst du auf eines der [Backup-Szenarien](../build/scenarios/index.qmd) zurückgreifen.
+- Die [Spec-Vorlage](../spec-sheet-template/index.qmd) (drei Sektionen: Lernaufgabe, Erforderliche Skills und Knowledge, Antizipierte Misconceptions).
+- Das [Beispiel-Spec zur Multiple Regression](../spec-sheet-template/example-multiple-regression.md) als gefülltes Modell.
+- Eine konkrete Teilaufgabe aus deiner eigenen Lehre. Wenn du keine dabei hast, nimm eines der [Backup-Szenarien](../build/scenarios/index.qmd).
 
 ### {{< bi book >}} Nachlesen
 
 ::: {.callout-nachlesen icon=false}
-#### Cognitive Load Theory: vollständige Auffrischung
+#### Die Empirie hinter dem Expert Blind Spot
 
-Wer in der Block-1-Auffrischung das Gefühl hatte, zu schnell durchgegangen zu sein, oder den Aufbauworkshop schon länger her hat: der **Refresher** der Virtuellen Akademie ist die kompakte 30-Minuten-Volllänge zu CLT, Schemata, Expertise-Reversal-Effekt und scaffolding-basierter KI-Nutzung.
+Der *Expert Blind Spot* ist nicht bloss eine pädagogische Faustregel. Er ist ein robustes Forschungsergebnis. Mark Nathans Experimente an Mathematik-Lehrenden (Nathan, Koedinger & Alibali 2001) zeigten: Lehrende schätzen die Schwierigkeit symbolischer Aufgaben für ihre Studierenden als geringer ein als die Schwierigkeit verbaler Aufgaben, obwohl die Studierenden umgekehrt urteilen. Lehrende haben die symbolische Notation automatisiert, ihre Studierenden nicht. Feldon (2007) verallgemeinert: Experten sind systematisch schlecht darin, das eigene Wissen zu artikulieren, weil Automatisierung die Teilschritte unsichtbar macht.
+
+Die Implikation für die Lehre: bei der Aufgabenkonstruktion verlässt sich eine Dozentin auf das, was sie selbst wahrnimmt. Was sie wahrnimmt, ist gerade nicht das, was Studierende lernen müssen, weil sie es nicht mehr lernen muss.
+
+Cognitive Task Analysis (CTA) ist die methodische Antwort: ein strukturiertes Verfahren, um Expertenwissen zu externalisieren, das die Expertin selbst nicht sehen kann. CTA ist klassisch ein aufwendiges Interviewverfahren. LLMs als strukturierte Novizen sind eine niedrigschwellige Annäherung: sie können nicht das, was eine vollständige CTA leistet, aber sie können ohne grossen Aufwand die offensichtlichsten Voraussetzungen enumerieren.
+
+Literatur:
+
+- Nathan, M. J., Koedinger, K. R., & Alibali, M. W. (2001). Expert blind spot. *Proceedings of the Third International Conference on Cognitive Science*.
+- Feldon, D. F. (2007). The implications of research on expertise for curriculum and pedagogy. *Educational Psychology Review*, 19(2), 91-110.
+- Clark, R. E., Feldon, D., van Merriënboer, J. J. G., Yates, K., & Early, S. (2008). Cognitive task analysis. In *Handbook of Research on Educational Communications and Technology* (3rd ed.).
+:::
+
+::: {.callout-nachlesen icon=false}
+#### Cognitive Load Theory und Scaffolding
+
+Wer eine CLT-Auffrischung möchte (Engpass im Arbeitsgedächtnis, Schema-Aufbau im Langzeitgedächtnis, Expertise-Reversal-Effekt, Scaffolding-Leiter): die **Refresher-Präsentation** der Virtuellen Akademie ist die kompakte 30-Minuten-Volllänge.
 
 [Refresher-Präsentation: Von der kognitiven Architektur zum KI-gestützten Scaffolding](https://virtuelleakademie.github.io/ki-lehre-refresher/presentation/){target="_blank"}
 
-Die wichtigsten Konzepte für heute:
-
-- **Arbeitsgedächtnis als Engpass:** etwa 4 Elemente, 15-30 Sekunden. Jeder Denkakt muss durch dieses Nadelöhr.
-- **Schemata im Langzeitgedächtnis:** komprimieren viele Elemente zu wenigen Chunks, dadurch Entlastung des Engpasses. Schemata aufbauen erfordert eigene Denkarbeit.
-- **Drei Lastarten** (CLT): extrinsisch (reduzieren), intrinsisch (steuern via Aufgabendesign), lernrelevant (maximieren).
-- **Vorwissen verändert, wie viele Elemente gleichzeitig zu koordinieren sind:** dieselbe Aufgabe ist für eine Anfängerin teurer, weil sie die Einzelteile bewusst zueinander in Beziehung setzen muss; eine Fortgeschrittene hat dieselben Teile bereits zu Schemata komprimiert und hält weniger Bündel gleichzeitig im Arbeitsgedächtnis. Konsequenz: Aufgaben müssen sich an Vorwissen anpassen, was Diagnose verlangt.
-- **Scaffolding-Leiter** (Fading): Worked Example → Completion → Hinweis-gestützt → eigenständig. Stufe richtet sich nach Diagnose.
-
-Das Spec Sheet ist genau diese Diagnose, in schriftlich-falsifizierbarer Form.
+Für die Workshop-Substanz reicht es, zu wissen: gute Lehre passt sich an Vorwissen an. Das erfordert Diagnose. Die Diagnose, die der Spec leistet, ist die schriftliche, falsifizierbare Form dieser Anpassung.
 :::
 
 ::: {.callout-nachlesen icon=false}
-#### Drei Wissens-Typen, drei Lern-Mechanismen, drei KI-Konsequenzen
+#### Cognitive Offloading vs. Outsourcing
 
-Die drei Wissensbaustein-Typen aus Sequenz 2 sind nicht drei Etiketten für dasselbe. Jeder Typ ist durch die *kognitive Operation* definiert, die die Studierende ausführt; jede Operation hat einen eigenen Lern-Mechanismus, der den Baustein überhaupt aufbaut; und aus dem Mechanismus folgt, was die KI substituieren darf und was nicht. Diese Kette ist die operative Substanz des Spec Sheets: ohne sie ist Sektion B nur eine Aufzählung.
+Die Unterscheidung, die im Closing als *Selbst-Tun-erforderlich vs. Zuschauen-reicht* operationalisiert wird, hat ihre theoretische Heimat im CAS Lernpsychologie. Dort findest du:
 
-**Faktenwissen (Operation: Abrufen, Mechanismus: aktives Abrufen)**
+- **Cognitive Offloading vs. Outsourcing** mit Forschungsbezügen (Risko, Google Effect, KI-Abhängigkeit) sowie das **Evaluationsparadox** und die **Versuch-dann-Prüfe**-Sequenz: [02-ki-und-lernen, CAS Lernpsychologie](https://virtuelleakademie.github.io/cas-lernpsychologie/02-ki-und-lernen/){target="_blank"}.
+- **Fünf Leitfragen** als alternative Linse auf dasselbe Designproblem: [02-ki-und-lernen / 5-leitfragen](https://virtuelleakademie.github.io/cas-lernpsychologie/02-ki-und-lernen/5-leitfragen/){target="_blank"}.
 
-Items, die die Studierende auf Abruf aus dem Langzeitgedächtnis produzieren muss: Definitionen, Formeln, Eigennamen, Konventionen. Beispiel: "$r$ liegt zwischen $-1$ und $+1$." Die Operation ist Abrufen, nicht Wiedererkennen: die Studierende muss den Eintrag selbst produzieren, nicht aus einer Liste auswählen.
-
-Was den Baustein aufbaut: der Abrufakt selbst, wiederholt und über die Zeit verteilt. Der *testing effect* (Roediger & Karpicke, 2006) zeigt: das Hervorrufen eines Eintrags festigt den Eintrag stärker als wiederholtes Lesen oder Hören. Wiederholte Exposition produziert Vertrautheit, die sich wie Lernen anfühlt, aber keine Abrufstärke aufbaut.
-
-Was das für KI bedeutet: die KI kann die Praxis hosten (Karteikarten generieren, abfragen, gestaffeltes Wiederholen steuern). Sie kann den Abruf nicht *für* die Studierende leisten. Wenn das Chat-Werkzeug die Antwort gibt, wird der Mechanismus umgangen: die Studierende hat den Eintrag gesehen, aber nicht aktiv abgerufen. Der klarste *Selbst-Tun*-Fall.
-
-**Klassifikationswissen (Operation: Erkennen, Mechanismus: interleaved varied examples mit Diskriminations-Feedback)**
-
-Mustererkennung unter Merkmals-Unsicherheit. Beispiel: "Ist das eine Korrelations- oder eine Mittelwertvergleichs-Frage?" "Ist das Nieren- oder Rückenschmerz?" "Ist diese Vertragsklausel fair oder einseitig?" Die Studierende sieht eine konkrete Instanz und muss entscheiden, welcher Kategorie sie angehört.
-
-Was den Baustein aufbaut: interleaved Exposition gegen verschiedenartige Beispiele, einschliesslich naher Verwechslungsfälle, mit Feedback *nach* dem Klassifikations-Entscheid (Rohrer & Pashler, 2010). Blockweises Üben lässt die Studierende auf die Merkmale einer Kategorie isoliert achten und zwingt den Diskriminations-Entscheid nie. Interleaved Üben erzwingt den Entscheid, der die zu trainierende Operation ist. Kontrastfälle sind essenziell: das Schema wird aus der Variation *zwischen* Instanzen induziert, nicht aus sauberen Positiv-Beispielen.
-
-Was das für KI bedeutet: die KI ist ausgesprochen nützlich für das *Generieren* der varied examples und der nahen Verwechslungsfälle. Das ist hoher Hebel. Sie ist schädlich, wenn sie das Beispiel etikettiert, bevor die Studierende klassifiziert hat. Der Klassifikations-Entscheid muss vom Lernenden selbst kommen. *Selbst-Tun:* der Entscheid. *Zuschauen-reicht:* das Angebot der Beispiele und das Feedback danach.
-
-**Erklärungswissen (Operation: Begründen, Mechanismus: Selbsterklärung, gesteuerte Worked Examples, productive failure)**
-
-Generative Prinzipien, die Transfer auf neue Situationen erlauben. Beispiel: "Warum ist $r = 0.3$ in der Bildungsforschung bedeutsam und in der Physik vernachlässigbar?" Die Studierende ruft nicht ab und erkennt nicht; sie konstruiert eine Argumentationskette aus Prinzipien.
-
-Was den Baustein aufbaut: Selbsterklärung (Chi, 1989, 1994). Die Studierende rekonstruiert in eigenen Worten, *warum* ein Worked Example funktioniert. Worked Examples mit gesteuerter Selbsterklärung. Productive failure (Kapur, 2008): erst versuchen, dann erklären, dann die Musterlösung. Der Mechanismus ist die Integration des neuen Stoffs mit dem Vorwissen, und diese Integration geschieht nur, wenn die Studierende die generative Arbeit selbst leistet. Eine fluent geschriebene Erklärung zu lesen produziert sie nicht.
-
-Was das für KI bedeutet: der riskanteste Typ. Wenn die KI die Erklärung generiert, bekommt die Studierende ein fluentes Surrogat, das den Integrationsschritt überspringt. Der Output ist kohärent, also fühlt sich die Studierende verstanden, aber die Integration mit ihrem eigenen Vorwissen findet nicht statt. Die produktive Rolle der KI hier: zur Selbsterklärung *auffordern* ("kannst du in eigenen Worten sagen, warum dieser Schritt funktioniert?") und vorsichtig herausfordern ("was würde passieren, wenn..."), nicht Erklärungen auf Anfrage liefern. Der schwerste *Selbst-Tun*-Fall, weil der KI-Output *wie Verstehen aussieht*.
-
-::: {.callout-pro-tip icon=false}
-#### Die Entscheidungsregel
-
-Typ : Mechanismus : Operation, die die Studierende ausführen muss : was die KI substituieren darf.
-
-- **Faktenwissen:** die KI kann nicht das Abrufen ersetzen.
-- **Klassifikationswissen:** die KI kann nicht den Klassifikations-Entscheid ersetzen (aber alles drumherum schon).
-- **Erklärungswissen:** die KI kann nicht die Konstruktion der Erklärung ersetzen. Die Falle ist, dass es so aussieht, als könnte sie das, weil der Output kohärent klingt.
-
-Diese drei Sätze sind die Grundlage für das *Selbst-Tun-vs-Zuschauen-Tagging* im Closing.
-:::
-:::
-
-::: {.callout-nachlesen icon=false}
-#### Warum V/B die zentrale Disziplin ist
-
-V/B ist nicht ein Verwaltungsdetail, sondern die methodische Substanz des Spec Sheets. Vier Mechanismen aus der Kognitionspsychologie machen sie nötig, und jeder dieser Mechanismen verlangt eine *eigene* Bewegung. V/B alleine deckt nur einen davon sauber ab; die anderen drei brauchen zusätzliche Schritte, die im Spec-Sheet-Verfahren explizit eingebaut sind.
-
-- **Source-Monitoring-Failure** (Johnson, Hashtroudi & Lindsay, 1993). Menschen sind schlecht darin, sich daran zu erinnern, ob sie etwas gelesen, erzählt bekommen oder selbst gedacht haben, besonders nach kurzer Verzögerung. Fünf Minuten nach dem Lesen des LLM-Outputs kann eine Lehrperson nicht mehr zuverlässig sagen, welche Einträge aus ihrer eigenen Lehrerinnerung stammten und welche das LLM gerade vorgeschlagen hat. *Was zu tun ist:* die Quelle markieren, sobald du den Eintrag liest, nicht später. Das ist die Kernbewegung, die V/B selbst leistet.
-- **Processing-Fluency = gefühlte Wahrheit** (Reber & Schwarz, 1999; illusory-truth-Effekt: Hasher, Goldstein & Toppino, 1977). Fluent geschriebener Text fühlt sich wahrer an als weniger fluenter Text, unabhängig von der Evidenz. LLM-Output ist gleichmässig fluent. *Was zu tun ist:* fluenten LLM-Vorschlägen weniger zutrauen als deiner eigenen, holprigeren Erinnerung an konkrete Studierende. Die V-Markierung ist genau dieses Misstrauen, schriftlich gemacht.
-- **Curse of Knowledge** (Camerer, Loewenstein & Weber, 1989). Sobald eine Kategorie einmal sprachlich für dich ausformuliert ist, beginnst du sie in deinen Daten zu sehen, ob sie da ist oder nicht. Wenn das LLM sagt "Studierende verwechseln Korrelation und Kausalität", siehst du diese Verwechslung rückwirkend in alten Aufgaben. *Was zu tun ist:* die **Konkretheitsprobe** machen, bevor du V zu B beförderst: welche Studierende? welche Klausur? welches Semester? Wenn dir nicht zu mindestens einer dieser Fragen ein Satz einfällt, bleibt der Eintrag V.
-- **Categories precede Data**. In der qualitativen Forschung bekannt: wenn Kategorien vor den Daten gebildet werden, werden die Daten in die Kategorien hineingezwungen. Das LLM gibt dir eine fertige Kategorienliste; die Gefahr ist nicht nur, dass du sie übernimmst, sondern dass du gar nicht mehr siehst, was *nicht* darauf steht. *Was zu tun ist:* das **Pruning-Protokoll** ernst nehmen (aktiv etwas verwerfen, nicht nur durchwinken) und am Ende der Inventarphase explizit fragen: welche Bausteine aus meiner eigenen Lehrerfahrung hat das LLM übersehen?
-
-V/B reicht also alleine nicht: das Tag adressiert sauber Mechanismus 1 und teilweise 2; für Mechanismus 3 brauchst du die Konkretheitsprobe, für Mechanismus 4 das Pruning-Protokoll. Die paarweise Überarbeitung am Ende von Block 2 macht den V/B-Mix sichtbar; das hilft, ist aber kein Garant. Die Falsifikationsnotiz im Closing und das Test-Protokoll in Block 3 sind die anderen beiden Teile derselben Anti-Fluenz-Bewegung. Zusammen fragen sie: *Was würde mich widerlegen?* statt *Was klingt plausibel?*
-:::
-
-::: {.callout-nachlesen icon=false}
-#### Drei Affordance-Typen in Volllänge
-
-#### Typ 1: Chat-Werkzeug
-
-Beispiele: Microsoft Copilot, ChatGPT, Claude, HuggingChat. Du gibst einen System-Prompt vor, dann gibst du Texte ein und bekommst Texte zurück. Einfachste, breitflächig verfügbare Form. Genau das, was du in Block 3 selbst machst.
-
-*Vorteile:* niedrige Einstiegsschwelle, keine Programmierung, jeder Browser tut es.
-*Grenzen:* keine garantierte Struktur in der Antwort. Das LLM kann einfach in Prosa antworten, wie es ihm gerade passt.
-
-#### Typ 2: Strukturierte API-Generierung
-
-Beispiel: ein Marimo-Notebook (live-Demo in Block 1), das den Datenfluss eines strukturierten API-Aufrufs Zelle für Zelle sichtbar macht. Das LLM wird via API angesteuert, mit einer **erzwungenen Ausgabestruktur** (hier: ein Pydantic-Schema). Es muss in genau dem geforderten Format antworten.
-
-Im Notebook siehst du sechs Schritte als separate Zellen:
-
-1. Schema definieren (Pydantic).
-2. Szenario auswählen (eine kalibrierte Studierendenantwort).
-3. System-Prompt schreiben (das gerenderte Spec Sheet).
-4. API-Aufruf an das LLM mit erzwungenem Tool-Use.
-5. Validierung der Antwort gegen das Schema.
-6. Export in einen portablen Prompt.
-
-Genau dieser Aufbau macht den Unterschied zwischen *Spec* und *Prompt* sichtbar: das Schema ist ein eigenes, durables Objekt; der Prompt ist nur Teil des API-Aufrufs in Schritt 4.
-
-*Vorteile:* garantierte Struktur, weiterverarbeitbar in nachfolgenden Schritten, Datenfluss komplett sichtbar.
-*Grenzen:* erfordert Python-Verständnis im Lesen (nicht im Schreiben). Die Struktur ist im Vorfeld festgelegt.
-
-Das Notebook liegt unter `hf-spaces/diagnostic-tool-shell-marimo/notebook.py`. Es wird im Workshop von der Instruktorin per `marimo edit` vorgeführt; du musst nichts installieren. Wenn du es zu Hause selbst laufen lassen willst, brauchst du Python und einen `ANTHROPIC_API_KEY`.
-
-#### Typ 3: Agentisches Werkzeug
-
-Beispiele: Claude Code, pi.dev, Cursor (kurze Aufzeichnung als Demo). Hier hat das LLM nicht nur Text-Input, sondern Werkzeuge: es kann Dateien lesen, Code ausführen, im Web suchen.
-
-*Vorteile:* kann komplexe Aufgaben übernehmen, die mehrere Schritte verlangen (z.B. einen Aufgabentext lesen, eine Beispielantwort generieren, sie gegen eine Musterlösung testen).
-*Grenzen:* deutlich höhere Komplexität, Kostenfaktor, oft (noch) nicht institutionell freigegeben.
-:::
-
-::: {.callout-nachlesen icon=false}
-#### Vertiefung: Cognitive Offloading vs. Outsourcing
-
-Die Unterscheidung, die in Block 1 angedeutet wurde und im Closing als *Selbst-Tun-erforderlich vs. Zuschauen-reicht* operationalisiert wird, hat ihre theoretische Heimat im Aufbau-Workshop und im CAS Lernpsychologie. Dort findest du:
-
-- **Cognitive offloading vs. outsourcing** mit Forschungsbezügen (Risko, Google Effect, KI-Abhängigkeit) sowie das **Evaluationsparadox** und die **Versuch-dann-Prüfe**-Sequenz: [02-ki-und-lernen, CAS Lernpsychologie](https://virtuelleakademie.github.io/cas-lernpsychologie/02-ki-und-lernen/){target="_blank"}.
-- **Fünf Leitfragen** als alternative Linse auf dasselbe Designproblem (Lernen-vs-Performanz, Aufbau-Phase, kognitive Arbeit, KI-Übernahme, Sequenzierung): [02-ki-und-lernen / 5-leitfragen](https://virtuelleakademie.github.io/cas-lernpsychologie/02-ki-und-lernen/5-leitfragen/){target="_blank"}.
-
-Das Spec Sheet ist die schriftliche Umsetzung der Diagnoseseite dieser Frameworks.
-:::
-
-::: {.callout-nachlesen icon=false}
-#### Vertiefung: Kompetenzerwerb und Expertise-Reversal
-
-Das Wissensbaustein-Modell im Spec Sheet (Faktenwissen / Klassifikationswissen / Erklärungswissen) hat seine Wurzel in der Forschung zu Kompetenzerwerb (ACT-R Wissenskompilation, schwache Methoden → Proceduralisierung → Compilation) und im Expertise-Reversal-Effekt: was Anfängerinnen hilft, schadet Expertinnen, und umgekehrt.
-
-Das ist auch die theoretische Heimat des *Curse-of-Knowledge*, der den Workshop-Einstieg trägt: Expertinnen verwechseln die Epistemologie der Expertise mit der Pädagogik für Lernende.
-
-Vertiefung: [01-lernen-verstehen / kompetenz-erwerben, CAS Lernpsychologie](https://virtuelleakademie.github.io/cas-lernpsychologie/01-lernen-verstehen/kompetenz-erwerben/){target="_blank"}.
+Das Spec ist die schriftliche Umsetzung der Diagnoseseite dieser Frameworks.
 :::
 
 ::::
 
-## Worked Example: Spec Sheet zu einer Statistik-Teilaufgabe
+## Worked Example: Multiple Regression
 
-Die Live-Demo arbeitet sich durch das ausgearbeitete Beispiel. Du folgst auf der Seite [Worked Example: Spec Sheet für eine Statistik-Teilaufgabe](worked-example-statistics.qmd) mit, während die Instruktorin Schritt für Schritt vorführt:
+Die Live-Demo arbeitet sich durch das ausgearbeitete Beispiel auf der Seite [Worked Example: LLM-as-Novice an einer Statistik-Aufgabe](worked-example-statistics.qmd). Folge mit, während die Workshop-Leitung Schritt für Schritt vorführt:
 
-1. Sektion A des Spec Sheets ausfüllen (Teilaufgabe, Kontext, Lernziel).
-2. Prompt 1 in einem Chat-LLM laufen lassen: das LLM schlägt Wissensbausteine vor.
-3. Vorschläge **validieren**: einige als V markieren, einige als B, einige korrigieren, einige verwerfen. Die Pruning-Bewegungen werden laut kommentiert.
-4. Reaktive Simulation für einen zentralen Baustein: das LLM liest die Aufgabenstellung "ohne Baustein X" und meldet zurück, was unklar ist. Funde fliessen als zusätzliche Bausteine oder Erwerb-Hinweise zurück in Sektion B.
-5. Produktive Simulation für ein Fehlkonzept: das LLM produziert eine plausible Studierendenantwort mit dem Fehlkonzept.
-6. (Falsifikationsnotiz: kommt nicht hier, sondern erst im Closing nach Block 3.)
+1. Die typische akzeptable Studierenden-Antwort lesen.
+2. Den LLM-as-Novice-Prompt ans Material ansetzen.
+3. Die Enumeration der etwa fünfzehn Voraussetzungen lesen.
+4. Die vier Blind-Spot-Punkte identifizieren.
+5. Die Brücke zur Spec-Vorlage und zum Beispiel-Spec ziehen.
