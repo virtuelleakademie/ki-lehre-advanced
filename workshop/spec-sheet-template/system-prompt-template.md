@@ -29,6 +29,14 @@ Zwei alternative Wege, dieselbe Übersetzung zu produzieren:
 In allen drei Wegen bleibt dein Spec Sheet die durable Substanz. Was sich ändert, ist die Werkzeug-spezifische Übersetzung.
 :::
 
+::: {.callout-caution icon=false}
+## Die Verbote in den Templates sind *soft constraints*
+
+Sätze wie "erfinde keinen Wissensbaustein, der nicht oben gelistet ist" in den folgenden Varianten sind Bitten an das Modell, keine erzwungenen Constraints. Das Chat-Werkzeug prüft die Ausgabe nicht gegen das, was du im Prompt verlangt hast: das Modell hat keinen formalen Begriff von "der Liste oben". Die Klausel reduziert die Häufigkeit von *Fail hard* (erfundene Bausteine in der Ausgabe), eliminiert sie nicht.
+
+Wenn du eine harte Garantie brauchst (etwa für eine wiederkehrende Pipeline, in der manuelle Prüfung jeder Antwort unpraktikabel ist), gehört dasselbe Spec Sheet in einen **strukturierten API-Aufruf** statt in einen Chat-Prompt. Dort werden die Wissensbausteine als Enum definiert, und der Pydantic-Validator weist jede Antwort mit einem Baustein-Wert ausserhalb des Enums zurück, bevor sie den Code erreicht. Das ist genau der Unterschied zwischen Affordance-Typ 1 (Chat) und Affordance-Typ 2 (strukturierte API), den Block 1 vorgeführt hat. Volle Erklärung im [Nachlesen-Tab von Block 3](../block-3-multi-tool/index.qmd).
+:::
+
 ## So nutzt du die Vorlage
 
 1. Wähle die passende Variante (siehe unten).

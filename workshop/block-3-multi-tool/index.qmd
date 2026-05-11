@@ -73,7 +73,7 @@ Wenn du gleich deinen Prompt testest, achte auf einen der drei Ausgänge:
 
 - **Pass:** das LLM identifiziert den Baustein, den du erwartest hast (oder einen nahe daran liegenden), und zitiert eine plausible Stelle aus der Studierenden-Antwort. Die Spec hat funktioniert.
 - **Fail soft:** das LLM identifiziert einen anderen Baustein oder bleibt generisch. Das ist informativ, kein Misserfolg: meist war die Spec-Beschreibung dieses Bausteins zu vage, oder das "Was schiefgeht"-Feld trug die diskriminierende Information nicht. *Notiz machen, zurück zum Spec Sheet.*
-- **Fail hard:** das LLM erfindet einen Baustein, der nicht in deinem Spec Sheet steht. Dafür ist die "erfinde nichts"-Klausel im Template da; wenn sie nicht greift, folgt das Modell dem System-Prompt nicht streng genug. *Anderes Modell ausprobieren oder die Klausel verstärken.*
+- **Fail hard:** das LLM erfindet einen Baustein, der nicht in deinem Spec Sheet steht. Dafür ist die "erfinde nichts"-Klausel im Template da; *aber* die Klausel ist eine Bitte, kein erzwungener Constraint (siehe *Nachlesen*: "Warum 'erfinde nichts' nur eine Soft-Constraint ist"). Wenn sie nicht greift, kannst du sie verstärken oder ein anderes Modell ausprobieren: das reduziert die Häufigkeit, garantiert aber nichts. Harte Garantien gibt es nur im strukturierten API-Pfad (Block 1, Affordance-Typ 2).
 
 Diese drei Ausgänge sind der Massstab für deinen Test in Schritt 2. Ohne diesen Massstab ist "Beobachte was passiert" zu unklar, um daraus zu lernen.
 :::
@@ -140,6 +140,25 @@ Die Spec / Prompt-Trennung ist nicht nur ordnungstheoretisch:
 :::
 
 ### {{< bi book >}} Nachlesen
+
+::: {.callout-nachlesen icon=false}
+#### Warum "erfinde nichts ausserhalb dieser Listen" nur eine Soft-Constraint ist
+
+Die Verhaltensregel "erfinde keinen Baustein, der nicht oben gelistet ist" im System-Prompt sieht aus wie eine Einschränkung, ist aber eine Bitte. Das LLM kann sie befolgen, muss aber nicht. *Fail hard* im Test-Protokoll ist genau der Fall, in dem die Bitte ignoriert wurde: das Modell hat einen Baustein produziert, der nicht in der Spec stand.
+
+Das ist keine Schwäche dieses spezifischen Workshops, sondern eine Eigenschaft des Chat-Werkzeug-Pfads. Chat-Werkzeuge (Copilot, ChatGPT, Claude, HuggingChat) nehmen einen System-Prompt als Vorgabe entgegen, prüfen die Ausgabe aber nicht gegen das, was du im Prompt verlangt hast. Das Modell hat keinen formalen Begriff von "der Wissensbaustein-Liste oben"; es hat nur den Eindruck, dass die Liste relevant ist. Verstärkung der Klausel ("ich wiederhole: erfinde nichts") hilft empirisch manchmal, garantiert aber nichts.
+
+**Die strukturierte Alternative.** Wenn dasselbe Spec Sheet in einem strukturierten API-Aufruf gerendert wird (Block 1, Affordance-Typ 2: Strukturierte API-Generierung), ändert sich der Mechanismus. Die Wissensbausteine werden als **Enum** definiert (in Python z.B. `SubSkill = Enum(...)`), und das LLM darf in seiner Antwort nur einen dieser Enum-Werte produzieren. Eine Antwort, die einen erfundenen Baustein vorschlägt, wird vom Pydantic-Validator gar nicht erst akzeptiert: sie scheitert an der Typprüfung, bevor sie zum aufrufenden Code zurückkommt. Was im Chat-Prompt eine Bitte ist, wird im strukturierten Aufruf ein **harter Typ-Constraint**.
+
+Das ist die zentrale Trade-off zwischen den Affordance-Typen:
+
+- **Chat-Werkzeug (Affordance-Typ 1):** niedrige Einstiegsschwelle, keine Programmierung. Alle Verbote im Prompt sind soft; der Output kann konfabulieren; manuelle Prüfung jeder Antwort nötig. Das ist die Welt, in der Block 3 dich arbeiten lässt.
+- **Strukturierte API (Affordance-Typ 2):** Programmiersprung erforderlich (Python lesen, nicht zwingend schreiben). Typprüfung erzwingt die Spec auf der Output-Seite. Konfabulation wird auf Schema-Ebene verhindert, nicht nur per Bitte abgewiesen.
+
+**Konsequenz für deine eigene Nutzung.** Solange du im Chat-Werkzeug arbeitest, ist *Fail hard* einer von drei realen Ausgängen, mit dem du rechnen musst. Die "erfinde nichts"-Klausel reduziert die Häufigkeit, eliminiert sie nicht. Wenn du das Format wirklich erzwingen willst (etwa für eine wiederkehrende Pipeline, in der du nicht jede Antwort manuell prüfen kannst), brauchst du den strukturierten API-Pfad: genau das, was das Marimo-Notebook in Block 1 demonstriert und was die [adaptive-scaffolding-Architektur](../closing/index.qmd) im Closing als Output-Schema zeigt.
+
+Diese Trade-off-Awareness gehört zur Spec / Prompt-Trennung selbst: das Spec Sheet bleibt dasselbe, aber die Härte der Constraints hängt vom Rendering-Pfad ab.
+:::
 
 ::: {.callout-nachlesen icon=false}
 #### Spec ist dauerhaft, Prompt-Praktiken sind es nicht
