@@ -211,250 +211,6 @@
   <script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
   <link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <style>
-  div.callout-prompt-example.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-prompt-example.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f120' !important;
-    background-image: none;
-  }
-  div.callout-feedback.callout {
-    border-left-color: #1E3A5F;
-  }
-  div.callout-feedback.callout-style-default > .callout-header {
-    background-color: rgba(30, 58, 95, 0.13);
-  }
-  div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f4ad' !important;
-    background-image: none;
-  }
-  div.callout-break.callout {
-    border-left-color: #6E6560;
-  }
-  div.callout-break.callout-style-default > .callout-header {
-    background-color: rgba(110, 101, 96, 0.13);
-  }
-  div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f7b6' !important;
-    background-image: none;
-  }
-  div.callout-pair.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-pair.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f500' !important;
-    background-image: none;
-  }
-  div.callout-checkpoint.callout {
-    border-left-color: #1E3A5F;
-  }
-  div.callout-checkpoint.callout-style-default > .callout-header {
-    background-color: rgba(30, 58, 95, 0.13);
-  }
-  div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f11e' !important;
-    background-image: none;
-  }
-  div.callout-schedule.callout {
-    border-left-color: #6E6560;
-  }
-  div.callout-schedule.callout-style-default > .callout-header {
-    background-color: rgba(110, 101, 96, 0.13);
-  }
-  div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f017' !important;
-    background-image: none;
-  }
-  div.callout-tutor-example.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-tutor-example.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f086' !important;
-    background-image: none;
-  }
-  div.callout-nachlesen.callout {
-    border-left-color: #1E3A5F;
-  }
-  div.callout-nachlesen.callout-style-default > .callout-header {
-    background-color: rgba(30, 58, 95, 0.13);
-  }
-  div.callout-nachlesen .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-nachlesen.callout-style-default .callout-icon::before, div.callout-nachlesen.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f518' !important;
-    background-image: none;
-  }
-  div.callout-active-processing.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-active-processing.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-active-processing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-active-processing.callout-style-default .callout-icon::before, div.callout-active-processing.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f044' !important;
-    background-image: none;
-  }
-  div.callout-prompt-template.callout {
-    border-left-color: #1E3A5F;
-  }
-  div.callout-prompt-template.callout-style-default > .callout-header {
-    background-color: rgba(30, 58, 95, 0.13);
-  }
-  div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f328' !important;
-    background-image: none;
-  }
-  div.callout-screens-up.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-screens-up.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f06e' !important;
-    background-image: none;
-  }
-  div.callout-group.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-group.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f0c0' !important;
-    background-image: none;
-  }
-  div.callout-caution.callout {
-    border-left-color: #B8821A;
-  }
-  div.callout-caution.callout-style-default > .callout-header {
-    background-color: rgba(184, 130, 26, 0.13);
-  }
-  div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f071' !important;
-    background-image: none;
-  }
-  div.callout-fallstudie.callout {
-    border-left-color: #6E6560;
-  }
-  div.callout-fallstudie.callout-style-default > .callout-header {
-    background-color: rgba(110, 101, 96, 0.13);
-  }
-  div.callout-fallstudie .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-fallstudie.callout-style-default .callout-icon::before, div.callout-fallstudie.callout-titled .callout-icon::before {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236E6560" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-  }
-  div.callout-testing.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-testing.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\e4f3' !important;
-    background-image: none;
-  }
-  div.callout-reflect.callout {
-    border-left-color: #1E3A5F;
-  }
-  div.callout-reflect.callout-style-default > .callout-header {
-    background-color: rgba(30, 58, 95, 0.13);
-  }
-  div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f0eb' !important;
-    background-image: none;
-  }
-  div.callout-facilitator.callout {
-    border-left-color: #6E6560;
-  }
-  div.callout-facilitator.callout-style-default > .callout-header {
-    background-color: rgba(110, 101, 96, 0.13);
-  }
-  div.callout-facilitator .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-facilitator.callout-style-default .callout-icon::before, div.callout-facilitator.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f46d' !important;
-    background-image: none;
-  }
-  div.callout-individual.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-individual.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f007' !important;
-    background-image: none;
-  }
-  div.callout-timing.callout {
-    border-left-color: #6E6560;
-  }
-  div.callout-timing.callout-style-default > .callout-header {
-    background-color: rgba(110, 101, 96, 0.13);
-  }
-  div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f2f2' !important;
-    background-image: none;
-  }
   div.callout-setup.callout {
     border-left-color: #6E6560;
   }
@@ -468,43 +224,40 @@
     content: '\f7d9' !important;
     background-image: none;
   }
-  div.callout-screens-down.callout {
+  div.callout-prompt-example.callout {
     border-left-color: #A63D2F;
   }
-  div.callout-screens-down.callout-style-default > .callout-header {
+  div.callout-prompt-example.callout-style-default > .callout-header {
     background-color: rgba(166, 61, 47, 0.13);
   }
-  div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
+  div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\f070' !important;
+    content: '\f120' !important;
     background-image: none;
   }
-  div.callout-export.callout {
-    border-left-color: #A63D2F;
+  div.callout-fallstudie.callout {
+    border-left-color: #6E6560;
   }
-  div.callout-export.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
+  div.callout-fallstudie.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
   }
-  div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f56e' !important;
-    background-image: none;
+  div.callout-fallstudie .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-fallstudie.callout-style-default .callout-icon::before, div.callout-fallstudie.callout-titled .callout-icon::before {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236E6560" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
   }
-  div.callout-pro-tip.callout {
+  div.callout-reflect.callout {
     border-left-color: #1E3A5F;
   }
-  div.callout-pro-tip.callout-style-default > .callout-header {
+  div.callout-reflect.callout-style-default > .callout-header {
     background-color: rgba(30, 58, 95, 0.13);
   }
-  div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
+  div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\e2ca' !important;
+    content: '\f0eb' !important;
     background-image: none;
   }
   div.callout-work-in-progress.callout {
@@ -520,6 +273,19 @@
     content: '\f0c3' !important;
     background-image: none;
   }
+  div.callout-screens-up.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-screens-up.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f06e' !important;
+    background-image: none;
+  }
   div.callout-try.callout {
     border-left-color: #A63D2F;
   }
@@ -531,6 +297,240 @@
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
     content: '\f021' !important;
+    background-image: none;
+  }
+  div.callout-active-processing.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-active-processing.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-active-processing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-active-processing.callout-style-default .callout-icon::before, div.callout-active-processing.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f044' !important;
+    background-image: none;
+  }
+  div.callout-testing.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-testing.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\e4f3' !important;
+    background-image: none;
+  }
+  div.callout-schedule.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-schedule.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f017' !important;
+    background-image: none;
+  }
+  div.callout-timing.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-timing.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f2f2' !important;
+    background-image: none;
+  }
+  div.callout-caution.callout {
+    border-left-color: #B8821A;
+  }
+  div.callout-caution.callout-style-default > .callout-header {
+    background-color: rgba(184, 130, 26, 0.13);
+  }
+  div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f071' !important;
+    background-image: none;
+  }
+  div.callout-individual.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-individual.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f007' !important;
+    background-image: none;
+  }
+  div.callout-pro-tip.callout {
+    border-left-color: #1E3A5F;
+  }
+  div.callout-pro-tip.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
+  }
+  div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\e2ca' !important;
+    background-image: none;
+  }
+  div.callout-facilitator.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-facilitator.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-facilitator .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-facilitator.callout-style-default .callout-icon::before, div.callout-facilitator.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f46d' !important;
+    background-image: none;
+  }
+  div.callout-break.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-break.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f7b6' !important;
+    background-image: none;
+  }
+  div.callout-feedback.callout {
+    border-left-color: #1E3A5F;
+  }
+  div.callout-feedback.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
+  }
+  div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f4ad' !important;
+    background-image: none;
+  }
+  div.callout-pair.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-pair.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f500' !important;
+    background-image: none;
+  }
+  div.callout-prompt-template.callout {
+    border-left-color: #1E3A5F;
+  }
+  div.callout-prompt-template.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
+  }
+  div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f328' !important;
+    background-image: none;
+  }
+  div.callout-tutor-example.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-tutor-example.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f086' !important;
+    background-image: none;
+  }
+  div.callout-checkpoint.callout {
+    border-left-color: #1E3A5F;
+  }
+  div.callout-checkpoint.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
+  }
+  div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f11e' !important;
+    background-image: none;
+  }
+  div.callout-screens-down.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-screens-down.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f070' !important;
+    background-image: none;
+  }
+  div.callout-nachlesen.callout {
+    border-left-color: #1E3A5F;
+  }
+  div.callout-nachlesen.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
+  }
+  div.callout-nachlesen .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-nachlesen.callout-style-default .callout-icon::before, div.callout-nachlesen.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f518' !important;
+    background-image: none;
+  }
+  div.callout-export.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-export.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f56e' !important;
+    background-image: none;
+  }
+  div.callout-group.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-group.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f0c0' !important;
     background-image: none;
   }
   </style>
@@ -554,17 +554,20 @@ Andrew Ellis
 </div>
 </div>
 
-  <p class="date">11 May, 2026</p>
+  <p class="date">12 May, 2026</p>
 </section>
 <section id="section" class="slide level2 center">
 <h2></h2>
-<p><strong>Drei Stunden, ein Spec Sheet, ein getesteter System-Prompt.</strong></p>
 <p><br></p>
-<div style="text-align: center; font-size: 1.05em; color: #6E6560;">
-<p>Die zentrale didaktische Arbeit beim KI-Einsatz liegt nicht im Schreiben von Prompts, sondern in der Spezifikation dessen, was im Kopf einer Lernerin tatsächlich vorgeht.</p>
+<div style="text-align: center; font-size: 1.5em; color: #1E3A5F; font-weight: bold;">
+<p>Spec zuerst, dann Werkzeug.</p>
+</div>
+<p><br></p>
+<div style="text-align: center; font-size: 1.0em; color: #6E6560; max-width: 85%; margin: 0 auto; line-height: 1.5;">
+<p>Die schwierigste pädagogische Bewegung beim Einsatz von KI in der Lehre ist nicht das Auswählen eines Werkzeugs, sondern das Spezifizieren dessen, was im Kopf der Lernenden passieren soll.</p>
 </div>
 <aside class="notes">
-<p>Begrüssen, Workshop-Programm in einem Satz: “Wir bauen heute ein Spec Sheet für eine deiner Aufgaben, übersetzen es in einen System-Prompt und testen es einmal.” Pausen-Hinweis. Direkt in den Einstieg.</p>
+<p>Begrüssen, Workshop-Programm in einem Satz: “Wir bauen heute ein Spec für eine deiner Aufgaben, fügen es in ein laufendes Werkzeug ein und beobachten, was passiert.” Pausen-Hinweis. Direkt in den Einstieg.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -603,6 +606,70 @@ Andrew Ellis
 <section id="block-1-theorie-und-beispiel" class="title-slide slide level1 center section-divider section-navy">
 <h1>Block 1: Theorie und Beispiel</h1>
 
+</section>
+<section id="das-harte-problem" class="slide level2 smaller">
+<h2>Das harte Problem</h2>
+<p><br></p>
+<div style="font-size: 1.05em; max-width: 85%; margin: 0 auto; line-height: 1.6;">
+<p>Die schwierigste pädagogische Bewegung beim Einsatz von KI in der Lehre ist nicht das Auswählen eines Werkzeugs, sondern das Spezifizieren dessen, was im Kopf der Lernenden passieren soll.</p>
+<p>Die meisten Dozierenden überspringen diesen Schritt und greifen direkt zum Werkzeug.</p>
+<p>Dieser Workshop kehrt die Reihenfolge um: <strong>zuerst die Spezifikation, dann das Werkzeug.</strong></p>
+</div>
+<aside class="notes">
+<p>~1 Min. Eröffnet Block 1, direkt nach dem Einstieg. Diese drei Sätze sind die Workshop-Doktrin. Pausen zwischen den Sätzen.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="der-expert-blind-spot" class="slide level2 smaller">
+<h2>Der Expert Blind Spot</h2>
+<p><br></p>
+<div style="font-size: 1.05em; max-width: 85%; margin: 0 auto; line-height: 1.6;">
+<p>Dozierende sehen nicht, was ihre Studierenden noch nicht wissen, weil Automatisierung die Teilfertigkeiten unsichtbar gemacht hat.</p>
+<p>Sie sagen <em>“wende einfach die Formel an”</em>, ohne zu sehen, dass <em>“was zählt als relevanter Input”</em> selbst eine nicht-triviale Klassifikation ist.</p>
+</div>
+<aside class="notes">
+<p>~1 Min. Bezug zum Einstieg: was die Teilnehmenden gerade selbst erlebt haben, hat einen Namen. Die Empirie (Nathan, Koedinger &amp; Alibali 2001; Feldon 2007) gehört in den Nachlesen-Tab, nicht auf die Folie.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="llms-als-strukturierte-novizen" class="slide level2 smaller">
+<h2>LLMs als strukturierte Novizen</h2>
+<p><br></p>
+<div style="font-size: 1.05em; max-width: 85%; margin: 0 auto; line-height: 1.6;">
+<p>Ein LLM, das als <em>“Person, die gerade die Vorgängerveranstaltung abgeschlossen hat, aber diese hier noch nicht kennt”</em> geprompted wird, zählt die Teilschritte auf, die ein Experte überspringt: es hat keine Automatisierung, die es überspringen könnte.</p>
+<p>Das LLM wird zum <strong>Spiegel</strong>, der zeigt, was die eigene Performance voraussetzt.</p>
+</div>
+<aside class="notes">
+<p>~1 Min. Diese Eigenschaft ist nicht trivial; die meisten LLM-Einsätze in der Lehre nutzen sie nicht aus. Im worked example unmittelbar danach wird sie operationalisiert.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="cognitive-load-theory-der-engpass" class="slide level2 smaller">
 <h2>Cognitive Load Theory: der Engpass</h2>
@@ -817,188 +884,8 @@ Andrew Ellis
           display:block!important;
       }</style></aside>
 </section>
-<section id="drei-wissensbaustein-typen" class="slide level2 smaller">
-<h2>Drei Wissensbaustein-Typen</h2>
-<p>Jeder Typ ist durch die kognitive <strong>Operation</strong> definiert; aus der Operation folgt der Lern-<strong>Mechanismus</strong>; aus dem Mechanismus folgt, was die <strong>KI ersetzen darf</strong> und was nicht.</p>
-<div class="fig-diagram" aria-label="Drei Zeilen, je mit einem Wissensbaustein-Typ links (Faktenwissen, Klassifikationswissen, Erklärungswissen) und dem zugehörigen Lern-Mechanismus rechts, verbunden durch einen Pfeil mit der kognitiven Operation als Label.">
-<svg viewbox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="wbt-title wbt-desc">
-  <title id="wbt-title">Drei Wissensbaustein-Typen und ihre Lern-Mechanismen</title>
-  <desc id="wbt-desc">Drei Zeilen, je mit einem Wissensbaustein-Typ links und dem zugehörigen Lern-Mechanismus rechts, verbunden durch einen Pfeil mit der kognitiven Operation als Label.</desc>
-
-  <defs>
-    <style>
-      .wbt-type-box { fill: var(--diagram-spec, #1E3A5F); }
-      .wbt-type-name { font-family: var(--diagram-font-family, "Space Grotesk", sans-serif); fill: #ffffff; font-weight: 700; }
-      .wbt-type-ex { font-family: var(--diagram-font-family, "Space Grotesk", sans-serif); fill: #ffffff; font-style: italic; opacity: 0.82; }
-      .wbt-mech-box { fill: none; stroke: #A63D2F; stroke-width: 1.5; }
-      .wbt-mech-text { font-family: var(--diagram-font-family, "Space Grotesk", sans-serif); fill: #A63D2F; font-weight: 600; }
-      .wbt-arrow { stroke: var(--diagram-spec, #1E3A5F); stroke-width: 2; }
-      .wbt-arrow-head { fill: var(--diagram-spec, #1E3A5F); }
-      .wbt-op-label { font-family: var(--diagram-font-family, "Space Grotesk", sans-serif); fill: var(--diagram-spec, #1E3A5F); font-style: italic; }
-    </style>
-  </defs>
-
-  <!-- =================== Row 1: Faktenwissen =================== -->
-  <g>
-    <rect class="wbt-type-box" x="20" y="35" width="290" height="90" rx="8" ry="8"></rect>
-    <text class="wbt-type-name" x="165" y="70" text-anchor="middle" font-size="17">Faktenwissen</text>
-    <text class="wbt-type-ex" x="165" y="100" text-anchor="middle" font-size="12">"kennt die Formel für s"</text>
-
-    <text class="wbt-op-label" x="375" y="70" text-anchor="middle" font-size="13">Abrufen</text>
-    <line class="wbt-arrow" x1="320" y1="82" x2="425" y2="82" stroke-linecap="round"></line>
-    <polygon class="wbt-arrow-head" points="423,74 438,82 423,90"></polygon>
-
-    <rect class="wbt-mech-box" x="445" y="52" width="255" height="60" rx="8" ry="8"></rect>
-    <text class="wbt-mech-text" x="572.5" y="88" text-anchor="middle" font-size="15">Aktives Abrufen</text>
-  </g>
-
-  <!-- =================== Row 2: Klassifikationswissen =================== -->
-  <g>
-    <rect class="wbt-type-box" x="20" y="140" width="290" height="90" rx="8" ry="8"></rect>
-    <text class="wbt-type-name" x="165" y="175" text-anchor="middle" font-size="17">Klassifikationswissen</text>
-    <text class="wbt-type-ex" x="165" y="205" text-anchor="middle" font-size="12">"erkennt eine Korrelationsfrage"</text>
-
-    <text class="wbt-op-label" x="375" y="175" text-anchor="middle" font-size="13">Erkennen</text>
-    <line class="wbt-arrow" x1="320" y1="187" x2="425" y2="187" stroke-linecap="round"></line>
-    <polygon class="wbt-arrow-head" points="423,179 438,187 423,195"></polygon>
-
-    <rect class="wbt-mech-box" x="445" y="157" width="255" height="60" rx="8" ry="8"></rect>
-    <text class="wbt-mech-text" x="572.5" y="193" text-anchor="middle" font-size="15">Klassifikationsübung</text>
-  </g>
-
-  <!-- =================== Row 3: Erklärungswissen =================== -->
-  <g>
-    <rect class="wbt-type-box" x="20" y="245" width="290" height="90" rx="8" ry="8"></rect>
-    <text class="wbt-type-name" x="165" y="280" text-anchor="middle" font-size="17">Erklärungswissen</text>
-    <text class="wbt-type-ex" x="165" y="310" text-anchor="middle" font-size="12">"weiss, warum r=0.3 kontextabhängig"</text>
-
-    <text class="wbt-op-label" x="375" y="280" text-anchor="middle" font-size="13">Begründen</text>
-    <line class="wbt-arrow" x1="320" y1="292" x2="425" y2="292" stroke-linecap="round"></line>
-    <polygon class="wbt-arrow-head" points="423,284 438,292 423,300"></polygon>
-
-    <rect class="wbt-mech-box" x="445" y="262" width="255" height="60" rx="8" ry="8"></rect>
-    <text class="wbt-mech-text" x="572.5" y="298" text-anchor="middle" font-size="15">Selbsterklärung</text>
-  </g>
-</svg>
-</div>
-<div style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold; max-width: 90%; margin: 0.3em auto 0;">
-<p>Typ : Mechanismus : Operation, die die Studierende ausführen muss : was die KI substituieren darf.</p>
-</div>
-<aside class="notes">
-<p>~45s. Die Entscheidungsregel laut vorlesen. Die folgenden drei Slides geben pro Typ den Mechanismus und die KI-Konsequenz. Im Closing wird genau diese Regel auf die eigenen Bausteine angewendet.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="faktenwissen-abrufen" class="slide level2 smaller">
-<h2>Faktenwissen : Abrufen</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<p><strong>Faktenwissen</strong></p>
-<p>Operation: <strong>Abrufen</strong></p>
-<p>Beispiel: <em>“<span class="math inline">\(r\)</span> liegt zwischen <span class="math inline">\(-1\)</span> und <span class="math inline">\(+1\)</span>”</em></p>
-</div><div class="column" style="width:30%;">
-<p><strong>Mechanismus</strong></p>
-<p>Aktives Abrufen, gestaffelt (Roediger &amp; Karpicke, 2006).</p>
-<p>Wiederholte Exposition baut Vertrautheit, <strong>nicht</strong> Abrufstärke.</p>
-</div><div class="column" style="width:30%;">
-<div style="background: rgba(166, 61, 47, 0.08); padding: 0.8em; border-radius: 8px; border-left: 4px solid #A63D2F;">
-<p><strong>KI-Konsequenz</strong></p>
-<p>Praxis hosten: möglich.</p>
-<p>Den Abruf ersetzen: nicht möglich.</p>
-<p>→ <strong>Selbst-Tun</strong></p>
-</div>
-</div></div>
-<aside class="notes">
-<p>~25s. Lesen ist nicht Abrufen. Wer die Antwort gesehen hat, hat sie nicht abgerufen.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="klassifikationswissen-erkennen" class="slide level2 smaller">
-<h2>Klassifikationswissen : Erkennen</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<p><strong>Klassifikationswissen</strong></p>
-<p>Operation: <strong>Erkennen</strong></p>
-<p>Beispiel: <em>“erkennt: Korrelationsfrage vs.&nbsp;Mittelwertvergleich”</em></p>
-</div><div class="column" style="width:30%;">
-<p><strong>Mechanismus</strong></p>
-<p>Interleaved varied examples mit Diskriminations-Feedback (Rohrer &amp; Pashler, 2010).</p>
-<p>Blockweises Üben erzwingt den Diskriminations-Entscheid nie.</p>
-</div><div class="column" style="width:30%;">
-<div style="background: rgba(166, 61, 47, 0.08); padding: 0.8em; border-radius: 8px; border-left: 4px solid #A63D2F;">
-<p><strong>KI-Konsequenz</strong></p>
-<p>Beispiele und Verwechslungsfälle generieren: hoher Hebel.</p>
-<p>Den Klassifikations-Entscheid ersetzen: nicht möglich.</p>
-<p>→ <strong>Selbst-Tun (der Entscheid)</strong></p>
-</div>
-</div></div>
-<aside class="notes">
-<p>~25s. KI ist exzellent für varied examples, aber das Label muss <em>nach</em> dem Entscheid kommen, nicht vorher.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="erklärungswissen-begründen" class="slide level2 smaller">
-<h2>Erklärungswissen : Begründen</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<p><strong>Erklärungswissen</strong></p>
-<p>Operation: <strong>Begründen</strong></p>
-<p>Beispiel: <em>“weiss, warum <span class="math inline">\(r = 0.3\)</span> in Bildung bedeutsam, in Physik vernachlässigbar”</em></p>
-</div><div class="column" style="width:30%;">
-<p><strong>Mechanismus</strong></p>
-<p>Selbsterklärung (Chi, 1989/1994); Worked Examples mit Erklärungs-Prompt; productive failure (Kapur, 2008).</p>
-<p>Eine fluente Erklärung <em>lesen</em> produziert keine Integration.</p>
-</div><div class="column" style="width:30%;">
-<div style="background: rgba(166, 61, 47, 0.08); padding: 0.8em; border-radius: 8px; border-left: 4px solid #A63D2F;">
-<p><strong>KI-Konsequenz</strong></p>
-<p>Zur Selbsterklärung <em>auffordern</em>: ja.</p>
-<p>Die Erklärung <em>liefern</em>: nein.</p>
-<p>→ <strong>Selbst-Tun (riskantester Typ)</strong></p>
-</div>
-</div></div>
-<aside class="notes">
-<p>~25s. Riskanteste Substitution: der KI-Output <em>sieht aus</em> wie Verstehen, aber die Integration mit dem Vorwissen findet nicht statt.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="spec-ist-dauerhaft-prompt-ist-übersetzung" class="slide level2 smaller">
-<h2>Spec ist dauerhaft, Prompt ist Übersetzung</h2>
+<section id="spec-ist-dauerhaft-werkzeug-ist-übersetzung" class="slide level2 smaller">
+<h2>Spec ist dauerhaft, Werkzeug ist Übersetzung</h2>
 <div class="fig-diagram" aria-label="Zeitachse: Spec Sheet bleibt über mehrere Modellgenerationen gültig, während der Prompt jeweils neu gerendert wird">
 <svg viewbox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="spec-prompt-title spec-prompt-desc">
   <title id="spec-prompt-title">Spec ist dauerhaft, Prompt ist Übersetzung</title>

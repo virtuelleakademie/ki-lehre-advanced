@@ -6,16 +6,20 @@ date: today
 
 ## {.center}
 
-**Drei Stunden, ein Spec Sheet, ein getesteter System-Prompt.**
+<br>
+
+::: {style="text-align: center; font-size: 1.5em; color: #1E3A5F; font-weight: bold;"}
+Spec zuerst, dann Werkzeug.
+:::
 
 <br>
 
-::: {style="text-align: center; font-size: 1.05em; color: #6E6560;"}
-Die zentrale didaktische Arbeit beim KI-Einsatz liegt nicht im Schreiben von Prompts, sondern in der Spezifikation dessen, was im Kopf einer Lernerin tatsächlich vorgeht.
+::: {style="text-align: center; font-size: 1.0em; color: #6E6560; max-width: 85%; margin: 0 auto; line-height: 1.5;"}
+Die schwierigste pädagogische Bewegung beim Einsatz von KI in der Lehre ist nicht das Auswählen eines Werkzeugs, sondern das Spezifizieren dessen, was im Kopf der Lernenden passieren soll.
 :::
 
 ::: {.notes}
-Begrüssen, Workshop-Programm in einem Satz: "Wir bauen heute ein Spec Sheet für eine deiner Aufgaben, übersetzen es in einen System-Prompt und testen es einmal." Pausen-Hinweis. Direkt in den Einstieg.
+Begrüssen, Workshop-Programm in einem Satz: "Wir bauen heute ein Spec für eine deiner Aufgaben, fügen es in ein laufendes Werkzeug ein und beobachten, was passiert." Pausen-Hinweis. Direkt in den Einstieg.
 :::
 
 
@@ -57,6 +61,53 @@ Programmiererfahrung brauchst du nicht. Eine Aufgabe aus deiner Lehre solltest d
 
 
 # Block 1: Theorie und Beispiel {.center .section-divider .section-navy}
+
+
+## Das harte Problem {.smaller}
+
+<br>
+
+::: {style="font-size: 1.05em; max-width: 85%; margin: 0 auto; line-height: 1.6;"}
+Die schwierigste pädagogische Bewegung beim Einsatz von KI in der Lehre ist nicht das Auswählen eines Werkzeugs, sondern das Spezifizieren dessen, was im Kopf der Lernenden passieren soll.
+
+Die meisten Dozierenden überspringen diesen Schritt und greifen direkt zum Werkzeug.
+
+Dieser Workshop kehrt die Reihenfolge um: **zuerst die Spezifikation, dann das Werkzeug.**
+:::
+
+::: {.notes}
+~1 Min. Eröffnet Block 1, direkt nach dem Einstieg. Diese drei Sätze sind die Workshop-Doktrin. Pausen zwischen den Sätzen.
+:::
+
+
+## Der Expert Blind Spot {.smaller}
+
+<br>
+
+::: {style="font-size: 1.05em; max-width: 85%; margin: 0 auto; line-height: 1.6;"}
+Dozierende sehen nicht, was ihre Studierenden noch nicht wissen, weil Automatisierung die Teilfertigkeiten unsichtbar gemacht hat.
+
+Sie sagen *"wende einfach die Formel an"*, ohne zu sehen, dass *"was zählt als relevanter Input"* selbst eine nicht-triviale Klassifikation ist.
+:::
+
+::: {.notes}
+~1 Min. Bezug zum Einstieg: was die Teilnehmenden gerade selbst erlebt haben, hat einen Namen. Die Empirie (Nathan, Koedinger & Alibali 2001; Feldon 2007) gehört in den Nachlesen-Tab, nicht auf die Folie.
+:::
+
+
+## LLMs als strukturierte Novizen {.smaller}
+
+<br>
+
+::: {style="font-size: 1.05em; max-width: 85%; margin: 0 auto; line-height: 1.6;"}
+Ein LLM, das als *"Person, die gerade die Vorgängerveranstaltung abgeschlossen hat, aber diese hier noch nicht kennt"* geprompted wird, zählt die Teilschritte auf, die ein Experte überspringt: es hat keine Automatisierung, die es überspringen könnte.
+
+Das LLM wird zum **Spiegel**, der zeigt, was die eigene Performance voraussetzt.
+:::
+
+::: {.notes}
+~1 Min. Diese Eigenschaft ist nicht trivial; die meisten LLM-Einsätze in der Lehre nutzen sie nicht aus. Im worked example unmittelbar danach wird sie operationalisiert.
+:::
 
 
 ## Cognitive Load Theory: der Engpass {.smaller}
@@ -160,133 +211,7 @@ Die disziplinierte Form dieser Diagnose ist das **Spec Sheet**.
 :::
 
 
-## Drei Wissensbaustein-Typen {.smaller}
-
-Jeder Typ ist durch die kognitive **Operation** definiert; aus der Operation folgt der Lern-**Mechanismus**; aus dem Mechanismus folgt, was die **KI ersetzen darf** und was nicht.
-
-{{< include ../../resources/figures/fig-wissensbaustein-typen.qmd >}}
-
-::: {style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold; max-width: 90%; margin: 0.3em auto 0;"}
-Typ : Mechanismus : Operation, die die Studierende ausführen muss : was die KI substituieren darf.
-:::
-
-::: {.notes}
-~45s. Die Entscheidungsregel laut vorlesen. Die folgenden drei Slides geben pro Typ den Mechanismus und die KI-Konsequenz. Im Closing wird genau diese Regel auf die eigenen Bausteine angewendet.
-:::
-
-
-## Faktenwissen : Abrufen {.smaller}
-
-::::{.columns}
-:::{.column width="40%"}
-**Faktenwissen**
-
-Operation: **Abrufen**
-
-Beispiel: *"$r$ liegt zwischen $-1$ und $+1$"*
-:::
-
-:::{.column width="30%"}
-**Mechanismus**
-
-Aktives Abrufen, gestaffelt (Roediger & Karpicke, 2006).
-
-Wiederholte Exposition baut Vertrautheit, **nicht** Abrufstärke.
-:::
-
-:::{.column width="30%"}
-::: {style="background: rgba(166, 61, 47, 0.08); padding: 0.8em; border-radius: 8px; border-left: 4px solid #A63D2F;"}
-**KI-Konsequenz**
-
-Praxis hosten: möglich.
-
-Den Abruf ersetzen: nicht möglich.
-
-→ **Selbst-Tun**
-:::
-:::
-::::
-
-::: {.notes}
-~25s. Lesen ist nicht Abrufen. Wer die Antwort gesehen hat, hat sie nicht abgerufen.
-:::
-
-
-## Klassifikationswissen : Erkennen {.smaller}
-
-::::{.columns}
-:::{.column width="40%"}
-**Klassifikationswissen**
-
-Operation: **Erkennen**
-
-Beispiel: *"erkennt: Korrelationsfrage vs. Mittelwertvergleich"*
-:::
-
-:::{.column width="30%"}
-**Mechanismus**
-
-Interleaved varied examples mit Diskriminations-Feedback (Rohrer & Pashler, 2010).
-
-Blockweises Üben erzwingt den Diskriminations-Entscheid nie.
-:::
-
-:::{.column width="30%"}
-::: {style="background: rgba(166, 61, 47, 0.08); padding: 0.8em; border-radius: 8px; border-left: 4px solid #A63D2F;"}
-**KI-Konsequenz**
-
-Beispiele und Verwechslungsfälle generieren: hoher Hebel.
-
-Den Klassifikations-Entscheid ersetzen: nicht möglich.
-
-→ **Selbst-Tun (der Entscheid)**
-:::
-:::
-::::
-
-::: {.notes}
-~25s. KI ist exzellent für varied examples, aber das Label muss *nach* dem Entscheid kommen, nicht vorher.
-:::
-
-
-## Erklärungswissen : Begründen {.smaller}
-
-::::{.columns}
-:::{.column width="40%"}
-**Erklärungswissen**
-
-Operation: **Begründen**
-
-Beispiel: *"weiss, warum $r = 0.3$ in Bildung bedeutsam, in Physik vernachlässigbar"*
-:::
-
-:::{.column width="30%"}
-**Mechanismus**
-
-Selbsterklärung (Chi, 1989/1994); Worked Examples mit Erklärungs-Prompt; productive failure (Kapur, 2008).
-
-Eine fluente Erklärung *lesen* produziert keine Integration.
-:::
-
-:::{.column width="30%"}
-::: {style="background: rgba(166, 61, 47, 0.08); padding: 0.8em; border-radius: 8px; border-left: 4px solid #A63D2F;"}
-**KI-Konsequenz**
-
-Zur Selbsterklärung *auffordern*: ja.
-
-Die Erklärung *liefern*: nein.
-
-→ **Selbst-Tun (riskantester Typ)**
-:::
-:::
-::::
-
-::: {.notes}
-~25s. Riskanteste Substitution: der KI-Output *sieht aus* wie Verstehen, aber die Integration mit dem Vorwissen findet nicht statt.
-:::
-
-
-## Spec ist dauerhaft, Prompt ist Übersetzung {.smaller}
+## Spec ist dauerhaft, Werkzeug ist Übersetzung {.smaller}
 
 {{< include ../../resources/figures/fig-spec-prompt-timeline.qmd >}}
 

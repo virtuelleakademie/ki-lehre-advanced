@@ -1,182 +1,79 @@
 ---
-title: "Spec-Sheet-Vorlage: Eine Teilaufgabe"
+title: "Spec-Vorlage: Eine Teilaufgabe"
 ---
 
 ::: {.callout-note icon=false}
 ## Was diese Vorlage ist
 
-Du füllst diese Vorlage in Block 2 für **eine einzelne Teilaufgabe** aus einer deiner eigenen Aufgaben aus. Nicht die ganze Aufgabe, sondern einen einzelnen Teilschritt: zum Beispiel "Interpretiere die berechnete Korrelation $r = 0.3$ in einer Stichprobe von 200 Personen" innerhalb einer grösseren Aufgabe.
+Du füllst diese Vorlage in Block 2 für **eine einzelne Teilaufgabe** aus einer deiner eigenen Aufgaben aus. Nicht die ganze Aufgabe, sondern einen einzelnen Teilschritt: zum Beispiel "Interpretiere den Regressionskoeffizienten $b_1$ in einer multiplen Regression mit zwei Prädiktoren" innerhalb einer grösseren Aufgabe.
 
-Das ausgefüllte Spec Sheet ist dein zentrales Workshop-Ergebnis. Es ist:
+Das ausgefüllte Spec ist dein zentrales Workshop-Ergebnis. Es ist Werkzeug-unabhängig: du kannst dasselbe Markdown heute in das laufende Werkzeug von Block 3 einfügen und in zwei Jahren in ein dann noch unbekanntes Werkzeug.
 
-- **Werkzeug-unabhängig.** Du kannst es später in jedes KI-Werkzeug übersetzen, das es heute oder in zwei Jahren gibt.
-- **Nachprüfbar.** Es trennt klar, was du *vermutest* (per LLM-Vorschlag, plausibilitätsgeprüft) von dem, was du *beobachtet* hast (an realen Studierenden).
-- **Falsifizierbar.** Am Schluss legst du fest, woran du erkennen würdest, dass deine Decomposition falsch ist.
-
-Du hast drei Möglichkeiten, mit der Vorlage zu arbeiten:
-
-- Ausdrucken und handschriftlich ausfüllen.
-- Markdown kopieren und in einem Texteditor (Obsidian, Notion, Word) ausfüllen.
-- Direkt im Browser in den Notizfeldern (nicht garantiert über Sessions).
+Du arbeitest in Markdown, weil du in jedem Editor schreiben kannst und weil dasselbe Dokument in beliebige Werkzeuge eingefügt werden kann. Drei Möglichkeiten zum Ausfüllen: ausdrucken und handschriftlich; Markdown in einem Texteditor (VS Code, Obsidian, Notion, Word); direkt im Browser in den Notizfeldern.
 :::
 
-## Die *vermutet vs. beobachtet*-Markierung
+## Lernaufgabe (Kontext und Ziel)
 
-In den Sektionen B und C markiert jeder Eintrag, woher er stammt:
-
-- **vermutet (V):** von einem LLM vorgeschlagen oder von dir aus dem Bauch heraus formuliert, von dir auf Plausibilität geprüft. Du hältst es für möglich, hast es aber nicht selbst bei deinen Studierenden gesehen.
-- **beobachtet (B):** du hast es bei tatsächlichen Studierenden gesehen oder gehört. Mindestens ein konkreter Fall hängt daran.
-
-Diese Trennung ist die wichtigste Disziplin der Vorlage. Ohne sie wird ein gut-klingendes LLM-Output zu einem autoritativ wirkenden Dokument, das du eigentlich gar nicht überprüft hast. Mit ihr wird sichtbar, wo dein Spec Sheet auf eigener Lehrerfahrung steht und wo es noch eine offene Frage ist.
-
-## A. Die Teilaufgabe
-
-### A1. Wortlaut der Teilaufgabe
-
-**Anleitung:** Schreibe die Teilaufgabe wortwörtlich aus deiner Aufgabenstellung ab. Ein bis drei Sätze.
+**Wortlaut:** Schreibe die Teilaufgabe wortwörtlich aus deiner Aufgabenstellung ab. Ein bis drei Sätze.
 
 > *(Hier eintragen)*
 
-### A2. Kurskontext
-
-**Anleitung:** Beschreibe in zwei bis vier Sätzen: in welchem Studiengang, in welchem Semester, mit welchen Vorkenntnissen begegnen die Studierenden dieser Teilaufgabe? Welche Module haben sie davor gemacht?
+**Rahmen:** In welchem Studiengang, in welchem Semester, mit welchen Vorkenntnissen begegnen Studierende dieser Teilaufgabe? Welche Module haben sie davor abgeschlossen?
 
 > *(Hier eintragen)*
 
-### A3. Lernziel der Teilaufgabe
-
-**Anleitung:** Was soll diese Teilaufgabe bei der Studierenden entwickeln oder prüfen, in deinen eigenen Worten? Ein bis zwei Sätze, ohne Fachjargon.
+**Intendiertes Ergebnis:** Was soll diese Teilaufgabe bei der Studentin entwickeln oder prüfen? Ein bis zwei Sätze, ohne Fachjargon.
 
 > *(Hier eintragen)*
 
-## B. Wissensbausteine
+## Erforderliche Skills und Knowledge
 
-**Was hier rein gehört:** die kleinsten Einheiten, die eine Studierende mitbringen muss, damit sie diese Teilaufgabe erfolgreich bearbeiten kann.
+**Was hier rein gehört:** die Skills und Knowledge Components, die eine Studentin haben muss, damit sie diese Teilaufgabe erfolgreich bearbeiten kann. Vier bis acht Einträge. Lieber wenige präzise als viele unscharfe.
 
-Wir unterscheiden drei Typen von Wissensbausteinen, je nach der **kognitiven Operation, die die Studierende mit dem Baustein ausführt**. Welche Aktivität den Baustein überhaupt aufbauen kann, hängt direkt von der Operation ab.
+Pro Eintrag:
 
-- **Faktenwissen (Abrufen):** ein einzelnes Item, das aus dem Gedächtnis abgerufen werden muss: ein Fakt, ein Wert, eine Formel, ein definierter Begriff. Die Operation der Studierenden besteht darin, das Item zu holen. *Lernmechanismus:* aktives Abrufen mit zeitlich verteilter Wiederholung. *Test:* Lässt sich der Baustein als "weiss, dass..." formulieren und mit einer Karteikarte prüfen? *Beispiel:* "weiss, dass $r$ zwischen $-1$ und $+1$ liegt".
-- **Klassifikationswissen (Erkennen):** ein Muster oder eine Kategorie, die an einer **neuen Instanz** erkannt werden muss, oft im Unterschied zu einer ähnlich aussehenden, aber anderen Kategorie. Die Operation ist nicht, die Definition aufzusagen, sondern eine konkrete neue Situation einzuordnen. *Lernmechanismus:* verschachtelte Übung mit kontrastierenden Beispielen und Nicht-Beispielen. *Test:* Würde die Aufgabe als "ist dies ein X oder ein Y?" funktionieren, wobei die richtige Antwort nicht aus der Definition direkt ableitbar ist? *Beispiel:* "erkennt eine Frage als Korrelationsfrage und nicht als Mittelwertvergleich".
-- **Erklärungswissen (Begründen):** eine Regel mit erklärender Struktur, die in neuen Situationen mit Verständnis angewandt werden muss. Die richtige Antwort ändert sich, wenn der Kontext wechselt, und die Veränderung folgt aus einer artikulierbaren Mechanik. *Lernmechanismus:* Selbsterklärung an Worked Examples, produktives Scheitern, kontrastive Fälle. *Test:* Würde die richtige Antwort sich ändern, wenn der Kontext der Aufgabe verschoben wäre? *Beispiel:* "weiss, warum eine Korrelation von $r = 0.3$ in einem Kontext bedeutsam und in einem anderen vernachlässigbar ist".
-
-**Faustregel zur Typ-Wahl:** Frag dich, was die Studierende mit dem Baustein *tun* muss. *Abrufen* → Faktenwissen. *Eine konkrete Instanz erkennen* → Klassifikationswissen. *Eine ungesehene Situation beurteilen oder begründen* → Erklärungswissen.
-
-Ziel: vier bis acht Bausteine. Lieber wenige präzise als viele unscharfe.
-
-Das **Erwerb-Feld** hält fest, wo dieser Baustein eigentlich aufgebaut werden sollte: in deinem aktuellen Kurs, in einem vorgelagerten Modul (also als Voraussetzung), oder als tacites Wissen aus der Praxis. Diese Information war früher in einer separaten "Wissenslücken"-Sektion; sie passt aber besser hierhin, weil sie den Baustein selbst beschreibt, nicht ein eigenes Objekt.
+- Eine kurze Formulierung des Skills oder der Knowledge Component (ein bis zwei Sätze).
+- Eine charakteristische Fehlerform: was eine Studentin konkret schreibt oder tut, wenn diese Komponente fehlt.
 
 ::: {.callout-pro-tip icon=false}
 ## Tipp zur Granularität
 
-Zu abstrakt ("Statistik-Theorie") lässt sich der Baustein im LLM-Simulator schlecht "wegnehmen". Zu detailliert ("kennt die Formel für $s$ in einer 3-Werte-Stichprobe") liefert keine relevanten Unterschiede. Die richtige Stufe ist die, auf der ein LLM, das so tut, als hätte es diesen Baustein nicht, eine erkennbar andere und schlechtere Antwort produziert.
+Zu abstrakt (z.B. "Statistik-Theorie") lässt sich der Eintrag im LLM-Werkzeug schlecht testen. Zu detailliert (z.B. "kennt die Formel für $s$ in einer 3-Werte-Stichprobe") liefert keine relevanten Unterschiede. Die richtige Stufe ist die, auf der ein LLM, das so tut, als hätte es diesen Skill nicht, eine erkennbar andere und schlechtere Antwort produziert.
 :::
 
-### Baustein 1
+**Beispiel-Eintrag:**
 
-- **Name** (3 bis 7 Wörter):
-- **Typ:** Faktenwissen (Abrufen) / Klassifikationswissen (Erkennen) / Erklärungswissen (Begründen)
-- **Quelle:** V / B
-- **Erwerb** (optional): in diesem Kurs / vorausgesetzt aus [Modul] / Tacit-Wissen
-- **Wo der Baustein in der Teilaufgabe vorkommt** (1 Satz):
-- **Was eine Studierende konkret schreibt oder tut, wenn der Baustein fehlt** (1 Satz, beobachtbar):
+- Konditionale Interpretation des Begriffs "kontrolliert für".
+  *Charakteristische Fehlerform:* Interpretation im Sinne einer experimentellen Manipulation oder eines rechnerischen "Herausrechnens".
 
-### Baustein 2
+**Deine Einträge:**
 
-- **Name:**
-- **Typ:** Faktenwissen (Abrufen) / Klassifikationswissen (Erkennen) / Erklärungswissen (Begründen)
-- **Quelle:** V / B
-- **Erwerb** (optional):
-- **Wo der Baustein vorkommt:**
-- **Was schiefgeht, wenn er fehlt:**
+> *(Hier eintragen, ein Eintrag pro Bullet)*
 
-### Baustein 3
+## Antizipierte Misconceptions
 
-- **Name:**
-- **Typ:** Faktenwissen (Abrufen) / Klassifikationswissen (Erkennen) / Erklärungswissen (Begründen)
-- **Quelle:** V / B
-- **Erwerb** (optional):
-- **Wo der Baustein vorkommt:**
-- **Was schiefgeht, wenn er fehlt:**
+**Was hier rein gehört:** kohärente, aber falsche Modelle, die deine Studierenden haben könnten. Zwei bis vier Einträge.
 
-### Baustein 4
+Eine Misconception ist nicht ein zufälliger Fehler, sondern eine Sichtweise, die für die Studentin intern stimmig ist. Genau deshalb ist sie widerständig: man weist sie nicht durch eine korrekte Erklärung weg.
 
-- **Name:**
-- **Typ:** Faktenwissen (Abrufen) / Klassifikationswissen (Erkennen) / Erklärungswissen (Begründen)
-- **Quelle:** V / B
-- **Erwerb** (optional):
-- **Wo der Baustein vorkommt:**
-- **Was schiefgeht, wenn er fehlt:**
+Pro Eintrag:
 
-*(Bei Bedarf weitere Bausteine ergänzen, bis du vier bis acht hast.)*
+- Eine Formulierung der Misconception (wie die Studentin sie selbst aussprechen würde).
+- Eine Vermutung über die intuitive Grundlage: woher kommt diese Sichtweise plausibel? Aus einer Alltagsintuition? Aus einer Übergeneralisierung eines früheren Lernschritts?
 
-## C. Wahrscheinliche Fehlkonzepte
+**Beispiel-Eintrag:**
 
-**Was hier rein gehört:** kohärente, aber falsche Modelle, die deine Studierenden festhalten könnten und die diese Teilaufgabe testen sollte oder leider nicht testet.
+- Studierende konzeptualisieren das "Kontrollieren" als aktiven Eingriff in den Datensatz.
+  *Vermutete intuitive Grundlage:* alltagssprachliche Konnotation des Begriffs "Kontrolle" als aktive Einflussnahme.
 
-Ein Fehlkonzept ist nicht ein zufälliger Fehler, sondern eine Sichtweise, die für die Studierende intern stimmig ist. Genau deshalb ist es widerständig: man weist es nicht durch eine korrekte Erklärung weg.
+**Deine Einträge:**
 
-::: {.callout-pro-tip icon=false}
-## Zwei Muster, die unter "kohärent-intuitiv" fallen
+> *(Hier eintragen, ein Eintrag pro Bullet)*
 
-Die Forschung zur konzeptuellen Veränderung kennt zwei Muster, die ein Fehlkonzept widerständig machen können. Beide fallen ins Schema-Feld "kohärent-intuitiv", brauchen aber verschiedene Reparaturen:
+## Wenn dein Spec fertig ist
 
-- **Stabiles Modell.** Die Studierende hält das Fehlkonzept *konsistent*, über viele Aufgaben hinweg, auch unter klarem Kontext. Es hat sich zu einem festen, in sich kohärenten Falschmodell verfestigt. *Beispiel:* "$p < 0.05$ heisst, die Hypothese stimmt", konsistent über alle Aufgaben angewandt. *Reparatur:* Konfrontation mit kontrastiven Fällen, die das Modell zum Scheitern bringen.
-- **Kontext-aktivierte Intuition.** Die Studierende rechnet oder erklärt manchmal richtig, manchmal nicht. Unter Zeitdruck, bei kleinen Kontextverschiebungen oder bei sprachlich-fluenten Falschformulierungen kommt die Alltagsintuition zurück. *Beispiel:* rechnet $r^2$ korrekt, schreibt aber unter Klausurstress trotzdem "30% erklärt". *Reparatur:* kontextspezifische Praxis, in der die Studierende lernt, im richtigen Moment die richtige Intuition zu aktivieren.
+In Block 3 fügst du dein Markdown-Spec in das laufende Werkzeug ein und beobachtest, was es produziert. Wenn der Output nicht überzeugt, fehlt etwas im Spec.
 
-Wenn du beim Eintragen unsicher bist, welches Muster gilt: markiere mit V und prüfe die Unterscheidung an realen Studierenden-Antworten nach. Die produktive Simulation (Prompt 4) lässt sich für beide Muster nutzen: für das stabile Modell mit einer Aufgabe im üblichen Kontext, für die kontext-aktivierte Intuition mit einer leicht verschobenen Aufgabe.
-:::
+Ein vollständig ausgefülltes Beispiel-Spec zum Worked Example (multiple Regression aus Block 1) findest du unter [Beispiel: Multiple Regression](example-multiple-regression.md).
 
-### Fehlkonzept 1
-
-- **So würde die Studierende es selbst aussprechen** (in Ich-Form, 1 bis 2 Sätze):
-- **Typ:** oberflächlich (z.B. einfach falsche Formel) / kohärent-intuitiv (basiert auf einer Alltagsintuition oder einer plausiblen Übergeneralisierung)
-- **Quelle:** V / B
-- **Diskriminiert die Teilaufgabe Studierende mit diesem Fehlkonzept von Studierenden mit korrektem Verständnis?** Ja / Nein / Unklar (mit kurzer Begründung):
-
-### Fehlkonzept 2
-
-- **So würde die Studierende es selbst aussprechen:**
-- **Typ:** oberflächlich / kohärent-intuitiv
-- **Quelle:** V / B
-- **Diskriminiert die Teilaufgabe?**
-
-### Fehlkonzept 3
-
-- **So würde die Studierende es selbst aussprechen:**
-- **Typ:** oberflächlich / kohärent-intuitiv
-- **Quelle:** V / B
-- **Diskriminiert die Teilaufgabe?**
-
-*(Bei Bedarf weitere ergänzen. Mehr als vier wird selten produktiv.)*
-
-## D. Falsifikationsnotiz
-
-**Anleitung:** Wähle einen Wissensbaustein aus Sektion B. Am besten den, den du als zentralsten für diese Teilaufgabe einschätzt.
-
-Beschreibe in einem Satz, welches Verhalten von Studierenden dir zeigen würde, dass deine Decomposition für diesen Baustein falsch ist.
-
-Beispiel: "Wenn Studierende, die ich klar als kompetente Korrelationsinterpretiererinnen einschätze, an dieser Teilaufgabe systematisch scheitern, dann ist Baustein 3 nicht das, was diese Aufgabe wirklich testet."
-
-Ohne diese Notiz bleibt das Spec Sheet eine plausible Hypothese ohne Bedingungen, unter denen du sie aufgeben würdest.
-
-> *(Hier eintragen)*
-
-## Optional: Pruning-Protokoll
-
-**Was hier rein gehört:** Vorschläge, die das LLM dir gemacht hat (in der Inventar- oder Simulationsphase), die du aber abgelehnt hast.
-
-Diese Liste ist diagnostisch wichtig. Sie zeigt, ob du den LLM-Output kritisch bewertet oder einfach abgenickt hast. Eine leere Pruning-Liste bei einem vollen Spec Sheet ist ein Warnsignal.
-
-| Verworfener Vorschlag | Grund (1 Satz) |
-|---|---|
-| | |
-| | |
-| | |
-
-## Wenn dein Spec Sheet fertig ist
-
-In Block 3 übersetzt du dein Spec Sheet in einen System-Prompt für ein KI-Werkzeug deiner Wahl, zum Beispiel Microsoft Copilot oder HuggingChat. Die Vorlage dafür findest du unter [System-Prompt-Vorlage](system-prompt-template.md).
-
-Die Übersetzung ist mechanisch: du kopierst Bausteine und Fehlkonzepte in feste Platzhalter im Template. Wo das Template etwas verlangt, das in deinem Spec Sheet nicht steht, gehst du *zurück zum Spec Sheet* und ergänzt es. Das ist die produktivste Lehre des Block 3: die Qualität des Prompts ist eine Funktion der Qualität des Spec Sheets.
-
-Das Spec Sheet bleibt durch die Modellgenerationen hindurch nutzbar. Der gerenderte Prompt ist nur eine spezifische Übersetzung für ein spezifisches Werkzeug zu einem spezifischen Zeitpunkt.
+Die theoretische Struktur hinter dieser Vorlage (Knowledge-Component-Theorie, V/B-Disziplin, KLI-Taxonomie, Falsifikationsnotiz, Pruning-Protokoll) ist in einem internen Dokument für die Workshop-Leitung festgehalten. Du brauchst diese Tiefe nicht für den Workshop; sie ist dokumentiert, falls du selbst mit der Theorie weiterarbeiten möchtest.
