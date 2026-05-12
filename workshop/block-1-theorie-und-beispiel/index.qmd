@@ -2,91 +2,53 @@
 title: "Block 1: Theorie und Beispiel (35 min)"
 ---
 
-::: {.callout-timing icon=false}
-## Zeitbudget Block 1
+::: {.callout-checkpoint icon=false}
+## Auf einen Blick
 
-- 5 min: Anker-Moment (drei Slides: Ein schwieriges Problem, Der Expert Blind Spot, LLMs als strukturierte Novizen)
-- 25 min: Worked Example, live-Walkthrough an der Multiple-Regression-Aufgabe
-- 5 min: Vorschau auf Block 3 (wie ein Markdown-Spec zum Input eines laufenden Werkzeugs wird)
+- **Zeit:** 35 Minuten (5 Anker-Moment, 25 Worked Example, 5 Spec-Vorschau)
+- **Ergebnis:** Vier Beobachtungen am Worked Example, die du in Block 2 an deiner eigenen Aufgabe wiederholst
+- **Format:** Plenum, mit einer eigenen Teilaufgabe gedanklich parat
+- **Anker-Frage:** Wie macht eine Lehrperson sichtbar, was sie selbst nicht mehr sieht?
 :::
 
-## Was Block 1 leistet
-
-Im Einstieg hast du in einem Cross-discipline-Paar das Phänomen erlebt: was eine Expertin im eigenen Fach automatisiert hat, ist für eine Aussenstehende unsichtbar und nicht-trivial. Block 1 gibt diesem Phänomen einen Namen und führt vor, wie ein LLM als strukturierter Novize gezielt eingesetzt werden kann, um die eigenen Blind Spots zu externalisieren.
-
-Du beobachtest die Methode an einer Statistik-Aufgabe (Multiple Regression aus dem Bachelor-Psychologie). Die Aufgabe ist nur das demonstrative Beispiel. Die Methode ist domain-unabhängig formuliert: dasselbe Vorgehen lässt sich auf eine Pflege-Übung, eine Sozialarbeits-Fallvignette oder eine Programmieraufgabe übertragen.
+**Facilitator-Notizen:** [block-1-facilitator.md](../../instructor-notes/block-1-facilitator.md)
 
 :::: {.panel-tabset}
 
 ### {{< bi file-slides >}} Präsentation
 
-#### Slides Block 1
+Im Einstieg hast du das Phänomen am eigenen Material erlebt. Block 1 gibt ihm einen Namen (Expert Blind Spot) und führt vor, wie ein LLM als strukturierter Novize Blind Spots sichtbar macht. Die Methode wird an einer Statistik-Aufgabe demonstriert; sie ist domain-unabhängig.
 
 {{< revealjs file="../../slides/workshop/index.html" height="500px" class="ratio ratio-16x9" >}}
 
-::: {.facilitator}
-#### Facilitator-Notizen Block 1
-
-**Drei Anker-Slides (5 min).** Unmittelbar nach dem Einstieg. Diese drei Slides geben dem Phänomen einen Namen, das die Teilnehmenden gerade selbst erlebt haben. Wortlaut der drei Slides verbatim, mit Pausen dazwischen:
-
-1. *Ein schwieriges Problem.* Eine der schwierigsten pädagogischen Tätigkeiten beim Einsatz von KI in der Lehre ist nicht das Auswählen eines Werkzeugs, sondern das Spezifizieren dessen, was im Kopf der Lernenden passieren soll.
-2. *Der Expert Blind Spot.* Lehrpersonen sehen oft nicht, was ihre Lernenden noch nicht wissen, weil Automatisierung viele Teilfertigkeiten unsichtbar gemacht hat.
-3. *LLMs als strukturierte Novizen.* Ein LLM, das als novizen-prompted wird, kann Teilschritte aufzählen, die ein Experte überspringt. Die Annahme dahinter: in dieser Rolle teilt das LLM die automatisierten Routinen der Expertin nicht.
-
-**Worked Example (25 min).** Live-Walkthrough durch die [Worked-Example-Seite](worked-example-statistics.qmd). Vier Stationen kommentieren:
-
-- Die typische "akzeptable" Lernenden-Antwort. Sie liest sich kompetent. Das ist der Punkt.
-- Der LLM-as-Novice-Prompt. Wortlaut zeigen, sodass Teilnehmende ihn copy-pasten können.
-- Die Enumeration. Etwa fünfzehn Voraussetzungen, durchlaufen, nicht jede einzeln kommentieren.
-- Der Blind-Spot-Moment. Auf die vier hervorgehobenen Punkte verweilen ("kontrolliert für", $R^2$-Nicht-Additivität, Verschwinden im multiplen Modell, "nicht-signifikant" $\neq$ "kein Effekt"). Das ist die dramatische Stelle.
-
-**Spec-Vorschau (5 min).** Spec-Vorlage zeigen, das gefüllte Beispiel-Spec aus dem Worked Example daneben halten. Botschaft: was du in Block 2 baust, ist genau ein solches Markdown-Dokument. In Block 3 fügst du es in das laufende Werkzeug ein und beobachtest, was es produziert. Die [Spec-Vorlage](../spec-sheet-template/index.qmd) und das [Beispiel-Spec](../spec-sheet-template/example-multiple-regression.md) sind die beiden Referenzpunkte.
-
-::: {.callout-pro-tip icon=false}
-#### Was hier bewusst weggelassen wird
-
-CLT-Recap, drei-Wissensbaustein-Typen als Taxonomie, V/B-Diskurs, Affordance-Typen-Tour. Diese Inhalte sind nicht ersatzlos verschwunden: sie liegen unter `instructor-notes/` und in den Nachlesen-Tabs. Der Workshop trägt sie in 3 Stunden nicht zusätzlich, ohne andere Inhalte zu opfern. Wer sie braucht, findet sie nach dem Workshop.
-:::
-
-Vertiefte Notizen (Anker-Slide-Wortlaut, Worked-Example-Walkthrough-Stationen, häufige Fragen, Notfall-Pacing): siehe [Facilitator Notes Block 1](../../instructor-notes/block-1-facilitator.md).
-:::
-
 ### {{< bi pencil-square >}} Aktivitäten
 
-#### Was du in Block 1 aktiv tust
-
-Block 1 ist überwiegend Mitschauen. Aber du brauchst dabei nicht passiv zu sein: zwei Dinge bringst du selbst ein.
-
-::: {.callout-individual icon=false}
 #### Mitbringen: deine eigene Teilaufgabe
 
-Halte während Block 1 *eine konkrete Teilaufgabe aus deiner eigenen Lehre* gedanklich parat. Idealerweise die, die du in Block 2 verwenden willst. Beim Mitschauen prüfst du laufend: *Würde dieser Schritt auch für meine Aufgabe gehen? Welche Stelle wäre bei meiner Aufgabe anders?*
-
-Ohne diesen Bezugspunkt wird der Worked Example abstrakt. Mit ihm wird er zum Vorbild.
+::: {.callout-individual icon=false}
+**Aufgabe:** Halte während Block 1 *eine konkrete Teilaufgabe aus deiner eigenen Lehre* gedanklich parat (idealerweise die, die du in Block 2 verwendest). Prüfe beim Mitschauen laufend: *Würde dieser Schritt auch für meine Aufgabe gehen? Welche Stelle wäre bei meiner Aufgabe anders?*
 :::
 
-::: {.callout-individual icon=false}
 #### Beim Worked Example: vier Stationen beobachten
 
-Beim gemeinsamen Durchgang durch die [Worked-Example-Seite](worked-example-statistics.qmd) verdienen vier Stellen besondere Aufmerksamkeit:
+::: {.callout-individual icon=false}
+**Aufgabe:** Beim gemeinsamen Durchgang durch die [Worked-Example-Seite](worked-example-statistics.qmd) verdienen vier Stellen besondere Aufmerksamkeit. Notiere zu jeder Station kurz, was du an deiner eigenen Aufgabe anders erwarten würdest.
+:::
 
 - **Die typische akzeptable Antwort.** Was steht in einer Antwort, die du als korrigierende Lehrperson durchgehen lassen würdest? Lies sie als Lehrperson: welche Annahmen siehst du nicht?
-- **Der LLM-as-Novice-Prompt.** Welche genaue Formulierung versetzt das LLM in die nicht-fortgeschrittene Rolle? Diesen Prompt wirst du in Block 2 selbst nutzen.
+- **Der LLM-as-Novice-Prompt.** Welche genaue Formulierung versetzt das LLM in die nicht-fortgeschrittene Rolle? Diesen Prompt nutzt du in Block 2 selbst.
 - **Die Enumeration.** Etwa fünfzehn Voraussetzungen. Welche davon hättest du selbst gewusst, dass du sie voraussetzt? Welche nicht?
 - **Der Blind-Spot-Moment.** Vier Punkte werden hervorgehoben. Würdest du diese in deiner eigenen Lehre auch nicht explizit benennen?
 
-Diese vier Beobachtungen sind die Hauptlehre aus Block 1. In Block 2 wirst du dieselben Bewegungen an deiner eigenen Aufgabe machen.
-:::
+**Prüf-Checkliste am Ende von Block 1:**
+
+- [ ] Vier Notizen (eine pro Station), bezogen auf deine eigene Teilaufgabe
+- [ ] Mindestens eine Stelle, an der du anders entscheiden würdest als im Worked Example
+- [ ] [Spec-Vorlage](../spec-sheet-template/index.qmd) griffbereit für Block 2
 
 #### Übergang in Block 2
 
-Mit dem Worked Example als Vorbild gehst du nach der Pause in Block 2: dein eigenes Spec.
-
-Halte parat:
-
-- Die [Spec-Vorlage](../spec-sheet-template/index.qmd) (drei Sektionen: Lernaufgabe, Erforderliche Skills und Knowledge, Antizipierte Misconceptions).
-- Das [Beispiel-Spec zur Multiple Regression](../spec-sheet-template/example-multiple-regression.md) als gefülltes Modell.
-- Eine konkrete Teilaufgabe aus deiner eigenen Lehre. Wenn du keine dabei hast, nimm eines der [Backup-Szenarien](../build/scenarios/index.qmd).
+Halte nach der Pause parat: die [Spec-Vorlage](../spec-sheet-template/index.qmd), das [Beispiel-Spec zur Multiple Regression](../spec-sheet-template/example-multiple-regression.md), eine eigene Teilaufgabe (oder eines der [Backup-Szenarien](../build/scenarios/index.qmd)).
 
 ### {{< bi book >}} Nachlesen
 
@@ -95,9 +57,7 @@ Halte parat:
 
 Der *Expert Blind Spot* ist nicht bloss eine pädagogische Faustregel. Er ist ein robustes Forschungsergebnis. Mark Nathans Experimente an Mathematik-Lehrenden (Nathan, Koedinger & Alibali 2001) zeigten: Lehrende schätzen die Schwierigkeit symbolischer Aufgaben für ihre Lernenden als geringer ein als die Schwierigkeit verbaler Aufgaben, obwohl die Lernenden umgekehrt urteilen. Lehrende haben die symbolische Notation automatisiert, ihre Lernenden nicht. Feldon (2007) verallgemeinert: Experten sind systematisch schlecht darin, das eigene Wissen zu artikulieren, weil Automatisierung die Teilschritte unsichtbar macht.
 
-Die Implikation für die Lehre: bei der Aufgabenkonstruktion verlässt sich eine Lehrperson auf das, was sie selbst wahrnimmt. Was sie wahrnimmt, ist gerade nicht das, was Lernende lernen müssen, weil sie es nicht mehr lernen muss.
-
-Cognitive Task Analysis (CTA) ist die methodische Antwort: ein strukturiertes Verfahren, um Expertenwissen zu externalisieren, das die Expertin selbst nicht sehen kann. CTA ist klassisch ein aufwendiges Interviewverfahren. LLMs als strukturierte Novizen sind eine niedrigschwellige Annäherung: sie können nicht das, was eine vollständige CTA leistet, aber sie können ohne grossen Aufwand die offensichtlichsten Voraussetzungen enumerieren.
+Cognitive Task Analysis (CTA) ist die methodische Antwort: ein strukturiertes Verfahren, um Expertenwissen zu externalisieren, das die Expertin selbst nicht sehen kann. CTA ist klassisch ein aufwendiges Interviewverfahren. LLMs als strukturierte Novizen sind eine niedrigschwellige Annäherung: sie können nicht, was eine vollständige CTA leistet, aber sie können ohne grossen Aufwand die offensichtlichsten Voraussetzungen enumerieren.
 
 Literatur:
 
@@ -113,7 +73,7 @@ Wer eine CLT-Auffrischung möchte (Engpass im Arbeitsgedächtnis, Schema-Aufbau 
 
 [Refresher-Präsentation: Von der kognitiven Architektur zum KI-gestützten Scaffolding](https://virtuelleakademie.github.io/ki-lehre-refresher/presentation/){target="_blank"}
 
-Für die Workshop-Substanz reicht es, zu wissen: gute Lehre passt sich an Vorwissen an. Das erfordert Diagnose. Die Diagnose, die der Spec leistet, ist die schriftliche, falsifizierbare Form dieser Anpassung.
+Für die Workshop-Substanz reicht es zu wissen: gute Lehre passt sich an Vorwissen an. Das erfordert Diagnose. Die Diagnose, die der Spec leistet, ist die schriftliche, falsifizierbare Form dieser Anpassung.
 :::
 
 ::: {.callout-nachlesen icon=false}
@@ -129,12 +89,4 @@ Das Spec ist die schriftliche Umsetzung der Diagnoseseite dieser Frameworks.
 
 ::::
 
-## Worked Example: Multiple Regression
-
-Wir gehen gemeinsam durch das ausgearbeitete [Worked Example: LLM-as-Novice an einer Statistik-Aufgabe](worked-example-statistics.qmd) in fünf Schritten:
-
-1. Die typische akzeptable Lernenden-Antwort lesen.
-2. Den LLM-as-Novice-Prompt ans Material ansetzen.
-3. Die Enumeration der etwa fünfzehn Voraussetzungen lesen.
-4. Die vier Blind-Spot-Punkte identifizieren.
-5. Die Brücke zur Spec-Vorlage und zum Beispiel-Spec ziehen.
+**Weiter:** [Block 2: Spec Sheet bauen](../block-2-spec-card/index.qmd)
