@@ -15,16 +15,22 @@ Vollständig ausgefülltes Beispiel-Spec zur Übung "Multiple Regression mit zwe
 ## Erforderliche Skills und Knowledge
 
 - Konditionale Interpretation des Begriffs "kontrolliert für".
+  *Erwerb:* zu erwerben (zentraler Lernziel-Baustein dieser Teilaufgabe).
   *Charakteristische Fehlerform:* Interpretation im Sinne einer experimentellen Manipulation oder eines rechnerischen "Herausrechnens".
 - Differenzierung der Regressionskoeffizienten $b_1$ in bivariater versus multipler Regression.
+  *Erwerb:* zu erwerben (Folge aus der Einführung der multiplen Regression).
   *Charakteristische Fehlerform:* Erwartung einer Identität der Koeffizienten über die Modelltypen hinweg.
 - $R^2$ als gemeinsam erklärter Varianzanteil mehrerer Prädiktoren.
+  *Erwerb:* zu erwerben (neu beim Übergang von einer auf mehrere Prädiktoren).
   *Charakteristische Fehlerform:* Additive Aufsummierung der bivariaten Bestimmtheitsmasse ($r^2_{YX_1} + r^2_{YX_2}$).
 - Partial- und Semipartialkorrelation als unterschiedliche Konstrukte erkennen.
+  *Erwerb:* vorausgesetzt (aus dem vorangegangenen Block); Verwechslung als Fehlerform bleibt diagnostisch relevant.
   *Charakteristische Fehlerform:* Verwechslung der beiden oder Reduktion auf eine einzige Kennzahl.
 - Die Aussage des $t$-Tests pro Koeffizient korrekt formulieren.
+  *Erwerb:* vorausgesetzt im Grundkonzept, in dieser Form zu erwerben (die Formulierung "unter Konstanthaltung des jeweils anderen Prädiktors" ist neu).
   *Charakteristische Fehlerform:* Aussagen über den Effekt insgesamt statt über den Effekt unter Konstanthaltung des jeweils anderen Prädiktors.
 - Die Einheit eines Regressionskoeffizienten angeben.
+  *Erwerb:* vorausgesetzt (aus bivariater Regression).
   *Charakteristische Fehlerform:* Standardisierte und unstandardisierte Koeffizienten miteinander verwechseln oder ohne Einheit interpretieren.
 
 ## Antizipierte Misconceptions
