@@ -9,7 +9,7 @@ Internes Dokument für die Workshop-Leitung. Ergänzt die in-page Moderationshin
 
 | Min | Phase | Aktivität |
 |-----|-------|-----------|
-| 0:00-0:03 | Doktrin-Extension | Kernsatz vorlesen, eine Pause halten |
+| 0:00-0:03 | Leitsatz-Erweiterung | Kernsatz vorlesen, eine Pause halten |
 | 0:03-0:08 | Downstream-Uses-Gallery | Vier weitere Einsätze des Specs benennen |
 | 0:08-0:13 | Persönliche Verpflichtung | Aufgabe, Schritt, Datum aufschreiben; mit Partnerin teilen |
 | 0:13-0:15 | Take-Home-Pointer und Verabschiedung | URL und Ressourcen zeigen |
@@ -18,9 +18,9 @@ Internes Dokument für die Workshop-Leitung. Ergänzt die in-page Moderationshin
 
 > Drei Stunden haben wir an einer Teilaufgabe deiner Lehre gearbeitet. Was ihr in der Hand habt, ist nicht ein Workshop-Notiz, sondern ein durabler Artefakt. Wir schliessen mit drei Bewegungen: eine Verallgemeinerung, eine Aussicht auf weitere Einsätze, eine Verpflichtung.
 
-Direkt zur Doktrin-Slide.
+Direkt zur Leitsatz-Slide.
 
-## Die Doktrin-Extension (3 min)
+## Die Leitsatz-Erweiterung (3 min)
 
 Wortlaut verbatim, mit Pausen:
 
