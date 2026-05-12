@@ -68,9 +68,9 @@ make diff                   # Show word-level diff
 - **workshop/index.qmd**: workshop overview, schedule, learning objectives; the "for returning participants" historical note is folded into a collapsed callout
 - **workshop/materialien/index.qmd**: single landing page listing every participant material (Vor / Während / Nach + Prompt-Bausteine + external sources). The canonical entry point for participants
 - **workshop/einstieg/**: Einstieg (10 min): cross-discipline-pair exercise; participants experience the Expert Blind Spot on their own material before it is named in Block 1
-- **workshop/block-1-theorie-und-beispiel/**: Block 1 (35 min): three anchor slides (Ein schwieriges Problem / Der Expert Blind Spot / LLMs als strukturierte Novizen), then the worked-example walkthrough (live page), then Spec-Vorschau
+- **workshop/block-1-theorie-und-beispiel/**: Block 1 (35 min): three anchor slides (Ein schwieriges Problem / Der Expert Blind Spot / Das LLM als Hypothesengenerator) plus a compact "Drei Typen von Wissensbausteinen" reference slide, then the worked-example walkthrough (live page), then Spec-Vorschau
   - `worked-example-statistics.qmd`: the live-walkthrough page; simulated $n = 80$ dataset with reciprocal-suppression structure; R code visible by default; `broom::tidy`+`glance` tables; collapsed `pro-tip` callouts for centring algebra and suppression mechanic; collapsed `caution` callout on LLM grounding
-- **workshop/block-2-spec-card/**: Block 2 (60 min): participants build their own Spec Sheet (Sektion 1 → 2 with LLM-as-Novice → 3 with Lernende-Simulator → cross-discipline paired review). Contains a collapsed `caution` callout naming the two concrete failure modes of the ungrounded LLM
+- **workshop/block-2-spec-card/**: Block 2 (60 min): participants build their own Spec Sheet (Sektion 1 → 2 with Hypothesengenerator → 3 with Lernende-Simulator → cross-discipline paired review). Contains a collapsed `caution` callout naming the two concrete failure modes of the ungrounded LLM
   - **workshop/spec-sheet-template/**: 4-section template (1: Teilaufgabe, 2: Wissensbausteine, 3: Fehlkonzepte, 4: Falsifikationsnotiz) plus `prompt-scaffolds.md` and `system-prompt-template.md`
   - The legacy 6-section worked Spec Card for the Statistics-Novice is at `instructor-notes/spec-card-statistics/index.qmd` (internal reference, not in the navigation; CLAUDE.md/old design docs occasionally still refer to a `workshop/spec-card-statistics/` path that no longer exists)
 - **workshop/block-3-multi-tool/**: Block 3 (35 min core + 10 min optional role-play): demo of the tool, insert own Spec, observe output, sharpen Spec, (optional) cross-discipline role-play, wrap. The role-play is explicitly marked optional in the page header and timing callout
@@ -298,7 +298,7 @@ This workshop is grounded in cognitive science principles from "Make it Stick" a
 
 By the end of this workshop, participants will:
 
-1. **Decompose** one of their own teaching tasks into Skills und Knowledge Components, with the LLM-as-Novice prompt scaffold ensuring coverage across the three cognitive operations Abrufen (Faktenwissen) / Erkennen (Klassifikationswissen) / Begründen (Erklärungswissen). Optional V/B-marking (vermutet vs. beobachtet) lets lecturers track validation of LLM hypotheses against their own teaching experience beyond the workshop.
+1. **Decompose** one of their own teaching tasks into Skills und Knowledge Components, with the Hypothesengenerator prompt scaffold ensuring coverage across the three cognitive operations Abrufen (Faktenwissen) / Erkennen (Klassifikationswissen) / Begründen (Erklärungswissen). Optional V/B-marking (vermutet vs. beobachtet) lets lecturers track validation of LLM hypotheses against their own teaching experience beyond the workshop.
 2. **Identify** likely misconceptions and knowledge prerequisite-sources, using an LLM in two operational roles: Hypothesengenerator and Lernende-Simulator (reactive and productive)
 3. **Translate** the Spec Sheet into a system prompt for a running tool, observe the structured output, and sharpen the Spec where the output is generic or off-target
 4. **Decide** which Wissensbausteine require Selbst-Tun versus where Zuschauen suffices (Take-Home homework that operationalises the offloading-vs-outsourcing distinction)
@@ -310,9 +310,9 @@ Total wall-clock: 155 min content + 15 min break = 170 min, with 10 min buffer t
 | Block | Duration | What Participants Do |
 |------|----------|---------------------|
 | Einstieg | 10 min | Cross-discipline pair: write a one-paragraph description of your own teaching task, read your partner's, write three sentences for them, mark what came back |
-| Block 1 | 35 min | Three anchor slides (Ein schwieriges Problem / Expert Blind Spot / LLMs als strukturierte Novizen), then live worked-example walkthrough at the Statistics multiple-regression task, then Spec-Vorschau |
+| Block 1 | 35 min | Three anchor slides (Ein schwieriges Problem / Expert Blind Spot / Das LLM als Hypothesengenerator) plus compact three-types reference, then live worked-example walkthrough at the Statistics multiple-regression task, then Spec-Vorschau |
 | **Pause** | 15 min | |
-| Block 2 | 60 min | Build own Spec Sheet for one teaching task: Sektion 1 (Teilaufgabe) → 2 (Wissensbausteine, LLM-as-Novice) → 3 (Misconceptions, Lernende-Simulator) → cross-discipline paired review |
+| Block 2 | 60 min | Build own Spec Sheet for one teaching task: Sektion 1 (Teilaufgabe) → 2 (Wissensbausteine, Hypothesengenerator) → 3 (Misconceptions, Lernende-Simulator) → cross-discipline paired review |
 | Block 3 | 35 min core (+10 min optional) | Demo of the running tool with the example Spec, insert own Spec and observe output, sharpen Spec and re-test, (optional) cross-discipline role-play, wrap |
 | Closing | 15 min | Leitsatz-Erweiterung ("Spec is durable, Werkzeug is Rendering") → Downstream-Uses-Gallery (four further tools the Spec can drive) → persönliche Verpflichtung shared with cross-discipline partner → Take-Home pointer |
 
@@ -346,7 +346,7 @@ One pragmatic test question when participants insert their Spec into the running
 
 - **Anthropic Claude (Haiku/Sonnet)**: structured-output language model used by the running tool in Block 3
 - **HuggingFace Spaces**: free deployment platform that hosts the Block 3 tool
-- **Chat tools** (Microsoft Copilot, ChatGPT, Claude.ai, HuggingChat): the tools participants use during Block 2 to invoke the LLM-as-Novice and Lernende-Simulator roles, and that they can use after the workshop with their Spec
+- **Chat tools** (Microsoft Copilot, ChatGPT, Claude.ai, HuggingChat): the tools participants use during Block 2 to invoke the Hypothesengenerator and Lernende-Simulator roles, and that they can use after the workshop with their Spec
 - **Pydantic** + **Marimo**: the active Block-3 tool (`hf-spaces/diagnostic-tool-spec/`) uses Pydantic models as the structured-output schema (passed to Anthropic via `messages.parse()` / `output_config.format`) and marimo as the UI. **Gradio** is used only in archived iterations (`archive/hf-spaces-legacy/diagnostic-tool-shell/`, `worked-example-weaver-app/`). The architecture explanation for participants who want to understand the Block 3 tool internally lives at `workshop/take-home/api-werkzeug-erklaert.qmd`.
 
 ### Seven Backup Scenarios

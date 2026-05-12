@@ -9,7 +9,7 @@ Internes Dokument für die Workshop-Leitung. Ergänzt die in-page Moderationshin
 
 | Min | Phase | Aktivität |
 |-----|-------|-----------|
-| 0:00-0:05 | Anker-Slides | Drei Sätze: Hartes Problem, Expert Blind Spot, LLMs als strukturierte Novizen |
+| 0:00-0:05 | Anker-Slides | Drei Sätze (Hartes Problem, Expert Blind Spot, Das LLM als Hypothesengenerator) plus 30-Sek-Referenz auf die drei Wissenstypen |
 | 0:05-0:30 | Worked Example | Live-Walkthrough durch die Multiple-Regression-Aufgabe |
 | 0:30-0:35 | Spec-Vorschau | Spec-Vorlage zeigen, gefülltes Beispiel daneben halten, Brücke zu Block 2 schlagen |
 
@@ -25,9 +25,11 @@ Wortlaut verbatim auf jeder Slide, langsam vorgelesen, mit Pausen:
 
 1. **Ein schwieriges Problem.** Eine der schwierigsten pädagogischen Tätigkeiten beim Einsatz von KI in der Lehre ist nicht das Auswählen eines Werkzeugs, sondern das Spezifizieren dessen, was im Kopf der Lernenden passieren soll.
 2. **Der Expert Blind Spot.** Lehrpersonen sehen oft nicht, was ihre Lernenden noch nicht wissen, weil Automatisierung viele Teilfertigkeiten unsichtbar gemacht hat.
-3. **LLMs als strukturierte Novizen.** Ein LLM, das als Person geprompted wird, die gerade die Vorgängerveranstaltung abgeschlossen hat, aber diese hier noch nicht kennt, kann Teilschritte aufzählen, die ein Experte überspringt. Die Annahme dahinter: in dieser Rolle teilt das LLM die automatisierten Routinen der Expertin nicht.
+3. **Das LLM als Hypothesengenerator.** Ein LLM, das als Person geprompted wird, die gerade die Vorgängerveranstaltung abgeschlossen hat, aber diese hier noch nicht kennt, kann Teilschritte aufzählen, die ein Experte überspringt. Die Annahme dahinter: in dieser Rolle teilt das LLM die automatisierten Routinen der Expertin nicht.
 
 Nach jedem Satz eine bewusste Pause (ca. 3 Sekunden), nicht weiter elaborieren. Die Sätze tragen den ganzen Workshop; sie brauchen Raum, nicht Erklärung.
+
+Direkt danach die Mini-Slide "Drei Typen von Wissensbausteinen" (~30 Sek): Faktenwissen (Abrufen), Klassifikationswissen (Erkennen), Erklärungswissen (Begründen), mit je einem Beispiel aus dem Worked Example. Volllänge im Block-1-Nachlesen-Tab.
 
 ## Worked-Example-Walkthrough (25 min)
 
@@ -41,11 +43,11 @@ Den simulierten Datensatz zeigen, die Aufgabenstellung lesen lassen. Botschaft: 
 
 Die als Zitat ausgewiesene Antwort vorlesen. **Inszenierte Pause:** "Diese Antwort gilt in den meisten Klausuren als vollständig richtig. Was übersieht eine Lehrperson, die diese Antwort durchwinkt?" Antworten aus dem Plenum kurz einsammeln, nicht auflösen.
 
-### Station 3: Der LLM-as-Novice-Prompt und die Enumeration (10 min)
+### Station 3: Der Hypothesengenerator-Prompt und die Enumeration (10 min)
 
 Den Prompt zeigen. Wichtig: den Prompt nicht erklären, sondern *zeigen*. Die Teilnehmenden werden den exakten Wortlaut in Block 2 brauchen; sie sehen ihn jetzt zum ersten Mal.
 
-Die Enumeration in vier Kategorien (Fakten, Klassifikationen, Prozeduren, Konzepte) gemeinsam überfliegen, nicht jede Zeile lesen. Auf eine oder zwei Stellen pro Kategorie kurz zeigen, dann zur nächsten.
+Die Enumeration in den drei Typen (Faktenwissen, Klassifikationswissen, Erklärungswissen) gemeinsam überfliegen, nicht jede Zeile lesen. Auf eine oder zwei Stellen pro Typ kurz zeigen, dann zur nächsten.
 
 ### Station 4: Die nicht thematisierten Voraussetzungen (5 min)
 
