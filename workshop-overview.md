@@ -10,7 +10,7 @@ Using AI tools in teaching defaults, in practice, to whatever the tool happens t
 
 ## What the workshop proposes
 
-Before touching a tool, the lecturer writes a Spec Sheet: a four-section, falsifiable decomposition of what the learner needs to construct in order to perform a single teaching task. The Spec Sheet is not a prompt. It is a structured-introspection scaffold for cognitive content, with two LLMs assisting (Hypothesengenerator and Lernende-Simulator) and a falsification procedure attached.
+Before touching a tool, the lecturer writes a Spec Sheet: a three-section, falsifiable decomposition of what the learner needs to construct in order to perform a single teaching task (with an optional Take-Home Falsifikationsnotiz as a fourth section). The Spec Sheet is not a prompt. It is a structured-introspection scaffold for cognitive content, with two LLMs assisting (Hypothesengenerator and Lernende-Simulator) and a falsification procedure attached.
 
 ## Why this matters: AI as forcing function for cognitive task analysis
 
@@ -39,7 +39,7 @@ The Falsifikationsnotiz and Selbst-Tun-vs-Zuschauen tagging that used to live in
 
 ## The four moves the workshop makes
 
-1. **Decomposition before rendering.** Cognitive content is named (knowledge-type, V/B status, failure-mode-per-Baustein) before any prompt is written.
+1. **Decomposition before rendering.** Cognitive content is named (knowledge-type and failure-mode per Baustein; V/B status optional where the lecturer wants to track validation over time) before any prompt is written.
 2. **Falsification as discipline.** Each Spec entry is paired with a one-sentence prediction of how its absence would show up in student work. The Take-Home Falsifikationsnotiz operationalises what would falsify the decomposition.
 3. **LLM as second opinion, not as authority.** Two operational roles: Hypothesengenerator (suggests Bausteine and misconceptions for the lecturer to accept or prune) and Lernende-Simulator (instantiates the Spec into a fluent confabulation the lecturer can probe).
 4. **Per-Baustein action assignment.** As Take-Home homework, each Wissensbaustein is tagged Selbst-Tun-erforderlich or Zuschauen-reicht. The decision is per-component, not per-assignment, because the action-as-input claim has resolution only at component-grain.
@@ -66,7 +66,7 @@ It is not a Cognitive Tutor authoring system. It is not a validated KC decomposi
 ## Cogsci anchors
 
 - **Decomposition discipline:** Koedinger, Corbett, & Perfetti (2012), Knowledge-Learning-Instruction framework
-- **Expert blind spot motivating V/B-discipline:** Nathan & Petrosino (2003); Koedinger & Nathan (2004)
+- **Expert blind spot motivating LLM-as-Novice technique and optional V/B-marking:** Nathan & Petrosino (2003); Koedinger & Nathan (2004)
 - **Action-as-input motivating Selbst-Tun-tagging:** Koedinger, Kim, Jia, McLaughlin, & Bier (2015) doer effect; Van Campenhout, Johnson, & Olsen (2022); mechanism: Daw & Fleming (2018)
 - **Misconception structure:** Vosniadou (1994), Chi (2008) for coherent wrong models; diSessa (1993) for fragmented intuitions
 - **Cognitive load framing of Block 1 recap:** Sweller (1988); Kalyuga (expertise reversal)

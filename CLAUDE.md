@@ -297,7 +297,7 @@ This workshop is grounded in cognitive science principles from "Make it Stick" a
 
 By the end of this workshop, participants will:
 
-1. **Decompose** one of their own teaching tasks into Wissensbausteine (three types defined by cognitive operation: Faktenwissen / Klassifikationswissen / Erklärungswissen, with the operations Abrufen / Erkennen / Begründen made explicit) with the V/B-discipline (vermutet vs. beobachtet) separating LLM hypotheses from teacher observations
+1. **Decompose** one of their own teaching tasks into Skills und Knowledge Components, with the LLM-as-Novice prompt scaffold ensuring coverage across the three cognitive operations Abrufen (Faktenwissen) / Erkennen (Klassifikationswissen) / Begründen (Erklärungswissen). Optional V/B-marking (vermutet vs. beobachtet) lets lecturers track validation of LLM hypotheses against their own teaching experience beyond the workshop.
 2. **Identify** likely misconceptions and knowledge prerequisite-sources, using an LLM in two operational roles: Hypothesengenerator and Lernende-Simulator (reactive and productive)
 3. **Translate** the Spec Sheet into a system prompt for a running tool, observe the structured output, and sharpen the Spec where the output is generic or off-target
 4. **Decide** which Wissensbausteine require Selbst-Tun versus where Zuschauen suffices (Take-Home homework that operationalises the offloading-vs-outsourcing distinction)
