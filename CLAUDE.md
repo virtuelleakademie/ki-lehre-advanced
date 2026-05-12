@@ -64,7 +64,7 @@ make diff                   # Show word-level diff
 
 **Workshop Structure (3-hour workshop, German). Each block is a panel-tabset page with three tabs: Präsentation (slides + facilitator notes), Aktivitäten (participant-facing exercises), Nachlesen (extended reading + cross-links to CAS Lernpsychologie):**
 
-- **vorbereitung/index.qmd**: pre-workshop reading (three anchor sentences, three things to bring, the LLM-as-Novice grounding warning)
+- **vorbereitung/index.qmd**: pre-workshop reading (three anchor sentences, three things to bring, the Hypothesengenerator grounding warning)
 - **workshop/index.qmd**: workshop overview, schedule, learning objectives; the "for returning participants" historical note is folded into a collapsed callout
 - **workshop/materialien/index.qmd**: single landing page listing every participant material (Vor / Während / Nach + Prompt-Bausteine + external sources). The canonical entry point for participants
 - **workshop/einstieg/**: Einstieg (10 min): cross-discipline-pair exercise; participants experience the Expert Blind Spot on their own material before it is named in Block 1

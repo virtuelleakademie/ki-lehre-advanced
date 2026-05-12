@@ -29,11 +29,11 @@ Total: 155 min contact + 15 min break = 170 min wall-clock; 10 min buffer to the
 | Block | Time | What |
 |---|---|---|
 | Einstieg | 10 min | Cross-discipline-pair activator: write a paragraph about your own teaching task, read your partner's, write three sentences for them, mark what came back |
-| Block 1 | 35 min | Three anchor slides (Ein schwieriges Problem / Expert Blind Spot / LLMs als strukturierte Novizen); live worked-example walkthrough at the Statistics multiple-regression task; Spec-Vorschau |
+| Block 1 | 35 min | Three anchor slides (Ein schwieriges Problem / Expert Blind Spot / Das LLM als Hypothesengenerator) plus compact three-types reference; live worked-example walkthrough at the Statistics multiple-regression task; Spec-Vorschau |
 | Pause | 15 min | |
 | Block 2 | 60 min | Build own Spec for one teaching task: Sektion 1 (Teilaufgabe) → 2 (Wissensbausteine) → 3 (Misconceptions); cross-discipline paired review |
 | Block 3 | 35 min core (+10 min optional) | Demo of running tool with example Spec, insert own Spec and observe output, sharpen Spec, optional role-play, wrap |
-| Closing | 15 min | Doktrin-Extension; Downstream-Uses-Gallery; persönliche Verpflichtung shared with partner; Take-Home pointer |
+| Closing | 15 min | Leitsatz-Erweiterung; Downstream-Uses-Gallery; persönliche Verpflichtung shared with partner; Take-Home pointer |
 
 The Falsifikationsnotiz and Selbst-Tun-vs-Zuschauen tagging that used to live in the in-room Closing are now Take-Home homework (documented in `workshop/take-home/index.qmd`).
 
@@ -66,7 +66,7 @@ It is not a Cognitive Tutor authoring system. It is not a validated KC decomposi
 ## Cogsci anchors
 
 - **Decomposition discipline:** Koedinger, Corbett, & Perfetti (2012), Knowledge-Learning-Instruction framework
-- **Expert blind spot motivating LLM-as-Novice technique and optional V/B-marking:** Nathan & Petrosino (2003); Koedinger & Nathan (2004)
+- **Expert blind spot motivating Hypothesengenerator technique and optional V/B-marking:** Nathan & Petrosino (2003); Koedinger & Nathan (2004)
 - **Action-as-input motivating Selbst-Tun-tagging:** Koedinger, Kim, Jia, McLaughlin, & Bier (2015) doer effect; Van Campenhout, Jerome, Dittel & Johnson (2023); mechanism: Fleming & Daw (2017)
 - **Misconception structure:** Vosniadou (1994), Chi (2008) for coherent wrong models; diSessa (1993) for fragmented intuitions
 - **Cognitive load framing of Block 1 recap:** Sweller (1988); Kalyuga (expertise reversal)
