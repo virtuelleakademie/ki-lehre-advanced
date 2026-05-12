@@ -23,7 +23,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -92,186 +111,17 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 <style>
-div.callout-checkpoint.callout {
-  border-left-color: #1E3A5F;
-}
-div.callout-checkpoint.callout-style-default > .callout-header {
-  background-color: rgba(30, 58, 95, 0.13);
-}
-div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f11e' !important;
-  background-image: none;
-}
-div.callout-caution.callout {
-  border-left-color: #B8821A;
-}
-div.callout-caution.callout-style-default > .callout-header {
-  background-color: rgba(184, 130, 26, 0.13);
-}
-div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f071' !important;
-  background-image: none;
-}
-div.callout-prompt-template.callout {
-  border-left-color: #1E3A5F;
-}
-div.callout-prompt-template.callout-style-default > .callout-header {
-  background-color: rgba(30, 58, 95, 0.13);
-}
-div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f328' !important;
-  background-image: none;
-}
-div.callout-screens-down.callout {
+div.callout-tutor-example.callout {
   border-left-color: #A63D2F;
 }
-div.callout-screens-down.callout-style-default > .callout-header {
+div.callout-tutor-example.callout-style-default > .callout-header {
   background-color: rgba(166, 61, 47, 0.13);
 }
-div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
+div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f070' !important;
-  background-image: none;
-}
-div.callout-prompt-example.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-prompt-example.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f120' !important;
-  background-image: none;
-}
-div.callout-work-in-progress.callout {
-  border-left-color: #B8821A;
-}
-div.callout-work-in-progress.callout-style-default > .callout-header {
-  background-color: rgba(184, 130, 26, 0.13);
-}
-div.callout-work-in-progress .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-work-in-progress.callout-style-default .callout-icon::before, div.callout-work-in-progress.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f0c3' !important;
-  background-image: none;
-}
-div.callout-screens-up.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-screens-up.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f06e' !important;
-  background-image: none;
-}
-div.callout-setup.callout {
-  border-left-color: #6E6560;
-}
-div.callout-setup.callout-style-default > .callout-header {
-  background-color: rgba(110, 101, 96, 0.13);
-}
-div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f7d9' !important;
-  background-image: none;
-}
-div.callout-try.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-try.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f021' !important;
-  background-image: none;
-}
-div.callout-schedule.callout {
-  border-left-color: #6E6560;
-}
-div.callout-schedule.callout-style-default > .callout-header {
-  background-color: rgba(110, 101, 96, 0.13);
-}
-div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f017' !important;
-  background-image: none;
-}
-div.callout-pro-tip.callout {
-  border-left-color: #1E3A5F;
-}
-div.callout-pro-tip.callout-style-default > .callout-header {
-  background-color: rgba(30, 58, 95, 0.13);
-}
-div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\e2ca' !important;
-  background-image: none;
-}
-div.callout-individual.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-individual.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f007' !important;
-  background-image: none;
-}
-div.callout-feedback.callout {
-  border-left-color: #1E3A5F;
-}
-div.callout-feedback.callout-style-default > .callout-header {
-  background-color: rgba(30, 58, 95, 0.13);
-}
-div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f4ad' !important;
-  background-image: none;
-}
-div.callout-reflect.callout {
-  border-left-color: #1E3A5F;
-}
-div.callout-reflect.callout-style-default > .callout-header {
-  background-color: rgba(30, 58, 95, 0.13);
-}
-div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f0eb' !important;
+  content: '\f086' !important;
   background-image: none;
 }
 div.callout-break.callout {
@@ -287,6 +137,19 @@ div.callout-break.callout-style-default .callout-icon::before, div.callout-break
   content: '\f7b6' !important;
   background-image: none;
 }
+div.callout-screens-up.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-screens-up.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f06e' !important;
+  background-image: none;
+}
 div.callout-fallstudie.callout {
   border-left-color: #6E6560;
 }
@@ -297,30 +160,95 @@ div.callout-fallstudie .callout-toggle::before {  background-image: url('data:im
 div.callout-fallstudie.callout-style-default .callout-icon::before, div.callout-fallstudie.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236E6560" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-nachlesen.callout {
+div.callout-checkpoint.callout {
   border-left-color: #1E3A5F;
 }
-div.callout-nachlesen.callout-style-default > .callout-header {
+div.callout-checkpoint.callout-style-default > .callout-header {
   background-color: rgba(30, 58, 95, 0.13);
 }
-div.callout-nachlesen .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-nachlesen.callout-style-default .callout-icon::before, div.callout-nachlesen.callout-titled .callout-icon::before {
+div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f518' !important;
+  content: '\f11e' !important;
   background-image: none;
 }
-div.callout-group.callout {
+div.callout-testing.callout {
   border-left-color: #A63D2F;
 }
-div.callout-group.callout-style-default > .callout-header {
+div.callout-testing.callout-style-default > .callout-header {
   background-color: rgba(166, 61, 47, 0.13);
 }
-div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
+div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f0c0' !important;
+  content: '\e4f3' !important;
+  background-image: none;
+}
+div.callout-caution.callout {
+  border-left-color: #B8821A;
+}
+div.callout-caution.callout-style-default > .callout-header {
+  background-color: rgba(184, 130, 26, 0.13);
+}
+div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f071' !important;
+  background-image: none;
+}
+div.callout-pro-tip.callout {
+  border-left-color: #1E3A5F;
+}
+div.callout-pro-tip.callout-style-default > .callout-header {
+  background-color: rgba(30, 58, 95, 0.13);
+}
+div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\e2ca' !important;
+  background-image: none;
+}
+div.callout-setup.callout {
+  border-left-color: #6E6560;
+}
+div.callout-setup.callout-style-default > .callout-header {
+  background-color: rgba(110, 101, 96, 0.13);
+}
+div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f7d9' !important;
+  background-image: none;
+}
+div.callout-export.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-export.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f56e' !important;
+  background-image: none;
+}
+div.callout-prompt-example.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-prompt-example.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f120' !important;
   background-image: none;
 }
 div.callout-facilitator.callout {
@@ -349,43 +277,82 @@ div.callout-timing.callout-style-default .callout-icon::before, div.callout-timi
   content: '\f2f2' !important;
   background-image: none;
 }
-div.callout-export.callout {
+div.callout-try.callout {
   border-left-color: #A63D2F;
 }
-div.callout-export.callout-style-default > .callout-header {
+div.callout-try.callout-style-default > .callout-header {
   background-color: rgba(166, 61, 47, 0.13);
 }
-div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
+div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f56e' !important;
+  content: '\f021' !important;
   background-image: none;
 }
-div.callout-tutor-example.callout {
-  border-left-color: #A63D2F;
+div.callout-feedback.callout {
+  border-left-color: #1E3A5F;
 }
-div.callout-tutor-example.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
+div.callout-feedback.callout-style-default > .callout-header {
+  background-color: rgba(30, 58, 95, 0.13);
 }
-div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
+div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f086' !important;
+  content: '\f4ad' !important;
   background-image: none;
 }
-div.callout-testing.callout {
+div.callout-individual.callout {
   border-left-color: #A63D2F;
 }
-div.callout-testing.callout-style-default > .callout-header {
+div.callout-individual.callout-style-default > .callout-header {
   background-color: rgba(166, 61, 47, 0.13);
 }
-div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
+div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\e4f3' !important;
+  content: '\f007' !important;
+  background-image: none;
+}
+div.callout-screens-down.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-screens-down.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f070' !important;
+  background-image: none;
+}
+div.callout-reflect.callout {
+  border-left-color: #1E3A5F;
+}
+div.callout-reflect.callout-style-default > .callout-header {
+  background-color: rgba(30, 58, 95, 0.13);
+}
+div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f0eb' !important;
+  background-image: none;
+}
+div.callout-nachlesen.callout {
+  border-left-color: #1E3A5F;
+}
+div.callout-nachlesen.callout-style-default > .callout-header {
+  background-color: rgba(30, 58, 95, 0.13);
+}
+div.callout-nachlesen .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-nachlesen.callout-style-default .callout-icon::before, div.callout-nachlesen.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f518' !important;
   background-image: none;
 }
 div.callout-active-processing.callout {
@@ -412,6 +379,58 @@ div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.c
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
   content: '\f500' !important;
+  background-image: none;
+}
+div.callout-work-in-progress.callout {
+  border-left-color: #B8821A;
+}
+div.callout-work-in-progress.callout-style-default > .callout-header {
+  background-color: rgba(184, 130, 26, 0.13);
+}
+div.callout-work-in-progress .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-work-in-progress.callout-style-default .callout-icon::before, div.callout-work-in-progress.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f0c3' !important;
+  background-image: none;
+}
+div.callout-schedule.callout {
+  border-left-color: #6E6560;
+}
+div.callout-schedule.callout-style-default > .callout-header {
+  background-color: rgba(110, 101, 96, 0.13);
+}
+div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f017' !important;
+  background-image: none;
+}
+div.callout-group.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-group.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f0c0' !important;
+  background-image: none;
+}
+div.callout-prompt-template.callout {
+  border-left-color: #1E3A5F;
+}
+div.callout-prompt-template.callout-style-default > .callout-header {
+  background-color: rgba(30, 58, 95, 0.13);
+}
+div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f328' !important;
   background-image: none;
 }
 </style>
@@ -726,6 +745,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#auf-einen-blick" id="toc-auf-einen-blick" class="nav-link active" data-scroll-target="#auf-einen-blick">Auf einen Blick</a></li>
+  <li><a href="#literatur" id="toc-literatur" class="nav-link" data-scroll-target="#literatur">Literatur</a></li>
   </ul>
 </nav>
     </div>
@@ -805,14 +825,8 @@ window.Quarto = {
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <section id="die-empirie-hinter-dem-expert-blind-spot" class="level4 callout-nachlesen" data-icon="false">
 <h4 class="anchored" data-anchor-id="die-empirie-hinter-dem-expert-blind-spot">Die Empirie hinter dem Expert Blind Spot</h4>
-<p>Der <em>Expert Blind Spot</em> ist nicht bloss eine pädagogische Faustregel. Er ist ein robustes Forschungsergebnis. Mark Nathans Experimente an Mathematik-Lehrenden (Nathan, Koedinger &amp; Alibali 2001) zeigten: Lehrende schätzen die Schwierigkeit symbolischer Aufgaben für ihre Lernenden als geringer ein als die Schwierigkeit verbaler Aufgaben, obwohl die Lernenden umgekehrt urteilen. Lehrende haben die symbolische Notation automatisiert, ihre Lernenden nicht. Feldon (2007) verallgemeinert: Experten sind systematisch schlecht darin, das eigene Wissen zu artikulieren, weil Automatisierung die Teilschritte unsichtbar macht.</p>
-<p>Cognitive Task Analysis (CTA) ist die methodische Antwort: ein strukturiertes Verfahren, um Expertenwissen zu externalisieren, das die Expertin selbst nicht sehen kann. CTA ist klassisch ein aufwendiges Interviewverfahren. LLMs in der Hypothesengenerator-Rolle sind eine niedrigschwellige Annäherung: sie leisten nicht, was eine vollständige CTA leistet, aber sie enumerieren ohne grossen Aufwand die offensichtlichsten Voraussetzungen.</p>
-<p>Literatur:</p>
-<ul>
-<li>Nathan, M. J., Koedinger, K. R., &amp; Alibali, M. W. (2001). Expert blind spot. <em>Proceedings of the Third International Conference on Cognitive Science</em>.</li>
-<li>Feldon, D. F. (2007). The implications of research on expertise for curriculum and pedagogy. <em>Educational Psychology Review</em>, 19(2), 91-110.</li>
-<li>Clark, R. E., Feldon, D., van Merriënboer, J. J. G., Yates, K., &amp; Early, S. (2008). Cognitive task analysis. In <em>Handbook of Research on Educational Communications and Technology</em> (3rd ed.).</li>
-</ul>
+<p>Der <em>Expert Blind Spot</em> ist nicht bloss eine pädagogische Faustregel. Er ist ein robustes Forschungsergebnis. <span class="citation" data-cites="nathanExpertBlindSpot2003">Nathan and Petrosino (<a href="#ref-nathanExpertBlindSpot2003" role="doc-biblioref">2003</a>)</span> zeigte an angehenden Mathematik-Lehrenden: wer eine fortgeschrittene Mathematik-Ausbildung hat, schätzt symbolische Gleichungen als notwendige Voraussetzung für Textaufgaben ein, obwohl die tatsächliche Leistungsstruktur der Lernenden umgekehrt verläuft. Lehrende haben die symbolische Notation automatisiert, ihre Lernenden nicht. <span class="citation" data-cites="feldonImplicationsResearchExpertise2007">Feldon (<a href="#ref-feldonImplicationsResearchExpertise2007" role="doc-biblioref">2007</a>)</span> verallgemeinert: Experten sind systematisch schlecht darin, das eigene Wissen zu artikulieren, weil Automatisierung die Teilschritte unsichtbar macht.</p>
+<p>Cognitive Task Analysis (CTA) ist die methodische Antwort: ein strukturiertes Verfahren, um Expertenwissen zu externalisieren, das die Expertin selbst nicht sehen kann <span class="citation" data-cites="clarkCognitiveTaskAnalysis2008">(<a href="#ref-clarkCognitiveTaskAnalysis2008" role="doc-biblioref">Clark et al. 2008</a>)</span>. CTA ist klassisch ein aufwendiges Interviewverfahren. LLMs in der Hypothesengenerator-Rolle sind eine niedrigschwellige Annäherung: sie leisten nicht, was eine vollständige CTA leistet, aber sie enumerieren ohne grossen Aufwand die offensichtlichsten Voraussetzungen.</p>
 </section>
 <section id="die-drei-typen-von-wissensbausteinen" class="level4 callout-nachlesen" data-icon="false">
 <h4 class="anchored" data-anchor-id="die-drei-typen-von-wissensbausteinen">Die drei Typen von Wissensbausteinen</h4>
@@ -822,14 +836,13 @@ window.Quarto = {
 <li><strong>Klassifikationswissen (Erkennen).</strong> Die Lernende muss einen konkreten Fall als Instanz eines Konzepts oder Anwendungsmusters erkennen. Hierunter fallen auch Prozeduren, die durch Erkennung des Anwendungsmusters ausgelöst werden. <em>Beispiel aus dem Worked Example:</em> “Diese Forschungsfrage ist eine Vorhersage durch mehrere Prädiktoren, keine Korrelationsprüfung.”</li>
 <li><strong>Erklärungswissen (Begründen).</strong> Die Lernende muss begründen, warum etwas so ist, wie es ist. Hierunter fallen konzeptionelle Verständnisse und Interpretationen, die ohne Begründung leer bleiben. <em>Beispiel aus dem Worked Example:</em> “Warum <span class="math inline">\(b_1\)</span> in einer multiplen Regression einen anderen Wert annehmen kann als die bivariate Korrelation <span class="math inline">\(r_{YX_1}\)</span>, sobald die Prädiktoren miteinander korrelieren.”</li>
 </ul>
-<p>Die Typologie stammt aus dem <strong>KLI-Framework</strong> (Knowledge-Learning-Instruction, Koedinger, Corbett &amp; Perfetti 2012). Dort werden die drei Typen unter den Bezeichnungen <em>Memory-and-Fluency</em>, <em>Induction-and-Refinement</em> und <em>Understanding-and-Sense-Making</em> eingeführt. Die deutschen Bezeichnungen <em>Faktenwissen / Klassifikationswissen / Erklärungswissen</em> sind im pädagogischen Sprachgebrauch geläufiger.</p>
+<p>Die Typologie stammt aus dem <strong>KLI-Framework</strong> (Knowledge-Learning-Instruction, <span class="citation" data-cites="koedingerKnowledgeLearningInstructionFrameworkBridging2012">Koedinger et al. (<a href="#ref-koedingerKnowledgeLearningInstructionFrameworkBridging2012" role="doc-biblioref">2012</a>)</span>). Dort werden die drei Typen unter den Bezeichnungen <em>Memory-and-Fluency</em>, <em>Induction-and-Refinement</em> und <em>Understanding-and-Sense-Making</em> eingeführt. Die deutschen Bezeichnungen <em>Faktenwissen / Klassifikationswissen / Erklärungswissen</em> sind im pädagogischen Sprachgebrauch geläufiger.</p>
 <p>Wichtig: ein einzelner Baustein muss nicht trennscharf in genau einen Typ fallen. Eine Prozedur kann gleichzeitig Klassifikation (wann wird sie angewendet?) und Erklärung (warum macht sie was sie macht?) verlangen. Worauf es ankommt: dass dein Spec am Ende alle drei Typen abdeckt, nicht dass jeder Baustein eindeutig einem Typ zuzuordnen ist.</p>
-<p>Literatur: Koedinger, K. R., Corbett, A. T., &amp; Perfetti, C. (2012). The Knowledge-Learning-Instruction framework: Bridging the science-practice chasm to enhance robust student learning. <em>Cognitive Science</em>, 36(5), 757-798.</p>
 </section>
 <section id="cognitive-load-theory-und-scaffolding" class="level4 callout-nachlesen" data-icon="false">
 <h4 class="anchored" data-anchor-id="cognitive-load-theory-und-scaffolding">Cognitive Load Theory und Scaffolding</h4>
 <p>Wer eine CLT-Auffrischung möchte (Engpass im Arbeitsgedächtnis, Schema-Aufbau im Langzeitgedächtnis, Expertise-Reversal-Effekt, Scaffolding-Leiter): die <strong>Refresher-Präsentation</strong> der Virtuellen Akademie ist die kompakte 30-Minuten-Volllänge.</p>
-<p><a href="https://virtuelleakademie.github.io/ki-lehre-refresher/presentation/" target="_blank">Refresher-Präsentation: Von der kognitiven Architektur zum KI-gestützten Scaffolding</a></p>
+<p><a href="https://virtuelleakademie.github.io/ki-lehre-refresher/" target="_blank">Refresher-Präsentation: Von der kognitiven Architektur zum KI-gestützten Scaffolding</a></p>
 <p>Für die Workshop-Substanz reicht es zu wissen: gute Lehre passt sich an Vorwissen an. Das erfordert Diagnose. Die Diagnose, die der Spec leistet, ist die schriftliche, falsifizierbare Form dieser Anpassung.</p>
 </section>
 <section id="cognitive-offloading-vs.-outsourcing" class="level4 callout-nachlesen" data-icon="false">
@@ -837,16 +850,31 @@ window.Quarto = {
 <p>Die Unterscheidung, die der Workshop als <em>Selbst-Tun-erforderlich vs.&nbsp;Zuschauen-reicht</em> anlegt und als optionale Take-Home-Hausaufgabe ausführt, hat ihre theoretische Heimat im CAS Lernpsychologie. Dort findest du:</p>
 <ul>
 <li><strong>Cognitive Offloading vs.&nbsp;Outsourcing</strong> mit Forschungsbezügen (Risko, Google Effect, KI-Abhängigkeit) sowie das <strong>Evaluationsparadox</strong> und die <strong>Versuch-dann-Prüfe</strong>-Sequenz: <a href="https://virtuelleakademie.github.io/cas-lernpsychologie/02-ki-und-lernen/" target="_blank">02-ki-und-lernen, CAS Lernpsychologie</a>.</li>
-<li><strong>Fünf Leitfragen</strong> als alternative Linse auf dasselbe Designproblem: <a href="https://virtuelleakademie.github.io/cas-lernpsychologie/02-ki-und-lernen/5-leitfragen/" target="_blank">02-ki-und-lernen / 5-leitfragen</a>.</li>
 </ul>
-<p>Das Spec ist die schriftliche Umsetzung der Diagnoseseite dieser Frameworks.</p>
 </section>
 </div>
 </div>
 </div>
 <p><strong>Weiter:</strong> <a href="../../workshop/block-2-spec-card/index.html">Block 2: Spec Sheet bauen</a></p>
+<section id="literatur" class="level2">
+<h2 class="anchored" data-anchor-id="literatur">Literatur</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-clarkCognitiveTaskAnalysis2008" class="csl-entry" role="listitem">
+Clark, Richard, D. Feldon, Jeroen J. G. Van Merrienboer, Kenneth Yates, and Sean Early. 2008. <span>“Cognitive Task Analysis.”</span> <em>Handbook of Research on Educational Communications and Technology</em>, January 1, 577–93.
+</div>
+<div id="ref-feldonImplicationsResearchExpertise2007" class="csl-entry" role="listitem">
+Feldon, David F. 2007. <span>“The <span>Implications</span> of <span>Research</span> on <span>Expertise</span> for <span>Curriculum</span> and <span>Pedagogy</span>.”</span> <em>Educational Psychology Review</em> 19 (2): 91–110. <a href="https://doi.org/10.1007/s10648-006-9009-0">https://doi.org/10.1007/s10648-006-9009-0</a>.
+</div>
+<div id="ref-koedingerKnowledgeLearningInstructionFrameworkBridging2012" class="csl-entry" role="listitem">
+Koedinger, Kenneth R., Albert T. Corbett, and Charles Perfetti. 2012. <span>“The <span>Knowledge</span>‐<span>Learning</span>‐<span>Instruction Framework</span>: <span>Bridging</span> the <span>Science</span>‐<span>Practice Chasm</span> to <span>Enhance Robust Student Learning</span>.”</span> <em>Cognitive Science</em> 36 (5): 757–98. <a href="https://doi.org/10.1111/j.1551-6709.2012.01245.x">https://doi.org/10.1111/j.1551-6709.2012.01245.x</a>.
+</div>
+<div id="ref-nathanExpertBlindSpot2003" class="csl-entry" role="listitem">
+Nathan, Mitchell J., and Anthony Petrosino. 2003. <span>“Expert <span>Blind Spot Among Preservice Teachers</span>.”</span> <em>American Educational Research Journal</em> 40 (4): 905–28. <a href="https://doi.org/10.3102/00028312040004905">https://doi.org/10.3102/00028312040004905</a>.
+</div>
+</div>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
