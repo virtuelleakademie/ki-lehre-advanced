@@ -45,7 +45,7 @@ Wenn du eine harte Garantie brauchst (etwa für eine wiederkehrende Pipeline, in
 4. Füge das fertige Resultat als System-Prompt in dein Werkzeug ein (in Microsoft Copilot: "Anweisungen", in HuggingChat: "System Prompt", in ChatGPT: "Custom Instructions" oder Custom GPT, in Claude: "System Prompt").
 5. Teste mit einer realen oder erfundenen Lernenden-Antwort.
 
-Wenn das Werkzeug nicht das tut, was du erwartet hast, geh **zurück zum Spec Sheet**. Meistens fehlt eine Information, die du im Spec Sheet noch nicht festgelegt hattest. Das ist die wichtigste Lehre aus Block 3: die Qualität des Prompts ist eine Funktion der Qualität des Spec Sheets.
+Wenn das Werkzeug nicht das tut, was du erwartet hast, geh **zurück zum Spec Sheet**. Häufig fehlt eine Information, die du im Spec Sheet noch nicht festgelegt hattest. Das ist eine zentrale Lehre aus Block 3: die Qualität des Prompts hängt an der Qualität des Spec Sheets.
 
 ## Variante 1: Diagnostische Rolle
 
