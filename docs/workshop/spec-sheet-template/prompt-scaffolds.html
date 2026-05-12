@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -89,84 +124,6 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 <style>
-div.callout-prompt-example.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-prompt-example.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f120' !important;
-  background-image: none;
-}
-div.callout-setup.callout {
-  border-left-color: #6E6560;
-}
-div.callout-setup.callout-style-default > .callout-header {
-  background-color: rgba(110, 101, 96, 0.13);
-}
-div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f7d9' !important;
-  background-image: none;
-}
-div.callout-schedule.callout {
-  border-left-color: #6E6560;
-}
-div.callout-schedule.callout-style-default > .callout-header {
-  background-color: rgba(110, 101, 96, 0.13);
-}
-div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f017' !important;
-  background-image: none;
-}
-div.callout-caution.callout {
-  border-left-color: #B8821A;
-}
-div.callout-caution.callout-style-default > .callout-header {
-  background-color: rgba(184, 130, 26, 0.13);
-}
-div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f071' !important;
-  background-image: none;
-}
-div.callout-active-processing.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-active-processing.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-active-processing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-active-processing.callout-style-default .callout-icon::before, div.callout-active-processing.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f044' !important;
-  background-image: none;
-}
-div.callout-checkpoint.callout {
-  border-left-color: #1E3A5F;
-}
-div.callout-checkpoint.callout-style-default > .callout-header {
-  background-color: rgba(30, 58, 95, 0.13);
-}
-div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f11e' !important;
-  background-image: none;
-}
 div.callout-export.callout {
   border-left-color: #A63D2F;
 }
@@ -178,19 +135,6 @@ div.callout-export.callout-style-default .callout-icon::before, div.callout-expo
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
   content: '\f56e' !important;
-  background-image: none;
-}
-div.callout-break.callout {
-  border-left-color: #6E6560;
-}
-div.callout-break.callout-style-default > .callout-header {
-  background-color: rgba(110, 101, 96, 0.13);
-}
-div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f7b6' !important;
   background-image: none;
 }
 div.callout-group.callout {
@@ -206,6 +150,19 @@ div.callout-group.callout-style-default .callout-icon::before, div.callout-group
   content: '\f0c0' !important;
   background-image: none;
 }
+div.callout-caution.callout {
+  border-left-color: #B8821A;
+}
+div.callout-caution.callout-style-default > .callout-header {
+  background-color: rgba(184, 130, 26, 0.13);
+}
+div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f071' !important;
+  background-image: none;
+}
 div.callout-facilitator.callout {
   border-left-color: #6E6560;
 }
@@ -219,30 +176,118 @@ div.callout-facilitator.callout-style-default .callout-icon::before, div.callout
   content: '\f46d' !important;
   background-image: none;
 }
-div.callout-feedback.callout {
+div.callout-checkpoint.callout {
   border-left-color: #1E3A5F;
 }
-div.callout-feedback.callout-style-default > .callout-header {
+div.callout-checkpoint.callout-style-default > .callout-header {
   background-color: rgba(30, 58, 95, 0.13);
 }
-div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
+div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f4ad' !important;
+  content: '\f11e' !important;
   background-image: none;
 }
-div.callout-nachlesen.callout {
-  border-left-color: #1E3A5F;
+div.callout-screens-down.callout {
+  border-left-color: #A63D2F;
 }
-div.callout-nachlesen.callout-style-default > .callout-header {
-  background-color: rgba(30, 58, 95, 0.13);
+div.callout-screens-down.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
 }
-div.callout-nachlesen .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-nachlesen.callout-style-default .callout-icon::before, div.callout-nachlesen.callout-titled .callout-icon::before {
+div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f518' !important;
+  content: '\f070' !important;
+  background-image: none;
+}
+div.callout-reflect.callout {
+  border-left-color: #1E3A5F;
+}
+div.callout-reflect.callout-style-default > .callout-header {
+  background-color: rgba(30, 58, 95, 0.13);
+}
+div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f0eb' !important;
+  background-image: none;
+}
+div.callout-screens-up.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-screens-up.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f06e' !important;
+  background-image: none;
+}
+div.callout-prompt-example.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-prompt-example.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f120' !important;
+  background-image: none;
+}
+div.callout-fallstudie.callout {
+  border-left-color: #6E6560;
+}
+div.callout-fallstudie.callout-style-default > .callout-header {
+  background-color: rgba(110, 101, 96, 0.13);
+}
+div.callout-fallstudie .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-fallstudie.callout-style-default .callout-icon::before, div.callout-fallstudie.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236E6560" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-try.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-try.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f021' !important;
+  background-image: none;
+}
+div.callout-timing.callout {
+  border-left-color: #6E6560;
+}
+div.callout-timing.callout-style-default > .callout-header {
+  background-color: rgba(110, 101, 96, 0.13);
+}
+div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f2f2' !important;
+  background-image: none;
+}
+div.callout-break.callout {
+  border-left-color: #6E6560;
+}
+div.callout-break.callout-style-default > .callout-header {
+  background-color: rgba(110, 101, 96, 0.13);
+}
+div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f7b6' !important;
   background-image: none;
 }
 div.callout-work-in-progress.callout {
@@ -271,30 +316,30 @@ div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.c
   content: '\f500' !important;
   background-image: none;
 }
-div.callout-pro-tip.callout {
+div.callout-feedback.callout {
   border-left-color: #1E3A5F;
 }
-div.callout-pro-tip.callout-style-default > .callout-header {
+div.callout-feedback.callout-style-default > .callout-header {
   background-color: rgba(30, 58, 95, 0.13);
 }
-div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
+div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\e2ca' !important;
+  content: '\f4ad' !important;
   background-image: none;
 }
-div.callout-screens-up.callout {
+div.callout-individual.callout {
   border-left-color: #A63D2F;
 }
-div.callout-screens-up.callout-style-default > .callout-header {
+div.callout-individual.callout-style-default > .callout-header {
   background-color: rgba(166, 61, 47, 0.13);
 }
-div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
+div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f06e' !important;
+  content: '\f007' !important;
   background-image: none;
 }
 div.callout-prompt-template.callout {
@@ -310,66 +355,43 @@ div.callout-prompt-template.callout-style-default .callout-icon::before, div.cal
   content: '\f328' !important;
   background-image: none;
 }
-div.callout-screens-down.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-screens-down.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f070' !important;
-  background-image: none;
-}
-div.callout-fallstudie.callout {
+div.callout-schedule.callout {
   border-left-color: #6E6560;
 }
-div.callout-fallstudie.callout-style-default > .callout-header {
+div.callout-schedule.callout-style-default > .callout-header {
   background-color: rgba(110, 101, 96, 0.13);
 }
-div.callout-fallstudie .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-fallstudie.callout-style-default .callout-icon::before, div.callout-fallstudie.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236E6560" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f017' !important;
+  background-image: none;
 }
-div.callout-reflect.callout {
+div.callout-setup.callout {
+  border-left-color: #6E6560;
+}
+div.callout-setup.callout-style-default > .callout-header {
+  background-color: rgba(110, 101, 96, 0.13);
+}
+div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f7d9' !important;
+  background-image: none;
+}
+div.callout-pro-tip.callout {
   border-left-color: #1E3A5F;
 }
-div.callout-reflect.callout-style-default > .callout-header {
+div.callout-pro-tip.callout-style-default > .callout-header {
   background-color: rgba(30, 58, 95, 0.13);
 }
-div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
+div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f0eb' !important;
-  background-image: none;
-}
-div.callout-tutor-example.callout {
-  border-left-color: #A63D2F;
-}
-div.callout-tutor-example.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
-}
-div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f086' !important;
-  background-image: none;
-}
-div.callout-timing.callout {
-  border-left-color: #6E6560;
-}
-div.callout-timing.callout-style-default > .callout-header {
-  background-color: rgba(110, 101, 96, 0.13);
-}
-div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f2f2' !important;
+  content: '\e2ca' !important;
   background-image: none;
 }
 div.callout-testing.callout {
@@ -385,30 +407,43 @@ div.callout-testing.callout-style-default .callout-icon::before, div.callout-tes
   content: '\e4f3' !important;
   background-image: none;
 }
-div.callout-try.callout {
-  border-left-color: #A63D2F;
+div.callout-nachlesen.callout {
+  border-left-color: #1E3A5F;
 }
-div.callout-try.callout-style-default > .callout-header {
-  background-color: rgba(166, 61, 47, 0.13);
+div.callout-nachlesen.callout-style-default > .callout-header {
+  background-color: rgba(30, 58, 95, 0.13);
 }
-div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
+div.callout-nachlesen .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-nachlesen.callout-style-default .callout-icon::before, div.callout-nachlesen.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f021' !important;
+  content: '\f518' !important;
   background-image: none;
 }
-div.callout-individual.callout {
+div.callout-tutor-example.callout {
   border-left-color: #A63D2F;
 }
-div.callout-individual.callout-style-default > .callout-header {
+div.callout-tutor-example.callout-style-default > .callout-header {
   background-color: rgba(166, 61, 47, 0.13);
 }
-div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
+div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f007' !important;
+  content: '\f086' !important;
+  background-image: none;
+}
+div.callout-active-processing.callout {
+  border-left-color: #A63D2F;
+}
+div.callout-active-processing.callout-style-default > .callout-header {
+  background-color: rgba(166, 61, 47, 0.13);
+}
+div.callout-active-processing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-active-processing.callout-style-default .callout-icon::before, div.callout-active-processing.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f044' !important;
   background-image: none;
 }
 </style>
@@ -568,52 +603,52 @@ div.callout-individual.callout-style-default .callout-icon::before, div.callout-
 <p><strong>Zweck:</strong> Das LLM schlägt eine erste Liste von Wissensbausteinen für deine Teilaufgabe vor. Du nimmst diese Liste mit zur Validierung.</p>
 <p><strong>Wann verwenden:</strong> ganz am Anfang von Block 2, sobald du Sektion 1 deines Spec Sheets ausgefüllt hast.</p>
 <p><strong>Was zu erwarten ist:</strong> vier bis acht Vorschläge, je mit Typ-Klassifikation, Beispiel-Vorkommen und einem konkreten Fehlermodus. Manche werden für deinen Kurs zu allgemein oder zu eng sein. Das ist normal: in der Validierung pruchst du die Liste.</p>
-<pre><code>Du hilfst einer Hochschuldozentin, eine Teilaufgabe einer ihrer Aufgaben in
-ihre Wissensbausteine zu zerlegen.
-
-Teilaufgabe (wortwörtlich):
-[hier einfügen]
-
-Kurskontext:
-- Studiengang:
-- Niveau (Semester, Modul):
-- Vorausgesetzte Module / Vorkenntnisse:
-- Lernziel der Aufgabe (in Worten der Lehrperson):
-
-Bitte schlage vier bis acht Wissensbausteine vor, die eine Lernende
-mitbringen muss, damit sie diese Teilaufgabe erfolgreich bearbeiten kann.
-
-Pro Baustein liefere:
-
-1. NAME: ein 3-7-Wort-Label.
-
-2. TYP: einer von drei (definiert durch die kognitive Operation, die die
-   Lernende mit dem Wissen ausführt):
-   - Faktenwissen (Abrufen): ein Item, das die Lernende aus dem Gedächtnis
-     abruft - ein Fakt, ein Wert, eine Formel, eine Definition.
-   - Klassifikationswissen (Erkennen): ein Muster oder eine Kategorie, die die
-     Lernende an einer neuen Instanz wiedererkennen muss, oft im Unterschied
-     zu einer ähnlich aussehenden falschen Kategorie.
-   - Erklärungswissen (Begründen): eine Regel mit erklärender Struktur, deren
-     richtige Anwendung sich mit dem Kontext ändert; die Lernende
-     begründet, beurteilt oder überträgt auf einen neuen Fall.
-
-3. WO ES VORKOMMT: ein Satz, wie sich der Baustein in dieser konkreten
-   Teilaufgabe zeigt.
-
-4. FEHLERMODUS: ein Satz, was die Lernende konkret schreibt oder tut,
-   wenn dieser Baustein fehlt oder fehlerhaft ist. Bitte konkret und
-   beobachtbar, nicht generisch.
-
-5. KONFIDENZ: hoch / mittel / niedrig. Bei mittel oder niedrig: in einem
-   Halbsatz, woran die Unsicherheit liegt.
-
-Wenn du tacites Wissen vermutest, das aus dem Aufgabentext allein schwer zu
-extrahieren ist (z.B. perceptive oder eingespielt-handwerkliche Bausteine),
-markiere den Punkt mit "TACIT - zur Prüfung durch die Lehrperson" statt zu
-raten.
-
-Padde die Liste nicht. Lieber sechs scharfe Bausteine als acht unscharfe.</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Du hilfst einer Hochschuldozentin, eine Teilaufgabe einer ihrer Aufgaben in</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ihre Wissensbausteine zu zerlegen.</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Teilaufgabe (wortwörtlich):</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">hier einfügen</span><span class="co">]</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Kurskontext:</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Studiengang:</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Niveau (Semester, Modul):</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Vorausgesetzte Module / Vorkenntnisse:</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lernziel der Aufgabe (in Worten der Lehrperson):</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>Bitte schlage vier bis acht Wissensbausteine vor, die eine Lernende</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>mitbringen muss, damit sie diese Teilaufgabe erfolgreich bearbeiten kann.</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Pro Baustein liefere:</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>NAME: ein 3-7-Wort-Label.</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>TYP: einer von drei (definiert durch die kognitive Operation, die die</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>   Lernende mit dem Wissen ausführt):</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Faktenwissen (Abrufen): ein Item, das die Lernende aus dem Gedächtnis</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>     abruft - ein Fakt, ein Wert, eine Formel, eine Definition.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Klassifikationswissen (Erkennen): ein Muster oder eine Kategorie, die die</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>     Lernende an einer neuen Instanz wiedererkennen muss, oft im Unterschied</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>     zu einer ähnlich aussehenden falschen Kategorie.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Erklärungswissen (Begründen): eine Regel mit erklärender Struktur, deren</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>     richtige Anwendung sich mit dem Kontext ändert; die Lernende</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>     begründet, beurteilt oder überträgt auf einen neuen Fall.</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>WO ES VORKOMMT: ein Satz, wie sich der Baustein in dieser konkreten</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>   Teilaufgabe zeigt.</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>FEHLERMODUS: ein Satz, was die Lernende konkret schreibt oder tut,</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>   wenn dieser Baustein fehlt oder fehlerhaft ist. Bitte konkret und</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>   beobachtbar, nicht generisch.</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>KONFIDENZ: hoch / mittel / niedrig. Bei mittel oder niedrig: in einem</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>   Halbsatz, woran die Unsicherheit liegt.</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>Wenn du tacites Wissen vermutest, das aus dem Aufgabentext allein schwer zu</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>extrahieren ist (z.B. perceptive oder eingespielt-handwerkliche Bausteine),</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>markiere den Punkt mit "TACIT - zur Prüfung durch die Lehrperson" statt zu</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>raten.</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>Padde die Liste nicht. Lieber sechs scharfe Bausteine als acht unscharfe.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="was-du-danach-machst" class="level2 callout-pro-tip" data-icon="false">
 <h2 class="anchored" data-anchor-id="was-du-danach-machst">Was du danach machst</h2>
@@ -630,69 +665,69 @@ Padde die Liste nicht. Lieber sechs scharfe Bausteine als acht unscharfe.</code>
 <h2 class="anchored" data-anchor-id="prompt-2-passende-lerngelegenheiten-benennen">Prompt 2: Passende Lerngelegenheiten benennen</h2>
 <p><em>Vertiefung für nach dem Workshop.</em> Nicht Teil des 60-min Block 2. Empfohlen, wenn du nach dem Workshop die Selbst-Tun-vs-Zuschauen-Markierung (Take-Home) sauber vorbereiten willst.</p>
 <p><strong>Zweck:</strong> Pro Wissensbaustein klären, welche Aktivität ihn tatsächlich entwickelt und welche nicht. Das ist die Grundlage für die spätere Frage, wo KI-Substitution den Lernprozess unterstützt und wo sie ihn unterläuft.</p>
-<p><strong>Wann verwenden:</strong> nachdem du dein Inventar aus Prompt 1 validiert hast.</p>
-<pre><code>Hier ist die validierte Liste von Wissensbausteinen für die Teilaufgabe
-[Teilaufgabe einfügen]:
-
-[Liste der Bausteine mit Typ einfügen]
-
-Pro Baustein liefere zwei Felder:
-
-1. ENTWICKELT DEN BAUSTEIN: die spezifische kognitive Aktivität, die die
-   Lernende tun muss, damit dieser Baustein erworben oder gefestigt
-   wird. Passe die Aktivität dem Typ an:
-
-   - Faktenwissen wird durch aktives Abrufen aus dem Gedächtnis gefestigt
-     (nicht durch Wiedererkennen aus einer Liste).
-   - Klassifikationswissen wird durch verschachtelte Klassifikationsübung
-     über mehrere kontrastierende Beispiele und Nicht-Beispiele gefestigt.
-   - Erklärungswissen wird durch Selbsterklärung, Vergleich von Lösungen,
-     oder kontrastive Fälle gefestigt, in denen die Lernende
-     artikulieren muss, *warum* eine Regel gilt und eine andere nicht.
-
-2. ENTWICKELT DEN BAUSTEIN NICHT: ein konkretes Beispiel, wie eine
-   Lernende den Oberflächenoutput dieser Teilaufgabe produzieren könnte,
-   ohne diesen kognitiven Prozess durchzumachen. Bitte spezifisch:
-   "die Antwort lesen" oder "das LLM fragen" sind zu generisch. Beschreibe
-   die konkrete Abkürzung.</code></pre>
+<p><strong>Wann verwenden:</strong> nach dem Workshop, wenn dein Spec Sheet steht und du die Selbst-Tun-vs-Zuschauen-Markierung als Take-Home-Hausaufgabe sauber vorbereiten willst.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Hier ist die validierte Liste von Wissensbausteinen für die Teilaufgabe</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Teilaufgabe einfügen</span><span class="co">]</span>:</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Liste der Bausteine mit Typ einfügen</span><span class="co">]</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Pro Baustein liefere zwei Felder:</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>ENTWICKELT DEN BAUSTEIN: die spezifische kognitive Aktivität, die die</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>   Lernende tun muss, damit dieser Baustein erworben oder gefestigt</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>   wird. Passe die Aktivität dem Typ an:</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Faktenwissen wird durch aktives Abrufen aus dem Gedächtnis gefestigt</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>     (nicht durch Wiedererkennen aus einer Liste).</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Klassifikationswissen wird durch verschachtelte Klassifikationsübung</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>     über mehrere kontrastierende Beispiele und Nicht-Beispiele gefestigt.</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Erklärungswissen wird durch Selbsterklärung, Vergleich von Lösungen,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>     oder kontrastive Fälle gefestigt, in denen die Lernende</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>     artikulieren muss, *warum* eine Regel gilt und eine andere nicht.</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>ENTWICKELT DEN BAUSTEIN NICHT: ein konkretes Beispiel, wie eine</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>   Lernende den Oberflächenoutput dieser Teilaufgabe produzieren könnte,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>   ohne diesen kognitiven Prozess durchzumachen. Bitte spezifisch:</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>   "die Antwort lesen" oder "das LLM fragen" sind zu generisch. Beschreibe</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>   die konkrete Abkürzung.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="prompt-3-reaktive-simulation-lies-das-ohne-x-zu-wissen" class="level2">
 <h2 class="anchored" data-anchor-id="prompt-3-reaktive-simulation-lies-das-ohne-x-zu-wissen">Prompt 3: Reaktive Simulation, “lies das, ohne X zu wissen”</h2>
 <p><em>Vertiefung für nach dem Workshop.</em> Nicht Teil des 60-min Block 2. Empfohlen, wenn du dein Spec Sheet gegen die tatsächlichen Lücken deiner Aufgabenstellung schärfen willst (häufigster Effekt: einzelne Wissensbausteine in Sektion 2 werden konkreter oder es kommt ein Erwerb-Hinweis dazu).</p>
 <p><strong>Zweck:</strong> Das LLM liest dein eigenes Aufgabentext-Material, so als hätte es einen bestimmten Wissensbaustein nicht. Es meldet zurück, was unklar ist, was vorausgesetzt wird, was sich nicht erschliesst. So findest du <strong>tacites Wissen</strong> in deiner Aufgabenstellung, das du selbst nicht mehr siehst, weil du es schon hast.</p>
-<p><strong>Wann verwenden:</strong> nachdem du dein Bausteininventar fertig hast und mindestens einen Baustein als zentral identifiziert hast. Beim Workshop ein bis zwei Mal pro Aufgabe genügen.</p>
+<p><strong>Wann verwenden:</strong> nach dem Workshop, für jede Teilaufgabe ein- bis zweimal. Im 60-min Block 2 nicht eingeplant; eine Workshop-Leitung kann diese Methode bei Interesse als ~2-Min-Demo zeigen, aber Eigenarbeit damit findet erst nach dem Workshop statt.</p>
 <p><strong>Was zu erwarten ist:</strong> das LLM markiert in deinem Text Stellen, die für eine “Lernende ohne Baustein X” undurchsichtig sind. Manche Markierungen werden überzogen sein (das LLM tut so, als hätte es weniger Vorwissen, als realistisch ist). Manche werden den Punkt treffen.</p>
-<pre><code>Du übernimmst die Rolle einer Lernenden, die die folgende Teilaufgabe
-bearbeiten soll. Wichtige Bedingung: du hast den Wissensbaustein
-[NAME DES BAUSTEINS einfügen, z.B. "weiss, dass r zwischen -1 und +1 liegt"]
-nicht.
-
-Du bist sonst eine kompetente Lernende auf dem im Kurskontext
-beschriebenen Niveau. Du bist nicht dümmer als nötig: tue nicht so, als ob
-du gar nichts wüsstest. Nur den genannten Baustein hast du nicht.
-
-Hier ist der Text der Teilaufgabe (und falls vorhanden begleitendes
-Material):
-
-[Wortlaut der Teilaufgabe einfügen, eventuell auch der unmittelbar
-begleitende Text aus der Aufgabenstellung]
-
-Lies den Text als Lernende ohne den genannten Baustein. Gib mir zurück:
-
-1. WAS UNKLAR IST: maximal fünf Stellen, an denen du als Lernende ins
-   Stocken gerätst. Pro Stelle: das Wort, der Satz oder die Stelle, an der
-   die Unklarheit auftritt, plus ein Satz, was an dieser Stelle unklar
-   wird.
-
-2. WAS DU TACIT VORAUSGESETZT SIEHST: Annahmen, die der Text macht, ohne
-   sie zu nennen, und die du nicht von selbst füllen kannst, weil dir der
-   Baustein fehlt.
-
-3. WAS DU TROTZDEM NOCH KANNST: Teile der Aufgabe, die für dich auch ohne
-   den Baustein bearbeitbar bleiben.
-
-Bitte keinen Trost-Output ("die Aufgabe ist insgesamt verständlich, aber
-..."). Schreibe als die Lernende, die du gerade bist.</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Du übernimmst die Rolle einer Lernenden, die die folgende Teilaufgabe</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>bearbeiten soll. Wichtige Bedingung: du hast den Wissensbaustein</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">NAME DES BAUSTEINS einfügen, z.B. "weiss, dass r zwischen -1 und +1 liegt"</span><span class="co">]</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>nicht.</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>Du bist sonst eine kompetente Lernende auf dem im Kurskontext</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>beschriebenen Niveau. Du bist nicht dümmer als nötig: tue nicht so, als ob</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>du gar nichts wüsstest. Nur den genannten Baustein hast du nicht.</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>Hier ist der Text der Teilaufgabe (und falls vorhanden begleitendes</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>Material):</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>[Wortlaut der Teilaufgabe einfügen, eventuell auch der unmittelbar</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>begleitende Text aus der Aufgabenstellung]</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>Lies den Text als Lernende ohne den genannten Baustein. Gib mir zurück:</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>WAS UNKLAR IST: maximal fünf Stellen, an denen du als Lernende ins</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>   Stocken gerätst. Pro Stelle: das Wort, der Satz oder die Stelle, an der</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>   die Unklarheit auftritt, plus ein Satz, was an dieser Stelle unklar</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>   wird.</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>WAS DU TACIT VORAUSGESETZT SIEHST: Annahmen, die der Text macht, ohne</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>   sie zu nennen, und die du nicht von selbst füllen kannst, weil dir der</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>   Baustein fehlt.</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>WAS DU TROTZDEM NOCH KANNST: Teile der Aufgabe, die für dich auch ohne</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>   den Baustein bearbeitbar bleiben.</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>Bitte keinen Trost-Output ("die Aufgabe ist insgesamt verständlich, aber</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>..."). Schreibe als die Lernende, die du gerade bist.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="was-diese-probe-surfacet" class="level2 callout-pro-tip" data-icon="false">
 <h2 class="anchored" data-anchor-id="was-diese-probe-surfacet">Was diese Probe surfacet</h2>
@@ -703,74 +738,74 @@ Bitte keinen Trost-Output ("die Aufgabe ist insgesamt verständlich, aber
 <h2 class="anchored" data-anchor-id="prompt-4-produktive-simulation-antworte-ohne-x">Prompt 4: Produktive Simulation, “antworte ohne X”</h2>
 <p><em>Live in Block 2.</em> Diesen Prompt nutzt du im Workshop, um Sektion 3 deines Spec Sheets zu füllen. In Block 2 verwendest du eine leicht vereinfachte Variante (siehe <a href="../../workshop/block-2-spec-card/index.html">Block-2-Page</a>); die hier dokumentierte vollständige Variante eignet sich für die Nachbereitung mit mehr Detailgrad.</p>
 <p><strong>Zweck:</strong> Das LLM produziert eine Antwort einer Lernenden, der ein Baustein fehlt. Du liest die Antwort darauf, ob deine Aufgabe diesen Misserfolg erkennen würde, oder ob die Antwort als ausreichend durchgehen könnte.</p>
-<p><strong>Wann verwenden:</strong> für jeden zentralen Wissensbaustein einmal, oder wenn du prüfen willst, ob deine Aufgabe ein bestimmtes Fehlkonzept überhaupt fängt.</p>
+<p><strong>Wann verwenden:</strong> in Block 2 einmal für deine Sektion 3 (Misconception-Simulation, mit der vereinfachten Variante auf der Block-2-Seite). Nach dem Workshop kannst du die hier dokumentierte vollständige Variante für jeden zentralen Wissensbaustein wiederholen, um zu prüfen, ob deine Aufgabe das jeweilige Fehlkonzept zuverlässig fängt.</p>
 <p><strong>Was zu erwarten ist:</strong> ein plausibler Antworttext, der intern stimmig ist und nicht offensichtlich sabotiert wirkt. Du liest ihn auf zwei Dinge hin: würde dir der Misserfolg beim Korrigieren auffallen, und welche Merkmale verraten ihn?</p>
-<pre><code>Du übernimmst die Rolle einer Lernenden, die die folgende Teilaufgabe
-bearbeitet. Wichtige Bedingung: du hast den Wissensbaustein
-[NAME einfügen]
-nicht. Sonst bist du eine kompetente Lernende auf dem im Kurskontext
-beschriebenen Niveau.
-
-Teilaufgabe:
-[Wortlaut einfügen]
-
-Schreibe die Antwort, die du als diese Lernende abgeben würdest. Drei
-Bedingungen:
-
-- Plausibel: die Antwort sollte nicht aussehen wie absichtliche Sabotage
-  oder als ob du gar nichts wüsstest.
-- Innerlich stimmig: du argumentierst aus deiner unvollständigen Basis
-  heraus konsequent.
-- Spezifisch zu dieser Teilaufgabe: keine generischen Floskeln.
-
-Anschliessend liefere mir zwei beobachtbare Merkmale in deiner Antwort,
-an denen eine aufmerksame Lehrperson den fehlenden Baustein bei genauem
-Lesen erkennen könnte. Pro Merkmal als Hinweis: "die Antwort enthält X,
-aber nicht Y" oder "die Lernende verwendet Begriff Z ohne den
-Qualifikator W".
-
-Zum Schluss: schätze ein, ob eine Lehrperson, die unter Zeitdruck korrigiert,
-den fehlenden Baustein wahrscheinlich bemerken würde, oder ob die Antwort
-als ausreichend durchgehen könnte.</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Du übernimmst die Rolle einer Lernenden, die die folgende Teilaufgabe</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>bearbeitet. Wichtige Bedingung: du hast den Wissensbaustein</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">NAME einfügen</span><span class="co">]</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>nicht. Sonst bist du eine kompetente Lernende auf dem im Kurskontext</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>beschriebenen Niveau.</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>Teilaufgabe:</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Wortlaut einfügen</span><span class="co">]</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>Schreibe die Antwort, die du als diese Lernende abgeben würdest. Drei</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>Bedingungen:</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Plausibel: die Antwort sollte nicht aussehen wie absichtliche Sabotage</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  oder als ob du gar nichts wüsstest.</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Innerlich stimmig: du argumentierst aus deiner unvollständigen Basis</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  heraus konsequent.</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Spezifisch zu dieser Teilaufgabe: keine generischen Floskeln.</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>Anschliessend liefere mir zwei beobachtbare Merkmale in deiner Antwort,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>an denen eine aufmerksame Lehrperson den fehlenden Baustein bei genauem</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>Lesen erkennen könnte. Pro Merkmal als Hinweis: "die Antwort enthält X,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>aber nicht Y" oder "die Lernende verwendet Begriff Z ohne den</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>Qualifikator W".</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>Zum Schluss: schätze ein, ob eine Lehrperson, die unter Zeitdruck korrigiert,</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>den fehlenden Baustein wahrscheinlich bemerken würde, oder ob die Antwort</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>als ausreichend durchgehen könnte.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="prompt-5-kohärentes-fehlkonzept" class="level2">
 <h2 class="anchored" data-anchor-id="prompt-5-kohärentes-fehlkonzept">Prompt 5: Kohärentes Fehlkonzept</h2>
 <p><em>Vertiefung für nach dem Workshop.</em> Nicht Teil des 60-min Block 2. Empfohlen, wenn du nach dem Workshop ein zentrales Erklärungs- oder Klassifikationswissen genauer prüfen willst, oder wenn deine Aufgabe explizit Verständnis (nicht nur Prozedur) testen soll.</p>
 <p><strong>Zweck:</strong> Das LLM erzeugt nicht nur einen oberflächlichen Fehler, sondern ein <strong>kohärentes Fehlkonzept</strong>: eine Sichtweise, die in manchen Fällen die richtige Antwort liefert und in anderen die falsche. Du prüfst, ob deine Teilaufgabe Lernende mit diesem Fehlkonzept von Lernenden mit korrektem Verständnis unterscheidet.</p>
-<p><strong>Wann verwenden:</strong> für die zentralen Klassifikations- oder Erklärungs-Bausteine. Optional, aber wichtig für Aufgaben, die Verständnis prüfen sollen.</p>
-<pre><code>Für den Wissensbaustein
-[NAME einfügen, ein Klassifikations- oder Erklärungs-Baustein]
-in der Teilaufgabe
-[Teilaufgabe einfügen]
-
-generiere ein kohärentes Fehlkonzept: eine falsche Regel, die eine
-Lernende konsistent halten könnte und die in manchen Fällen die richtige
-Antwort liefert und in anderen die falsche. Falls möglich, nimm ein
-Fehlkonzept, das in der Lehrforschung tatsächlich dokumentiert ist; sonst
-ein plausibles.
-
-Bitte ergänze auch ein Fehlkonzept, das aus einer **kohärenten
-Alltagsintuition** stammt, nicht nur aus einer falsch gelernten Formel. Die
-intuitive Basis ist der Grund, warum solche Fehlkonzepte widerständig sind
-und sich nicht durch bessere Erklärungen wegerklären lassen.
-
-Pro Fehlkonzept liefere:
-
-1. WIE DIE STUDIERENDE ES SAGEN WÜRDE: ein bis zwei Sätze in Ich-Form.
-
-2. INTUITIVE BASIS: die Alltagsintuition oder Übergeneralisierung, die das
-   Fehlkonzept richtig anfühlen lässt.
-
-3. EIN FALL, IN DEM DAS FEHLKONZEPT DIE RICHTIGE ANTWORT LIEFERT:
-   konkrete Aufgabensituation.
-
-4. EIN FALL, IN DEM ES DIE FALSCHE LIEFERT: konkrete Aufgabensituation.
-
-5. PROGNOSE: würde die ursprüngliche Teilaufgabe Lernende mit diesem
-   Fehlkonzept von Lernenden mit korrektem Verständnis unterscheiden?
-   Ja / Nein / Teilweise, mit kurzer Begründung. Wenn nein, nenne in einem
-   Satz, was an der Teilaufgabe verändert werden müsste, damit sie
-   diskriminiert.</code></pre>
+<p><strong>Wann verwenden:</strong> nach dem Workshop, für die zentralen Klassifikations- oder Erklärungs-Bausteine. Nicht Teil des 60-min Block 2; empfohlen, wenn deine Aufgabe explizit Verständnis (nicht nur Prozedur) testen soll.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Für den Wissensbaustein</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">NAME einfügen, ein Klassifikations- oder Erklärungs-Baustein</span><span class="co">]</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>in der Teilaufgabe</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Teilaufgabe einfügen</span><span class="co">]</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>generiere ein kohärentes Fehlkonzept: eine falsche Regel, die eine</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>Lernende konsistent halten könnte und die in manchen Fällen die richtige</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>Antwort liefert und in anderen die falsche. Falls möglich, nimm ein</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>Fehlkonzept, das in der Lehrforschung tatsächlich dokumentiert ist; sonst</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>ein plausibles.</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>Bitte ergänze auch ein Fehlkonzept, das aus einer **kohärenten</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>Alltagsintuition** stammt, nicht nur aus einer falsch gelernten Formel. Die</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>intuitive Basis ist der Grund, warum solche Fehlkonzepte widerständig sind</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>und sich nicht durch bessere Erklärungen wegerklären lassen.</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>Pro Fehlkonzept liefere:</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>WIE DIE STUDIERENDE ES SAGEN WÜRDE: ein bis zwei Sätze in Ich-Form.</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>INTUITIVE BASIS: die Alltagsintuition oder Übergeneralisierung, die das</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>   Fehlkonzept richtig anfühlen lässt.</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>EIN FALL, IN DEM DAS FEHLKONZEPT DIE RICHTIGE ANTWORT LIEFERT:</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>   konkrete Aufgabensituation.</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>EIN FALL, IN DEM ES DIE FALSCHE LIEFERT: konkrete Aufgabensituation.</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>PROGNOSE: würde die ursprüngliche Teilaufgabe Lernende mit diesem</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>   Fehlkonzept von Lernenden mit korrektem Verständnis unterscheiden?</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>   Ja / Nein / Teilweise, mit kurzer Begründung. Wenn nein, nenne in einem</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>   Satz, was an der Teilaufgabe verändert werden müsste, damit sie</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>   diskriminiert.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="hinweise-zur-validierung-des-llm-outputs" class="level2">
 <h2 class="anchored" data-anchor-id="hinweise-zur-validierung-des-llm-outputs">Hinweise zur Validierung des LLM-Outputs</h2>

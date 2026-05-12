@@ -41,7 +41,7 @@ Halte sie bereit. Du wirst sie in jedem Prompt als Kopfzeile einfügen.
 
 **Was zu erwarten ist:** vier bis acht Vorschläge, je mit Typ-Klassifikation, Beispiel-Vorkommen und einem konkreten Fehlermodus. Manche werden für deinen Kurs zu allgemein oder zu eng sein. Das ist normal: in der Validierung pruchst du die Liste.
 
-```
+```markdown
 Du hilfst einer Hochschuldozentin, eine Teilaufgabe einer ihrer Aufgaben in
 ihre Wissensbausteine zu zerlegen.
 
@@ -108,9 +108,9 @@ Lies die Liste mit einem Stift in der Hand. Für jeden Vorschlag entscheide:
 
 **Zweck:** Pro Wissensbaustein klären, welche Aktivität ihn tatsächlich entwickelt und welche nicht. Das ist die Grundlage für die spätere Frage, wo KI-Substitution den Lernprozess unterstützt und wo sie ihn unterläuft.
 
-**Wann verwenden:** nachdem du dein Inventar aus Prompt 1 validiert hast.
+**Wann verwenden:** nach dem Workshop, wenn dein Spec Sheet steht und du die Selbst-Tun-vs-Zuschauen-Markierung als Take-Home-Hausaufgabe sauber vorbereiten willst.
 
-```
+```markdown
 Hier ist die validierte Liste von Wissensbausteinen für die Teilaufgabe
 [Teilaufgabe einfügen]:
 
@@ -143,11 +143,11 @@ Pro Baustein liefere zwei Felder:
 
 **Zweck:** Das LLM liest dein eigenes Aufgabentext-Material, so als hätte es einen bestimmten Wissensbaustein nicht. Es meldet zurück, was unklar ist, was vorausgesetzt wird, was sich nicht erschliesst. So findest du **tacites Wissen** in deiner Aufgabenstellung, das du selbst nicht mehr siehst, weil du es schon hast.
 
-**Wann verwenden:** nachdem du dein Bausteininventar fertig hast und mindestens einen Baustein als zentral identifiziert hast. Beim Workshop ein bis zwei Mal pro Aufgabe genügen.
+**Wann verwenden:** nach dem Workshop, für jede Teilaufgabe ein- bis zweimal. Im 60-min Block 2 nicht eingeplant; eine Workshop-Leitung kann diese Methode bei Interesse als ~2-Min-Demo zeigen, aber Eigenarbeit damit findet erst nach dem Workshop statt.
 
 **Was zu erwarten ist:** das LLM markiert in deinem Text Stellen, die für eine "Lernende ohne Baustein X" undurchsichtig sind. Manche Markierungen werden überzogen sein (das LLM tut so, als hätte es weniger Vorwissen, als realistisch ist). Manche werden den Punkt treffen.
 
-```
+```markdown
 Du übernimmst die Rolle einer Lernenden, die die folgende Teilaufgabe
 bearbeiten soll. Wichtige Bedingung: du hast den Wissensbaustein
 [NAME DES BAUSTEINS einfügen, z.B. "weiss, dass r zwischen -1 und +1 liegt"]
@@ -195,11 +195,11 @@ Wenn das LLM Stellen markiert, die du für selbstverständlich gehalten hast, is
 
 **Zweck:** Das LLM produziert eine Antwort einer Lernenden, der ein Baustein fehlt. Du liest die Antwort darauf, ob deine Aufgabe diesen Misserfolg erkennen würde, oder ob die Antwort als ausreichend durchgehen könnte.
 
-**Wann verwenden:** für jeden zentralen Wissensbaustein einmal, oder wenn du prüfen willst, ob deine Aufgabe ein bestimmtes Fehlkonzept überhaupt fängt.
+**Wann verwenden:** in Block 2 einmal für deine Sektion 3 (Misconception-Simulation, mit der vereinfachten Variante auf der Block-2-Seite). Nach dem Workshop kannst du die hier dokumentierte vollständige Variante für jeden zentralen Wissensbaustein wiederholen, um zu prüfen, ob deine Aufgabe das jeweilige Fehlkonzept zuverlässig fängt.
 
 **Was zu erwarten ist:** ein plausibler Antworttext, der intern stimmig ist und nicht offensichtlich sabotiert wirkt. Du liest ihn auf zwei Dinge hin: würde dir der Misserfolg beim Korrigieren auffallen, und welche Merkmale verraten ihn?
 
-```
+```markdown
 Du übernimmst die Rolle einer Lernenden, die die folgende Teilaufgabe
 bearbeitet. Wichtige Bedingung: du hast den Wissensbaustein
 [NAME einfügen]
@@ -235,9 +235,9 @@ als ausreichend durchgehen könnte.
 
 **Zweck:** Das LLM erzeugt nicht nur einen oberflächlichen Fehler, sondern ein **kohärentes Fehlkonzept**: eine Sichtweise, die in manchen Fällen die richtige Antwort liefert und in anderen die falsche. Du prüfst, ob deine Teilaufgabe Lernende mit diesem Fehlkonzept von Lernenden mit korrektem Verständnis unterscheidet.
 
-**Wann verwenden:** für die zentralen Klassifikations- oder Erklärungs-Bausteine. Optional, aber wichtig für Aufgaben, die Verständnis prüfen sollen.
+**Wann verwenden:** nach dem Workshop, für die zentralen Klassifikations- oder Erklärungs-Bausteine. Nicht Teil des 60-min Block 2; empfohlen, wenn deine Aufgabe explizit Verständnis (nicht nur Prozedur) testen soll.
 
-```
+```markdown
 Für den Wissensbaustein
 [NAME einfügen, ein Klassifikations- oder Erklärungs-Baustein]
 in der Teilaufgabe
