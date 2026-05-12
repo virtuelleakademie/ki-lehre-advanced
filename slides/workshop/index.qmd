@@ -95,7 +95,7 @@ Eine typische Symptom-Aussage: *"wende einfach die Formel an"*, ohne zu sehen, d
 :::
 
 
-## LLMs als strukturierte Novizen {.smaller}
+## Das LLM als Hypothesengenerator {.smaller}
 
 <br>
 
@@ -109,6 +109,55 @@ Die Annahme dahinter: in dieser Rolle teilt das LLM die automatisierten Routinen
 
 ::: {.notes}
 ~1 Min. Diese Eigenschaft ist nicht trivial; die meisten LLM-Einsätze in der Lehre nutzen sie nicht aus. Im worked example unmittelbar danach wird sie operationalisiert.
+:::
+
+
+## Drei Typen von Wissensbausteinen {.smaller}
+
+<br>
+
+Wissensbausteine sortieren sich nach der kognitiven Operation, die die Lernende mit ihnen ausführen muss:
+
+<br>
+
+::::{.columns}
+:::{.column width="33%"}
+::: {style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #1E3A5F; min-height: 180px;"}
+**Faktenwissen**
+
+*Abrufen.*
+
+"$r$ liegt zwischen $-1$ und $+1$."
+:::
+:::
+
+:::{.column width="33%"}
+::: {style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #6E6560; min-height: 180px;"}
+**Klassifikationswissen**
+
+*Erkennen.*
+
+"Diese Forschungsfrage ist eine Vorhersage durch Prädiktoren, kein Mittelwertvergleich."
+:::
+:::
+
+:::{.column width="33%"}
+::: {style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #B8821A; min-height: 180px;"}
+**Erklärungswissen**
+
+*Begründen.*
+
+"Warum $b_1$ in der multiplen Regression von $r_{YX_1}$ abweichen kann."
+:::
+:::
+::::
+
+<br>
+
+[Dein Spec deckt idealerweise alle drei Typen ab. Vollständige Erklärung mit weiteren Beispielen im Block-1-Nachlesen.]{style="text-align: center; font-size: 0.85em; color: #6E6560; display: block;"}
+
+::: {.notes}
+~30 Sek. Kurze Orientierung. Drei Typen, jeweils benannt nach der kognitiven Operation. Vollständige Erklärung mit weiteren Beispielen und KLI-Verankerung im Block-1-Nachlesen-Tab. Im worked example unmittelbar danach sehen die Teilnehmenden die LLM-Output-Liste in genau diesen drei Typen sortiert; in Block 2 verlangt die Prüf-Checkliste, dass alle drei abgedeckt sind.
 :::
 
 
@@ -321,7 +370,7 @@ Dein Spec Sheet ist für alle drei Typen verwendbar. Nur die Übersetzung änder
 :::
 
 ::: {.notes}
-**Nicht Teil des 35-min Block 1.** Im redesignten Workshop entfällt die Affordance-Typen-Tour. Block 1 zeigt nur das Chat-LLM (LLM-as-Novice und Lernende-Simulator); Block 3 zeigt den strukturierten API-Pfad an einem gehosteten Werkzeug, ohne den Begriff "Affordance-Typ" zu verwenden. Diese Folie bleibt als Referenz im Deck, falls eine Lehrperson die drei Affordance-Typen in einer längeren Variante des Workshops verwenden möchte.
+**Nicht Teil des 35-min Block 1.** Im redesignten Workshop entfällt die Affordance-Typen-Tour. Block 1 zeigt nur das Chat-LLM (Hypothesengenerator und Lernende-Simulator); Block 3 zeigt den strukturierten API-Pfad an einem gehosteten Werkzeug, ohne den Begriff "Affordance-Typ" zu verwenden. Diese Folie bleibt als Referenz im Deck, falls eine Lehrperson die drei Affordance-Typen in einer längeren Variante des Workshops verwenden möchte.
 :::
 
 

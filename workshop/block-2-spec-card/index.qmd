@@ -17,7 +17,7 @@ title: "Block 2: Dein eigenes Spec (60 min)"
 
 ### {{< bi file-slides >}} Präsentation
 
-Du baust ein Spec für eine eigene Teilaufgabe. Das LLM hilft in zwei Rollen: als strukturierter Novize (Skills und Knowledge) und als Lernende-Simulator (Misconceptions). Was es liefert, sind plausible Hypothesen, keine validierten Aussagen: behandle die Ausgabe als Ausgangspunkt für deine Validierung.
+Du baust ein Spec für eine eigene Teilaufgabe. Das LLM hilft in zwei Rollen: als Hypothesengenerator (Skills und Knowledge) und als Lernende-Simulator (Misconceptions). Was es liefert, sind plausible Hypothesen, keine validierten Aussagen: behandle die Ausgabe als Ausgangspunkt für deine Validierung.
 
 {{< revealjs file="../../slides/workshop/index.html#/block-2" height="500px" class="ratio ratio-16x9" >}}
 
@@ -37,16 +37,16 @@ Eine Teilaufgabe, nicht die ganze Aufgabe. Mit mindestens einem Knowledge Compon
 - [ ] Teilaufgabe ist eng zugeschnitten (nicht "die ganze Klausur")
 - [ ] Mindestens eine reale Lernenden-Antwort fällt dir konkret ein
 
-#### Schritt 2: Skills und Knowledge mit LLM-as-Novice (20 min)
+#### Schritt 2: Skills und Knowledge mit dem Hypothesengenerator (20 min)
 
-Das LLM enumeriert die Voraussetzungen, als hätte es gerade die Vorgängerveranstaltung abgeschlossen. Du validierst jeden Eintrag gegen deine Lehrerfahrung.
+Das LLM enumeriert die Voraussetzungen, als hätte es gerade die Vorgängerveranstaltung abgeschlossen. Es liefert Hypothesen, die du gegen deine Lehrerfahrung validierst.
 
 ::: {.callout-individual icon=false}
 **Aufgabe (5 min):** Öffne ein Chat-LLM deiner Wahl (Copilot, HuggingChat, Claude, ChatGPT). Kopiere den Prompt, ersetze die Platzhalter, lass die Liste produzieren.
 :::
 
 ::: {.callout-prompt-example icon=false}
-## Prompt für die LLM-as-Novice-Rolle
+## Prompt für den Hypothesengenerator
 
 ```markdown
 Hier ist Material aus einem Kurs in <<< DISZIPLIN EINFÜGEN >>>. Spiele
@@ -56,9 +56,14 @@ aber diese Aufgabe hier noch nicht gesehen hat.
 Für jeden Schritt in der Musterlösung, liste auf: was müsste die Person
 bereits wissen, erkennen oder begründen können, um den Schritt zu
 verstehen? Markiere alles, was das Material voraussetzt, aber nicht
-selbst erklärt. Unterscheide zwischen Fakten zum Abrufen,
-Klassifikationen zum Erkennen, Prozeduren zum Ausführen und
-konzeptionellen Verständnissen.
+selbst erklärt. Sortiere die Liste in drei Typen:
+
+- Faktenwissen (Abrufen): was die Person aus dem Gedächtnis abrufen
+  können muss.
+- Klassifikationswissen (Erkennen): was sie als Instanz eines Konzepts
+  oder Anwendungsfalls erkennen können muss.
+- Erklärungswissen (Begründen): was sie begründen können muss,
+  einschliesslich konzeptioneller Verständnisse und Interpretationen.
 
 Material:
 <<< AUFGABE UND MUSTERLÖSUNG EINFÜGEN >>>

@@ -9,7 +9,7 @@ Fünf Prompts, die das LLM in zwei klar getrennten Rollen einsetzen. **Zwei davo
 
 **Live in Block 2:**
 
-- **Prompt 1: Wissensbausteine inventarisieren** (LLM-as-Novice, Hypothesengenerator). Füllt Sektion 2.
+- **Prompt 1: Wissensbausteine inventarisieren** (Hypothesengenerator-Rolle). Füllt Sektion 2.
 - **Prompt 4: Produktive Simulation einer Misconception** (Lernende-Simulator, produktiv). Füllt Sektion 3.
 
 **Vertiefung für nach dem Workshop:**

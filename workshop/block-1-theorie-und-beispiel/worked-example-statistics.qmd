@@ -1,5 +1,5 @@
 ---
-title: "Worked Example: LLM-as-Novice an einer Statistik-Aufgabe"
+title: "Worked Example: Hypothesengenerator an einer Statistik-Aufgabe"
 subtitle: "Multiple Regression als Demonstrationsbeispiel der Methode"
 format:
   html:
@@ -14,7 +14,7 @@ execute:
 ::: {.callout-note icon=false}
 ## Was du hier liest
 
-Eine kommentierte Anwendung der LLM-as-Novice-Methode auf eine konkrete Statistik-Aufgabe. Du beobachtest, wie ein als strukturierter Novize geprompter LLM die in einer Aufgabenstellung enthaltenen, aber nicht explizit benannten Voraussetzungen enumeriert. Die Aufgabe stammt aus einem Bachelor-Statistikkurs; sie dient hier ausschliesslich als Demonstrationsbeispiel.
+Eine kommentierte Anwendung des Hypothesengenerators auf eine konkrete Statistik-Aufgabe. Du beobachtest, wie ein LLM in der Hypothesengenerator-Rolle die in einer Aufgabenstellung enthaltenen, aber nicht explizit benannten Voraussetzungen enumeriert. Die Aufgabe stammt aus einem Bachelor-Statistikkurs; sie dient hier ausschliesslich als Demonstrationsbeispiel.
 
 Die Methode überträgt sich auch auf andere Fächer. In Block 2 wendest du sie auf eine Teilaufgabe aus deiner eigenen Lehre an, die mit Statistik nichts zu tun haben muss.
 :::
@@ -138,12 +138,12 @@ Eine erwartbare Antwort der Lernenden auf diese Ausgabe sieht etwa so aus:
 
 Diese Antwort enthält die richtigen Zahlen und die richtigen Vorzeichen. Die Lehrperson, die sie korrigiert, vergibt vermutlich die volle Punktzahl. Was darin allerdings nicht sichtbar wird: ob die Lernende verstanden hat, was "kontrolliert für" bedeutet, und ob sie denselben Output unter veränderten Bedingungen lesen könnte.
 
-## Der LLM-as-Novice-Prompt
+## Der Hypothesengenerator-Prompt
 
 Wir geben das Aufgabenmaterial (Aufgabenstellung plus Musterlösung) einem LLM mit der folgenden Anweisung. Den Prompt kannst du über das Symbol oben rechts im Codeblock kopieren und in Block 2 für deine eigene Teilaufgabe übernehmen; an der markierten Stelle fügst du dein eigenes Material ein.
 
 ::: {.callout-prompt-example icon=false}
-## Prompt für die LLM-as-Novice-Rolle
+## Prompt für den Hypothesengenerator
 
 ```markdown
 Hier ist Material aus einem Statistik-Kurs. Spiele eine Person, die gerade die
@@ -153,8 +153,13 @@ gesehen hat.
 Für jeden Schritt in der Musterlösung, liste auf: was müsste die Person
 bereits wissen, erkennen oder begründen können, um den Schritt zu verstehen?
 Markiere alles, was das Material voraussetzt, aber nicht selbst erklärt.
-Unterscheide zwischen Fakten zum Abrufen, Klassifikationen zum Erkennen,
-Prozeduren zum Ausführen und konzeptionellen Verständnissen.
+Sortiere die Liste in drei Typen:
+
+- Faktenwissen (Abrufen): was die Person aus dem Gedächtnis abrufen können muss.
+- Klassifikationswissen (Erkennen): was sie als Instanz eines Konzepts oder
+  Anwendungsfalls erkennen können muss.
+- Erklärungswissen (Begründen): was sie begründen können muss, einschliesslich
+  konzeptioneller Verständnisse und Interpretationen.
 
 Material:
 <<< HIER DEN VOLLSTÄNDIGEN LÖSUNGSWEG DER ÜBUNG EINFÜGEN:
@@ -178,29 +183,25 @@ Behandle die ausgegebene Liste deshalb als Hypothesen, die du gegen dein eigenes
 
 Das LLM listet, in der Rolle der noch nicht fortgeschrittenen Lernenden, die folgenden Voraussetzungen auf. Wir geben hier die wesentlichen Punkte wieder, leicht in der Reihenfolge geglättet.
 
-**Fakten und Notation:**
+**Faktenwissen (Abrufen):**
 
 - Was $r$, $r^2$, $R^2$, $b$ und $\beta$ jeweils bezeichnen und worin sie sich unterscheiden.
 - Was die Notation $r_{YX_1 \mid X_2}$ gegenüber $r_{YX_1}$ bedeutet (Partialkorrelation gegenüber bivariater Korrelation).
 - Dass $b_0$ den vorhergesagten $Y$-Wert bei $X_1 = X_2 = 0$ bezeichnet und nicht "den Durchschnitt".
 - Dass die R-Syntax `lm(Y ~ X1 + X2)` ein Modell ohne Interaktion ist, während `lm(Y ~ X1 * X2)` eines mit Interaktion wäre.
 
-**Klassifikationen und Erkennen:**
+**Klassifikationswissen (Erkennen):**
 
 - Eine Forschungsfrage als "Vorhersage durch mehrere Prädiktoren" erkennen und nicht als "Korrelation testen".
 - Den Output von `summary(lm(...))` als strukturiertes Ergebnis lesen: Koeffizienten, Standardfehler, $t$-Werte, $p$-Werte, $R^2$.
 - Erkennen, dass eine bivariate Korrelation $r_{YX_1}$ und der entsprechende Koeffizient $b_1$ in einer multiplen Regression unterschiedliche Grössen messen.
 - Eine signifikante bivariate Korrelation, die in der multiplen Regression nicht-signifikant wird, als Hinweis auf Konfundierung oder Multikollinearität lesen.
+- Erkennen, wann `lm(Y ~ X1 + X2)` der richtige Aufruf ist, und den dazugehörigen R-Workflow abrufen: Daten einlesen, Verteilung und Zusammenhang grafisch prüfen, Modell anpassen.
 
-**Prozeduren:**
+**Erklärungswissen (Begründen):**
 
-- Die Daten in R einlesen, deren Verteilung und Zusammenhang grafisch prüfen, eine multiple Regression anpassen.
-- Den Koeffizienten $b_1$ in Worte übersetzen: "pro Einheit Anstieg von $X_1$ bei Konstanthaltung von $X_2$".
+- Den Koeffizienten $b_1$ in Worte übersetzen: "pro Einheit Anstieg von $X_1$ bei Konstanthaltung von $X_2$", einschliesslich der konditionalen Lesart von "kontrolliert für": $b_1$ ist der Effekt von $X_1$ *bei gleicher Mathenote*, nicht der bereinigte Effekt nach einem Eingriff.
 - Den Anteil erklärter Varianz aus $R^2$ ablesen und in Worte fassen.
-
-**Konzeptionelle Verständnisse:**
-
-- Die konditionale Interpretation der Formulierung "kontrolliert für": $b_1$ ist der Effekt von $X_1$ *bei gleicher Mathenote*, nicht der bereinigte Effekt nach einem Eingriff.
 - Warum $b_1$ in der bivariaten und in der multiplen Regression unterschiedliche Werte haben kann.
 - Warum $R^2$ nicht die Summe der bivariaten $r^2$ ist, sobald die Prädiktoren miteinander korrelieren.
 - Was "nicht signifikant" über den wahren Effekt aussagt: nicht "kein Effekt", sondern "die Daten reichen nicht, um den Effekt von Null zu unterscheiden".
