@@ -1,0 +1,36 @@
+::: {.fig-diagram aria-label="Test-Protokoll: drei mögliche Ausgänge eines Tests, mit Rückkopplungen zum Spec Sheet beziehungsweise Prompt"}
+
+```{mermaid}
+%%| label: fig-test-protokoll
+%%| fig-cap: ""
+%%{init: {'theme':'base', 'themeVariables': {'fontFamily':'Space Grotesk, -apple-system, sans-serif', 'fontSize':'14px'}}}%%
+flowchart TD
+  Test["Test mit bekannter<br>Studierenden-Antwort"]
+
+  Test --> Pass["<b>Pass</b><br>Erwarteter Baustein,<br>plausible Stelle zitiert"]
+  Test --> Soft["<b>Fail soft</b><br>Anderer Baustein<br>oder generisch"]
+  Test --> Hard["<b>Fail hard</b><br>Erfundener Baustein,<br>nicht in Spec"]
+
+  Pass --> PassEnd["Spec hat funktioniert"]
+  Soft -.->|"zurück zum Spec"| SoftAct["'Was schiefgeht' schärfen"]
+  Hard -.->|"zurück zum Prompt"| HardAct["Anderes Modell<br>oder Klausel verstärken"]
+
+  classDef test fill:#F5F0E8,stroke:#6E6560,stroke-width:1.5px,color:#1A1714,rx:6,ry:6
+  classDef pass fill:#1E3A5F,stroke:#1E3A5F,color:#ffffff,rx:6,ry:6
+  classDef soft fill:#FAF5EC,stroke:#B8821A,stroke-width:1.5px,color:#B8821A,rx:6,ry:6
+  classDef hard fill:#FAF0EE,stroke:#A63D2F,stroke-width:1.5px,color:#A63D2F,rx:6,ry:6
+  classDef action fill:transparent,stroke:#C8C2B8,stroke-width:1px,color:#1A1714,rx:4,ry:4
+
+  class Test test
+  class Pass pass
+  class Soft soft
+  class Hard hard
+  class PassEnd,SoftAct,HardAct action
+
+  linkStyle 0,1,2 stroke:#6E6560,stroke-width:1.5px
+  linkStyle 3 stroke:#1E3A5F,stroke-width:1.5px
+  linkStyle 4 stroke:#B8821A,stroke-width:1.5px,stroke-dasharray:4 3
+  linkStyle 5 stroke:#A63D2F,stroke-width:1.5px,stroke-dasharray:4 3
+```
+
+:::

@@ -1,0 +1,227 @@
+---
+title: "Build: Implementing CLT in a Diagnostic Tool"
+---
+
+::: {.callout-schedule icon=false}
+## Duration: 115 minutes (including a 10-minute break)
+
+- Pick scenario (10 min)
+- Lab 1: Domain examples of each load type (15 min)
+- **Break (10 min)**
+- Lab 2: Map diagnosis to intervention (15 min)
+- Lab 3: Write the diagnostic prompt (25 min)
+- Lab 4: Test, refine, export (25 min)
+- Pair-test and gallery (15 min)
+:::
+
+## What you are building
+
+A working AI tool that takes a student response (written work, a short answer, an explanation) and returns a CLT-grounded diagnosis plus a targeted intervention. The output structure is fixed: it is the cognitive-load-theory taxonomy from the theory section of this workshop.
+
+Your job is not to design the tool's structure. Your job is to **instruct an LLM how to apply that fixed structure in your discipline**. The work happens in the system prompt.
+
+::: {.callout-pro-tip icon=false}
+## What "developing" means here
+
+You will not write Python. You will not edit a notebook. You will not deploy an app. The "developing" experience is something more focused: prompt craft against a fixed CLT-grounded structure, with immediate feedback from a real LLM running on real student artifacts.
+
+If at the end of the workshop you can sit at any LLM interface (Copilot, ChatGPT, Claude.ai) and produce reliable diagnoses-and-responses for student work in your discipline, you have built something useful.
+:::
+
+## The diagnostic shell
+
+[Open the shell in a new tab](https://awellis-diagnostic-tool-shell.hf.space){target="_blank" .btn .btn-primary}
+
+<iframe
+	src="https://awellis-diagnostic-tool-shell.hf.space"
+	frameborder="0"
+	width="100%"
+	height="700"
+	style="border: 1px solid #ddd; border-radius: 4px;"
+></iframe>
+
+The shell has three surfaces: a **system prompt editor** (left), a **test pane** (right) where you pick a scenario and run the diagnostic, and an **export portable prompt** section (bottom). The output schema is documented in the collapsed accordion below the prompt editor.
+
+## Pick your scenario (10 minutes)
+
+::: {.callout-individual icon=false}
+## Choose one of the six scenarios
+
+Six discipline scenarios are loaded in the shell's scenario picker. Each provides a teaching task and three calibrated student responses, each exemplifying a different `load_signal` category.
+
+- **Nursing**: Warfarin and INR
+- **Education**: Critique a quiz question
+- **Business**: Bakery pricing
+- **Social work**: Missed appointments
+- **Engineering**: Stale-data bug
+- **Statistics**: Interpreting r = 0.3
+
+**Pick the scenario closest to your discipline.** If none is close, pick the scenario whose teaching task most resembles a real moment in your teaching: a moment when you would benefit from a quick read on what a student response reveals.
+
+You will work with this scenario through Labs 1 to 4. Browse the [scenario page](scenarios/index.qmd){target="_blank"} for the full task framing and the calibration notes.
+:::
+
+## Lab 1: Domain examples of each load type (15 minutes)
+
+::: {.callout-timing icon=false}
+**Hard limit: 15 minutes.** This is a recall and instantiation exercise, not a research task.
+:::
+
+**Learning question:** what does each `load_signal` category actually look like in your discipline?
+
+::: {.callout-individual icon=false}
+## Instructions
+
+For each of the five `load_signal` categories, write **one sentence** describing a student response from your discipline that would exemplify that category. You can use the chosen scenario's calibrated responses as starting points, but write the examples in your own discipline's idiom.
+
+The five categories:
+
+1. **`intrinsic_overload`**: too much element interactivity for the learner's current schema
+2. **`extrinsic_distractor`**: irrelevant complexity in material or task design pulling effort to the wrong place
+3. **`germane_disengagement`**: technically correct retrieval without effortful processing
+4. **`schema_gap`**: foundational prior knowledge is simply absent
+5. **`active_misconception`**: a coherent but wrong model is being applied
+
+You will reuse this list in Lab 3 as cues in your system prompt.
+:::
+
+::: {.callout-reflect icon=false}
+## Reflection
+
+- Which category was hardest to instantiate in your discipline? That is often the category your teaching most needs help diagnosing.
+- Did any two categories blur together? In your discipline, what observable cue distinguishes them?
+:::
+
+::: {.callout-break icon=false}
+## Break (10 minutes)
+:::
+
+## Lab 2: Map diagnosis to intervention (15 minutes)
+
+::: {.callout-timing icon=false}
+**Hard limit: 15 minutes.**
+:::
+
+**Learning question:** which response strategy fits which diagnosis, and when does severity flip the call?
+
+::: {.callout-individual icon=false}
+## Instructions
+
+For each of the five `load_signal` categories, decide which `intervention` category you would deploy in your discipline at **moderate** severity:
+
+| Diagnosis | Intervention you would choose | Why this one and not another |
+|---|---|---|
+| `intrinsic_overload` | | |
+| `extrinsic_distractor` | | |
+| `germane_disengagement` | | |
+| `schema_gap` | | |
+| `active_misconception` | | |
+
+The plan will look obvious for some pairs (a `schema_gap` calls for `activate_prior_schema`) and contested for others. The contested ones are the interesting ones.
+:::
+
+::: {.callout-pair icon=false}
+## With your neighbour (last 5 minutes of the lab)
+
+Compare your matrices. Where you disagreed, was it because the discipline differs, or because you had different intuitions about what an intervention does?
+:::
+
+::: {.callout-reflect icon=false}
+## Reflection
+
+When does **severity** change which intervention you reach for? A `mild` `active_misconception` and a `fundamental` `active_misconception` may need different responses. Note one example from your discipline.
+:::
+
+## Lab 3: Write the diagnostic prompt (25 minutes)
+
+::: {.callout-timing icon=false}
+**Time limit: 25 minutes.** Iterate; do not perfect.
+:::
+
+**Learning question:** how do you instruct an LLM to apply the CLT taxonomy in your specific discipline?
+
+The shell ships with a **starter system prompt** that explains the CLT categories generically. Your job is to localise it: replace generic guidance with your discipline's cues for what each `load_signal` looks like.
+
+::: {.callout-individual icon=false}
+## Instructions
+
+In the shell's system prompt editor, do the following:
+
+1. **Read** the starter prompt. Note where it talks about how to identify each `load_signal`.
+2. **Replace** the generic cues with your discipline's cues. Use your Lab 1 sentences directly: "In <discipline>, `intrinsic_overload` looks like <your sentence>".
+3. **Add** any discipline-specific failure modes that the generic categories miss. (You cannot add new categories, but you can teach the LLM what they look like in your context.)
+4. **Specify** how you want the `domain_notes` field used. What discipline-specific observations should the tool surface?
+
+The prompt is your pedagogical thinking written down. The clearer your thinking, the cleaner the tool's diagnoses.
+:::
+
+::: {.callout-pro-tip icon=false}
+## What good prompts look like
+
+- Concrete cues beat abstract definitions. "Look for partial reasoning that breaks down mid-sentence" beats "tracks element-interactivity poorly".
+- Worked examples inside the prompt are powerful. A short "for instance, in nursing, an `active_misconception` looks like ..." anchors the LLM.
+- Be explicit about what NOT to do. "Do not classify a response as `germane_disengagement` if it shows novel application — that is engaged retrieval, not disengaged."
+:::
+
+## Lab 4: Test, refine, export (25 minutes)
+
+::: {.callout-timing icon=false}
+**Time limit: 25 minutes.**
+:::
+
+**Learning question:** does your tool actually distinguish the five load signals on real responses?
+
+::: {.callout-testing icon=false}
+## Calibration test
+
+Your scenario provides three calibrated student responses. Each is tagged with the `load_signal` it is meant to exemplify (open the scenario page in another tab to see the tags and rationales).
+
+For each calibrated response:
+
+1. Paste it into the test pane (or pick it from the dropdown)
+2. Run the diagnostic
+3. Compare the tool's `load_signal` to the calibrated tag
+4. If they disagree: was the tool wrong, was your prompt unclear, or was the calibration debatable?
+5. **Iterate the prompt** based on what you learn
+
+Aim for the tool to produce the calibrated `load_signal` on at least 2 of the 3 responses. If the third one is genuinely ambiguous in your discipline, that is a useful finding to bring to the gallery.
+:::
+
+::: {.callout-export icon=false}
+## Export the portable prompt
+
+Once you are reasonably happy with your prompt:
+
+1. Open the **Export portable prompt** section at the bottom of the shell
+2. Copy the entire markdown block
+3. Paste it into Microsoft Copilot, ChatGPT, or Claude.ai
+4. Replace `<<student response>>` with one of the calibrated responses
+5. Compare the result against your shell's output
+
+The portable prompt is your tool's recipe. It works in any LLM interface you have access to. It is the artifact you take back to your teaching.
+:::
+
+## Pair-test and gallery (15 minutes)
+
+::: {.callout-pair icon=false}
+## Cross-discipline test
+
+Trade scenario-and-prompt pairs with your neighbour. Run their tool against your scenario's calibrated responses (and vice versa).
+
+Discuss:
+
+- **Generalisation**: did their domain-tuned prompt produce sensible diagnoses on a discipline they did not write for? If yes, why? If not, what would have to change?
+- **Brittleness**: where does your tool fail on a response from a different discipline? Is the failure in the prompt, in the categories, or in the underlying model?
+- **Portability**: what happens when you run their portable prompt in your LLM of choice (Copilot vs. ChatGPT vs. Claude)? Same diagnoses? Different ones?
+:::
+
+::: {.callout-checkpoint icon=false}
+## What you have at the end of this block
+
+- A configured tool URL with your system prompt baked in (the URL state captures it)
+- A markdown recipe of your tool that you can paste into any LLM interface
+- A calibration record: which load signals your prompt distinguishes reliably and which it does not
+- A view from another discipline of where your tool generalises and where it does not
+
+You will use these in the closing block to plan one concrete change for your next teaching cycle.
+:::

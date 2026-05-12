@@ -1,0 +1,37 @@
+---
+title: "Mathematik: Das Substitutions-Muster erkennen"
+---
+
+::: {.callout-note icon=false}
+**Disziplin:** Analysis / Integrationstechniken: Wann Substitution gewählt wird
+:::
+
+## Lehraufgabe
+
+> Berechne $\int x \cdot \cos(x^2) \, dx$. Zeige deinen Rechenweg und begründe kurz die Wahl der Methode.
+
+## Drei kalibrierte Lernenden-Antworten
+
+### Antwort A: Aktive Fehlkonzeption
+
+> Ich nutze die partielle Integration mit $u = x$ und $dv = \cos(x^2) \, dx$. Dann ist $du = dx$ und $v = \int \cos(x^2) \, dx$. Da ich $\int \cos(x^2) \, dx$ nicht sofort kenne, setze ich $v = \sin(x^2)$. Das Integral wird zu $x \sin(x^2) - \int \sin(x^2) \, dx \approx x \sin(x^2) + \cos(x^2) + C$.
+
+::: {.callout-feedback}
+**Warum aktive Fehlkonzeption:** Die Lernende argumentiert selbstbewusst aus einem falschen Modell heraus. Sie greift zur partiellen Integration, ohne den Strukturhinweis ($x$ mal $\cos(x^2)$) zu bemerken, der auf Substitution verweist. Den fehlenden Stammfunktionsbaustein für $\cos(x^2)$ "repariert" sie durch Raten ($v = \sin(x^2)$), was die Kettenregel ignoriert. Die Fehlkonzeption: partielle Integration sei das Standardwerkzeug bei jedem Produkt im Integranden, unabhängig von der Struktur.
+:::
+
+### Antwort B: Schema-Lücke
+
+> Ich bin mir nicht sicher, welche Methode hier passt. Wir haben verschiedene gelernt: Substitution, partielle Integration, Partialbruchzerlegung, trigonometrische Identitäten. Der Integrand enthält ein Polynom ($x$) und eine trigonometrische Funktion ($\cos(x^2)$), also könnte es Substitution oder partielle Integration sein. Ohne zu wissen, welche zutrifft, würde ich es mit Substitution versuchen, weiss aber nicht, wie ich sie ansetze.
+
+::: {.callout-feedback}
+**Warum Schema-Lücke:** Die Lernende benennt ehrlich, was fehlt. Sie hat die *Liste* der Techniken, aber nicht das *Erkennungsmuster*, das ihr sagt, welche zur Struktur passt. Die kompilierte Produktion "wenn der Integrand $f'(x) \cdot g(f(x))$ enthält, dann $u = f(x)$" ist noch nicht aufgebaut. Das ist eine Lücke, keine Fehlkonzeption.
+:::
+
+### Antwort C: Lernferner Abruf
+
+> Substitution: $u = x^2$, $du = 2x \, dx$, also $x \, dx = \frac{1}{2} du$. Das Integral wird zu $\int \cos(u) \cdot \frac{1}{2} \, du = \frac{1}{2} \sin(u) + C = \frac{1}{2} \sin(x^2) + C$.
+
+::: {.callout-feedback}
+**Warum lernferner Abruf:** Die Lernende führt die Prozedur korrekt aus und kommt zur richtigen Antwort, artikuliert aber nicht, *warum* Substitution passt (die Kettenregel-Struktur im Integranden) oder *warum* diese Technik den anderen vorgezogen wurde. Die mechanische Anwendung ist flüssig; die Begründung fehlt. Eine Nachfrage zur Methodenwahl würde zeigen, ob das Erkennungsmuster vorhanden ist oder ob es ein trainiertes Reflex war.
+:::

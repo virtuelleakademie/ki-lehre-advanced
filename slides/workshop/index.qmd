@@ -1,0 +1,663 @@
+---
+title: "Spec Sheets bauen, mit LLMs als Hypothesengenerator und Lernende-Simulator"
+subtitle: "KI in der Lehre: Advanced — Workshop-Slides"
+date: today
+---
+
+## {.center}
+
+<br>
+
+::: {style="text-align: center; font-size: 1.5em; color: #1E3A5F; font-weight: bold;"}
+Spec zuerst, dann Werkzeug.
+:::
+
+<br>
+
+::: {style="text-align: center; font-size: 1.0em; color: #6E6560; max-width: 85%; margin: 0 auto; line-height: 1.5;"}
+Eine der schwierigsten pädagogischen Tätigkeiten beim Einsatz von KI in der Lehre ist nicht das Auswählen eines Werkzeugs, sondern das Spezifizieren dessen, was im Kopf der Lernenden passieren soll.
+:::
+
+::: {.notes}
+Begrüssen, Workshop-Programm in einem Satz: "Wir bauen heute ein Spec für eine deiner Aufgaben, fügen es in ein laufendes Werkzeug ein und beobachten, was passiert." Pausen-Hinweis. Direkt in den Einstieg.
+:::
+
+
+## Was du heute tust {.smaller}
+
+<br>
+
+::::{.columns}
+:::{.column width="33%"}
+### Block 1 (35 min)
+
+*Worked Example beobachten*
+
+Drei Eröffnungs-Slides, dann gemeinsamer Durchgang durch ein ausgearbeitetes Spec Sheet an einer Statistik-Aufgabe.
+:::
+
+:::{.column width="33%"}
+### Block 2 (60 min)
+
+*Eigenes Spec Sheet bauen*
+
+Für eine Teilaufgabe deiner Lehre: Wissensbausteine, Fehlkonzepte, Paar-Review.
+:::
+
+:::{.column width="33%"}
+### Block 3 + Closing (50 min)
+
+*Spec → Werkzeug → Verpflichtung*
+
+Spec im laufenden Werkzeug testen und schärfen, Leitsatz verallgemeinern, persönliche Verpflichtung.
+:::
+::::
+
+<br>
+
+::: {style="text-align: center; font-size: 1.0em; color: #6E6560;"}
+Programmiererfahrung brauchst du nicht. Eine Aufgabe aus deiner Lehre solltest du parathaben.
+:::
+
+
+# Block 1: Theorie und Beispiel {.center .section-divider .section-navy}
+
+
+## Ein schwieriges Problem {.smaller}
+
+<br>
+
+::: {style="font-size: 1.05em; max-width: 85%; margin: 0 auto; line-height: 1.6;"}
+Eine der schwierigsten pädagogischen Tätigkeiten beim Einsatz von KI in der Lehre ist nicht das Auswählen eines Werkzeugs, sondern das Spezifizieren dessen, was im Kopf der Lernenden passieren soll.
+
+Viele Lehrpersonen überspringen diesen Schritt und greifen direkt zum Werkzeug.
+
+Dieser Workshop kehrt die Reihenfolge um: **zuerst die Spezifikation, dann das Werkzeug.**
+:::
+
+::: {.notes}
+~1 Min. Eröffnet Block 1, direkt nach dem Einstieg. Diese drei Sätze sind der Workshop-Leitsatz. Pausen zwischen den Sätzen.
+:::
+
+
+## Der Expert Blind Spot {.smaller}
+
+<br>
+
+::: {style="font-size: 1.05em; max-width: 85%; margin: 0 auto; line-height: 1.6;"}
+Lehrpersonen sehen oft nicht, was ihre Lernenden noch nicht wissen, weil Automatisierung viele Teilfertigkeiten unsichtbar gemacht hat.
+
+Eine typische Symptom-Aussage: *"wende einfach die Formel an"*, ohne zu sehen, dass *"was zählt als relevanter Input"* selbst eine nicht-triviale Klassifikation ist.
+:::
+
+::: {.notes}
+~1 Min. Bezug zum Einstieg: was die Teilnehmenden gerade selbst erlebt haben, hat einen Namen. Die Empirie (Nathan, Koedinger & Alibali 2001; Feldon 2007) gehört in den Nachlesen-Tab, nicht auf die Folie.
+:::
+
+
+## Das LLM als Hypothesengenerator {.smaller}
+
+<br>
+
+::: {style="font-size: 1.05em; max-width: 85%; margin: 0 auto; line-height: 1.6;"}
+Ein LLM, das als *"Person, die gerade die Vorgängerveranstaltung abgeschlossen hat, aber diese hier noch nicht kennt"* geprompted wird, kann Teilschritte aufzählen, die ein Experte überspringt.
+
+Die Annahme dahinter: in dieser Rolle teilt das LLM die automatisierten Routinen der Expertin nicht, und seine Enumeration kann als **Spiegel** dienen, der mögliche Voraussetzungen der eigenen Performance sichtbar macht.
+
+[Die Liste ist *plausibel*, nicht *gemessen*: das LLM kennt deine Vorgängerveranstaltung nicht. Was im Output spezifisch passt, übernimmst du; was generisch ist, streichst du.]{style="font-size: 0.78em; color: #6E6560; display: block; margin-top: 0.8em;"}
+:::
+
+::: {.notes}
+~1 Min. Diese Eigenschaft ist nicht trivial; die meisten LLM-Einsätze in der Lehre nutzen sie nicht aus. Im worked example unmittelbar danach wird sie operationalisiert.
+:::
+
+
+## Drei Typen von Wissensbausteinen {.smaller}
+
+<br>
+
+Wissensbausteine sortieren sich nach der kognitiven Operation, die die Lernende mit ihnen ausführen muss:
+
+<br>
+
+::::{.columns}
+:::{.column width="33%"}
+::: {style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #1E3A5F; min-height: 180px;"}
+**Faktenwissen**
+
+*Abrufen.*
+
+"$r$ liegt zwischen $-1$ und $+1$."
+:::
+:::
+
+:::{.column width="33%"}
+::: {style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #6E6560; min-height: 180px;"}
+**Klassifikationswissen**
+
+*Erkennen.*
+
+"Diese Forschungsfrage ist eine Vorhersage durch Prädiktoren, kein Mittelwertvergleich."
+:::
+:::
+
+:::{.column width="33%"}
+::: {style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #B8821A; min-height: 180px;"}
+**Erklärungswissen**
+
+*Begründen.*
+
+"Warum $b_1$ in der multiplen Regression von $r_{YX_1}$ abweichen kann."
+:::
+:::
+::::
+
+<br>
+
+[Dein Spec deckt idealerweise alle drei Typen ab. Vollständige Erklärung mit weiteren Beispielen im Block-1-Nachlesen.]{style="text-align: center; font-size: 0.85em; color: #6E6560; display: block;"}
+
+::: {.notes}
+~30 Sek. Kurze Orientierung. Drei Typen, jeweils benannt nach der kognitiven Operation. Vollständige Erklärung mit weiteren Beispielen und KLI-Verankerung im Block-1-Nachlesen-Tab. Im worked example unmittelbar danach sehen die Teilnehmenden die LLM-Output-Liste in genau diesen drei Typen sortiert; in Block 2 verlangt die Prüf-Checkliste, dass alle drei abgedeckt sind.
+:::
+
+
+## Cognitive Load Theory: der Engpass {.smaller}
+
+Das Arbeitsgedächtnis verarbeitet etwa **4 Elemente** gleichzeitig, für **15-30 Sekunden**.
+
+{{< include ../../resources/figures/fig-bottleneck-funnel.qmd >}}
+
+::: {style="text-align: center; font-size: 0.95em; color: #1E3A5F; max-width: 80%; margin: 0.4em auto 0;"}
+Diese Engstelle ist der Grund, warum Lernen Mühe macht. Keine Technologie umgeht sie.
+:::
+
+::: {.notes}
+**Nicht Teil des 35-min Block 1.** Im redesignten Workshop entfällt das CLT-Recap; die CLT-Auffrischung in Volllänge ist die Refresher-Präsentation der Virtuellen Akademie (siehe Block 1 Nachlesen). Diese Folie bleibt als visuelle Referenz im Foliensatz, falls die Lehrperson das Konzept beiläufig erwähnen will.
+:::
+
+
+## Vorwissen bestimmt die Last {.smaller}
+
+Dieselbe Aufgabe ist für Anfängerinnen und Fortgeschrittene **unterschiedlich kostenintensiv**.
+
+<br>
+
+**Aufgabe:** Löse nach $x$ auf:  $$-1(-x - 7) = 14x - 6$$
+
+::::{.columns}
+:::{.column width="50%"}
+::: {style="background: rgba(213, 94, 0, 0.06); padding: 1.0em; border-radius: 8px;"}
+**Anfängerin**
+
+Hohe intrinsische Last:
+
+- Was bedeutet das Minus vor der Klammer?
+- Wie verteile ich?
+- Welche Rechenregeln gelten?
+:::
+:::
+
+:::{.column width="50%"}
+::: {style="background: rgba(0, 114, 178, 0.06); padding: 1.0em; border-radius: 8px;"}
+**Fortgeschrittene**
+
+Niedrige intrinsische Last:
+
+- "Klammer auflösen" → Schema
+- "Terme zusammenfassen" → Schema
+- "Nach $x$ auflösen" → Schema
+:::
+:::
+::::
+
+<br>
+
+::: {style="text-align: center; font-size: 1.05em; font-weight: bold; color: #D55E00;"}
+Konsequenz: Aufgaben müssen sich an Vorwissen anpassen. Das verlangt Diagnose.
+:::
+
+::: {.notes}
+**Nicht Teil des 35-min Block 1.** Im redesignten Workshop entfällt diese CLT-Folie. Sie bleibt als Referenz im Deck für Lehrpersonen, die Expertise-Reversal anhand der zwei Pakete kurz illustrieren möchten.
+:::
+
+
+## Scaffolding-Leiter (Fading) {.smaller}
+
+Wenn die intrinsische Last zu hoch ist, brauchen Lernende **gezieltes Scaffolding**.
+
+<br>
+
+| Stufe | Format | Geeignet, wenn... |
+|---|---|---|
+| 1 | **Worked Example**: vollständig durchgearbeitet | Baustein noch gar nicht da |
+| 2 | **Completion Problem**: teilweise gelöst | Baustein teilweise da |
+| 3 | **Hinweis-gestützt**: nur strategische Hinweise | Baustein da, aber unsicher |
+| 4 | **Eigenständig**: ohne Unterstützung | Baustein zuverlässig da |
+
+<br>
+
+::: {style="text-align: center; font-size: 1.0em; color: #6E6560;"}
+Welche Stufe für welchen Baustein passt, hängt von der **Diagnose** des Vorwissens ab.
+:::
+
+::: {.notes}
+**Nicht Teil des 35-min Block 1.** Im redesignten Workshop entfällt diese Scaffolding-Leiter-Folie aus dem CLT-Recap. Sie bleibt als Referenz im Deck und ist in der Refresher-Präsentation der Virtuellen Akademie vollständig erklärt.
+:::
+
+
+## Heute: die Diagnose explizit machen {#bridge .smaller}
+
+<br>
+
+::: {style="text-align: center; font-size: 1.3em; line-height: 1.6; max-width: 80%; margin: 0 auto;"}
+Die CLT sagt: wir müssen das Vorwissen diagnostizieren, sonst passt das Scaffolding nicht.
+
+[Heute machen wir diese Diagnose **explizit, schriftlich, falsifizierbar**.]{style="color: #1E3A5F; font-weight: bold;"}
+
+Die disziplinierte Form dieser Diagnose ist das **Spec Sheet**.
+:::
+
+::: {.notes}
+**Nicht Teil des 35-min Block 1.** Diese Brücken-Folie verbindet das CLT-Recap mit dem Spec Sheet. Da das CLT-Recap im redesignten Workshop entfällt, fehlt der Brücke der Antezedent. Sie bleibt als Referenz für Lehrpersonen, die das CLT-Recap optional zeigen möchten.
+:::
+
+
+## Spec ist dauerhaft, Werkzeug ist Übersetzung {.smaller}
+
+{{< include ../../resources/figures/fig-spec-prompt-timeline.qmd >}}
+
+::: {style="text-align: center; font-size: 0.95em; color: #6E6560; max-width: 80%; margin: 0.6em auto 0;"}
+Spec Sheet bleibt; der Prompt wird für jede Modellgeneration neu gerendert. Block 3 macht die Trennung an deinem eigenen Material erlebbar.
+:::
+
+::: {.notes}
+~1 Min. Pragmatische Trennung. Auf das Diagramm zeigen: oben durchgehend Spec, unten diskrete Prompts pro Modellgeneration. Ein Prompt, den du heute schreibst, kann in zwei Jahren obsolet sein, das Spec Sheet nicht.
+:::
+
+
+## Zwei LLM-Rollen heute {.smaller}
+
+<br>
+
+::::{.columns}
+:::{.column width="50%"}
+::: {style="background: rgba(30, 58, 95, 0.06); padding: 1.2em; border-radius: 8px; border-left: 4px solid #1E3A5F;"}
+**Lernende-Simulator** *(Hauptaffordanz)*
+
+Das LLM spielt eine Lernende ohne Baustein X.
+
+Zwei Probemodi:
+
+- *Reaktiv*: liest dein Material, meldet was unklar ist
+- *Produktiv*: schreibt eine Antwort mit Fehlkonzept
+
+→ Der externe Test deines Modells der Lernenden.
+:::
+:::
+
+:::{.column width="50%"}
+::: {style="background: rgba(166, 61, 47, 0.06); padding: 1.2em; border-radius: 8px; border-left: 4px solid #A63D2F;"}
+**Hypothesengenerator** *(unterstützend)*
+
+Das LLM schlägt Wissensbausteine vor.
+
+Du **prüfst** und markierst V (vermutet) oder B (beobachtet) oder verwirfst.
+
+→ Vor der Validierung.
+:::
+:::
+::::
+
+<br>
+
+::: {style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold;"}
+Beim Arbeiten in Block 2 immer fragen: *In welcher Rolle ist das LLM gerade?*
+:::
+
+::: {.notes}
+~1 Min. Lernende-Simulator zuerst, weil er die zentrale Affordanz dieses Workshops ist: ohne ihn ist die cognitive task analysis ein blinder Versuch. Der Hypothesengenerator beschleunigt nur das Auflisten in Sektion 2. Mehr als diese Trennung brauchen wir heute nicht.
+:::
+
+
+## Drei Affordance-Typen (kurz) {.smaller}
+
+Werkzeuge wechseln, **Affordance-Typen** bleiben:
+
+<br>
+
+::::{.columns}
+:::{.column width="33%"}
+::: {style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #1E3A5F; min-height: 160px;"}
+**Chat-Werkzeug**
+
+Copilot, ChatGPT, HuggingChat.
+
+System-Prompt + Eingabe + Antwort.
+
+→ Block 3 nutzt Typ 1.
+:::
+:::
+
+:::{.column width="33%"}
+::: {style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #6E6560; min-height: 160px;"}
+**Strukturierte API**
+
+z.B. Marimo + Pydantic.
+
+Erzwungenes Ausgabe-Schema.
+
+→ Live-Demo (1 Min).
+:::
+:::
+
+:::{.column width="33%"}
+::: {style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #B8821A; min-height: 160px;"}
+**Agentisch**
+
+Claude Code, pi.dev.
+
+LLM mit Werkzeugzugriff.
+
+→ Volllänge im Nachlesen.
+:::
+:::
+::::
+
+<br>
+
+::: {style="text-align: center; font-size: 0.95em; color: #6E6560;"}
+Dein Spec Sheet ist für alle drei Typen verwendbar. Nur die Übersetzung ändert sich.
+:::
+
+::: {.notes}
+**Nicht Teil des 35-min Block 1.** Im redesignten Workshop entfällt die Affordance-Typen-Tour. Block 1 zeigt nur das Chat-LLM (Hypothesengenerator und Lernende-Simulator); Block 3 zeigt den strukturierten API-Pfad an einem gehosteten Werkzeug, ohne den Begriff "Affordance-Typ" zu verwenden. Diese Folie bleibt als Referenz im Deck, falls eine Lehrperson die drei Affordance-Typen in einer längeren Variante des Workshops verwenden möchte.
+:::
+
+
+# Block 2: dein eigenes Spec Sheet {#block-2 .center .section-divider .section-accent}
+
+
+## Block 2 in 60 Min {.smaller}
+
+<br>
+
+| Zeit | Schritt |
+|---|---|
+| 5 min | Vorlage öffnen, Teilaufgabe wählen, Sektion 1 ausfüllen |
+| 25 min | Wissensbausteine inventarisieren (Prompt 1) → validieren V/B/Korrigieren/Verwerfen → Lernaktivitäten (Prompt 2) |
+| 20 min | Reaktive Simulation (Prompt 3) → Funde zurück in Sektion 2; Produktive Simulation (Prompt 4) → Sektion 3 |
+| 10 min | Paar-Feedback (3 strukturierte Fragen) |
+
+<br>
+
+::: {style="text-align: center; font-size: 1.0em; color: #1E3A5F; font-weight: bold;"}
+Ziel: erste vollständige Version. Nicht perfekt. Nicht alle Felder.
+:::
+
+::: {.notes}
+~30 Sek Folie. Kurz orientieren, dann gehen die Teilnehmenden in die Eigenarbeit. Blockfolie, kein Lehrinhalt.
+:::
+
+
+# Block 3: Spec → Prompt → Test {#block-3 .center .section-divider .section-navy}
+
+
+## Spec → Prompt ist mechanisch {.smaller}
+
+<br>
+
+::::{.columns}
+:::{.column width="50%"}
+**Aus deinem Spec Sheet**
+
+- Sektion 2 (Wissensbausteine, gruppiert nach Typ)
+- Sektion 3 (Fehlkonzepte, in Ich-Form)
+- "Was schiefgeht"-Sätze pro Baustein
+:::
+
+:::{.column width="50%"}
+**Wird zum System-Prompt**
+
+- "Wissensbausteine, die diese Teilaufgabe verlangt: [...]"
+- "Wahrscheinliche Fehlkonzepte: [...]"
+- Verhaltensregeln ("erfinde nichts ausserhalb dieser Listen": *soft constraint*)
+:::
+::::
+
+<br>
+
+::: {style="text-align: center; font-size: 1.0em; color: #D55E00; font-weight: bold;"}
+Wo dein Spec vage ist, fällt der Prompt schwer. Genau das ist die Lehre aus Block 3.
+:::
+
+::: {.notes}
+~2 Min. Mechanik vorführen am Statistik-Beispiel aus Block 1. Die Stelle hervorheben, an der eine Klammer im Template noch nicht im Spec Sheet abgedeckt ist. Beim "erfinde nichts" einmal explizit sagen: das ist eine Bitte an das Modell, kein erzwungener Constraint. In einem strukturierten API-Pfad wäre dasselbe ein Schema-Enum, der vom Validator erzwungen wird. Trade-off zwischen Chat-Niederschwelligkeit und Output-Härte. Die Architektur-Erklärung dazu liegt im Take-Home (`workshop/take-home/api-werkzeug-erklaert.qmd`).
+:::
+
+
+## Test-Protokoll: drei mögliche Ausgänge {.smaller}
+
+Wähle einen Baustein aus deiner Spec, den du als **B (beobachtet)** markiert hast. Gib die zugehörige Lernenden-Antwort ans Werkzeug.
+
+{{< include ../../resources/figures/fig-test-protokoll.qmd >}}
+
+::: {style="text-align: center; font-size: 0.9em; color: #6E6560; max-width: 85%; margin: 0.4em auto 0;"}
+Pass / Fail soft / Fail hard. Fail soft zeigt zurück zum Spec Sheet, Fail hard zeigt zurück zum Prompt: bleibt aber im Chat-Pfad nicht voll eliminierbar (siehe Nachlesen).
+:::
+
+::: {.notes}
+**Nicht Teil des Block-3-Live-Tests.** Im redesignten Workshop ist der Test auf eine pragmatische Frage reduziert: *Stimmt der Output mit dem überein, was deine echten Lernenden tun?* Die Drei-Ausgänge-Heuristik (Pass / Fail soft / Fail hard) bleibt im Block 3 Nachlesen-Tab als historische Referenz dokumentiert. Diese Folie bleibt im Deck als visuelle Erläuterung, falls eine Lehrperson die Heuristik in einer längeren Variante des Workshops erklären möchte.
+:::
+
+
+# Closing {#closing .center .section-divider .section-muted}
+
+
+## Leitsatz-Erweiterung {.smaller}
+
+<br>
+
+::: {style="font-size: 1.15em; max-width: 88%; margin: 0 auto; line-height: 1.7; text-align: center;"}
+**Das Spec ist dauerhaft, das Werkzeug ist Rendering.**
+
+Dieselbe Spezifikation kann ein Scaffolding-Tool, eine Lernende-Simulation oder einen Diagnosetest treiben.
+
+Wenn nächstes Jahr ein neues Modell oder Tool kommt, bleibt das Spec gleich.
+:::
+
+<br>
+
+::: {style="text-align: center; font-size: 0.95em; color: #6E6560; max-width: 80%; margin: 0 auto;"}
+Was du heute geschrieben hast, ist nicht eine Workshop-Notiz, sondern ein dauerhafter Artefakt.
+:::
+
+::: {.notes}
+~3 Min. Verbatim vorlesen, mit ausgesprochenen Pausen zwischen den drei Sätzen. Pause am Ende halten (mindestens 5 Sek), bevor zur Gallery übergeleitet wird. Das ist die Verallgemeinerung dessen, was die Teilnehmenden in Block 3 erlebt haben: dasselbe Spec, ein anderes Werkzeug, gleiches Ergebnis im Kern. Botschaft: das Werkzeug in Block 3 ist eines von vielen möglichen Renderings dieses Specs.
+:::
+
+
+## Downstream-Uses-Gallery {.smaller}
+
+<br>
+
+::: {style="max-width: 92%; margin: 0 auto; font-size: 0.95em; line-height: 1.55;"}
+
+**Vier weitere Einsätze, die dasselbe Spec treiben kann:**
+
+1. **Worked-Example-Generator:** Spec rein, ausgearbeitete Lösungsbeispiele raus, mit Warnhinweisen an den Misconception-Stellen.
+2. **Misconception-Probe:** Spec rein, Diagnosefragen raus, die genau die antizipierten Misconceptions aktivieren.
+3. **Formative Assessment Generator:** Spec rein, Quiz raus, das alle Wissensbausteine abdeckt und Misconceptions sondiert.
+4. **Knowledge-Tracing-Instrumentierung:** Spec als Q-Matrix für Mastery-Tracking-Systeme.
+
+:::
+
+<br>
+
+::: {style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold;"}
+Skizzen mit Prompt-Vorlagen findest du im Take-Home.
+:::
+
+::: {.notes}
+~5 Min. Pro Eintrag etwa eine Minute. **Nicht vorführen**, nur benennen. Die ausgearbeiteten Skizzen mit Prompt-Vorlagen liegen unter `workshop/take-home/weitere-werkzeuge.qmd`. Botschaft: das Spec, das du heute geschrieben hast, ist nicht an das Block-3-Werkzeug gebunden. Es ist die dauerhafte Substanz, mit der du in den nächsten Wochen weiterarbeiten kannst, in welchem Werkzeug auch immer.
+:::
+
+
+## Falsifikationsnotiz: was würde dich widerlegen? {.smaller}
+
+<br>
+
+::: {style="font-size: 1.1em; max-width: 85%; margin: 0 auto; line-height: 1.5;"}
+Wähle einen Wissensbaustein aus Sektion 2, den du als zentral einschätzt.
+
+Schreibe **einen Satz**: welches Verhalten von Lernenden würde dir zeigen, dass deine Decomposition für diesen Baustein falsch ist?
+
+→ Sektion 4 (Take-Home) deines Spec Sheets.
+:::
+
+<br>
+
+::: {style="background: rgba(30, 58, 95, 0.06); padding: 1.0em; border-radius: 8px; max-width: 80%; margin: 0 auto; font-style: italic; font-size: 0.95em;"}
+Beispiel: "Wenn Lernende, die ich klar als kompetente Korrelationsinterpretiererinnen einschätze, an dieser Teilaufgabe systematisch scheitern, dann ist Baustein 3 nicht das, was diese Aufgabe wirklich testet."
+:::
+
+<br>
+
+::: {style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold;"}
+Ohne diese Notiz bleibt das Spec Sheet eine plausible Hypothese ohne Bedingungen, unter denen du sie aufgeben würdest.
+:::
+
+::: {.notes}
+**Nicht mehr Teil des 15-min Closings.** Im redesignten Workshop ist die Falsifikationsnotiz Take-Home-Hausaufgabe (siehe `workshop/take-home/index.qmd`). Diese Folie bleibt als visuelle Referenz im Foliensatz für Lehrpersonen, die das Konzept on the fly einführen oder im Closing optional ansprechen wollen (1-2 Min, kein Eigenarbeitsanteil mehr).
+:::
+
+
+## Selbst-Tun vs. Zuschauen {.smaller}
+
+Markiere jeden Baustein in deiner Sektion 2 mit einem Tag:
+
+{{< include ../../resources/figures/fig-selbst-tun-zuschauen.qmd >}}
+
+::: {style="font-size: 0.85em; max-width: 92%; margin: 0.3em auto 0;"}
+**Entscheidungsregel aus Block 1:** Typ : Mechanismus : Operation : was die KI ersetzen darf. Faktenwissen, Klassifikationswissen, Erklärungswissen sind *meist* Selbst-Tun, weil die KI die jeweilige Operation nicht für die Lernende leisten kann. Hilfsschritte sind oft Zuschauen-erlaubt. Staging zählt: was bei einer Anfängerin Selbst-Tun ist, kann bei einer Fortgeschrittenen Zuschauen-reicht sein.
+:::
+
+::: {.notes}
+**Nicht mehr Teil des 15-min Closings.** Im redesignten Workshop ist das Selbst-Tun-vs-Zuschauen-Tagging Take-Home-Hausaufgabe (siehe `workshop/take-home/index.qmd`). Diese Folie bleibt als visuelle Referenz im Foliensatz; falls sie im Closing optional gezeigt wird, dann höchstens als 1-Min-Hinweis ("ihr werdet dies zuhause anwenden"), keine Eigenarbeit mehr.
+:::
+
+
+## Spec ist bereits eine Datenstruktur {.smaller}
+
+::::{.columns}
+:::{.column width="50%"}
+
+**Spec Sheet, Sektion 2 (Auszug)**
+
+- **B1, Faktenwissen (Abrufen):** *$r$* ist dimensionslos, $-1 \leq r \leq +1$. V; Selbst-Tun.
+- **B3, Klassifikationswissen (Erkennen):** Korrelation vs. Mittelwertvergleich. B; Selbst-Tun.
+- **B5, Erklärungswissen (Begründen):** warum $r = 0.3$ in Bildung bedeutsam ist. V; Selbst-Tun.
+
+**Sektion 3:** *verwechselt $r$ mit $R^2$*; *Korrelation als Kausalität*.
+
+:::
+:::{.column width="50%"}
+
+**adaptive-scaffolding (Python)**
+
+```python
+Exercise(
+    title="r = 0.3 interpretieren",
+    target_sub_skills=[
+        SubSkill.r_squared_meaning,
+        SubSkill.coefficient_interpretation,
+    ],
+    cognitive_demand=CognitiveDemand.CONCEPTUAL,
+    common_errors=[
+        "verwechselt r mit R²",
+        "Korrelation als Kausalität",
+    ],
+    expected_answer_fragments=[
+        "zwischen -1 und +1",
+        "kontextabhängige Bedeutsamkeit",
+    ],
+)
+```
+
+:::
+::::
+
+::: {style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold; max-width: 90%; margin: 0.3em auto 0;"}
+Dieselbe Information, zwei Oberflächen. Was du in 60 Minuten geschrieben hast, ist das Format, das adaptive Systeme als Eingabe brauchen.
+:::
+
+::: {.notes}
+~2 Min. Nicht durch die Felder gehen, nur darauf zeigen. Botschaft: du musst nie Python schreiben. Aber die Lehrperson, die ein Spec Sheet pflegt, hat das Format, das ein adaptives System braucht. Feldzuordnung im Detail steht im Nachlesen-Tab.
+:::
+
+
+## Verpflichtung: in den nächsten zwei Wochen {.smaller}
+
+<br>
+
+Schreibe auf Papier:
+
+::: {style="font-size: 1.1em; max-width: 80%; margin: 0 auto; line-height: 1.8;"}
+1. **Eine konkrete Aufgabe** deiner Lehre, an der du das Spec Sheet anwenden wirst. Nicht "ich werde nachdenken über..." sondern: diese spezifische Aufgabe.
+2. **Ein konkreter Schritt** (Spec anwenden / Aufgabenstellung anpassen / Lernenden-Konsequenz einbauen).
+3. **Ein Datum**, bis zu dem du es getan hast.
+:::
+
+<br>
+
+::: {style="text-align: center; font-size: 1.05em; color: #A63D2F; font-weight: bold;"}
+Erzähl es deiner Nachbarin, bevor du den Raum verlässt.
+:::
+
+::: {.notes}
+~5 Min. Diese Folie trägt den Hauptteil des Closings (zusammen mit der Leitsatz-Erweiterung und der Downstream-Uses-Gallery). Konkretheit erzwingen: spezifische Aufgabe, spezifischer Schritt, spezifisches Datum. 3 Min stilles Schreiben, dann 2 Min cross-discipline-Tausch (mündliche Zusage an Partnerin aus Block 2 als sozialer Commitment).
+:::
+
+
+## Take-Home: was du mitnimmst {.smaller}
+
+<br>
+
+::: {style="max-width: 88%; margin: 0 auto; font-size: 1.0em; line-height: 1.7;"}
+
+Auf der Take-Home-Seite findest du:
+
+- Das laufende Werkzeug (URL bleibt stabil).
+- Die Architektur-Erklärung in plain Deutsch.
+- Vier Skizzen für weitere Werkzeuge mit Prompt-Vorlagen.
+- Optionale Hausaufgaben: Falsifikationsnotiz und Selbst-Tun-vs-Zuschauen-Tagging.
+
+:::
+
+<br>
+
+::: {style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold;"}
+Dein Spec, deine Verpflichtung, die Take-Home-Seite. Mehr braucht es nach drei Stunden nicht.
+:::
+
+::: {.notes}
+~2 Min. Take-Home-URL nennen oder QR-Code zeigen. Nicht in eine Q&A-Runde überleiten; die Teilnehmenden haben in 3 Stunden mehr neue Information bekommen, als sie integrieren können. Türen offen für individuelle Fragen, aber kein offizielles Plenums-Q&A.
+:::
+
+
+## {.center}
+
+<br>
+
+::: {style="text-align: center; font-size: 1.5em; color: #1E3A5F;"}
+**Danke.**
+:::
+
+<br>
+
+::: {style="text-align: center; font-size: 1.0em; color: #6E6560; max-width: 80%; margin: 0 auto;"}
+Das Spec Sheet ist die dauerhafte Substanz deiner pädagogischen Arbeit mit KI. Werkzeuge ändern sich; was im Kopf einer Lernenden vorgeht, weniger schnell.
+:::
+
+::: {.notes}
+Verabschieden. Materialien-Hinweis in der Closing-Aktivitäten-Seite.
+:::

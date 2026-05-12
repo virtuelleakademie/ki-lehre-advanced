@@ -1,0 +1,219 @@
+```{ojs}
+//| echo: false
+
+viewof expertise_slider = {
+  const size = typeof ojs_font_size !== "undefined" ? ojs_font_size : "13px";
+  const slider_width = typeof ojs_slider_width !== "undefined" ? ojs_slider_width : "300px";
+  const div = html`<div style="display:flex;align-items:center;gap:12px;font-size:${size};">
+    <span style="white-space:nowrap;">Vorwissen: <strong>Anfänger:in</strong></span>
+    <input type="range" min="0" max="10" step="0.5" value="2" style="width:${slider_width};accent-color:#B8821A;">
+  </div>`;
+  const input = div.querySelector("input");
+  const label = div.querySelector("strong");
+  const levelName = (v) => v <= 3 ? "Anfänger:in" : v <= 7 ? "Fortgeschritten" : "Expert:in";
+  input.oninput = () => {
+    label.textContent = levelName(+input.value);
+    div.value = +input.value;
+    div.dispatchEvent(new Event("input", {bubbles: true}));
+  };
+  div.value = 2;
+  return div;
+}
+```
+
+```{ojs}
+//| echo: false
+
+offloading_spectrum = {
+  const w = typeof ojs_width !== "undefined" ? ojs_width : 700;
+  const h = typeof ojs_height !== "undefined" ? ojs_height : 400;
+  const fs = typeof ojs_font_size !== "undefined" ? ojs_font_size : "13px";
+
+  const t = expertise_slider / 10;
+
+  const examples = [
+    {
+      id: "eval",
+      label: "KI bewertet\nempirische Studie",
+      posNovice: 0.88, posExpert: 0.15,
+      descNovice: "Keine Basis für Überraschung — Fluency-Illusion",
+      descExpert: "Internes Modell prüft den KI-Output kritisch",
+      tier: "above", tierOffset: 0
+    },
+    {
+      id: "stats",
+      label: "KI löst\nStatistik-Aufgabe",
+      posNovice: 0.82, posExpert: 0.20,
+      descNovice: "Strukturelle Komponenten werden nie aufgebaut",
+      descExpert: "Versteht die Methode, spart Zeit für Interpretation",
+      tier: "below", tierOffset: 0
+    },
+    {
+      id: "calc",
+      label: "Taschenrechner\nfür Rechnung",
+      posNovice: 0.72, posExpert: 0.12,
+      descNovice: "Produziert Outputs, die nicht bewertet werden können",
+      descExpert: "Versteht Division, delegiert Routine",
+      tier: "above", tierOffset: 1
+    },
+    {
+      id: "feedback",
+      label: "KI gibt Feedback\nauf eigenen Text",
+      posNovice: 0.55, posExpert: 0.22,
+      descNovice: "Übernimmt Änderungen ohne eigene Bewertung",
+      descExpert: "Hat Modell, das durch Feedback aktualisiert wird",
+      tier: "below", tierOffset: 1
+    },
+  ];
+
+  const marginLeft = 50;
+  const marginRight = 50;
+  const marginTop = 70;
+  const marginBottom = 60;
+  const barY = marginTop + 80;
+  const barH = 28;
+  const innerW = w - marginLeft - marginRight;
+
+  const svg = d3.create("svg")
+    .attr("viewBox", [0, 0, w, h])
+    .attr("width", w)
+    .attr("height", h)
+    .style("font-family", "system-ui, sans-serif")
+    .style("font-size", fs)
+    .style("background", "transparent");
+
+  // Gradient
+  const defs = svg.append("defs");
+  const grad = defs.append("linearGradient").attr("id", "offloading-spectrum-grad");
+  grad.append("stop").attr("offset", "0%").attr("stop-color", "#0072B2");
+  grad.append("stop").attr("offset", "100%").attr("stop-color", "#D55E00");
+
+  // Title
+  svg.append("text")
+    .attr("x", w / 2).attr("y", 24)
+    .attr("text-anchor", "middle")
+    .attr("font-weight", "bold")
+    .attr("font-size", "15px")
+    .attr("fill", "#1A1714")
+    .text("Offloading oder Outsourcing? Es kommt auf die Person an.");
+
+  // Dynamic subtitle
+  const subtitleText = t <= 0.3
+    ? "Ohne Vorwissen wird fast jede KI-Nutzung zum Outsourcing"
+    : t >= 0.7
+      ? "Mit Expertise wird dieselbe KI-Nutzung zum Offloading"
+      : "Vorwissen bestimmt, wo eine Aktivität auf dem Spektrum liegt";
+
+  svg.append("text")
+    .attr("x", w / 2).attr("y", 46)
+    .attr("text-anchor", "middle")
+    .attr("font-size", "12px")
+    .attr("font-style", "italic")
+    .attr("fill", "#666")
+    .text(subtitleText);
+
+  // Gradient bar
+  svg.append("rect")
+    .attr("x", marginLeft).attr("y", barY)
+    .attr("width", innerW).attr("height", barH)
+    .attr("rx", 3)
+    .attr("fill", "url(#offloading-spectrum-grad)")
+    .attr("stroke", "#1A1714").attr("stroke-width", 0.8);
+
+  // Axis labels
+  svg.append("text")
+    .attr("x", marginLeft).attr("y", barY - 8)
+    .attr("text-anchor", "start")
+    .attr("font-weight", "bold").attr("font-size", "12px")
+    .attr("fill", "#0072B2")
+    .text("Offloading");
+
+  svg.append("text")
+    .attr("x", marginLeft + innerW).attr("y", barY - 8)
+    .attr("text-anchor", "end")
+    .attr("font-weight", "bold").attr("font-size", "12px")
+    .attr("fill", "#D55E00")
+    .text("Outsourcing");
+
+  // Tooltip
+  const tooltip = svg.append("g").attr("opacity", 0);
+  const tooltipBg = tooltip.append("rect")
+    .attr("rx", 4).attr("fill", "#1A1714").attr("opacity", 0.9);
+  const tooltipText = tooltip.append("text")
+    .attr("fill", "white").attr("font-size", "11px").attr("text-anchor", "middle");
+
+  // Example dots and labels
+  const pointY = barY + barH / 2;
+  const aboveTierBase = barY - 22;
+  const belowTierBase = barY + barH + 18;
+  const tierSpacing = 30;
+
+  for (const ex of examples) {
+    const pos = ex.posNovice + t * (ex.posExpert - ex.posNovice);
+    const cx = marginLeft + pos * innerW;
+    const dotColor = d3.interpolateRgb("#D55E00", "#0072B2")(1 - pos);
+
+    const g = svg.append("g").style("cursor", "pointer");
+
+    // Label position
+    const isAbove = ex.tier === "above";
+    const labelBaseY = isAbove
+      ? aboveTierBase - ex.tierOffset * tierSpacing
+      : belowTierBase + ex.tierOffset * tierSpacing;
+
+    // Connector line from label to bar
+    const connectorEndY = isAbove ? barY : barY + barH;
+    const connectorStartY = isAbove ? labelBaseY + 6 : labelBaseY - 22;
+    g.append("line")
+      .attr("x1", cx).attr("x2", cx)
+      .attr("y1", connectorStartY).attr("y2", connectorEndY)
+      .attr("stroke", "#aaa").attr("stroke-width", 0.8)
+      .attr("stroke-dasharray", "2,2");
+
+    // Circle on bar
+    g.append("circle")
+      .attr("cx", cx).attr("cy", pointY)
+      .attr("r", 8)
+      .attr("fill", dotColor)
+      .attr("stroke", "#1A1714").attr("stroke-width", 1.5);
+
+    // Label text
+    const lines = ex.label.split("\n");
+    for (let i = 0; i < lines.length; i++) {
+      const ly = isAbove
+        ? labelBaseY - (lines.length - 1 - i) * 13
+        : labelBaseY + i * 13;
+      g.append("text")
+        .attr("x", cx).attr("y", ly)
+        .attr("text-anchor", "middle")
+        .attr("font-size", "10px")
+        .attr("font-weight", "bold")
+        .attr("fill", "#1A1714")
+        .text(lines[i]);
+    }
+
+    // Hover tooltip
+    const desc = t <= 0.4 ? ex.descNovice : t >= 0.6 ? ex.descExpert
+      : `${ex.descNovice} → ${ex.descExpert}`;
+
+    g.on("mouseenter", () => {
+      g.select("circle").attr("r", 11).attr("stroke-width", 2.5);
+      const ttX = Math.max(140, Math.min(w - 140, cx));
+      const ttY = barY + barH + 80 + ex.tierOffset * 4;
+      tooltipText.attr("x", ttX).attr("y", ttY + 14).text(desc);
+      const bbox = tooltipText.node().getBBox();
+      tooltipBg
+        .attr("x", bbox.x - 8).attr("y", bbox.y - 4)
+        .attr("width", bbox.width + 16).attr("height", bbox.height + 8);
+      tooltip.attr("opacity", 1);
+    });
+
+    g.on("mouseleave", () => {
+      g.select("circle").attr("r", 8).attr("stroke-width", 1.5);
+      tooltip.attr("opacity", 0);
+    });
+  }
+
+  return svg.node();
+}
+```

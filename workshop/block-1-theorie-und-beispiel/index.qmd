@@ -1,0 +1,108 @@
+---
+title: "Block 1: Theorie und Beispiel (35 min)"
+---
+
+::: {.callout-checkpoint icon=false}
+## Auf einen Blick
+
+- **Zeit:** 35 Minuten (5 Eröffnung, 25 Worked Example, 5 Spec-Vorschau)
+- **Ergebnis:** Vier Beobachtungen am Worked Example, die du in Block 2 an deiner eigenen Aufgabe wiederholst
+- **Format:** Plenum, mit einer eigenen Teilaufgabe gedanklich parat
+- **Leitfrage:** Wie macht eine Lehrperson sichtbar, was sie selbst nicht mehr sieht?
+:::
+
+**Facilitator-Notizen:** [block-1-facilitator.md](../../instructor-notes/block-1-facilitator.md)
+
+:::: {.panel-tabset}
+
+### {{< bi file-slides >}} Präsentation
+
+Im Einstieg hast du das Phänomen am eigenen Material erlebt. Block 1 gibt ihm einen Namen (Expert Blind Spot) und führt vor, wie ein LLM als Hypothesengenerator Blind Spots sichtbar macht. Die Methode wird an einer Statistik-Aufgabe demonstriert; sie ist domain-unabhängig.
+
+{{< revealjs file="../../slides/workshop/index.html" height="500px" class="ratio ratio-16x9" >}}
+
+### {{< bi pencil-square >}} Aktivitäten
+
+#### Mitbringen: deine eigene Teilaufgabe
+
+::: {.callout-individual icon=false}
+**Aufgabe:** Halte während Block 1 *eine konkrete Teilaufgabe aus deiner eigenen Lehre* gedanklich parat (idealerweise die, die du in Block 2 verwendest). Prüfe beim Mitschauen laufend: *Würde dieser Schritt auch für meine Aufgabe gehen? Welche Stelle wäre bei meiner Aufgabe anders?*
+:::
+
+#### Beim Worked Example: vier Stationen beobachten
+
+::: {.callout-individual icon=false}
+**Aufgabe:** Beim gemeinsamen Durchgang durch die [Worked-Example-Seite](worked-example-statistics.qmd) verdienen vier Stellen besondere Aufmerksamkeit. Notiere zu jeder Station kurz, was du an deiner eigenen Aufgabe anders erwarten würdest.
+:::
+
+- **Die typische akzeptable Antwort.** Was steht in einer Antwort, die du als korrigierende Lehrperson durchgehen lassen würdest? Lies sie als Lehrperson: welche Annahmen siehst du nicht?
+- **Der Hypothesengenerator-Prompt.** Welche genaue Formulierung versetzt das LLM in die nicht-fortgeschrittene Rolle? Diesen Prompt nutzt du in Block 2 selbst.
+- **Die Enumeration.** Etwa fünfzehn Voraussetzungen. Welche davon hättest du selbst gewusst, dass du sie voraussetzt? Welche nicht?
+- **Der Blind-Spot-Moment.** Vier Punkte werden hervorgehoben. Würdest du diese in deiner eigenen Lehre auch nicht explizit benennen?
+
+**Prüf-Checkliste am Ende von Block 1:**
+
+- [ ] Vier Notizen (eine pro Station), bezogen auf deine eigene Teilaufgabe
+- [ ] Mindestens eine Stelle, an der du anders entscheiden würdest als im Worked Example
+- [ ] [Spec-Vorlage](../spec-sheet-template/index.qmd) griffbereit für Block 2
+
+#### Übergang in Block 2
+
+Halte nach der Pause parat: die [Spec-Vorlage](../spec-sheet-template/index.qmd), das [Beispiel-Spec zur Multiple Regression](../spec-sheet-template/example-multiple-regression.md), eine eigene Teilaufgabe (oder eines der [Backup-Szenarien](../build/scenarios/index.qmd)).
+
+### {{< bi book >}} Nachlesen
+
+::: {.callout-nachlesen icon=false}
+#### Die Empirie hinter dem Expert Blind Spot
+
+Der *Expert Blind Spot* ist nicht bloss eine pädagogische Faustregel. Er ist ein robustes Forschungsergebnis. Mark Nathans Experimente an Mathematik-Lehrenden (Nathan, Koedinger & Alibali 2001) zeigten: Lehrende schätzen die Schwierigkeit symbolischer Aufgaben für ihre Lernenden als geringer ein als die Schwierigkeit verbaler Aufgaben, obwohl die Lernenden umgekehrt urteilen. Lehrende haben die symbolische Notation automatisiert, ihre Lernenden nicht. Feldon (2007) verallgemeinert: Experten sind systematisch schlecht darin, das eigene Wissen zu artikulieren, weil Automatisierung die Teilschritte unsichtbar macht.
+
+Cognitive Task Analysis (CTA) ist die methodische Antwort: ein strukturiertes Verfahren, um Expertenwissen zu externalisieren, das die Expertin selbst nicht sehen kann. CTA ist klassisch ein aufwendiges Interviewverfahren. LLMs in der Hypothesengenerator-Rolle sind eine niedrigschwellige Annäherung: sie leisten nicht, was eine vollständige CTA leistet, aber sie enumerieren ohne grossen Aufwand die offensichtlichsten Voraussetzungen.
+
+Literatur:
+
+- Nathan, M. J., Koedinger, K. R., & Alibali, M. W. (2001). Expert blind spot. *Proceedings of the Third International Conference on Cognitive Science*.
+- Feldon, D. F. (2007). The implications of research on expertise for curriculum and pedagogy. *Educational Psychology Review*, 19(2), 91-110.
+- Clark, R. E., Feldon, D., van Merriënboer, J. J. G., Yates, K., & Early, S. (2008). Cognitive task analysis. In *Handbook of Research on Educational Communications and Technology* (3rd ed.).
+:::
+
+::: {.callout-nachlesen icon=false}
+#### Die drei Typen von Wissensbausteinen
+
+Sowohl die Lernziele als auch die Prüf-Checkliste in Block 2 sortieren Wissensbausteine nach drei Typen, benannt nach der kognitiven Operation, die die Lernende mit dem jeweiligen Baustein ausführen muss.
+
+- **Faktenwissen (Abrufen).** Die Lernende muss eine Information aus dem Gedächtnis abrufen können: Definitionen, Notationen, Syntax, kanonische Werte. *Beispiel aus dem Worked Example:* "Der Korrelationskoeffizient $r$ ist dimensionslos und liegt zwischen $-1$ und $+1$."
+- **Klassifikationswissen (Erkennen).** Die Lernende muss einen konkreten Fall als Instanz eines Konzepts oder Anwendungsmusters erkennen. Hierunter fallen auch Prozeduren, die durch Erkennung des Anwendungsmusters ausgelöst werden. *Beispiel aus dem Worked Example:* "Diese Forschungsfrage ist eine Vorhersage durch mehrere Prädiktoren, keine Korrelationsprüfung."
+- **Erklärungswissen (Begründen).** Die Lernende muss begründen, warum etwas so ist, wie es ist. Hierunter fallen konzeptionelle Verständnisse und Interpretationen, die ohne Begründung leer bleiben. *Beispiel aus dem Worked Example:* "Warum $b_1$ in einer multiplen Regression einen anderen Wert annehmen kann als die bivariate Korrelation $r_{YX_1}$, sobald die Prädiktoren miteinander korrelieren."
+
+Die Typologie stammt aus dem **KLI-Framework** (Knowledge-Learning-Instruction, Koedinger, Corbett & Perfetti 2012). Dort werden die drei Typen unter den Bezeichnungen *Memory-and-Fluency*, *Induction-and-Refinement* und *Understanding-and-Sense-Making* eingeführt. Die deutschen Bezeichnungen *Faktenwissen / Klassifikationswissen / Erklärungswissen* sind im pädagogischen Sprachgebrauch geläufiger.
+
+Wichtig: ein einzelner Baustein muss nicht trennscharf in genau einen Typ fallen. Eine Prozedur kann gleichzeitig Klassifikation (wann wird sie angewendet?) und Erklärung (warum macht sie was sie macht?) verlangen. Worauf es ankommt: dass dein Spec am Ende alle drei Typen abdeckt, nicht dass jeder Baustein eindeutig einem Typ zuzuordnen ist.
+
+Literatur: Koedinger, K. R., Corbett, A. T., & Perfetti, C. (2012). The Knowledge-Learning-Instruction framework: Bridging the science-practice chasm to enhance robust student learning. *Cognitive Science*, 36(5), 757-798.
+:::
+
+::: {.callout-nachlesen icon=false}
+#### Cognitive Load Theory und Scaffolding
+
+Wer eine CLT-Auffrischung möchte (Engpass im Arbeitsgedächtnis, Schema-Aufbau im Langzeitgedächtnis, Expertise-Reversal-Effekt, Scaffolding-Leiter): die **Refresher-Präsentation** der Virtuellen Akademie ist die kompakte 30-Minuten-Volllänge.
+
+[Refresher-Präsentation: Von der kognitiven Architektur zum KI-gestützten Scaffolding](https://virtuelleakademie.github.io/ki-lehre-refresher/presentation/){target="_blank"}
+
+Für die Workshop-Substanz reicht es zu wissen: gute Lehre passt sich an Vorwissen an. Das erfordert Diagnose. Die Diagnose, die der Spec leistet, ist die schriftliche, falsifizierbare Form dieser Anpassung.
+:::
+
+::: {.callout-nachlesen icon=false}
+#### Cognitive Offloading vs. Outsourcing
+
+Die Unterscheidung, die der Workshop als *Selbst-Tun-erforderlich vs. Zuschauen-reicht* anlegt und als optionale Take-Home-Hausaufgabe ausführt, hat ihre theoretische Heimat im CAS Lernpsychologie. Dort findest du:
+
+- **Cognitive Offloading vs. Outsourcing** mit Forschungsbezügen (Risko, Google Effect, KI-Abhängigkeit) sowie das **Evaluationsparadox** und die **Versuch-dann-Prüfe**-Sequenz: [02-ki-und-lernen, CAS Lernpsychologie](https://virtuelleakademie.github.io/cas-lernpsychologie/02-ki-und-lernen/){target="_blank"}.
+- **Fünf Leitfragen** als alternative Linse auf dasselbe Designproblem: [02-ki-und-lernen / 5-leitfragen](https://virtuelleakademie.github.io/cas-lernpsychologie/02-ki-und-lernen/5-leitfragen/){target="_blank"}.
+
+Das Spec ist die schriftliche Umsetzung der Diagnoseseite dieser Frameworks.
+:::
+
+::::
+
+**Weiter:** [Block 2: Spec Sheet bauen](../block-2-spec-card/index.qmd)

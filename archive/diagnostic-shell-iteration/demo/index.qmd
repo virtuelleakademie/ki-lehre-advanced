@@ -1,0 +1,78 @@
+---
+title: "Demo: The Diagnostic Shell in Action"
+---
+
+::: {.callout-schedule icon=false}
+## Duration: 15 minutes
+:::
+
+## What you'll see
+
+In this demonstration, the instructor walks through the diagnostic shell using one of the calibrated scenarios. The aim is to show how the three surfaces of the shell work together: a system prompt that encodes how the CLT taxonomy applies in a discipline, a test pane that exercises the prompt against real student responses, and an export feature that turns your work into a portable recipe.
+
+## Open the shell
+
+[Open the diagnostic shell in a new tab](https://awellis-diagnostic-tool-shell.hf.space){target="_blank" .btn .btn-primary}
+
+<iframe
+	src="https://awellis-diagnostic-tool-shell.hf.space"
+	frameborder="0"
+	width="100%"
+	height="700"
+	style="border: 1px solid #ddd; border-radius: 4px;"
+></iframe>
+
+## What the instructor will demonstrate
+
+### 1. The fixed schema (2 minutes)
+
+Open the **Output schema (fixed, not editable)** accordion below the prompt editor. The five `load_signal` categories and five `intervention` categories are visible. These are the cognitive-load-theory taxonomy from the theory section, rendered as data fields. They are not editable: this is the deliberate design choice the workshop turns on.
+
+### 2. The starter system prompt (3 minutes)
+
+Read through the starter system prompt. Notice three things:
+
+- It names each `load_signal` and gives a generic cue for what it looks like.
+- It maps each diagnosis to a default intervention.
+- It is generic on purpose: it works across disciplines but says nothing specific about any one of them. Your work in the Build block will be to localise it.
+
+### 3. Test on a calibrated response (5 minutes)
+
+Pick the **Nursing: Warfarin and INR** scenario. Three calibrated student responses are loaded; the instructor will run **Response B** (the `active_misconception`: "high INR means thick blood, increase the dose").
+
+Watch the structured output:
+
+- `load_signal`: should report `active_misconception`
+- `evidence`: should quote or paraphrase the wrong-model line
+- `severity`: usually `fundamental` for an inverted dosing model
+- `intervention`: should default to `replace_misconception`
+- `content`: should be specific corrective text
+
+The diagnosis is grounded in the schema. The flexibility is in the prompt and the discipline-specific cues.
+
+### 4. Edit the prompt, watch behaviour change (3 minutes)
+
+The instructor will add one nursing-specific cue to the system prompt (e.g., "in pharmacology contexts, watch for inverted dose-response models — students sometimes invert the relationship between a lab value and the drug it monitors"). Re-run the same response and observe how the diagnosis becomes more confident or the `domain_notes` becomes more useful.
+
+This is what you will do in Lab 3, in your own discipline.
+
+### 5. The export (2 minutes)
+
+Open the **Export portable prompt** section. The markdown block you see contains your full prompt plus the schema description, ready to paste into Microsoft Copilot, ChatGPT, or Claude.ai. The instructor will copy it into a separate Copilot or ChatGPT tab and run it on the same nursing response. Same diagnosis, different tool.
+
+## What this demo is showing
+
+::: {.callout-pro-tip icon=false}
+- The **structure** of a diagnostic AI tool can be fixed once and reused across disciplines, *if* the structure is grounded in something the disciplines share (like CLT).
+- The **discipline-specific intelligence** lives in the system prompt, not in code or data structures.
+- The **portable prompt export** detaches your work from any specific deployment — your Monday-morning artifact does not depend on our hosting.
+:::
+
+::: {.callout-reflect icon=false}
+## Watch for
+
+- How much of the diagnostic feels like CLT, and how much feels like the LLM's general intelligence? Where would you want more of one and less of the other?
+- Where does the structured output help, and where does it constrain? Notice your own pull toward "but my discipline needs an extra field." We will return to that pull at the end.
+:::
+
+**Next:** [Build](../build/index.qmd)

@@ -1,0 +1,90 @@
+---
+title: "Spec-Vorlage: Eine Teilaufgabe"
+---
+
+::: {.callout-checkpoint icon=false}
+## Auf einen Blick
+
+- **Zeit:** 60 Minuten in Block 2
+- **Ergebnis:** Ausgefülltes Spec Sheet (drei Sektionen) für eine eigene Teilaufgabe
+- **Format:** Solo + Cross-discipline-Paar-Review
+- **Leitfrage:** Was muss in Köpfen passieren, damit deine Lernenden diese Aufgabe lösen?
+:::
+
+::: {.callout-note icon=false}
+## Was diese Vorlage ist
+
+Du füllst diese Vorlage in Block 2 für **eine einzelne Teilaufgabe** aus einer deiner eigenen Aufgaben aus. Nicht die ganze Aufgabe, sondern einen einzelnen Teilschritt: zum Beispiel "Interpretiere den Regressionskoeffizienten $b_1$ in einer multiplen Regression mit zwei Prädiktoren" innerhalb einer grösseren Aufgabe.
+
+Das ausgefüllte Spec ist dein zentrales Workshop-Ergebnis. Es ist Werkzeug-unabhängig: du kannst dasselbe Markdown heute in das laufende Werkzeug von Block 3 einfügen und in zwei Jahren in ein dann noch unbekanntes Werkzeug.
+
+Du arbeitest in Markdown, weil du in jedem Editor schreiben kannst und weil dasselbe Dokument in beliebige Werkzeuge eingefügt werden kann. Drei Möglichkeiten zum Ausfüllen: ausdrucken und handschriftlich; Markdown in einem Texteditor (VS Code, Obsidian, Notion, Word); direkt im Browser in den Notizfeldern.
+:::
+
+## Lernaufgabe (Kontext und Ziel)
+
+**Wortlaut:** Schreibe die Teilaufgabe wortwörtlich aus deiner Aufgabenstellung ab. Ein bis drei Sätze.
+
+> *(Hier eintragen)*
+
+**Rahmen:** In welchem Studiengang, in welchem Semester, mit welchen Vorkenntnissen begegnen Lernende dieser Teilaufgabe? Welche Module haben sie davor abgeschlossen?
+
+> *(Hier eintragen)*
+
+**Intendiertes Ergebnis:** Was soll diese Teilaufgabe bei der Lernende entwickeln oder prüfen? Ein bis zwei Sätze, ohne Fachjargon.
+
+> *(Hier eintragen)*
+
+## Erforderliche Skills und Knowledge
+
+**Was hier rein gehört:** die Skills und Knowledge Components, die eine Lernende haben muss, damit sie diese Teilaufgabe erfolgreich bearbeiten kann. Vier bis acht Einträge. Lieber wenige präzise als viele unscharfe.
+
+Pro Eintrag:
+
+- Eine kurze Formulierung des Skills oder der Knowledge Component (ein bis zwei Sätze).
+- Eine charakteristische Fehlerform: was eine Lernende konkret schreibt oder tut, wenn diese Komponente fehlt.
+- Optional eine Erwerb-Markierung: *vorausgesetzt* (sollte aus früheren Modulen vorhanden sein) oder *zu erwerben* (wird in dieser Teilaufgabe gebaut). Diese Markierung hilft im Block 3: ein fehlender vorausgesetzter Baustein ist ein Voraussetzungsproblem, ein fehlender zu-erwerbender Baustein ist die Aufgabe in Bearbeitung. Bei Grenzfällen (Grundkonzept vorausgesetzt, präzisere Form zu erwerben) erlaubt der Tag einen Freitext-Zusatz, oder du splittest den Eintrag in zwei.
+
+::: {.callout-pro-tip icon=false}
+## Tipp zur Granularität
+
+Zu abstrakt (z.B. "Statistik-Theorie") lässt sich der Eintrag im LLM-Werkzeug schlecht testen. Zu detailliert (z.B. "kennt die Formel für $s$ in einer 3-Werte-Stichprobe") liefert keine relevanten Unterschiede. Die richtige Stufe ist die, auf der ein LLM, das so tut, als hätte es diesen Skill nicht, eine erkennbar andere und schlechtere Antwort produziert.
+:::
+
+**Beispiel-Eintrag:**
+
+- Konditionale Interpretation des Begriffs "kontrolliert für".
+  *Erwerb:* zu erwerben (zentraler Lernziel-Baustein dieser Teilaufgabe).
+  *Charakteristische Fehlerform:* Interpretation im Sinne einer experimentellen Manipulation oder eines rechnerischen "Herausrechnens".
+
+**Deine Einträge:**
+
+> *(Hier eintragen, ein Eintrag pro Bullet)*
+
+## Antizipierte Misconceptions
+
+**Was hier rein gehört:** kohärente, aber falsche Modelle, die deine Lernenden haben könnten. Zwei bis vier Einträge.
+
+Eine Misconception ist nicht ein zufälliger Fehler, sondern eine Sichtweise, die für die Lernende intern stimmig ist. Genau deshalb ist sie widerständig: man weist sie nicht durch eine korrekte Erklärung weg.
+
+Pro Eintrag:
+
+- Eine Formulierung der Misconception (wie die Lernende sie selbst aussprechen würde).
+- Eine Vermutung über die intuitive Grundlage: woher kommt diese Sichtweise plausibel? Aus einer Alltagsintuition? Aus einer Übergeneralisierung eines früheren Lernschritts?
+
+**Beispiel-Eintrag:**
+
+- Lernende konzeptualisieren das "Kontrollieren" als aktiven Eingriff in den Datensatz.
+  *Vermutete intuitive Grundlage:* alltagssprachliche Konnotation des Begriffs "Kontrolle" als aktive Einflussnahme.
+
+**Deine Einträge:**
+
+> *(Hier eintragen, ein Eintrag pro Bullet)*
+
+## Wenn dein Spec fertig ist
+
+In Block 3 fügst du dein Markdown-Spec in das laufende Werkzeug ein und beobachtest, was es produziert. Wenn der Output nicht überzeugt, fehlt etwas im Spec.
+
+Ein vollständig ausgefülltes Beispiel-Spec zum Worked Example (multiple Regression aus Block 1) findest du unter [Beispiel: Multiple Regression](example-multiple-regression.md).
+
+Die theoretische Struktur hinter dieser Vorlage (Knowledge-Component-Theorie, KLI-Taxonomie, Falsifikationsnotiz als Take-Home, Pruning-Protokoll als optionale Validierungsschritt-Disziplin) ist in einem internen Dokument für die Workshop-Leitung festgehalten. Im Workshop selbst arbeitest du mit der vereinfachten Form: drei Sektionen, optionale V/B-Markierung pro Eintrag (vermutet / beobachtet), keine Pflicht-Pruning-Spalte.

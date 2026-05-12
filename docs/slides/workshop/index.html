@@ -1,0 +1,1992 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../..//assets/robot.png" rel="icon" type="image/png">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.js"></script>
+<link href="../../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
+
+  <meta name="author" content="Andrew Ellis">
+  <title>KI in der Lehre: Advanced – Spec Sheets bauen, mit LLMs als Hypothesengenerator und Lernende-Simulator</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-f8985de5a94754692913a08b09f20e82.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-attribution/attribution.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <script type="application/json" class="js-hypothesis-config">
+  {
+    "theme": "clean"
+  }
+  </script>
+  <script async="" src="https://hypothes.is/embed.js"></script>
+  <script>
+    window.document.addEventListener("DOMContentLoaded", function (_event) {
+      document.body.classList.add('hypothesis-enabled');
+    });
+  </script>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+  <style>
+  div.callout-feedback.callout {
+    border-left-color: #1E3A5F;
+  }
+  div.callout-feedback.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
+  }
+  div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f4ad' !important;
+    background-image: none;
+  }
+  div.callout-nachlesen.callout {
+    border-left-color: #1E3A5F;
+  }
+  div.callout-nachlesen.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
+  }
+  div.callout-nachlesen .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-nachlesen.callout-style-default .callout-icon::before, div.callout-nachlesen.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f518' !important;
+    background-image: none;
+  }
+  div.callout-fallstudie.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-fallstudie.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-fallstudie .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-fallstudie.callout-style-default .callout-icon::before, div.callout-fallstudie.callout-titled .callout-icon::before {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236E6560" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+  }
+  div.callout-export.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-export.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f56e' !important;
+    background-image: none;
+  }
+  div.callout-reflect.callout {
+    border-left-color: #1E3A5F;
+  }
+  div.callout-reflect.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
+  }
+  div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f0eb' !important;
+    background-image: none;
+  }
+  div.callout-caution.callout {
+    border-left-color: #B8821A;
+  }
+  div.callout-caution.callout-style-default > .callout-header {
+    background-color: rgba(184, 130, 26, 0.13);
+  }
+  div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f071' !important;
+    background-image: none;
+  }
+  div.callout-testing.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-testing.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\e4f3' !important;
+    background-image: none;
+  }
+  div.callout-screens-up.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-screens-up.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f06e' !important;
+    background-image: none;
+  }
+  div.callout-pair.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-pair.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f500' !important;
+    background-image: none;
+  }
+  div.callout-try.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-try.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f021' !important;
+    background-image: none;
+  }
+  div.callout-group.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-group.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f0c0' !important;
+    background-image: none;
+  }
+  div.callout-active-processing.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-active-processing.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-active-processing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-active-processing.callout-style-default .callout-icon::before, div.callout-active-processing.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f044' !important;
+    background-image: none;
+  }
+  div.callout-break.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-break.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f7b6' !important;
+    background-image: none;
+  }
+  div.callout-facilitator.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-facilitator.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-facilitator .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-facilitator.callout-style-default .callout-icon::before, div.callout-facilitator.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f46d' !important;
+    background-image: none;
+  }
+  div.callout-pro-tip.callout {
+    border-left-color: #1E3A5F;
+  }
+  div.callout-pro-tip.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
+  }
+  div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\e2ca' !important;
+    background-image: none;
+  }
+  div.callout-checkpoint.callout {
+    border-left-color: #1E3A5F;
+  }
+  div.callout-checkpoint.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
+  }
+  div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f11e' !important;
+    background-image: none;
+  }
+  div.callout-timing.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-timing.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f2f2' !important;
+    background-image: none;
+  }
+  div.callout-individual.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-individual.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f007' !important;
+    background-image: none;
+  }
+  div.callout-screens-down.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-screens-down.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f070' !important;
+    background-image: none;
+  }
+  div.callout-work-in-progress.callout {
+    border-left-color: #B8821A;
+  }
+  div.callout-work-in-progress.callout-style-default > .callout-header {
+    background-color: rgba(184, 130, 26, 0.13);
+  }
+  div.callout-work-in-progress .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-work-in-progress.callout-style-default .callout-icon::before, div.callout-work-in-progress.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f0c3' !important;
+    background-image: none;
+  }
+  div.callout-prompt-example.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-prompt-example.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f120' !important;
+    background-image: none;
+  }
+  div.callout-tutor-example.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-tutor-example.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f086' !important;
+    background-image: none;
+  }
+  div.callout-setup.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-setup.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f7d9' !important;
+    background-image: none;
+  }
+  div.callout-schedule.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-schedule.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f017' !important;
+    background-image: none;
+  }
+  div.callout-prompt-template.callout {
+    border-left-color: #1E3A5F;
+  }
+  div.callout-prompt-template.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
+  }
+  div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f328' !important;
+    background-image: none;
+  }
+  </style>
+<meta property="og:title" content="Spec Sheets bauen, mit LLMs als Hypothesengenerator und Lernende-Simulator – KI in der Lehre: Advanced">
+<meta property="og:description" content="KI in der Lehre: Advanced — Workshop-Slides">
+<meta property="og:site_name" content="KI in der Lehre: Advanced">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-opacity="1" class="quarto-title-block center">
+  <h1 class="title">Spec Sheets bauen, mit LLMs als Hypothesengenerator und Lernende-Simulator</h1>
+  <p class="subtitle">KI in der Lehre: Advanced — Workshop-Slides</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Andrew Ellis 
+</div>
+</div>
+</div>
+
+  <p class="date">13 May, 2026</p>
+</section>
+<section id="section" class="slide level2 center">
+<h2></h2>
+<p><br></p>
+<div style="text-align: center; font-size: 1.5em; color: #1E3A5F; font-weight: bold;">
+<p>Spec zuerst, dann Werkzeug.</p>
+</div>
+<p><br></p>
+<div style="text-align: center; font-size: 1.0em; color: #6E6560; max-width: 85%; margin: 0 auto; line-height: 1.5;">
+<p>Eine der schwierigsten pädagogischen Tätigkeiten beim Einsatz von KI in der Lehre ist nicht das Auswählen eines Werkzeugs, sondern das Spezifizieren dessen, was im Kopf der Lernenden passieren soll.</p>
+</div>
+<aside class="notes">
+<p>Begrüssen, Workshop-Programm in einem Satz: “Wir bauen heute ein Spec für eine deiner Aufgaben, fügen es in ein laufendes Werkzeug ein und beobachten, was passiert.” Pausen-Hinweis. Direkt in den Einstieg.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="was-du-heute-tust" class="slide level2 smaller">
+<h2>Was du heute tust</h2>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<h3 id="block-1-35-min">Block 1 (35 min)</h3>
+<p><em>Worked Example beobachten</em></p>
+<p>Drei Eröffnungs-Slides, dann gemeinsamer Durchgang durch ein ausgearbeitetes Spec Sheet an einer Statistik-Aufgabe.</p>
+</div><div class="column" style="width:33%;">
+<h3 id="block-2-60-min">Block 2 (60 min)</h3>
+<p><em>Eigenes Spec Sheet bauen</em></p>
+<p>Für eine Teilaufgabe deiner Lehre: Wissensbausteine, Fehlkonzepte, Paar-Review.</p>
+</div><div class="column" style="width:33%;">
+<h3 id="block-3-closing-50-min">Block 3 + Closing (50 min)</h3>
+<p><em>Spec → Werkzeug → Verpflichtung</em></p>
+<p>Spec im laufenden Werkzeug testen und schärfen, Leitsatz verallgemeinern, persönliche Verpflichtung.</p>
+</div></div>
+<p><br></p>
+<div style="text-align: center; font-size: 1.0em; color: #6E6560;">
+<p>Programmiererfahrung brauchst du nicht. Eine Aufgabe aus deiner Lehre solltest du parathaben.</p>
+</div>
+</section>
+<section>
+<section id="block-1-theorie-und-beispiel" class="title-slide slide level1 center section-divider section-navy">
+<h1>Block 1: Theorie und Beispiel</h1>
+
+</section>
+<section id="ein-schwieriges-problem" class="slide level2 smaller">
+<h2>Ein schwieriges Problem</h2>
+<p><br></p>
+<div style="font-size: 1.05em; max-width: 85%; margin: 0 auto; line-height: 1.6;">
+<p>Eine der schwierigsten pädagogischen Tätigkeiten beim Einsatz von KI in der Lehre ist nicht das Auswählen eines Werkzeugs, sondern das Spezifizieren dessen, was im Kopf der Lernenden passieren soll.</p>
+<p>Viele Lehrpersonen überspringen diesen Schritt und greifen direkt zum Werkzeug.</p>
+<p>Dieser Workshop kehrt die Reihenfolge um: <strong>zuerst die Spezifikation, dann das Werkzeug.</strong></p>
+</div>
+<aside class="notes">
+<p>~1 Min. Eröffnet Block 1, direkt nach dem Einstieg. Diese drei Sätze sind der Workshop-Leitsatz. Pausen zwischen den Sätzen.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="der-expert-blind-spot" class="slide level2 smaller">
+<h2>Der Expert Blind Spot</h2>
+<p><br></p>
+<div style="font-size: 1.05em; max-width: 85%; margin: 0 auto; line-height: 1.6;">
+<p>Lehrpersonen sehen oft nicht, was ihre Lernenden noch nicht wissen, weil Automatisierung viele Teilfertigkeiten unsichtbar gemacht hat.</p>
+<p>Eine typische Symptom-Aussage: <em>“wende einfach die Formel an”</em>, ohne zu sehen, dass <em>“was zählt als relevanter Input”</em> selbst eine nicht-triviale Klassifikation ist.</p>
+</div>
+<aside class="notes">
+<p>~1 Min. Bezug zum Einstieg: was die Teilnehmenden gerade selbst erlebt haben, hat einen Namen. Die Empirie (Nathan, Koedinger &amp; Alibali 2001; Feldon 2007) gehört in den Nachlesen-Tab, nicht auf die Folie.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="das-llm-als-hypothesengenerator" class="slide level2 smaller">
+<h2>Das LLM als Hypothesengenerator</h2>
+<p><br></p>
+<div style="font-size: 1.05em; max-width: 85%; margin: 0 auto; line-height: 1.6;">
+<p>Ein LLM, das als <em>“Person, die gerade die Vorgängerveranstaltung abgeschlossen hat, aber diese hier noch nicht kennt”</em> geprompted wird, kann Teilschritte aufzählen, die ein Experte überspringt.</p>
+<p>Die Annahme dahinter: in dieser Rolle teilt das LLM die automatisierten Routinen der Expertin nicht, und seine Enumeration kann als <strong>Spiegel</strong> dienen, der mögliche Voraussetzungen der eigenen Performance sichtbar macht.</p>
+<p><span style="font-size: 0.78em; color: #6E6560; display: block; margin-top: 0.8em;">Die Liste ist <em>plausibel</em>, nicht <em>gemessen</em>: das LLM kennt deine Vorgängerveranstaltung nicht. Was im Output spezifisch passt, übernimmst du; was generisch ist, streichst du.</span></p>
+</div>
+<aside class="notes">
+<p>~1 Min. Diese Eigenschaft ist nicht trivial; die meisten LLM-Einsätze in der Lehre nutzen sie nicht aus. Im worked example unmittelbar danach wird sie operationalisiert.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="drei-typen-von-wissensbausteinen" class="slide level2 smaller">
+<h2>Drei Typen von Wissensbausteinen</h2>
+<p><br></p>
+<p>Wissensbausteine sortieren sich nach der kognitiven Operation, die die Lernende mit ihnen ausführen muss:</p>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #1E3A5F; min-height: 180px;">
+<p><strong>Faktenwissen</strong></p>
+<p><em>Abrufen.</em></p>
+<p>“<span class="math inline">\(r\)</span> liegt zwischen <span class="math inline">\(-1\)</span> und <span class="math inline">\(+1\)</span>.”</p>
+</div>
+</div><div class="column" style="width:33%;">
+<div style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #6E6560; min-height: 180px;">
+<p><strong>Klassifikationswissen</strong></p>
+<p><em>Erkennen.</em></p>
+<p>“Diese Forschungsfrage ist eine Vorhersage durch Prädiktoren, kein Mittelwertvergleich.”</p>
+</div>
+</div><div class="column" style="width:33%;">
+<div style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #B8821A; min-height: 180px;">
+<p><strong>Erklärungswissen</strong></p>
+<p><em>Begründen.</em></p>
+<p>“Warum <span class="math inline">\(b_1\)</span> in der multiplen Regression von <span class="math inline">\(r_{YX_1}\)</span> abweichen kann.”</p>
+</div>
+</div></div>
+<p><br></p>
+<p><span style="text-align: center; font-size: 0.85em; color: #6E6560; display: block;">Dein Spec deckt idealerweise alle drei Typen ab. Vollständige Erklärung mit weiteren Beispielen im Block-1-Nachlesen.</span></p>
+<aside class="notes">
+<p>~30 Sek. Kurze Orientierung. Drei Typen, jeweils benannt nach der kognitiven Operation. Vollständige Erklärung mit weiteren Beispielen und KLI-Verankerung im Block-1-Nachlesen-Tab. Im worked example unmittelbar danach sehen die Teilnehmenden die LLM-Output-Liste in genau diesen drei Typen sortiert; in Block 2 verlangt die Prüf-Checkliste, dass alle drei abgedeckt sind.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="cognitive-load-theory-der-engpass" class="slide level2 smaller">
+<h2>Cognitive Load Theory: der Engpass</h2>
+<p>Das Arbeitsgedächtnis verarbeitet etwa <strong>4 Elemente</strong> gleichzeitig, für <strong>15-30 Sekunden</strong>.</p>
+<div class="fig-diagram" aria-label="CLT-Engpass: ein Datenfluss von links nach rechts. Sensorischer Input fliesst breit ein, verengt sich auf das schmale Arbeitsgedächtnis (vier Elemente, fünfzehn bis dreissig Sekunden) und öffnet sich wieder zum breiten Langzeitgedächtnis.">
+<svg viewbox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="bottleneck-title bottleneck-desc">
+  <title id="bottleneck-title">CLT-Engpass: das Arbeitsgedächtnis als Nadelöhr</title>
+  <desc id="bottleneck-desc">Drei Bereiche von links nach rechts. Links breit: Sensorischer Input. Mitte schmal: Arbeitsgedächtnis mit etwa vier Elementen über fünfzehn bis dreissig Sekunden. Rechts wieder breit: Langzeitgedächtnis mit Schemata. Trichterförmige Übergänge zwischen den Bereichen zeigen die Engstelle.</desc>
+
+  <!-- LEFT: Sensorischer Input (wide) -->
+  <rect x="20" y="60" width="160" height="160" rx="6" fill="#EDE7DA" stroke="var(--diagram-neutral)" stroke-width="1.5" stroke-linejoin="round"></rect>
+  <text x="100" y="135" font-size="13" font-weight="600" text-anchor="middle" font-family="var(--diagram-font-family)" fill="#1A1714">
+    Sensorischer
+  </text>
+  <text x="100" y="153" font-size="13" font-weight="600" text-anchor="middle" font-family="var(--diagram-font-family)" fill="#1A1714">
+    Input
+  </text>
+  <text x="100" y="180" font-size="11" text-anchor="middle" font-style="italic" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+    aus der Umwelt
+  </text>
+
+  <!-- TAPER: from wide LEFT to narrow MIDDLE -->
+  <path d="M 180 60 L 280 110 L 280 170 L 180 220 Z" fill="#EDE7DA" stroke="var(--diagram-neutral)" stroke-width="1.5" stroke-linejoin="round" opacity="0.65"></path>
+
+  <!-- MIDDLE: Arbeitsgedächtnis (narrow — the bottleneck) -->
+  <rect x="280" y="110" width="160" height="60" rx="4" fill="var(--diagram-spec)" stroke="var(--diagram-spec)" stroke-width="1.5"></rect>
+  <text x="360" y="134" font-size="13" font-weight="600" text-anchor="middle" font-family="var(--diagram-font-family)" fill="#ffffff">
+    Arbeitsgedächtnis
+  </text>
+  <text x="360" y="152" font-size="11" text-anchor="middle" font-family="var(--diagram-font-family)" fill="#ffffff" opacity="0.9">
+    ~4 Elemente · 15-30 Sek.
+  </text>
+
+  <!-- "Engpass"-label below middle -->
+  <text x="360" y="200" font-size="12" font-weight="600" text-anchor="middle" font-style="italic" font-family="var(--diagram-font-family)" fill="var(--diagram-prompt)">
+    Engpass
+  </text>
+  <line x1="330" y1="208" x2="390" y2="208" stroke="var(--diagram-prompt)" stroke-width="1.5" stroke-linecap="round"></line>
+
+  <!-- EXPAND: from narrow MIDDLE to wide RIGHT -->
+  <path d="M 440 110 L 540 60 L 540 220 L 440 170 Z" fill="#EDE7DA" stroke="var(--diagram-neutral)" stroke-width="1.5" stroke-linejoin="round" opacity="0.65"></path>
+
+  <!-- RIGHT: Langzeitgedächtnis (wide) -->
+  <rect x="540" y="60" width="160" height="160" rx="6" fill="#EDE7DA" stroke="var(--diagram-neutral)" stroke-width="1.5" stroke-linejoin="round"></rect>
+  <text x="620" y="135" font-size="13" font-weight="600" text-anchor="middle" font-family="var(--diagram-font-family)" fill="#1A1714">
+    Langzeit-
+  </text>
+  <text x="620" y="153" font-size="13" font-weight="600" text-anchor="middle" font-family="var(--diagram-font-family)" fill="#1A1714">
+    gedächtnis
+  </text>
+  <text x="620" y="180" font-size="11" text-anchor="middle" font-style="italic" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+    Schemata, ~unbegrenzt
+  </text>
+
+  <!-- Flow arrows (subtle, inside the tapers) -->
+  <g stroke="var(--diagram-neutral)" stroke-width="1" stroke-linecap="round" opacity="0.55">
+    <line x1="200" y1="100" x2="270" y2="135"></line>
+    <line x1="200" y1="140" x2="270" y2="140"></line>
+    <line x1="200" y1="180" x2="270" y2="145"></line>
+  </g>
+  <g stroke="var(--diagram-neutral)" stroke-width="1" stroke-linecap="round" opacity="0.55">
+    <line x1="450" y1="135" x2="520" y2="100"></line>
+    <line x1="450" y1="140" x2="520" y2="140"></line>
+    <line x1="450" y1="145" x2="520" y2="180"></line>
+  </g>
+
+  <!-- Bottom caption -->
+  <text x="360" y="252" font-size="12" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+    Jeder Denkakt muss durch dieses Nadelöhr.
+  </text>
+</svg>
+</div>
+<div style="text-align: center; font-size: 0.95em; color: #1E3A5F; max-width: 80%; margin: 0.4em auto 0;">
+<p>Diese Engstelle ist der Grund, warum Lernen Mühe macht. Keine Technologie umgeht sie.</p>
+</div>
+<aside class="notes">
+<p><strong>Nicht Teil des 35-min Block 1.</strong> Im redesignten Workshop entfällt das CLT-Recap; die CLT-Auffrischung in Volllänge ist die Refresher-Präsentation der Virtuellen Akademie (siehe Block 1 Nachlesen). Diese Folie bleibt als visuelle Referenz im Foliensatz, falls die Lehrperson das Konzept beiläufig erwähnen will.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="vorwissen-bestimmt-die-last" class="slide level2 smaller">
+<h2>Vorwissen bestimmt die Last</h2>
+<p>Dieselbe Aufgabe ist für Anfängerinnen und Fortgeschrittene <strong>unterschiedlich kostenintensiv</strong>.</p>
+<p><br></p>
+<p><strong>Aufgabe:</strong> Löse nach <span class="math inline">\(x\)</span> auf: <span class="math display">\[-1(-x - 7) = 14x - 6\]</span></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div style="background: rgba(213, 94, 0, 0.06); padding: 1.0em; border-radius: 8px;">
+<p><strong>Anfängerin</strong></p>
+<p>Hohe intrinsische Last:</p>
+<ul>
+<li>Was bedeutet das Minus vor der Klammer?</li>
+<li>Wie verteile ich?</li>
+<li>Welche Rechenregeln gelten?</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div style="background: rgba(0, 114, 178, 0.06); padding: 1.0em; border-radius: 8px;">
+<p><strong>Fortgeschrittene</strong></p>
+<p>Niedrige intrinsische Last:</p>
+<ul>
+<li>“Klammer auflösen” → Schema</li>
+<li>“Terme zusammenfassen” → Schema</li>
+<li>“Nach <span class="math inline">\(x\)</span> auflösen” → Schema</li>
+</ul>
+</div>
+</div></div>
+<p><br></p>
+<div style="text-align: center; font-size: 1.05em; font-weight: bold; color: #D55E00;">
+<p>Konsequenz: Aufgaben müssen sich an Vorwissen anpassen. Das verlangt Diagnose.</p>
+</div>
+<aside class="notes">
+<p><strong>Nicht Teil des 35-min Block 1.</strong> Im redesignten Workshop entfällt diese CLT-Folie. Sie bleibt als Referenz im Deck für Lehrpersonen, die Expertise-Reversal anhand der zwei Pakete kurz illustrieren möchten.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="scaffolding-leiter-fading" class="slide level2 smaller">
+<h2>Scaffolding-Leiter (Fading)</h2>
+<p>Wenn die intrinsische Last zu hoch ist, brauchen Lernende <strong>gezieltes Scaffolding</strong>.</p>
+<p><br></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Stufe</th>
+<th>Format</th>
+<th>Geeignet, wenn…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><strong>Worked Example</strong>: vollständig durchgearbeitet</td>
+<td>Baustein noch gar nicht da</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><strong>Completion Problem</strong>: teilweise gelöst</td>
+<td>Baustein teilweise da</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><strong>Hinweis-gestützt</strong>: nur strategische Hinweise</td>
+<td>Baustein da, aber unsicher</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><strong>Eigenständig</strong>: ohne Unterstützung</td>
+<td>Baustein zuverlässig da</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div style="text-align: center; font-size: 1.0em; color: #6E6560;">
+<p>Welche Stufe für welchen Baustein passt, hängt von der <strong>Diagnose</strong> des Vorwissens ab.</p>
+</div>
+<aside class="notes">
+<p><strong>Nicht Teil des 35-min Block 1.</strong> Im redesignten Workshop entfällt diese Scaffolding-Leiter-Folie aus dem CLT-Recap. Sie bleibt als Referenz im Deck und ist in der Refresher-Präsentation der Virtuellen Akademie vollständig erklärt.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="bridge" class="slide level2 smaller">
+<h2>Heute: die Diagnose explizit machen</h2>
+<p><br></p>
+<div style="text-align: center; font-size: 1.3em; line-height: 1.6; max-width: 80%; margin: 0 auto;">
+<p>Die CLT sagt: wir müssen das Vorwissen diagnostizieren, sonst passt das Scaffolding nicht.</p>
+<p><span style="color: #1E3A5F; font-weight: bold;">Heute machen wir diese Diagnose <strong>explizit, schriftlich, falsifizierbar</strong>.</span></p>
+<p>Die disziplinierte Form dieser Diagnose ist das <strong>Spec Sheet</strong>.</p>
+</div>
+<aside class="notes">
+<p><strong>Nicht Teil des 35-min Block 1.</strong> Diese Brücken-Folie verbindet das CLT-Recap mit dem Spec Sheet. Da das CLT-Recap im redesignten Workshop entfällt, fehlt der Brücke der Antezedent. Sie bleibt als Referenz für Lehrpersonen, die das CLT-Recap optional zeigen möchten.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="spec-ist-dauerhaft-werkzeug-ist-übersetzung" class="slide level2 smaller">
+<h2>Spec ist dauerhaft, Werkzeug ist Übersetzung</h2>
+<div class="fig-diagram" aria-label="Zeitachse: Spec Sheet bleibt über mehrere Modellgenerationen gültig, während der Prompt jeweils neu gerendert wird">
+<svg viewbox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="spec-prompt-title spec-prompt-desc">
+  <title id="spec-prompt-title">Spec ist dauerhaft, Prompt ist Übersetzung</title>
+  <desc id="spec-prompt-desc">Eine horizontale Zeitachse mit Markierungen für vier Modellgenerationen. Über der Zeitachse zieht sich ein durchgehender Balken (Spec Sheet, Brand-Navy) ungebrochen über alle Generationen. Darunter steht für jede Generation ein eigener, terracotta-umrandeter Block (Prompt), der mit der jeweiligen Generation neu gerendert wird.</desc>
+
+  <!-- Spec bar: persistent across all generations -->
+  <g class="spec-bar">
+    <rect x="60" y="58" width="600" height="46" rx="6" fill="var(--diagram-spec)"></rect>
+    <text x="76" y="86" font-size="14" font-weight="600" font-family="var(--diagram-font-family)" fill="#ffffff">
+      Spec Sheet
+    </text>
+    <text x="644" y="86" font-size="12" font-style="italic" text-anchor="end" font-family="var(--diagram-font-family)" fill="#ffffff" opacity="0.85">
+      bleibt gültig
+    </text>
+  </g>
+
+  <!-- Subtle connectors: each prompt is rendered from the spec at that moment -->
+  <g class="connectors" stroke="var(--diagram-neutral)" stroke-width="0.8" stroke-dasharray="2 4" opacity="0.5">
+    <line x1="135" y1="104" x2="135" y2="150"></line>
+    <line x1="285" y1="104" x2="285" y2="150"></line>
+    <line x1="435" y1="104" x2="435" y2="150"></line>
+    <line x1="585" y1="104" x2="585" y2="150"></line>
+  </g>
+
+  <!-- Prompt instances: regenerated for each model generation -->
+  <g class="prompt-instances" stroke="var(--diagram-prompt)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <g>
+      <rect x="90" y="150" width="90" height="38" rx="4"></rect>
+      <text x="135" y="174" font-size="12" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-prompt)" stroke="none">
+        Prompt v1
+      </text>
+    </g>
+    <g>
+      <rect x="240" y="150" width="90" height="38" rx="4"></rect>
+      <text x="285" y="174" font-size="12" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-prompt)" stroke="none">
+        Prompt v2
+      </text>
+    </g>
+    <g>
+      <rect x="390" y="150" width="90" height="38" rx="4"></rect>
+      <text x="435" y="174" font-size="12" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-prompt)" stroke="none">
+        Prompt v3
+      </text>
+    </g>
+    <g>
+      <rect x="540" y="150" width="90" height="38" rx="4" stroke-dasharray="5 3"></rect>
+      <text x="585" y="174" font-size="12" font-style="italic" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-prompt)" stroke="none">
+        Prompt vN
+      </text>
+    </g>
+  </g>
+
+  <!-- Time axis -->
+  <g class="time-axis">
+    <line x1="60" y1="220" x2="660" y2="220" stroke="var(--diagram-neutral)" stroke-width="1" stroke-linecap="round"></line>
+    <!-- Tick marks under each prompt centre -->
+    <g stroke="var(--diagram-neutral)" stroke-width="1" stroke-linecap="round">
+      <line x1="135" y1="216" x2="135" y2="224"></line>
+      <line x1="285" y1="216" x2="285" y2="224"></line>
+      <line x1="435" y1="216" x2="435" y2="224"></line>
+      <line x1="585" y1="216" x2="585" y2="224"></line>
+    </g>
+    <!-- Generation labels -->
+    <g font-size="11" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      <text x="135" y="244">2024</text>
+      <text x="285" y="244">2025</text>
+      <text x="435" y="244">2026</text>
+      <text x="585" y="244" font-style="italic">…</text>
+    </g>
+    <!-- Axis caption -->
+    <text x="660" y="244" font-size="11" text-anchor="end" font-style="italic" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)" opacity="0.7">
+      Modellgeneration
+    </text>
+  </g>
+</svg>
+</div>
+<div style="text-align: center; font-size: 0.95em; color: #6E6560; max-width: 80%; margin: 0.6em auto 0;">
+<p>Spec Sheet bleibt; der Prompt wird für jede Modellgeneration neu gerendert. Block 3 macht die Trennung an deinem eigenen Material erlebbar.</p>
+</div>
+<aside class="notes">
+<p>~1 Min. Pragmatische Trennung. Auf das Diagramm zeigen: oben durchgehend Spec, unten diskrete Prompts pro Modellgeneration. Ein Prompt, den du heute schreibst, kann in zwei Jahren obsolet sein, das Spec Sheet nicht.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="zwei-llm-rollen-heute" class="slide level2 smaller">
+<h2>Zwei LLM-Rollen heute</h2>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div style="background: rgba(30, 58, 95, 0.06); padding: 1.2em; border-radius: 8px; border-left: 4px solid #1E3A5F;">
+<p><strong>Lernende-Simulator</strong> <em>(Hauptaffordanz)</em></p>
+<p>Das LLM spielt eine Lernende ohne Baustein X.</p>
+<p>Zwei Probemodi:</p>
+<ul>
+<li><em>Reaktiv</em>: liest dein Material, meldet was unklar ist</li>
+<li><em>Produktiv</em>: schreibt eine Antwort mit Fehlkonzept</li>
+</ul>
+<p>→ Der externe Test deines Modells der Lernenden.</p>
+</div>
+</div><div class="column" style="width:50%;">
+<div style="background: rgba(166, 61, 47, 0.06); padding: 1.2em; border-radius: 8px; border-left: 4px solid #A63D2F;">
+<p><strong>Hypothesengenerator</strong> <em>(unterstützend)</em></p>
+<p>Das LLM schlägt Wissensbausteine vor.</p>
+<p>Du <strong>prüfst</strong> und markierst V (vermutet) oder B (beobachtet) oder verwirfst.</p>
+<p>→ Vor der Validierung.</p>
+</div>
+</div></div>
+<p><br></p>
+<div style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold;">
+<p>Beim Arbeiten in Block 2 immer fragen: <em>In welcher Rolle ist das LLM gerade?</em></p>
+</div>
+<aside class="notes">
+<p>~1 Min. Lernende-Simulator zuerst, weil er die zentrale Affordanz dieses Workshops ist: ohne ihn ist die cognitive task analysis ein blinder Versuch. Der Hypothesengenerator beschleunigt nur das Auflisten in Sektion 2. Mehr als diese Trennung brauchen wir heute nicht.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="drei-affordance-typen-kurz" class="slide level2 smaller">
+<h2>Drei Affordance-Typen (kurz)</h2>
+<p>Werkzeuge wechseln, <strong>Affordance-Typen</strong> bleiben:</p>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #1E3A5F; min-height: 160px;">
+<p><strong>Chat-Werkzeug</strong></p>
+<p>Copilot, ChatGPT, HuggingChat.</p>
+<p>System-Prompt + Eingabe + Antwort.</p>
+<p>→ Block 3 nutzt Typ 1.</p>
+</div>
+</div><div class="column" style="width:33%;">
+<div style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #6E6560; min-height: 160px;">
+<p><strong>Strukturierte API</strong></p>
+<p>z.B. Marimo + Pydantic.</p>
+<p>Erzwungenes Ausgabe-Schema.</p>
+<p>→ Live-Demo (1 Min).</p>
+</div>
+</div><div class="column" style="width:33%;">
+<div style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #B8821A; min-height: 160px;">
+<p><strong>Agentisch</strong></p>
+<p>Claude Code, pi.dev.</p>
+<p>LLM mit Werkzeugzugriff.</p>
+<p>→ Volllänge im Nachlesen.</p>
+</div>
+</div></div>
+<p><br></p>
+<div style="text-align: center; font-size: 0.95em; color: #6E6560;">
+<p>Dein Spec Sheet ist für alle drei Typen verwendbar. Nur die Übersetzung ändert sich.</p>
+</div>
+<aside class="notes">
+<p><strong>Nicht Teil des 35-min Block 1.</strong> Im redesignten Workshop entfällt die Affordance-Typen-Tour. Block 1 zeigt nur das Chat-LLM (Hypothesengenerator und Lernende-Simulator); Block 3 zeigt den strukturierten API-Pfad an einem gehosteten Werkzeug, ohne den Begriff “Affordance-Typ” zu verwenden. Diese Folie bleibt als Referenz im Deck, falls eine Lehrperson die drei Affordance-Typen in einer längeren Variante des Workshops verwenden möchte.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="block-2" class="title-slide slide level1 center section-divider section-accent">
+<h1>Block 2: dein eigenes Spec Sheet</h1>
+
+</section>
+<section id="block-2-in-60-min" class="slide level2 smaller">
+<h2>Block 2 in 60 Min</h2>
+<p><br></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Zeit</th>
+<th>Schritt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>5 min</td>
+<td>Vorlage öffnen, Teilaufgabe wählen, Sektion 1 ausfüllen</td>
+</tr>
+<tr class="even">
+<td>25 min</td>
+<td>Wissensbausteine inventarisieren (Prompt 1) → validieren V/B/Korrigieren/Verwerfen → Lernaktivitäten (Prompt 2)</td>
+</tr>
+<tr class="odd">
+<td>20 min</td>
+<td>Reaktive Simulation (Prompt 3) → Funde zurück in Sektion 2; Produktive Simulation (Prompt 4) → Sektion 3</td>
+</tr>
+<tr class="even">
+<td>10 min</td>
+<td>Paar-Feedback (3 strukturierte Fragen)</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div style="text-align: center; font-size: 1.0em; color: #1E3A5F; font-weight: bold;">
+<p>Ziel: erste vollständige Version. Nicht perfekt. Nicht alle Felder.</p>
+</div>
+<aside class="notes">
+<p>~30 Sek Folie. Kurz orientieren, dann gehen die Teilnehmenden in die Eigenarbeit. Blockfolie, kein Lehrinhalt.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="block-3" class="title-slide slide level1 center section-divider section-navy">
+<h1>Block 3: Spec → Prompt → Test</h1>
+
+</section>
+<section id="spec-prompt-ist-mechanisch" class="slide level2 smaller">
+<h2>Spec → Prompt ist mechanisch</h2>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Aus deinem Spec Sheet</strong></p>
+<ul>
+<li>Sektion 2 (Wissensbausteine, gruppiert nach Typ)</li>
+<li>Sektion 3 (Fehlkonzepte, in Ich-Form)</li>
+<li>“Was schiefgeht”-Sätze pro Baustein</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Wird zum System-Prompt</strong></p>
+<ul>
+<li>“Wissensbausteine, die diese Teilaufgabe verlangt: […]”</li>
+<li>“Wahrscheinliche Fehlkonzepte: […]”</li>
+<li>Verhaltensregeln (“erfinde nichts ausserhalb dieser Listen”: <em>soft constraint</em>)</li>
+</ul>
+</div></div>
+<p><br></p>
+<div style="text-align: center; font-size: 1.0em; color: #D55E00; font-weight: bold;">
+<p>Wo dein Spec vage ist, fällt der Prompt schwer. Genau das ist die Lehre aus Block 3.</p>
+</div>
+<aside class="notes">
+<p>~2 Min. Mechanik vorführen am Statistik-Beispiel aus Block 1. Die Stelle hervorheben, an der eine Klammer im Template noch nicht im Spec Sheet abgedeckt ist. Beim “erfinde nichts” einmal explizit sagen: das ist eine Bitte an das Modell, kein erzwungener Constraint. In einem strukturierten API-Pfad wäre dasselbe ein Schema-Enum, der vom Validator erzwungen wird. Trade-off zwischen Chat-Niederschwelligkeit und Output-Härte. Die Architektur-Erklärung dazu liegt im Take-Home (<code>workshop/take-home/api-werkzeug-erklaert.qmd</code>).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="test-protokoll-drei-mögliche-ausgänge" class="slide level2 smaller">
+<h2>Test-Protokoll: drei mögliche Ausgänge</h2>
+<p>Wähle einen Baustein aus deiner Spec, den du als <strong>B (beobachtet)</strong> markiert hast. Gib die zugehörige Lernenden-Antwort ans Werkzeug.</p>
+<div class="fig-diagram" aria-label="Test-Protokoll: drei mögliche Ausgänge eines Tests, mit Rückkopplungen zum Spec Sheet beziehungsweise Prompt">
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-test-protokoll" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-test-protokoll-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-test-protokoll">%%{init: {'theme':'base', 'themeVariables': {'fontFamily':'Space Grotesk, -apple-system, sans-serif', 'fontSize':'14px'}}}%%
+flowchart TD
+  Test["Test mit bekannter&lt;br&gt;Studierenden-Antwort"]
+
+  Test --&gt; Pass["&lt;b&gt;Pass&lt;/b&gt;&lt;br&gt;Erwarteter Baustein,&lt;br&gt;plausible Stelle zitiert"]
+  Test --&gt; Soft["&lt;b&gt;Fail soft&lt;/b&gt;&lt;br&gt;Anderer Baustein&lt;br&gt;oder generisch"]
+  Test --&gt; Hard["&lt;b&gt;Fail hard&lt;/b&gt;&lt;br&gt;Erfundener Baustein,&lt;br&gt;nicht in Spec"]
+
+  Pass --&gt; PassEnd["Spec hat funktioniert"]
+  Soft -.-&gt;|"zurück zum Spec"| SoftAct["'Was schiefgeht' schärfen"]
+  Hard -.-&gt;|"zurück zum Prompt"| HardAct["Anderes Modell&lt;br&gt;oder Klausel verstärken"]
+
+  classDef test fill:#F5F0E8,stroke:#6E6560,stroke-width:1.5px,color:#1A1714,rx:6,ry:6
+  classDef pass fill:#1E3A5F,stroke:#1E3A5F,color:#ffffff,rx:6,ry:6
+  classDef soft fill:#FAF5EC,stroke:#B8821A,stroke-width:1.5px,color:#B8821A,rx:6,ry:6
+  classDef hard fill:#FAF0EE,stroke:#A63D2F,stroke-width:1.5px,color:#A63D2F,rx:6,ry:6
+  classDef action fill:transparent,stroke:#C8C2B8,stroke-width:1px,color:#1A1714,rx:4,ry:4
+
+  class Test test
+  class Pass pass
+  class Soft soft
+  class Hard hard
+  class PassEnd,SoftAct,HardAct action
+
+  linkStyle 0,1,2 stroke:#6E6560,stroke-width:1.5px
+  linkStyle 3 stroke:#1E3A5F,stroke-width:1.5px
+  linkStyle 4 stroke:#B8821A,stroke-width:1.5px,stroke-dasharray:4 3
+  linkStyle 5 stroke:#A63D2F,stroke-width:1.5px,stroke-dasharray:4 3
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-test-protokoll-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div style="text-align: center; font-size: 0.9em; color: #6E6560; max-width: 85%; margin: 0.4em auto 0;">
+<p>Pass / Fail soft / Fail hard. Fail soft zeigt zurück zum Spec Sheet, Fail hard zeigt zurück zum Prompt: bleibt aber im Chat-Pfad nicht voll eliminierbar (siehe Nachlesen).</p>
+</div>
+<aside class="notes">
+<p><strong>Nicht Teil des Block-3-Live-Tests.</strong> Im redesignten Workshop ist der Test auf eine pragmatische Frage reduziert: <em>Stimmt der Output mit dem überein, was deine echten Lernenden tun?</em> Die Drei-Ausgänge-Heuristik (Pass / Fail soft / Fail hard) bleibt im Block 3 Nachlesen-Tab als historische Referenz dokumentiert. Diese Folie bleibt im Deck als visuelle Erläuterung, falls eine Lehrperson die Heuristik in einer längeren Variante des Workshops erklären möchte.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="closing" class="title-slide slide level1 center section-divider section-muted">
+<h1>Closing</h1>
+
+</section>
+<section id="leitsatz-erweiterung" class="slide level2 smaller">
+<h2>Leitsatz-Erweiterung</h2>
+<p><br></p>
+<div style="font-size: 1.15em; max-width: 88%; margin: 0 auto; line-height: 1.7; text-align: center;">
+<p><strong>Das Spec ist dauerhaft, das Werkzeug ist Rendering.</strong></p>
+<p>Dieselbe Spezifikation kann ein Scaffolding-Tool, eine Lernende-Simulation oder einen Diagnosetest treiben.</p>
+<p>Wenn nächstes Jahr ein neues Modell oder Tool kommt, bleibt das Spec gleich.</p>
+</div>
+<p><br></p>
+<div style="text-align: center; font-size: 0.95em; color: #6E6560; max-width: 80%; margin: 0 auto;">
+<p>Was du heute geschrieben hast, ist nicht eine Workshop-Notiz, sondern ein dauerhafter Artefakt.</p>
+</div>
+<aside class="notes">
+<p>~3 Min. Verbatim vorlesen, mit ausgesprochenen Pausen zwischen den drei Sätzen. Pause am Ende halten (mindestens 5 Sek), bevor zur Gallery übergeleitet wird. Das ist die Verallgemeinerung dessen, was die Teilnehmenden in Block 3 erlebt haben: dasselbe Spec, ein anderes Werkzeug, gleiches Ergebnis im Kern. Botschaft: das Werkzeug in Block 3 ist eines von vielen möglichen Renderings dieses Specs.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="downstream-uses-gallery" class="slide level2 smaller">
+<h2>Downstream-Uses-Gallery</h2>
+<p><br></p>
+<div style="max-width: 92%; margin: 0 auto; font-size: 0.95em; line-height: 1.55;">
+<p><strong>Vier weitere Einsätze, die dasselbe Spec treiben kann:</strong></p>
+<ol type="1">
+<li><strong>Worked-Example-Generator:</strong> Spec rein, ausgearbeitete Lösungsbeispiele raus, mit Warnhinweisen an den Misconception-Stellen.</li>
+<li><strong>Misconception-Probe:</strong> Spec rein, Diagnosefragen raus, die genau die antizipierten Misconceptions aktivieren.</li>
+<li><strong>Formative Assessment Generator:</strong> Spec rein, Quiz raus, das alle Wissensbausteine abdeckt und Misconceptions sondiert.</li>
+<li><strong>Knowledge-Tracing-Instrumentierung:</strong> Spec als Q-Matrix für Mastery-Tracking-Systeme.</li>
+</ol>
+</div>
+<p><br></p>
+<div style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold;">
+<p>Skizzen mit Prompt-Vorlagen findest du im Take-Home.</p>
+</div>
+<aside class="notes">
+<p>~5 Min. Pro Eintrag etwa eine Minute. <strong>Nicht vorführen</strong>, nur benennen. Die ausgearbeiteten Skizzen mit Prompt-Vorlagen liegen unter <code>workshop/take-home/weitere-werkzeuge.qmd</code>. Botschaft: das Spec, das du heute geschrieben hast, ist nicht an das Block-3-Werkzeug gebunden. Es ist die dauerhafte Substanz, mit der du in den nächsten Wochen weiterarbeiten kannst, in welchem Werkzeug auch immer.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="falsifikationsnotiz-was-würde-dich-widerlegen" class="slide level2 smaller">
+<h2>Falsifikationsnotiz: was würde dich widerlegen?</h2>
+<p><br></p>
+<div style="font-size: 1.1em; max-width: 85%; margin: 0 auto; line-height: 1.5;">
+<p>Wähle einen Wissensbaustein aus Sektion 2, den du als zentral einschätzt.</p>
+<p>Schreibe <strong>einen Satz</strong>: welches Verhalten von Lernenden würde dir zeigen, dass deine Decomposition für diesen Baustein falsch ist?</p>
+<p>→ Sektion 4 (Take-Home) deines Spec Sheets.</p>
+</div>
+<p><br></p>
+<div style="background: rgba(30, 58, 95, 0.06); padding: 1.0em; border-radius: 8px; max-width: 80%; margin: 0 auto; font-style: italic; font-size: 0.95em;">
+<p>Beispiel: “Wenn Lernende, die ich klar als kompetente Korrelationsinterpretiererinnen einschätze, an dieser Teilaufgabe systematisch scheitern, dann ist Baustein 3 nicht das, was diese Aufgabe wirklich testet.”</p>
+</div>
+<p><br></p>
+<div style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold;">
+<p>Ohne diese Notiz bleibt das Spec Sheet eine plausible Hypothese ohne Bedingungen, unter denen du sie aufgeben würdest.</p>
+</div>
+<aside class="notes">
+<p><strong>Nicht mehr Teil des 15-min Closings.</strong> Im redesignten Workshop ist die Falsifikationsnotiz Take-Home-Hausaufgabe (siehe <code>workshop/take-home/index.qmd</code>). Diese Folie bleibt als visuelle Referenz im Foliensatz für Lehrpersonen, die das Konzept on the fly einführen oder im Closing optional ansprechen wollen (1-2 Min, kein Eigenarbeitsanteil mehr).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="selbst-tun-vs.-zuschauen" class="slide level2 smaller">
+<h2>Selbst-Tun vs.&nbsp;Zuschauen</h2>
+<p>Markiere jeden Baustein in deiner Sektion 2 mit einem Tag:</p>
+<div class="fig-diagram" aria-label="Zwei Panels nebeneinander. Links Selbst-Tun: ein Pfeil mit Aktions-Label führt zu einer veränderten Lernerin-Form. Rechts Zuschauen: ein gestrichelter Pfeil mit Beobachtungs-Label führt zu einer unveränderten Lernerin-Form.">
+<svg viewbox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="selbst-tun-title selbst-tun-desc">
+  <title id="selbst-tun-title">Selbst-Tun vs. Zuschauen</title>
+  <desc id="selbst-tun-desc">Links: das Selbst-Tun-Panel mit einem soliden Pfeil von der Ausgangs-Lernerin zur veränderten Lernerin (Wissen ändert sich). Rechts: das Zuschauen-Panel mit einem gestrichelten Beobachtungs-Pfeil zwischen zwei identischen Lernerin-Formen (Wissen weitgehend unverändert).</desc>
+
+  <!-- =================== LEFT PANEL: Selbst-Tun =================== -->
+  <g class="panel-left">
+    <text x="170" y="44" font-size="16" font-weight="600" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-spec)">
+      Selbst-Tun
+    </text>
+
+    <!-- Lernerin vorher: outline circle -->
+    <circle cx="80" cy="170" r="34" fill="none" stroke="var(--diagram-neutral)" stroke-width="1.5"></circle>
+    <text x="80" y="174" font-size="11" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      Lernerin
+    </text>
+    <text x="80" y="222" font-size="10" text-anchor="middle" font-style="italic" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      vorher
+    </text>
+
+    <!-- Solid arrow with "Aktion" label -->
+    <line x1="124" y1="170" x2="220" y2="170" stroke="var(--diagram-spec)" stroke-width="2" stroke-linecap="round"></line>
+    <polygon points="218,164 233,170 218,176" fill="var(--diagram-spec)"></polygon>
+    <text x="174" y="156" font-size="12" font-weight="600" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-spec)">
+      Aktion
+    </text>
+
+    <!-- Lernerin nachher: filled circle (changed) -->
+    <circle cx="270" cy="170" r="38" fill="var(--diagram-spec)" stroke="var(--diagram-spec)" stroke-width="1.5"></circle>
+    <text x="270" y="167" font-size="11" text-anchor="middle" font-family="var(--diagram-font-family)" fill="#ffffff">
+      Lernerin
+    </text>
+    <text x="270" y="180" font-size="11" text-anchor="middle" font-family="var(--diagram-font-family)" fill="#ffffff">
+      ′
+    </text>
+    <text x="270" y="222" font-size="10" text-anchor="middle" font-style="italic" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      verändert
+    </text>
+
+    <!-- Bottom takeaway -->
+    <text x="170" y="280" font-size="13" font-weight="500" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-spec)">
+      Wissen ändert sich
+    </text>
+  </g>
+
+  <!-- Vertical separator -->
+  <line x1="360" y1="60" x2="360" y2="290" stroke="var(--diagram-neutral)" stroke-width="0.8" stroke-dasharray="2 4" opacity="0.4"></line>
+
+  <!-- =================== RIGHT PANEL: Zuschauen =================== -->
+  <g class="panel-right">
+    <text x="540" y="44" font-size="16" font-weight="600" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      Zuschauen
+    </text>
+
+    <!-- Lernerin vorher: outline circle -->
+    <circle cx="450" cy="170" r="34" fill="none" stroke="var(--diagram-neutral)" stroke-width="1.5"></circle>
+    <text x="450" y="174" font-size="11" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      Lernerin
+    </text>
+    <text x="450" y="222" font-size="10" text-anchor="middle" font-style="italic" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      vorher
+    </text>
+
+    <!-- Dashed arrow with "Beobachtung" label -->
+    <line x1="494" y1="170" x2="590" y2="170" stroke="var(--diagram-neutral)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4"></line>
+    <polygon points="588,164 603,170 588,176" fill="var(--diagram-neutral)"></polygon>
+    <text x="544" y="156" font-size="12" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      Beobachtung
+    </text>
+
+    <!-- Lernerin nachher: SAME outline circle (unchanged) -->
+    <circle cx="640" cy="170" r="34" fill="none" stroke="var(--diagram-neutral)" stroke-width="1.5"></circle>
+    <text x="640" y="174" font-size="11" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      Lernerin
+    </text>
+    <text x="640" y="222" font-size="10" text-anchor="middle" font-style="italic" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      kaum verändert
+    </text>
+
+    <!-- Bottom takeaway -->
+    <text x="540" y="280" font-size="13" font-weight="500" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
+      Wissen weitgehend gleich
+    </text>
+  </g>
+</svg>
+</div>
+<div style="font-size: 0.85em; max-width: 92%; margin: 0.3em auto 0;">
+<p><strong>Entscheidungsregel aus Block 1:</strong> Typ : Mechanismus : Operation : was die KI ersetzen darf. Faktenwissen, Klassifikationswissen, Erklärungswissen sind <em>meist</em> Selbst-Tun, weil die KI die jeweilige Operation nicht für die Lernende leisten kann. Hilfsschritte sind oft Zuschauen-erlaubt. Staging zählt: was bei einer Anfängerin Selbst-Tun ist, kann bei einer Fortgeschrittenen Zuschauen-reicht sein.</p>
+</div>
+<aside class="notes">
+<p><strong>Nicht mehr Teil des 15-min Closings.</strong> Im redesignten Workshop ist das Selbst-Tun-vs-Zuschauen-Tagging Take-Home-Hausaufgabe (siehe <code>workshop/take-home/index.qmd</code>). Diese Folie bleibt als visuelle Referenz im Foliensatz; falls sie im Closing optional gezeigt wird, dann höchstens als 1-Min-Hinweis (“ihr werdet dies zuhause anwenden”), keine Eigenarbeit mehr.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="spec-ist-bereits-eine-datenstruktur" class="slide level2 smaller">
+<h2>Spec ist bereits eine Datenstruktur</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Spec Sheet, Sektion 2 (Auszug)</strong></p>
+<ul>
+<li><strong>B1, Faktenwissen (Abrufen):</strong> <em><span class="math inline">\(r\)</span></em> ist dimensionslos, <span class="math inline">\(-1 \leq r \leq +1\)</span>. V; Selbst-Tun.</li>
+<li><strong>B3, Klassifikationswissen (Erkennen):</strong> Korrelation vs.&nbsp;Mittelwertvergleich. B; Selbst-Tun.</li>
+<li><strong>B5, Erklärungswissen (Begründen):</strong> warum <span class="math inline">\(r = 0.3\)</span> in Bildung bedeutsam ist. V; Selbst-Tun.</li>
+</ul>
+<p><strong>Sektion 3:</strong> <em>verwechselt <span class="math inline">\(r\)</span> mit <span class="math inline">\(R^2\)</span></em>; <em>Korrelation als Kausalität</em>.</p>
+</div><div class="column" style="width:50%;">
+<p><strong>adaptive-scaffolding (Python)</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a>Exercise(</span>
+<span id="cb1-2"><a></a>    title<span class="op">=</span><span class="st">"r = 0.3 interpretieren"</span>,</span>
+<span id="cb1-3"><a></a>    target_sub_skills<span class="op">=</span>[</span>
+<span id="cb1-4"><a></a>        SubSkill.r_squared_meaning,</span>
+<span id="cb1-5"><a></a>        SubSkill.coefficient_interpretation,</span>
+<span id="cb1-6"><a></a>    ],</span>
+<span id="cb1-7"><a></a>    cognitive_demand<span class="op">=</span>CognitiveDemand.CONCEPTUAL,</span>
+<span id="cb1-8"><a></a>    common_errors<span class="op">=</span>[</span>
+<span id="cb1-9"><a></a>        <span class="st">"verwechselt r mit R²"</span>,</span>
+<span id="cb1-10"><a></a>        <span class="st">"Korrelation als Kausalität"</span>,</span>
+<span id="cb1-11"><a></a>    ],</span>
+<span id="cb1-12"><a></a>    expected_answer_fragments<span class="op">=</span>[</span>
+<span id="cb1-13"><a></a>        <span class="st">"zwischen -1 und +1"</span>,</span>
+<span id="cb1-14"><a></a>        <span class="st">"kontextabhängige Bedeutsamkeit"</span>,</span>
+<span id="cb1-15"><a></a>    ],</span>
+<span id="cb1-16"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<div style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold; max-width: 90%; margin: 0.3em auto 0;">
+<p>Dieselbe Information, zwei Oberflächen. Was du in 60 Minuten geschrieben hast, ist das Format, das adaptive Systeme als Eingabe brauchen.</p>
+</div>
+<aside class="notes">
+<p>~2 Min. Nicht durch die Felder gehen, nur darauf zeigen. Botschaft: du musst nie Python schreiben. Aber die Lehrperson, die ein Spec Sheet pflegt, hat das Format, das ein adaptives System braucht. Feldzuordnung im Detail steht im Nachlesen-Tab.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="verpflichtung-in-den-nächsten-zwei-wochen" class="slide level2 smaller">
+<h2>Verpflichtung: in den nächsten zwei Wochen</h2>
+<p><br></p>
+<p>Schreibe auf Papier:</p>
+<div style="font-size: 1.1em; max-width: 80%; margin: 0 auto; line-height: 1.8;">
+<ol type="1">
+<li><strong>Eine konkrete Aufgabe</strong> deiner Lehre, an der du das Spec Sheet anwenden wirst. Nicht “ich werde nachdenken über…” sondern: diese spezifische Aufgabe.</li>
+<li><strong>Ein konkreter Schritt</strong> (Spec anwenden / Aufgabenstellung anpassen / Lernenden-Konsequenz einbauen).</li>
+<li><strong>Ein Datum</strong>, bis zu dem du es getan hast.</li>
+</ol>
+</div>
+<p><br></p>
+<div style="text-align: center; font-size: 1.05em; color: #A63D2F; font-weight: bold;">
+<p>Erzähl es deiner Nachbarin, bevor du den Raum verlässt.</p>
+</div>
+<aside class="notes">
+<p>~5 Min. Diese Folie trägt den Hauptteil des Closings (zusammen mit der Leitsatz-Erweiterung und der Downstream-Uses-Gallery). Konkretheit erzwingen: spezifische Aufgabe, spezifischer Schritt, spezifisches Datum. 3 Min stilles Schreiben, dann 2 Min cross-discipline-Tausch (mündliche Zusage an Partnerin aus Block 2 als sozialer Commitment).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="take-home-was-du-mitnimmst" class="slide level2 smaller">
+<h2>Take-Home: was du mitnimmst</h2>
+<p><br></p>
+<div style="max-width: 88%; margin: 0 auto; font-size: 1.0em; line-height: 1.7;">
+<p>Auf der Take-Home-Seite findest du:</p>
+<ul>
+<li>Das laufende Werkzeug (URL bleibt stabil).</li>
+<li>Die Architektur-Erklärung in plain Deutsch.</li>
+<li>Vier Skizzen für weitere Werkzeuge mit Prompt-Vorlagen.</li>
+<li>Optionale Hausaufgaben: Falsifikationsnotiz und Selbst-Tun-vs-Zuschauen-Tagging.</li>
+</ul>
+</div>
+<p><br></p>
+<div style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold;">
+<p>Dein Spec, deine Verpflichtung, die Take-Home-Seite. Mehr braucht es nach drei Stunden nicht.</p>
+</div>
+<aside class="notes">
+<p>~2 Min. Take-Home-URL nennen oder QR-Code zeigen. Nicht in eine Q&amp;A-Runde überleiten; die Teilnehmenden haben in 3 Stunden mehr neue Information bekommen, als sie integrieren können. Türen offen für individuelle Fragen, aber kein offizielles Plenums-Q&amp;A.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-1" class="slide level2 center">
+<h2></h2>
+<p><br></p>
+<div style="text-align: center; font-size: 1.5em; color: #1E3A5F;">
+<p><strong>Danke.</strong></p>
+</div>
+<p><br></p>
+<div style="text-align: center; font-size: 1.0em; color: #6E6560; max-width: 80%; margin: 0 auto;">
+<p>Das Spec Sheet ist die dauerhafte Substanz deiner pädagogischen Arbeit mit KI. Werkzeuge ändern sich; was im Kopf einer Lernenden vorgeht, weniger schnell.</p>
+</div>
+<aside class="notes">
+<p>Verabschieden. Materialien-Hinweis in der Closing-Aktivitäten-Seite.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="../../../../assets/bfh-logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>Berner Fachhochschule | Bern University of Applied Sciences</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-attribution/attribution.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":true,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"sticky":true,"keyboard":true,"autoOpen":true,"width":"normal","numbers":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealAttribution, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/virtuelleakademie\.github\.io\/ki-lehre-advanced\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

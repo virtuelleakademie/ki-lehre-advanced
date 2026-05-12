@@ -4,14 +4,32 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Documentation Files
 
-- **CLAUDE.md** (this file) - Quick developer reference and commands
-- **marimo-quarto-integration.md** - Detailed technical guide for marimo + Quarto integration
-- **workshop-redesign-overview.md** - Comprehensive explanation of the workshop redesign
-- **resources/prompt-templates/pedagogical-prompts.qmd** - 14 evidence-based prompt templates
+- **CLAUDE.md** (this file): quick developer reference and commands
+- **2026-05-06-advanced-workshop-design.md**: the design doc for the Spec Card workshop (the user's own theoretical design statement; current authoritative source for what the workshop is)
+- **2026-05-06-spec-card-redesign.md**: implementation plan for the Spec Card design (load-bearing claims, vocabulary policy, file inventory, sequence)
+- **2026-05-07-redesign-comparison.md**: side-by-side comparison of Redesign A (diagnostic-tool-shell) vs. Redesign B (Spec Card). Useful as the historical record of the design choice
+- **instructor-notes/{einstieg, block-1, block-2, block-3, closing}-facilitator.md**: per-block detailed facilitator notes (timing tables, opening/closing scripts, failure modes + redirects, likely questions, what-if-broken backups). Linked from the in-page `callout-facilitator` blocks
+- **instructor-notes/spec-card-statistics-internal.md**: the worked Statistics-Novice Spec Card in the internal-precise register (architectures named)
+- **marimo-quarto-integration.md**: technical guide for marimo + Quarto. Not used by the current workshop's main flow; preserved because the integration remains valid for other content
+- **resources/prompt-templates/pedagogical-prompts.qmd**: legacy prompt templates from earlier iterations
 
 ## Project Overview
 
-Educational website and workshop materials for building AI-powered educational tools grounded in Cognitive Load Theory. This 3-hour workshop teaches educators to create personalized worked example generators using PydanticAI and Marimo. Built with Quarto, delivered in English, maintained by the Virtual Academy at Bern University of Applied Sciences (BFH). Published at https://virtuelleakademie.github.io/ki-lehre-advanced/
+Educational website and workshop materials for the **KI in der Lehre: Advanced** workshop, the third in a three-workshop trilogy on AI in education at the BFH Virtuelle Akademie.
+
+This 3-hour workshop has participants build a **Spec Sheet**: a 3-section, falsifiable specification of what a learner needs for one teaching task in the participant's own discipline (Teilaufgabe, Wissensbausteine, Misconceptions). Participants then insert the Spec Sheet into a running tool, observe the structured output, and sharpen the Spec where the output is generic or off-target. The Closing covers the Leitsatz-Erweiterung and the Downstream-Uses-Gallery; the Selbst-Tun-vs-Zuschauen tagging and the Falsifikationsnotiz are documented as optional Take-Home homework.
+
+The workshop's central operative claim is **Spec is durable, Prompt is rendering**: the hard work of using AI in teaching is not choosing tools or writing prompts but specifying what is supposed to happen in the learner's head. The deeper theoretical claim, inherited from the design's earlier iteration and narrowed in the 2026-05 redesign, is that **AI substitution removes the action-contingent inputs to second-order metacognition**: without the learner's first-order action, the inputs the metacognitive computation would condition on are not generated. The empirical anchor is the *doer effect* (Koedinger, Kim, Jia, McLaughlin & Bier, 2015; Van Campenhout, Jerome, Dittel & Johnson, 2023): doing predicts learning roughly six times more strongly than reading or video, with causal-strength controls. Fleming & Daw (2017) supplies the mechanism explanation. The Selbst-Tun-vs-Zuschauen tagging in the Take-Home operationalises this for the participant's own teaching task.
+
+**Claims and limits.** The Spec Sheet is a structured-introspection scaffold producing a KC-decomposition *hypothesis* about what the learner needs, grounded in Koedinger's KLI framework (Memory-and-Fluency / Induction-and-Refinement / Understanding-and-Sense-Making mapped onto Faktenwissen / Klassifikationswissen / Erklärungswissen, with each type labelled by its cognitive operation: Abrufen / Erkennen / Begründen). It is not a validated cognitive model: the Block-3 test (observe whether the tool output matches what real learners would produce) is a workshop-scale plausibility check, not a learning-curve fit on accumulated student data. The durability claim is about the Spec's relationship to *tool churn*, not about its empirical validation. Lecturers leave the workshop in a position to test their Spec against real student work after the workshop ends; that post-workshop validation is what would graduate the Spec from hypothesis to model.
+
+Built with Quarto, **delivered in German**, maintained by the Virtual Academy at Bern University of Applied Sciences (BFH). Published at https://virtuelleakademie.github.io/ki-lehre-advanced/
+
+Two prior iterations of this workshop have been archived:
+- `archive/marimo-iteration/` — the original PydanticAI + Marimo design
+- `archive/diagnostic-shell-iteration/` — the simpler Gradio-based diagnostic-tool-shell design (English content)
+
+See `2026-05-06-spec-card-redesign.md` and `2026-05-06-advanced-workshop-design.md` for the design rationale.
 
 ## Development Commands
 
@@ -44,27 +62,46 @@ make diff                   # Show word-level diff
 
 ### Content Organization
 
-**Workshop Structure (3-hour workshop - English):**
+**Workshop Structure (3-hour workshop, German). Each block is a panel-tabset page with three tabs: Präsentation (slides + facilitator notes), Aktivitäten (participant-facing exercises), Nachlesen (extended reading + cross-links to CAS Lernpsychologie):**
 
-- **workshop/index.qmd**: Main workshop overview with schedule and learning objectives
-- **workshop/einstieg/**: Opening activity (10 min) - Activating exercise on learning from examples
-- **workshop/part-1-foundation/**: Foundation (30 min) - CLT theory, environment setup, PydanticAI demo
-- **workshop/part-2-design/**: Design (30 min) - Data models, domain design, collaborative building
-- **workshop/part-3-build/**: Build (50 min) - Concept library, AI agent, generation function
-  - `app.py`: **Complete marimo notebook** - The main application participants build
-  - `requirements.txt`: Python dependencies for deployment
-- **workshop/part-4-interface/**: Interface (40 min) - Marimo UI, reactive forms, display logic
-- **workshop/part-5-deploy/**: Deploy (30 min) - HuggingFace Spaces deployment guide
-- **workshop/diskussion/**: Closing (10 min) - Reflection, transfer, extensions
+- **vorbereitung/index.qmd**: pre-workshop reading (three anchor sentences, three things to bring, the Hypothesengenerator grounding warning)
+- **workshop/index.qmd**: workshop overview, schedule, learning objectives; the "for returning participants" historical note is folded into a collapsed callout
+- **workshop/materialien/index.qmd**: single landing page listing every participant material (Vor / Während / Nach + Prompt-Bausteine + external sources). The canonical entry point for participants
+- **workshop/einstieg/**: Einstieg (10 min): cross-discipline-pair exercise; participants experience the Expert Blind Spot on their own material before it is named in Block 1
+- **workshop/block-1-theorie-und-beispiel/**: Block 1 (35 min): three anchor slides (Ein schwieriges Problem / Der Expert Blind Spot / Das LLM als Hypothesengenerator) plus a compact "Drei Typen von Wissensbausteinen" reference slide, then the worked-example walkthrough (live page), then Spec-Vorschau
+  - `worked-example-statistics.qmd`: the live-walkthrough page; simulated $n = 80$ dataset with reciprocal-suppression structure; R code visible by default; `broom::tidy`+`glance` tables; collapsed `pro-tip` callouts for centring algebra and suppression mechanic; collapsed `caution` callout on LLM grounding
+- **workshop/block-2-spec-card/**: Block 2 (60 min): participants build their own Spec Sheet (Sektion 1 → 2 with Hypothesengenerator → 3 with Lernende-Simulator → cross-discipline paired review). Contains a collapsed `caution` callout naming the two concrete failure modes of the ungrounded LLM
+  - **workshop/spec-sheet-template/**: 4-section template (1: Teilaufgabe, 2: Wissensbausteine, 3: Fehlkonzepte, 4: Falsifikationsnotiz) plus `prompt-scaffolds.md` and `system-prompt-template.md`
+  - The legacy 6-section worked Spec Card for the Statistics-Novice is at `instructor-notes/spec-card-statistics/index.qmd` (internal reference, not in the navigation; CLAUDE.md/old design docs occasionally still refer to a `workshop/spec-card-statistics/` path that no longer exists)
+- **workshop/block-3-multi-tool/**: Block 3 (35 min core + 10 min optional role-play): demo of the tool, insert own Spec, observe output, sharpen Spec, (optional) cross-discipline role-play, wrap. The role-play is explicitly marked optional in the page header and timing callout
+- **workshop/closing/**: Closing (15 min): Leitsatz-Erweiterung → Downstream-Uses-Gallery → personal commitment → Take-Home pointer. Falsifikationsnotiz and Selbst-Tun-vs-Zuschauen tagging are now Take-Home homework, not live Closing content
+- **workshop/take-home/**: post-workshop sammelseite: the running tool URL, architecture explanation, four sketches for further tools, optional homework (Falsifikationsnotiz, Selbst-Tun-vs-Zuschauen)
+- **workshop/build/scenarios/**: **seven** discipline scenarios in **German** (nursing, education, business, social work, engineering, statistics, math) with three calibrated student responses each. Used as backup assignments for Block 2. Failure-mode names: Aktive Fehlkonzeption, Lernferner Abruf, Schema-Lücke, Intrinsische Überlastung, Extrinsische Ablenkung. (The directory name `build/` is a legacy from a previous iteration; the scenarios remain there to keep URLs stable.)
+- **slides/workshop/**: the workshop slide deck (~16 slides, embedded into each block's Präsentation tab). The Closing slides for Falsifikationsnotiz and Selbst-Tun-vs-Zuschauen are retained as Take-Home reference, not shown live in the 15-min Closing
+- **slides/archive/legacy-2025/**: archived prior-iteration slide decks (theory/, discussion/) preserved for reference, not rendered into the workshop flow
+
+**The Hosted Tool:**
+
+- **hf-spaces/diagnostic-tool-spec/**: the active Block-3 tool. marimo app that calls the Anthropic API via `messages.parse()` (i.e. `output_config.format` with a `json_schema`), passing the `DiagnosticResponse` Pydantic schema as the structured-output constraint. Default model: `claude-sonnet-4-6`. See `hf-spaces/diagnostic-tool-spec/README.md`.
+
+Earlier iterations have been moved to `archive/hf-spaces-legacy/` (see Supporting Directories below).
+
+**Reference / instructor notes:**
+
+- **instructor-notes/spec-card-statistics-internal.md**: the Statistics-Novice Spec Card in the internal-precise register (Marr, ACT-R, Bayesian, Daw & Fleming, Pearl, conceptual change theory all named). For instructor audit; the participant-facing version is at `workshop/spec-card-statistics/`.
+- **instructor-notes/{einstieg, block-1, block-2, block-3, closing}-facilitator.md**: per-block detailed facilitator notes. Each contains a minute-by-minute timing table, suggested opening/closing wording, failure modes with redirects, likely questions, what-if-broken backup plans, and a take-away sentence. Linked from the in-page `callout-facilitator` blocks in each block's Präsentation tab.
 
 **Supporting Directories:**
 
-- **resources/**: Prompt templates library, supporting materials
-- **tutorials/**: Optional local setup guides (VS Code, OpenAI)
-- **slides/**: RevealJS presentations
-- **assets/**: Images, PDFs, logos, backgrounds
-- **docs/**: Build output - **DO NOT EDIT** (GitHub Pages, auto-generated)
-- **archive/**: Archived legacy content (old workshop modules from previous designs)
+- **resources/**: legacy prompt templates library plus four CAS-derived interactive figures (`fig-bottleneck`, `fig-cognitive-load-interactive`, `fig-expertise-reversal-interactive`, `fig-offloading-spectrum-interactive`) under `resources/figures/`
+- **tutorials/**: optional local setup guides
+- **slides/workshop/**: current workshop slide deck (~16 slides, embedded into block Präsentation tabs)
+- **slides/archive/legacy-2025/**: archived prior-iteration decks (`theory/`, `discussion/`); preserved under archive, not rendered into the workshop flow
+- **assets/**: images, PDFs, logos, backgrounds
+- **docs/**: build output (GitHub Pages, auto-generated). **Do not edit.**
+- **archive/marimo-iteration/**: PydanticAI + Marimo iteration. Not rendered.
+- **archive/diagnostic-shell-iteration/**: English-language diagnostic-tool-shell iteration. Not rendered.
+- **archive/hf-spaces-legacy/**: previously-deployed HuggingFace Spaces that are no longer part of the active workshop flow: `diagnostic-tool-shell/` (Gradio), `diagnostic-tool-shell-marimo/` (marimo variant), `worked-example-weaver/` and `worked-example-weaver-app/` (older personalized-worked-example tools). Their deployed Spaces may still be live; only the source tree was archived.
 
 ### Key Configuration Files
 
@@ -81,10 +118,13 @@ make diff                   # Show word-level diff
 - Colors, typography (Jura font)
 - Brand identity elements
 
-**pyproject.toml**: Python dependencies
-- Current: marimo[mcp], openai, pydantic, pydantic-ai, python-dotenv, tiktoken
+**pyproject.toml**: Python dependencies for any local marimo work that may still happen on this repo (not used by the main workshop flow).
 - Package manager: uv
 - Requires Python >=3.10
+
+**.Renviron** + **.Rprofile**: project-level R locale setup (`LANG=en_US.UTF-8`, `LC_ALL=en_US.UTF-8`, `Sys.setlocale("LC_ALL", "en_US.UTF-8")`). Required for German Umlauts to render correctly in knitr chunk-metadata serialization (e.g. `tbl-cap` strings). Do not remove unless you have verified Umlaut handling works without them on a fresh clone. R packages required for the worked-example: `tidyverse`, `broom`, `patchwork`, `MASS` (MASS ships with base R).
+
+**hf-spaces/diagnostic-tool-spec/pyproject.toml** + **requirements.txt**: dependencies for the active Block-3 tool (anthropic >= 0.55 for `messages.parse()`, pydantic, marimo, python-dotenv). Self-contained; not installed via the project venv. The subproject manages its own `.venv` via `uv sync`.
 
 **_metadata.yml files**: Per-directory defaults
 - Located in exercises/, slides/, tutorials/, workshop/
@@ -135,7 +175,9 @@ uv sync            # Syncs all dependencies
 
 ### Working with Marimo + Quarto Integration
 
-The project uses **marimo islands** - interactive Python cells embedded in Quarto documents.
+**Note**: The current workshop does not use marimo *inside Quarto pages* in any block. The active Block-3 tool (`hf-spaces/diagnostic-tool-spec/`) is a standalone marimo app deployed to HuggingFace Spaces and embedded via iframe, not via marimo-Quarto islands. An earlier islands-based iteration sits in `archive/hf-spaces-legacy/diagnostic-tool-shell-marimo/notebook.py` as reference. The marimo + Quarto islands integration documented below remains a valid technique for OTHER content but is not exercised by the main workshop flow.
+
+The project supports **marimo islands** - interactive Python cells embedded in Quarto documents.
 
 #### Development Workflow (Option A: Marimo-First)
 ```bash
@@ -220,8 +262,8 @@ workshop/01-module-name/
 ## Important Context
 
 - **License**: CC0 1.0 Universal (public domain)
-- **Language**: English (workshop content and materials)
-- **Bibliography**: Uses bibliography.bib and ai-for-research.bib
+- **Language**: German (workshop content and materials). Instructor notes and design docs are English. Variable names and code identifiers stay English (programming convention). Archived iterations (under `archive/`) are in their original languages.
+- **Bibliography**: Uses `bibliography.bib`. Citations of sources not yet in the bib file are written in author-year prose form rather than `[@key]` syntax to avoid broken refs. Add entries via Zotero export rather than direct hand-edits.
 - **Search**: Navbar overlay search enabled
 - **Comments**: Hypothesis integration for collaborative annotation
 - **Main branch**: main
@@ -250,48 +292,88 @@ This workshop is grounded in cognitive science principles from "Make it Stick" a
 
 ## Workshop Structure
 
-**Building Personalized Worked Example Generators with AI** - A complete 3-hour workshop
+**Spec Sheets bauen, mit LLMs als Hypothesengenerator und Lernende-Simulator** — A 3-hour workshop in which participants build a written, falsifiable specification of what a learner needs for one teaching task (a Spec Sheet) and translate it into a system prompt for a chat tool.
 
 ### Learning Objectives
 
 By the end of this workshop, participants will:
 
-1. **Understand** the worked example effect and personalization principle from Cognitive Load Theory
-2. **Build** a working personalized example generator using PydanticAI
-3. **Deploy** an interactive demo to HuggingFace Spaces
-4. **Possess** a template for creating domain-specific educational tools
+1. **Decompose** one of their own teaching tasks into Skills und Knowledge Components, with the Hypothesengenerator prompt scaffold ensuring coverage across the three cognitive operations Abrufen (Faktenwissen) / Erkennen (Klassifikationswissen) / Begründen (Erklärungswissen). Optional V/B-marking (vermutet vs. beobachtet) lets lecturers track validation of LLM hypotheses against their own teaching experience beyond the workshop.
+2. **Identify** likely misconceptions and knowledge prerequisite-sources, using an LLM in two operational roles: Hypothesengenerator and Lernende-Simulator (reactive and productive)
+3. **Translate** the Spec Sheet into a system prompt for a running tool, observe the structured output, and sharpen the Spec where the output is generic or off-target
+4. **Decide** which Wissensbausteine require Selbst-Tun versus where Zuschauen suffices (Take-Home homework that operationalises the offloading-vs-outsourcing distinction)
 
 ### Workshop Flow
 
-| Part | Duration | What Participants Do |
+Total wall-clock: 155 min content + 15 min break = 170 min, with 10 min buffer to the 3-hour ceiling. Block 3 has an optional 10-min role-play that extends Block 3 to 45 min and consumes the buffer.
+
+| Block | Duration | What Participants Do |
 |------|----------|---------------------|
-| Opening | 10 min | Think-Pair-Share on learning from examples |
-| Part 1: Foundation | 30 min | Learn CLT theory, set up environment, see PydanticAI demo |
-| Part 2: Design | 30 min | Collaboratively design data models (LearnerProfile, PersonalizedWorkedExample) |
-| Part 3: Build | 50 min | Build concept library, create AI agent, test generator |
-| Part 4: Interface | 40 min | Build interactive UI with Marimo (forms, buttons, display) |
-| Part 5: Deploy | 30 min | Deploy to HuggingFace Spaces, troubleshoot, discuss extensions |
-| Closing | 10 min | Reflect on learning, discuss transfer to own teaching |
+| Einstieg | 10 min | Cross-discipline pair: write a one-paragraph description of your own teaching task, read your partner's, write three sentences for them, mark what came back |
+| Block 1 | 35 min | Three anchor slides (Ein schwieriges Problem / Expert Blind Spot / Das LLM als Hypothesengenerator) plus compact three-types reference, then live worked-example walkthrough at the Statistics multiple-regression task, then Spec-Vorschau |
+| **Pause** | 15 min | |
+| Block 2 | 60 min | Build own Spec Sheet for one teaching task: Sektion 1 (Teilaufgabe) → 2 (Wissensbausteine, Hypothesengenerator) → 3 (Misconceptions, Lernende-Simulator) → cross-discipline paired review |
+| Block 3 | 35 min core (+10 min optional) | Demo of the running tool with the example Spec, insert own Spec and observe output, sharpen Spec and re-test, (optional) cross-discipline role-play, wrap |
+| Closing | 15 min | Leitsatz-Erweiterung ("Spec is durable, Werkzeug is Rendering") → Downstream-Uses-Gallery (four further tools the Spec can drive) → persönliche Verpflichtung shared with cross-discipline partner → Take-Home pointer |
+
+The Falsifikationsnotiz and Selbst-Tun-vs-Zuschauen tagging that used to live in the in-room Closing are now Take-Home homework, documented in `workshop/take-home/index.qmd`. The slides for these (Closing section of `slides/workshop/index.qmd`) are retained as Take-Home reference; they are not shown live in the 15-min Closing.
+
+### The Spec Sheet: 3 Sections + 1 Take-Home
+
+The 3-section participant template (in `workshop/spec-sheet-template/index.qmd`). The earlier 6-section "Spec Card" with full theoretical labels remains preserved at `instructor-notes/spec-card-statistics/index.qmd` and `instructor-notes/spec-card-statistics-internal.md` for instructor reference.
+
+| # | Section (German participant label) | Theoretical commitment |
+|---|---|---|
+| 1 | Lernaufgabe (Wortlaut, Rahmen, intendiertes Ergebnis) | Anchoring the spec to a specific subtask, not a whole assignment |
+| 2 | Erforderliche Skills und Knowledge | Three types defined by cognitive operation: Faktenwissen (Abrufen) / Klassifikationswissen (Erkennen) / Erklärungswissen (Begründen); optional V/B-marking; characteristic error form per entry |
+| 3 | Antizipierte Misconceptions | Conceptual change theory (used as concept, not named as framework); intuitive basis per entry |
+| 4 (Take-Home) | Falsifikationsnotiz | Empirical accountability: what student behaviour would falsify the decomposition? Documented as optional Take-Home homework, not filled in the live Closing |
+
+Plus an optional Pruning-Protokoll: LLM-Vorschläge that were rejected, with a half-line of reason. Empty pruning column with full Spec is a warning signal.
+
+### Vocabulary Policy
+
+Two registers, kept distinct:
+
+- **Internal docs** (instructor-notes/, design docs, this CLAUDE.md): full theoretical naming preserved (ACT-R, Bayesian, Daw & Fleming, conceptual change theory, source-monitoring, etc.)
+- **Participant materials** (workshop/, vorbereitung/): plain language. Cognitive mechanisms in the Nachlesen tabs cite their canonical homes (CAS Lernpsychologie 02-ki-und-lernen for offloading-vs-outsourcing; kompetenz-erwerben for expertise reversal). Pearl's intervention/observation distinction is named in the in-room Closing only as "Selbst-Tun vs. Zuschauen" with the Pearl mechanic explained one line in the Nachlesen tab.
+
+### Test in Block 3
+
+One pragmatic test question when participants insert their Spec into the running tool and observe the output: *Stimmt der Output mit dem überein, was deine echten Lernenden tun? Wenn nein, was fehlt im Spec?* Where the Spec is sharp the output is specific; where the Spec is vague the output is generic. This is a workshop-scale plausibility check, not a statistical test. The earlier Drei-Ausgänge-Heuristik (Pass / Fail soft / Fail hard) from the prior workshop iteration is documented in Block 3's Nachlesen tab as a historical reference; the slides for it remain in the deck as reference but are not shown live.
 
 ### Technical Stack
 
-- **PydanticAI**: Type-safe AI agent framework for structured outputs
-- **Marimo**: Reactive Python notebooks with built-in UI components
-- **OpenAI GPT-4o**: Language model for example generation
-- **HuggingFace Spaces**: Free deployment platform
+- **Anthropic Claude (Haiku/Sonnet)**: structured-output language model used by the running tool in Block 3
+- **HuggingFace Spaces**: free deployment platform that hosts the Block 3 tool
+- **Chat tools** (Microsoft Copilot, ChatGPT, Claude.ai, HuggingChat): the tools participants use during Block 2 to invoke the Hypothesengenerator and Lernende-Simulator roles, and that they can use after the workshop with their Spec
+- **Pydantic** + **Marimo**: the active Block-3 tool (`hf-spaces/diagnostic-tool-spec/`) uses Pydantic models as the structured-output schema (passed to Anthropic via `messages.parse()` / `output_config.format`) and marimo as the UI. **Gradio** is used only in archived iterations (`archive/hf-spaces-legacy/diagnostic-tool-shell/`, `worked-example-weaver-app/`). The architecture explanation for participants who want to understand the Block 3 tool internally lives at `workshop/take-home/api-werkzeug-erklaert.qmd`.
 
-### Three Supported Domains
+### Seven Backup Scenarios
 
-1. **Programming (Python)**: For loops, list comprehensions, dictionaries, functions, string formatting
-2. **Health Sciences (Statistics)**: Correlation, mean/SD, t-tests, confidence intervals, effect size
-3. **Agronomy**: Yield prediction, NPK optimization, growing degree days, water efficiency, cost-benefit
+Located at `workshop/build/scenarios/`. **Translated to German** as of 2026-05-12. Earlier English versions are mirrored in `archive/hf-spaces-legacy/diagnostic-tool-shell/scenarios.json` and `archive/hf-spaces-legacy/diagnostic-tool-shell-marimo/scenarios.json` and are not regenerated when the German `.qmd` versions change:
+
+1. Pflege: Warfarin und INR
+2. Pädagogik: Eine Quizfrage kritisieren
+3. Wirtschaft: Bäckerei-Preisanpassung
+4. Sozialarbeit: Verpasste Termine
+5. Engineering: Stale-Data-Bug
+6. Statistik: Interpretation von $r = 0{,}3$
+7. Mathematik: Das Substitutions-Muster erkennen
+
+Each scenario provides three calibrated student responses, each tagged with a German failure-mode name (Aktive Fehlkonzeption, Lernferner Abruf, Schema-Lücke, Intrinsische Überlastung, Extrinsische Ablenkung). These serve as backup assignments for Block 2 (for participants without their own material) and as raw material for the Block 3 test (a known student answer to feed the system-prompted LLM). The earlier `load_signal` taxonomy from the diagnostic-tool-shell iteration is no longer used.
 
 ### Pedagogical Grounding
 
-Based on **Cognitive Load Theory** (Sweller, 1988):
+Layered on top of the intermediate workshop's CLT framing. The new design adds:
 
-- **Worked Example Effect**: Novices learn better from studying solutions than solving problems (effect size 0.52)
-- **Personalization Effect**: Familiar contexts reduce extraneous cognitive load, improving learning
+- **Computational vs. algorithmic levels** (Marr): used implicitly; not named in participant materials
+- **Bayesian framing of belief revision**: priors, posteriors, conditioning variables; named as concepts (Posteriore, Aktualisierungsbedingungen) but not as a framework
+- **ACT-R-style decomposition**: chunks and compiled productions as schemas + automatised patterns; named as concepts only
+- **Pearl's intervention vs. observation**: named explicitly in participant materials. Mechanises the offloading-vs-outsourcing distinction
+- **Daw & Fleming second-order metacognition**: the action-as-input claim is the workshop's strongest claim. The citation lives in instructor notes; the claim is stated in plain German for participants
+- **Productive failure (Kapur)**: used implicitly in Block 3 (when participants observe a generic or off-target output, the diagnostic moment is a productive-failure moment) and in Block 2's Lernende-Simulator runs
+- **Conceptual change theory** (Vosniadou, diSessa, Chi): used in Section 4's "intuitive basis" requirement
 
 ## Notes for Development
 

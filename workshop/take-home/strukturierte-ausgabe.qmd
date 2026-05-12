@@ -1,0 +1,83 @@
+---
+title: "Strukturierter Output: das Konzept hinter dem Werkzeug"
+subtitle: "Was Schema-Constraints sind und warum sie für KI in der Lehre interessant sind"
+---
+
+::: {.callout-note icon=false}
+## Was diese Seite ist
+
+Eine konzeptuelle Einführung in *strukturierten Output*: was er ist, wie er sich von normalen Chat-Antworten unterscheidet, und warum er für die Lehre eine andere Klasse von Werkzeugen ermöglicht. Diese Seite enthält keinen vollständigen Code; sie soll dir ein Modell geben, an dem du dich orientieren kannst, wenn du selbst etwas in diese Richtung bauen oder bestellen möchtest.
+
+Wenn dich die konkrete Architektur des Block-3-Werkzeugs interessiert (Parser, Pydantic-Modelle, API-Aufruf), liegt sie unter [Wie das Werkzeug funktioniert](api-werkzeug-erklaert.qmd). Diese Seite hier kommt davor; sie ist das Konzept, jene ist die Umsetzung.
+:::
+
+## Was du in Block 3 erlebt hast
+
+Du hast in Block 3 dein Spec in ein laufendes Werkzeug eingefügt und eine Antwort zurückbekommen, die nicht aus freiem Text bestand. Sie hatte erkennbare Felder: einen Hinweis, eine Begründung, einen nächsten Schritt, eine metakognitive Frage. Jede Antwort, die du ausgelöst hast, lieferte dieselbe Struktur, auch wenn die Inhalte unterschiedlich waren. Du konntest die Felder lesen, ohne dich durch einen Absatz zu kämpfen, um die relevante Information herauszupicken.
+
+Diese Vorhersagbarkeit ist nicht zufällig. Sie ist das Resultat einer Eigenschaft, die das System hat und die in einem typischen Chat-Werkzeug fehlt: *strukturierter Output*. Das Werkzeug hat die Sprachausgabe des LLM in eine vordefinierte Form gezwungen.
+
+## Was strukturierter Output ist
+
+Ein normales Chat-Werkzeug gibt freien Text zurück. Du fragst, das Modell antwortet in zusammenhängenden Sätzen, und du liest die Antwort wie eine E-Mail. Das ist flexibel, aber unzuverlässig: dasselbe Modell beantwortet dieselbe Frage beim nächsten Mal vielleicht in einer anderen Reihenfolge, lässt ein Detail aus, oder fügt eine Bemerkung ein, die du nicht angefordert hast.
+
+*Strukturierter Output* heisst: das Modell wird gezwungen, in einem vordefinierten Format zu antworten. Das Format ist ein **Schema**: eine Liste von Feldern, ihren Typen und gegebenenfalls erlaubten Werten. Eine gültige Antwort befüllt alle Felder; eine nicht-passende Antwort wird vom System zurückgewiesen, bevor sie dich erreicht.
+
+Ein Schema sieht in Pseudocode etwa so aus:
+
+```markdown
+Schema "AdaptiveHintResponse":
+  hint_text:           Text, ein bis drei Sätze
+  rationale:           Text, ein Satz
+  next_step:           Text, ein Satz
+  metacognitive_prompt: Text, ein Satz
+  estimated_difficulty: einer aus {leicht, mittel, schwer}
+```
+
+Das Schema ist die *Spezifikation der Maschine*, was das Spec Sheet *für die Lehrperson* ist: eine prüfbare, beschränkte Ausgabe.
+
+## Zwei Wege, strukturierten Output zu bekommen
+
+Es gibt zwei grundsätzlich verschiedene Mechanismen, mit denen man von einem LLM eine strukturierte Antwort bekommt.
+
+**Chat mit Format-Bitte (soft constraint).** Du schreibst im Prompt etwas wie *"Antworte als Liste mit den Feldern X, Y, Z."* Das Modell versucht, mitzuhalten. In den meisten Fällen tut es das auch. In manchen Fällen bricht es aus: ein Feld fehlt, ein Feld hat den falschen Typ, oder das Modell mischt freien Text dazwischen. Es gibt keine externe Prüfung, die das verhindert. Das ist die Form, mit der du in Block 2 gearbeitet hast.
+
+**API mit Schema-Definition (hard constraint).** Du übergibst dem Modell ein formales Schema, das die zugelassene Form der Antwort beschreibt. Beide grossen Anbieter haben dafür eine dedizierte *Structured-Outputs*-API (Anthropic: das `output_config.format`-Feld mit `json_schema`; OpenAI: `response_format`), die intern eine Antwort gegen das Schema validiert. Wenn die Antwort nicht passt, wird sie verworfen oder zur Korrektur zurückgeschickt. Was bei dir ankommt, *muss* dem Schema entsprechen. Eine zweite, ältere Variante bei Anthropic ist *Tool Use* mit erzwungenem `tool_choice`: man definiert ein Tool, dessen `input_schema` dem gewünschten Antwortschema entspricht, und das Modell ruft das Tool zwingend auf. Beide Wege liefern dasselbe Ergebnis. Das Block-3-Werkzeug ist historisch auf der Tool-Use-Variante implementiert.
+
+| Eigenschaft | Chat mit Format-Bitte | API mit Schema |
+|---|---|---|
+| Aufwand | niedrig: ein Prompt | mittel: Schema definieren, API-Code schreiben |
+| Verlässlichkeit | gut, nicht perfekt | praktisch perfekt im Format |
+| Integration in Pipelines | mühsam: Output muss nachgeprüft werden | direkt: Output ist bereits ein typisiertes Objekt |
+| Flexibilität bei Output-Varianten | hoch | gering: Schema-Änderung nötig |
+
+## Warum das für die Lehre interessant ist
+
+Es gibt drei konkrete Stellen, an denen strukturierter Output etwas leistet, was ein Chat-Werkzeug nicht leistet.
+
+**Pipeline-Tauglichkeit.** Wenn du das Werkzeug regelmässig in deiner Lehre einsetzen willst (etwa, um vor jeder Übungseinheit eine angepasste Diagnosefrage zu generieren), brauchst du Verlässlichkeit. Du willst nicht jedes Mal von Hand prüfen, ob das Modell die geforderte Form geliefert hat. Strukturierter Output macht den Output programmatisch weiterverarbeitbar: das, was zurückkommt, kann ohne Zwischenprüfung in deinen LMS-Quizgenerator, in eine Lernplattform oder in deinen Notizfluss eingespeist werden.
+
+**Diagnostische Brücke zwischen Lernenden-Antworten und deinem Spec-Vokabular.** Mit strukturiertem Output kann das System nicht "ungefähr in die Richtung" antworten, sondern muss benennen, *welcher* Wissensbaustein aus deinem Spec gerade betroffen ist. Wenn das Schema das Feld "betroffener Baustein" als Aufzählung deiner konkreten Spec-Einträge definiert, ist die Antwort des Modells eine echte Klassifikation, kein Eindruck. Genau dieser Mechanismus ist es, der eine Misconception-Diagnose von einer fluent-aber-vagen Rückmeldung unterscheidet.
+
+**Aggregation über Lernende.** Wenn du dreissig Lernenden-Antworten durch dasselbe Schema laufen lässt, kannst du die Häufigkeiten der diagnostizierten Bausteine zählen. Das ist die Grundlage von Spec-basierten Learning Analytics: nicht "in dieser Klausurfrage haben viele schlecht abgeschnitten", sondern "Baustein 3 wurde in 18 von 30 Antworten als verfehlt klassifiziert". Diese Aggregation ist nur möglich, wenn die einzelnen Klassifikationen kompatibel formatiert sind.
+
+## Was du dafür brauchst
+
+Code: ja, jemand muss ihn schreiben. Aber die *konzeptuelle Arbeit* (welche Felder soll das Schema haben? welche Typen? welche Werte sind erlaubt?) ist genau die Spec-Arbeit, die du im Workshop gemacht hast. Wenn du eine Person mit Python-Kenntnissen an der Hand hast, gibst du ihr deinen Spec und einen Verweis auf [die Architektur-Erklärung des Block-3-Werkzeugs](api-werkzeug-erklaert.qmd). Die Übersetzung in Pydantic ist dann nicht der eigentliche Aufwand; der Aufwand liegt im Spec.
+
+Was sich nicht delegieren lässt: zu wissen, welche Felder eine sinnvolle Antwort hat. Das ist eine pädagogische Frage, keine technische.
+
+## Verbindung zum Leitsatz "Spec ist dauerhaft, Werkzeug ist Rendering"
+
+Strukturierter Output ist eine konkrete Form dieses Leitsatzes. Das Schema, das eine API benutzt, ist eine kompiliertere Variante deines Spec Sheets: dieselben Wissensbausteine, dieselben Misconceptions, in einer Form, die ein Validator prüfen kann. Beide bleiben gleich, wenn das LLM wechselt. Was rendert, ist die Hardware (Anthropic, OpenAI, ein kommendes Modell, das es heute noch nicht gibt). Was bleibt, ist die Spezifikation: deine.
+
+Anders gesagt: wenn dein Spec Sheet scharf genug ist, dass eine Python-Person daraus ohne Rückfragen ein Schema bauen könnte, dann ist es scharf genug. Wenn nicht, fehlt etwas an Präzision, das in jedem Werkzeug fehlen würde.
+
+## Weiterführend
+
+- [Anthropic: Structured Outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs){target="_blank"} (englisch). Die offizielle Anleitung zum Schema-basierten Output bei Claude über `output_config.format`.
+- [Anthropic: Tool Use](https://docs.anthropic.com/en/docs/build-with-claude/tool-use){target="_blank"} (englisch). Die ältere, ebenfalls schema-basierte Variante; vom Block-3-Werkzeug intern verwendet.
+- [OpenAI: Structured Outputs Guide](https://platform.openai.com/docs/guides/structured-outputs){target="_blank"} (englisch). Die parallele Anleitung für GPT-Modelle.
+- [Pydantic Documentation](https://docs.pydantic.dev/latest/){target="_blank"} (englisch). Die in beiden Workshop-Iterationen verwendete Python-Bibliothek für Schemata.
+
+Die Anthropic Console und das OpenAI Playground bieten beide UI-Oberflächen, in denen man einen Structured-Outputs-Aufruf zusammenstellen kann, ohne eine eigene Codebasis aufzubauen. Vollständig ohne Code geht es allerdings nicht: das Schema selbst muss in einer von der API verstandenen Form vorliegen.

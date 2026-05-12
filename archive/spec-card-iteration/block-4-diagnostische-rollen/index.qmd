@@ -1,0 +1,134 @@
+---
+title: "Block 4: Vier diagnostische Rollen"
+---
+
+::: {.callout-schedule icon=false}
+## Dauer: 35 Minuten
+
+- Rolle 1: Klarheits-Stresstest (7 min)
+- Rolle 2: Intervention vs. Beobachtung (10 min)
+- Rolle 3: Fehlkonzept-Sonde (10 min)
+- Rolle 4: Performanz-Lernen-Detektor (7 min)
+- Übergang zum Closing (1 min)
+:::
+
+## Worum es geht
+
+Du hast in Block 2 deine eigene Spec Card gebaut und in Block 3 gesehen, wie sie sich in vier verschiedenen Werkzeugen ausspielt. Jetzt kommt der Punkt, an dem die Spec Card *etwas tut*. Vier Rollen, jede beleuchtet ein anderes diagnostisches Problem. Wir bewegen uns systematisch durch sie hindurch.
+
+Du brauchst:
+
+- Deine ausgefüllte Spec Card
+- Eine konkrete Aufgabe oder ein konkretes Lehrmaterial aus deinem Unterricht
+- Ein Werkzeug deiner Wahl, in dem die Spec Card kompiliert ist (Tier 1 oder Tier 2 reicht aus)
+
+Falls du keine eigene Aufgabe mitgebracht hast, nutze eines der sechs Backup-Szenarien aus dem [Szenario-Pack](../build/scenarios/index.qmd) (verfügbar aus dem Diagnose-Werkzeug).
+
+## Rolle 1: Klarheits-Stresstest (7 min)
+
+::: {.callout-individual icon=false}
+## Vorgehen
+
+1. Lade dein **Lehrmaterial** in das Werkzeug, das deine Spec Card kompiliert: ein Aufgabentext, eine Folienerklärung, eine Anleitung.
+2. Bitte den Zwilling, das Material so zu bearbeiten, wie deine Novizin es täte.
+3. Beobachte: wo bricht der Zwilling ab, wo verläuft er sich, wo zeigt er Unklarheiten?
+:::
+
+**Was du suchst:** Stellen, an denen der Zwilling ein Schema oder eine übergeordnete Struktur voraussetzt, das laut deiner Spec Card noch nicht gebaut ist. An diesen Stellen hast du **stillschweigend angenommenes Wissen** in deinem Lehrmaterial gefunden. Genau das ist die Information, die du sonst nicht hättest, weil du selbst das Material geschrieben hast und für dich klar ist.
+
+**Theoretischer Hintergrund:** Lehrpersonen können ihre eigene Expertise schlecht selbst überprüfen ("Fluch des Wissens"). Externalisierung durch ein falsifizierbares Novizenmodell ist die zuverlässigste Inspektionsmethode dafür. Was die Lehrperson selbst nicht erkennt, kann ein extern spezifizierter Zwilling sichtbar machen.
+
+**Spec-Card-Sektionen, die hier zentral werden:** Sektion 2 (was noch nicht aufgebaut ist), Sektion 3 (was schon da ist).
+
+## Rolle 2: Intervention vs. Beobachtung (10 min)
+
+::: {.callout-individual icon=false}
+## Vorgehen
+
+1. Wähle eine **Aufgabe** aus deinem Unterricht. Zerlege sie in Teilschritte. Liste die Teilschritte auf.
+2. Für jeden Teilschritt frage:
+
+> **Erzeugt dieser Teilschritt die Information, die der metakognitive Posterior der Studentin braucht, um sich überhaupt zu aktualisieren?**
+
+Die Information entsteht durch eigene Festlegung. Wenn der Teilschritt die Studentin zwingt, sich auf eine Position festzulegen, deren Inhalt diagnostisch für ihr eigenes Modell ist, dann ist es eine **Intervention** im Sinne von Pearl: essenziell.
+
+Wenn der Teilschritt formal-mechanisch ist (eine Formel anwenden, eine Tabelle umformatieren), dann ist die Festlegung auf eine *Form* gerichtet, nicht auf einen Inhalt. KI-Substitution kostet hier wenig: **delegierbar**.
+:::
+
+**Eine nützliche strukturelle Faustregel:** Teilschritte, an denen der *Inhalt* der Festlegung der Studentin zählt (welcher Test soll verwendet werden, was bedeutet das Ergebnis), sind Interventionen. Teilschritte, an denen die Festlegung auf *Form* zielt (die richtige Zahl, die richtige Formulierung), sind beobachtungs-artig. Diese Faustregel hält über Disziplinen hinweg.
+
+::: {.callout-pro-tip icon=false}
+## Worked example: ein Statistik-Auftrag
+
+Auftrag: "Führe einen $t$-Test auf diesem Datensatz durch und interpretiere das Ergebnis."
+
+| Teilschritt | Festlegung auf... | Pearl-Status | Verdikt |
+|---|---|---|---|
+| Den passenden Test wählen ($t$-Test? $z$-Test?) | Inhalt: was die Daten verlangen | **Intervention** | Essenziell |
+| Die Teststatistik berechnen | Form: eine Zahl | Beobachtung | Delegierbar |
+| Das Ergebnis im Kontext interpretieren | Inhalt: was das Ergebnis bedeutet | **Intervention** | Essenziell. KI-Substitution lautlos zerstörerisch: das Fehlkonzept "$p<.05$ heisst wahrscheinlich wahr" bleibt unentdeckt. |
+| Den Output als Absatz formatieren | Form: Wortwahl | Beobachtung | Delegierbar |
+
+Die Teile, an denen KI-Substitution den Lerneffekt kosten würde, sind Schritt 1 und 3. Bei Schritt 2 und 4 spart sie Zeit ohne Lernverlust.
+:::
+
+**Was du am Ende hast:** eine **Teilschritt-Liste deiner Aufgabe**, mit jedem Schritt als essenziell oder delegierbar markiert. Das ist eine direkte didaktische Vorschrift, an welchen Stellen KI-Nutzung mit Lernen vereinbar ist und an welchen nicht.
+
+**Spec-Card-Sektionen, die hier zentral werden:** Sektion 5 (Selbsteinschätzung mit Aktualisierungs-Bedingungen), Sektion 6 (was die Novizin tut, wenn sie nicht weiterkommt).
+
+## Rolle 3: Fehlkonzept-Sonde (10 min)
+
+::: {.callout-individual icon=false}
+## Vorgehen
+
+1. Wähle aus deiner Spec Card (Sektion 4) ein **dokumentiertes Fehlkonzept** deiner Disziplin. Falls du keine eigene Spec Card hast, verwende eines der Fehlkonzepte aus den [Szenarien](../build/scenarios/index.qmd) (Statistik-Korrelation, Pflege-INR, etc.).
+2. Konfiguriere den Zwilling so, dass er das Fehlkonzept *konsistent festhält*. (Im Werkzeug: füge einen System-Prompt-Zusatz ein, der das Fehlkonzept explizit verankert.)
+3. Lass den Zwilling deine Aufgabe bearbeiten.
+
+**Frage**: Zwingt die Aufgabe das Fehlkonzept dazu, eine **Vorhersage** zu machen, die **sichtbar versagt** und revidiert werden muss?
+
+Oder lässt die Aufgabe das Fehlkonzept ungestört nebenher existieren, während die Studentin trotzdem einen plausiblen Output erzeugt?
+:::
+
+**Worauf zu achten ist:** Eine Aufgabe, die das Fehlkonzept *nicht* zu einer falsifizierbaren Vorhersage zwingt, kann dazu führen, dass die Studentin "besteht", ohne dass das Fehlkonzept aufgelöst wird. Das ist die schwerste Klasse von Aufgaben: produktiv klingend, lerntheoretisch nutzlos.
+
+**Theoretischer Hintergrund:** Fehlkonzepte werden nicht durch Exposition gegenüber dem korrekten Material aufgelöst, sondern durch **produktives Scheitern** (Manu Kapur): Aufgaben, die das Fehlkonzept zwingen, eine konkrete Vorhersage zu machen, die dann sichtbar fehlschlägt. Erst dann kann das Fehlkonzept revidiert werden. Fehlkonzepte sind kohärente Alternativmodelle, nicht zufällige Fehler. Ihnen muss man strukturell entgegentreten.
+
+**Was du am Ende hast:** eine Antwort auf die Frage "treibt meine Aufgabe das Fehlkonzept aus oder konserviert sie es?" Wenn letzteres, hast du eine konkrete Stelle gefunden, an der du die Aufgabe nachschärfen kannst.
+
+**Spec-Card-Sektionen, die hier zentral werden:** Sektion 4 (Fehlkonzepte mit intuitivem Hintergrund).
+
+## Rolle 4: Performanz-Lernen-Detektor (7 min)
+
+::: {.callout-individual icon=false}
+## Vorgehen
+
+1. Konfiguriere den Zwilling so, dass er eine Antwort produziert, die **flüssig und selbstsicher** klingt, aus einem aber **un-aktualisierten metakognitiven Posterior** entstanden ist. Konkret: gib dem Zwilling den Auftrag, eine vollständige Antwort zu geben, ohne dass er zwischen "kompetent" und "nicht kompetent" gemäss seinen eigenen Sektionen 2 und 5 unterscheidet.
+2. Lies die produzierte Antwort. Bewerte sie wie eine Studierendenarbeit.
+3. Beobachte dich beim Bewerten.
+:::
+
+**Was du erleben wirst:** in deinem **Heimat-Subgebiet** wirst du Fehler aufspüren, die die Antwort macht. In **angrenzenden Subgebieten** wirst du Fehler durchlassen. Du wirst die Erfahrung von **Quellengedächtnis-Verfall** machen (Information ohne klare Quelle wird als bekannt aufgenommen) und von **Flüssigkeit-Wahrheit-Konflation** (was flüssig dargeboten wird, wirkt glaubwürdiger). Beides direkt, in deinem eigenen Bewertungsverhalten.
+
+**Theoretischer Hintergrund:** Drei Risiken kompoundieren bei der Bewertung von KI-Output: Quellengedächtnis-Verfall, die replizierte sozialpsychologische Beobachtung, dass flüssig dargebotene Informationen als wahrer empfunden werden, und das Phänomen, dass Novizen mit schwachen rahmenden Strukturen alles gleich glaubwürdig finden. Die Lehrperson ist diesen drei Kräften nicht immun: in Subgebieten, in denen sie selbst Novizin ist, gelten dieselben Mechanismen.
+
+::: {.callout-caution icon=false}
+**Hinweis zur Erfahrung:** Diese Rolle ist die unangenehmste der vier. Du wirst Fehler übersehen, die du *eigentlich* sehen können solltest. Das ist genau der Punkt: KI-Mediation in der Lehre ist nicht nur ein Studierendenproblem. Sie ist auch ein Bewertungsproblem für die Lehrperson selbst, in jedem Subgebiet, in dem sie nicht zuhause ist.
+:::
+
+**Spec-Card-Sektionen, die hier zentral werden:** Sektion 5 (Kalibrierungs-Profil), Sektion 6 (Wenn-dann-Muster, die flüssig-aber-falschen Output erzeugen).
+
+## Übergang zum Closing (1 min)
+
+Du hast jetzt alle vier Rollen einmal durchlaufen. Im Closing ziehen wir das Fazit und lokalisieren, an welcher Stelle deiner Lehre du in den nächsten zwei Wochen tatsächlich etwas anders machen wirst.
+
+::: {.callout-checkpoint icon=false}
+## Was du aus Block 4 mitnimmst
+
+- Eine konkrete Antwort darauf, wo in deinen Lehrmaterialien stillschweigend angenommenes Wissen steckt (Rolle 1).
+- Eine Teilschritt-Liste mindestens einer Aufgabe, mit Markierung essenziell vs. delegierbar (Rolle 2).
+- Eine Diagnose, ob deine Aufgabe ein zentrales Fehlkonzept tatsächlich auflöst oder nur überdeckt (Rolle 3).
+- Eine direkte Erfahrung der Bewerterinnen-Vulnerabilität für flüssig-aber-falschen Output (Rolle 4).
+:::
+
+**Weiter:** [Closing](../closing/index.qmd)

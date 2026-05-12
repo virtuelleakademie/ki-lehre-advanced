@@ -1,0 +1,113 @@
+---
+title: "Theory: A CLT-Grounded Diagnostic Taxonomy"
+---
+
+::: {.callout-schedule icon=false}
+## Duration: 30 minutes
+:::
+
+## Learning Objectives
+
+By the end of this section, you will:
+
+1. **Recognise** the three classical CLT load types and the cognitive architecture they describe
+2. **Identify** five diagnostic signals visible in student work, derived from CLT plus schema-acquisition research
+3. **Match** each diagnostic signal to a corresponding intervention strategy
+4. **Justify** why a fixed diagnostic taxonomy is itself an act of pedagogical decomposition
+
+## Where this picks up from the intermediate workshop
+
+The intermediate workshop established two distinctions:
+
+- **Cognitive offloading**: a tool reduces working-memory load while the student continues to think
+- **Cognitive outsourcing**: a tool eliminates the thinking the student was supposed to do
+
+Both rest on a more basic question: *what does the student's working memory actually contain right now*? An AI tool that takes a student artifact as input can ask exactly that question. This workshop builds a tool to ask it.
+
+## The substrate: classical CLT load types
+
+| Load Type | Source | Effect on Learning | Design Implication |
+|-----------|--------|-------------------|-------------------|
+| **Intrinsic Load** | Inherent complexity of the material relative to the learner's existing schemas | Necessary for learning, but can cause overload | Sequence simple-to-complex; chunk; use worked examples |
+| **Extraneous Load** | Task or material design that doesn't serve schema construction | Harmful — does not contribute to learning | Eliminate redundancy; integrate sources; reduce surface complexity |
+| **Germane Processing** | Effortful schema construction by the learner | Helpful — this is where learning happens | Provide scaffolds that prompt elaboration, not just retrieval |
+
+**Total cognitive load = intrinsic + extraneous + germane.** The teacher's job is to manage intrinsic load to the learner's capacity, eliminate extraneous load, and create conditions where germane processing can occur.
+
+::: {.callout-pro-tip icon=false}
+The framing of germane load was revised in Sweller, Ayres and Kalyuga (2019) from "germane *load*" (a third type of load) to "germane *processing*" (the working-memory work that builds long-term-memory schemas). The diagnostic taxonomy below uses this updated framing.
+:::
+
+## The five diagnostic signals
+
+Three of these signals correspond directly to the classical load types. Two more come from schema-acquisition research: a learner can have an absent schema (`schema_gap`) or an actively wrong one (`active_misconception`). All five are visible in student artifacts when you know what to look for.
+
+### `intrinsic_overload`
+
+The learner is tracking too many interacting elements at once for their current schemas to handle. The response shows partial reasoning that breaks down, lost threads, mid-explanation derailments.
+
+> **Example** (engineering): a student listing twelve possible causes of a bug and not choosing one.
+
+The mechanism: working memory has been exceeded. The intervention is to chunk the task so element-interactivity falls within capacity (`segment_intrinsic_load`).
+
+### `extrinsic_distractor`
+
+Cognitive effort is going to the wrong place. The student fixates on irrelevant surface features of the task, the material, or the institutional process around it. The actual learning target is not where attention has landed.
+
+> **Example** (social work): a student analysing a missed-appointment case by checking whether the intake forms are up to date.
+
+The mechanism: extraneous load has captured the limited working-memory budget. The intervention is to declutter the task surface so the substantive question becomes the salient one (`reduce_extrinsic_load`).
+
+### `germane_disengagement`
+
+The student retrieves correct information but does not elaborate on it. The response is technically right and pedagogically empty: rote knowledge surfacing without contact with the specific case.
+
+> **Example** (statistics): a student reciting the textbook definition of correlation when asked to interpret a specific value.
+
+The mechanism: germane processing is not happening. The student is in retrieval mode, not in schema-construction mode. The intervention is a probe that forces application or self-explanation (`prompt_germane_processing`).
+
+### `schema_gap`
+
+A foundational concept needed to engage with the task is simply absent. The student often *knows* something is missing and may say so explicitly.
+
+> **Example** (business): a student asking "is there a formula for whether customers will still buy as many?" — they have correctly identified the missing concept (price elasticity).
+
+The mechanism: the relevant long-term-memory schema does not exist yet. The intervention is to build a bridge from existing schemas to the missing one (`activate_prior_schema`).
+
+### `active_misconception`
+
+The student is reasoning consistently from a coherent but wrong model. The reasoning is internally self-consistent — that is what makes misconceptions hard to dislodge.
+
+> **Example** (nursing): a student believing high INR means thick blood and confidently increasing the warfarin dose.
+
+The mechanism: a wrong schema is activated and being applied. The intervention is to surface the contrast between the wrong model and the right one, typically through a worked example (`replace_misconception`).
+
+## Mapping diagnosis to intervention
+
+The shell's output schema couples each `load_signal` with a default `intervention`. The defaults are not the only valid choice; severity and discipline modulate them. But the defaults are a useful baseline.
+
+| Diagnosis (`load_signal`) | Default intervention | What the intervention does |
+|---|---|---|
+| `intrinsic_overload` | `segment_intrinsic_load` | Chunks the task so element-interactivity drops below capacity |
+| `extrinsic_distractor` | `reduce_extrinsic_load` | Declutters the surface so attention can find the substantive target |
+| `germane_disengagement` | `prompt_germane_processing` | Forces application or self-explanation through a probe |
+| `schema_gap` | `activate_prior_schema` | Bridges from an existing schema to the missing one via analogy |
+| `active_misconception` | `replace_misconception` | Contrasts the wrong model with the right one, often through a worked example |
+
+## Why a fixed schema
+
+The shell you will use in the Build block fixes the five diagnostic categories and the five intervention categories. It does not ask you to design them.
+
+The reason is methodological. The categories *are* the pedagogical decomposition. Every choice the LLM makes when classifying a student response is a CLT-grounded choice. Your work as a tool designer is to teach the model how those categories appear in your discipline. The structure stays put; the discipline-specific cues are what you contribute.
+
+::: {.callout-reflect icon=false}
+## A meta point about decomposition
+
+This workshop's tool is itself a worked example. Designing diagnostic AI tools for teaching often gets framed as data-modelling work: "what fields should this return?" That framing turns pedagogical thinking into engineering thinking. By fixing the schema *as* the CLT taxonomy, the tool removes data-modelling as a degree of freedom and forces the design work to live where it belongs: in noticing what learning looks like in your specific discipline.
+:::
+
+## What you do next
+
+You will pick one of six discipline scenarios, each with three calibrated student responses. You will write a system prompt that tells the LLM how to apply the five categories to your discipline. You will test, iterate, and export a portable prompt you can use in any LLM interface.
+
+**Next:** [See the Demo](../demo/index.qmd)

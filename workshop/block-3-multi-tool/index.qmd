@@ -1,0 +1,103 @@
+---
+title: "Block 3: Spec im laufenden Werkzeug (35 min Kern, 10 min optional)"
+---
+
+::: {.callout-checkpoint icon=false}
+## Auf einen Blick
+
+- **Zeit:** 35 Minuten Kern (5 Demo, 15 eigenes Spec, 10 Schärfung, 5 Wrap) + 10 Minuten optional (Role-Play)
+- **Ergebnis:** Erste Iteration deines Specs am laufenden Werkzeug; eine konkrete Schärfung pro Spec dokumentiert
+- **Format:** Solo am Laptop, optional Cross-discipline-Paar
+- **Leitfrage:** Stimmt der Output mit dem überein, was deine echten Lernenden tun? Wenn nein, was fehlt im Spec?
+:::
+
+**Facilitator-Notizen:** [block-3-facilitator.md](../../instructor-notes/block-3-facilitator.md)
+
+:::: {.panel-tabset}
+
+### {{< bi file-slides >}} Präsentation
+
+Dein Spec geht oben ins Werkzeug rein, ein strukturierter Output kommt unten raus. Die Qualität des Outputs ist eine Funktion der Qualität des Specs: wo dein Spec scharf ist, wird der Output spezifisch; wo dein Spec vage ist, wird der Output generisch. Den Mechanismus des Werkzeugs erklären wir nicht live, das ist im Take-Home dokumentiert.
+
+{{< revealjs file="../../slides/workshop/index.html#/block-3" height="500px" class="ratio ratio-16x9" >}}
+
+### {{< bi pencil-square >}} Aktivitäten
+
+#### Schritt 1: Demo des Werkzeugs (5 min)
+
+Demo am Beispiel-Spec. Beobachte: wie der Markdown-Spec eingefügt wird, welche Form der Output hat (Hinweis, Begründung, nächster Schritt, metakognitive Frage), wie sich der Output mit dem P(know)-Slider verändert.
+
+#### Schritt 2: Eigenes Spec einfügen (15 min)
+
+::: {.callout-individual icon=false}
+**Aufgabe:** Öffne [Das Werkzeug](tool.qmd) auf deinem Laptop. Kopiere dein Block-2-Spec in das Textfeld. Setze den P(know)-Slider zwischen 0.2 und 0.4 (Lernende, die das Material erst teilweise beherrscht). Klicke "Hint generieren". Lies die vier Output-Felder: Hinweis-Text, Begründung, nächster Schritt, metakognitive Frage. Beantworte: *Stimmt der Output mit dem überein, was deine echten Lernenden brauchen würden? Wenn nein, was fehlt im Spec?*
+:::
+
+**Prüf-Checkliste:**
+
+- [ ] Spec eingefügt und Output generiert
+- [ ] Alle vier Output-Felder gelesen
+- [ ] Test-Frage beantwortet (mit konkreter Antwort, nicht nur "ja/nein")
+- [ ] Eine Lücke im Spec identifiziert
+
+::: {.callout-pro-tip collapse="true"}
+## Typische Output-Muster
+
+- **Output ist generisch.** Das Spec war zu vage. Welche Sektion wirkt unscharf?
+- **Output adressiert das Falsche.** Das Spec hat eine wichtige Komponente nicht enthalten.
+- **Output erfindet etwas.** Das Werkzeug interpoliert; das Spec gibt nicht genug Constraints.
+:::
+
+#### Schritt 3: Spec schärfen und erneut testen (10 min)
+
+::: {.callout-individual icon=false}
+**Aufgabe:** Schärfe ein bis zwei Einträge in deinem Spec, gestützt auf das, was im ersten Lauf nicht gestimmt hat (Skill-Beschreibung präziser; Misconception spezifischer; intuitive Grundlage konkretisieren). Führe den Lauf erneut durch. Vergleiche die beiden Outputs.
+:::
+
+**Prüf-Checkliste:**
+
+- [ ] Mindestens eine Schärfung am Spec dokumentiert (vorher/nachher festgehalten)
+- [ ] Zweiter Lauf durchgeführt
+- [ ] Eine zentrale Beobachtung notiert: welche Schärfung hat welche Output-Veränderung produziert?
+
+#### [Optional] Schritt 4: Cross-discipline Role-Play (10 min)
+
+::: {.callout-pair icon=false}
+**Aufgabe:** Setz dich mit deiner Cross-discipline-Partnerin aus Block 2 zusammen. Phase 1 (5 min): A's Spec läuft im Werkzeug. B nimmt eine [Role-Play-Karte](role-play-cards.qmd) aus A's Disziplin (oder improvisiert eine in Block 2 genannte Misconception). B antwortet aus der Lernende-Rolle auf den Werkzeug-Output. A beobachtet, ob das Werkzeug angemessen reagieren würde. Phase 2 (5 min): Rollen wechseln.
+:::
+
+**Prüf-Checkliste:**
+
+- [ ] Pro Spec: hat das Werkzeug auf die simulierte Misconception angemessen reagiert, oder wurde sie ignoriert?
+
+#### Schritt 5: Wrap (5 min)
+
+::: {.callout-checkpoint icon=false}
+**Eine Frage in die Runde:** Welche eine Änderung an deinem Spec würde den Output am stärksten verbessern? Kurz formulieren, kein langes Erklären.
+:::
+
+### {{< bi book >}} Nachlesen
+
+::: {.callout-nachlesen icon=false}
+#### Wie das Werkzeug funktioniert (Architektur)
+
+Die ausführliche Erklärung, wie dein Markdown-Spec im Werkzeug zu einem strukturierten API-Aufruf wird, steht in [Wie das Werkzeug funktioniert](../take-home/api-werkzeug-erklaert.qmd). Lies das nach dem Workshop, wenn du den Mechanismus technisch nachvollziehen möchtest. Stichworte: Markdown-Parser, Pydantic-Schema, Anthropic-API, strukturierter Output.
+:::
+
+::: {.callout-nachlesen icon=false}
+#### Weitere Werkzeuge, die dein Spec antreiben kann
+
+Dein Spec ist nicht auf dieses eine Werkzeug beschränkt. Dasselbe Markdown-Dokument kann mehrere Downstream-Einsätze treiben: einen Worked-Example-Generator, eine Misconception-Probe, einen formativen Assessment-Generator, eine Knowledge-Tracing-Instrumentierung. Skizzen zu allen vier findest du unter [Weitere Werkzeuge](../take-home/weitere-werkzeuge.qmd).
+
+Das ist die Pointe des Leitsatzes "Spec ist dauerhaft, Werkzeug ist Rendering": dein Spec überlebt Werkzeuge und Modellgenerationen. Wenn nächstes Jahr ein anderes Werkzeug verfügbar wird, fütterst du dasselbe Spec hinein.
+:::
+
+::: {.callout-nachlesen icon=false}
+#### Die ältere Drei-Ausgänge-Heuristik
+
+In früheren Versionen des Workshops wurde der Test mit einer Drei-Ausgänge-Heuristik strukturiert: Pass / Fail soft / Fail hard. Die neue pragmatische Frage (*Stimmt der Output mit dem überein, was echte Lernende tun?*) ist eine Vereinfachung dieser Heuristik. Die ausführliche Form bleibt in den Instructor-Notes als Referenz für die Workshop-Leitung dokumentiert.
+:::
+
+::::
+
+**Weiter:** [Closing](../closing/index.qmd)

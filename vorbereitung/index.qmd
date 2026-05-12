@@ -1,0 +1,83 @@
+---
+title: "Vorbereitung"
+---
+
+::: {.callout-schedule icon=false}
+## Aufwand: ungefähr 20 Minuten vor dem Workshop
+:::
+
+## Was du im Workshop tun wirst
+
+Du wirst für **eine einzelne Teilaufgabe** aus deiner eigenen Lehre ein **Spec** schreiben: eine möglichst klare, in Markdown gefasste Beschreibung dessen, was eine Lernende für diese Teilaufgabe wissen, erkennen und erklären können muss, und welche Misconceptions plausibel sind. Das Spec ist werkzeug-unabhängig: dasselbe Markdown kannst du heute in das laufende Werkzeug einfügen, das wir in Block 3 zeigen, und in zwei Jahren in ein noch unbekanntes Werkzeug.
+
+Dabei nutzt du LLMs in zwei klar unterscheidbaren Rollen: als **Hypothesengenerator** (das LLM listet auf, was eine Lernende für deine Aufgabe wissen, erkennen oder begründen können müsste; die Anfänger-Rolle im Prompt verhindert, dass es Teilschritte überspringt, die du selbst nicht mehr siehst) und als **Lernende-Simulator** (das LLM spielt eine Lernende mit einer Misconception und produziert eine entsprechende Antwort).
+
+Was du *nicht* tun wirst: einen Prompt schreiben, der "intelligent" wirkt. Prompt-Engineering ist eine Sammlung von Heuristiken, empfindlich gegenüber Wortwahl, modellabhängig und alle sechs Monate veraltet. Wir machen etwas Anderes: wir bauen eine Spezifikation, die mehrere Modellgenerationen überleben kann.
+
+## Was du mitbringst
+
+::: {.callout-individual icon=false}
+## Drei konkrete Dinge
+
+1. **Eine Teilaufgabe** aus deinem eigenen Unterricht. Eine Übung, eine Klausurfrage, eine Hausaufgabe. Eine, die du regelmässig stellst und bei der du regelmässig siehst, dass Lernende daran stolpern. Bring sie in digitaler Form mit (PDF, Word, Markdown, was du hast).
+2. **Einen Satz** darüber, was Lernende daran typisch falsch machen. Aus deiner Lehrerfahrung: was geht schief? Eine konkrete Beobachtung, kein Allgemeinplatz.
+3. **Dein Laptop** mit funktionierendem Zugang zu einem LLM deiner Wahl (Microsoft Copilot, ChatGPT, Claude, HuggingChat).
+
+Falls du keine passende Aufgabe findest, haben wir Backup-Material aus sechs Disziplinen (Pflege, Pädagogik, Wirtschaft, Sozialarbeit, Engineering, Statistik).
+:::
+
+## Was als "konkrete Teilaufgabe" zählt
+
+Ein Beispiel aus Statistik, das wir in Block 1 als Worked Example durchgehen:
+
+> "Die Übung 5 in Statistik II: Lernende sollen in R eine multiple Regression mit Lernzeit und Mathenote als Prädiktoren für die Klausurpunktzahl rechnen und die Koeffizienten interpretieren. Sie verstehen die Aussage 'kontrolliert für' meistens falsch."
+
+Eine Teilaufgabe, ein typisches Stolperphänomen reichen aus.
+
+## Drei Eröffnungs-Sätze aus Block 1
+
+Eine kurze Vorschau auf die Eröffnungs-Slides aus Block 1. Im Workshop kommen sie noch einmal verbatim.
+
+**Ein schwieriges Problem.** Eine der schwierigsten pädagogischen Tätigkeiten beim Einsatz von KI in der Lehre ist nicht das Auswählen eines Werkzeugs, sondern das Spezifizieren dessen, was im Kopf der Lernenden passieren soll.
+
+**Der Expert Blind Spot.** Lehrpersonen sehen oft nicht, was ihre Lernenden noch nicht wissen, weil Automatisierung viele Teil-Skills unsichtbar gemacht hat. Eine typische Symptom-Aussage: "wende einfach die Formel an", ohne zu sehen, dass "was zählt als relevanter Input" selbst eine nicht-triviale Klassifikation ist.
+
+**LLMs als Hypothesengeneratoren.** Ein LLM, das als "Person, die gerade die Vorgängerveranstaltung abgeschlossen hat, aber diese hier noch nicht kennt" geprompted wird, kann Teilschritte aufzählen, die ein Experte überspringt. Die Annahme dahinter: in dieser Rolle teilt das LLM die automatisierten Routinen der Expertin nicht, und seine Enumeration kann als Spiegel dienen, der mögliche Voraussetzungen der eigenen Performance sichtbar macht. Ob das in einem konkreten Fall trägt, muss am Output überprüft werden.
+
+::: {.callout-caution icon=false}
+## Was das LLM nicht kann (und was du tun musst)
+
+Das LLM kennt deine konkrete Vorgängerveranstaltung nicht. Es enumeriert eine *plausible* Liste von Voraussetzungen für eine Person an dieser Stelle des Curriculums, nicht eine an deinem Material *gemessene*. Behandle die Liste konsequent als Hypothesen, nicht als Befund: was im Output spezifisch und für deine Aufgabe relevant ist, übernimmst du; was generisch oder unpassend ist, streichst du. Diese Selektion gegen dein eigenes Wissen über deine Lernenden und deinen Vorkurs ist die eigentliche pädagogische Arbeit, nicht das Prompten.
+:::
+
+## Das Worked Example und das Beispiel-Spec
+
+Wenn du Zeit hast, lies vor dem Workshop einmal das ausgearbeitete Beispiel durch:
+
+[Worked Example: Hypothesengenerator an einer Statistik-Aufgabe](../workshop/block-1-theorie-und-beispiel/worked-example-statistics.qmd)
+
+Was du aus dem Lesen mitnehmen sollst: welche Methode wir in Block 1 vorführen und wie die etwa fünfzehn Voraussetzungen aussehen, die ein LLM zu einer Statistik-Übung enumeriert. Im Workshop wird das Beispiel live durchgegangen; wenn du es vorher gelesen hast, kannst du im Block 1 stärker auf die *Methode* achten statt nur auf den Inhalt.
+
+Zusätzlich: das vollständig ausgefüllte [Beispiel-Spec zur Multiple Regression](../workshop/spec-sheet-template/example-multiple-regression.md) zeigt, wie ein fertiges Spec aussieht. Auch optional, etwa 5 Minuten Lektüre.
+
+## Werkzeug-Zugang
+
+::: {.callout-setup icon=false}
+## Was du gut zur Hand haben solltest
+
+- Zugriff auf Microsoft Copilot (mit deiner BFH-Lizenz).
+- Optional: ein Account auf [HuggingChat](https://huggingface.co/chat) (kostenlos, ohne Anmeldung mit Limitationen nutzbar).
+- Optional: ein Account auf [Claude.ai](https://claude.ai) oder [ChatGPT](https://chatgpt.com/) (kostenlose Stufe genügt).
+
+In Block 2 verwendest du dein eigenes Chat-Werkzeug, um dein Spec zu entwickeln. Microsoft Copilot reicht aus. In Block 3 fügst du dein fertiges Spec in ein laufendes Werkzeug ein, das wir bereitstellen; dort musst du nichts installieren.
+:::
+
+## Was du am Ende des Workshops haben wirst
+
+- Ein eigenes Markdown-Spec für eine Teilaufgabe deiner Lehre, mit Skills, Knowledge Components und antizipierten Misconceptions.
+- Eine Iteration deines Specs gegen das laufende Werkzeug, mit Beobachtungen darüber, wo das Spec geschärft werden muss.
+- Eine konkrete Verpflichtung, was du in den nächsten zwei Wochen in deiner Lehre tun wirst.
+
+::: {.callout-checkpoint icon=false}
+**Bevor du in den Workshop kommst:** wähle deine Teilaufgabe aus, schreib einen Satz dazu, was Lernende daran typisch falsch machen, und nimm dein Laptop mit LLM-Zugang mit. Wenn du das Worked Example und das Beispiel-Spec vorher gelesen hast, ist das ein Bonus, aber nicht erforderlich.
+:::

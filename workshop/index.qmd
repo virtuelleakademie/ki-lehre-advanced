@@ -1,212 +1,93 @@
 ---
-title: "Building Personalized Worked Example Generators with AI"
-subtitle: "Demonstrating Cognitive Load Theory Principles through Structured AI Outputs"
+title: "Spec Sheets bauen"
+subtitle: "LLMs als Hypothesengenerator und Lernende-Simulator"
 format:
   html:
     toc: true
     toc-depth: 2
 ---
 
-## Workshop Overview
+## Workshop-Überblick
 
-Welcome to this 3-hour workshop on building AI-powered educational tools grounded in Cognitive Load Theory. You'll learn a pattern for creating personalized worked examples by modifying a working template.
+Ein 3-Stunden-Workshop, in dem du für *eine Teilaufgabe* aus deiner eigenen Lehre ein **Spec Sheet** baust: eine möglichst klare, falsifizierbare Beschreibung dessen, was eine Lernende mitbringen muss, was sie wahrscheinlich nicht hat, welche Fehlkonzepte plausibel sind. Programmierkenntnisse brauchst du nicht.
 
-### What You'll Do
+Das Spec Sheet ist werkzeug-unabhängig formuliert: dasselbe Markdown lässt sich in unterschiedlichen Chat-Werkzeugen einsetzen, und der Spec selbst altert nicht so schnell wie die Prompts, in die er übersetzt wird. Ein Prompt für ein bestimmtes Werkzeug ist nur eine Übersetzung des Spec Sheets, die du in Block 3 einmal probierst.
 
-1. **See a complete demo:** Experience the full complex application (3 domains, 16 concepts)
-2. **Study the code:** Understand how Pydantic and Marimo create structured AI outputs
-3. **Modify a template:** Add concepts to a simplified version (1 domain, 3 concepts)
-4. **Design extensions:** Plan how to apply this to YOUR teaching
+### Was du im Workshop tust
 
-### What You'll Build
+1. **Eine Teilaufgabe wählen** aus einer deiner Aufgaben (oder ein Backup-Szenario).
+2. **Ein Spec Sheet bauen**: drei Sektionen (Teilaufgabe; Skills und Knowledge Components; Misconceptions), mit Hilfe eines LLM in zwei Rollen (Hypothesengenerator für die Skills und Knowledge Components, Lernende-Simulator für die Misconceptions).
+3. **Das Spec Sheet in ein laufendes Werkzeug einfügen**, den strukturierten Output beobachten und das Spec dort schärfen, wo der Output generisch oder ungenau ist.
+4. **Eine konkrete Verpflichtung** formulieren, an welcher Stelle deiner Lehre du das Spec in den nächsten zwei Wochen anwendest.
 
-You'll **modify** a working **Personalised Worked Example Generator** (in your browser) that:
+### Was du am Ende hast
 
-- Collects learner profile information (name, domain, interests, hobbies, goals, skill level)
-- Generates customised worked examples in ONE domain (Programming)
-- Weaves learner interests naturally into educational content
-- Provides step-by-step solutions with personal relevance
-- Runs in your browser (no installation required)
+- Ein eigenes Spec Sheet (drei Sektionen) für eine Teilaufgabe deiner Lehre.
+- Erste Beobachtungen darüber, wie sich die Qualität des Outputs eines KI-Werkzeugs mit der Schärfe deines Specs verändert.
+- Eine konkrete, datierte Verpflichtung für die nächsten zwei Wochen.
+- Eine Take-Home-Seite mit zwei optionalen Hausaufgaben (Falsifikationsnotiz; Selbst-Tun-vs-Zuschauen-Tagging), Architektur-Erklärung des Werkzeugs und Prompt-Skizzen für vier weitere Einsätze deines Specs.
 
-**Note:** The demo shows all 3 domains with 16 concepts. You'll work with a SIMPLIFIED version (1 domain, 3 concepts) and add 1-2 more concepts to learn the pattern.
+### Lernziele
 
-### Learning Objectives
+Am Ende des Workshops kannst du:
 
-By the end of this workshop, you will:
+1. Eine Teilaufgabe deiner Lehre in **Skills und Knowledge Components zerlegen**, die idealerweise alle drei kognitiven Operationen abdecken: Abrufen (Faktenwissen), Erkennen (Klassifikationswissen), Begründen (Erklärungswissen).
+2. **Wahrscheinliche Fehlkonzepte** und **implizit vorausgesetzte Knowledge Components** identifizieren, mit Hilfe eines LLM in zwei Rollen (Hypothesengenerator und Lernende-Simulator).
+3. LLM-Vorschläge gegen deine eigene Lehrerfahrung **prüfen**: behalten, was passt; korrigieren, was teilweise zutrifft; verwerfen, was generisch oder unpassend ist. Optional markierst du Einträge als *vermutet (V)* oder *beobachtet (B)*, um die Validierung über den Workshop hinaus weiterzuführen.
+4. Dein Spec Sheet in ein laufendes Werkzeug **einfügen** und das Werkzeug-Verhalten anhand deines Specs diagnostizieren, wenn der Output vom Erwarteten abweicht.
+5. **Eine konkrete, datierte Verpflichtung formulieren**, an welcher Stelle deiner Lehre du dein Spec in den nächsten Wochen einsetzt (das Tagging der Bausteine als *Selbst-Tun-erforderlich* oder *Zuschauen-reicht* liegt als optionale Take-Home-Hausaufgabe bei).
 
-1. **Understand** the worked example effect and personalisation principle from Cognitive Load Theory
-2. **Modify** a working template to add your own concepts (in your browser)
-3. **See** how Pydantic ensures structured outputs from AI
-4. **Recognise** the pattern for building educational AI tools
-5. **Design** extensions for your own teaching context
-
-### Pedagogical Foundation
-
-This workshop is grounded in **Cognitive Load Theory** [@swellerCognitiveLoadProblem1988], specifically:
-
-**The Worked Example Effect:**
-
-> "A 'worked example' is a problem that has already been solved for the learner, with every step fully explained and clearly shown. The 'worked example effect' is the widely replicated finding that novice learners who are given worked examples to study perform better on subsequent tests than learners who are required to solve the equivalent problems themselves."
->
-> @centreforeducationstatisticsandevaluationCognitiveLoadTheory2023
-
-**Why It Works:**
-
-- Unguided problem-solving overloads working memory
-- Studying worked examples reduces cognitive load
-- More working memory capacity available for schema construction
-- Better learning outcomes for novices
-
-**Our Addition - Personalization:**
-
-- Familiar contexts reduce extraneous cognitive load
-- Personal relevance increases germane load (motivation)
-- Better schema formation and transfer
-
-## Workshop Schedule
+## Programm
 
 ::: {.callout-schedule icon=false}
-## 3-Hour Schedule
+## 3-Stunden-Programm (9:00 bis 12:00 Uhr)
 
-| Time | Duration | Section | Activity |
-|------|----------|---------|----------|
-| 9:00-0:10 | 10 min | [**Opening**](opening/index.qmd) | Think-pair-share: Learning from examples |
-| 9:10-9:40 | 30 min | [**Theory**](theory/index.qmd) | Cognitive Load Theory principles |
-| 9:40-10:00 | 20 min | [**Demo**](demo/index.qmd) | See the complete application (all 3 domains) |
-| 10:00-11:30 | 90 min | [**Build**](build/index.qmd) | Hands-on: Modify starter template, add concepts |
-| 11:30-11:50 | 15-20 min | [**Extend**](extend/index.qmd) | Choose: Discussion or Gallery Walk |
-<!-- | 12:00-12:10 | 10 min | [**Resources**](resources/index.qmd) | Links, documentation, next steps | -->
+| Zeit | Dauer | Block | Aktivität |
+|------|-------|-------|-----------|
+| 9:00-9:10 | 10 min | [**Einstieg**](einstieg/index.qmd) | Cross-discipline-Paar: am eigenen Material den Expert Blind Spot erleben |
+| 9:10-9:45 | 35 min | [**Block 1**](block-1-theorie-und-beispiel/index.qmd) | Drei Eröffnungs-Slides; Worked Example live an Statistik-Aufgabe; Spec-Vorschau |
+| 9:45-10:00 | 15 min | **Pause** | |
+| 10:00-11:00 | 60 min | [**Block 2**](block-2-spec-card/index.qmd) | Eigenes Spec Sheet bauen: Sektion 1-3 mit Hypothesengenerator und Lernende-Simulator, Paar-Review |
+| 11:00-11:35 | 35 min | [**Block 3**](block-3-multi-tool/index.qmd) | Spec in laufendes Werkzeug einfügen; Output beobachten; Spec schärfen; (optional: Cross-discipline Role-Play) |
+| 11:35-11:50 | 15 min | [**Closing**](closing/index.qmd) | Leitsatz-Erweiterung; Downstream-Uses-Gallery; persönliche Verpflichtung |
+
+Gesamt: 170 min Inhalt plus 15 min Pause, mit 10 min Puffer bis 12:00. Bei knapper Zeit kann das Role-Play in Block 3 (10 min) entfallen, ohne die Kernerfahrung zu beschneiden.
 :::
 
-## Prerequisites
+## Voraussetzungen
 
-### Required Knowledge
+### Inhaltlich
 
-- **Basic Python**: lists, dictionaries, functions (reading code, not writing from scratch)
-- **No statistics background required**
-- **No prior AI/ML experience needed**
+Du hast den [Aufbauworkshop "KI in der Lehre"](https://virtuelleakademie.github.io/ki-lehre-intermediate/) absolviert oder kennst die dort behandelten Konzepte aus eigener Auseinandersetzung. Insbesondere:
 
-### Materials Required
+- Grundlagen der Cognitive Load Theory (intrinsisch, extrinsisch, lernrelevante Verarbeitung)
+- Cognitive Offloading vs. Outsourcing
+- Expertise-Reversal-Effekt
+- Das Evaluationsparadox
+
+Diese Inhalte werden in Block 1 nicht wiederholt. Sie liegen als Substrat unter dem heutigen Workshop, der mit einer feineren Analyse-Auflösung arbeitet (Wissensbausteine pro Teilaufgabe).
+
+### Werkzeuge
 
 ::: {.callout-setup icon=false}
-## Setup Required Before Workshop
+## Was du zur Hand haben solltest
 
-**That's it. No installation needed.**
+- Zugriff auf Microsoft Copilot (mit deiner BFH-Lizenz).
+- Optional: ein Account auf [HuggingChat](https://huggingface.co/chat) (kostenlos, ohne Anmeldung mit Limitationen nutzbar).
+- Optional: ein Account auf [Claude.ai](https://claude.ai) oder ChatGPT (kostenlose Stufe genügt).
 
-What you need:
-
-1. **Laptop with modern browser**
-2. **Internet connection** (workshop uses HuggingFace Spaces)
-3. **Optional:** Notebook for reflecting on how you'd apply this to your teaching
-
-**No Python installation. No API keys. No troubleshooting.**
-
-Everything runs in your browser via an interactive web application.
+In Block 2 nutzt du ein Chat-Werkzeug deiner Wahl, um die beiden LLM-Rollen (Hypothesengenerator, Lernende-Simulator) für dein eigenes Material laufen zu lassen. In Block 3 fügst du dein fertiges Spec in ein gehostetes Werkzeug ein, das wir bereitstellen. Du musst nichts installieren.
 :::
 
 
-## Workshop Structure: A Worked Example Approach
+## Verbindung zur Trilogie
 
-::: {.callout-important}
-## This Workshop IS a Worked Example
+Dies ist der **dritte** Workshop der Reihe "KI in der Lehre" der Virtuellen Akademie der BFH:
 
-This workshop **demonstrates the principle it teaches** by being structured as a worked example itself.
+- Der **[Einstiegsworkshop](https://virtuelleakademie.github.io/ki-lehre-beginner/)** führt in generative KI in der Lehre allgemein ein.
+- Der **[Aufbauworkshop](https://virtuelleakademie.github.io/ki-lehre-intermediate/)** etabliert Cognitive Load Theory, die Offloading-vs-Outsourcing-Unterscheidung und das diagnostische Vokabular.
+- Dieser **Vertiefungsworkshop** macht aus diesem Vokabular eine konkrete Methode: das Spec Sheet, mit LLMs als Hypothesengenerator und Lernende-Simulator.
 
-**Traditional approach** (problem-solving):
-```
-Give you requirements → You struggle to build → Instructor helps when stuck
-```
-*High cognitive load, potential frustration, pattern harder to see*
+## Loslegen
 
-**This approach** (worked example):
-```
-Show complete solution → Study each component → Explain design choices → Apply to your domain
-```
-*Lower cognitive load, clearer pattern, better transfer*
-
-**Why?** Most of you are novices at building educational AI tools. Research shows studying worked examples is more effective than unguided problem-solving for novices.
-:::
-
-### The Worked Example Approach
-
-This workshop follows the worked example pattern:
-
-1. **ACTIVATE** (Opening): Prior knowledge activation
-2. **PRESENT** (Theory + Demo): See the complete solution
-3. **STUDY** (Build): Examine and modify the code
-4. **UNDERSTAND** (Extend): Connect to pedagogical applications
-5. **TRANSFER** (Resources): Apply to your own teaching
-
-### Fading Scaffolding
-
-Notice how support gradually decreases:
-
-- **Theory/Demo**: Full explanation, complete working application shown
-- **Build**: Scaffolded practice---modify template, add concepts
-- **Extend**: Independent design---plan your own extensions
-- **After workshop**: Transfer to new domains on your own
-
-
-::: {.callout-tip}
-## Meta-Learning Moment
-
-**As you progress through today, notice:**
-
-- When does studying the complete solution help vs. confuse?
-- When do you want to start experimenting on your own?
-- How does seeing the "big picture" first affect your understanding?
-
-These insights will inform how you design worked examples for your students.
-:::
-
-## Technical Stack
-
-### Core Technologies
-
-- **[OpenAI GPT-5.1](https://platform.openai.com/docs/guides/latest-model):** Latest language model with structured outputs
-- **[Pydantic](https://pydantic.dev):** Data validation using Python type hints
-- **[Gradio](https://gradio.app):** Web interface for the production tool
-- **[Marimo](https://marimo.io):** Reactive Python notebooks for interactive exploration
-- **[HuggingFace Spaces](https://huggingface.co/spaces):** Free deployment platform
-
-### Two Applications in This Workshop
-
-This workshop uses **two different applications** with distinct purposes:
-
-**1. Interactive Exploration App (Marimo)**
-
-- 5 hands-on labs for exploring concepts
-- Embedded throughout this website
-- Experiment with prompt design, personalization, data models
-- Learn by doing, no installation required
-
-**2. Production Tool (Gradio)**
-
-- Complete deployable worked example generator
-- Deployed to HuggingFace Spaces
-
-
-## Connection to Learning Science
-
-This workshop demonstrates several evidence-based learning principles:
-
-::: {.callout-note icon=false}
-## Make It Stick Connections
-
-This tool addresses multiple strategies from *Make It Stick* [@brownMakeItStick2014]:
-
-1. **Worked Examples:** Reduce cognitive load for novices
-2. **Variation:** Practice in different personal contexts
-3. **Understanding vs. Familiarity:** Personalisation helps distinguish the two
-4. **Application:** Real-world contexts for transfer
-
-See the [ki-lehre-intermediate workshop](https://virtuelleakademie.github.io/ki-lehre-intermediate/) for deeper exploration of learning science principles.
-:::
-
-## Get Started
-
-Ready to begin? Start with the [opening activity](opening/index.qmd)!
-
-
-
-
+Bereit? Falls du es noch nicht getan hast: [die Vorbereitung](../vorbereitung/index.qmd) lesen, dann mit dem [Einstieg](einstieg/index.qmd) beginnen.

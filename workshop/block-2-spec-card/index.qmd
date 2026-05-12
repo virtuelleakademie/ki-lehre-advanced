@@ -1,0 +1,199 @@
+---
+title: "Block 2: Dein eigenes Spec (60 min)"
+---
+
+::: {.callout-checkpoint icon=false}
+## Auf einen Blick
+
+- **Zeit:** 60 Minuten (5 Orientierung, 20 Skills, 15 Misconceptions, 15 Paar-Review, 5 Wrap)
+- **Ergebnis:** Erstes vollständiges Spec Sheet: drei Sektionen, 4-8 Skills, 2-4 Misconceptions
+- **Format:** Solo, mit Cross-discipline-Paar-Review am Ende
+- **Leitfrage:** Was muss in Köpfen passieren, damit deine Lernenden diese Aufgabe lösen?
+:::
+
+**Facilitator-Notizen:** [block-2-facilitator.md](../../instructor-notes/block-2-facilitator.md)
+
+:::: {.panel-tabset}
+
+### {{< bi file-slides >}} Präsentation
+
+Du baust ein Spec für eine eigene Teilaufgabe. Das LLM hilft in zwei Rollen: als Hypothesengenerator (Skills und Knowledge) und als Lernende-Simulator (Misconceptions). Was es liefert, sind plausible Hypothesen, keine validierten Aussagen: behandle die Ausgabe als Ausgangspunkt für deine Validierung.
+
+{{< revealjs file="../../slides/workshop/index.html#/block-2" height="500px" class="ratio ratio-16x9" >}}
+
+### {{< bi pencil-square >}} Aktivitäten
+
+#### Schritt 1: Teilaufgabe wählen und Sektion 1 (5 min)
+
+Eine Teilaufgabe, nicht die ganze Aufgabe. Mit mindestens einem Knowledge Component, der über Faktenwissen hinausgeht, und einer realen Lernenden-Antwort vor Augen.
+
+::: {.callout-individual icon=false}
+**Aufgabe:** Öffne die [Spec-Vorlage](../spec-sheet-template/index.qmd). Wähle eine Teilaufgabe aus deiner Lehre (oder ein [Backup-Szenario](../build/scenarios/index.qmd)). Trage die drei Felder von Sektion 1 ein: Wortlaut, Rahmen, intendiertes Ergebnis.
+:::
+
+**Prüf-Checkliste:**
+
+- [ ] Sektion 1 mit drei Feldern komplett
+- [ ] Teilaufgabe ist eng zugeschnitten (nicht "die ganze Klausur")
+- [ ] Mindestens eine reale Lernenden-Antwort fällt dir konkret ein
+
+#### Schritt 2: Skills und Knowledge mit dem Hypothesengenerator (20 min)
+
+Das LLM enumeriert die Voraussetzungen, als hätte es gerade die Vorgängerveranstaltung abgeschlossen. Es liefert Hypothesen, die du gegen deine Lehrerfahrung validierst.
+
+::: {.callout-individual icon=false}
+**Aufgabe (5 min):** Öffne ein Chat-LLM deiner Wahl (Copilot, HuggingChat, Claude, ChatGPT). Kopiere den Prompt, ersetze die Platzhalter, lass die Liste produzieren.
+:::
+
+::: {.callout-prompt-example icon=false}
+## Prompt für den Hypothesengenerator
+
+```markdown
+Hier ist Material aus einem Kurs in <<< DISZIPLIN EINFÜGEN >>>. Spiele
+eine Person, die gerade die Vorgängerveranstaltung abgeschlossen hat,
+aber diese Aufgabe hier noch nicht gesehen hat.
+
+Für jeden Schritt in der Musterlösung, liste auf: was müsste die Person
+bereits wissen, erkennen oder begründen können, um den Schritt zu
+verstehen? Markiere alles, was das Material voraussetzt, aber nicht
+selbst erklärt. Sortiere die Liste in drei Typen:
+
+- Faktenwissen (Abrufen): was die Person aus dem Gedächtnis abrufen
+  können muss.
+- Klassifikationswissen (Erkennen): was sie als Instanz eines Konzepts
+  oder Anwendungsfalls erkennen können muss.
+- Erklärungswissen (Begründen): was sie begründen können muss,
+  einschliesslich konzeptioneller Verständnisse und Interpretationen.
+
+Material:
+<<< AUFGABE UND MUSTERLÖSUNG EINFÜGEN >>>
+```
+:::
+
+::: {.callout-individual icon=false}
+**Aufgabe (15 min):** Lies die LLM-Liste mit Stift in der Hand. Pro Eintrag entscheide **Behalten** (plausibel, passt), **Korrigieren** (teilweise richtig, umformulieren) oder **Verwerfen** (passt nicht zu Niveau oder Kontext). Ergänze Knowledge Components, die das LLM übersehen hat: vor allem tacite Punkte, die in deinem Fach kompetente Praktikerinnen erkennen, aber selten verschriftlicht werden. Trage in Sektion 2 ein: kurze Formulierung + charakteristische Fehlerform.
+:::
+
+**Prüf-Checkliste Sektion 2:**
+
+- [ ] 4-8 Einträge eingetragen
+- [ ] Jeder Eintrag mit charakteristischer Fehlerform
+- [ ] Alle drei Operationen abgedeckt: Abrufen (Faktenwissen), Erkennen (Klassifikationswissen), Begründen (Erklärungswissen)
+- [ ] Mindestens ein Eintrag, den das LLM übersehen hat (tacite Punkte)
+- [ ] Behalten / Korrigieren / Verwerfen pro LLM-Eintrag dokumentiert
+
+::: {.callout-caution collapse="true"}
+## Was dieser Prompt nicht kann
+
+Das LLM hat keinen Zugang zu deiner konkreten Vorgängerveranstaltung. Zwei Risiken folgen daraus:
+
+- Es kann Voraussetzungen erfinden, die in deinem Vorkurs nicht behandelt werden (sie sehen plausibel aus, weil sie in Lehrbüchern üblich sind).
+- Es kann Voraussetzungen auslassen, die du tatsächlich lehrst, die aber in Lehrbüchern selten explizit ausgewiesen sind (oft die didaktisch interessantesten Stellen).
+
+Beide Risiken adressierst du im Validieren. Einträge aus eigener Lehrerfahrung kannst du optional als **B (beobachtet)** markieren, übrige bleiben **V (vermutet)**.
+:::
+
+::: {.callout-pair collapse="true"}
+## Wenn du beim Validieren ins Stocken kommst
+
+Frag deine Sitznachbarin: *"Würdest du diesen Eintrag in deinem Fach übernehmen, oder ist er zu spezifisch oder zu generisch?"* Eine kurze Aussenperspektive löst die meisten Stolperstellen schnell auf.
+:::
+
+#### Schritt 3: Misconceptions mit Lernende-Simulator (15 min)
+
+Das LLM spielt eine Lernende mit einer Misconception und schreibt eine plausible falsche Antwort. Du beobachtest, ob deine Aufgabe die Misconception fängt.
+
+::: {.callout-individual icon=false}
+**Aufgabe (5 min):** Wähle eine wahrscheinliche Misconception aus deinem Fach. Kopiere den Prompt, ersetze Platzhalter, lass das LLM die Antwort produzieren.
+:::
+
+::: {.callout-prompt-example icon=false}
+## Prompt für die Lernende-Simulator-Rolle
+
+```markdown
+Du bist eine Lernende in <<< STUDIENGANG, SEMESTER EINFÜGEN >>>. Du
+hältst die folgende Misconception: <<< MISCONCEPTION IN ICH-FORM
+FORMULIEREN >>>. Sonst bist du auf dem Niveau deines Kurses kompetent.
+Lies die folgende Aufgabe und schreibe die Antwort, die du in der
+Klausur abgeben würdest:
+
+<<< AUFGABE EINFÜGEN >>>
+
+Schreibe die Antwort so, wie sie eine reale Lernende geben würde:
+plausibel, schlüssig, von der falschen Annahme aus konsistent.
+```
+:::
+
+::: {.callout-individual icon=false}
+**Aufgabe (10 min):** Trage in Sektion 3 ein: Misconception in Ich-Form + Vermutung zur intuitiven Grundlage. Wiederhole für 1-3 weitere Misconceptions, falls die Zeit reicht. Frag zu jeder Simulation: *Fängt meine Aufgabe diese Antwort? Welche Beobachtungspunkte machen die Misconception sichtbar?*
+:::
+
+**Prüf-Checkliste Sektion 3:**
+
+- [ ] 2-4 Misconceptions eingetragen
+- [ ] Pro Eintrag: Formulierung in Ich-Form (so wie die Lernende sie aussprechen würde)
+- [ ] Pro Eintrag: Vermutung zur intuitiven Grundlage
+- [ ] Pro Eintrag: Beobachtungspunkte notiert (woran erkennst du die Misconception in einer Antwort?)
+- [ ] Mindestens eine Misconception, bei der du unsicher bist, ob deine Aufgabe sie fängt
+
+#### Schritt 4: Cross-discipline Paar-Review (15 min)
+
+Eine Aussenstehende aus möglichst entfernter Disziplin liest dein Spec. Pro Paar: 5 min zu deinem Spec, 5 min zum Spec der Partnerin, 5 min für gemeinsame Notizen.
+
+::: {.callout-pair icon=false}
+**Aufgabe:** Bildet ein Cross-discipline-Paar. Lest euch gegenseitig das Spec und beantwortet drei Fragen:
+
+1. **Welcher Eintrag ist mir als Aussenstehende nicht verständlich?** Welche Begriffe sind unerklärt, welche Beispiele fehlen?
+2. **Welche Misconception erscheint mir aus der Aussenperspektive plausibel?** Welche fühlt sich wie eine Lehrer-Vermutung an, ohne intuitive Grundlage?
+3. **Was würde ich als Aussenstehende ergänzen?** Welche Voraussetzung erwarte ich in diesem Fach, die im Spec nicht steht?
+
+Notiere Stichworte, aber überarbeite das Spec noch nicht. Die Überarbeitung passiert in Block 3, wenn du das Spec gegen das laufende Werkzeug testest.
+:::
+
+**Prüf-Checkliste Paar-Review:**
+
+- [ ] Drei Fragen für dein eigenes und für das Spec der Partnerin beantwortet
+- [ ] Mindestens ein konkreter Stichwort-Hinweis pro Frage
+- [ ] Notizen am Spec festgehalten, aber Spec noch nicht überarbeitet
+
+::: {.callout-checkpoint icon=false}
+## Was du nach Block 2 hast
+
+Ein erstes vollständiges Markdown-Spec mit Sektion 1 (Teilaufgabe), Sektion 2 (4-8 Skills mit Fehlerformen), Sektion 3 (2-4 Misconceptions mit intuitiven Grundlagen). Speichere es als Markdown oder kopiere es in die Zwischenablage. In Block 3 fügst du es in das Werkzeug ein und beobachtest, was es produziert.
+:::
+
+### {{< bi book >}} Nachlesen
+
+::: {.callout-nachlesen icon=false}
+#### Warum cross-discipline?
+
+Die Paar-Review innerhalb derselben Disziplin tendiert dazu, die gleichen Blind Spots zu reproduzieren: zwei Statistik-Lehrpersonen finden in der Spec der jeweils anderen die gleichen automatisierten Schritte. Die cross-discipline Paarung erzwingt, dass eine Aussenstehende die Spec liest, die genau die fehlende Automatisierung nicht hat. Erfahrungsgemäss liefert diese Phase einen Grossteil der substantiellen Korrekturen am Spec Sheet.
+
+Die kognitive Pointe ist Mark Nathans Experimentalbefund (Nathan, Koedinger & Alibali 2001): Expertinnen unterschätzen systematisch, was schwierig ist, weil ihre eigene Performance automatisiert ist. Eine fachfremde Person, die die Aufgabe nicht automatisiert hat, sieht genau die Stellen, an denen die Expertin Schritte überspringt. Die Distanz zwischen den Disziplinen ist hier ein Feature.
+:::
+
+::: {.callout-nachlesen icon=false}
+#### Eine zweite Linse: die Fünf Leitfragen
+
+Wer in Block 2 schnell fertig wird oder nach dem Workshop eine zweite Auditrunde an seinem Spec machen will, findet im CAS Lernpsychologie ein komplementäres Werkzeug: die **fünf Leitfragen** [02-ki-und-lernen / 5-leitfragen](https://virtuelleakademie.github.io/cas-lernpsychologie/02-ki-und-lernen/5-leitfragen/){target="_blank"}.
+
+Sie stellen substantiell dieselbe Frage wie das Spec (welche kognitive Arbeit verlangt diese Aufgabe wirklich?), aus einer anderen Richtung:
+
+1. Lern- versus Leistungskontext?
+2. Aufbau-Phase (Expertise-Reversal beachten)?
+3. Welche kognitive Arbeit ist verlangt (Element-Interaktivität)?
+4. Was passiert, wenn die KI den Schritt übernimmt (bedrohte Verarbeitung)?
+5. Arbeiten Lernende zuerst, vergleichen sie dann mit der KI?
+
+Wenn du die fünf Leitfragen auf dein Spec anwendest, fängst du oft Knowledge Components, die du im Workshop unter Zeitdruck zu schnell durchgewinkt hast.
+:::
+
+::: {.callout-nachlesen icon=false}
+#### Die theoretische Struktur dahinter
+
+Knowledge-Component-Theorie (Koedinger, Corbett & Perfetti 2012), KLI-Taxonomie und die volle Falsifikationsnotiz sind in einem internen Dokument für die Workshop-Leitung festgehalten. Die V/B-Markierung (vermutet vs. beobachtet) ist in deinem Spec optional vorhanden; du nutzt sie, sobald ein Eintrag aus eigener Lehrerfahrung kommt statt nur aus dem LLM-Output. Die Falsifikationsnotiz selbst ist Take-Home-Hausaufgabe und nicht Teil des 60-min Block 2.
+:::
+
+::::
+
+**Weiter:** [Block 3: Das laufende Werkzeug](../block-3-multi-tool/index.qmd)

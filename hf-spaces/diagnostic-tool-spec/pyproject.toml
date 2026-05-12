@@ -1,0 +1,25 @@
+[project]
+name = "diagnostic-tool-spec"
+version = "0.1.0"
+description = "Diagnostic API-based workshop tool for the BFH KI-in-der-Lehre Advanced workshop"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.0",
+    "anthropic>=0.55",
+    "marimo>=0.19",
+    "python-dotenv>=1.0",
+    "pyzmq>=27.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/workshop_tool"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]

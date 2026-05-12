@@ -1,0 +1,90 @@
+---
+title: "Closing: One Commitment"
+---
+
+::: {.callout-schedule icon=false}
+## Duration: 5-10 minutes
+:::
+
+## What you have
+
+In three hours you have built a diagnostic AI tool grounded in cognitive load theory and tuned to one of six discipline scenarios. Concretely you have:
+
+- A configured tool URL with your system prompt
+- A portable prompt recipe usable in Microsoft Copilot, ChatGPT, or Claude.ai
+- A calibration record from Lab 4
+- A view from another discipline's tool through the pair-test
+
+You did this without writing code, without designing data structures, and without deploying anything yourself. The pedagogical work was the work.
+
+## One Monday commitment
+
+::: {.callout-individual icon=false}
+## Write it down
+
+Pick one concrete change for your next teaching cycle. Something you would not have done before this workshop.
+
+Examples of the right size:
+
+- Try the portable prompt on the next batch of student work in subject X
+- Run three of your typical exam responses through the tool to see what it flags
+- Use the five-category vocabulary in your next teaching team meeting when discussing a struggling student
+- Adapt the prompt for one specific assignment type you give regularly
+
+Write your commitment on paper. Tell your neighbour. Put a date on it.
+:::
+
+## The meta-lesson
+
+::: {.callout-pro-tip icon=false}
+## Pedagogy provides structure; practitioners provide cues
+
+The decomposition this workshop turned on was:
+
+- **Theory provides structure.** The five `load_signal` categories were not invented for this tool; they were derived from CLT and schema-acquisition research. They are the same five whatever discipline you teach.
+- **Practitioners provide cues.** What an `intrinsic_overload` looks like in nursing differs from what it looks like in business or social work. Your discipline expertise is what makes the structure usable.
+
+This is the move we want you to take back to your teaching with AI. When you reach for a new AI tool, ask: *where is the theory in this, and where is the discipline expertise?* If the answer is "neither," the tool is doing something other than supporting learning.
+:::
+
+## Going further
+
+If you want to see a more elaborated example of CLT-grounded tool design, the [Worked Example Weaver](https://awellis-worked-example-weaver-app.hf.space){target="_blank"} is a sister tool that generates personalized worked examples across three domains. It is a deliberately heavier piece of software than today's diagnostic shell, and serves as a reference for what a fuller tool with a more complex structure looks like.
+
+For the cognitive science behind the diagnostic taxonomy:
+
+- [ki-lehre-intermediate](https://virtuelleakademie.github.io/ki-lehre-intermediate/) for the offloading-vs-outsourcing framing
+- Sweller, Ayres and Kalyuga (2019), *Cognitive Architecture and Instructional Design*, for the updated CLT framework
+- @kalyugaExpertiseReversalEffect2009 for why severity and learner expertise modulate intervention choice
+
+## Frequently asked questions
+
+::: {.callout-feedback icon=false}
+**Q: What if my discipline does not fit any of the five categories?**
+
+This is the most common pushback and worth taking seriously. Two responses:
+
+First, the categories are deliberately broad. `intrinsic_overload` is not "exam stress" but "too much element-interactivity for current schemas" — that shows up in every discipline, including yours.
+
+Second, if a response genuinely falls outside the categories, that is information. The tool will produce a low-confidence diagnosis, the `domain_notes` field will surface what the categories missed, and you have a research finding: in your discipline, here is a load signal not captured by the standard taxonomy. That is interesting and worth keeping.
+
+**Q: How do I trust the LLM's diagnosis?**
+
+You don't, fully. The tool is a triage aid, not an oracle. Workshop Lab 4's calibration test exists exactly to map where your prompt produces reliable diagnoses and where it does not. Use the tool where it is reliable; second-guess it where it is not. Note that the same caution applies to your own diagnostic intuitions, which is partly the workshop's point.
+
+**Q: What about students using Copilot themselves on the same artifact?**
+
+Different question. The tool you built is a *teacher's* diagnostic aid: it reads student work for the cognitive signal. A student running their own work through Copilot for feedback is doing something different (and often something we worry about). The intermediate workshop's offloading-vs-outsourcing framing applies here.
+
+**Q: Will this scale to a class of 200?**
+
+Yes, with caveats. The portable prompt runs on whatever institutional LLM you have access to, and the per-call cost is small. The cap is your time spent reviewing the diagnoses. A reasonable workflow is to use the tool for first-pass triage and then deeply read the responses the tool flags as `severity: fundamental`.
+:::
+
+::: {.callout-checkpoint icon=false}
+## Thank you
+
+You came in expecting to develop something. You did: a diagnostic vocabulary, a working tool, and a recipe. None of it required code. All of it was pedagogical thinking made operational.
+
+Use it on Monday.
+:::

@@ -1,0 +1,158 @@
+[
+  {
+    "id": "nursing-pharmacology",
+    "label": "Nursing: Warfarin and INR",
+    "domain": "Health sciences / nursing — pharmacology",
+    "instruction": "A patient on long-term warfarin presents at the clinic with an INR of 5.2. Explain what you would do next and why.",
+    "responses": [
+      {
+        "label": "Response A",
+        "text": "I would check the patient's vitamin K intake recently and also their last dose of warfarin and look at their kidney and liver function and ask about any new medications they started because that all affects INR... so I would check the dosing schedule too and probably reduce the dose or hold it, depending on bleeding risk, but it's also important to see if they have any signs of bleeding because that changes the urgency, and we'd also need to consider if vitamin K should be given but only if the INR is really high or there's bleeding so I think we'd hold the dose first and recheck.",
+        "expected_load_signal": "intrinsic_overload",
+        "why": "The student is tracking many interacting elements (vitamin K, dosing, comorbidities, bleeding risk, drug interactions) at once. Each element is correct on its own, but the response loses its thread and never lands on a clear plan."
+      },
+      {
+        "label": "Response B",
+        "text": "Since the INR is high at 5.2, I would increase the warfarin dose so the patient's blood doesn't clot too much. INR shows how thick the blood is, and high INR means the blood is too thick.",
+        "expected_load_signal": "active_misconception",
+        "why": "The student has a coherent but inverted mental model: they believe high INR means thick blood. The reasoning is internally consistent — the wrong schema is being applied confidently."
+      },
+      {
+        "label": "Response C",
+        "text": "I would tell the doctor and ask what they want me to do. I'm not sure what 5.2 means — is that high or normal? What's the normal range supposed to be?",
+        "expected_load_signal": "schema_gap",
+        "why": "The student lacks the prerequisite concept (the therapeutic INR range for warfarin patients). They're not confused or overloaded; the relevant prior knowledge is simply absent."
+      }
+    ]
+  },
+  {
+    "id": "education-assessment",
+    "label": "Education: Critique a quiz question",
+    "domain": "Education / pedagogy — assessment design",
+    "instruction": "Critique this multiple-choice item and suggest improvements: 'The capital of Switzerland is: a) Zurich b) Geneva c) Bern d) All of the above'",
+    "responses": [
+      {
+        "label": "Response A",
+        "text": "Multiple choice questions should have a clear stem, plausible distractors, only one correct answer, and avoid 'all of the above' or 'none of the above' as options. They should test higher-order thinking when possible. The distractors should be roughly the same length.",
+        "expected_load_signal": "germane_disengagement",
+        "why": "The student recites generic MC-design rules accurately, but never engages with the specific item in front of them. They retrieve a checklist instead of analysing the example."
+      },
+      {
+        "label": "Response B",
+        "text": "The question is problematic because Bern is also the name of a canton, and students might confuse the city of Bern with the canton of Bern. So you'd need to specify 'city' or 'capital city' clearly. Also, the German spelling can be ambiguous between cantons and cities.",
+        "expected_load_signal": "extrinsic_distractor",
+        "why": "The student fixates on a tangential surface feature (Bern as canton/city) rather than the substantive design problem (the broken 'all of the above' option in a question with one correct factual answer)."
+      },
+      {
+        "label": "Response C",
+        "text": "I think 'all of the above' is fine here because students should know exact facts, and if they pick it that means they don't know the answer. The question is testing whether they really know the capital, so the trick distractors are useful for catching guessers.",
+        "expected_load_signal": "active_misconception",
+        "why": "The student is reasoning consistently from a wrong model of assessment (purpose = catching guessers; trickier = better). The reasoning is coherent within that model, which is exactly why it needs replacing rather than repairing."
+      }
+    ]
+  },
+  {
+    "id": "business-pricing",
+    "label": "Business: Bakery pricing",
+    "domain": "Business / economics — pricing strategy",
+    "instruction": "A small bakery sells bread at CHF 5 per loaf and sells 100 loaves a day. They are considering raising the price to CHF 6. Should they? Justify your answer.",
+    "responses": [
+      {
+        "label": "Response A",
+        "text": "Yes, they should raise the price. At CHF 5 they make CHF 500 a day, at CHF 6 they make CHF 600 a day, so they make CHF 100 more per day. That's CHF 36,500 more per year. It's better revenue.",
+        "expected_load_signal": "active_misconception",
+        "why": "The student applies linear arithmetic confidently and never questions whether quantity sold stays constant when price changes. They have a coherent (but wrong) model: price up = revenue up, period."
+      },
+      {
+        "label": "Response B",
+        "text": "It depends on a lot of factors. Like the cost of ingredients, what competitors are charging, how loyal the customers are, whether the bakery has unique products, the location, the demographic of the neighborhood, seasonal variation in demand, the weather, what time of year it is, marketing budget, and the bakery's brand. You'd need to consider all of these.",
+        "expected_load_signal": "germane_disengagement",
+        "why": "The student lists many real factors but does no actual analysis. Retrieval-without-elaboration: they have produced a checklist instead of applying the core concept (price elasticity of demand)."
+      },
+      {
+        "label": "Response C",
+        "text": "I'm not sure how to think about this. If they raise the price they get more money per loaf but I don't know how to figure out if customers will still buy as many. Is there a formula?",
+        "expected_load_signal": "schema_gap",
+        "why": "The student correctly identifies what they don't know (how to model demand response) and explicitly asks for the missing concept (price elasticity). The prerequisite schema is simply absent."
+      }
+    ]
+  },
+  {
+    "id": "social-work-engagement",
+    "label": "Social work: Missed appointments",
+    "domain": "Social work — case assessment",
+    "instruction": "A client receiving substance-use counselling has missed three appointments in a row. What would you consider before reaching out, and how would you frame the contact?",
+    "responses": [
+      {
+        "label": "Response A",
+        "text": "First I would check the file to see if any documentation is overdue, and make sure the client's intake forms are complete in our system. Then I'd verify the contact information is current and check whether their insurance authorization is still active. After that I'd update the case notes to record that contact is pending.",
+        "expected_load_signal": "extrinsic_distractor",
+        "why": "The student spends their cognitive effort on agency-process tasks (forms, billing, notes) instead of the substantive question (the client's wellbeing and engagement). Effort goes to the wrong place."
+      },
+      {
+        "label": "Response B",
+        "text": "Three missed appointments means the client isn't taking their recovery seriously. I would call them and remind them of their commitments and explain that if they miss another one we may have to close the case. We can't help people who don't show up.",
+        "expected_load_signal": "active_misconception",
+        "why": "The student reasons coherently from a wrong model (client = autonomous decision-maker who is choosing not to comply). The model needs replacing, not refining: structural and clinical factors are entirely outside the frame."
+      },
+      {
+        "label": "Response C",
+        "text": "There could be many reasons — relapse, transportation, work schedule, mental health, family crisis, housing instability, stigma, fear of judgment, distrust of the agency, transportation costs, childcare, language barriers, immigration status concerns, conflict with previous staff, perceived lack of progress, or just feeling overwhelmed by the process itself.",
+        "expected_load_signal": "intrinsic_overload",
+        "why": "The student tracks many real and relevant possibilities but cannot prioritise or move from list to action. The element-interactivity exceeds working-memory capacity, so analysis collapses into enumeration."
+      }
+    ]
+  },
+  {
+    "id": "engineering-debugging",
+    "label": "Engineering: Stale-data bug",
+    "domain": "Technical / engineering — software diagnosis",
+    "instruction": "A web form sometimes shows old data after a user submits an update. The bug only happens for some users. Where would you start investigating, and why?",
+    "responses": [
+      {
+        "label": "Response A",
+        "text": "It's a database issue. The database is not being updated when the form is submitted. I would look at the database write logic in the code and find where the SQL UPDATE statement is failing. The data is clearly not being saved.",
+        "expected_load_signal": "active_misconception",
+        "why": "The student commits to one cause (database write failure) on the basis of a coherent but wrong model. They ignore the 'sometimes' and 'some users' clues that point at caching/session/CDN layers."
+      },
+      {
+        "label": "Response B",
+        "text": "I'd check the HTML form to make sure all the fields have the right names, and verify the CSS isn't hiding anything. Maybe the form isn't displaying the new data correctly because of a styling issue or the form fields aren't connected properly to the submit button.",
+        "expected_load_signal": "schema_gap",
+        "why": "The student reasons from front-end-only concepts (HTML, CSS, form fields) and never reaches for the relevant prerequisite concept (caching, request-response state, server-side data flow). The schema needed for this kind of bug isn't present."
+      },
+      {
+        "label": "Response C",
+        "text": "The bug could be caused by: browser caching, CDN caching, server-side caching, session-state desync, replica lag in the database, an outdated build deployed to some servers, race conditions in the request handler, eventual consistency in distributed storage, a stale local-storage value, a service worker serving cached responses, missing cache-control headers, A/B test bucket assignment, or a load balancer routing some users to an older server version. I would investigate all of these.",
+        "expected_load_signal": "intrinsic_overload",
+        "why": "The student names many real and plausible causes but cannot strategise. The interactivity between possibilities exceeds working-memory and the response stops at enumeration rather than producing a triage plan."
+      }
+    ]
+  },
+  {
+    "id": "statistics-correlation",
+    "label": "Statistics: Interpreting r = 0.3",
+    "domain": "Statistics / research methods — interpreting effects",
+    "instruction": "A study reports a correlation of r = 0.3 between hours studied per week and end-of-semester exam grade. How would you interpret this for a colleague who hasn't seen the data?",
+    "responses": [
+      {
+        "label": "Response A",
+        "text": "This shows that studying causes higher grades. The more hours you study, the better your grade will be. So we should tell students to study more if they want to do better on exams.",
+        "expected_load_signal": "active_misconception",
+        "why": "The student reasons confidently from a wrong model (correlation = causation) and produces an actionable but inappropriate conclusion. The model needs replacing."
+      },
+      {
+        "label": "Response B",
+        "text": "Correlation is a measure of the linear relationship between two variables, ranging from -1 to +1. A value of 0 means no relationship, +1 means perfect positive relationship, -1 means perfect negative relationship. So r = 0.3 means there is a positive correlation between the two variables.",
+        "expected_load_signal": "germane_disengagement",
+        "why": "The student recites the textbook definition correctly but never applies it to interpret the specific value. They retrieve without elaborating on what r = 0.3 actually means in this context."
+      },
+      {
+        "label": "Response C",
+        "text": "I'm not sure how to interpret 0.3. Is that a strong correlation or a weak one? I know that 1.0 would be perfect but I don't have a sense of what counts as meaningful in between.",
+        "expected_load_signal": "schema_gap",
+        "why": "The student honestly identifies the missing piece (a sense of effect-size magnitude in their field). The prerequisite calibration isn't yet in place; this is a gap, not a misconception."
+      }
+    ]
+  }
+]

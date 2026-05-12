@@ -1,0 +1,112 @@
+::: {.fig-diagram aria-label="Zeitachse: Spec Sheet bleibt über mehrere Modellgenerationen gültig, während der Prompt jeweils neu gerendert wird"}
+
+```{=html}
+<svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="spec-prompt-title spec-prompt-desc">
+  <title id="spec-prompt-title">Spec ist dauerhaft, Prompt ist Übersetzung</title>
+  <desc id="spec-prompt-desc">Eine horizontale Zeitachse mit Markierungen für vier Modellgenerationen. Über der Zeitachse zieht sich ein durchgehender Balken (Spec Sheet, Brand-Navy) ungebrochen über alle Generationen. Darunter steht für jede Generation ein eigener, terracotta-umrandeter Block (Prompt), der mit der jeweiligen Generation neu gerendert wird.</desc>
+
+  <!-- Spec bar: persistent across all generations -->
+  <g class="spec-bar">
+    <rect x="60" y="58" width="600" height="46" rx="6"
+          fill="var(--diagram-spec)" />
+    <text x="76" y="86"
+          font-size="14" font-weight="600"
+          font-family="var(--diagram-font-family)"
+          fill="#ffffff">
+      Spec Sheet
+    </text>
+    <text x="644" y="86"
+          font-size="12" font-style="italic" text-anchor="end"
+          font-family="var(--diagram-font-family)"
+          fill="#ffffff" opacity="0.85">
+      bleibt gültig
+    </text>
+  </g>
+
+  <!-- Subtle connectors: each prompt is rendered from the spec at that moment -->
+  <g class="connectors"
+     stroke="var(--diagram-neutral)" stroke-width="0.8"
+     stroke-dasharray="2 4" opacity="0.5">
+    <line x1="135" y1="104" x2="135" y2="150" />
+    <line x1="285" y1="104" x2="285" y2="150" />
+    <line x1="435" y1="104" x2="435" y2="150" />
+    <line x1="585" y1="104" x2="585" y2="150" />
+  </g>
+
+  <!-- Prompt instances: regenerated for each model generation -->
+  <g class="prompt-instances"
+     stroke="var(--diagram-prompt)" stroke-width="1.5"
+     stroke-linecap="round" stroke-linejoin="round"
+     fill="none">
+    <g>
+      <rect x="90" y="150" width="90" height="38" rx="4" />
+      <text x="135" y="174"
+            font-size="12" text-anchor="middle"
+            font-family="var(--diagram-font-family)"
+            fill="var(--diagram-prompt)" stroke="none">
+        Prompt v1
+      </text>
+    </g>
+    <g>
+      <rect x="240" y="150" width="90" height="38" rx="4" />
+      <text x="285" y="174"
+            font-size="12" text-anchor="middle"
+            font-family="var(--diagram-font-family)"
+            fill="var(--diagram-prompt)" stroke="none">
+        Prompt v2
+      </text>
+    </g>
+    <g>
+      <rect x="390" y="150" width="90" height="38" rx="4" />
+      <text x="435" y="174"
+            font-size="12" text-anchor="middle"
+            font-family="var(--diagram-font-family)"
+            fill="var(--diagram-prompt)" stroke="none">
+        Prompt v3
+      </text>
+    </g>
+    <g>
+      <rect x="540" y="150" width="90" height="38" rx="4"
+            stroke-dasharray="5 3" />
+      <text x="585" y="174"
+            font-size="12" font-style="italic" text-anchor="middle"
+            font-family="var(--diagram-font-family)"
+            fill="var(--diagram-prompt)" stroke="none">
+        Prompt vN
+      </text>
+    </g>
+  </g>
+
+  <!-- Time axis -->
+  <g class="time-axis">
+    <line x1="60" y1="220" x2="660" y2="220"
+          stroke="var(--diagram-neutral)" stroke-width="1"
+          stroke-linecap="round" />
+    <!-- Tick marks under each prompt centre -->
+    <g stroke="var(--diagram-neutral)" stroke-width="1" stroke-linecap="round">
+      <line x1="135" y1="216" x2="135" y2="224" />
+      <line x1="285" y1="216" x2="285" y2="224" />
+      <line x1="435" y1="216" x2="435" y2="224" />
+      <line x1="585" y1="216" x2="585" y2="224" />
+    </g>
+    <!-- Generation labels -->
+    <g font-size="11" text-anchor="middle"
+       font-family="var(--diagram-font-family)"
+       fill="var(--diagram-neutral)">
+      <text x="135" y="244">2024</text>
+      <text x="285" y="244">2025</text>
+      <text x="435" y="244">2026</text>
+      <text x="585" y="244" font-style="italic">…</text>
+    </g>
+    <!-- Axis caption -->
+    <text x="660" y="244"
+          font-size="11" text-anchor="end" font-style="italic"
+          font-family="var(--diagram-font-family)"
+          fill="var(--diagram-neutral)" opacity="0.7">
+      Modellgeneration
+    </text>
+  </g>
+</svg>
+```
+
+:::
