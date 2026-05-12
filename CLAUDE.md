@@ -17,11 +17,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Educational website and workshop materials for the **KI in der Lehre: Advanced** workshop, the third in a three-workshop trilogy on AI in education at the BFH Virtuelle Akademie.
 
-This 3-hour workshop has participants build a **Spec Sheet**: a 4-section, falsifiable specification of what a learner needs for one teaching task in the participant's own discipline. Participants then translate the Spec Sheet into a system prompt for a chat tool of their choice and test it against a known student answer using the pass / fail-soft / fail-hard protocol. In the Closing they tag each Wissensbaustein as Selbst-Tun-erforderlich or Zuschauen-reicht.
+This 3-hour workshop has participants build a **Spec Sheet**: a 3-section, falsifiable specification of what a learner needs for one teaching task in the participant's own discipline (Teilaufgabe, Wissensbausteine, Misconceptions). Participants then insert the Spec Sheet into a running tool, observe the structured output, and sharpen the Spec where the output is generic or off-target. The Closing covers the Doktrin-Extension and the Downstream-Uses-Gallery; the Selbst-Tun-vs-Zuschauen tagging and the Falsifikationsnotiz are documented as optional Take-Home homework.
 
-The workshop's central operative claim is **Spec is durable, Prompt is rendering**: the hard work of using AI in teaching is not choosing tools or writing prompts but specifying what is supposed to happen in the learner's head. The deeper theoretical claim, inherited from the design's earlier iteration and narrowed in the 2026-05 redesign, is that **AI substitution removes the action-contingent inputs to second-order metacognition**: without the learner's first-order action, the inputs the metacognitive computation would condition on are not generated. The empirical anchor is the *doer effect* (Koedinger, Kim, Jia, McLaughlin & Bier, 2015; Van Campenhout, Johnson & Olsen, 2022): doing predicts learning roughly six times more strongly than reading or video, with causal-strength controls. Daw & Fleming (2018) supplies the mechanism explanation. The Selbst-Tun-vs-Zuschauen tagging in the Closing operationalises this for the participant's own teaching task.
+The workshop's central operative claim is **Spec is durable, Prompt is rendering**: the hard work of using AI in teaching is not choosing tools or writing prompts but specifying what is supposed to happen in the learner's head. The deeper theoretical claim, inherited from the design's earlier iteration and narrowed in the 2026-05 redesign, is that **AI substitution removes the action-contingent inputs to second-order metacognition**: without the learner's first-order action, the inputs the metacognitive computation would condition on are not generated. The empirical anchor is the *doer effect* (Koedinger, Kim, Jia, McLaughlin & Bier, 2015; Van Campenhout, Johnson & Olsen, 2022): doing predicts learning roughly six times more strongly than reading or video, with causal-strength controls. Fleming & Daw (2017) supplies the mechanism explanation. The Selbst-Tun-vs-Zuschauen tagging in the Take-Home operationalises this for the participant's own teaching task.
 
-**Claims and limits.** The Spec Sheet is a structured-introspection scaffold producing a KC-decomposition *hypothesis* about what the learner needs, grounded in Koedinger's KLI framework (Memory-and-Fluency / Induction-and-Refinement / Understanding-and-Sense-Making mapped onto Faktenwissen / Klassifikationswissen / Erklärungswissen, with each type labelled by its cognitive operation: Abrufen / Erkennen / Begründen). It is not a validated cognitive model: the pass / fail-soft / fail-hard procedure is a workshop-scale falsification step on one LLM-simulated and one real student response, not a learning-curve fit on accumulated student data. The durability claim is about the Spec's relationship to *tool churn*, not about its empirical validation. Lecturers leave the workshop in a position to test their Spec against real student work after the workshop ends; that post-workshop validation is what would graduate the Spec from hypothesis to model.
+**Claims and limits.** The Spec Sheet is a structured-introspection scaffold producing a KC-decomposition *hypothesis* about what the learner needs, grounded in Koedinger's KLI framework (Memory-and-Fluency / Induction-and-Refinement / Understanding-and-Sense-Making mapped onto Faktenwissen / Klassifikationswissen / Erklärungswissen, with each type labelled by its cognitive operation: Abrufen / Erkennen / Begründen). It is not a validated cognitive model: the Block-3 test (observe whether the tool output matches what real learners would produce) is a workshop-scale plausibility check, not a learning-curve fit on accumulated student data. The durability claim is about the Spec's relationship to *tool churn*, not about its empirical validation. Lecturers leave the workshop in a position to test their Spec against real student work after the workshop ends; that post-workshop validation is what would graduate the Spec from hypothesis to model.
 
 Built with Quarto, **delivered in German**, maintained by the Virtual Academy at Bern University of Applied Sciences (BFH). Published at https://virtuelleakademie.github.io/ki-lehre-advanced/
 
@@ -82,8 +82,8 @@ make diff                   # Show word-level diff
 
 **The Hosted Tools:**
 
-- **hf-spaces/diagnostic-tool-shell-marimo/**: marimo notebook used in Block 1's abbreviated tool-tour as the live demo of the "Strukturierte API"-Affordance-Typ. Same Pydantic schema and Anthropic API call as the legacy Gradio shell, but laid out as reactive cells so the data flow is visible.
-- **hf-spaces/diagnostic-tool-shell/**: the Gradio shell from the previous iteration. Stays live as a fallback deployment for participants who prefer a finished tool over a notebook view; not part of the current workshop flow.
+- **hf-spaces/diagnostic-tool-shell-marimo/**: marimo notebook from the previous workshop iteration. Not part of the current workshop flow; kept as legacy reference. The current Block 1 has no tool-tour.
+- **hf-spaces/diagnostic-tool-shell/**: the Gradio shell from the previous iteration. Stays live as a legacy deployment; not part of the current workshop flow.
 - **hf-spaces/worked-example-weaver-app/**: an older personalized-worked-example tool. Stays deployed. Not linked from the new workshop content.
 
 **Reference / instructor notes:**
@@ -174,7 +174,7 @@ uv sync            # Syncs all dependencies
 
 ### Working with Marimo + Quarto Integration
 
-**Note**: The current workshop uses marimo only in Block 1's abbreviated tool-tour as a 1-minute live demo of the "Strukturierte API"-Affordance-Typ (`hf-spaces/diagnostic-tool-shell-marimo/notebook.py`, run via `marimo edit`). Participants do not edit or run marimo themselves. The marimo + Quarto islands integration documented below remains a valid technique for OTHER content (and the archived marimo iteration uses it), but is not exercised by the main workshop flow.
+**Note**: The current workshop does not use marimo in any block. The marimo notebook from the previous iteration (`hf-spaces/diagnostic-tool-shell-marimo/notebook.py`) is kept as legacy reference only. The marimo + Quarto islands integration documented below remains a valid technique for OTHER content (and the archived marimo iteration uses it), but is not exercised by the main workshop flow.
 
 The project supports **marimo islands** - interactive Python cells embedded in Quarto documents.
 
@@ -299,8 +299,8 @@ By the end of this workshop, participants will:
 
 1. **Decompose** one of their own teaching tasks into Wissensbausteine (three types defined by cognitive operation: Faktenwissen / Klassifikationswissen / Erklärungswissen, with the operations Abrufen / Erkennen / Begründen made explicit) with the V/B-discipline (vermutet vs. beobachtet) separating LLM hypotheses from teacher observations
 2. **Identify** likely misconceptions and knowledge prerequisite-sources, using an LLM in two operational roles: Hypothesengenerator and Lernende-Simulator (reactive and productive)
-3. **Translate** the Spec Sheet into a system prompt and test it using the pass / fail-soft / fail-hard protocol
-4. **Tag** each Wissensbaustein as Selbst-Tun-erforderlich or Zuschauen-reicht, and write a one-sentence student-facing AI-use policy
+3. **Translate** the Spec Sheet into a system prompt for a running tool, observe the structured output, and sharpen the Spec where the output is generic or off-target
+4. **Decide** which Wissensbausteine require Selbst-Tun versus where Zuschauen suffices (Take-Home homework that operationalises the offloading-vs-outsourcing distinction)
 
 ### Workshop Flow
 
@@ -317,16 +317,16 @@ Total wall-clock: 155 min content + 15 min break = 170 min, with 10 min buffer t
 
 The Falsifikationsnotiz and Selbst-Tun-vs-Zuschauen tagging that used to live in the in-room Closing are now Take-Home homework, documented in `workshop/take-home/index.qmd`. The slides for these (Closing section of `slides/workshop/index.qmd`) are retained as Take-Home reference; they are not shown live in the 15-min Closing.
 
-### The Spec Sheet: 4 Sections
+### The Spec Sheet: 3 Sections + 1 Take-Home
 
-The 4-section participant template (in `workshop/spec-sheet-template/index.qmd`). The earlier 6-section "Spec Card" with full theoretical labels remains preserved at `workshop/spec-card-statistics/` as a reference example and at `instructor-notes/spec-card-statistics-internal.md` for instructor audit.
+The 3-section participant template (in `workshop/spec-sheet-template/index.qmd`). The earlier 6-section "Spec Card" with full theoretical labels remains preserved at `instructor-notes/spec-card-statistics/index.qmd` and `instructor-notes/spec-card-statistics-internal.md` for instructor reference.
 
 | # | Section (German participant label) | Theoretical commitment |
 |---|---|---|
-| A | Die Teilaufgabe (Wortlaut, Kontext, Lernziel) | Anchoring the spec to a specific subtask, not a whole assignment |
-| B | Wissensbausteine (with optional Erwerb-field replacing the prior separate Wissenslücken section) | Three types defined by cognitive operation: Faktenwissen (Abrufen) / Klassifikationswissen (Erkennen) / Erklärungswissen (Begründen); V/B-marked; "Was schiefgeht" sentence per entry |
-| C | Wahrscheinliche Fehlkonzepte | Conceptual change theory (used as concept, not named as framework); diskriminiert-or-not assessment |
-| D | Falsifikationsnotiz (filled in Closing) | Empirical accountability: what student behaviour would falsify the decomposition? |
+| 1 | Lernaufgabe (Wortlaut, Rahmen, intendiertes Ergebnis) | Anchoring the spec to a specific subtask, not a whole assignment |
+| 2 | Erforderliche Skills und Knowledge | Three types defined by cognitive operation: Faktenwissen (Abrufen) / Klassifikationswissen (Erkennen) / Erklärungswissen (Begründen); optional V/B-marking; characteristic error form per entry |
+| 3 | Antizipierte Misconceptions | Conceptual change theory (used as concept, not named as framework); intuitive basis per entry |
+| 4 (Take-Home) | Falsifikationsnotiz | Empirical accountability: what student behaviour would falsify the decomposition? Documented as optional Take-Home homework, not filled in the live Closing |
 
 Plus an optional Pruning-Protokoll: LLM-Vorschläge that were rejected, with a half-line of reason. Empty pruning column with full Spec is a warning signal.
 
@@ -337,23 +337,16 @@ Two registers, kept distinct:
 - **Internal docs** (instructor-notes/, design docs, this CLAUDE.md): full theoretical naming preserved (ACT-R, Bayesian, Daw & Fleming, conceptual change theory, source-monitoring, etc.)
 - **Participant materials** (workshop/, vorbereitung/): plain language. Cognitive mechanisms in the Nachlesen tabs cite their canonical homes (CAS Lernpsychologie 02-ki-und-lernen for offloading-vs-outsourcing; kompetenz-erwerben for expertise reversal). Pearl's intervention/observation distinction is named in the in-room Closing only as "Selbst-Tun vs. Zuschauen" with the Pearl mechanic explained one line in the Nachlesen tab.
 
-### Test Protocol (Block 3)
+### Test in Block 3
 
-Three discrete outcomes when participants test their system prompt against a known student answer:
-
-- **Pass**: LLM identifies the expected Baustein and quotes a plausible piece of evidence from the answer.
-- **Fail soft**: LLM identifies a different Baustein or stays generic. Spec entry was vague — go back and sharpen "Was schiefgeht".
-- **Fail hard**: LLM invents a Baustein not in the Spec. The "erfinde nichts"-clause failed — try another model or strengthen the clause.
+One pragmatic test question when participants insert their Spec into the running tool and observe the output: *Stimmt der Output mit dem überein, was deine echten Lernenden tun? Wenn nein, was fehlt im Spec?* Where the Spec is sharp the output is specific; where the Spec is vague the output is generic. This is a workshop-scale plausibility check, not a statistical test. The earlier Drei-Ausgänge-Heuristik (Pass / Fail soft / Fail hard) from the prior workshop iteration is documented in Block 3's Nachlesen tab as a historical reference; the slides for it remain in the deck as reference but are not shown live.
 
 ### Technical Stack
 
-- **Anthropic Claude (Haiku/Sonnet)**: structured-output language model used by the marimo notebook in Block 1's tool-tour and by the legacy Gradio shell
-- **Pydantic**: defines the `Diagnosis` and `Response` schema in the marimo notebook; demonstrates the "Strukturierte API"-Affordance-Typ (forced output structure) in Block 1
-- **Gradio**: legacy shell, fallback deployment for participants who want a finished tool
-- **Marimo**: live-demo notebook for Block 1's tool-tour (~1 min); visible code, reactive cells, makes the Spec → Schema → Prompt data flow concrete
-- **HuggingFace Spaces**: free deployment platform for the hosted tools
-- **Chat tools** (Microsoft Copilot, ChatGPT, Claude.ai, HuggingChat): the actual tool participants use in Block 3 to test their system prompt
-- **Coding agents** (Claude Code or pi.dev): named in Block 1's tool-tour as the third Affordance-Typ; not used hands-on by participants in this workshop
+- **Anthropic Claude (Haiku/Sonnet)**: structured-output language model used by the running tool in Block 3
+- **HuggingFace Spaces**: free deployment platform that hosts the Block 3 tool
+- **Chat tools** (Microsoft Copilot, ChatGPT, Claude.ai, HuggingChat): the tools participants use during Block 2 to invoke the LLM-as-Novice and Lernende-Simulator roles, and that they can use after the workshop with their Spec
+- **Pydantic**, **Marimo**, **Gradio**: used only in the legacy `hf-spaces/` deployments (`diagnostic-tool-shell-marimo/`, `diagnostic-tool-shell/`, `worked-example-weaver-app/`). Not part of the current workshop flow. The architecture explanation for participants who want to understand the Block 3 tool internally lives at `workshop/take-home/api-werkzeug-erklaert.qmd`.
 
 ### Seven Backup Scenarios
 
@@ -378,7 +371,7 @@ Layered on top of the intermediate workshop's CLT framing. The new design adds:
 - **ACT-R-style decomposition**: chunks and compiled productions as schemas + automatised patterns; named as concepts only
 - **Pearl's intervention vs. observation**: named explicitly in participant materials. Mechanises the offloading-vs-outsourcing distinction
 - **Daw & Fleming second-order metacognition**: the action-as-input claim is the workshop's strongest claim. The citation lives in instructor notes; the claim is stated in plain German for participants
-- **Productive failure (Kapur)**: used implicitly in Block 3 (the test-protocol's "Fail soft" outcome is a productive-failure moment) and in Block 2's reactive simulation
+- **Productive failure (Kapur)**: used implicitly in Block 3 (when participants observe a generic or off-target output, the diagnostic moment is a productive-failure moment) and in Block 2's Lernende-Simulator runs
 - **Conceptual change theory** (Vosniadou, diSessa, Chi): used in Section 4's "intuitive basis" requirement
 
 ## Notes for Development

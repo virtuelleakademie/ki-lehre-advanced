@@ -8,7 +8,7 @@ title: "Prompt-Scaffolds für das Spec Sheet"
 Fünf Prompts, die du in Block 2 nutzt, um dein Spec Sheet zu bauen. Jeder Prompt entspricht einer Rolle, die das LLM für dich übernimmt:
 
 - **Hypothesengenerator** (Prompts 1 und 2): das LLM schlägt Wissensbausteine und passende Lerngelegenheiten vor.
-- **Lernende-Simulator, reaktiv** (Prompt 3): das LLM liest dein Material so, als hätte es einen bestimmten Wissensbaustein nicht, und meldet zurück, was unklar ist. Die Funde fliessen als zusätzliche Bausteine oder als Erwerb-Hinweise in deine Sektion B zurück.
+- **Lernende-Simulator, reaktiv** (Prompt 3): das LLM liest dein Material so, als hätte es einen bestimmten Wissensbaustein nicht, und meldet zurück, was unklar ist. Die Funde fliessen als zusätzliche Bausteine oder als Erwerb-Hinweise in deine Sektion 2 zurück.
 - **Lernende-Simulator, produktiv** (Prompts 4 und 5): das LLM produziert eine Antwort einer Lernenden, der ein Baustein fehlt oder die ein Fehlkonzept hält.
 
 Die Prompts sind Werkzeug-unabhängig. Du kannst sie in Microsoft Copilot, HuggingChat, ChatGPT, Claude oder ein anderes Chat-Modell einfügen. Die Antworten sind dann *Vorschläge*, die du in deinem Spec Sheet als **vermutet (V)** markierst, bis du sie an realen Lernenden überprüft hast.
@@ -16,11 +16,11 @@ Die Prompts sind Werkzeug-unabhängig. Du kannst sie in Microsoft Copilot, Huggi
 
 ## Bevor du anfängst
 
-Vor jedem Prompt ergänzt du folgende Angaben (sie kommen direkt aus Sektion A deines Spec Sheets):
+Vor jedem Prompt ergänzt du folgende Angaben (sie kommen direkt aus Sektion 1 deines Spec Sheets):
 
-- **Teilaufgabe** (Wortlaut, eine bis drei Sätze): aus A1 deines Spec Sheets.
-- **Kurskontext**: aus A2 deines Spec Sheets.
-- **Lernziel**: aus A3 deines Spec Sheets.
+- **Teilaufgabe** (Wortlaut, eine bis drei Sätze): aus Sektion 1 (Wortlaut) deines Spec Sheets.
+- **Kurskontext**: aus Sektion 1 (Rahmen) deines Spec Sheets.
+- **Lernziel**: aus Sektion 1 (Lernziel) deines Spec Sheets.
 
 Halte sie bereit. Du wirst sie in jedem Prompt als Kopfzeile einfügen.
 
@@ -28,7 +28,7 @@ Halte sie bereit. Du wirst sie in jedem Prompt als Kopfzeile einfügen.
 
 **Zweck:** Das LLM schlägt eine erste Liste von Wissensbausteinen für deine Teilaufgabe vor. Du nimmst diese Liste mit zur Validierung.
 
-**Wann verwenden:** ganz am Anfang von Block 2, sobald du Sektion A deines Spec Sheets ausgefüllt hast.
+**Wann verwenden:** ganz am Anfang von Block 2, sobald du Sektion 1 deines Spec Sheets ausgefüllt hast.
 
 **Was zu erwarten ist:** vier bis acht Vorschläge, je mit Typ-Klassifikation, Beispiel-Vorkommen und einem konkreten Fehlermodus. Manche werden für deinen Kurs zu allgemein oder zu eng sein. Das ist normal: in der Validierung pruchst du die Liste.
 
@@ -173,7 +173,7 @@ Bitte keinen Trost-Output ("die Aufgabe ist insgesamt verständlich, aber
 
 Die reaktive Simulation ist die methodologische Form des Fluchs des Wissens: das LLM zeigt dir, was deine Aufgabenstellung an Wissen voraussetzt, ohne es zu nennen. Das ist genau die Information, die dir selbst am schwersten zugänglich ist, weil du den Baustein längst hast.
 
-Wenn das LLM Stellen markiert, die du für selbstverständlich gehalten hast, ist das ein Treffer. Trag den Fund als zusätzlichen Wissensbaustein in Sektion B ein, oder als Erwerb-Hinweis bei einem bestehenden Baustein (etwa "vorausgesetzt aus [Modul]" oder "Tacit-Wissen").
+Wenn das LLM Stellen markiert, die du für selbstverständlich gehalten hast, ist das ein Treffer. Trag den Fund als zusätzlichen Wissensbaustein in Sektion 2 ein, oder als Erwerb-Hinweis bei einem bestehenden Baustein (etwa "vorausgesetzt aus [Modul]" oder "Tacit-Wissen").
 :::
 
 ## Prompt 4: Produktive Simulation, "antworte ohne X"

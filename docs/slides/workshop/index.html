@@ -211,118 +211,30 @@
   <script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
   <link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <style>
-  div.callout-screens-up.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-screens-up.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f06e' !important;
-    background-image: none;
-  }
-  div.callout-pro-tip.callout {
-    border-left-color: #1E3A5F;
-  }
-  div.callout-pro-tip.callout-style-default > .callout-header {
-    background-color: rgba(30, 58, 95, 0.13);
-  }
-  div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\e2ca' !important;
-    background-image: none;
-  }
-  div.callout-testing.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-testing.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\e4f3' !important;
-    background-image: none;
-  }
-  div.callout-screens-down.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-screens-down.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f070' !important;
-    background-image: none;
-  }
-  div.callout-prompt-template.callout {
-    border-left-color: #1E3A5F;
-  }
-  div.callout-prompt-template.callout-style-default > .callout-header {
-    background-color: rgba(30, 58, 95, 0.13);
-  }
-  div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f328' !important;
-    background-image: none;
-  }
-  div.callout-pair.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-pair.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f500' !important;
-    background-image: none;
-  }
-  div.callout-fallstudie.callout {
+  div.callout-timing.callout {
     border-left-color: #6E6560;
   }
-  div.callout-fallstudie.callout-style-default > .callout-header {
+  div.callout-timing.callout-style-default > .callout-header {
     background-color: rgba(110, 101, 96, 0.13);
   }
-  div.callout-fallstudie .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-fallstudie.callout-style-default .callout-icon::before, div.callout-fallstudie.callout-titled .callout-icon::before {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236E6560" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-  }
-  div.callout-reflect.callout {
-    border-left-color: #1E3A5F;
-  }
-  div.callout-reflect.callout-style-default > .callout-header {
-    background-color: rgba(30, 58, 95, 0.13);
-  }
-  div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
+  div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\f0eb' !important;
+    content: '\f2f2' !important;
     background-image: none;
   }
-  div.callout-caution.callout {
+  div.callout-work-in-progress.callout {
     border-left-color: #B8821A;
   }
-  div.callout-caution.callout-style-default > .callout-header {
+  div.callout-work-in-progress.callout-style-default > .callout-header {
     background-color: rgba(184, 130, 26, 0.13);
   }
-  div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
+  div.callout-work-in-progress .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-work-in-progress.callout-style-default .callout-icon::before, div.callout-work-in-progress.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\f071' !important;
+    content: '\f0c3' !important;
     background-image: none;
   }
   div.callout-schedule.callout {
@@ -351,95 +263,17 @@
     content: '\f11e' !important;
     background-image: none;
   }
-  div.callout-setup.callout {
-    border-left-color: #6E6560;
-  }
-  div.callout-setup.callout-style-default > .callout-header {
-    background-color: rgba(110, 101, 96, 0.13);
-  }
-  div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f7d9' !important;
-    background-image: none;
-  }
-  div.callout-nachlesen.callout {
-    border-left-color: #1E3A5F;
-  }
-  div.callout-nachlesen.callout-style-default > .callout-header {
-    background-color: rgba(30, 58, 95, 0.13);
-  }
-  div.callout-nachlesen .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-nachlesen.callout-style-default .callout-icon::before, div.callout-nachlesen.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f518' !important;
-    background-image: none;
-  }
-  div.callout-feedback.callout {
-    border-left-color: #1E3A5F;
-  }
-  div.callout-feedback.callout-style-default > .callout-header {
-    background-color: rgba(30, 58, 95, 0.13);
-  }
-  div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f4ad' !important;
-    background-image: none;
-  }
-  div.callout-prompt-example.callout {
+  div.callout-screens-down.callout {
     border-left-color: #A63D2F;
   }
-  div.callout-prompt-example.callout-style-default > .callout-header {
+  div.callout-screens-down.callout-style-default > .callout-header {
     background-color: rgba(166, 61, 47, 0.13);
   }
-  div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
+  div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\f120' !important;
-    background-image: none;
-  }
-  div.callout-work-in-progress.callout {
-    border-left-color: #B8821A;
-  }
-  div.callout-work-in-progress.callout-style-default > .callout-header {
-    background-color: rgba(184, 130, 26, 0.13);
-  }
-  div.callout-work-in-progress .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-work-in-progress.callout-style-default .callout-icon::before, div.callout-work-in-progress.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f0c3' !important;
-    background-image: none;
-  }
-  div.callout-timing.callout {
-    border-left-color: #6E6560;
-  }
-  div.callout-timing.callout-style-default > .callout-header {
-    background-color: rgba(110, 101, 96, 0.13);
-  }
-  div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f2f2' !important;
-    background-image: none;
-  }
-  div.callout-facilitator.callout {
-    border-left-color: #6E6560;
-  }
-  div.callout-facilitator.callout-style-default > .callout-header {
-    background-color: rgba(110, 101, 96, 0.13);
-  }
-  div.callout-facilitator .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-facilitator.callout-style-default .callout-icon::before, div.callout-facilitator.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f46d' !important;
+    content: '\f070' !important;
     background-image: none;
   }
   div.callout-individual.callout {
@@ -455,18 +289,41 @@
     content: '\f007' !important;
     background-image: none;
   }
-  div.callout-try.callout {
+  div.callout-prompt-example.callout {
     border-left-color: #A63D2F;
   }
-  div.callout-try.callout-style-default > .callout-header {
+  div.callout-prompt-example.callout-style-default > .callout-header {
     background-color: rgba(166, 61, 47, 0.13);
   }
-  div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
+  div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\f021' !important;
+    content: '\f120' !important;
     background-image: none;
+  }
+  div.callout-pro-tip.callout {
+    border-left-color: #1E3A5F;
+  }
+  div.callout-pro-tip.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
+  }
+  div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\e2ca' !important;
+    background-image: none;
+  }
+  div.callout-fallstudie.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-fallstudie.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-fallstudie .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-fallstudie.callout-style-default .callout-icon::before, div.callout-fallstudie.callout-titled .callout-icon::before {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236E6560" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
   }
   div.callout-active-processing.callout {
     border-left-color: #A63D2F;
@@ -481,30 +338,43 @@
     content: '\f044' !important;
     background-image: none;
   }
-  div.callout-group.callout {
-    border-left-color: #A63D2F;
+  div.callout-prompt-template.callout {
+    border-left-color: #1E3A5F;
   }
-  div.callout-group.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
+  div.callout-prompt-template.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
   }
-  div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
+  div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\f0c0' !important;
+    content: '\f328' !important;
     background-image: none;
   }
-  div.callout-tutor-example.callout {
-    border-left-color: #A63D2F;
+  div.callout-feedback.callout {
+    border-left-color: #1E3A5F;
   }
-  div.callout-tutor-example.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
+  div.callout-feedback.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
   }
-  div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
+  div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\f086' !important;
+    content: '\f4ad' !important;
+    background-image: none;
+  }
+  div.callout-pair.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-pair.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f500' !important;
     background-image: none;
   }
   div.callout-break.callout {
@@ -520,6 +390,97 @@
     content: '\f7b6' !important;
     background-image: none;
   }
+  div.callout-screens-up.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-screens-up.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f06e' !important;
+    background-image: none;
+  }
+  div.callout-facilitator.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-facilitator.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-facilitator .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-facilitator.callout-style-default .callout-icon::before, div.callout-facilitator.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f46d' !important;
+    background-image: none;
+  }
+  div.callout-tutor-example.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-tutor-example.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f086' !important;
+    background-image: none;
+  }
+  div.callout-caution.callout {
+    border-left-color: #B8821A;
+  }
+  div.callout-caution.callout-style-default > .callout-header {
+    background-color: rgba(184, 130, 26, 0.13);
+  }
+  div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f071' !important;
+    background-image: none;
+  }
+  div.callout-nachlesen.callout {
+    border-left-color: #1E3A5F;
+  }
+  div.callout-nachlesen.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
+  }
+  div.callout-nachlesen .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-nachlesen.callout-style-default .callout-icon::before, div.callout-nachlesen.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f518' !important;
+    background-image: none;
+  }
+  div.callout-try.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-try.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f021' !important;
+    background-image: none;
+  }
+  div.callout-testing.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-testing.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\e4f3' !important;
+    background-image: none;
+  }
   div.callout-export.callout {
     border-left-color: #A63D2F;
   }
@@ -531,6 +492,45 @@
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
     content: '\f56e' !important;
+    background-image: none;
+  }
+  div.callout-reflect.callout {
+    border-left-color: #1E3A5F;
+  }
+  div.callout-reflect.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
+  }
+  div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f0eb' !important;
+    background-image: none;
+  }
+  div.callout-setup.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-setup.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f7d9' !important;
+    background-image: none;
+  }
+  div.callout-group.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-group.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f0c0' !important;
     background-image: none;
   }
   </style>
@@ -585,17 +585,17 @@ Andrew Ellis
 <p><br></p>
 <div class="columns">
 <div class="column" style="width:33%;">
-<h3 id="block-1-45-min">Block 1 (45 min)</h3>
+<h3 id="block-1-35-min">Block 1 (35 min)</h3>
 <p><em>Worked Example beobachten</em></p>
-<p>CLT-Auffrischung, dann gemeinsamer Durchgang durch ein ausgearbeitetes Spec Sheet.</p>
+<p>Drei Anker-Slides, dann gemeinsamer Durchgang durch ein ausgearbeitetes Spec Sheet an einer Statistik-Aufgabe.</p>
 </div><div class="column" style="width:33%;">
 <h3 id="block-2-60-min">Block 2 (60 min)</h3>
 <p><em>Eigenes Spec Sheet bauen</em></p>
-<p>Für eine Teilaufgabe deiner Lehre: Wissensbausteine, Fehlkonzepte, Pruning.</p>
+<p>Für eine Teilaufgabe deiner Lehre: Wissensbausteine, Fehlkonzepte, Paar-Review.</p>
 </div><div class="column" style="width:33%;">
-<h3 id="block-3-closing-38-min">Block 3 + Closing (38 min)</h3>
-<p><em>Spec → Prompt → Test</em></p>
-<p>Übersetzen, testen, taggen für KI-Substitution, Verpflichtung.</p>
+<h3 id="block-3-closing-50-min">Block 3 + Closing (50 min)</h3>
+<p><em>Spec → Werkzeug → Verpflichtung</em></p>
+<p>Spec im laufenden Werkzeug testen und schärfen, Doktrin verallgemeinern, persönliche Verpflichtung.</p>
 </div></div>
 <p><br></p>
 <div style="text-align: center; font-size: 1.0em; color: #6E6560;">
@@ -747,7 +747,7 @@ Andrew Ellis
 <p>Diese Engstelle ist der Grund, warum Lernen Mühe macht. Keine Technologie umgeht sie.</p>
 </div>
 <aside class="notes">
-<p>~1.5 Min. Auf den Engpass im Diagramm zeigen: links breit, Mitte schmal (4 Elemente / 15-30 Sek.), rechts wieder breit. Fluss von links nach rechts. Keine Technologie umgeht diese Engstelle.</p>
+<p><strong>Nicht Teil des 35-min Block 1.</strong> Im redesignten Workshop entfällt das CLT-Recap; die CLT-Auffrischung in Volllänge ist die Refresher-Präsentation der Virtuellen Akademie (siehe Block 1 Nachlesen). Diese Folie bleibt als visuelle Referenz im Foliensatz, falls die Lehrperson das Konzept beiläufig erwähnen will.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -792,7 +792,7 @@ Andrew Ellis
 <p>Konsequenz: Aufgaben müssen sich an Vorwissen anpassen. Das verlangt Diagnose.</p>
 </div>
 <aside class="notes">
-<p>~1.5 Min. Gleiche Gleichung, völlig verschiedene Kosten. Konsequenz: ein Übungsblatt für alle ist für die meisten falsch. Brücke: Aufgaben müssen sich an Vorwissen anpassen, das verlangt Diagnose.</p>
+<p><strong>Nicht Teil des 35-min Block 1.</strong> Im redesignten Workshop entfällt diese CLT-Folie. Sie bleibt als Referenz im Deck für Lehrpersonen, die Expertise-Reversal anhand der zwei Pakete kurz illustrieren möchten.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -850,7 +850,7 @@ Andrew Ellis
 <p>Welche Stufe für welchen Baustein passt, hängt von der <strong>Diagnose</strong> des Vorwissens ab.</p>
 </div>
 <aside class="notes">
-<p>~1.5 Min. Die Stufen-Leiter ist Standard CLT/Sweller. Welche Stufe greift, hängt von der Diagnose ab. Brücke: heute machen wir die Diagnose explizit.</p>
+<p><strong>Nicht Teil des 35-min Block 1.</strong> Im redesignten Workshop entfällt diese Scaffolding-Leiter-Folie aus dem CLT-Recap. Sie bleibt als Referenz im Deck und ist in der Refresher-Präsentation der Virtuellen Akademie vollständig erklärt.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -872,7 +872,7 @@ Andrew Ellis
 <p>Die disziplinierte Form dieser Diagnose ist das <strong>Spec Sheet</strong>.</p>
 </div>
 <aside class="notes">
-<p>~1 Min. Das ist die Brücke. CLT sagt: diagnostizieren! Heute: wir schreiben die Diagnose explizit auf. Das ist das Spec Sheet. Lange Pause hier; das ist der Kerngedanke.</p>
+<p><strong>Nicht Teil des 35-min Block 1.</strong> Diese Brücken-Folie verbindet das CLT-Recap mit dem Spec Sheet. Da das CLT-Recap im redesignten Workshop entfällt, fehlt der Brücke der Antezedent. Sie bleibt als Referenz für Lehrpersonen, die das CLT-Recap optional zeigen möchten.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1008,7 +1008,7 @@ Andrew Ellis
 <p>Beim Arbeiten in Block 2 immer fragen: <em>In welcher Rolle ist das LLM gerade?</em></p>
 </div>
 <aside class="notes">
-<p>~1 Min. Lernende-Simulator zuerst, weil er die zentrale Affordanz dieses Workshops ist: ohne ihn ist die cognitive task analysis ein blinder Versuch. Der Hypothesengenerator beschleunigt nur das Auflisten in Sektion B. Mehr als diese Trennung brauchen wir heute nicht.</p>
+<p>~1 Min. Lernende-Simulator zuerst, weil er die zentrale Affordanz dieses Workshops ist: ohne ihn ist die cognitive task analysis ein blinder Versuch. Der Hypothesengenerator beschleunigt nur das Auflisten in Sektion 2. Mehr als diese Trennung brauchen wir heute nicht.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1053,7 +1053,7 @@ Andrew Ellis
 <p>Dein Spec Sheet ist für alle drei Typen verwendbar. Nur die Übersetzung ändert sich.</p>
 </div>
 <aside class="notes">
-<p>~3 Min insgesamt für die Tour. Marimo-Demo: 6 Zellen Pydantic-Schema, ca. 1 Min. Agentisches Werkzeug: nur kurz nennen, Volllänge im Nachlesen.</p>
+<p><strong>Nicht Teil des 35-min Block 1.</strong> Im redesignten Workshop entfällt die Affordance-Typen-Tour. Block 1 zeigt nur das Chat-LLM (LLM-as-Novice und Lernende-Simulator); Block 3 zeigt den strukturierten API-Pfad an einem gehosteten Werkzeug, ohne den Begriff “Affordance-Typ” zu verwenden. Diese Folie bleibt als Referenz im Deck, falls eine Lehrperson die drei Affordance-Typen in einer längeren Variante des Workshops verwenden möchte.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1088,7 +1088,7 @@ Andrew Ellis
 <tbody>
 <tr class="odd">
 <td>5 min</td>
-<td>Vorlage öffnen, Teilaufgabe wählen, Sektion A ausfüllen</td>
+<td>Vorlage öffnen, Teilaufgabe wählen, Sektion 1 ausfüllen</td>
 </tr>
 <tr class="even">
 <td>25 min</td>
@@ -1096,7 +1096,7 @@ Andrew Ellis
 </tr>
 <tr class="odd">
 <td>20 min</td>
-<td>Reaktive Simulation (Prompt 3) → Funde zurück in Sektion B; Produktive Simulation (Prompt 4) → Sektion C</td>
+<td>Reaktive Simulation (Prompt 3) → Funde zurück in Sektion 2; Produktive Simulation (Prompt 4) → Sektion 3</td>
 </tr>
 <tr class="even">
 <td>10 min</td>
@@ -1134,8 +1134,8 @@ Andrew Ellis
 <div class="column" style="width:50%;">
 <p><strong>Aus deinem Spec Sheet</strong></p>
 <ul>
-<li>Sektion B (Wissensbausteine, gruppiert nach Typ)</li>
-<li>Sektion C (Fehlkonzepte, in Ich-Form)</li>
+<li>Sektion 2 (Wissensbausteine, gruppiert nach Typ)</li>
+<li>Sektion 3 (Fehlkonzepte, in Ich-Form)</li>
 <li>“Was schiefgeht”-Sätze pro Baustein</li>
 </ul>
 </div><div class="column" style="width:50%;">
@@ -1151,7 +1151,7 @@ Andrew Ellis
 <p>Wo dein Spec vage ist, fällt der Prompt schwer. Genau das ist die Lehre aus Block 3.</p>
 </div>
 <aside class="notes">
-<p>~2 Min. Mechanik vorführen am Statistik-Beispiel aus Block 1. Die Stelle hervorheben, an der eine Klammer im Template noch nicht im Spec Sheet abgedeckt ist. Beim “erfinde nichts” einmal explizit sagen: das ist eine Bitte an das Modell, kein erzwungener Constraint. Im strukturierten API-Pfad (Block 1 Affordance-Typ 2) wäre dasselbe ein Pydantic-Enum, der vom Validator erzwungen wird. Trade-off zwischen Chat-Niederschwelligkeit und Output-Härte. Nachlesen-Tab in Block 3 hat die volle Erklärung.</p>
+<p>~2 Min. Mechanik vorführen am Statistik-Beispiel aus Block 1. Die Stelle hervorheben, an der eine Klammer im Template noch nicht im Spec Sheet abgedeckt ist. Beim “erfinde nichts” einmal explizit sagen: das ist eine Bitte an das Modell, kein erzwungener Constraint. In einem strukturierten API-Pfad wäre dasselbe ein Schema-Enum, der vom Validator erzwungen wird. Trade-off zwischen Chat-Niederschwelligkeit und Output-Härte. Die Architektur-Erklärung dazu liegt im Take-Home (<code>workshop/take-home/api-werkzeug-erklaert.qmd</code>).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1217,7 +1217,7 @@ Figure&nbsp;1
 <p>Pass / Fail soft / Fail hard. Fail soft zeigt zurück zum Spec Sheet, Fail hard zeigt zurück zum Prompt: bleibt aber im Chat-Pfad nicht voll eliminierbar (siehe Nachlesen).</p>
 </div>
 <aside class="notes">
-<p>~2 Min. Auf das Diagramm zeigen. Drei Branches sind die drei klaren Pass/Fail-Kriterien; die zwei gestrichelten Pfeile sind die Rückkopplungen — Fail soft ist Spec-Diagnose, Fail hard ist Prompt-Diagnose. Wichtig: Fail hard ist im Chat-Werkzeug-Pfad immer ein Restrisiko, weil die “erfinde nichts”-Klausel eine soft constraint ist. Die strukturierte API-Variante (Block 1, Affordance-Typ 2) eliminiert sie auf Schema-Ebene. Wer eine garantiefreie Antwort braucht, bleibt im Chat; wer Garantien braucht, geht in den strukturierten Pfad. Übergang in 15 min Eigenarbeit.</p>
+<p><strong>Nicht Teil des Block-3-Live-Tests.</strong> Im redesignten Workshop ist der Test auf eine pragmatische Frage reduziert: <em>Stimmt der Output mit dem überein, was deine echten Lernenden tun?</em> Die Drei-Ausgänge-Heuristik (Pass / Fail soft / Fail hard) bleibt im Block 3 Nachlesen-Tab als historische Referenz dokumentiert. Diese Folie bleibt im Deck als visuelle Erläuterung, falls eine Lehrperson die Heuristik in einer längeren Variante des Workshops erklären möchte.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1235,13 +1235,69 @@ Figure&nbsp;1
 <h1>Closing</h1>
 
 </section>
+<section id="doktrin-extension" class="slide level2 smaller">
+<h2>Doktrin-Extension</h2>
+<p><br></p>
+<div style="font-size: 1.15em; max-width: 88%; margin: 0 auto; line-height: 1.7; text-align: center;">
+<p><strong>Das Spec ist durabel, das Werkzeug ist Rendering.</strong></p>
+<p>Dieselbe Spezifikation kann ein Scaffolding-Tool, eine Lernende-Simulation oder einen Diagnosetest treiben.</p>
+<p>Wenn nächstes Jahr ein neues Modell oder Tool kommt, bleibt das Spec gleich.</p>
+</div>
+<p><br></p>
+<div style="text-align: center; font-size: 0.95em; color: #6E6560; max-width: 80%; margin: 0 auto;">
+<p>Was du heute geschrieben hast, ist nicht eine Workshop-Notiz, sondern ein durabler Artefakt.</p>
+</div>
+<aside class="notes">
+<p>~3 Min. Verbatim vorlesen, mit ausgesprochenen Pausen zwischen den drei Sätzen. Pause am Ende halten (mindestens 5 Sek), bevor zur Gallery übergeleitet wird. Das ist die Verallgemeinerung dessen, was die Teilnehmenden in Block 3 erlebt haben: dasselbe Spec, ein anderes Werkzeug, gleiches Ergebnis im Kern. Botschaft: das Werkzeug in Block 3 ist eines von vielen möglichen Renderings dieses Specs.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="downstream-uses-gallery" class="slide level2 smaller">
+<h2>Downstream-Uses-Gallery</h2>
+<p><br></p>
+<div style="max-width: 92%; margin: 0 auto; font-size: 0.95em; line-height: 1.55;">
+<p><strong>Vier weitere Einsätze, die dasselbe Spec treiben kann:</strong></p>
+<ol type="1">
+<li><strong>Worked-Example-Generator:</strong> Spec rein, ausgearbeitete Lösungsbeispiele raus, mit Warnhinweisen an den Misconception-Stellen.</li>
+<li><strong>Misconception-Probe:</strong> Spec rein, Diagnosefragen raus, die genau die antizipierten Misconceptions aktivieren.</li>
+<li><strong>Formative Assessment Generator:</strong> Spec rein, Quiz raus, das alle Wissensbausteine abdeckt und Misconceptions sondiert.</li>
+<li><strong>Knowledge-Tracing-Instrumentierung:</strong> Spec als Q-Matrix für Mastery-Tracking-Systeme.</li>
+</ol>
+</div>
+<p><br></p>
+<div style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold;">
+<p>Skizzen mit Prompt-Vorlagen findest du im Take-Home.</p>
+</div>
+<aside class="notes">
+<p>~5 Min. Pro Eintrag etwa eine Minute. <strong>Nicht vorführen</strong>, nur benennen. Die ausgearbeiteten Skizzen mit Prompt-Vorlagen liegen unter <code>workshop/take-home/weitere-werkzeuge.qmd</code>. Botschaft: das Spec, das du heute geschrieben hast, ist nicht an das Block-3-Werkzeug gebunden. Es ist die durable Substanz, mit der du in den nächsten Wochen weiterarbeiten kannst, in welchem Werkzeug auch immer.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="falsifikationsnotiz-was-würde-dich-widerlegen" class="slide level2 smaller">
 <h2>Falsifikationsnotiz: was würde dich widerlegen?</h2>
 <p><br></p>
 <div style="font-size: 1.1em; max-width: 85%; margin: 0 auto; line-height: 1.5;">
-<p>Wähle einen Wissensbaustein aus Sektion B, den du als zentral einschätzt.</p>
+<p>Wähle einen Wissensbaustein aus Sektion 2, den du als zentral einschätzt.</p>
 <p>Schreibe <strong>einen Satz</strong>: welches Verhalten von Lernenden würde dir zeigen, dass deine Decomposition für diesen Baustein falsch ist?</p>
-<p>→ Sektion D deines Spec Sheets.</p>
+<p>→ Sektion 4 (Take-Home) deines Spec Sheets.</p>
 </div>
 <p><br></p>
 <div style="background: rgba(30, 58, 95, 0.06); padding: 1.0em; border-radius: 8px; max-width: 80%; margin: 0 auto; font-style: italic; font-size: 0.95em;">
@@ -1252,7 +1308,7 @@ Figure&nbsp;1
 <p>Ohne diese Notiz bleibt das Spec Sheet eine plausible Hypothese ohne Bedingungen, unter denen du sie aufgeben würdest.</p>
 </div>
 <aside class="notes">
-<p>~3 Min. Falsifikation als Disziplin. Nicht “perfekte” Notiz, eine ehrliche.</p>
+<p><strong>Nicht mehr Teil des 15-min Closings.</strong> Im redesignten Workshop ist die Falsifikationsnotiz Take-Home-Hausaufgabe (siehe <code>workshop/take-home/index.qmd</code>). Diese Folie bleibt als visuelle Referenz im Foliensatz für Lehrpersonen, die das Konzept on the fly einführen oder im Closing optional ansprechen wollen (1-2 Min, kein Eigenarbeitsanteil mehr).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1267,7 +1323,7 @@ Figure&nbsp;1
 </section>
 <section id="selbst-tun-vs.-zuschauen" class="slide level2 smaller">
 <h2>Selbst-Tun vs.&nbsp;Zuschauen</h2>
-<p>Markiere jeden Baustein in deiner Sektion B mit einem Tag:</p>
+<p>Markiere jeden Baustein in deiner Sektion 2 mit einem Tag:</p>
 <div class="fig-diagram" aria-label="Zwei Panels nebeneinander. Links Selbst-Tun: ein Pfeil mit Aktions-Label führt zu einer veränderten Lernerin-Form. Rechts Zuschauen: ein gestrichelter Pfeil mit Beobachtungs-Label führt zu einer unveränderten Lernerin-Form.">
 <svg viewbox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="selbst-tun-title selbst-tun-desc">
   <title id="selbst-tun-title">Selbst-Tun vs. Zuschauen</title>
@@ -1358,7 +1414,7 @@ Figure&nbsp;1
 <p><strong>Entscheidungsregel aus Block 1:</strong> Typ : Mechanismus : Operation : was die KI ersetzen darf. Faktenwissen, Klassifikationswissen, Erklärungswissen sind <em>meist</em> Selbst-Tun, weil die KI die jeweilige Operation nicht für die Lernende leisten kann. Hilfsschritte sind oft Zuschauen-erlaubt. Staging zählt: was bei einer Anfängerin Selbst-Tun ist, kann bei einer Fortgeschrittenen Zuschauen-reicht sein.</p>
 </div>
 <aside class="notes">
-<p>~4 Min in Eigenarbeit. Auf das Diagramm zeigen: links die Aktion verändert die Lernende, rechts die Beobachtung lässt sie weitgehend gleich. Tags sind eine erste Diskussionsgrundlage, nicht endgültig. Wenn alle Bausteine Selbst-Tun sind, ist das ein normales Ergebnis. Direkt anschliessend: Spec-als-Datenstruktur-Slide.</p>
+<p><strong>Nicht mehr Teil des 15-min Closings.</strong> Im redesignten Workshop ist das Selbst-Tun-vs-Zuschauen-Tagging Take-Home-Hausaufgabe (siehe <code>workshop/take-home/index.qmd</code>). Diese Folie bleibt als visuelle Referenz im Foliensatz; falls sie im Closing optional gezeigt wird, dann höchstens als 1-Min-Hinweis (“ihr werdet dies zuhause anwenden”), keine Eigenarbeit mehr.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1375,13 +1431,13 @@ Figure&nbsp;1
 <h2>Spec ist bereits eine Datenstruktur</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><strong>Spec Sheet, Sektion B (Auszug)</strong></p>
+<p><strong>Spec Sheet, Sektion 2 (Auszug)</strong></p>
 <ul>
 <li><strong>B1, Faktenwissen (Abrufen):</strong> <em><span class="math inline">\(r\)</span></em> ist dimensionslos, <span class="math inline">\(-1 \leq r \leq +1\)</span>. V; Selbst-Tun.</li>
 <li><strong>B3, Klassifikationswissen (Erkennen):</strong> Korrelation vs.&nbsp;Mittelwertvergleich. B; Selbst-Tun.</li>
 <li><strong>B5, Erklärungswissen (Begründen):</strong> warum <span class="math inline">\(r = 0.3\)</span> in Bildung bedeutsam ist. V; Selbst-Tun.</li>
 </ul>
-<p><strong>Sektion C:</strong> <em>verwechselt <span class="math inline">\(r\)</span> mit <span class="math inline">\(R^2\)</span></em>; <em>Korrelation als Kausalität</em>.</p>
+<p><strong>Sektion 3:</strong> <em>verwechselt <span class="math inline">\(r\)</span> mit <span class="math inline">\(R^2\)</span></em>; <em>Korrelation als Kausalität</em>.</p>
 </div><div class="column" style="width:50%;">
 <p><strong>adaptive-scaffolding (Python)</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a>Exercise(</span>
@@ -1434,7 +1490,37 @@ Figure&nbsp;1
 <p>Erzähl es deiner Nachbarin, bevor du den Raum verlässt.</p>
 </div>
 <aside class="notes">
-<p>~2 Min. Konkretheit erzwingen. Spezifische Aufgabe, spezifischer Schritt, spezifisches Datum. Mündliche Zusage an Nachbarin als sozialer Commitment.</p>
+<p>~5 Min. Diese Folie trägt den Hauptteil des Closings (zusammen mit der Doktrin-Extension und der Downstream-Uses-Gallery). Konkretheit erzwingen: spezifische Aufgabe, spezifischer Schritt, spezifisches Datum. 3 Min stilles Schreiben, dann 2 Min cross-discipline-Tausch (mündliche Zusage an Partnerin aus Block 2 als sozialer Commitment).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="take-home-was-du-mitnimmst" class="slide level2 smaller">
+<h2>Take-Home: was du mitnimmst</h2>
+<p><br></p>
+<div style="max-width: 88%; margin: 0 auto; font-size: 1.0em; line-height: 1.7;">
+<p>Auf der Take-Home-Seite findest du:</p>
+<ul>
+<li>Das laufende Werkzeug (URL bleibt stabil).</li>
+<li>Die Architektur-Erklärung in plain Deutsch.</li>
+<li>Vier Skizzen für weitere Werkzeuge mit Prompt-Vorlagen.</li>
+<li>Optionale Hausaufgaben: Falsifikationsnotiz und Selbst-Tun-vs-Zuschauen-Tagging.</li>
+</ul>
+</div>
+<p><br></p>
+<div style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold;">
+<p>Dein Spec, deine Verpflichtung, die Take-Home-Seite. Mehr braucht es nach drei Stunden nicht.</p>
+</div>
+<aside class="notes">
+<p>~2 Min. Take-Home-URL nennen oder QR-Code zeigen. Nicht in eine Q&amp;A-Runde überleiten; die Teilnehmenden haben in 3 Stunden mehr neue Information bekommen, als sie integrieren können. Türen offen für individuelle Fragen, aber kein offizielles Plenums-Q&amp;A.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1455,7 +1541,7 @@ Figure&nbsp;1
 </div>
 <p><br></p>
 <div style="text-align: center; font-size: 1.0em; color: #6E6560; max-width: 80%; margin: 0 auto;">
-<p>Das Spec Sheet ist die durable Substanz deiner pädagogischen Arbeit mit KI. Werkzeuge ändern sich; was im Kopf einer Lernende vorgeht, weniger schnell.</p>
+<p>Das Spec Sheet ist die durable Substanz deiner pädagogischen Arbeit mit KI. Werkzeuge ändern sich; was im Kopf einer Lernenden vorgeht, weniger schnell.</p>
 </div>
 <aside class="notes">
 <p>Verabschieden. Materialien-Hinweis in der Closing-Aktivitäten-Seite.</p>

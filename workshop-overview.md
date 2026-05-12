@@ -24,23 +24,25 @@ The Spec produces a KC-decomposition *hypothesis*, not a validated cognitive mod
 
 ## What participants do
 
-Total: 150 min contact + 15 min break.
+Total: 155 min contact + 15 min break = 170 min wall-clock; 10 min buffer to the 3-hour ceiling.
 
 | Block | Time | What |
 |---|---|---|
-| Einstieg | 7 min | Curse-of-knowledge activator + LLM-mirror foreshadowing the Lernende-Simulator |
-| Block 1 | 45 min | CLT-recap; three knowledge types; Spec / Prompt distinction; two LLM roles; live walked Statistics example; abbreviated tool-tour |
+| Einstieg | 10 min | Cross-discipline-pair activator: write a paragraph about your own teaching task, read your partner's, write three sentences for them, mark what came back |
+| Block 1 | 35 min | Three anchor slides (Das harte Problem / Expert Blind Spot / LLMs als strukturierte Novizen); live worked-example walkthrough at the Statistics multiple-regression task; Spec-Vorschau |
 | Pause | 15 min | |
-| Block 2 | 60 min | Build own Spec for one teaching task: Sektion A (Teilaufgabe) → B (Wissensbausteine, with V/B discipline) → C (Fehlkonzepte) → paired feedback |
-| Block 3 | 25 min | Translate Spec into system prompt; test against a known student answer using pass / fail-soft / fail-hard |
-| Closing | 13 min | Falsifikationsnotiz; Selbst-Tun-vs-Zuschauen tagging; one-sentence student-policy; concrete first commitment |
+| Block 2 | 60 min | Build own Spec for one teaching task: Sektion 1 (Teilaufgabe) → 2 (Wissensbausteine) → 3 (Misconceptions); cross-discipline paired review |
+| Block 3 | 35 min core (+10 min optional) | Demo of running tool with example Spec, insert own Spec and observe output, sharpen Spec, optional role-play, wrap |
+| Closing | 15 min | Doktrin-Extension; Downstream-Uses-Gallery; persönliche Verpflichtung shared with partner; Take-Home pointer |
+
+The Falsifikationsnotiz and Selbst-Tun-vs-Zuschauen tagging that used to live in the in-room Closing are now Take-Home homework (documented in `workshop/take-home/index.qmd`).
 
 ## The four moves the workshop makes
 
 1. **Decomposition before rendering.** Cognitive content is named (knowledge-type, V/B status, failure-mode-per-Baustein) before any prompt is written.
-2. **Falsification as discipline.** Each Spec entry is paired with a one-sentence prediction of how its absence would show up in student work. The Closing records what would falsify the decomposition.
+2. **Falsification as discipline.** Each Spec entry is paired with a one-sentence prediction of how its absence would show up in student work. The Take-Home Falsifikationsnotiz operationalises what would falsify the decomposition.
 3. **LLM as second opinion, not as authority.** Two operational roles: Hypothesengenerator (suggests Bausteine and misconceptions for the lecturer to accept or prune) and Lernende-Simulator (instantiates the Spec into a fluent confabulation the lecturer can probe).
-4. **Per-Baustein action assignment.** In Closing, each Wissensbaustein is tagged Selbst-Tun-erforderlich or Zuschauen-reicht. The decision is per-component, not per-assignment, because the action-as-input claim has resolution only at component-grain.
+4. **Per-Baustein action assignment.** As Take-Home homework, each Wissensbaustein is tagged Selbst-Tun-erforderlich or Zuschauen-reicht. The decision is per-component, not per-assignment, because the action-as-input claim has resolution only at component-grain.
 
 ## The three knowledge types
 
@@ -52,11 +54,10 @@ The typology compresses KLI's KC taxonomy into a teaching-pragmatic three-way sp
 
 ## What participants leave with
 
-- A four-section Spec Sheet for one of their own teaching tasks
-- A system prompt that renders the Spec for a chat tool of their choice
-- One pass / fail-soft / fail-hard test result against a real or backup student answer
-- A one-sentence student-facing AI-use policy for that task
-- A concrete first commitment for the next teaching iteration
+- A three-section Spec Sheet for one of their own teaching tasks (with optional Take-Home Falsifikationsnotiz as Sektion 4)
+- A test of that Spec against a running tool, with observations about where the Spec needs sharpening
+- A concrete commitment for the next two weeks, shared with a cross-discipline partner
+- Take-Home material: the running tool URL, an architecture explanation, four sketches for further tools, and the two optional homework assignments (Falsifikationsnotiz, Selbst-Tun-vs-Zuschauen-Tagging)
 
 ## What this is not
 

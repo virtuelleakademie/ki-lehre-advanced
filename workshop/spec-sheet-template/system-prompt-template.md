@@ -32,9 +32,9 @@ In allen drei Wegen bleibt dein Spec Sheet die durable Substanz. Was sich änder
 ::: {.callout-caution icon=false}
 ## Die Verbote in den Templates sind *soft constraints*
 
-Sätze wie "erfinde keinen Wissensbaustein, der nicht oben gelistet ist" in den folgenden Varianten sind Bitten an das Modell, keine erzwungenen Constraints. Das Chat-Werkzeug prüft die Ausgabe nicht gegen das, was du im Prompt verlangt hast: das Modell hat keinen formalen Begriff von "der Liste oben". Die Klausel reduziert die Häufigkeit von *Fail hard* (erfundene Bausteine in der Ausgabe), eliminiert sie nicht.
+Sätze wie "erfinde keinen Wissensbaustein, der nicht oben gelistet ist" in den folgenden Varianten sind Bitten an das Modell, keine erzwungenen Constraints. Das Chat-Werkzeug prüft die Ausgabe nicht gegen das, was du im Prompt verlangt hast: das Modell hat keinen formalen Begriff von "der Liste oben". Die Klausel reduziert die Häufigkeit erfundener Bausteine in der Ausgabe, eliminiert sie nicht.
 
-Wenn du eine harte Garantie brauchst (etwa für eine wiederkehrende Pipeline, in der manuelle Prüfung jeder Antwort unpraktikabel ist), gehört dasselbe Spec Sheet in einen **strukturierten API-Aufruf** statt in einen Chat-Prompt. Dort werden die Wissensbausteine als Enum definiert, und der Pydantic-Validator weist jede Antwort mit einem Baustein-Wert ausserhalb des Enums zurück, bevor sie den Code erreicht. Das ist genau der Unterschied zwischen Affordance-Typ 1 (Chat) und Affordance-Typ 2 (strukturierte API), den Block 1 vorgeführt hat. Volle Erklärung im [Nachlesen-Tab von Block 3](../block-3-multi-tool/index.qmd).
+Wenn du eine harte Garantie brauchst (etwa für eine wiederkehrende Pipeline, in der manuelle Prüfung jeder Antwort unpraktikabel ist), gehört dasselbe Spec Sheet in einen **strukturierten API-Aufruf** statt in einen Chat-Prompt. Dort werden die Wissensbausteine als Enum definiert, und ein Schema-Validator weist jede Antwort mit einem Baustein-Wert ausserhalb des Enums zurück, bevor sie den Code erreicht. Das ist der Unterschied zwischen einem niedrigschwelligen Chat-Pfad mit weicher Klausel und einem strukturierten API-Pfad mit harter Schemaprüfung. Die Architektur-Erklärung dazu findest du im [Take-Home-Dokument zum Werkzeug](../take-home/api-werkzeug-erklaert.qmd).
 :::
 
 ## So nutzt du die Vorlage
@@ -61,19 +61,19 @@ Kontext der Aufgabe
 -------------------
 
 Teilaufgabe (Wortlaut):
-[Inhalt von Sektion A1 deines Spec Sheets einfügen]
+[Inhalt von Sektion 1 (Wortlaut) deines Spec Sheets einfügen]
 
 Kurskontext:
-[Inhalt von Sektion A2 einfügen]
+[Inhalt von Sektion 1 (Rahmen) einfügen]
 
 Lernziel der Teilaufgabe:
-[Inhalt von Sektion A3 einfügen]
+[Inhalt von Sektion 1 (Lernziel) einfügen]
 
 Wissensbausteine, die diese Teilaufgabe verlangt
 -------------------------------------------------
 
 Faktenwissen:
-[Liste der Faktenwissen-Bausteine aus Sektion B, je mit "Was schiefgeht"-Satz]
+[Liste der Faktenwissen-Bausteine aus Sektion 2, je mit "Was schiefgeht"-Satz]
 
 Klassifikationswissen:
 [Liste der Klassifikations-Bausteine, je mit "Was schiefgeht"-Satz]
@@ -84,7 +84,7 @@ Erklärungswissen:
 Wahrscheinliche Fehlkonzepte
 -----------------------------
 
-[Liste aus Sektion C deines Spec Sheets, je in Ich-Form, mit Typ und
+[Liste aus Sektion 3 deines Spec Sheets, je in Ich-Form, mit Typ und
 "Diskriminiert die Aufgabe?"-Notiz]
 
 Deine Aufgabe
@@ -129,21 +129,21 @@ Teste den fertigen Prompt mit einer Lernenden-Antwort, von der du selbst weisst,
 Du übernimmst die Rolle einer Lernenden auf folgendem Niveau:
 
 Kurskontext:
-[Inhalt von Sektion A2 einfügen]
+[Inhalt von Sektion 1 (Rahmen) einfügen]
 
 Du bist auf diesem Niveau eine sonst kompetente Lernende. Was du
 allerdings noch *nicht* hast:
 
-[Wähle einen Baustein aus Sektion B deines Spec Sheets und füge ein:
+[Wähle einen Baustein aus Sektion 2 deines Spec Sheets und füge ein:
 Name + Typ + "Was schiefgeht, wenn er fehlt"-Beschreibung]
 
 oder, alternativ, ein Fehlkonzept:
 
-[Wähle ein Fehlkonzept aus Sektion C: Aussage in Ich-Form + intuitive Basis]
+[Wähle ein Fehlkonzept aus Sektion 3: Aussage in Ich-Form + intuitive Basis]
 
 Was du auch noch hast (typische andere Bausteine auf deinem Niveau):
 
-[Liste der anderen Bausteine aus Sektion B, falls du das LLM auf "kompetent
+[Liste der anderen Bausteine aus Sektion 2, falls du das LLM auf "kompetent
 ausser im genannten Punkt" festlegen willst]
 
 Verhaltensregeln
@@ -171,10 +171,10 @@ Du bist eine sokratische Lernbegleiterin für eine Lernende, die folgenden
 Erklärungs-Baustein selbst aufbauen soll:
 
 Erklärungs-Baustein:
-[Name aus Sektion B + die "Was schiefgeht"-Beschreibung einfügen]
+[Name aus Sektion 2 + die "Was schiefgeht"-Beschreibung einfügen]
 
 Kurskontext:
-[Sektion A2 einfügen]
+[Sektion 1 (Rahmen) einfügen]
 
 Verhalten
 ---------
@@ -196,7 +196,7 @@ Verhalten
 Bekannte Fehlkonzepte (auf die du achten solltest, ohne sie direkt zu
 benennen):
 
-[Liste aus Sektion C deines Spec Sheets, in Ich-Form]
+[Liste aus Sektion 3 deines Spec Sheets, in Ich-Form]
 
 - Antworte auf Deutsch.
 - Halte deine Repliken kurz: eine bis drei Sätze pro Replik.
@@ -223,7 +223,7 @@ Drei wiederkehrende Schwierigkeiten:
 
 Symptom-Diagnose:
 
-- **Das LLM produziert generischen Text.** Im Prompt fehlt die Spezifik aus deinem Spec Sheet (insbesondere die "Was schiefgeht"-Sätze). Geh zurück zur Sektion B und schärfe die Beschreibungen.
+- **Das LLM produziert generischen Text.** Im Prompt fehlt die Spezifik aus deinem Spec Sheet (insbesondere die "Was schiefgeht"-Sätze). Geh zurück zur Sektion 2 und schärfe die Beschreibungen.
 - **Das LLM identifiziert immer denselben Baustein.** Wahrscheinlich überlappen mehrere Bausteine im Spec Sheet. Geh zurück und prüfe, ob du sie schärfer trennen kannst.
 - **Das LLM bricht aus der Rolle aus** (bei Variante 2 oder 3). Die Verhaltensregel ist nicht stark genug formuliert, oder das Modell ist auf "hilfreich" getuned, ohne Rollenstabilität. Teste mit einem anderen Modell oder verstärke die Klausel.
 - **Das LLM ist zu pedantisch.** Du hast wahrscheinlich zu viele Verbote eingebaut. Reduziere sie auf die zwei oder drei wichtigsten.
