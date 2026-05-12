@@ -42,10 +42,10 @@ Drei Sätze, nicht mehr. Direkt in die Paar-Bildung übergehen.
 
 ## Wenn die Zeit knapp wird
 
-Die letzte Phase (Lies, was zurückkam) ist kürzbar auf 30 Sekunden. Die ersten drei Phasen sind nicht kürzbar, weil sonst die Erfahrung nicht entsteht. Bei Zeitnot eher beim Übergang zu Block 1 weniger Ankertext zeigen als die Einstiegs-Übung beschneiden.
+Die letzte Phase (Lies, was zurückkam) ist kürzbar auf 30 Sekunden. Die ersten drei Phasen sind nicht kürzbar, weil sonst die Erfahrung nicht entsteht. Bei Zeitnot eher beim Übergang zu Block 1 weniger Übergangstext zeigen als die Einstiegs-Übung beschneiden.
 
 ## Take-away Satz für den Einstieg
 
 > Du hast gerade an deinem eigenen Material erlebt, dass eine Aussenstehende Voraussetzungen sieht, die du selbst nicht mehr siehst. Diesen Effekt nennt die Forschung *Expert Blind Spot*. In Block 1 schauen wir, wie ein LLM diesen Effekt für dich systematisch externalisieren kann.
 
-Dieser Satz leitet direkt in den ersten Block-1-Anker-Slide über.
+Dieser Satz leitet direkt in den ersten Block-1-Eröffnungs-Slide über.

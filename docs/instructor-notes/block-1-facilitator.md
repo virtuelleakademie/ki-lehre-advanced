@@ -9,7 +9,7 @@ Internes Dokument für die Workshop-Leitung. Ergänzt die in-page Moderationshin
 
 | Min | Phase | Aktivität |
 |-----|-------|-----------|
-| 0:00-0:05 | Anker-Slides | Drei Sätze (Hartes Problem, Expert Blind Spot, Das LLM als Hypothesengenerator) plus 30-Sek-Referenz auf die drei Wissenstypen |
+| 0:00-0:05 | Eröffnungs-Slides | Drei Sätze (Hartes Problem, Expert Blind Spot, Das LLM als Hypothesengenerator) plus 30-Sek-Referenz auf die drei Wissenstypen |
 | 0:05-0:30 | Worked Example | Live-Walkthrough durch die Multiple-Regression-Aufgabe |
 | 0:30-0:35 | Spec-Vorschau | Spec-Vorlage zeigen, gefülltes Beispiel daneben halten, Brücke zu Block 2 schlagen |
 
@@ -19,7 +19,7 @@ Internes Dokument für die Workshop-Leitung. Ergänzt die in-page Moderationshin
 
 Direkt zur ersten Slide.
 
-## Die drei Anker-Slides
+## Die drei Eröffnungs-Slides
 
 Wortlaut verbatim auf jeder Slide, langsam vorgelesen, mit Pausen:
 
