@@ -23,9 +23,9 @@ Direkt zur ersten Slide.
 
 Wortlaut verbatim auf jeder Slide, langsam vorgelesen, mit Pausen:
 
-1. **Das harte Problem.** Die schwierigste pädagogische Bewegung beim Einsatz von KI in der Lehre ist nicht das Auswählen eines Werkzeugs, sondern das Spezifizieren dessen, was im Kopf der Lernenden passieren soll.
-2. **Der Expert Blind Spot.** Lehrpersonen sehen nicht, was ihre Lernenden noch nicht wissen, weil Automatisierung die Teilfertigkeiten unsichtbar gemacht hat.
-3. **LLMs als strukturierte Novizen.** Ein LLM, das als Person geprompted wird, die gerade die Vorgängerveranstaltung abgeschlossen hat, zählt die Teilschritte auf, die ein Experte überspringt: es hat keine Automatisierung, die es überspringen könnte.
+1. **Ein schwieriges Problem.** Eine der schwierigsten pädagogischen Tätigkeiten beim Einsatz von KI in der Lehre ist nicht das Auswählen eines Werkzeugs, sondern das Spezifizieren dessen, was im Kopf der Lernenden passieren soll.
+2. **Der Expert Blind Spot.** Lehrpersonen sehen oft nicht, was ihre Lernenden noch nicht wissen, weil Automatisierung viele Teilfertigkeiten unsichtbar gemacht hat.
+3. **LLMs als strukturierte Novizen.** Ein LLM, das als Person geprompted wird, die gerade die Vorgängerveranstaltung abgeschlossen hat, aber diese hier noch nicht kennt, kann Teilschritte aufzählen, die ein Experte überspringt. Die Annahme dahinter: in dieser Rolle teilt das LLM die automatisierten Routinen der Expertin nicht.
 
 Nach jedem Satz eine bewusste Pause (ca. 3 Sekunden), nicht weiter elaborieren. Die Sätze tragen den ganzen Workshop; sie brauchen Raum, nicht Erklärung.
 

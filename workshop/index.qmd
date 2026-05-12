@@ -1,6 +1,6 @@
 ---
-title: "Spec Sheets bauen, mit LLMs als Hypothesengenerator und Lernende-Simulator"
-subtitle: "Ein 3-Stunden-Workshop zur Analyse einer Teilaufgabe deiner Lehre und ihrer Übersetzung in einen System-Prompt"
+title: "Spec Sheets bauen"
+subtitle: "LLMs als Hypothesengenerator und Lernende-Simulator"
 format:
   html:
     toc: true
@@ -31,27 +31,27 @@ Das Spec Sheet ist werkzeug-unabhängig: dieselbe Spec funktioniert in jedem Cha
 
 Am Ende des Workshops kannst du:
 
-1. Eine Teilaufgabe deiner Lehre in ihre Wissensbausteine **zerlegen**, mit der Unterscheidung Faktenwissen (Abrufen) / Klassifikationswissen (Erkennen) / Erklärungswissen (Begründen).
-2. Wahrscheinliche Fehlkonzepte und nicht-vorhandene Wissensbausteine **identifizieren**, mit Hilfe eines LLM als Hypothesengenerator und als Lernende-Simulator.
-3. Bei jedem Eintrag im Spec Sheet **Vermutung von Beobachtung trennen** und damit die methodische Disziplin der Validierung anwenden.
-4. Ein Spec Sheet in ein laufendes Werkzeug **einfügen** und das Werkzeug-Verhalten anhand des Spec Sheets diagnostizieren, wenn der Output vom Erwarteten abweicht.
-5. Die Frage **formulieren** (und nach dem Workshop beantworten), welche Teilschritte deiner Aufgabe KI-Substitution zulassen und welche nicht. Das eigentliche Tagging der Bausteine als Selbst-Tun-erforderlich oder Zuschauen-reicht liegt als optionale Take-Home-Hausaufgabe vor.
+1. Eine Teilaufgabe deiner Lehre in **Skills und Knowledge Components zerlegen**, die idealerweise alle drei kognitiven Operationen abdecken: Abrufen (Faktenwissen), Erkennen (Klassifikationswissen), Begründen (Erklärungswissen).
+2. **Wahrscheinliche Fehlkonzepte** und **implizit vorausgesetzte Knowledge Components** identifizieren, mit Hilfe eines LLM in zwei Rollen (Hypothesengenerator und Lernende-Simulator).
+3. LLM-Vorschläge gegen deine eigene Lehrerfahrung **prüfen**: übernehmen, was passt; streichen, was generisch oder unpassend ist. Optional markierst du Einträge als *vermutet (V)* oder *beobachtet (B)*, um die Validierung über den Workshop hinaus weiterzuführen.
+4. Dein Spec Sheet in ein laufendes Werkzeug **einfügen** und das Werkzeug-Verhalten anhand deines Specs diagnostizieren, wenn der Output vom Erwarteten abweicht.
+5. **Die Frage formulieren**, welche Teilschritte deiner Aufgabe KI-Substitution zulassen und welche nicht (das Tagging der Bausteine als *Selbst-Tun-erforderlich* oder *Zuschauen-reicht* liegt als optionale Take-Home-Hausaufgabe vor).
 
 ## Programm
 
 ::: {.callout-schedule icon=false}
-## 3-Stunden-Programm
+## 3-Stunden-Programm (9:00 bis 12:00 Uhr)
 
 | Zeit | Dauer | Block | Aktivität |
 |------|-------|-------|-----------|
-| 0:00-0:10 | 10 min | [**Einstieg**](einstieg/index.qmd) | Cross-discipline-Paar: am eigenen Material den Expert Blind Spot erleben |
-| 0:10-0:45 | 35 min | [**Block 1**](block-1-theorie-und-beispiel/index.qmd) | Drei Anker-Slides; Worked Example live an Statistik-Aufgabe; Spec-Vorschau |
-| 0:45-1:00 | 15 min | **Pause** | |
-| 1:00-2:00 | 60 min | [**Block 2**](block-2-spec-card/index.qmd) | Eigenes Spec Sheet bauen: Sektion 1-3 mit LLM-as-Novice und Lernende-Simulator, Paar-Review |
-| 2:00-2:35 | 35 min | [**Block 3**](block-3-multi-tool/index.qmd) | Spec in laufendes Werkzeug einfügen; Output beobachten; Spec schärfen; (optional: Cross-discipline Role-Play) |
-| 2:35-2:50 | 15 min | [**Closing**](closing/index.qmd) | Doktrin-Extension; Downstream-Uses-Gallery; persönliche Verpflichtung |
+| 9:00-9:10 | 10 min | [**Einstieg**](einstieg/index.qmd) | Cross-discipline-Paar: am eigenen Material den Expert Blind Spot erleben |
+| 9:10-9:45 | 35 min | [**Block 1**](block-1-theorie-und-beispiel/index.qmd) | Drei Anker-Slides; Worked Example live an Statistik-Aufgabe; Spec-Vorschau |
+| 9:45-10:00 | 15 min | **Pause** | |
+| 10:00-11:00 | 60 min | [**Block 2**](block-2-spec-card/index.qmd) | Eigenes Spec Sheet bauen: Sektion 1-3 mit LLM-as-Novice und Lernende-Simulator, Paar-Review |
+| 11:00-11:35 | 35 min | [**Block 3**](block-3-multi-tool/index.qmd) | Spec in laufendes Werkzeug einfügen; Output beobachten; Spec schärfen; (optional: Cross-discipline Role-Play) |
+| 11:35-11:50 | 15 min | [**Closing**](closing/index.qmd) | Doktrin-Extension; Downstream-Uses-Gallery; persönliche Verpflichtung |
 
-Gesamt: 170 min Inhalt plus 15 min Pause. Bei knapper Zeit kann das Role-Play in Block 3 (10 min) entfallen, ohne die Kernerfahrung zu beschneiden.
+Gesamt: 170 min Inhalt plus 15 min Pause, mit 10 min Puffer bis 12:00. Bei knapper Zeit kann das Role-Play in Block 3 (10 min) entfallen, ohne die Kernerfahrung zu beschneiden.
 :::
 
 ## Voraussetzungen
@@ -70,7 +70,7 @@ Diese Inhalte werden in Block 1 nicht wiederholt. Sie liegen als Substrat unter 
 ### Werkzeuge
 
 ::: {.callout-setup icon=false}
-## Was du gut zur Hand haben solltest
+## Was du zur Hand haben solltest
 
 - Zugriff auf Microsoft Copilot (mit deiner BFH-Lizenz).
 - Optional: ein Account auf [HuggingChat](https://huggingface.co/chat) (kostenlos, ohne Anmeldung mit Limitationen nutzbar).
@@ -79,11 +79,6 @@ Diese Inhalte werden in Block 1 nicht wiederholt. Sie liegen als Substrat unter 
 In Block 2 nutzt du ein Chat-Werkzeug deiner Wahl, um die beiden LLM-Rollen (LLM-as-Novice, Lernende-Simulator) für dein eigenes Material laufen zu lassen. In Block 3 fügst du dein fertiges Spec in ein gehostetes Werkzeug ein, das wir bereitstellen. Du musst nichts installieren.
 :::
 
-::: {.callout-note collapse="true" icon=false}
-## Was am Workshop neu ist (für Wiederkehrer)
-
-Wenn du eine frühere Iteration dieses Workshops besucht hast (mit dem 6-Sektionen-Spec-Card-Format und den vier diagnostischen Rollen): die heutige Form ist deutlich schlanker. Der Workshop konzentriert sich auf eine *einzelne Teilaufgabe* statt auf eine ganze Lerner-Modellierung, und auf *zwei* operationale LLM-Rollen (Hypothesengenerator, Lernende-Simulator) statt auf vier Diagnose-Rollen. Die theoretische Substanz ist erhalten geblieben; die Anwendung ist konkret an einer eigenen Teilaufgabe und im 3-Stunden-Format durchführbar.
-:::
 
 ## Verbindung zur Trilogie
 

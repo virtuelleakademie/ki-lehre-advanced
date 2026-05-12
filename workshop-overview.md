@@ -29,7 +29,7 @@ Total: 155 min contact + 15 min break = 170 min wall-clock; 10 min buffer to the
 | Block | Time | What |
 |---|---|---|
 | Einstieg | 10 min | Cross-discipline-pair activator: write a paragraph about your own teaching task, read your partner's, write three sentences for them, mark what came back |
-| Block 1 | 35 min | Three anchor slides (Das harte Problem / Expert Blind Spot / LLMs als strukturierte Novizen); live worked-example walkthrough at the Statistics multiple-regression task; Spec-Vorschau |
+| Block 1 | 35 min | Three anchor slides (Ein schwieriges Problem / Expert Blind Spot / LLMs als strukturierte Novizen); live worked-example walkthrough at the Statistics multiple-regression task; Spec-Vorschau |
 | Pause | 15 min | |
 | Block 2 | 60 min | Build own Spec for one teaching task: Sektion 1 (Teilaufgabe) → 2 (Wissensbausteine) → 3 (Misconceptions); cross-discipline paired review |
 | Block 3 | 35 min core (+10 min optional) | Demo of running tool with example Spec, insert own Spec and observe output, sharpen Spec, optional role-play, wrap |

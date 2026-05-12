@@ -68,7 +68,7 @@ make diff                   # Show word-level diff
 - **workshop/index.qmd**: workshop overview, schedule, learning objectives; the "for returning participants" historical note is folded into a collapsed callout
 - **workshop/materialien/index.qmd**: single landing page listing every participant material (Vor / Während / Nach + Prompt-Bausteine + external sources). The canonical entry point for participants
 - **workshop/einstieg/**: Einstieg (10 min): cross-discipline-pair exercise; participants experience the Expert Blind Spot on their own material before it is named in Block 1
-- **workshop/block-1-theorie-und-beispiel/**: Block 1 (35 min): three anchor slides (Das harte Problem / Der Expert Blind Spot / LLMs als strukturierte Novizen), then the worked-example walkthrough (live page), then Spec-Vorschau
+- **workshop/block-1-theorie-und-beispiel/**: Block 1 (35 min): three anchor slides (Ein schwieriges Problem / Der Expert Blind Spot / LLMs als strukturierte Novizen), then the worked-example walkthrough (live page), then Spec-Vorschau
   - `worked-example-statistics.qmd`: the live-walkthrough page; simulated $n = 80$ dataset with reciprocal-suppression structure; R code visible by default; `broom::tidy`+`glance` tables; collapsed `pro-tip` callouts for centring algebra and suppression mechanic; collapsed `caution` callout on LLM grounding
 - **workshop/block-2-spec-card/**: Block 2 (60 min): participants build their own Spec Sheet (Sektion 1 → 2 with LLM-as-Novice → 3 with Lernende-Simulator → cross-discipline paired review). Contains a collapsed `caution` callout naming the two concrete failure modes of the ungrounded LLM
   - **workshop/spec-sheet-template/**: 4-section template (1: Teilaufgabe, 2: Wissensbausteine, 3: Fehlkonzepte, 4: Falsifikationsnotiz) plus `prompt-scaffolds.md` and `system-prompt-template.md`
@@ -309,7 +309,7 @@ Total wall-clock: 155 min content + 15 min break = 170 min, with 10 min buffer t
 | Block | Duration | What Participants Do |
 |------|----------|---------------------|
 | Einstieg | 10 min | Cross-discipline pair: write a one-paragraph description of your own teaching task, read your partner's, write three sentences for them, mark what came back |
-| Block 1 | 35 min | Three anchor slides (Das harte Problem / Expert Blind Spot / LLMs als strukturierte Novizen), then live worked-example walkthrough at the Statistics multiple-regression task, then Spec-Vorschau |
+| Block 1 | 35 min | Three anchor slides (Ein schwieriges Problem / Expert Blind Spot / LLMs als strukturierte Novizen), then live worked-example walkthrough at the Statistics multiple-regression task, then Spec-Vorschau |
 | **Pause** | 15 min | |
 | Block 2 | 60 min | Build own Spec Sheet for one teaching task: Sektion 1 (Teilaufgabe) → 2 (Wissensbausteine, LLM-as-Novice) → 3 (Misconceptions, Lernende-Simulator) → cross-discipline paired review |
 | Block 3 | 35 min core (+10 min optional) | Demo of the running tool with the example Spec, insert own Spec and observe output, sharpen Spec and re-test, (optional) cross-discipline role-play, wrap |
