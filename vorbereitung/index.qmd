@@ -10,7 +10,7 @@ title: "Vorbereitung"
 
 Du wirst für **eine einzelne Teilaufgabe** aus deiner eigenen Lehre ein **Spec** schreiben: eine möglichst klare, in Markdown gefasste Beschreibung dessen, was eine Lernende für diese Teilaufgabe wissen, erkennen und erklären können muss, und welche Misconceptions plausibel sind. Das Spec ist werkzeug-unabhängig: dasselbe Markdown kannst du heute in das laufende Werkzeug einfügen, das wir in Block 3 zeigen, und in zwei Jahren in ein noch unbekanntes Werkzeug.
 
-Dabei nutzt du LLMs in zwei klar unterscheidbaren Rollen: als **strukturierten Novizen** (das LLM enumeriert die Voraussetzungen deiner Aufgabe, als hätte es das Fach gerade erst kennengelernt) und als **Lernende-Simulator** (das LLM spielt eine Lernende mit einer Misconception und produziert eine entsprechende Antwort).
+Dabei nutzt du LLMs in zwei klar unterscheidbaren Rollen: als **Hypothesengenerator** (das LLM listet auf, was eine Lernende für deine Aufgabe wissen, erkennen oder begründen können müsste; die Anfänger-Rolle im Prompt verhindert, dass es Teilschritte überspringt, die du selbst nicht mehr siehst) und als **Lernende-Simulator** (das LLM spielt eine Lernende mit einer Misconception und produziert eine entsprechende Antwort).
 
 Was du *nicht* tun wirst: einen Prompt schreiben, der "intelligent" wirkt. Prompt-Engineering ist eine Sammlung von Heuristiken, empfindlich gegenüber Wortwahl, modellabhängig und alle sechs Monate veraltet. Wir machen etwas Anderes: wir bauen eine Spezifikation, die mehrere Modellgenerationen überleben kann.
 
@@ -32,11 +32,11 @@ Ein Beispiel aus Statistik, das wir in Block 1 als Worked Example durchgehen:
 
 > "Die Übung 5 in Statistik II: Lernende sollen in R eine multiple Regression mit Lernzeit und Mathenote als Prädiktoren für die Klausurpunktzahl rechnen und die Koeffizienten interpretieren. Sie verstehen die Aussage 'kontrolliert für' meistens falsch."
 
-So konkret reicht. Eine Teilaufgabe, ein typisches Stolperphänomen, das war's.
+Eine Teilaufgabe, ein typisches Stolperphänomen reichen aus.
 
-## Die drei Sätze, die der Workshop trägt
+## Drei Eröffnungs-Sätze aus Block 1
 
-Eine kurze Vorschau auf die Anker-Slides aus Block 1. Im Workshop kommen sie noch einmal verbatim.
+Eine kurze Vorschau auf die Eröffnungs-Slides aus Block 1. Im Workshop kommen sie noch einmal verbatim.
 
 **Ein schwieriges Problem.** Eine der schwierigsten pädagogischen Tätigkeiten beim Einsatz von KI in der Lehre ist nicht das Auswählen eines Werkzeugs, sondern das Spezifizieren dessen, was im Kopf der Lernenden passieren soll.
 

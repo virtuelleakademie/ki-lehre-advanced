@@ -10,7 +10,7 @@ Internes Dokument für die Workshop-Leitung. Ergänzt die in-page Moderationshin
 | Min | Phase | Aktivität |
 |-----|-------|-----------|
 | 0:00-0:05 | Orientierung | Spec-Vorlage zeigen, Teilaufgabe wählen, Sektion 1 ausfüllen |
-| 0:05-0:25 | Sektion 2 | LLM-as-Novice an eigenes Material; Output validieren, Sektion 2 füllen |
+| 0:05-0:25 | Sektion 2 | Hypothesengenerator an eigenes Material; Output validieren, Sektion 2 füllen |
 | 0:25-0:40 | Sektion 3 | LLM als Lernende-Simulator; Misconception generieren, Sektion 3 füllen |
 | 0:40-0:55 | Paar-Review | Cross-discipline Paar liest sich gegenseitig die Specs |
 | 0:55-1:00 | Wrap | Spec speichern, Vorschau auf Block 3 |
@@ -19,7 +19,7 @@ Block 2 ist die längste Eigenarbeitsphase des Workshops. Die Workshop-Leitung g
 
 ## Eröffnung Block 2 (nach der Pause)
 
-> Jetzt baust du selbst, was du in Block 1 an der Multiple-Regression beobachtet hast. Vor euch liegt die Spec-Vorlage; sie hat drei Sektionen. Ihr wechselt im Lauf der Stunde zwischen zwei LLM-Rollen: erst LLM-as-Novice für Sektion 2, dann Lernende-Simulator für Sektion 3. Am Ende reviewt ihr euch gegenseitig in cross-discipline Paaren.
+> Jetzt baust du selbst, was du in Block 1 an der Multiple-Regression beobachtet hast. Vor euch liegt die Spec-Vorlage; sie hat drei Sektionen. Ihr wechselt im Lauf der Stunde zwischen zwei LLM-Rollen: erst Hypothesengenerator für Sektion 2, dann Lernende-Simulator für Sektion 3. Am Ende reviewt ihr euch gegenseitig in cross-discipline Paaren.
 
 Die [Spec-Vorlage](../workshop/spec-sheet-template/index.qmd) und das [Beispiel-Spec](../workshop/spec-sheet-template/example-multiple-regression.md) parallel zeigen, sodass die Teilnehmenden beide griffbereit haben.
 
@@ -28,14 +28,14 @@ Die [Spec-Vorlage](../workshop/spec-sheet-template/index.qmd) und das [Beispiel-
 Während der Eigenarbeit über die Schultern schauen und an folgenden Zeitmarken kurz sammeln:
 
 - **Min 5:** alle haben Sektion 1 ausgefüllt? Wer noch nicht: kurz hören warum. Häufigster Grund: niemand hat eine Aufgabe mitgebracht. Backup-Szenarien anbieten.
-- **Min 20:** Sektion 2 läuft? Wer noch nicht: hat der LLM-as-Novice-Prompt funktioniert? Häufigste Stolperstellen siehe unten.
+- **Min 20:** Sektion 2 läuft? Wer noch nicht: hat der Hypothesengenerator-Prompt funktioniert? Häufigste Stolperstellen siehe unten.
 - **Min 40:** Übergang zu Sektion 3. Kurz vorführen, wie der Lernende-Simulator-Prompt aussieht. Wer das LLM in dieser Rolle noch nicht gesehen hat: eine Minute Live-Demo am eigenen Laptop, projiziert.
 - **Min 40:** Paar-Bildung ankündigen. Cross-discipline. Wer keine Partnerin aus ferner Disziplin findet: paar mit der nächstgelegenen.
 - **Min 55:** Wrap. Spec speichern lassen (Markdown-Datei oder Zwischenablage). Vorschau auf Block 3: euer Spec wird in einem Werkzeug landen.
 
 ## Häufige Stolperstellen und Redirects
 
-### Sektion 2 (LLM-as-Novice)
+### Sektion 2 (Hypothesengenerator)
 
 **"Das LLM liefert nur generische Punkte."** Häufig, wenn die Aufgabenstellung zu kurz ist. Frage: hat die Teilnehmende auch die Musterlösung mitgegeben? Ohne Lösungsweg hat das LLM nichts, woran es Schritte enumerieren kann.
 
