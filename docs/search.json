@@ -930,6 +930,20 @@
     "text": "Test-Protokoll: drei mögliche Ausgänge\nWähle einen Baustein aus deiner Spec, den du als B (beobachtet) markiert hast. Gib die zugehörige Lernenden-Antwort ans Werkzeug.\n\n\n\n\n\n\n\n%%{init: {'theme':'base', 'themeVariables': {'fontFamily':'Space Grotesk, -apple-system, sans-serif', 'fontSize':'14px'}}}%%\nflowchart TD\n  Test[\"Test mit bekannter&lt;br&gt;Studierenden-Antwort\"]\n\n  Test --&gt; Pass[\"&lt;b&gt;Pass&lt;/b&gt;&lt;br&gt;Erwarteter Baustein,&lt;br&gt;plausible Stelle zitiert\"]\n  Test --&gt; Soft[\"&lt;b&gt;Fail soft&lt;/b&gt;&lt;br&gt;Anderer Baustein&lt;br&gt;oder generisch\"]\n  Test --&gt; Hard[\"&lt;b&gt;Fail hard&lt;/b&gt;&lt;br&gt;Erfundener Baustein,&lt;br&gt;nicht in Spec\"]\n\n  Pass --&gt; PassEnd[\"Spec hat funktioniert\"]\n  Soft -.-&gt;|\"zurück zum Spec\"| SoftAct[\"'Was schiefgeht' schärfen\"]\n  Hard -.-&gt;|\"zurück zum Prompt\"| HardAct[\"Anderes Modell&lt;br&gt;oder Klausel verstärken\"]\n\n  classDef test fill:#F5F0E8,stroke:#6E6560,stroke-width:1.5px,color:#1A1714,rx:6,ry:6\n  classDef pass fill:#1E3A5F,stroke:#1E3A5F,color:#ffffff,rx:6,ry:6\n  classDef soft fill:#FAF5EC,stroke:#B8821A,stroke-width:1.5px,color:#B8821A,rx:6,ry:6\n  classDef hard fill:#FAF0EE,stroke:#A63D2F,stroke-width:1.5px,color:#A63D2F,rx:6,ry:6\n  classDef action fill:transparent,stroke:#C8C2B8,stroke-width:1px,color:#1A1714,rx:4,ry:4\n\n  class Test test\n  class Pass pass\n  class Soft soft\n  class Hard hard\n  class PassEnd,SoftAct,HardAct action\n\n  linkStyle 0,1,2 stroke:#6E6560,stroke-width:1.5px\n  linkStyle 3 stroke:#1E3A5F,stroke-width:1.5px\n  linkStyle 4 stroke:#B8821A,stroke-width:1.5px,stroke-dasharray:4 3\n  linkStyle 5 stroke:#A63D2F,stroke-width:1.5px,stroke-dasharray:4 3\n\n\n\n\nFigure 1\n\n\n\n\n\n\n\nPass / Fail soft / Fail hard. Fail soft zeigt zurück zum Spec Sheet, Fail hard zeigt zurück zum Prompt: bleibt aber im Chat-Pfad nicht voll eliminierbar (siehe Nachlesen).\n\n\n~2 Min. Auf das Diagramm zeigen. Drei Branches sind die drei klaren Pass/Fail-Kriterien; die zwei gestrichelten Pfeile sind die Rückkopplungen — Fail soft ist Spec-Diagnose, Fail hard ist Prompt-Diagnose. Wichtig: Fail hard ist im Chat-Werkzeug-Pfad immer ein Restrisiko, weil die “erfinde nichts”-Klausel eine soft constraint ist. Die strukturierte API-Variante (Block 1, Affordance-Typ 2) eliminiert sie auf Schema-Ebene. Wer eine garantiefreie Antwort braucht, bleibt im Chat; wer Garantien braucht, geht in den strukturierten Pfad. Übergang in 15 min Eigenarbeit."
   },
   {
+    "objectID": "slides/workshop/index.html#doktrin-extension",
+    "href": "slides/workshop/index.html#doktrin-extension",
+    "title": "Spec Sheets bauen, mit LLMs als Hypothesengenerator und Lernende-Simulator",
+    "section": "Doktrin-Extension",
+    "text": "Doktrin-Extension\n\n\nDas Spec ist durabel, das Werkzeug ist Rendering.\nDieselbe Spezifikation kann ein Scaffolding-Tool, eine Lernende-Simulation oder einen Diagnosetest treiben.\nWenn nächstes Jahr ein neues Modell oder Tool kommt, bleibt das Spec gleich.\n\n\n\nWas du heute geschrieben hast, ist nicht eine Workshop-Notiz, sondern ein durabler Artefakt.\n\n\n~3 Min. Verbatim vorlesen, mit ausgesprochenen Pausen zwischen den drei Sätzen. Pause am Ende halten (mindestens 5 Sek), bevor zur Gallery übergeleitet wird. Das ist die Verallgemeinerung dessen, was die Teilnehmenden in Block 3 erlebt haben: dasselbe Spec, ein anderes Werkzeug, gleiches Ergebnis im Kern. Botschaft: das Werkzeug in Block 3 ist eines von vielen möglichen Renderings dieses Specs."
+  },
+  {
+    "objectID": "slides/workshop/index.html#downstream-uses-gallery",
+    "href": "slides/workshop/index.html#downstream-uses-gallery",
+    "title": "Spec Sheets bauen, mit LLMs als Hypothesengenerator und Lernende-Simulator",
+    "section": "Downstream-Uses-Gallery",
+    "text": "Downstream-Uses-Gallery\n\n\nVier weitere Einsätze, die dasselbe Spec treiben kann:\n\nWorked-Example-Generator: Spec rein, ausgearbeitete Lösungsbeispiele raus, mit Warnhinweisen an den Misconception-Stellen.\nMisconception-Probe: Spec rein, Diagnosefragen raus, die genau die antizipierten Misconceptions aktivieren.\nFormative Assessment Generator: Spec rein, Quiz raus, das alle Wissensbausteine abdeckt und Misconceptions sondiert.\nKnowledge-Tracing-Instrumentierung: Spec als Q-Matrix für Mastery-Tracking-Systeme.\n\n\n\n\nSkizzen mit Prompt-Vorlagen findest du im Take-Home.\n\n\n~5 Min. Pro Eintrag etwa eine Minute. Nicht vorführen, nur benennen. Die ausgearbeiteten Skizzen mit Prompt-Vorlagen liegen unter workshop/take-home/weitere-werkzeuge.qmd. Botschaft: das Spec, das du heute geschrieben hast, ist nicht an das Block-3-Werkzeug gebunden. Es ist die durable Substanz, mit der du in den nächsten Wochen weiterarbeiten kannst, in welchem Werkzeug auch immer."
+  },
+  {
     "objectID": "slides/workshop/index.html#falsifikationsnotiz-was-würde-dich-widerlegen",
     "href": "slides/workshop/index.html#falsifikationsnotiz-was-würde-dich-widerlegen",
     "title": "Spec Sheets bauen, mit LLMs als Hypothesengenerator und Lernende-Simulator",
@@ -958,11 +972,18 @@
     "text": "Verpflichtung: in den nächsten zwei Wochen\n\nSchreibe auf Papier:\n\n\nEine konkrete Aufgabe deiner Lehre, an der du das Spec Sheet anwenden wirst. Nicht “ich werde nachdenken über…” sondern: diese spezifische Aufgabe.\nEin konkreter Schritt (Spec anwenden / Aufgabenstellung anpassen / Lernenden-Konsequenz einbauen).\nEin Datum, bis zu dem du es getan hast.\n\n\n\n\nErzähl es deiner Nachbarin, bevor du den Raum verlässt.\n\n\n~5 Min. Diese Folie trägt den Hauptteil des Closings (zusammen mit der Doktrin-Extension und der Downstream-Uses-Gallery). Konkretheit erzwingen: spezifische Aufgabe, spezifischer Schritt, spezifisches Datum. 3 Min stilles Schreiben, dann 2 Min cross-discipline-Tausch (mündliche Zusage an Partnerin aus Block 2 als sozialer Commitment)."
   },
   {
+    "objectID": "slides/workshop/index.html#take-home-was-du-mitnimmst",
+    "href": "slides/workshop/index.html#take-home-was-du-mitnimmst",
+    "title": "Spec Sheets bauen, mit LLMs als Hypothesengenerator und Lernende-Simulator",
+    "section": "Take-Home: was du mitnimmst",
+    "text": "Take-Home: was du mitnimmst\n\n\nAuf der Take-Home-Seite findest du:\n\nDas laufende Werkzeug (URL bleibt stabil).\nDie Architektur-Erklärung in plain Deutsch.\nVier Skizzen für weitere Werkzeuge mit Prompt-Vorlagen.\nOptionale Hausaufgaben: Falsifikationsnotiz und Selbst-Tun-vs-Zuschauen-Tagging.\n\n\n\n\nDein Spec, deine Verpflichtung, die Take-Home-Seite. Mehr braucht es nach drei Stunden nicht.\n\n\n~2 Min. Take-Home-URL nennen oder QR-Code zeigen. Nicht in eine Q&A-Runde überleiten; die Teilnehmenden haben in 3 Stunden mehr neue Information bekommen, als sie integrieren können. Türen offen für individuelle Fragen, aber kein offizielles Plenums-Q&A."
+  },
+  {
     "objectID": "slides/workshop/index.html#section-1",
     "href": "slides/workshop/index.html#section-1",
     "title": "Spec Sheets bauen, mit LLMs als Hypothesengenerator und Lernende-Simulator",
     "section": "",
-    "text": "Danke.\n\n\n\nDas Spec Sheet ist die durable Substanz deiner pädagogischen Arbeit mit KI. Werkzeuge ändern sich; was im Kopf einer Lernende vorgeht, weniger schnell.\n\n\nVerabschieden. Materialien-Hinweis in der Closing-Aktivitäten-Seite."
+    "text": "Danke.\n\n\n\nDas Spec Sheet ist die durable Substanz deiner pädagogischen Arbeit mit KI. Werkzeuge ändern sich; was im Kopf einer Lernenden vorgeht, weniger schnell.\n\n\nVerabschieden. Materialien-Hinweis in der Closing-Aktivitäten-Seite."
   },
   {
     "objectID": "index.html",
@@ -990,7 +1011,7 @@
     "href": "index.html#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206269207369676e706f73742d73706c6974203e7d7d-workshop-struktur",
     "title": "KI in der Lehre: Advanced",
     "section": " Workshop-Struktur",
-    "text": "Workshop-Struktur\nIn diesem 3-Stunden-Workshop baust du für eine Teilaufgabe aus deiner eigenen Lehre ein Spec Sheet: eine möglichst klare, falsifizierbare Beschreibung dessen, was eine Lernende mitbringen muss, was sie wahrscheinlich nicht hat und welche Fehlkonzepte plausibel sind. Das Spec Sheet ist werkzeug-unabhängig, es überlebt jeden konkreten Prompt und jedes konkrete Werkzeug. Anschliessend übersetzt du es in einen System-Prompt und prüfst dessen Verhalten in einem Chat-Werkzeug deiner Wahl.\n\n\n\n\n%%{init: {'theme': 'base', 'themeVariables': {'cScale0': '#A63D2F', 'cScale1': '#d4c4b0', 'cScale2': '#1E3A5F', 'cScale3': '#d4c4b0', 'cScale4': '#7B4EA3', 'cScale5': '#B8821A', 'cScaleLabel0': '#ffffff', 'cScaleLabel1': '#1A1714', 'cScaleLabel2': '#ffffff', 'cScaleLabel3': '#1A1714', 'cScaleLabel4': '#ffffff', 'cScaleLabel5': '#ffffff', 'cScalePeer0': '#c46a5f', 'cScalePeer1': '#e5ddd0', 'cScalePeer2': '#4a6a8f', 'cScalePeer3': '#e5ddd0', 'cScalePeer4': '#9a7abf', 'cScalePeer5': '#d4a84a'}}}%%\ntimeline\n  title KI in der Lehre Advanced\n  section Block I\n    Einstieg (7 min) : Curse of Knowledge\n    Block 1 (48 min) : Theorie kurz : Worked Example : Werkzeug-Tour\n  section Pause (15 min)\n  section Block II\n    Block 2 (55 min) : Eigenes Spec Sheet : Wissensbausteine, Fehlkonzepte, Lücken\n    Block 3 (25 min) : System-Prompt rendern : Im Chat-Werkzeug testen\n    Closing (10 min) : Aktion vs. Beobachtung : Eine konkrete Verpflichtung"
+    "text": "Workshop-Struktur\nIn diesem 3-Stunden-Workshop baust du für eine Teilaufgabe aus deiner eigenen Lehre ein Spec Sheet: eine möglichst klare, falsifizierbare Beschreibung dessen, was eine Lernende mitbringen muss, was sie wahrscheinlich nicht hat und welche Fehlkonzepte plausibel sind. Das Spec Sheet ist werkzeug-unabhängig, es überlebt jeden konkreten Prompt und jedes konkrete Werkzeug. Anschliessend übersetzt du es in einen System-Prompt und prüfst dessen Verhalten in einem Chat-Werkzeug deiner Wahl.\n\n\n\n\n%%{init: {'theme': 'base', 'themeVariables': {'cScale0': '#A63D2F', 'cScale1': '#d4c4b0', 'cScale2': '#1E3A5F', 'cScale3': '#d4c4b0', 'cScale4': '#7B4EA3', 'cScale5': '#B8821A', 'cScaleLabel0': '#ffffff', 'cScaleLabel1': '#1A1714', 'cScaleLabel2': '#ffffff', 'cScaleLabel3': '#1A1714', 'cScaleLabel4': '#ffffff', 'cScaleLabel5': '#ffffff', 'cScalePeer0': '#c46a5f', 'cScalePeer1': '#e5ddd0', 'cScalePeer2': '#4a6a8f', 'cScalePeer3': '#e5ddd0', 'cScalePeer4': '#9a7abf', 'cScalePeer5': '#d4a84a'}}}%%\ntimeline\n  title KI in der Lehre Advanced\n  section Block I\n    Einstieg (10 min) : Cross-discipline Paar : Expert Blind Spot erleben\n    Block 1 (35 min) : Drei Anker-Slides : Worked Example : Spec-Vorschau\n  section Pause (15 min)\n  section Block II\n    Block 2 (60 min) : Eigenes Spec Sheet : Sektionen 1-3 : Paar-Review\n    Block 3 (35 min) : Spec im Werkzeug : Beobachten, schärfen\n    Closing (15 min) : Doktrin : Verpflichtung"
   },
   {
     "objectID": "index.html#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20626920636f6d70617373203e7d7d-wie-du-diese-website-nutzt",
@@ -1236,6 +1257,30 @@
     "title": "Block 2: Dein eigenes Spec (60 min)",
     "section": "Worauf es heute nicht ankommt",
     "text": "Worauf es heute nicht ankommt\nVollständigkeit. Du wirst dein Spec zu Hause weiter ergänzen können. Was es jetzt braucht, ist eine erste vollständige Version, die du in Block 3 in das laufende Werkzeug einfügen kannst.\nLieber wenig und scharf als viel und unscharf.",
+    "crumbs": [
+      "Workshop",
+      "Programm",
+      "Block 2: Eigenes Spec (60 min)"
+    ]
+  },
+  {
+    "objectID": "workshop/block-2-spec-card/index.html#prompt-für-die-llm-as-novice-rolle-block-2",
+    "href": "workshop/block-2-spec-card/index.html#prompt-für-die-llm-as-novice-rolle-block-2",
+    "title": "Block 2: Dein eigenes Spec (60 min)",
+    "section": "Prompt für die LLM-as-Novice-Rolle (Block 2)",
+    "text": "Prompt für die LLM-as-Novice-Rolle (Block 2)\nHier ist Material aus einem Kurs in &lt;&lt;&lt; DISZIPLIN EINFÜGEN &gt;&gt;&gt;. Spiele\neine Person, die gerade die Vorgängerveranstaltung abgeschlossen hat,\naber diese Aufgabe hier noch nicht gesehen hat.\n\nFür jeden Schritt in der Musterlösung, liste auf: was müsste die Person\nbereits wissen, erkennen oder begründen können, um den Schritt zu\nverstehen? Markiere alles, was das Material voraussetzt, aber nicht\nselbst erklärt. Unterscheide zwischen Fakten zum Abrufen,\nKlassifikationen zum Erkennen, Prozeduren zum Ausführen und\nkonzeptionellen Verständnissen.\n\nMaterial:\n&lt;&lt;&lt; AUFGABE UND MUSTERLÖSUNG EINFÜGEN &gt;&gt;&gt;",
+    "crumbs": [
+      "Workshop",
+      "Programm",
+      "Block 2: Eigenes Spec (60 min)"
+    ]
+  },
+  {
+    "objectID": "workshop/block-2-spec-card/index.html#prompt-für-die-lernende-simulator-rolle",
+    "href": "workshop/block-2-spec-card/index.html#prompt-für-die-lernende-simulator-rolle",
+    "title": "Block 2: Dein eigenes Spec (60 min)",
+    "section": "Prompt für die Lernende-Simulator-Rolle",
+    "text": "Prompt für die Lernende-Simulator-Rolle\nDu bist eine Lernende in &lt;&lt;&lt; STUDIENGANG, SEMESTER EINFÜGEN &gt;&gt;&gt;. Du\nhältst die folgende Misconception: &lt;&lt;&lt; MISCONCEPTION IN ICH-FORM\nFORMULIEREN &gt;&gt;&gt;. Sonst bist du auf dem Niveau deines Kurses kompetent.\nLies die folgende Aufgabe und schreibe die Antwort, die du in der\nKlausur abgeben würdest:\n\n&lt;&lt;&lt; AUFGABE EINFÜGEN &gt;&gt;&gt;\n\nSchreibe die Antwort so, wie sie eine reale Lernende geben würde:\nplausibel, schlüssig, von der falschen Annahme aus konsistent.",
     "crumbs": [
       "Workshop",
       "Programm",

@@ -88,25 +88,30 @@ Trage die drei Felder von Sektion 1 ein: Wortlaut, Rahmen, intendiertes Ergebnis
 ::: {.callout-individual icon=false}
 #### Prompt eingeben (5 min)
 
-Öffne ein Chat-LLM deiner Wahl (Microsoft Copilot, HuggingChat, Claude, ChatGPT) und gib den folgenden Prompt ein. Hänge dann deinen Aufgabentext und die Musterlösung an:
+Öffne ein Chat-LLM deiner Wahl (Microsoft Copilot, HuggingChat, Claude, ChatGPT). Kopiere den folgenden Prompt über das Symbol oben rechts im Codeblock und ersetze die markierten Platzhalter durch deine Disziplin und dein Material.
+:::
 
-```
-Hier ist Material aus einem Kurs in [DISZIPLIN]. Spiele eine Person,
-die gerade die Vorgängerveranstaltung abgeschlossen hat, aber diese
-Aufgabe hier noch nicht gesehen hat. Für jeden Schritt in der
-Musterlösung, liste auf: was müsste die Person bereits wissen,
-erkennen oder begründen können, um den Schritt zu verstehen?
-Markiere alles, was das Material voraussetzt, aber nicht selbst
-erklärt. Unterscheide zwischen Fakten zum Abrufen, Klassifikationen
-zum Erkennen, Prozeduren zum Ausführen und konzeptionellen
-Verständnissen.
+::: {.callout-prompt-example icon=false}
+## Prompt für die LLM-as-Novice-Rolle (Block 2)
+
+```markdown
+Hier ist Material aus einem Kurs in <<< DISZIPLIN EINFÜGEN >>>. Spiele
+eine Person, die gerade die Vorgängerveranstaltung abgeschlossen hat,
+aber diese Aufgabe hier noch nicht gesehen hat.
+
+Für jeden Schritt in der Musterlösung, liste auf: was müsste die Person
+bereits wissen, erkennen oder begründen können, um den Schritt zu
+verstehen? Markiere alles, was das Material voraussetzt, aber nicht
+selbst erklärt. Unterscheide zwischen Fakten zum Abrufen,
+Klassifikationen zum Erkennen, Prozeduren zum Ausführen und
+konzeptionellen Verständnissen.
 
 Material:
-[Aufgabe und Musterlösung einfügen]
+<<< AUFGABE UND MUSTERLÖSUNG EINFÜGEN >>>
 ```
+:::
 
 Das LLM produziert eine Liste von zehn bis fünfzehn Voraussetzungen.
-:::
 
 ::: {.callout-caution collapse="true"}
 #### Was dieser Prompt nicht kann
@@ -149,23 +154,27 @@ Frag deine Sitznachbarin: *"Würdest du diesen Eintrag in deinem Fach übernehme
 ::: {.callout-individual icon=false}
 #### Prompt für die Misconception-Simulation (5 min)
 
-Wähle ein wahrscheinliches Fehlkonzept aus deinem Fach, von dem du vermutest, dass Lernende es haben könnten. Gib dem LLM folgenden Prompt:
+Wähle ein wahrscheinliches Fehlkonzept aus deinem Fach, von dem du vermutest, dass Lernende es haben könnten. Kopiere den folgenden Prompt und ersetze die markierten Platzhalter.
+:::
 
-```
-Du bist eine Lernende in [STUDIENGANG], [SEMESTER]. Du hältst die
-folgende Misconception: [Misconception in Ich-Form formulieren].
-Sonst bist du auf dem Niveau deines Kurses kompetent. Lies die
-folgende Aufgabe und schreibe die Antwort, die du in der Klausur
-abgeben würdest:
+::: {.callout-prompt-example icon=false}
+## Prompt für die Lernende-Simulator-Rolle
 
-[Aufgabe einfügen]
+```markdown
+Du bist eine Lernende in <<< STUDIENGANG, SEMESTER EINFÜGEN >>>. Du
+hältst die folgende Misconception: <<< MISCONCEPTION IN ICH-FORM
+FORMULIEREN >>>. Sonst bist du auf dem Niveau deines Kurses kompetent.
+Lies die folgende Aufgabe und schreibe die Antwort, die du in der
+Klausur abgeben würdest:
+
+<<< AUFGABE EINFÜGEN >>>
 
 Schreibe die Antwort so, wie sie eine reale Lernende geben würde:
 plausibel, schlüssig, von der falschen Annahme aus konsistent.
 ```
+:::
 
 Lies die LLM-Antwort sorgfältig. Sie ist meist überraschend kohärent.
-:::
 
 ::: {.callout-individual icon=false}
 #### Sektion 3 füllen (10 min)
