@@ -7,35 +7,40 @@ format:
 ---
 
 ::: {.callout-note}
-Füge dein Markdown-Spec aus Block 2 in das Werkzeug unten ein. Wähle ein P(know) für eine hypothetische Lernende und beobachte, was das System produziert.
+**Was du bekommst:** eine strukturierte Diagnose einer Lernenden-Antwort durch die Brille deines eigenen Specs. Das Werkzeug zeigt, welche Skills die Antwort demonstriert, welche fehlen und welche Misconceptions sichtbar sind, jeweils mit Zitaten als Evidenz. Ist die Diagnose generisch oder daneben, ist dein Spec an dieser Stelle zu vage: schärfe es und lass es erneut laufen.
 
-Wenn der Output nicht überzeugt, schärfe dein Spec und führe den Lauf erneut durch.
+**Wie:** Füge dein Markdown-Spec aus Block 2 ein, dazu eine echte oder konstruierte Antwort einer Lernenden. Klick auf **Diagnose erstellen**. Ohne eigenes Spec: klick im Werkzeug auf **Beispiel laden**.
 :::
 
 <!-- TODO: Replace placeholder URL with actual HF Space URL once deployed.
      Expected URL: https://awellis-scaffolding-workshop-tool.hf.space
-     Source repo: ~/GitHub/projects/scaffolding-workshop-tool/ (to be created) -->
+     Source repo: hf-spaces/diagnostic-tool-spec/ (this repo) -->
 
 <iframe
   src="https://awellis-scaffolding-workshop-tool.hf.space"
   width="100%"
-  height="800"
+  height="1200"
   frameborder="0"
   allow="clipboard-write"
-  title="Scaffolding Workshop Tool">
+  title="Diagnostisches Werkzeug">
 </iframe>
 
 ## Was passiert hier?
 
-Dein Markdown-Spec wird im Hintergrund in ein strukturiertes Python-Objekt übersetzt. Das System nutzt dieses Objekt zusammen mit dem P(know)-Wert, um die Antwort auf das richtige Scaffolding-Level zu kalibrieren: minimaler Nudge, gezielte Frage, strukturierter Hinweis, detaillierte Anleitung oder vollständige Lösungsstruktur.
+Das Werkzeug zeigt jede Stufe seiner Pipeline an, damit du nicht nur das Ergebnis siehst, sondern auch den Mechanismus dahinter.
 
-Die Architektur dahinter ist im Take-Home dokumentiert.
+- **Stufe 1: Eingabe.** Du fügst Spec und Antwort in zwei Textfelder ein.
+- **Stufe 2: Markdown wird zu strukturierten Daten.** Dein Markdown-Spec wird in ein Pydantic-Objekt mit drei Feldern (Lernaufgabe, Skills, Misconceptions) überführt. Wenn ein Eintrag falsch zugeordnet ist, hat das Markdown-Format das Parsing verwirrt.
+- **Stufe 3: Was an die API gesendet wird.** Das Werkzeug zeigt dir den System Prompt, den fertig gerenderten User Prompt und das Pydantic-Schema. Genau diese drei Teile gehen an die Anthropic-API.
+- **Stufe 4: Strukturierte Antwort.** Das Modell antwortet in der vom Schema vorgegebenen Form: welche Skills demonstriert sind, welche fehlen, welche Misconceptions erkannt wurden, mit Evidenz-Zitaten aus der Antwort.
+
+Das Pydantic-Schema ist der eigentliche Mechanismus. Es zwingt das Modell, exakt die Felder zurückzugeben, die wir spezifiziert haben. Die Architektur dahinter ist im Take-Home ausführlicher dokumentiert.
 
 [→ Wie das Werkzeug funktioniert](../take-home/api-werkzeug-erklaert.qmd)
 
 ## Die pragmatische Test-Frage
 
-Wenn du den Output liest, stell dir eine Frage: *Stimmt das mit dem überein, was deine echten Lernenden brauchen würden?*
+Wenn du den Output in Stufe 4 liest, stell dir eine Frage: *Stimmt das mit dem überein, was deine echten Lernenden produzieren würden?*
 
 - **Ja:** dein Spec hat für diese Aufgabe funktioniert.
 - **Nein:** dein Spec ist zu vage oder lückenhaft. Notiere, was im Output fehlt oder falsch ist, und schärfe den entsprechenden Eintrag in deinem Spec.

@@ -1,10 +1,14 @@
----
-title: "Beispiel-Spec: Multiple Regression"
----
+"""Bundled example spec + student answer for the marimo app's "Beispiel laden" button.
 
-Ein knappes Beispiel-Spec zur Übung "Multiple Regression mit zwei Prädiktoren" aus Block 1. Es zeigt die Form, nicht die Vollständigkeit: für deine eigene Aufgabe würdest du vermutlich weitere Skills und Misconceptions ergänzen. Du kannst dieses Beispiel als Vorlage verwenden und in Block 3 in das laufende Werkzeug einfügen.
+Kept in-tree so the deployed HF Space is self-contained (it does not have
+access to the surrounding workshop site). The spec mirrors
+``workshop/spec-sheet-template/example-multiple-regression.md`` (without YAML
+front matter). The student answer is a plausible mid-quality response that
+exhibits one of the spec's misconceptions, so the diagnostic call returns a
+non-trivial result.
+"""
 
-## Lernaufgabe (Kontext und Ziel)
+EXAMPLE_SPEC_MD = """## Lernaufgabe (Kontext und Ziel)
 
 Die Lernenden rechnen in R eine multiple Regression mit zwei Prädiktoren (Lernzeit und Mathenote auf Klausurpunktzahl) und interpretieren die Koeffizienten unter Konstanthaltung des jeweils anderen Prädiktors. Übung 5 im Statistik-II-Kurs, im Anschluss an die einfache lineare Regression.
 
@@ -18,7 +22,9 @@ Die Lernenden rechnen in R eine multiple Regression mit zwei Prädiktoren (Lernz
 
 - "Kontrollieren" wird als aktiver Eingriff in den Datensatz verstanden: "rausrechnen", "rauspartialisieren", als ob die Mathenote aus den Klausurpunkten entfernt würde.
 - $R^2$ in der multiplen Regression wird als Summe der bivariaten $r^2$ aufgefasst: $r^2_{YX_1} + r^2_{YX_2}$.
+"""
 
-## Hinweis
+EXAMPLE_STUDENT_ANSWER = """Ich habe `lm(klausur ~ lernzeit + mathenote)` in R gerechnet. Der Koeffizient für Lernzeit ist $b_1 = 1{,}8$.
 
-Dieses Spec ist absichtlich knapp gehalten, damit die Form deutlich wird. Für eine echte Lehrplanung würden weitere Skills (Einheit der Koeffizienten, $t$-Test pro Koeffizient, Partial-/Semipartialkorrelation) und weitere Misconceptions (bivariate Signifikanz garantiert multiple Signifikanz, Additivität der Effekte) ergänzt.
+Interpretation: Wenn die Lernzeit um eine Stunde steigt, steigen die Klausurpunkte um 1,8 Punkte, weil wir den Effekt der Mathenote rausgerechnet haben. Das $R^2$ ist 0,42; das ist die Summe der einzelnen $r^2$-Werte ($r^2_{YX_1} + r^2_{YX_2}$).
+"""

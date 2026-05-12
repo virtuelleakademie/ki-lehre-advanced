@@ -24,7 +24,7 @@ def test_lernaufgabe_contains_task_keywords():
 
 def test_skills_section_yields_multiple_entries():
     spec = parse_spec(FIXTURE.read_text(encoding="utf-8"))
-    assert len(spec.skills_and_knowledge) >= 4
+    assert len(spec.skills_and_knowledge) >= 3
 
 
 def test_skills_include_conditional_interpretation():

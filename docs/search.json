@@ -95,35 +95,35 @@
     "href": "hf-spaces/diagnostic-tool-spec/tests/fixtures/example-multiple-regression.html",
     "title": "Beispiel-Spec: Multiple Regression",
     "section": "",
-    "text": "Vollständig ausgefülltes Beispiel-Spec zur Übung “Multiple Regression mit zwei Prädiktoren” aus Block 1. Du kannst dieses Beispiel als Vorlage für dein eigenes Spec verwenden, und du kannst es im Block 3 in das laufende Werkzeug einfügen, um zu sehen, was das Werkzeug damit produziert."
+    "text": "Ein knappes Beispiel-Spec zur Übung “Multiple Regression mit zwei Prädiktoren” aus Block 1. Es zeigt die Form, nicht die Vollständigkeit: für deine eigene Aufgabe würdest du vermutlich weitere Skills und Misconceptions ergänzen. Du kannst dieses Beispiel als Vorlage verwenden und in Block 3 in das laufende Werkzeug einfügen."
   },
   {
     "objectID": "hf-spaces/diagnostic-tool-spec/tests/fixtures/example-multiple-regression.html#lernaufgabe-kontext-und-ziel",
     "href": "hf-spaces/diagnostic-tool-spec/tests/fixtures/example-multiple-regression.html#lernaufgabe-kontext-und-ziel",
     "title": "Beispiel-Spec: Multiple Regression",
     "section": "Lernaufgabe (Kontext und Ziel)",
-    "text": "Lernaufgabe (Kontext und Ziel)\nWortlaut: Die Studierenden führen in R eine multiple Regression mit zwei Prädiktoren durch und interpretieren das Ergebnis: Können Lernzeit (\\(X_1\\)) und Mathenote (\\(X_2\\)) gemeinsam die Klausurpunktzahl (\\(Y\\)) vorhersagen?\nRahmen: Übung 5 im Statistik-II-Kurs, im Anschluss an die einfache lineare Regression und die Partial-/Semipartialkorrelation. Studierende kennen \\(r\\), \\(r^2\\) und das Konzept der bivariaten Regression.\nIntendiertes Ergebnis: Die Studierenden verstehen die konditionale Bedeutung der Aussage “kontrolliert für” und können einen Regressionskoeffizienten unter Berücksichtigung weiterer Prädiktoren angemessen interpretieren."
+    "text": "Lernaufgabe (Kontext und Ziel)\nDie Lernenden rechnen in R eine multiple Regression mit zwei Prädiktoren (Lernzeit und Mathenote auf Klausurpunktzahl) und interpretieren die Koeffizienten unter Konstanthaltung des jeweils anderen Prädiktors. Übung 5 im Statistik-II-Kurs, im Anschluss an die einfache lineare Regression."
   },
   {
     "objectID": "hf-spaces/diagnostic-tool-spec/tests/fixtures/example-multiple-regression.html#erforderliche-skills-und-knowledge",
     "href": "hf-spaces/diagnostic-tool-spec/tests/fixtures/example-multiple-regression.html#erforderliche-skills-und-knowledge",
     "title": "Beispiel-Spec: Multiple Regression",
     "section": "Erforderliche Skills und Knowledge",
-    "text": "Erforderliche Skills und Knowledge\n\nKonditionale Interpretation des Begriffs “kontrolliert für”. Erwerb: zu erwerben (zentraler Lernziel-Baustein dieser Teilaufgabe). Charakteristische Fehlerform: Interpretation im Sinne einer experimentellen Manipulation oder eines rechnerischen “Herausrechnens”.\nDifferenzierung der Regressionskoeffizienten \\(b_1\\) in bivariater versus multipler Regression. Erwerb: zu erwerben (Folge aus der Einführung der multiplen Regression). Charakteristische Fehlerform: Erwartung einer Identität der Koeffizienten über die Modelltypen hinweg.\n\\(R^2\\) als gemeinsam erklärter Varianzanteil mehrerer Prädiktoren. Erwerb: zu erwerben (neu beim Übergang von einer auf mehrere Prädiktoren). Charakteristische Fehlerform: Additive Aufsummierung der bivariaten Bestimmtheitsmasse (\\(r^2_{YX_1} + r^2_{YX_2}\\)).\nPartial- und Semipartialkorrelation als unterschiedliche Konstrukte erkennen. Erwerb: vorausgesetzt (aus dem vorangegangenen Block); Verwechslung als Fehlerform bleibt diagnostisch relevant. Charakteristische Fehlerform: Verwechslung der beiden oder Reduktion auf eine einzige Kennzahl.\nDie Aussage des \\(t\\)-Tests pro Koeffizient korrekt formulieren. Erwerb: vorausgesetzt im Grundkonzept, in dieser Form zu erwerben (die Formulierung “unter Konstanthaltung des jeweils anderen Prädiktors” ist neu). Charakteristische Fehlerform: Aussagen über den Effekt insgesamt statt über den Effekt unter Konstanthaltung des jeweils anderen Prädiktors.\nDie Einheit eines Regressionskoeffizienten angeben. Erwerb: vorausgesetzt (aus bivariater Regression). Charakteristische Fehlerform: Standardisierte und unstandardisierte Koeffizienten miteinander verwechseln oder ohne Einheit interpretieren."
+    "text": "Erforderliche Skills und Knowledge\n\nKonditionale Interpretation von “kontrolliert für”: “unter Konstanthaltung des jeweils anderen Prädiktors”, nicht als aktiver Eingriff in die Daten.\n\\(R^2\\) als gemeinsam erklärter Varianzanteil mehrerer Prädiktoren verstehen, nicht als Summe der bivariaten \\(r^2\\).\nDifferenzierung der Regressionskoeffizienten \\(b_1\\) in bivariater versus multipler Regression: dieselbe Variable, unterschiedlicher Wert je nach Modell."
   },
   {
     "objectID": "hf-spaces/diagnostic-tool-spec/tests/fixtures/example-multiple-regression.html#antizipierte-misconceptions",
     "href": "hf-spaces/diagnostic-tool-spec/tests/fixtures/example-multiple-regression.html#antizipierte-misconceptions",
     "title": "Beispiel-Spec: Multiple Regression",
     "section": "Antizipierte Misconceptions",
-    "text": "Antizipierte Misconceptions\n\nStudierende konzeptualisieren das “Kontrollieren” als aktiven Eingriff in den Datensatz. Vermutete intuitive Grundlage: alltagssprachliche Konnotation des Begriffs “Kontrolle” als aktive Einflussnahme. Verstärkt durch sprachliche Formulierungen wie “rauspartialisieren” oder “herausrechnen”.\nStudierende erwarten, dass Effekte über Modelltypen hinweg additiv und unverändert bleiben. Vermutete intuitive Grundlage: Übertragung von Linearitäts- und Separabilitäts-Heuristiken aus einfacheren Modellklassen, in denen Prädiktoren unkorreliert eingeführt wurden.\nStudierende interpretieren \\(R^2\\) in der multiplen Regression als Summe der bivariaten \\(r^2\\). Vermutete intuitive Grundlage: Übergeneralisierung der Additivität, die in der ANOVA-Varianzzerlegung mit orthogonalen Faktoren tatsächlich gilt.\nStudierende halten einen signifikanten bivariaten Zusammenhang für eine Garantie, dass der Prädiktor auch in der multiplen Regression signifikant bleibt. Vermutete intuitive Grundlage: implizite Annahme, dass Korrelationen zwischen Prädiktoren irrelevant für ihre individuellen Effekte sind."
+    "text": "Antizipierte Misconceptions\n\n“Kontrollieren” wird als aktiver Eingriff in den Datensatz verstanden: “rausrechnen”, “rauspartialisieren”, als ob die Mathenote aus den Klausurpunkten entfernt würde.\n\\(R^2\\) in der multiplen Regression wird als Summe der bivariaten \\(r^2\\) aufgefasst: \\(r^2_{YX_1} + r^2_{YX_2}\\)."
   },
   {
     "objectID": "hf-spaces/diagnostic-tool-spec/tests/fixtures/example-multiple-regression.html#hinweis",
     "href": "hf-spaces/diagnostic-tool-spec/tests/fixtures/example-multiple-regression.html#hinweis",
     "title": "Beispiel-Spec: Multiple Regression",
     "section": "Hinweis",
-    "text": "Hinweis\nDieses Spec ist ein Beispiel, kein vollständiges Modell der Aufgabe. Es ist die Hypothese einer Dozentin nach einem Workshop-Lauf; nach Konfrontation mit realen Studierenden-Antworten würden vermutlich einzelne Skills geschärft, einige Misconceptions gestrichen und neue ergänzt."
+    "text": "Hinweis\nDieses Spec ist absichtlich knapp gehalten, damit die Form deutlich wird. Für eine echte Lehrplanung würden weitere Skills (Einheit der Koeffizienten, \\(t\\)-Test pro Koeffizient, Partial-/Semipartialkorrelation) und weitere Misconceptions (bivariate Signifikanz garantiert multiple Signifikanz, Additivität der Effekte) ergänzt."
   },
   {
     "objectID": "workshop/spec-sheet-template/prompt-scaffolds.html",
@@ -1430,7 +1430,7 @@
     "href": "workshop/block-3-multi-tool/tool.html",
     "title": "Das Werkzeug",
     "section": "",
-    "text": "Füge dein Markdown-Spec aus Block 2 in das Werkzeug unten ein. Wähle ein P(know) für eine hypothetische Lernende und beobachte, was das System produziert.\nWenn der Output nicht überzeugt, schärfe dein Spec und führe den Lauf erneut durch.",
+    "text": "Was du bekommst: eine strukturierte Diagnose einer Lernenden-Antwort durch die Brille deines eigenen Specs. Das Werkzeug zeigt, welche Skills die Antwort demonstriert, welche fehlen und welche Misconceptions sichtbar sind, jeweils mit Zitaten als Evidenz. Ist die Diagnose generisch oder daneben, ist dein Spec an dieser Stelle zu vage: schärfe es und lass es erneut laufen.\nWie: Füge dein Markdown-Spec aus Block 2 ein, dazu eine echte oder konstruierte Antwort einer Lernenden. Klick auf Diagnose erstellen. Ohne eigenes Spec: klick im Werkzeug auf Beispiel laden.",
     "crumbs": [
       "Workshop",
       "Programm",
@@ -1443,7 +1443,7 @@
     "href": "workshop/block-3-multi-tool/tool.html#was-passiert-hier",
     "title": "Das Werkzeug",
     "section": "Was passiert hier?",
-    "text": "Was passiert hier?\nDein Markdown-Spec wird im Hintergrund in ein strukturiertes Python-Objekt übersetzt. Das System nutzt dieses Objekt zusammen mit dem P(know)-Wert, um die Antwort auf das richtige Scaffolding-Level zu kalibrieren: minimaler Nudge, gezielte Frage, strukturierter Hinweis, detaillierte Anleitung oder vollständige Lösungsstruktur.\nDie Architektur dahinter ist im Take-Home dokumentiert.\n→ Wie das Werkzeug funktioniert",
+    "text": "Was passiert hier?\nDas Werkzeug zeigt jede Stufe seiner Pipeline an, damit du nicht nur das Ergebnis siehst, sondern auch den Mechanismus dahinter.\n\nStufe 1: Eingabe. Du fügst Spec und Antwort in zwei Textfelder ein.\nStufe 2: Markdown wird zu strukturierten Daten. Dein Markdown-Spec wird in ein Pydantic-Objekt mit drei Feldern (Lernaufgabe, Skills, Misconceptions) überführt. Wenn ein Eintrag falsch zugeordnet ist, hat das Markdown-Format das Parsing verwirrt.\nStufe 3: Was an die API gesendet wird. Das Werkzeug zeigt dir den System Prompt, den fertig gerenderten User Prompt und das Pydantic-Schema. Genau diese drei Teile gehen an die Anthropic-API.\nStufe 4: Strukturierte Antwort. Das Modell antwortet in der vom Schema vorgegebenen Form: welche Skills demonstriert sind, welche fehlen, welche Misconceptions erkannt wurden, mit Evidenz-Zitaten aus der Antwort.\n\nDas Pydantic-Schema ist der eigentliche Mechanismus. Es zwingt das Modell, exakt die Felder zurückzugeben, die wir spezifiziert haben. Die Architektur dahinter ist im Take-Home ausführlicher dokumentiert.\n→ Wie das Werkzeug funktioniert",
     "crumbs": [
       "Workshop",
       "Programm",
@@ -1456,7 +1456,7 @@
     "href": "workshop/block-3-multi-tool/tool.html#die-pragmatische-test-frage",
     "title": "Das Werkzeug",
     "section": "Die pragmatische Test-Frage",
-    "text": "Die pragmatische Test-Frage\nWenn du den Output liest, stell dir eine Frage: Stimmt das mit dem überein, was deine echten Lernenden brauchen würden?\n\nJa: dein Spec hat für diese Aufgabe funktioniert.\nNein: dein Spec ist zu vage oder lückenhaft. Notiere, was im Output fehlt oder falsch ist, und schärfe den entsprechenden Eintrag in deinem Spec.",
+    "text": "Die pragmatische Test-Frage\nWenn du den Output in Stufe 4 liest, stell dir eine Frage: Stimmt das mit dem überein, was deine echten Lernenden produzieren würden?\n\nJa: dein Spec hat für diese Aufgabe funktioniert.\nNein: dein Spec ist zu vage oder lückenhaft. Notiere, was im Output fehlt oder falsch ist, und schärfe den entsprechenden Eintrag in deinem Spec.",
     "crumbs": [
       "Workshop",
       "Programm",
@@ -1835,7 +1835,7 @@
     "href": "workshop/spec-sheet-template/example-multiple-regression.html",
     "title": "Beispiel-Spec: Multiple Regression",
     "section": "",
-    "text": "Vollständig ausgefülltes Beispiel-Spec zur Übung “Multiple Regression mit zwei Prädiktoren” aus Block 1. Du kannst dieses Beispiel als Vorlage für dein eigenes Spec verwenden, und du kannst es im Block 3 in das laufende Werkzeug einfügen, um zu sehen, was das Werkzeug damit produziert.",
+    "text": "Ein knappes Beispiel-Spec zur Übung “Multiple Regression mit zwei Prädiktoren” aus Block 1. Es zeigt die Form, nicht die Vollständigkeit: für deine eigene Aufgabe würdest du vermutlich weitere Skills und Misconceptions ergänzen. Du kannst dieses Beispiel als Vorlage verwenden und in Block 3 in das laufende Werkzeug einfügen.",
     "crumbs": [
       "Spec-Vorlage und Beispiel",
       "Beispiel-Spec: Multiple Regression"
@@ -1846,7 +1846,7 @@
     "href": "workshop/spec-sheet-template/example-multiple-regression.html#lernaufgabe-kontext-und-ziel",
     "title": "Beispiel-Spec: Multiple Regression",
     "section": "Lernaufgabe (Kontext und Ziel)",
-    "text": "Lernaufgabe (Kontext und Ziel)\nWortlaut: Die Lernenden führen in R eine multiple Regression mit zwei Prädiktoren durch und interpretieren das Ergebnis: Können Lernzeit (\\(X_1\\)) und Mathenote (\\(X_2\\)) gemeinsam die Klausurpunktzahl (\\(Y\\)) vorhersagen?\nRahmen: Übung 5 im Statistik-II-Kurs, im Anschluss an die einfache lineare Regression und die Partial-/Semipartialkorrelation. Lernende kennen \\(r\\), \\(r^2\\) und das Konzept der bivariaten Regression.\nIntendiertes Ergebnis: Die Lernenden verstehen die konditionale Bedeutung der Aussage “kontrolliert für” und können einen Regressionskoeffizienten unter Berücksichtigung weiterer Prädiktoren angemessen interpretieren.",
+    "text": "Lernaufgabe (Kontext und Ziel)\nDie Lernenden rechnen in R eine multiple Regression mit zwei Prädiktoren (Lernzeit und Mathenote auf Klausurpunktzahl) und interpretieren die Koeffizienten unter Konstanthaltung des jeweils anderen Prädiktors. Übung 5 im Statistik-II-Kurs, im Anschluss an die einfache lineare Regression.",
     "crumbs": [
       "Spec-Vorlage und Beispiel",
       "Beispiel-Spec: Multiple Regression"
@@ -1857,7 +1857,7 @@
     "href": "workshop/spec-sheet-template/example-multiple-regression.html#erforderliche-skills-und-knowledge",
     "title": "Beispiel-Spec: Multiple Regression",
     "section": "Erforderliche Skills und Knowledge",
-    "text": "Erforderliche Skills und Knowledge\n\nKonditionale Interpretation des Begriffs “kontrolliert für”. Erwerb: zu erwerben (zentraler Lernziel-Baustein dieser Teilaufgabe). Charakteristische Fehlerform: Interpretation im Sinne einer experimentellen Manipulation oder eines rechnerischen “Herausrechnens”.\nDifferenzierung der Regressionskoeffizienten \\(b_1\\) in bivariater versus multipler Regression. Erwerb: zu erwerben (Folge aus der Einführung der multiplen Regression). Charakteristische Fehlerform: Erwartung einer Identität der Koeffizienten über die Modelltypen hinweg.\n\\(R^2\\) als gemeinsam erklärter Varianzanteil mehrerer Prädiktoren. Erwerb: zu erwerben (neu beim Übergang von einer auf mehrere Prädiktoren). Charakteristische Fehlerform: Additive Aufsummierung der bivariaten Bestimmtheitsmasse (\\(r^2_{YX_1} + r^2_{YX_2}\\)).\nPartial- und Semipartialkorrelation als unterschiedliche Konstrukte erkennen. Erwerb: vorausgesetzt (aus dem vorangegangenen Block); Verwechslung als Fehlerform bleibt diagnostisch relevant. Charakteristische Fehlerform: Verwechslung der beiden oder Reduktion auf eine einzige Kennzahl.\nDie Aussage des \\(t\\)-Tests pro Koeffizient korrekt formulieren. Erwerb: vorausgesetzt im Grundkonzept, in dieser Form zu erwerben (die Formulierung “unter Konstanthaltung des jeweils anderen Prädiktors” ist neu). Charakteristische Fehlerform: Aussagen über den Effekt insgesamt statt über den Effekt unter Konstanthaltung des jeweils anderen Prädiktors.\nDie Einheit eines Regressionskoeffizienten angeben. Erwerb: vorausgesetzt (aus bivariater Regression). Charakteristische Fehlerform: Standardisierte und unstandardisierte Koeffizienten miteinander verwechseln oder ohne Einheit interpretieren.",
+    "text": "Erforderliche Skills und Knowledge\n\nKonditionale Interpretation von “kontrolliert für”: “unter Konstanthaltung des jeweils anderen Prädiktors”, nicht als aktiver Eingriff in die Daten.\n\\(R^2\\) als gemeinsam erklärter Varianzanteil mehrerer Prädiktoren verstehen, nicht als Summe der bivariaten \\(r^2\\).\nDifferenzierung der Regressionskoeffizienten \\(b_1\\) in bivariater versus multipler Regression: dieselbe Variable, unterschiedlicher Wert je nach Modell.",
     "crumbs": [
       "Spec-Vorlage und Beispiel",
       "Beispiel-Spec: Multiple Regression"
@@ -1868,7 +1868,7 @@
     "href": "workshop/spec-sheet-template/example-multiple-regression.html#antizipierte-misconceptions",
     "title": "Beispiel-Spec: Multiple Regression",
     "section": "Antizipierte Misconceptions",
-    "text": "Antizipierte Misconceptions\n\nLernende konzeptualisieren das “Kontrollieren” als aktiven Eingriff in den Datensatz. Vermutete intuitive Grundlage: alltagssprachliche Konnotation des Begriffs “Kontrolle” als aktive Einflussnahme. Verstärkt durch sprachliche Formulierungen wie “rauspartialisieren” oder “herausrechnen”.\nLernende erwarten, dass Effekte über Modelltypen hinweg additiv und unverändert bleiben. Vermutete intuitive Grundlage: Übertragung von Linearitäts- und Separabilitäts-Heuristiken aus einfacheren Modellklassen, in denen Prädiktoren unkorreliert eingeführt wurden.\nLernende interpretieren \\(R^2\\) in der multiplen Regression als Summe der bivariaten \\(r^2\\). Vermutete intuitive Grundlage: Übergeneralisierung der Additivität, die in der ANOVA-Varianzzerlegung mit orthogonalen Faktoren tatsächlich gilt.\nLernende halten einen signifikanten bivariaten Zusammenhang für eine Garantie, dass der Prädiktor auch in der multiplen Regression signifikant bleibt. Vermutete intuitive Grundlage: implizite Annahme, dass Korrelationen zwischen Prädiktoren irrelevant für ihre individuellen Effekte sind.",
+    "text": "Antizipierte Misconceptions\n\n“Kontrollieren” wird als aktiver Eingriff in den Datensatz verstanden: “rausrechnen”, “rauspartialisieren”, als ob die Mathenote aus den Klausurpunkten entfernt würde.\n\\(R^2\\) in der multiplen Regression wird als Summe der bivariaten \\(r^2\\) aufgefasst: \\(r^2_{YX_1} + r^2_{YX_2}\\).",
     "crumbs": [
       "Spec-Vorlage und Beispiel",
       "Beispiel-Spec: Multiple Regression"
@@ -1879,7 +1879,7 @@
     "href": "workshop/spec-sheet-template/example-multiple-regression.html#hinweis",
     "title": "Beispiel-Spec: Multiple Regression",
     "section": "Hinweis",
-    "text": "Hinweis\nDieses Spec ist ein Beispiel, kein vollständiges Modell der Aufgabe. Es ist die Hypothese einer Lehrperson nach einem Workshop-Lauf; nach Konfrontation mit realen Lernenden-Antworten würden vermutlich einzelne Skills geschärft, einige Misconceptions gestrichen und neue ergänzt.",
+    "text": "Hinweis\nDieses Spec ist absichtlich knapp gehalten, damit die Form deutlich wird. Für eine echte Lehrplanung würden weitere Skills (Einheit der Koeffizienten, \\(t\\)-Test pro Koeffizient, Partial-/Semipartialkorrelation) und weitere Misconceptions (bivariate Signifikanz garantiert multiple Signifikanz, Additivität der Effekte) ergänzt.",
     "crumbs": [
       "Spec-Vorlage und Beispiel",
       "Beispiel-Spec: Multiple Regression"
