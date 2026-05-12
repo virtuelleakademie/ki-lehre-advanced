@@ -20,7 +20,7 @@ Used in Block 3 of the BFH workshop "KI in der Lehre: Advanced" as an iframe-emb
 The pipeline:
 
 - `spec_parser.parse_spec()` converts the markdown spec into a three-field `Spec` Pydantic object.
-- `agent.diagnose(spec, answer)` calls the Anthropic API with the spec content and the student answer, using the `tools` parameter to constrain output to the `DiagnosticResponse` Pydantic schema.
+- `agent.diagnose(spec, answer)` calls the Anthropic API with the spec content and the student answer, using the SDK's `messages.parse()` helper (which sends the `DiagnosticResponse` Pydantic schema via `output_config.format`) to constrain the model's output to that schema.
 - The marimo UI displays the five fields of the diagnosis.
 
 The Pydantic schema is the "Output bedürfnissgemäss einschränken" mechanism (the workshop's learning objective).

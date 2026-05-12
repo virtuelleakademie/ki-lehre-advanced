@@ -26,7 +26,7 @@ Zwei alternative Wege, dieselbe Übersetzung zu produzieren:
 - **Aktuelle Anbieter-Dokumentation lesen.** Anthropic, OpenAI und andere veröffentlichen Prompt-Engineering-Guides für ihre Modelle ([docs.anthropic.com](https://docs.anthropic.com/), OpenAI Cookbook). Was dort steht, ändert sich häufiger als dein Spec Sheet.
 - **Prompt-Generierungs-Tools nutzen.** Anthropic Console und OpenAI Playground haben Funktionen, mit denen du eine Beschreibung deiner Aufgabe (oder dein Spec Sheet) eingibst und einen strukturierten Prompt-Entwurf zurückbekommst. Das ist Rendering, nicht Spezifikation.
 
-In allen drei Wegen bleibt dein Spec Sheet die durable Substanz. Was sich ändert, ist die Werkzeug-spezifische Übersetzung.
+In allen drei Wegen bleibt dein Spec Sheet die dauerhafte Substanz. Was sich ändert, ist die Werkzeug-spezifische Übersetzung.
 :::
 
 ::: {.callout-caution icon=false}

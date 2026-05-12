@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.venv/bin/python -c \"import anthropic; print\\('anthropic', anthropic.__version__\\); from anthropic import Anthropic; c = Anthropic.__init__; print\\('messages.parse exists:', hasattr\\(Anthropic\\(\\).messages, 'parse'\\)\\)\")",
+      "Bash(.venv/bin/python -m pytest -q)",
+      "Bash(.venv/bin/python -c \"from workshop_tool.agent import diagnose, _MODEL, _SYSTEM_PROMPT; print\\('model:', _MODEL\\); print\\('agent.diagnose import OK'\\)\")"
+    ]
+  }
+}

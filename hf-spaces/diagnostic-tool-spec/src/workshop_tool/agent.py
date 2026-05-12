@@ -2,8 +2,9 @@
 
 The Anthropic SDK is used directly (not via PydanticAI or similar) so the
 API call is transparent. A workshop participant can read this file and see
-exactly how the `tools` parameter, paired with a Pydantic-generated JSON
-schema, constrains the model's output.
+exactly how `output_config.format` (via the SDK's Pydantic-aware
+`messages.parse()` helper) constrains the model to emit JSON matching the
+`DiagnosticResponse` schema.
 """
 
 import os
@@ -15,7 +16,7 @@ from .models import DiagnosticResponse, Spec
 
 load_dotenv()
 
-_MODEL = os.getenv("WORKSHOP_TOOL_MODEL", "claude-sonnet-4-5")
+_MODEL = os.getenv("WORKSHOP_TOOL_MODEL", "claude-sonnet-4-6")
 _client = Anthropic()
 
 _SYSTEM_PROMPT = (
@@ -31,7 +32,7 @@ _SYSTEM_PROMPT = (
     "3. Evidence entries must quote specific phrases from the student's "
     "answer in single quotes.\n"
     "4. Match the language of the spec and answer (typically German).\n"
-    "5. Respond by calling the `emit_diagnosis` tool with structured fields."
+    "5. Respond with a JSON object matching the required schema."
 )
 
 
@@ -47,35 +48,23 @@ def _user_prompt(spec: Spec, answer: str) -> str:
         f"## Skills and Knowledge expected\n{skills_block}\n\n"
         f"## Misconceptions to watch for\n{misconceptions_block}\n\n"
         f"## Student's answer\n{answer.strip()}\n\n"
-        f"Diagnose the answer by calling the emit_diagnosis tool."
+        f"Diagnose the answer."
     )
-
-
-def _build_tool_schema() -> dict:
-    """Return the tool definition with the DiagnosticResponse JSON schema."""
-    return {
-        "name": "emit_diagnosis",
-        "description": "Emit a structured diagnosis of the student's answer.",
-        "input_schema": DiagnosticResponse.model_json_schema(),
-    }
 
 
 def diagnose(spec: Spec, student_answer: str) -> DiagnosticResponse:
     """Diagnose a student answer against a spec."""
-    response = _client.messages.create(
+    response = _client.messages.parse(
         model=_MODEL,
         max_tokens=1500,
         system=_SYSTEM_PROMPT,
         messages=[{"role": "user", "content": _user_prompt(spec, student_answer)}],
-        tools=[_build_tool_schema()],
-        tool_choice={"type": "tool", "name": "emit_diagnosis"},
+        output_format=DiagnosticResponse,
     )
 
-    for block in response.content:
-        if getattr(block, "type", None) == "tool_use" and block.name == "emit_diagnosis":
-            return DiagnosticResponse.model_validate(block.input)
-
-    raise RuntimeError(
-        "The model did not call the emit_diagnosis tool. "
-        f"Stop reason: {response.stop_reason}; content: {response.content}"
-    )
+    if response.parsed_output is None:
+        raise RuntimeError(
+            "The model did not return a parseable structured response. "
+            f"Stop reason: {response.stop_reason}; content: {response.content}"
+        )
+    return response.parsed_output

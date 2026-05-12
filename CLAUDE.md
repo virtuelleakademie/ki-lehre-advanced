@@ -80,11 +80,11 @@ make diff                   # Show word-level diff
 - **slides/workshop/**: the workshop slide deck (~16 slides, embedded into each block's Präsentation tab). The Closing slides for Falsifikationsnotiz and Selbst-Tun-vs-Zuschauen are retained as Take-Home reference, not shown live in the 15-min Closing
 - **slides/archive/legacy-2025/**: archived prior-iteration slide decks (theory/, discussion/) preserved for reference, not rendered into the workshop flow
 
-**The Hosted Tools:**
+**The Hosted Tool:**
 
-- **hf-spaces/diagnostic-tool-shell-marimo/**: marimo notebook from the previous workshop iteration. Not part of the current workshop flow; kept as legacy reference. The current Block 1 has no tool-tour.
-- **hf-spaces/diagnostic-tool-shell/**: the Gradio shell from the previous iteration. Stays live as a legacy deployment; not part of the current workshop flow.
-- **hf-spaces/worked-example-weaver-app/**: an older personalized-worked-example tool. Stays deployed. Not linked from the new workshop content.
+- **hf-spaces/diagnostic-tool-spec/**: the active Block-3 tool. marimo app that calls the Anthropic API via `messages.parse()` (i.e. `output_config.format` with a `json_schema`), passing the `DiagnosticResponse` Pydantic schema as the structured-output constraint. Default model: `claude-sonnet-4-6`. See `hf-spaces/diagnostic-tool-spec/README.md`.
+
+Earlier iterations have been moved to `archive/hf-spaces-legacy/` (see Supporting Directories below).
 
 **Reference / instructor notes:**
 
@@ -101,6 +101,7 @@ make diff                   # Show word-level diff
 - **docs/**: build output (GitHub Pages, auto-generated). **Do not edit.**
 - **archive/marimo-iteration/**: PydanticAI + Marimo iteration. Not rendered.
 - **archive/diagnostic-shell-iteration/**: English-language diagnostic-tool-shell iteration. Not rendered.
+- **archive/hf-spaces-legacy/**: previously-deployed HuggingFace Spaces that are no longer part of the active workshop flow: `diagnostic-tool-shell/` (Gradio), `diagnostic-tool-shell-marimo/` (marimo variant), `worked-example-weaver/` and `worked-example-weaver-app/` (older personalized-worked-example tools). Their deployed Spaces may still be live; only the source tree was archived.
 
 ### Key Configuration Files
 
@@ -123,7 +124,7 @@ make diff                   # Show word-level diff
 
 **.Renviron** + **.Rprofile**: project-level R locale setup (`LANG=en_US.UTF-8`, `LC_ALL=en_US.UTF-8`, `Sys.setlocale("LC_ALL", "en_US.UTF-8")`). Required for German Umlauts to render correctly in knitr chunk-metadata serialization (e.g. `tbl-cap` strings). Do not remove unless you have verified Umlaut handling works without them on a fresh clone. R packages required for the worked-example: `tidyverse`, `broom`, `patchwork`, `MASS` (MASS ships with base R).
 
-**hf-spaces/diagnostic-tool-shell/requirements.txt**: dependencies for the hosted shell (gradio, anthropic, pydantic, python-dotenv). Self-contained; not installed via the project venv.
+**hf-spaces/diagnostic-tool-spec/pyproject.toml** + **requirements.txt**: dependencies for the active Block-3 tool (anthropic >= 0.55 for `messages.parse()`, pydantic, marimo, python-dotenv). Self-contained; not installed via the project venv. The subproject manages its own `.venv` via `uv sync`.
 
 **_metadata.yml files**: Per-directory defaults
 - Located in exercises/, slides/, tutorials/, workshop/
@@ -174,7 +175,7 @@ uv sync            # Syncs all dependencies
 
 ### Working with Marimo + Quarto Integration
 
-**Note**: The current workshop does not use marimo in any block. The marimo notebook from the previous iteration (`hf-spaces/diagnostic-tool-shell-marimo/notebook.py`) is kept as legacy reference only. The marimo + Quarto islands integration documented below remains a valid technique for OTHER content (and the archived marimo iteration uses it), but is not exercised by the main workshop flow.
+**Note**: The current workshop does not use marimo *inside Quarto pages* in any block. The active Block-3 tool (`hf-spaces/diagnostic-tool-spec/`) is a standalone marimo app deployed to HuggingFace Spaces and embedded via iframe, not via marimo-Quarto islands. An earlier islands-based iteration sits in `archive/hf-spaces-legacy/diagnostic-tool-shell-marimo/notebook.py` as reference. The marimo + Quarto islands integration documented below remains a valid technique for OTHER content but is not exercised by the main workshop flow.
 
 The project supports **marimo islands** - interactive Python cells embedded in Quarto documents.
 
@@ -346,11 +347,11 @@ One pragmatic test question when participants insert their Spec into the running
 - **Anthropic Claude (Haiku/Sonnet)**: structured-output language model used by the running tool in Block 3
 - **HuggingFace Spaces**: free deployment platform that hosts the Block 3 tool
 - **Chat tools** (Microsoft Copilot, ChatGPT, Claude.ai, HuggingChat): the tools participants use during Block 2 to invoke the LLM-as-Novice and Lernende-Simulator roles, and that they can use after the workshop with their Spec
-- **Pydantic**, **Marimo**, **Gradio**: used only in the legacy `hf-spaces/` deployments (`diagnostic-tool-shell-marimo/`, `diagnostic-tool-shell/`, `worked-example-weaver-app/`). Not part of the current workshop flow. The architecture explanation for participants who want to understand the Block 3 tool internally lives at `workshop/take-home/api-werkzeug-erklaert.qmd`.
+- **Pydantic** + **Marimo**: the active Block-3 tool (`hf-spaces/diagnostic-tool-spec/`) uses Pydantic models as the structured-output schema (passed to Anthropic via `messages.parse()` / `output_config.format`) and marimo as the UI. **Gradio** is used only in archived iterations (`archive/hf-spaces-legacy/diagnostic-tool-shell/`, `worked-example-weaver-app/`). The architecture explanation for participants who want to understand the Block 3 tool internally lives at `workshop/take-home/api-werkzeug-erklaert.qmd`.
 
 ### Seven Backup Scenarios
 
-Located at `workshop/build/scenarios/`. **Translated to German** as of 2026-05-12. Earlier English versions are mirrored in `hf-spaces/diagnostic-tool-shell/scenarios.json` and `hf-spaces/diagnostic-tool-shell-marimo/scenarios.json` and are not regenerated when the German `.qmd` versions change:
+Located at `workshop/build/scenarios/`. **Translated to German** as of 2026-05-12. Earlier English versions are mirrored in `archive/hf-spaces-legacy/diagnostic-tool-shell/scenarios.json` and `archive/hf-spaces-legacy/diagnostic-tool-shell-marimo/scenarios.json` and are not regenerated when the German `.qmd` versions change:
 
 1. Pflege: Warfarin und INR
 2. Pädagogik: Eine Quizfrage kritisieren

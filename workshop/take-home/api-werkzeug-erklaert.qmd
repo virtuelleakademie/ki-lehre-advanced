@@ -15,7 +15,7 @@ Wenn du erst das *Konzept* hinter strukturiertem Output verstehen willst, ohne i
 
 **2. Parser konvertiert.** Ein kleiner Python-Code (der Parser) liest deinen Markdown und füllt damit ein Python-Datenobjekt vom Typ `Exercise`. Dieses Objekt hat fest definierte Felder: `problem_statement`, `common_errors`, `cognitive_demand`, und so weiter. Der Parser zieht die richtigen Informationen aus den richtigen Abschnitten deines Markdowns.
 
-**3. API-Aufruf mit Schema-Constraint.** Das `Exercise`-Objekt wird zusammen mit dem P(know)-Wert an die Anthropic-Claude-API geschickt. Das System nutzt Pydantic, um Claude zu zwingen, in einem bestimmten Format zu antworten: nicht freier Text, sondern eine Struktur mit `hint_text`, `rationale`, `next_step_suggestion`, `metacognitive_prompt`, `estimated_difficulty`. Das ist das "Output bedürfnissgemäss einschränken" aus den offiziellen Lernzielen.
+**3. API-Aufruf mit Schema-Constraint.** Das `Exercise`-Objekt wird zusammen mit dem P(know)-Wert an die Anthropic-Claude-API geschickt. Das Pydantic-Schema (`DiagnosticResponse`) wird über die *Structured Outputs*-API von Anthropic (`output_config.format` mit `json_schema`, hier via dem SDK-Helfer `messages.parse()`) übergeben und zwingt Claude, in genau diesem Format zu antworten: nicht freier Text, sondern eine Struktur mit `hint_text`, `rationale`, `next_step_suggestion`, `metacognitive_prompt`, `estimated_difficulty`. Das ist das "Output bedürfnissgemäss einschränken" aus den offiziellen Lernzielen.
 
 **4. Strukturierte Antwort.** Das System gibt dir die strukturierte Antwort zurück. Das Werkzeug zeigt sie formatiert an.
 

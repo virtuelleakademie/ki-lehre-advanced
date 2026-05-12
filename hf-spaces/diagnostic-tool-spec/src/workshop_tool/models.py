@@ -22,9 +22,10 @@ class DiagnosticResponse(BaseModel):
     """Structured diagnosis of a student answer against a spec.
 
     This Pydantic model defines the *shape* the Anthropic API is forced
-    to emit. Passing this model's JSON schema to the API via the `tools`
-    parameter is the workshop's concrete example of constraining LLM
-    output.
+    to emit. Passing this model to the SDK's `messages.parse()` helper
+    sends the JSON schema via `output_config.format` and returns a
+    validated instance: the workshop's concrete example of constraining
+    LLM output.
     """
 
     skills_present: list[str] = Field(
