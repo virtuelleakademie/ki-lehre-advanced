@@ -5,13 +5,20 @@ title: "Prompt-Scaffolds für das Spec Sheet"
 ::: {.callout-note icon=false}
 ## Was du hier findest
 
-Fünf Prompts, die du in Block 2 nutzt, um dein Spec Sheet zu bauen. Jeder Prompt entspricht einer Rolle, die das LLM für dich übernimmt:
+Fünf Prompts, die das LLM in zwei klar getrennten Rollen einsetzen. **Zwei davon nutzt du live in Block 2; drei sind Vertiefungen für nach dem Workshop oder für eine zweite Iteration deines Spec Sheets.**
 
-- **Hypothesengenerator** (Prompts 1 und 2): das LLM schlägt Wissensbausteine und passende Lerngelegenheiten vor.
-- **Lernende-Simulator, reaktiv** (Prompt 3): das LLM liest dein Material so, als hätte es einen bestimmten Wissensbaustein nicht, und meldet zurück, was unklar ist. Die Funde fliessen als zusätzliche Bausteine oder als Erwerb-Hinweise in deine Sektion 2 zurück.
-- **Lernende-Simulator, produktiv** (Prompts 4 und 5): das LLM produziert eine Antwort einer Lernenden, der ein Baustein fehlt oder die ein Fehlkonzept hält.
+**Live in Block 2:**
 
-Die Prompts sind Werkzeug-unabhängig. Du kannst sie in Microsoft Copilot, HuggingChat, ChatGPT, Claude oder ein anderes Chat-Modell einfügen. Die Antworten sind dann *Vorschläge*, die du in deinem Spec Sheet als **vermutet (V)** markierst, bis du sie an realen Lernenden überprüft hast.
+- **Prompt 1: Wissensbausteine inventarisieren** (LLM-as-Novice, Hypothesengenerator). Füllt Sektion 2.
+- **Prompt 4: Produktive Simulation einer Misconception** (Lernende-Simulator, produktiv). Füllt Sektion 3.
+
+**Vertiefung für nach dem Workshop:**
+
+- **Prompt 2: Passende Lerngelegenheiten benennen.** Pro Wissensbaustein klären, welche Aktivität ihn entwickelt. Bereitet die Selbst-Tun-vs-Zuschauen-Markierung (Take-Home) vor.
+- **Prompt 3: Reaktive Simulation.** Das LLM liest dein Aufgabenmaterial, als hätte es einen bestimmten Baustein nicht, und meldet zurück, was unklar ist. Macht tacite Annahmen sichtbar, die du beim Schreiben der Aufgabe nicht mehr siehst.
+- **Prompt 5: Kohärentes Fehlkonzept.** Erweiterung von Prompt 4 um die intuitive Basis und um Fälle, in denen das Fehlkonzept zufällig die richtige Antwort liefert.
+
+Die Prompts sind Werkzeug-unabhängig. Du kannst sie in Microsoft Copilot, HuggingChat, ChatGPT, Claude oder ein anderes Chat-Modell einfügen. Die Antworten sind *Vorschläge*, die du in deinem Spec Sheet als **vermutet (V)** markierst, bis du sie an realen Lernenden überprüft hast.
 :::
 
 ## Bevor du anfängst
@@ -25,6 +32,8 @@ Vor jedem Prompt ergänzt du folgende Angaben (sie kommen direkt aus Sektion 1 d
 Halte sie bereit. Du wirst sie in jedem Prompt als Kopfzeile einfügen.
 
 ## Prompt 1: Wissensbausteine inventarisieren
+
+*Live in Block 2.* Diesen Prompt nutzt du im Workshop, um Sektion 2 deines Spec Sheets zu füllen.
 
 **Zweck:** Das LLM schlägt eine erste Liste von Wissensbausteinen für deine Teilaufgabe vor. Du nimmst diese Liste mit zur Validierung.
 
@@ -95,6 +104,8 @@ Lies die Liste mit einem Stift in der Hand. Für jeden Vorschlag entscheide:
 
 ## Prompt 2: Passende Lerngelegenheiten benennen
 
+*Vertiefung für nach dem Workshop.* Nicht Teil des 60-min Block 2. Empfohlen, wenn du nach dem Workshop die Selbst-Tun-vs-Zuschauen-Markierung (Take-Home) sauber vorbereiten willst.
+
 **Zweck:** Pro Wissensbaustein klären, welche Aktivität ihn tatsächlich entwickelt und welche nicht. Das ist die Grundlage für die spätere Frage, wo KI-Substitution den Lernprozess unterstützt und wo sie ihn unterläuft.
 
 **Wann verwenden:** nachdem du dein Inventar aus Prompt 1 validiert hast.
@@ -127,6 +138,8 @@ Pro Baustein liefere zwei Felder:
 ```
 
 ## Prompt 3: Reaktive Simulation, "lies das, ohne X zu wissen"
+
+*Vertiefung für nach dem Workshop.* Nicht Teil des 60-min Block 2. Empfohlen, wenn du dein Spec Sheet gegen die tatsächlichen Lücken deiner Aufgabenstellung schärfen willst (häufigster Effekt: einzelne Wissensbausteine in Sektion 2 werden konkreter oder es kommt ein Erwerb-Hinweis dazu).
 
 **Zweck:** Das LLM liest dein eigenes Aufgabentext-Material, so als hätte es einen bestimmten Wissensbaustein nicht. Es meldet zurück, was unklar ist, was vorausgesetzt wird, was sich nicht erschliesst. So findest du **tacites Wissen** in deiner Aufgabenstellung, das du selbst nicht mehr siehst, weil du es schon hast.
 
@@ -178,6 +191,8 @@ Wenn das LLM Stellen markiert, die du für selbstverständlich gehalten hast, is
 
 ## Prompt 4: Produktive Simulation, "antworte ohne X"
 
+*Live in Block 2.* Diesen Prompt nutzt du im Workshop, um Sektion 3 deines Spec Sheets zu füllen. In Block 2 verwendest du eine leicht vereinfachte Variante (siehe [Block-2-Page](../block-2-spec-card/index.qmd)); die hier dokumentierte vollständige Variante eignet sich für die Nachbereitung mit mehr Detailgrad.
+
 **Zweck:** Das LLM produziert eine Antwort einer Lernenden, der ein Baustein fehlt. Du liest die Antwort darauf, ob deine Aufgabe diesen Misserfolg erkennen würde, oder ob die Antwort als ausreichend durchgehen könnte.
 
 **Wann verwenden:** für jeden zentralen Wissensbaustein einmal, oder wenn du prüfen willst, ob deine Aufgabe ein bestimmtes Fehlkonzept überhaupt fängt.
@@ -215,6 +230,8 @@ als ausreichend durchgehen könnte.
 ```
 
 ## Prompt 5: Kohärentes Fehlkonzept
+
+*Vertiefung für nach dem Workshop.* Nicht Teil des 60-min Block 2. Empfohlen, wenn du nach dem Workshop ein zentrales Erklärungs- oder Klassifikationswissen genauer prüfen willst, oder wenn deine Aufgabe explizit Verständnis (nicht nur Prozedur) testen soll.
 
 **Zweck:** Das LLM erzeugt nicht nur einen oberflächlichen Fehler, sondern ein **kohärentes Fehlkonzept**: eine Sichtweise, die in manchen Fällen die richtige Antwort liefert und in anderen die falsche. Du prüfst, ob deine Teilaufgabe Lernende mit diesem Fehlkonzept von Lernenden mit korrektem Verständnis unterscheidet.
 
