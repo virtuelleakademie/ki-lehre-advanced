@@ -67,6 +67,6 @@ It is not a Cognitive Tutor authoring system. It is not a validated KC decomposi
 
 - **Decomposition discipline:** Koedinger, Corbett, & Perfetti (2012), Knowledge-Learning-Instruction framework
 - **Expert blind spot motivating LLM-as-Novice technique and optional V/B-marking:** Nathan & Petrosino (2003); Koedinger & Nathan (2004)
-- **Action-as-input motivating Selbst-Tun-tagging:** Koedinger, Kim, Jia, McLaughlin, & Bier (2015) doer effect; Van Campenhout, Johnson, & Olsen (2022); mechanism: Daw & Fleming (2018)
+- **Action-as-input motivating Selbst-Tun-tagging:** Koedinger, Kim, Jia, McLaughlin, & Bier (2015) doer effect; Van Campenhout, Jerome, Dittel & Johnson (2023); mechanism: Fleming & Daw (2017)
 - **Misconception structure:** Vosniadou (1994), Chi (2008) for coherent wrong models; diSessa (1993) for fragmented intuitions
 - **Cognitive load framing of Block 1 recap:** Sweller (1988); Kalyuga (expertise reversal)
