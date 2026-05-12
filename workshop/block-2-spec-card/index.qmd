@@ -17,7 +17,9 @@ title: "Block 2: Dein eigenes Spec (60 min)"
 In Block 2 baust du das, was du in Block 1 an der Multiple-Regression-Aufgabe beobachtet hast: ein **Spec für eine Teilaufgabe deiner eigenen Lehre**. Du arbeitest mit der [Spec-Vorlage](../spec-sheet-template/index.qmd) und nutzt das LLM in zwei Rollen, die sich zeitlich ablösen:
 
 - **LLM-as-Novice** (Sektion 1 und 2): das LLM enumeriert die Voraussetzungen deiner Aufgabe, als hätte es gerade die Vorgängerveranstaltung abgeschlossen.
-- **Lernende-Simulator** (Sektion 3): das LLM spielt eine Studentin mit einer Misconception und produziert eine entsprechende Antwort.
+- **Lernende-Simulator** (Sektion 3): das LLM spielt eine Lernende mit einer Misconception und produziert eine entsprechende Antwort.
+
+Das LLM kennt deine konkrete Vorgängerveranstaltung nicht. Was es liefert, sind plausible Hypothesen für eine Person an dieser Stelle des Curriculums, keine an deinem Material gemessenen Aussagen. Behandle die Ausgabe entsprechend: als Ausgangspunkt für die Validierung an deinem eigenen Wissen über deine Lernenden, nicht als fertiges Resultat.
 
 Dein Ziel: am Ende der 60 Minuten hast du ein erstes vollständiges Markdown-Spec mit vier bis acht Skills und Knowledge Components in Sektion 2 und zwei bis vier Misconceptions in Sektion 3.
 
@@ -57,6 +59,8 @@ Wandern und über die Schultern schauen. Häufige Stolperstellen ansprechen, die
 
 Korrigieren. Wenn Teilnehmende Bausteine schreiben, die unsauber sind, ist das in Ordnung: die Lehrperson kommt nach Hause und arbeitet damit weiter. Im Workshop reicht "erste vollständige Version". Korrigieren würde die Aktivität in eine Vorführung verwandeln.
 :::
+
+Vertiefte Notizen (Pacing-Cues pro Sektion, Stolperstellen pro LLM-Rolle, Notfall-Backup wenn LLM ausfällt): siehe [Facilitator Notes Block 2](../../instructor-notes/block-2-facilitator.md).
 :::
 
 ### {{< bi pencil-square >}} Aktivitäten
@@ -72,7 +76,7 @@ Wähle dann eine **Teilaufgabe** aus einer deiner Aufgaben:
 
 - Eine Teilaufgabe, nicht die ganze Aufgabe (z.B. "Interpretiere den Regressionskoeffizienten" innerhalb einer mehrteiligen Klausuraufgabe).
 - Eine, die mindestens einen Knowledge Component hat, der über reines Faktenwissen hinausgeht.
-- Eine, bei der du mindestens eine reale Studierenden-Antwort vor Augen hast.
+- Eine, bei der du mindestens eine reale Lernenden-Antwort vor Augen hast.
 
 Wenn du keine eigene Aufgabe mitgebracht hast, wähle eines der [Backup-Szenarien](../build/scenarios/index.qmd) als Ersatz.
 
@@ -104,6 +108,17 @@ Material:
 Das LLM produziert eine Liste von zehn bis fünfzehn Voraussetzungen.
 :::
 
+::: {.callout-caution collapse="true"}
+#### Was dieser Prompt nicht kann
+
+Das LLM hat keinen Zugang zu deiner konkreten Vorgängerveranstaltung. Aus dieser Ungrounded-Heit folgen zwei Risiken, die du im Validieren des Outputs aktiv adressieren musst:
+
+- Das LLM kann Voraussetzungen erfinden, die in deinem Vorkurs gar nicht behandelt werden. Sie sehen plausibel aus, weil sie in Lehrbüchern dieser Stufe häufig stehen, sind aber in deinem konkreten Kurs nie thematisiert worden.
+- Es kann umgekehrt Voraussetzungen auslassen, die du tatsächlich lehrst, die aber in Lehrbüchern selten explizit ausgewiesen sind (oft die didaktisch interessantesten Stellen).
+
+Beide Risiken adressierst du im nächsten Schritt: jeder LLM-Eintrag wird gegen deine eigene Lehrerfahrung geprüft. Einträge, die du bestätigen kannst, markierst du als **B (beobachtet)**; übrige bleiben **V (vermutet)**, bis du sie an realen Lernenden überprüft hast.
+:::
+
 ::: {.callout-individual icon=false}
 #### LLM-Output validieren und Sektion 2 füllen (15 min)
 
@@ -118,7 +133,7 @@ Ergänze Knowledge Components, die das LLM übersehen hat. Vor allem **tacite Pu
 Trage die behaltenen Einträge in **Sektion 2** der Vorlage ein. Pro Eintrag:
 
 - Eine kurze Formulierung (ein bis zwei Sätze).
-- Eine charakteristische Fehlerform: was eine Studentin konkret schreibt oder tut, wenn diese Komponente fehlt.
+- Eine charakteristische Fehlerform: was eine Lernende konkret schreibt oder tut, wenn diese Komponente fehlt.
 
 Ziel: vier bis acht Einträge. Lieber wenige präzise als viele unscharfe.
 :::
@@ -134,10 +149,10 @@ Frag deine Sitznachbarin: *"Würdest du diesen Eintrag in deinem Fach übernehme
 ::: {.callout-individual icon=false}
 #### Prompt für die Misconception-Simulation (5 min)
 
-Wähle ein wahrscheinliches Fehlkonzept aus deinem Fach, von dem du vermutest, dass Studierende es haben könnten. Gib dem LLM folgenden Prompt:
+Wähle ein wahrscheinliches Fehlkonzept aus deinem Fach, von dem du vermutest, dass Lernende es haben könnten. Gib dem LLM folgenden Prompt:
 
 ```
-Du bist eine Studentin in [STUDIENGANG], [SEMESTER]. Du hältst die
+Du bist eine Lernende in [STUDIENGANG], [SEMESTER]. Du hältst die
 folgende Misconception: [Misconception in Ich-Form formulieren].
 Sonst bist du auf dem Niveau deines Kurses kompetent. Lies die
 folgende Aufgabe und schreibe die Antwort, die du in der Klausur
@@ -145,7 +160,7 @@ abgeben würdest:
 
 [Aufgabe einfügen]
 
-Schreibe die Antwort so, wie sie eine reale Studentin geben würde:
+Schreibe die Antwort so, wie sie eine reale Lernende geben würde:
 plausibel, schlüssig, von der falschen Annahme aus konsistent.
 ```
 
@@ -157,7 +172,7 @@ Lies die LLM-Antwort sorgfältig. Sie ist meist überraschend kohärent.
 
 Trage die Misconception in **Sektion 3** der Vorlage ein:
 
-- Eine Formulierung, wie die Studentin sie selbst aussprechen würde.
+- Eine Formulierung, wie die Lernende sie selbst aussprechen würde.
 - Eine Vermutung über die intuitive Grundlage: woher kommt diese Sichtweise plausibel?
 
 Wiederhole für ein bis drei weitere Misconceptions, falls die Zeit reicht.
@@ -189,7 +204,7 @@ Notiere Stichworte, aber überarbeite das Spec noch nicht. Die Überarbeitung pa
 ::: {.callout-pro-tip icon=false}
 #### Warum cross-discipline?
 
-Die Paar-Review innerhalb derselben Disziplin tendiert dazu, die gleichen Blind Spots zu reproduzieren: zwei Statistik-Dozentinnen finden in der Spec der jeweils anderen die gleichen automatisierten Schritte. Die cross-discipline Paarung erzwingt, dass eine Aussenstehende die Spec liest, die genau die fehlende Automatisierung nicht hat. Das ist die produktivste Stunde des Workshops.
+Die Paar-Review innerhalb derselben Disziplin tendiert dazu, die gleichen Blind Spots zu reproduzieren: zwei Statistik-Lehrpersonen finden in der Spec der jeweils anderen die gleichen automatisierten Schritte. Die cross-discipline Paarung erzwingt, dass eine Aussenstehende die Spec liest, die genau die fehlende Automatisierung nicht hat. Erfahrungsgemäss liefert diese Phase einen Grossteil der substantiellen Korrekturen am Spec Sheet.
 :::
 
 ::: {.callout-checkpoint icon=false}
@@ -225,7 +240,7 @@ Sie stellen substantiell dieselbe Frage wie das Spec (welche kognitive Arbeit ve
 2. Aufbau-Phase (Expertise-Reversal beachten)?
 3. Welche kognitive Arbeit ist verlangt (Element-Interaktivität)?
 4. Was passiert, wenn die KI den Schritt übernimmt (bedrohte Verarbeitung)?
-5. Arbeiten Studierende zuerst, vergleichen sie dann mit der KI?
+5. Arbeiten Lernende zuerst, vergleichen sie dann mit der KI?
 
 Wenn du die fünf Leitfragen auf dein Spec anwendest, fängst du oft Knowledge Components, die du im Workshop unter Zeitdruck zu schnell durchgewinkt hast.
 :::

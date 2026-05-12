@@ -1,99 +1,259 @@
 ---
 title: "Worked Example: LLM-as-Novice an einer Statistik-Aufgabe"
-subtitle: "Multiple Regression als Demonstration der Methode"
+subtitle: "Multiple Regression als Demonstrationsbeispiel der Methode"
+format:
+  html:
+    code-fold: show
+    code-summary: "R-Code"
+execute:
+  echo: true
+  warning: false
+  message: false
 ---
 
 ::: {.callout-note icon=false}
 ## Was du hier liest
 
-Eine Live-Demonstration der LLM-as-Novice-Methode an einer konkreten Statistik-Aufgabe. Du beobachtest in Block 1, wie ein LLM, das als strukturierter Novize geprompted wird, die versteckten Voraussetzungen einer Aufgabe enumeriert.
+Eine kommentierte Anwendung der LLM-as-Novice-Methode auf eine konkrete Statistik-Aufgabe. Du beobachtest, wie ein als strukturierter Novize geprompter LLM die in einer Aufgabenstellung enthaltenen, aber nicht explizit benannten Voraussetzungen enumeriert. Die Aufgabe stammt aus einem Bachelor-Statistikkurs; sie dient hier ausschliesslich als Demonstrationsbeispiel.
 
-Die Methode überträgt sich auf jedes Fach. Statistik ist nur das demonstrative Beispiel. In Block 2 machst du dasselbe für eine Teilaufgabe aus deiner eigenen Lehre.
+Die Methode überträgt sich auch auf andere Fächer. In Block 2 wendest du sie auf eine Teilaufgabe aus deiner eigenen Lehre an, die mit Statistik nichts zu tun haben muss.
 :::
 
 ## Die Teilaufgabe
 
-**Wortlaut:** Eine Studierende rechnet in R eine multiple Regression mit zwei Prädiktoren: Lernzeit ($X_1$) und Mathematik-Maturanote ($X_2$) sollen die Punktzahl in der Statistik-Klausur ($Y$) vorhersagen. Sie soll die Regressionskoeffizienten interpretieren und das Modell als Ganzes beurteilen.
+**Wortlaut:** Eine Lernende rechnet in R eine multiple Regression mit zwei Prädiktoren: Lernzeit pro Woche ($X_1$, in Stunden) und Mathematik-Maturanote ($X_2$, auf der Schweizer Skala 1-6) sollen die Punktzahl in der Statistik-Klausur ($Y$, Skala 0-100) vorhersagen. Sie soll die Regressionskoeffizienten interpretieren und das Modell als Ganzes beurteilen.
 
-**Kurskontext:** Übung 5 im Statistik-II-Modul, Bachelor-Psychologie. Die Studierenden haben das Semester davor Statistik I (bis und mit einfache lineare Regression) und in den ersten Wochen von Statistik II Partial- und Semipartialkorrelation behandelt. Die Aufgabe ist die erste Anwendung der multiplen Regression im Kurs.
+**Kurskontext:** Übung 5 im Statistik-II-Modul, Bachelor-Psychologie. Die Lernenden haben das Semester davor Statistik I (bis und mit einfache lineare Regression) und in den ersten Wochen von Statistik II Partial- und Semipartialkorrelation behandelt. Diese Aufgabe ist die erste Anwendung der multiplen Regression im Kurs.
 
-**Lernziel:** Die Studierende soll zeigen, dass sie die konditionale Bedeutung der Aussage "kontrolliert für" verstanden hat und einen Regressionskoeffizienten unter Berücksichtigung weiterer Prädiktoren angemessen interpretieren kann.
+**Lernziel:** Die Lernende soll zeigen, dass sie die konditionale Bedeutung der Formulierung "kontrolliert für" verstanden hat und einen Regressionskoeffizienten unter Berücksichtigung weiterer Prädiktoren angemessen interpretieren kann.
 
-**Eine typische akzeptable Antwort sieht so aus:**
+## Die Daten
 
-> *Lernzeit hat einen positiven Effekt auf die Klausurpunktzahl ($b_1 = 0.45$, kontrolliert für die Mathenote). Pro zusätzliche Lernstunde steigt die Punktzahl um etwa $0.45$ Punkte. Die Mathenote zeigt keinen signifikanten Effekt ($b_2 = 1.2$, $p = 0.31$). Insgesamt erklärt das Modell etwa $48\%$ der Varianz ($R^2 = 0.48$).*
+Für diese Demonstration arbeiten wir mit einem simulierten Datensatz von $n = 80$ Lernenden. Die Konstellation ist so gewählt, dass sie eine in der Lehrbuchliteratur häufig zitierte Suppressions-Situation reproduziert: beide Prädiktoren hängen positiv mit der Klausurpunktzahl zusammen, korrelieren jedoch untereinander negativ. Eine plausible inhaltliche Lesart dazu: Lernende mit besserer Mathenote investieren tendenziell weniger Lernzeit, weil ihnen der Stoff leichter fällt.
 
-Diese Antwort ist auf der Oberfläche kompetent. Die Lehrperson, die sie korrigiert, vergibt vermutlich die volle Punktzahl. Die Aufgabe gilt als gelöst.
+```{r}
+#| label: simulate
+
+library(tidyverse)
+library(broom)
+library(patchwork)
+
+set.seed(123)
+n <- 80
+
+Sigma <- matrix(c(1, -0.37, -0.37, 1), nrow = 2)
+X <- MASS::mvrnorm(n, mu = c(0, 0), Sigma = Sigma)
+
+daten <- tibble(
+  Person    = 1:n,
+  Lernzeit  = round(40 + 10  * X[, 1], 1),
+  Mathenote = round(5  + 0.6 * X[, 2], 2),
+  Punkte    = round(34 + 0.4 * Lernzeit + 4 * Mathenote + rnorm(n, 0, 4), 1)
+)
+```
+
+*Die ersten sechs Zeilen des simulierten Datensatzes ($n = 80$):*
+
+```{r}
+#| label: zeige-daten
+
+daten |>
+  slice_head(n = 6) |>
+  knitr::kable()
+```
+
+*Bivariate Korrelationen der drei Variablen:*
+
+```{r}
+#| label: korrelationen
+
+daten |>
+  dplyr::select(Punkte, Lernzeit, Mathenote) |>
+  cor() |>
+  round(2) |>
+  knitr::kable()
+```
+
+Die Tabelle zeigt das erwartete Muster: Lernzeit korreliert deutlich positiv mit der Klausurpunktzahl, Mathenote nur schwach. Lernzeit und Mathenote korrelieren negativ.
+
+```{r}
+#| label: scatter
+#| fig-width: 10
+#| fig-height: 3.5
+#| fig-cap: "Bivariate Zusammenhänge zwischen Klausurpunktzahl und beiden Prädiktoren sowie zwischen den beiden Prädiktoren."
+
+p1 <- ggplot(daten, aes(x = Lernzeit, y = Punkte)) +
+  geom_point(alpha = 0.6, color = "#1E3A5F") +
+  geom_smooth(method = "lm", se = FALSE, color = "#A63D2F", linewidth = 0.8) +
+  labs(x = "Lernzeit (h/Woche)", y = "Klausurpunkte") +
+  theme_minimal(base_size = 11)
+
+p2 <- ggplot(daten, aes(x = Mathenote, y = Punkte)) +
+  geom_point(alpha = 0.6, color = "#1E3A5F") +
+  geom_smooth(method = "lm", se = FALSE, color = "#A63D2F", linewidth = 0.8) +
+  labs(x = "Mathenote", y = "Klausurpunkte") +
+  theme_minimal(base_size = 11)
+
+p3 <- ggplot(daten, aes(x = Lernzeit, y = Mathenote)) +
+  geom_point(alpha = 0.6, color = "#1E3A5F") +
+  geom_smooth(method = "lm", se = FALSE, color = "#A63D2F", linewidth = 0.8) +
+  labs(x = "Lernzeit (h/Woche)", y = "Mathenote") +
+  theme_minimal(base_size = 11)
+
+p1 + p2 + p3
+```
+
+## Die Musterlösung
+
+Die Lernende rechnet das Modell in R und beurteilt es anhand der Modellausgabe.
+
+*Geschätzte Regressionskoeffizienten und ihre Inferenzstatistik:*
+
+```{r}
+#| label: koeffizienten
+
+modell <- lm(Punkte ~ Lernzeit + Mathenote, data = daten)
+
+modell |>
+  tidy() |>
+  mutate(across(where(is.numeric), \(x) round(x, 3))) |>
+  knitr::kable()
+```
+
+*Modellzusammenfassung: erklärte Varianz und globaler $F$-Test:*
+
+```{r}
+#| label: modell-fit
+
+modell |>
+  glance() |>
+  dplyr::select(r.squared, adj.r.squared, sigma, statistic, p.value, df, df.residual) |>
+  mutate(across(where(is.numeric), \(x) round(x, 3))) |>
+  knitr::kable()
+```
+
+Eine erwartbare Antwort der Lernenden auf diese Ausgabe sieht etwa so aus:
+
+> *Lernzeit hat einen positiven Effekt auf die Klausurpunktzahl ($b_1 \approx 0{,}43$, kontrolliert für die Mathenote). Pro zusätzliche Lernstunde pro Woche steigt die erwartete Punktzahl um etwa $0{,}43$ Punkte. Die Mathenote zeigt ebenfalls einen positiven Effekt ($b_2 \approx 3{,}9$). Insgesamt erklärt das Modell etwa $47\%$ der Varianz ($R^2 \approx 0{,}47$).*
+
+Diese Antwort enthält die richtigen Zahlen und die richtigen Vorzeichen. Die Lehrperson, die sie korrigiert, vergibt vermutlich die volle Punktzahl. Was darin allerdings nicht sichtbar wird: ob die Lernende verstanden hat, was "kontrolliert für" bedeutet, und ob sie denselben Output unter veränderten Bedingungen lesen könnte.
 
 ## Der LLM-as-Novice-Prompt
 
-Wir geben das Material (Aufgabenstellung plus Musterlösung) einem LLM mit folgender Anweisung. Diesen Prompt kannst du copy-paste in Block 2 für deine eigene Aufgabe verwenden:
+Wir geben das Aufgabenmaterial (Aufgabenstellung plus Musterlösung) einem LLM mit der folgenden Anweisung. Den Prompt kannst du über das Symbol oben rechts im Codeblock kopieren und in Block 2 für deine eigene Teilaufgabe übernehmen; an der markierten Stelle fügst du dein eigenes Material ein.
 
 ::: {.callout-prompt-example icon=false}
 ## Prompt für die LLM-as-Novice-Rolle
 
-Hier ist Material aus einem Statistik-Kurs. Spiele eine Person, die gerade die Vorgängerveranstaltung abgeschlossen hat, aber diese Aufgabe hier noch nicht gesehen hat. Für jeden Schritt in der Musterlösung, liste auf: was müsste die Person bereits wissen, erkennen oder begründen können, um den Schritt zu verstehen? Markiere alles, was das Material voraussetzt, aber nicht selbst erklärt. Unterscheide zwischen Fakten zum Abrufen, Klassifikationen zum Erkennen, Prozeduren zum Ausführen und konzeptionellen Verständnissen.
+```markdown
+Hier ist Material aus einem Statistik-Kurs. Spiele eine Person, die gerade die
+Vorgängerveranstaltung abgeschlossen hat, aber diese Aufgabe hier noch nicht
+gesehen hat.
+
+Für jeden Schritt in der Musterlösung, liste auf: was müsste die Person
+bereits wissen, erkennen oder begründen können, um den Schritt zu verstehen?
+Markiere alles, was das Material voraussetzt, aber nicht selbst erklärt.
+Unterscheide zwischen Fakten zum Abrufen, Klassifikationen zum Erkennen,
+Prozeduren zum Ausführen und konzeptionellen Verständnissen.
 
 Material:
+<<< HIER DEN VOLLSTÄNDIGEN LÖSUNGSWEG DER ÜBUNG EINFÜGEN:
+    Modellanpassung in R, Tabellierung der Koeffizienten, Interpretation
+    in Worten, Beurteilung des Modells anhand R^2 und globalem F-Test >>>
+```
+:::
 
-[Hier den vollständigen Lösungsweg der Übung einfügen]
+::: {.callout-caution collapse="true"}
+## Was dieser Prompt nicht kann
+
+Das LLM hat keinen Zugang zu deiner konkreten Vorgängerveranstaltung. Es enumeriert eine *plausible* Liste von Voraussetzungen für eine Person an dieser Stelle des Curriculums, nicht eine an deinem Material *gemessene*. Daraus folgen zwei Risiken, denen du in der weiteren Arbeit begegnen musst:
+
+- Das LLM kann Voraussetzungen erfinden, die in deinem Vorkurs gar nicht behandelt werden. Sie sehen plausibel aus, weil sie in Lehrbüchern dieser Stufe häufig stehen.
+- Es kann umgekehrt Voraussetzungen auslassen, die du tatsächlich lehrst, die aber in Lehrbüchern selten explizit ausgewiesen sind.
+
+Behandle die ausgegebene Liste deshalb als Hypothesen, die du gegen dein eigenes Wissen über deine Lernenden und über deinen Vorkurs prüfst. Die Falsifikationsnotiz im Closing macht diesen Prüfschritt verbindlich.
 :::
 
 ## Was das LLM enumeriert
 
-Das LLM listet, in der Rolle der noch-nicht-fortgeschrittenen Studentin, die folgenden Voraussetzungen auf. Wir reproduzieren hier die wesentlichen Punkte (mit leichter Glättung in der Reihenfolge):
+Das LLM listet, in der Rolle der noch nicht fortgeschrittenen Lernenden, die folgenden Voraussetzungen auf. Wir geben hier die wesentlichen Punkte wieder, leicht in der Reihenfolge geglättet.
 
 **Fakten und Notation:**
 
-- Was $r$, $r^2$, $R^2$, $b$, $\beta$ jeweils bezeichnen und worin sie sich unterscheiden.
-- Was die Notation $r_{YX_1 \mid X_2}$ versus $r_{YX_1}$ bedeutet (Partialkorrelation vs. bivariate Korrelation).
-- Dass $b_0$ die vorhergesagte $Y$-Wert bei $X_1 = X_2 = 0$ ist und nicht "der Durchschnitt".
-- Dass die R-Syntax `lm(Y ~ X1 + X2)` ein Modell ohne Interaktion ist, während `lm(Y ~ X1 * X2)` eines mit Interaktion ist.
+- Was $r$, $r^2$, $R^2$, $b$ und $\beta$ jeweils bezeichnen und worin sie sich unterscheiden.
+- Was die Notation $r_{YX_1 \mid X_2}$ gegenüber $r_{YX_1}$ bedeutet (Partialkorrelation gegenüber bivariater Korrelation).
+- Dass $b_0$ den vorhergesagten $Y$-Wert bei $X_1 = X_2 = 0$ bezeichnet und nicht "den Durchschnitt".
+- Dass die R-Syntax `lm(Y ~ X1 + X2)` ein Modell ohne Interaktion ist, während `lm(Y ~ X1 * X2)` eines mit Interaktion wäre.
 
 **Klassifikationen und Erkennen:**
 
 - Eine Forschungsfrage als "Vorhersage durch mehrere Prädiktoren" erkennen und nicht als "Korrelation testen".
 - Den Output von `summary(lm(...))` als strukturiertes Ergebnis lesen: Koeffizienten, Standardfehler, $t$-Werte, $p$-Werte, $R^2$.
-- Erkennen, dass ein bivariater $r$ und das entsprechende $b$ in einer multiplen Regression unterschiedliche Grössen messen.
-- Eine signifikante bivariate Korrelation, die in der multiplen Regression nicht-signifikant wird, als hinweisendes Muster auf Multikollinearität oder Konfundierung erkennen.
+- Erkennen, dass eine bivariate Korrelation $r_{YX_1}$ und der entsprechende Koeffizient $b_1$ in einer multiplen Regression unterschiedliche Grössen messen.
+- Eine signifikante bivariate Korrelation, die in der multiplen Regression nicht-signifikant wird, als Hinweis auf Konfundierung oder Multikollinearität lesen.
 
 **Prozeduren:**
 
-- Die Daten in R einlesen, prüfen (Streudiagramm, Korrelationsmatrix), eine multiple Regression anpassen.
+- Die Daten in R einlesen, deren Verteilung und Zusammenhang grafisch prüfen, eine multiple Regression anpassen.
 - Den Koeffizienten $b_1$ in Worte übersetzen: "pro Einheit Anstieg von $X_1$ bei Konstanthaltung von $X_2$".
-- Den Anteil erklärter Varianz aus $R^2$ ablesen.
+- Den Anteil erklärter Varianz aus $R^2$ ablesen und in Worte fassen.
 
 **Konzeptionelle Verständnisse:**
 
-- Die konditionale Interpretation des Begriffs "kontrolliert für" ($b_1$ ist der Effekt von $X_1$ *bei gleicher Mathenote*, nicht der bereinigte Effekt nach einem Eingriff).
-- Warum $b_1$ in der bivariaten und in der multiplen Regression unterschiedliche Werte haben kann (und meistens hat).
-- Warum $R^2$ nicht die Summe der bivariaten $r^2$ ist (wegen der Korrelation zwischen den Prädiktoren).
-- Was "nicht-signifikant" über den wahren Effekt aussagt: es heisst nicht "kein Effekt", sondern "Daten reichen nicht, um Effekt von Null zu unterscheiden".
-- Dass der Modellzweck (Vorhersage vs. Erklärung) die Interpretation der Koeffizienten beeinflusst.
+- Die konditionale Interpretation der Formulierung "kontrolliert für": $b_1$ ist der Effekt von $X_1$ *bei gleicher Mathenote*, nicht der bereinigte Effekt nach einem Eingriff.
+- Warum $b_1$ in der bivariaten und in der multiplen Regression unterschiedliche Werte haben kann.
+- Warum $R^2$ nicht die Summe der bivariaten $r^2$ ist, sobald die Prädiktoren miteinander korrelieren.
+- Was "nicht signifikant" über den wahren Effekt aussagt: nicht "kein Effekt", sondern "die Daten reichen nicht, um den Effekt von Null zu unterscheiden".
+- Dass der Zweck des Modells (Vorhersage oder Erklärung) die Interpretation der Koeffizienten beeinflusst.
 
-## Der Moment, in dem es sticht
+## Die nicht thematisierten Voraussetzungen
 
-Die Liste enthält etwa fünfzehn Voraussetzungen. Die meisten davon hat die Dozentin im Kurs gelehrt. Vier oder fünf hat sie nicht explizit thematisiert, weil sie ihr automatisiert waren:
+Die Liste enthält rund fünfzehn Voraussetzungen. Die meisten davon hat die Lehrperson im Kurs gelehrt. Drei oder vier hat sie nicht explizit thematisiert, weil sie ihr selbst seit Jahren automatisiert sind. Diese sind didaktisch die interessantesten, weil sie dort sitzen, wo die Lehrperson nicht hinschaut.
 
-- Die **konditionale Interpretation** von "kontrolliert für". Die Dozentin sagt es im Vorbeigehen, ein Mal. Die Studentin denkt: "kontrolliert" wie in "Kontrollgruppe", ein experimenteller Eingriff.
-- Dass **$R^2$ nicht additiv** ist. Die Studentin überträgt die Additivität, die in der ANOVA mit orthogonalen Faktoren tatsächlich gilt, auf die Regression mit korrelierten Prädiktoren.
-- Dass **ein bivariater Effekt im multiplen Modell verschwinden kann**. Die Studentin erwartet, dass ein in einfacher Regression signifikanter Prädiktor auch hier signifikant bleibt.
-- Dass **"nicht-signifikant" nicht "kein Effekt"** heisst. Die Studentin schliesst aus $p = 0.31$, dass Mathenote keinen Einfluss hat.
+### Was $b_1$ tatsächlich heisst
 
-Das sind die typischen Blind Spots. Die Dozentin sieht sie nicht, weil ihre eigene Performance sie überspringt. Sie ist seit Jahren routiniert genug, dass sie nicht mehr daran denkt, dass diese Schritte überhaupt Schritte sind.
+Der Koeffizient $b_1 \approx 0{,}43$ besagt: bei zwei Lernenden mit *derselben* Mathenote unterscheidet sich die erwartete Klausurpunktzahl um etwa $0{,}43$ Punkte pro zusätzlicher Lernstunde pro Woche. Die zentrale Wendung ist hier "mit derselben Mathenote". Eine Lernende ohne dieses Verständnis liest $b_1$ als marginalen Effekt der Lernzeit; das ist aber die bivariate Korrelation, eine andere Grösse. Die Aussage des multiplen Modells ist dagegen eine bedingte: gegeben einen festen Wert von $X_2$, was sagt das Modell über die Beziehung von $X_1$ und $Y$.
 
-::: {.callout-pro-tip icon=false}
+Die Schwierigkeit besteht darin, dass das Wort "kontrolliert" im Alltagsdeutsch eine aktive Komponente hat: man kontrolliert, indem man eingreift. Im Modell ist nichts kontrolliert worden im Sinne eines experimentellen Eingriffs; die Mathenote wurde im Datensatz beobachtet, nicht manipuliert. "Kontrolliert für" ist eine *bedingte Lesart*, nicht eine Aussage über kausale Bereinigung.
+
+### Was der Intercept $b_0$ tatsächlich heisst
+
+Der Intercept $b_0 \approx 34$ ist die vorhergesagte Klausurpunktzahl, wenn Lernzeit *und* Mathenote beide null wären. Beides ist im Datensatz nicht sinnvoll: niemand mit Mathenote 0 sitzt in der Klausur, und Lernzeit von null Stunden pro Woche liegt ausserhalb des beobachteten Bereichs ($30$ bis $50$ Stunden). Der Intercept ist deshalb eine mathematische Notwendigkeit der Geraden, keine inhaltlich interpretierbare Grösse.
+
+Sobald man Prädiktoren zentriert (von jedem Wert den Mittelwert subtrahiert), ändert sich die Bedeutung von $b_0$: der Intercept wird zur erwarteten Klausurpunktzahl bei *durchschnittlicher* Lernzeit und *durchschnittlicher* Mathenote, was eine inhaltlich sinnvolle Grösse ist. Die Koeffizienten $b_1$ und $b_2$ bleiben dabei unverändert. Dieser Punkt taucht in Lehrbüchern oft nur im Nebensatz auf; viele Lernende verlassen den Kurs, ohne ihn je gesehen zu haben.
+
+::: {.callout-pro-tip collapse="true"}
+## Warum die Koeffizienten beim Zentrieren gleich bleiben
+
+Schreiben wir $X_1^* = X_1 - \bar{X}_1$. Dann gilt $b_1 X_1 = b_1 X_1^* + b_1 \bar{X}_1$. Der Term $b_1 \bar{X}_1$ ist eine Konstante und wandert in den Intercept; die Steigung selbst bleibt unverändert. Die Aussagekraft des Modells über die Beziehung von $X_1$ und $Y$ ist also vom Zentrieren unabhängig; nur die Bedeutung des Intercepts wird interpretierbar.
+:::
+
+### Warum $b_1$ und $r_{YX_1}$ unterschiedlich sind
+
+In der bivariaten Regression von $Y$ auf $X_1$ wäre der Koeffizient von $X_1$ proportional zu $r_{YX_1}$. In der multiplen Regression ist der Koeffizient $b_1$ in der Regel anders, weil er den Anteil der Variation in $X_1$ verwendet, der nicht durch $X_2$ erklärt wird. Wenn $X_1$ und $X_2$ korrelieren, ist dieser nicht-durch-$X_2$-erklärte Anteil kleiner als die volle Variation in $X_1$, und der Koeffizient passt sich entsprechend an.
+
+Im hier verwendeten Datensatz liegt eine *reziproke Suppression* vor: $X_1$ und $X_2$ korrelieren negativ, beide aber positiv mit $Y$. Eine Konsequenz ist, dass die standardisierten Regressionskoeffizienten *grösser* werden können als die bivariaten Korrelationen. Eine Lernende, die erwartet, dass Hinzunahme weiterer Prädiktoren den Effekt eines Prädiktors immer abschwächt, wird hier überrascht.
+
+::: {.callout-pro-tip collapse="true"}
+## Suppressions-Mechanik
+
+In der bivariaten Sicht "kontaminiert" $X_2$ die Beziehung zwischen $Y$ und $X_1$: Lernende mit hoher Mathenote investieren weniger Lernzeit (negative $X_1$-$X_2$-Korrelation), profitieren aber trotzdem (positiver $b_2$). Diese gegenläufigen Wirkungen kompensieren sich in der bivariaten Korrelation $r_{YX_2}$ teilweise und führen dazu, dass $r_{YX_2}$ klein wirkt, obwohl $b_2$ substantiell ist. Erst die multiple Regression trennt diese beiden Beiträge sauber.
+:::
+
+### Eine Anmerkung zu $R^2$
+
+Das Modell erklärt etwa $47\%$ der Varianz. Diese Zahl ist *nicht* die Summe der bivariaten $r^2$, sobald die Prädiktoren miteinander korrelieren: $r_{YX_1}^2 + r_{YX_2}^2$ überschätzt oder unterschätzt $R^2$, je nach Vorzeichenstruktur. Das ist kein Detail; viele Lernende übertragen die Additivität aus der ANOVA mit orthogonalen Faktoren naiv auf die Regression mit korrelierten Prädiktoren. Eine vertiefte Darstellung findet sich in den Nachlesen-Materialien zur Übung.
+
 ## Was die Methode hier geleistet hat
 
-Das LLM hat nicht gewusst, welche Voraussetzungen die Dozentin in ihrem Kurs gelehrt hat. Es hat alle Voraussetzungen aufgelistet, die für die Lösung der Aufgabe notwendig sind, ohne zwischen "schon gelehrt" und "vorausgesetzt" zu unterscheiden. Genau diese Liste ist der Ausgangspunkt: die Dozentin geht sie durch und markiert, was in ihrem Kurs tatsächlich behandelt wurde und was nicht.
+Das LLM hat nicht gewusst, welche Voraussetzungen die Lehrperson in ihrem Kurs tatsächlich gelehrt hat. Es hat alle Voraussetzungen aufgelistet, die für die Lösung der Aufgabe notwendig sind, ohne zwischen "schon gelehrt" und "vorausgesetzt" zu unterscheiden. Diese Liste ist der Ausgangspunkt: die Lehrperson geht sie durch und markiert pro Eintrag, ob die Voraussetzung in ihrem Kurs tatsächlich behandelt wurde oder nicht.
 
-Die Methode ist keine Magie. Sie ist eine Externalisierung: das, was die Dozentin nicht mehr sehen kann, wird sichtbar, weil das LLM keinen Anreiz hat, irgendetwas wegzulassen.
-:::
+Die Methode beruht nicht auf einer besonderen Eigenschaft des LLM. Sie nutzt aus, dass eine Aussenperspektive den Lösungsweg ohne automatisierte Überspringungen abgehen muss. Was die Lehrperson nicht mehr sieht, wird sichtbar, weil das LLM keinen Anreiz hat, etwas wegzulassen.
 
 ## Was du in Block 2 tust
 
-In Block 2 nimmst du diesen Prompt, fügst dein eigenes Material ein und tust dasselbe: du markierst, welche Voraussetzungen das LLM enumeriert hat, und entscheidest pro Eintrag, ob deine Studierenden diese Voraussetzung mitbringen oder nicht. Die Einträge, die du als nicht-gelehrt-und-trotzdem-vorausgesetzt markierst, sind deine Blind Spots.
+In Block 2 nimmst du diesen Prompt, fügst dein eigenes Material ein und tust dasselbe: du markierst, welche Voraussetzungen das LLM enumeriert hat, und entscheidest pro Eintrag, ob deine Lernenden diese Voraussetzung mitbringen oder nicht. Die Einträge, die du als nicht-gelehrt-und-trotzdem-vorausgesetzt markierst, sind die didaktisch interessanten Stellen deiner Aufgabe.
 
-Die Ergebnisse trägst du in die [Spec-Vorlage](../spec-sheet-template/index.qmd) ein. Ein vollständiges Beispiel-Spec zu dieser Aufgabe (multiple Regression) findest du unter [Beispiel: Multiple Regression](../spec-sheet-template/example-multiple-regression.md).
+Die Ergebnisse trägst du in die [Spec-Vorlage](../spec-sheet-template/index.qmd) ein. Ein vollständig ausgearbeitetes Beispiel-Spec für die hier gezeigte Aufgabe findest du unter [Beispiel: Multiple Regression](../spec-sheet-template/example-multiple-regression.md).
 
-In Block 3 fügst du dein fertiges Spec in das laufende Werkzeug ein und beobachtest, was es produziert. Wenn der Output nicht passt, fehlt etwas im Spec.
+In Block 3 fügst du dein fertiges Spec in ein Chat-Werkzeug deiner Wahl ein und beobachtest, was es produziert. Wenn der Output nicht passt, fehlt etwas im Spec.

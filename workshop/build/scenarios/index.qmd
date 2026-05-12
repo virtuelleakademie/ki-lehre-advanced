@@ -1,32 +1,32 @@
 ---
-title: "Scenario Pack"
+title: "Backup-Szenarien"
+subtitle: "Sieben Disziplin-Szenarien für Block 2"
 ---
 
-Seven discipline scenarios for the Build block. Each provides:
+Diese sieben Szenarien dienen als **Backup-Material für Block 2**, falls du keine eigene Teilaufgabe mitgebracht hast oder ein Szenario aus einer anderen Disziplin als Anschauungsmaterial nutzen möchtest. Jedes Szenario enthält:
 
-- A **teaching task**: a short instruction the student was responding to
-- **Three calibrated student responses**: each tagged with the `load_signal` it is meant to exemplify, plus a short note on why it falls in that category
+- Eine **Lehraufgabe**: eine kurze Aufgabenstellung, auf die eine Lernende geantwortet hat.
+- **Drei kalibrierte Lernenden-Antworten**: jede ist so konstruiert, dass sie tendenziell *einen* charakteristischen Fehlermodus repräsentiert, mit einer kurzen Begründung.
 
-The calibration is your answer key for Lab 4: when you test your prompt against a scenario, the tool should produce the tagged `load_signal` for at least two of the three responses.
+Du kannst die Szenarien auf zwei Weisen nutzen:
 
-## The scenarios
+1. **Als Aufgabe für Sektion 1 deines Spec Sheets.** Wähl ein Szenario, das nahe an deinem Fach liegt, und bearbeite es so, als wäre es deine eigene Teilaufgabe.
+2. **Als Quelle für die Block-3-Test-Phase.** Du fütterst dein Spec in das Werkzeug und prüfst, ob die ausgegebene Reaktion auf eine der kalibrierten Antworten passen würde.
 
-- **[Nursing: Warfarin and INR](nursing.qmd)** — pharmacology decision under uncertainty
-- **[Education: Critique a quiz question](education.qmd)** — assessment design analysis
-- **[Business: Bakery pricing](business.qmd)** — pricing strategy with elasticity
-- **[Social work: Missed appointments](social-work.qmd)** — case engagement assessment
-- **[Engineering: Stale-data bug](engineering.qmd)** — software diagnosis
-- **[Statistics: Interpreting r = 0.3](statistics.qmd)** — interpreting effect sizes
-- **[Mathematics: Recognising the substitution pattern](math.qmd)** — choosing an integration method
+## Die Szenarien
 
-## Why calibrated responses
+- [**Pflege: Warfarin und INR**](nursing.qmd): Pharmakologische Entscheidung unter Unsicherheit
+- [**Pädagogik: Eine Quizfrage kritisieren**](education.qmd): Kritik einer Multiple-Choice-Frage
+- [**Wirtschaft: Bäckerei-Preisanpassung**](business.qmd): Preisstrategie mit Elastizität
+- [**Sozialarbeit: Verpasste Termine**](social-work.qmd): Fallbewertung und Kontaktstrategie
+- [**Engineering: Stale-Data-Bug**](engineering.qmd): Softwarediagnose unter mehrdeutigen Hinweisen
+- [**Statistik: Interpretation von $r = 0{,}3$**](statistics.qmd): Effektgrösse und Korrelation deuten
+- [**Mathematik: Das Substitutions-Muster erkennen**](math.qmd): Integrationstechnik wählen
 
-The calibration is a teaching device, not a claim that a response can only mean one thing. Real student responses are messy and often blend signals. The calibrated responses are constructed to lean strongly toward one `load_signal` so that you can:
+## Zur Kalibrierung
 
-1. Test whether your prompt distinguishes that signal from the others
-2. Iterate when it does not
-3. Notice the cases where two signals genuinely co-occur (those will be your discipline's hardest diagnostic edges)
+Die Kalibrierung ist ein didaktisches Instrument, keine Behauptung, dass eine Antwort *nur* einen Fehlermodus enthält. Reale Lernenden-Antworten sind selten so sauber separiert; sie mischen Signale. Die Antworten hier sind absichtlich so geschrieben, dass sie *deutlich* einem Modus zuneigen, damit du das Phänomen in seiner Reinform sehen kannst. Wenn dein Spec eine Antwort dieser Art nicht "fängt", weisst du, wo es geschärft werden muss.
 
 ::: {.callout-pro-tip icon=false}
-The scenario you pick determines which three of the five `load_signal` categories you will exercise. The combinations are deliberate: each scenario covers categories that are particularly distinguishable in that discipline's idiom.
+Die in den Szenarien benannten Fehlermodi (Aktive Fehlkonzeption, Lernferner Abruf, Schema-Lücke, Intrinsische Überlastung, Extrinsische Ablenkung) sind Beschreibungen *was an dieser Antwort schiefläuft*, nicht eine vollständige Lerner-Modellierung. Sie helfen dabei, das Repertoire möglicher Lernschwierigkeiten griffbereit zu haben, wenn du dein eigenes Spec entwickelst.
 :::

@@ -45,8 +45,11 @@ website:
 
     right:
       - icon: folder
-        text: "Ressourcen"
+        text: "Materialien"
         menu:
+          - text: "Übersicht: alle Materialien"
+            file: workshop/materialien/index.qmd
+          - text: "---"
           - text: "Spec-Vorlage"
             file: workshop/spec-sheet-template/index.qmd
           - text: "Beispiel-Spec: Multiple Regression"
@@ -93,11 +96,12 @@ website:
             - workshop/take-home/api-werkzeug-erklaert.qmd
             - workshop/take-home/weitere-werkzeuge.qmd
 
-    - title: "Ressourcen"
+    - title: "Materialien"
       style: "docked"
       search: true
       background: light
       contents:
+        - workshop/materialien/index.qmd
         - section: "Spec-Vorlage und Beispiel"
           contents:
             - workshop/spec-sheet-template/index.qmd

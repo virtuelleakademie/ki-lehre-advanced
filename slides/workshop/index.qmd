@@ -29,11 +29,11 @@ Begrüssen, Workshop-Programm in einem Satz: "Wir bauen heute ein Spec für eine
 
 ::::{.columns}
 :::{.column width="33%"}
-### Block 1 (45 min)
+### Block 1 (35 min)
 
 *Worked Example beobachten*
 
-CLT-Auffrischung, dann gemeinsamer Durchgang durch ein ausgearbeitetes Spec Sheet.
+Drei Anker-Slides, dann gemeinsamer Durchgang durch ein ausgearbeitetes Spec Sheet an einer Statistik-Aufgabe.
 :::
 
 :::{.column width="33%"}
@@ -41,15 +41,15 @@ CLT-Auffrischung, dann gemeinsamer Durchgang durch ein ausgearbeitetes Spec Shee
 
 *Eigenes Spec Sheet bauen*
 
-Für eine Teilaufgabe deiner Lehre: Wissensbausteine, Fehlkonzepte, Pruning.
+Für eine Teilaufgabe deiner Lehre: Wissensbausteine, Fehlkonzepte, Paar-Review.
 :::
 
 :::{.column width="33%"}
-### Block 3 + Closing (38 min)
+### Block 3 + Closing (50 min)
 
-*Spec → Prompt → Test*
+*Spec → Werkzeug → Verpflichtung*
 
-Übersetzen, testen, taggen für KI-Substitution, Verpflichtung.
+Spec im laufenden Werkzeug testen und schärfen, Doktrin verallgemeinern, persönliche Verpflichtung.
 :::
 ::::
 
@@ -70,7 +70,7 @@ Programmiererfahrung brauchst du nicht. Eine Aufgabe aus deiner Lehre solltest d
 ::: {style="font-size: 1.05em; max-width: 85%; margin: 0 auto; line-height: 1.6;"}
 Die schwierigste pädagogische Bewegung beim Einsatz von KI in der Lehre ist nicht das Auswählen eines Werkzeugs, sondern das Spezifizieren dessen, was im Kopf der Lernenden passieren soll.
 
-Die meisten Dozierenden überspringen diesen Schritt und greifen direkt zum Werkzeug.
+Die meisten Lehrpersonen überspringen diesen Schritt und greifen direkt zum Werkzeug.
 
 Dieser Workshop kehrt die Reihenfolge um: **zuerst die Spezifikation, dann das Werkzeug.**
 :::
@@ -85,7 +85,7 @@ Dieser Workshop kehrt die Reihenfolge um: **zuerst die Spezifikation, dann das W
 <br>
 
 ::: {style="font-size: 1.05em; max-width: 85%; margin: 0 auto; line-height: 1.6;"}
-Dozierende sehen nicht, was ihre Studierenden noch nicht wissen, weil Automatisierung die Teilfertigkeiten unsichtbar gemacht hat.
+Lehrpersonen sehen nicht, was ihre Lernenden noch nicht wissen, weil Automatisierung die Teilfertigkeiten unsichtbar gemacht hat.
 
 Sie sagen *"wende einfach die Formel an"*, ohne zu sehen, dass *"was zählt als relevanter Input"* selbst eine nicht-triviale Klassifikation ist.
 :::
@@ -103,6 +103,8 @@ Sie sagen *"wende einfach die Formel an"*, ohne zu sehen, dass *"was zählt als 
 Ein LLM, das als *"Person, die gerade die Vorgängerveranstaltung abgeschlossen hat, aber diese hier noch nicht kennt"* geprompted wird, zählt die Teilschritte auf, die ein Experte überspringt: es hat keine Automatisierung, die es überspringen könnte.
 
 Das LLM wird zum **Spiegel**, der zeigt, was die eigene Performance voraussetzt.
+
+[Wichtig: das LLM kennt deine Vorgängerveranstaltung nicht. Die Liste ist *plausibel*, nicht *gemessen*.]{style="font-size: 0.78em; color: #6E6560; display: block; margin-top: 0.8em;"}
 :::
 
 ::: {.notes}
@@ -233,7 +235,7 @@ Spec Sheet bleibt; der Prompt wird für jede Modellgeneration neu gerendert. Blo
 ::: {style="background: rgba(30, 58, 95, 0.06); padding: 1.2em; border-radius: 8px; border-left: 4px solid #1E3A5F;"}
 **Lernende-Simulator** *(Hauptaffordanz)*
 
-Das LLM spielt eine Studierende ohne Baustein X.
+Das LLM spielt eine Lernende ohne Baustein X.
 
 Zwei Probemodi:
 
@@ -386,7 +388,7 @@ Wo dein Spec vage ist, fällt der Prompt schwer. Genau das ist die Lehre aus Blo
 
 ## Test-Protokoll: drei mögliche Ausgänge {.smaller}
 
-Wähle einen Baustein aus deiner Spec, den du als **B (beobachtet)** markiert hast. Gib die zugehörige Studierenden-Antwort ans Werkzeug.
+Wähle einen Baustein aus deiner Spec, den du als **B (beobachtet)** markiert hast. Gib die zugehörige Lernenden-Antwort ans Werkzeug.
 
 {{< include ../../resources/figures/fig-test-protokoll.qmd >}}
 
@@ -409,7 +411,7 @@ Pass / Fail soft / Fail hard. Fail soft zeigt zurück zum Spec Sheet, Fail hard 
 ::: {style="font-size: 1.1em; max-width: 85%; margin: 0 auto; line-height: 1.5;"}
 Wähle einen Wissensbaustein aus Sektion B, den du als zentral einschätzt.
 
-Schreibe **einen Satz**: welches Verhalten von Studierenden würde dir zeigen, dass deine Decomposition für diesen Baustein falsch ist?
+Schreibe **einen Satz**: welches Verhalten von Lernenden würde dir zeigen, dass deine Decomposition für diesen Baustein falsch ist?
 
 → Sektion D deines Spec Sheets.
 :::
@@ -417,7 +419,7 @@ Schreibe **einen Satz**: welches Verhalten von Studierenden würde dir zeigen, d
 <br>
 
 ::: {style="background: rgba(30, 58, 95, 0.06); padding: 1.0em; border-radius: 8px; max-width: 80%; margin: 0 auto; font-style: italic; font-size: 0.95em;"}
-Beispiel: "Wenn Studierende, die ich klar als kompetente Korrelationsinterpretiererinnen einschätze, an dieser Teilaufgabe systematisch scheitern, dann ist Baustein 3 nicht das, was diese Aufgabe wirklich testet."
+Beispiel: "Wenn Lernende, die ich klar als kompetente Korrelationsinterpretiererinnen einschätze, an dieser Teilaufgabe systematisch scheitern, dann ist Baustein 3 nicht das, was diese Aufgabe wirklich testet."
 :::
 
 <br>
@@ -427,7 +429,7 @@ Ohne diese Notiz bleibt das Spec Sheet eine plausible Hypothese ohne Bedingungen
 :::
 
 ::: {.notes}
-~3 Min. Falsifikation als Disziplin. Nicht "perfekte" Notiz, eine ehrliche.
+**Nicht mehr Teil des 15-min Closings.** Im redesignten Workshop ist die Falsifikationsnotiz Take-Home-Hausaufgabe (siehe `workshop/take-home/index.qmd`). Diese Folie bleibt als visuelle Referenz im Foliensatz für Lehrpersonen, die das Konzept on the fly einführen oder im Closing optional ansprechen wollen (1-2 Min, kein Eigenarbeitsanteil mehr).
 :::
 
 
@@ -438,11 +440,11 @@ Markiere jeden Baustein in deiner Sektion B mit einem Tag:
 {{< include ../../resources/figures/fig-selbst-tun-zuschauen.qmd >}}
 
 ::: {style="font-size: 0.85em; max-width: 92%; margin: 0.3em auto 0;"}
-**Entscheidungsregel aus Block 1:** Typ : Mechanismus : Operation : was die KI ersetzen darf. Faktenwissen, Klassifikationswissen, Erklärungswissen sind *meist* Selbst-Tun, weil die KI die jeweilige Operation nicht für die Studierende leisten kann. Hilfsschritte sind oft Zuschauen-erlaubt. Staging zählt: was bei einer Anfängerin Selbst-Tun ist, kann bei einer Fortgeschrittenen Zuschauen-reicht sein.
+**Entscheidungsregel aus Block 1:** Typ : Mechanismus : Operation : was die KI ersetzen darf. Faktenwissen, Klassifikationswissen, Erklärungswissen sind *meist* Selbst-Tun, weil die KI die jeweilige Operation nicht für die Lernende leisten kann. Hilfsschritte sind oft Zuschauen-erlaubt. Staging zählt: was bei einer Anfängerin Selbst-Tun ist, kann bei einer Fortgeschrittenen Zuschauen-reicht sein.
 :::
 
 ::: {.notes}
-~4 Min in Eigenarbeit. Auf das Diagramm zeigen: links die Aktion verändert die Lernerin, rechts die Beobachtung lässt sie weitgehend gleich. Tags sind eine erste Diskussionsgrundlage, nicht endgültig. Wenn alle Bausteine Selbst-Tun sind, ist das ein normales Ergebnis. Direkt anschliessend: Spec-als-Datenstruktur-Slide.
+**Nicht mehr Teil des 15-min Closings.** Im redesignten Workshop ist das Selbst-Tun-vs-Zuschauen-Tagging Take-Home-Hausaufgabe (siehe `workshop/take-home/index.qmd`). Diese Folie bleibt als visuelle Referenz im Foliensatz; falls sie im Closing optional gezeigt wird, dann höchstens als 1-Min-Hinweis ("ihr werdet dies zuhause anwenden"), keine Eigenarbeit mehr.
 :::
 
 
@@ -503,7 +505,7 @@ Schreibe auf Papier:
 
 ::: {style="font-size: 1.1em; max-width: 80%; margin: 0 auto; line-height: 1.8;"}
 1. **Eine konkrete Aufgabe** deiner Lehre, an der du das Spec Sheet anwenden wirst. Nicht "ich werde nachdenken über..." sondern: diese spezifische Aufgabe.
-2. **Ein konkreter Schritt** (Spec anwenden / Aufgabenstellung anpassen / Studierenden-Konsequenz einbauen).
+2. **Ein konkreter Schritt** (Spec anwenden / Aufgabenstellung anpassen / Lernenden-Konsequenz einbauen).
 3. **Ein Datum**, bis zu dem du es getan hast.
 :::
 
@@ -514,7 +516,7 @@ Erzähl es deiner Nachbarin, bevor du den Raum verlässt.
 :::
 
 ::: {.notes}
-~2 Min. Konkretheit erzwingen. Spezifische Aufgabe, spezifischer Schritt, spezifisches Datum. Mündliche Zusage an Nachbarin als sozialer Commitment.
+~5 Min. Diese Folie trägt den Hauptteil des Closings (zusammen mit der Doktrin-Extension und der Downstream-Uses-Gallery). Konkretheit erzwingen: spezifische Aufgabe, spezifischer Schritt, spezifisches Datum. 3 Min stilles Schreiben, dann 2 Min cross-discipline-Tausch (mündliche Zusage an Partnerin aus Block 2 als sozialer Commitment).
 :::
 
 
@@ -529,7 +531,7 @@ Erzähl es deiner Nachbarin, bevor du den Raum verlässt.
 <br>
 
 ::: {style="text-align: center; font-size: 1.0em; color: #6E6560; max-width: 80%; margin: 0 auto;"}
-Das Spec Sheet ist die durable Substanz deiner pädagogischen Arbeit mit KI. Werkzeuge ändern sich; was im Kopf einer Lernerin vorgeht, weniger schnell.
+Das Spec Sheet ist die durable Substanz deiner pädagogischen Arbeit mit KI. Werkzeuge ändern sich; was im Kopf einer Lernende vorgeht, weniger schnell.
 :::
 
 ::: {.notes}

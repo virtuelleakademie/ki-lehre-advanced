@@ -9,7 +9,7 @@ format:
 
 ## Workshop-Überblick
 
-Ein 3-Stunden-Workshop, in dem du für *eine Teilaufgabe* aus deiner eigenen Lehre ein **Spec Sheet** baust: eine möglichst klare, falsifizierbare Beschreibung dessen, was eine Studierende mitbringen muss, was sie wahrscheinlich nicht hat, welche Fehlkonzepte plausibel sind. Programmierkenntnisse brauchst du nicht.
+Ein 3-Stunden-Workshop, in dem du für *eine Teilaufgabe* aus deiner eigenen Lehre ein **Spec Sheet** baust: eine möglichst klare, falsifizierbare Beschreibung dessen, was eine Lernende mitbringen muss, was sie wahrscheinlich nicht hat, welche Fehlkonzepte plausibel sind. Programmierkenntnisse brauchst du nicht.
 
 Das Spec Sheet ist werkzeug-unabhängig: dieselbe Spec funktioniert in jedem Chat-Werkzeug von heute, und sie wird mit der nächsten Modellgeneration nicht plötzlich falsch. Ein Prompt für ein bestimmtes Werkzeug ist nur eine Übersetzung des Spec Sheets, die du in Block 3 einmal probierst.
 
@@ -44,12 +44,14 @@ Am Ende des Workshops kannst du:
 
 | Zeit | Dauer | Block | Aktivität |
 |------|-------|-------|-----------|
-| 0:00-0:07 | 7 min | [**Einstieg**](einstieg/index.qmd) | Kurze Aktivierung: Erklär etwas, ohne ein Schema vorauszusetzen |
-| 0:07-0:52 | 45 min | [**Block 1**](block-1-theorie-und-beispiel/index.qmd) | CLT-Auffrischung; Theorie kompakt; Worked Example; Werkzeug-Tour |
-| 0:52-1:07 | 15 min | **Pause** | |
-| 1:07-2:07 | 60 min | [**Block 2**](block-2-spec-card/index.qmd) | Eigenes Spec Sheet bauen: Wissensbausteine und Fehlkonzepte mit V/B-Disziplin |
-| 2:07-2:32 | 25 min | [**Block 3**](block-3-multi-tool/index.qmd) | Spec Sheet in einen System-Prompt übersetzen und nach Test-Protokoll prüfen |
-| 2:32-2:45 | 13 min | [**Closing**](closing/index.qmd) | Falsifikationsnotiz; Selbst-Tun vs. Zuschauen; eine konkrete Verpflichtung |
+| 0:00-0:10 | 10 min | [**Einstieg**](einstieg/index.qmd) | Cross-discipline-Paar: am eigenen Material den Expert Blind Spot erleben |
+| 0:10-0:45 | 35 min | [**Block 1**](block-1-theorie-und-beispiel/index.qmd) | Drei Anker-Slides; Worked Example live an Statistik-Aufgabe; Spec-Vorschau |
+| 0:45-1:00 | 15 min | **Pause** | |
+| 1:00-2:00 | 60 min | [**Block 2**](block-2-spec-card/index.qmd) | Eigenes Spec Sheet bauen: Sektion 1-3 mit LLM-as-Novice und Lernende-Simulator, Paar-Review |
+| 2:00-2:35 | 35 min | [**Block 3**](block-3-multi-tool/index.qmd) | Spec in laufendes Werkzeug einfügen; Output beobachten; Spec schärfen; (optional: Cross-discipline Role-Play) |
+| 2:35-2:50 | 15 min | [**Closing**](closing/index.qmd) | Doktrin-Extension; Downstream-Uses-Gallery; persönliche Verpflichtung |
+
+Gesamt: 170 min Inhalt plus 15 min Pause. Bei knapper Zeit kann das Role-Play in Block 3 (10 min) entfallen, ohne die Kernerfahrung zu beschneiden.
 :::
 
 ## Voraussetzungen
@@ -77,9 +79,11 @@ Diese Inhalte werden in Block 1 nicht wiederholt. Sie liegen als Substrat unter 
 In Block 1 zeigt die Instruktorin drei Affordance-Typen: Chat-Werkzeug, strukturierte API-Generierung (ein Marimo-Notebook, das den Datenfluss zellenweise sichtbar macht), und kurz ein agentisches Werkzeug. Du musst nichts installieren. In Block 3 nutzt du ein Chat-Werkzeug deiner Wahl.
 :::
 
+::: {.callout-note collapse="true" icon=false}
 ## Was am Workshop neu ist (für Wiederkehrer)
 
-Wenn du eine frühere Iteration dieses Workshops besucht hast (mit dem 6-Sektionen-Spec-Card-Format und den vier diagnostischen Rollen): die heutige Form ist deutlich schlanker. Der Workshop konzentriert sich auf eine *einzelne Teilaufgabe* statt auf eine ganze Lerner-Modellierung, und auf *zwei* operationale LLM-Rollen (Hypothesengenerator, Lernende-Simulator) statt auf vier Diagnose-Rollen. Die theoretische Substanz ist erhalten geblieben; die Anwendung ist hands-on und im 3-Stunden-Format machbar.
+Wenn du eine frühere Iteration dieses Workshops besucht hast (mit dem 6-Sektionen-Spec-Card-Format und den vier diagnostischen Rollen): die heutige Form ist deutlich schlanker. Der Workshop konzentriert sich auf eine *einzelne Teilaufgabe* statt auf eine ganze Lerner-Modellierung, und auf *zwei* operationale LLM-Rollen (Hypothesengenerator, Lernende-Simulator) statt auf vier Diagnose-Rollen. Die theoretische Substanz ist erhalten geblieben; die Anwendung ist konkret an einer eigenen Teilaufgabe und im 3-Stunden-Format durchführbar.
+:::
 
 ## Verbindung zur Trilogie
 

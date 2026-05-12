@@ -8,6 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **2026-05-06-advanced-workshop-design.md**: the design doc for the Spec Card workshop (the user's own theoretical design statement; current authoritative source for what the workshop is)
 - **2026-05-06-spec-card-redesign.md**: implementation plan for the Spec Card design (load-bearing claims, vocabulary policy, file inventory, sequence)
 - **2026-05-07-redesign-comparison.md**: side-by-side comparison of Redesign A (diagnostic-tool-shell) vs. Redesign B (Spec Card). Useful as the historical record of the design choice
+- **instructor-notes/{einstieg, block-1, block-2, block-3, closing}-facilitator.md**: per-block detailed facilitator notes (timing tables, opening/closing scripts, failure modes + redirects, likely questions, what-if-broken backups). Linked from the in-page `callout-facilitator` blocks
 - **instructor-notes/spec-card-statistics-internal.md**: the worked Statistics-Novice Spec Card in the internal-precise register (architectures named)
 - **marimo-quarto-integration.md**: technical guide for marimo + Quarto. Not used by the current workshop's main flow; preserved because the integration remains valid for other content
 - **resources/prompt-templates/pedagogical-prompts.qmd**: legacy prompt templates from earlier iterations
@@ -63,18 +64,20 @@ make diff                   # Show word-level diff
 
 **Workshop Structure (3-hour workshop, German). Each block is a panel-tabset page with three tabs: Präsentation (slides + facilitator notes), Aktivitäten (participant-facing exercises), Nachlesen (extended reading + cross-links to CAS Lernpsychologie):**
 
-- **vorbereitung/index.qmd**: pre-workshop reading + the worked Statistics-Novice spec card
-- **workshop/index.qmd**: workshop overview, schedule, learning objectives
-- **workshop/einstieg/**: Einstieg (7 min): curse-of-knowledge activator with optional LLM-mirror foreshadowing the Lernende-Simulator role
-- **workshop/block-1-theorie-und-beispiel/**: Block 1 (45 min): CLT recap (4 slides bridging into Spec Sheet), three Wissensbaustein-types, Spec/Prompt distinction, two LLM roles, then the worked-example walkthrough (live page) and abbreviated tool-tour
-  - `worked-example-statistics.qmd`: the live-walkthrough page demonstrating the method on the Statistics task
-- **workshop/block-2-spec-card/**: Block 2 (60 min): participants build their own Spec Sheet (Sektion A → B with V/B-discipline → C → paired feedback)
-  - **workshop/spec-card-statistics/**: the worked Statistics-Novice Spec Card (participant-facing, German)
-  - **workshop/spec-sheet-template/**: 4-section template (A: Teilaufgabe, B: Wissensbausteine with optional Erwerb-field, C: Fehlkonzepte, D: Falsifikationsnotiz) plus prompt-scaffolds.md and system-prompt-template.md
-- **workshop/block-3-multi-tool/**: Block 3 (25 min): translate Spec into a system prompt; test against a known student answer using the pass / fail-soft / fail-hard protocol
-- **workshop/closing/**: Closing (13 min): Falsifikationsnotiz (filled here, in Section D of the template) → Selbst-Tun-vs-Zuschauen tagging → student-policy sentence → personal commitment
-- **workshop/build/scenarios/**: six discipline scenarios (nursing, education, business, social work, engineering, statistics, plus math) with three calibrated student responses each. Used as backup assignments for Block 2 and as raw material for the Block 3 test. (The directory name `build/` is a legacy from a previous iteration; the scenarios remain there to keep URLs stable.)
-- **slides/workshop/**: the workshop slide deck (~16 slides, embedded into each block's Präsentation tab)
+- **vorbereitung/index.qmd**: pre-workshop reading (three anchor sentences, three things to bring, the LLM-as-Novice grounding warning)
+- **workshop/index.qmd**: workshop overview, schedule, learning objectives; the "for returning participants" historical note is folded into a collapsed callout
+- **workshop/materialien/index.qmd**: single landing page listing every participant material (Vor / Während / Nach + Prompt-Bausteine + external sources). The canonical entry point for participants
+- **workshop/einstieg/**: Einstieg (10 min): cross-discipline-pair exercise; participants experience the Expert Blind Spot on their own material before it is named in Block 1
+- **workshop/block-1-theorie-und-beispiel/**: Block 1 (35 min): three anchor slides (Das harte Problem / Der Expert Blind Spot / LLMs als strukturierte Novizen), then the worked-example walkthrough (live page), then Spec-Vorschau
+  - `worked-example-statistics.qmd`: the live-walkthrough page; simulated $n = 80$ dataset with reciprocal-suppression structure; R code visible by default; `broom::tidy`+`glance` tables; collapsed `pro-tip` callouts for centring algebra and suppression mechanic; collapsed `caution` callout on LLM grounding
+- **workshop/block-2-spec-card/**: Block 2 (60 min): participants build their own Spec Sheet (Sektion 1 → 2 with LLM-as-Novice → 3 with Lernende-Simulator → cross-discipline paired review). Contains a collapsed `caution` callout naming the two concrete failure modes of the ungrounded LLM
+  - **workshop/spec-card-statistics/**: the worked Statistics-Novice Spec Card (participant-facing, German; legacy 6-section reference)
+  - **workshop/spec-sheet-template/**: 4-section template (1: Teilaufgabe, 2: Wissensbausteine, 3: Fehlkonzepte, 4: Falsifikationsnotiz) plus `prompt-scaffolds.md` and `system-prompt-template.md`
+- **workshop/block-3-multi-tool/**: Block 3 (35 min core + 10 min optional role-play): demo of the tool, insert own Spec, observe output, sharpen Spec, (optional) cross-discipline role-play, wrap. The role-play is explicitly marked optional in the page header and timing callout
+- **workshop/closing/**: Closing (15 min): Doktrin-Extension → Downstream-Uses-Gallery → personal commitment → Take-Home pointer. Falsifikationsnotiz and Selbst-Tun-vs-Zuschauen tagging are now Take-Home homework, not live Closing content
+- **workshop/take-home/**: post-workshop sammelseite: the running tool URL, architecture explanation, four sketches for further tools, optional homework (Falsifikationsnotiz, Selbst-Tun-vs-Zuschauen)
+- **workshop/build/scenarios/**: **seven** discipline scenarios in **German** (nursing, education, business, social work, engineering, statistics, math) with three calibrated student responses each. Used as backup assignments for Block 2. Failure-mode names: Aktive Fehlkonzeption, Lernferner Abruf, Schema-Lücke, Intrinsische Überlastung, Extrinsische Ablenkung. (The directory name `build/` is a legacy from a previous iteration; the scenarios remain there to keep URLs stable.)
+- **slides/workshop/**: the workshop slide deck (~16 slides, embedded into each block's Präsentation tab). The Closing slides for Falsifikationsnotiz and Selbst-Tun-vs-Zuschauen are retained as Take-Home reference, not shown live in the 15-min Closing
 - **slides/archive/legacy-2025/**: archived prior-iteration slide decks (theory/, discussion/) preserved for reference, not rendered into the workshop flow
 
 **The Hosted Tools:**
@@ -86,6 +89,7 @@ make diff                   # Show word-level diff
 **Reference / instructor notes:**
 
 - **instructor-notes/spec-card-statistics-internal.md**: the Statistics-Novice Spec Card in the internal-precise register (Marr, ACT-R, Bayesian, Daw & Fleming, Pearl, conceptual change theory all named). For instructor audit; the participant-facing version is at `workshop/spec-card-statistics/`.
+- **instructor-notes/{einstieg, block-1, block-2, block-3, closing}-facilitator.md**: per-block detailed facilitator notes. Each contains a minute-by-minute timing table, suggested opening/closing wording, failure modes with redirects, likely questions, what-if-broken backup plans, and a take-away sentence. Linked from the in-page `callout-facilitator` blocks in each block's Präsentation tab.
 
 **Supporting Directories:**
 
@@ -116,6 +120,8 @@ make diff                   # Show word-level diff
 **pyproject.toml**: Python dependencies for any local marimo work that may still happen on this repo (not used by the main workshop flow).
 - Package manager: uv
 - Requires Python >=3.10
+
+**.Renviron** + **.Rprofile**: project-level R locale setup (`LANG=en_US.UTF-8`, `LC_ALL=en_US.UTF-8`, `Sys.setlocale("LC_ALL", "en_US.UTF-8")`). Required for German Umlauts to render correctly in knitr chunk-metadata serialization (e.g. `tbl-cap` strings). Do not remove unless you have verified Umlaut handling works without them on a fresh clone. R packages required for the worked-example: `tidyverse`, `broom`, `patchwork`, `MASS` (MASS ships with base R).
 
 **hf-spaces/diagnostic-tool-shell/requirements.txt**: dependencies for the hosted shell (gradio, anthropic, pydantic, python-dotenv). Self-contained; not installed via the project venv.
 
@@ -298,16 +304,18 @@ By the end of this workshop, participants will:
 
 ### Workshop Flow
 
-Total contact time: 150 min + 15 min break = 165 min, with ~15 min buffer to the 3-hour ceiling.
+Total wall-clock: 155 min content + 15 min break = 170 min, with 10 min buffer to the 3-hour ceiling. Block 3 has an optional 10-min role-play that extends Block 3 to 45 min and consumes the buffer.
 
 | Block | Duration | What Participants Do |
 |------|----------|---------------------|
-| Einstieg | 7 min | Curse-of-knowledge activator with optional LLM-mirror foreshadowing the Lernende-Simulator role |
-| Block 1 | 45 min | CLT-recap (4 slides), Wissensbaustein-types, Spec/Prompt distinction, two LLM roles, then live walkthrough of the worked Statistics example, abbreviated tool-tour |
+| Einstieg | 10 min | Cross-discipline pair: write a one-paragraph description of your own teaching task, read your partner's, write three sentences for them, mark what came back |
+| Block 1 | 35 min | Three anchor slides (Das harte Problem / Expert Blind Spot / LLMs als strukturierte Novizen), then live worked-example walkthrough at the Statistics multiple-regression task, then Spec-Vorschau |
 | **Pause** | 15 min | |
-| Block 2 | 60 min | Build own Spec Sheet for one teaching task: Sektion A → B with V/B-discipline → C → paired feedback |
-| Block 3 | 25 min | Translate Spec into system prompt; test against a known student answer using the pass / fail-soft / fail-hard protocol |
-| Closing | 13 min | Falsifikationsnotiz (Sektion D); Selbst-Tun-vs-Zuschauen tagging; student-facing policy sentence; concrete commitment |
+| Block 2 | 60 min | Build own Spec Sheet for one teaching task: Sektion 1 (Teilaufgabe) → 2 (Wissensbausteine, LLM-as-Novice) → 3 (Misconceptions, Lernende-Simulator) → cross-discipline paired review |
+| Block 3 | 35 min core (+10 min optional) | Demo of the running tool with the example Spec, insert own Spec and observe output, sharpen Spec and re-test, (optional) cross-discipline role-play, wrap |
+| Closing | 15 min | Doktrin-Extension ("Spec is durable, Werkzeug is Rendering") → Downstream-Uses-Gallery (four further tools the Spec can drive) → persönliche Verpflichtung shared with cross-discipline partner → Take-Home pointer |
+
+The Falsifikationsnotiz and Selbst-Tun-vs-Zuschauen tagging that used to live in the in-room Closing are now Take-Home homework, documented in `workshop/take-home/index.qmd`. The slides for these (Closing section of `slides/workshop/index.qmd`) are retained as Take-Home reference; they are not shown live in the 15-min Closing.
 
 ### The Spec Sheet: 4 Sections
 
@@ -347,18 +355,19 @@ Three discrete outcomes when participants test their system prompt against a kno
 - **Chat tools** (Microsoft Copilot, ChatGPT, Claude.ai, HuggingChat): the actual tool participants use in Block 3 to test their system prompt
 - **Coding agents** (Claude Code or pi.dev): named in Block 1's tool-tour as the third Affordance-Typ; not used hands-on by participants in this workshop
 
-### Six Backup Scenarios
+### Seven Backup Scenarios
 
-Located at `workshop/build/scenarios/` and mirrored in `hf-spaces/diagnostic-tool-shell/scenarios.json` and `hf-spaces/diagnostic-tool-shell-marimo/scenarios.json`:
+Located at `workshop/build/scenarios/`. **Translated to German** as of 2026-05-12. Earlier English versions are mirrored in `hf-spaces/diagnostic-tool-shell/scenarios.json` and `hf-spaces/diagnostic-tool-shell-marimo/scenarios.json` and are not regenerated when the German `.qmd` versions change:
 
-1. Nursing: Warfarin and INR
-2. Education: Critique a quiz question
-3. Business: Bakery pricing
-4. Social work: Missed appointments
-5. Engineering: Stale-data bug
-6. Statistics: Interpreting r = 0.3
+1. Pflege: Warfarin und INR
+2. Pädagogik: Eine Quizfrage kritisieren
+3. Wirtschaft: Bäckerei-Preisanpassung
+4. Sozialarbeit: Verpasste Termine
+5. Engineering: Stale-Data-Bug
+6. Statistik: Interpretation von $r = 0{,}3$
+7. Mathematik: Das Substitutions-Muster erkennen
 
-Each scenario provides three calibrated student responses. In the new design these serve as backup assignments for Block 2 (for participants without their own material) and as raw material for the Block 3 test (a known student answer to feed the system-prompted LLM).
+Each scenario provides three calibrated student responses, each tagged with a German failure-mode name (Aktive Fehlkonzeption, Lernferner Abruf, Schema-Lücke, Intrinsische Überlastung, Extrinsische Ablenkung). These serve as backup assignments for Block 2 (for participants without their own material) and as raw material for the Block 3 test (a known student answer to feed the system-prompted LLM). The earlier `load_signal` taxonomy from the diagnostic-tool-shell iteration is no longer used.
 
 ### Pedagogical Grounding
 

@@ -9,9 +9,9 @@ Eine Vorlage, mit der du dein ausgefülltes Spec Sheet in einen System-Prompt f�
 
 Drei Varianten sind unten beschrieben, je nachdem in welcher Rolle du das LLM einsetzen willst:
 
-- **Diagnostische Rolle**: das LLM analysiert eine echte Studierenden-Antwort und identifiziert, welcher Wissensbaustein wahrscheinlich fehlt.
-- **Lernende-Simulator**: das LLM spielt eine Studierende, der ein bestimmter Baustein fehlt, und produziert auf Anfrage Antworten.
-- **Sokratischer Tutor**: das LLM stellt einer Studierenden Fragen, die einen bestimmten Baustein zur Selbstkonstruktion bringen.
+- **Diagnostische Rolle**: das LLM analysiert eine echte Lernenden-Antwort und identifiziert, welcher Wissensbaustein wahrscheinlich fehlt.
+- **Lernende-Simulator**: das LLM spielt eine Lernende, der ein bestimmter Baustein fehlt, und produziert auf Anfrage Antworten.
+- **Sokratischer Tutor**: das LLM stellt einer Lernenden Fragen, die einen bestimmten Baustein zur Selbstkonstruktion bringen.
 
 Du fängst typischerweise mit der diagnostischen Rolle an. Die anderen sind für spätere Anwendungen, wenn du dein Spec Sheet schon kennst.
 :::
@@ -43,19 +43,19 @@ Wenn du eine harte Garantie brauchst (etwa für eine wiederkehrende Pipeline, in
 2. Kopiere das Template-Gerüst.
 3. Ersetze die Platzhalter mit eckigen Klammern (`[...]`) durch Inhalte aus deinem Spec Sheet.
 4. Füge das fertige Resultat als System-Prompt in dein Werkzeug ein (in Microsoft Copilot: "Anweisungen", in HuggingChat: "System Prompt", in ChatGPT: "Custom Instructions" oder Custom GPT, in Claude: "System Prompt").
-5. Teste mit einer realen oder erfundenen Studierenden-Antwort.
+5. Teste mit einer realen oder erfundenen Lernenden-Antwort.
 
 Wenn das Werkzeug nicht das tut, was du erwartet hast, geh **zurück zum Spec Sheet**. Meistens fehlt eine Information, die du im Spec Sheet noch nicht festgelegt hattest. Das ist die wichtigste Lehre aus Block 3: die Qualität des Prompts ist eine Funktion der Qualität des Spec Sheets.
 
 ## Variante 1: Diagnostische Rolle
 
-**Wann nutzen:** du willst, dass das LLM dir hilft, Studierenden-Antworten daraufhin zu analysieren, welcher Wissensbaustein fehlt.
+**Wann nutzen:** du willst, dass das LLM dir hilft, Lernenden-Antworten daraufhin zu analysieren, welcher Wissensbaustein fehlt.
 
-**Was es nicht ist:** ein automatisches Korrektursystem. Das LLM liefert eine Hypothese; du als Dozentin entscheidest, ob sie zutrifft.
+**Was es nicht ist:** ein automatisches Korrektursystem. Das LLM liefert eine Hypothese; du als Lehrperson entscheidest, ob sie zutrifft.
 
 ```
 Du bist eine Lehrassistentin, die einer Hochschuldozentin hilft, Antworten
-von Studierenden zu analysieren.
+von Lernenden zu analysieren.
 
 Kontext der Aufgabe
 -------------------
@@ -90,7 +90,7 @@ Wahrscheinliche Fehlkonzepte
 Deine Aufgabe
 -------------
 
-Wenn ich dir eine Studierenden-Antwort gebe, mache folgendes:
+Wenn ich dir eine Lernenden-Antwort gebe, mache folgendes:
 
 1. Identifiziere höchstens DREI Wissensbausteine oder Fehlkonzepte aus den
    Listen oben, die in der Antwort am ehesten betroffen sind. Begründe je
@@ -108,7 +108,7 @@ Wichtige Einschränkungen
 
 - Wenn du keinen Punkt aus den Listen klar erkennst, sag das. Erfinde
   keinen Wissensbaustein, der nicht oben gelistet ist.
-- Wenn die Antwort der Studierenden für die Teilaufgabe insgesamt korrekt
+- Wenn die Antwort der Lernenden für die Teilaufgabe insgesamt korrekt
   ist, sag das einfach. Suche nicht nach Fehlern, wo keine sind.
 - Spiele kein künstlich überhöhtes oder vermindertes Selbstvertrauen.
   Sage "ich bin unsicher", wenn du es bist.
@@ -118,20 +118,20 @@ Wichtige Einschränkungen
 ::: {.callout-pro-tip icon=false}
 ## Tipp zum Testen
 
-Teste den fertigen Prompt mit einer Studierenden-Antwort, von der du selbst weisst, welcher Baustein fehlt. Wenn das LLM den Baustein zuverlässig identifiziert: gut. Wenn nicht: schau in deinem Spec Sheet, ob die Beschreibung des Bausteins (insbesondere die "Was schiefgeht"-Felder) konkret genug ist. Meistens hilft es, dort zu schärfen.
+Teste den fertigen Prompt mit einer Lernenden-Antwort, von der du selbst weisst, welcher Baustein fehlt. Wenn das LLM den Baustein zuverlässig identifiziert: gut. Wenn nicht: schau in deinem Spec Sheet, ob die Beschreibung des Bausteins (insbesondere die "Was schiefgeht"-Felder) konkret genug ist. Meistens hilft es, dort zu schärfen.
 :::
 
 ## Variante 2: Lernende-Simulator
 
-**Wann nutzen:** du willst eine Aufgabe vor dem Einsatz mit Studierenden testen, indem du Antworten von Studierenden mit verschiedenen Bausteinlücken simulieren lässt.
+**Wann nutzen:** du willst eine Aufgabe vor dem Einsatz mit Lernenden testen, indem du Antworten von Lernenden mit verschiedenen Bausteinlücken simulieren lässt.
 
 ```
-Du übernimmst die Rolle einer Studierenden auf folgendem Niveau:
+Du übernimmst die Rolle einer Lernenden auf folgendem Niveau:
 
 Kurskontext:
 [Inhalt von Sektion A2 einfügen]
 
-Du bist auf diesem Niveau eine sonst kompetente Studierende. Was du
+Du bist auf diesem Niveau eine sonst kompetente Lernende. Was du
 allerdings noch *nicht* hast:
 
 [Wähle einen Baustein aus Sektion B deines Spec Sheets und füge ein:
@@ -149,7 +149,7 @@ ausser im genannten Punkt" festlegen willst]
 Verhaltensregeln
 ----------------
 
-- Antworte auf Aufgaben so, wie diese Studierende sie beantworten würde.
+- Antworte auf Aufgaben so, wie diese Lernende sie beantworten würde.
 - Spiele weder absichtlich dumm noch absichtlich klug. Bleibe in der
   spezifizierten Rolle.
 - Wenn die Aufgabe genau den fehlenden Baustein abfragt, scheitere
@@ -159,15 +159,15 @@ Verhaltensregeln
 - Antworte auf Deutsch.
 - Brich nicht aus der Rolle aus, auch wenn ich dich direkt frage. Wenn ich
   schreibe "spiel mal die richtige Antwort", schreib trotzdem als die
-  spezifizierte Studierende.
+  spezifizierte Lernende.
 ```
 
 ## Variante 3: Sokratischer Tutor (optional)
 
-**Wann nutzen:** für Aufgaben, in denen die Studierende einen Erklärungsbaustein selbst konstruieren soll. Diese Variante ist riskanter: das LLM neigt dazu, abzukürzen und die Antwort selbst zu liefern. Brauche sie nur, wenn dein Spec Sheet einen klaren Erklärungs-Baustein hat, dessen Konstruktion du unterstützen willst.
+**Wann nutzen:** für Aufgaben, in denen die Lernende einen Erklärungsbaustein selbst konstruieren soll. Diese Variante ist riskanter: das LLM neigt dazu, abzukürzen und die Antwort selbst zu liefern. Brauche sie nur, wenn dein Spec Sheet einen klaren Erklärungs-Baustein hat, dessen Konstruktion du unterstützen willst.
 
 ```
-Du bist eine sokratische Lernbegleiterin für eine Studierende, die folgenden
+Du bist eine sokratische Lernbegleiterin für eine Lernende, die folgenden
 Erklärungs-Baustein selbst aufbauen soll:
 
 Erklärungs-Baustein:
@@ -179,14 +179,14 @@ Kurskontext:
 Verhalten
 ---------
 
-- Stelle Fragen, die die Studierende zu einer eigenen Festlegung bringen.
+- Stelle Fragen, die die Lernende zu einer eigenen Festlegung bringen.
   Eigene Festlegung heisst: eine Aussage, die richtig oder falsch sein
-  könnte und für die die Studierende einsteht.
-- Beantworte die Frage NICHT für sie. Auch nicht, wenn die Studierende
+  könnte und für die die Lernende einsteht.
+- Beantworte die Frage NICHT für sie. Auch nicht, wenn die Lernende
   direkt um die Antwort bittet.
-- Wenn die Studierende eine Festlegung produziert, die teilweise stimmt,
+- Wenn die Lernende eine Festlegung produziert, die teilweise stimmt,
   greife einen konkreten Aspekt heraus und frag nach der Begründung.
-- Wenn die Studierende eine Festlegung produziert, die ein bekanntes
+- Wenn die Lernende eine Festlegung produziert, die ein bekanntes
   Fehlkonzept reflektiert (siehe unten), führe ein kontrastives Beispiel
   ein, das das Fehlkonzept zum Scheitern bringt. Beantworte aber weiterhin
   nicht direkt.

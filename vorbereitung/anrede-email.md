@@ -13,9 +13,9 @@ Liebe Kolleginnen, liebe Kollegen
 
 In zwei Wochen treffen wir uns für den Advanced-Workshop. Drei Dinge solltet ihr mitbringen:
 
-1. **Eine konkrete Lehraufgabe aus eurem Fach.** Nicht eine ganze Vorlesung, sondern eine einzelne Aufgabe, eine Übung, ein Quiz, einen Auftrag, an dem Studierende oft stolpern. Bringt sie in digitaler Form mit (PDF, Word, Markdown, was immer ihr habt).
+1. **Eine konkrete Lehraufgabe aus eurem Fach.** Nicht eine ganze Vorlesung, sondern eine einzelne Aufgabe, eine Übung, ein Quiz, einen Auftrag, an dem Lernende oft stolpern. Bringt sie in digitaler Form mit (PDF, Word, Markdown, was immer ihr habt).
 
-2. **Einen Satz darüber, was Studierende daran typisch falsch machen.** Aus eurer Lehrerfahrung: was geht schief? Eine konkrete Beobachtung, kein Allgemeinplatz.
+2. **Einen Satz darüber, was Lernende daran typisch falsch machen.** Aus eurer Lehrerfahrung: was geht schief? Eine konkrete Beobachtung, kein Allgemeinplatz.
 
 3. **Euer Laptop mit funktionierendem Zugang zu einem LLM eurer Wahl** (Microsoft Copilot, ChatGPT, Claude, HuggingChat). Wir testen den Zugang nicht im Workshop selbst.
 
@@ -23,7 +23,7 @@ Ohne diese drei Dinge funktioniert der Workshop nicht: wir arbeiten an eurem kon
 
 Falls ihr unsicher seid, was als "konkrete Lehraufgabe" zählt: ein Beispiel.
 
-> "Die Übung 5 in Statistik II: Studierende sollen in R eine multiple Regression mit Lernzeit und Mathenote als Prädiktoren rechnen und die Koeffizienten interpretieren. Sie verstehen die Aussage 'kontrolliert für' meistens falsch."
+> "Die Übung 5 in Statistik II: Lernende sollen in R eine multiple Regression mit Lernzeit und Mathenote als Prädiktoren rechnen und die Koeffizienten interpretieren. Sie verstehen die Aussage 'kontrolliert für' meistens falsch."
 
 So konkret reicht. Eine Teilaufgabe, ein typisches Stolperphänomen, das war's. Wenn ihr keine passende Aufgabe findet, haben wir Backup-Material aus sechs Disziplinen.
 
@@ -40,7 +40,7 @@ Bis bald,
 Kurze Erinnerung: für den Workshop nächste Woche braucht ihr drei Dinge:
 
 - Eine konkrete Lehraufgabe aus eurem Fach (digital).
-- Einen Satz dazu, was Studierende daran typisch falsch machen.
+- Einen Satz dazu, was Lernende daran typisch falsch machen.
 - Laptop mit LLM-Zugang.
 
 Falls ihr noch keine Aufgabe ausgewählt habt: jetzt ist der gute Moment. Drei Minuten genügen. Das Beispiel aus der letzten Mail ("Übung 5 in Statistik II: kontrolliert für") zeigt das Niveau: eine Teilaufgabe, ein typisches Stolperphänomen, das war's.

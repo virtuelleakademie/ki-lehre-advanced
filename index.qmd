@@ -39,7 +39,7 @@ bibliography: ./bibliography.bib
 
 ## {{< bi signpost-split >}} Workshop-Struktur
 
-In diesem 3-Stunden-Workshop baust du eine **Spec Card**: eine möglichst klare, falsifizierbare Spezifikation einer Lernerin in deinem Fach. Die Karte ist tool-unabhängig, sie überlebt jeden konkreten Prompt und jedes konkrete Werkzeug. Anschliessend wendest du die Karte auf eine eigene Aufgabe oder ein Lehrmaterial an.
+In diesem 3-Stunden-Workshop baust du für eine Teilaufgabe aus deiner eigenen Lehre ein **Spec Sheet**: eine möglichst klare, falsifizierbare Beschreibung dessen, was eine Lernende mitbringen muss, was sie wahrscheinlich nicht hat und welche Fehlkonzepte plausibel sind. Das Spec Sheet ist werkzeug-unabhängig, es überlebt jeden konkreten Prompt und jedes konkrete Werkzeug. Anschliessend übersetzt du es in einen System-Prompt und prüfst dessen Verhalten in einem Chat-Werkzeug deiner Wahl.
 
 {{< include resources/figures/fig-workshop-flow.qmd >}}
 
@@ -78,17 +78,18 @@ Die Website funktioniert auf zwei Ebenen: als Live-Begleitung während des Works
 
 ## Die zentrale Behauptung
 
-KI-Substitution liefert nicht *schlechte* Eingaben für die Selbsteinschätzung der Studierenden: sie liefert *gar keine Eingaben*. Die Aktualisierung findet schlicht nicht statt. Das ist die schärfere Fassung der Frage, was beim Outsourcing von Denkarbeit verloren geht. In Block 1 wird sie hergeleitet, in Block 4 angewendet.
+KI-Substitution liefert nicht *schlechte* Eingaben für die Selbsteinschätzung der Lernenden: sie liefert *gar keine Eingaben*. Die Aktualisierung findet schlicht nicht statt. Das ist die schärfere Fassung der Frage, was beim Outsourcing von Denkarbeit verloren geht. In Block 1 wird sie hergeleitet, im Closing auf deine eigene Teilaufgabe angewendet.
 
 
 ## Lernziele
 
 Am Ende des Workshops kannst du:
 
-1. **Eine Spec Card** für eine Novizin in deinem Fach schreiben.
-2. **Diese Spezifikation in mehrere Werkzeuge übersetzen** und nachvollziehen, wo Modell-Defaults vom spezifizierten Verhalten abweichen.
-3. **Vier diagnostische Rollen anwenden** auf eine eigene Aufgabe oder ein Lehrmaterial und konkrete Verbesserungsstellen identifizieren.
-4. **Einen portablen Prompt** mitnehmen, den du in Copilot, ChatGPT oder Claude direkt einsetzen kannst.
+1. Eine Teilaufgabe deiner Lehre in ihre Wissensbausteine **zerlegen**, mit der Unterscheidung Faktenwissen (Abrufen) / Klassifikationswissen (Erkennen) / Erklärungswissen (Begründen).
+2. Wahrscheinliche Fehlkonzepte und nicht-vorhandene Wissensbausteine **identifizieren**, mit Hilfe eines LLM als Hypothesengenerator und als Lernende-Simulator.
+3. Bei jedem Eintrag im Spec Sheet **Vermutung von Beobachtung trennen** und damit die methodische Disziplin der Validierung anwenden.
+4. Ein Spec Sheet **in einen System-Prompt übersetzen** und das Werkzeug-Verhalten anhand des Spec Sheets diagnostizieren, wenn es vom Erwarteten abweicht.
+5. Die Frage **beantworten**, welche Teilschritte deiner Aufgabe KI-Substitution zulassen und welche nicht.
 
 
 ## Voraussetzungen

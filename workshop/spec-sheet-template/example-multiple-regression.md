@@ -6,11 +6,11 @@ Vollständig ausgefülltes Beispiel-Spec zur Übung "Multiple Regression mit zwe
 
 ## Lernaufgabe (Kontext und Ziel)
 
-**Wortlaut:** Die Studierenden führen in R eine multiple Regression mit zwei Prädiktoren durch und interpretieren das Ergebnis: Können Lernzeit ($X_1$) und Mathenote ($X_2$) gemeinsam die Klausurpunktzahl ($Y$) vorhersagen?
+**Wortlaut:** Die Lernenden führen in R eine multiple Regression mit zwei Prädiktoren durch und interpretieren das Ergebnis: Können Lernzeit ($X_1$) und Mathenote ($X_2$) gemeinsam die Klausurpunktzahl ($Y$) vorhersagen?
 
-**Rahmen:** Übung 5 im Statistik-II-Kurs, im Anschluss an die einfache lineare Regression und die Partial-/Semipartialkorrelation. Studierende kennen $r$, $r^2$ und das Konzept der bivariaten Regression.
+**Rahmen:** Übung 5 im Statistik-II-Kurs, im Anschluss an die einfache lineare Regression und die Partial-/Semipartialkorrelation. Lernende kennen $r$, $r^2$ und das Konzept der bivariaten Regression.
 
-**Intendiertes Ergebnis:** Die Studierenden verstehen die konditionale Bedeutung der Aussage "kontrolliert für" und können einen Regressionskoeffizienten unter Berücksichtigung weiterer Prädiktoren angemessen interpretieren.
+**Intendiertes Ergebnis:** Die Lernenden verstehen die konditionale Bedeutung der Aussage "kontrolliert für" und können einen Regressionskoeffizienten unter Berücksichtigung weiterer Prädiktoren angemessen interpretieren.
 
 ## Erforderliche Skills und Knowledge
 
@@ -35,15 +35,15 @@ Vollständig ausgefülltes Beispiel-Spec zur Übung "Multiple Regression mit zwe
 
 ## Antizipierte Misconceptions
 
-- Studierende konzeptualisieren das "Kontrollieren" als aktiven Eingriff in den Datensatz.
+- Lernende konzeptualisieren das "Kontrollieren" als aktiven Eingriff in den Datensatz.
   *Vermutete intuitive Grundlage:* alltagssprachliche Konnotation des Begriffs "Kontrolle" als aktive Einflussnahme. Verstärkt durch sprachliche Formulierungen wie "rauspartialisieren" oder "herausrechnen".
-- Studierende erwarten, dass Effekte über Modelltypen hinweg additiv und unverändert bleiben.
+- Lernende erwarten, dass Effekte über Modelltypen hinweg additiv und unverändert bleiben.
   *Vermutete intuitive Grundlage:* Übertragung von Linearitäts- und Separabilitäts-Heuristiken aus einfacheren Modellklassen, in denen Prädiktoren unkorreliert eingeführt wurden.
-- Studierende interpretieren $R^2$ in der multiplen Regression als Summe der bivariaten $r^2$.
+- Lernende interpretieren $R^2$ in der multiplen Regression als Summe der bivariaten $r^2$.
   *Vermutete intuitive Grundlage:* Übergeneralisierung der Additivität, die in der ANOVA-Varianzzerlegung mit orthogonalen Faktoren tatsächlich gilt.
-- Studierende halten einen signifikanten bivariaten Zusammenhang für eine Garantie, dass der Prädiktor auch in der multiplen Regression signifikant bleibt.
+- Lernende halten einen signifikanten bivariaten Zusammenhang für eine Garantie, dass der Prädiktor auch in der multiplen Regression signifikant bleibt.
   *Vermutete intuitive Grundlage:* implizite Annahme, dass Korrelationen zwischen Prädiktoren irrelevant für ihre individuellen Effekte sind.
 
 ## Hinweis
 
-Dieses Spec ist ein Beispiel, kein vollständiges Modell der Aufgabe. Es ist die Hypothese einer Dozentin nach einem Workshop-Lauf; nach Konfrontation mit realen Studierenden-Antworten würden vermutlich einzelne Skills geschärft, einige Misconceptions gestrichen und neue ergänzt.
+Dieses Spec ist ein Beispiel, kein vollständiges Modell der Aufgabe. Es ist die Hypothese einer Lehrperson nach einem Workshop-Lauf; nach Konfrontation mit realen Lernenden-Antworten würden vermutlich einzelne Skills geschärft, einige Misconceptions gestrichen und neue ergänzt.
