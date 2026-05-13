@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Andrew Ellis">
-  <title>KI in der Lehre: Advanced – Spec Sheets bauen, mit LLMs als Hypothesengenerator und Lernende-Simulator</title>
+  <title>KI in der Lehre: Advanced – Spec Sheets bauen</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -224,17 +224,79 @@
     content: '\e2ca' !important;
     background-image: none;
   }
-  div.callout-checkpoint.callout {
+  div.callout-nachlesen.callout {
     border-left-color: #1E3A5F;
   }
-  div.callout-checkpoint.callout-style-default > .callout-header {
+  div.callout-nachlesen.callout-style-default > .callout-header {
     background-color: rgba(30, 58, 95, 0.13);
   }
-  div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
+  div.callout-nachlesen .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-nachlesen.callout-style-default .callout-icon::before, div.callout-nachlesen.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\f11e' !important;
+    content: '\f518' !important;
+    background-image: none;
+  }
+  div.callout-feedback.callout {
+    border-left-color: #1E3A5F;
+  }
+  div.callout-feedback.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
+  }
+  div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f4ad' !important;
+    background-image: none;
+  }
+  div.callout-facilitator.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-facilitator.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-facilitator .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-facilitator.callout-style-default .callout-icon::before, div.callout-facilitator.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f46d' !important;
+    background-image: none;
+  }
+  div.callout-schedule.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-schedule.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f017' !important;
+    background-image: none;
+  }
+  div.callout-fallstudie.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-fallstudie.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-fallstudie .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-fallstudie.callout-style-default .callout-icon::before, div.callout-fallstudie.callout-titled .callout-icon::before {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236E6560" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+  }
+  div.callout-reflect.callout {
+    border-left-color: #1E3A5F;
+  }
+  div.callout-reflect.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
+  }
+  div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f0eb' !important;
     background-image: none;
   }
   div.callout-prompt-example.callout {
@@ -250,17 +312,17 @@
     content: '\f120' !important;
     background-image: none;
   }
-  div.callout-prompt-template.callout {
-    border-left-color: #1E3A5F;
+  div.callout-group.callout {
+    border-left-color: #A63D2F;
   }
-  div.callout-prompt-template.callout-style-default > .callout-header {
-    background-color: rgba(30, 58, 95, 0.13);
+  div.callout-group.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
   }
-  div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
+  div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\f328' !important;
+    content: '\f0c0' !important;
     background-image: none;
   }
   div.callout-active-processing.callout {
@@ -289,92 +351,17 @@
     content: '\f06e' !important;
     background-image: none;
   }
-  div.callout-schedule.callout {
-    border-left-color: #6E6560;
-  }
-  div.callout-schedule.callout-style-default > .callout-header {
-    background-color: rgba(110, 101, 96, 0.13);
-  }
-  div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f017' !important;
-    background-image: none;
-  }
-  div.callout-nachlesen.callout {
+  div.callout-prompt-template.callout {
     border-left-color: #1E3A5F;
   }
-  div.callout-nachlesen.callout-style-default > .callout-header {
+  div.callout-prompt-template.callout-style-default > .callout-header {
     background-color: rgba(30, 58, 95, 0.13);
   }
-  div.callout-nachlesen .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-nachlesen.callout-style-default .callout-icon::before, div.callout-nachlesen.callout-titled .callout-icon::before {
+  div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\f518' !important;
-    background-image: none;
-  }
-  div.callout-facilitator.callout {
-    border-left-color: #6E6560;
-  }
-  div.callout-facilitator.callout-style-default > .callout-header {
-    background-color: rgba(110, 101, 96, 0.13);
-  }
-  div.callout-facilitator .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-facilitator.callout-style-default .callout-icon::before, div.callout-facilitator.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f46d' !important;
-    background-image: none;
-  }
-  div.callout-try.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-try.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f021' !important;
-    background-image: none;
-  }
-  div.callout-fallstudie.callout {
-    border-left-color: #6E6560;
-  }
-  div.callout-fallstudie.callout-style-default > .callout-header {
-    background-color: rgba(110, 101, 96, 0.13);
-  }
-  div.callout-fallstudie .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-fallstudie.callout-style-default .callout-icon::before, div.callout-fallstudie.callout-titled .callout-icon::before {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236E6560" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-  }
-  div.callout-pair.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-pair.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f500' !important;
-    background-image: none;
-  }
-  div.callout-individual.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-individual.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f007' !important;
+    content: '\f328' !important;
     background-image: none;
   }
   div.callout-export.callout {
@@ -390,56 +377,17 @@
     content: '\f56e' !important;
     background-image: none;
   }
-  div.callout-reflect.callout {
-    border-left-color: #1E3A5F;
+  div.callout-individual.callout {
+    border-left-color: #A63D2F;
   }
-  div.callout-reflect.callout-style-default > .callout-header {
-    background-color: rgba(30, 58, 95, 0.13);
+  div.callout-individual.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
   }
-  div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
+  div.callout-individual .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-individual.callout-style-default .callout-icon::before, div.callout-individual.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\f0eb' !important;
-    background-image: none;
-  }
-  div.callout-setup.callout {
-    border-left-color: #6E6560;
-  }
-  div.callout-setup.callout-style-default > .callout-header {
-    background-color: rgba(110, 101, 96, 0.13);
-  }
-  div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f7d9' !important;
-    background-image: none;
-  }
-  div.callout-caution.callout {
-    border-left-color: #B8821A;
-  }
-  div.callout-caution.callout-style-default > .callout-header {
-    background-color: rgba(184, 130, 26, 0.13);
-  }
-  div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f071' !important;
-    background-image: none;
-  }
-  div.callout-feedback.callout {
-    border-left-color: #1E3A5F;
-  }
-  div.callout-feedback.callout-style-default > .callout-header {
-    background-color: rgba(30, 58, 95, 0.13);
-  }
-  div.callout-feedback .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-feedback.callout-style-default .callout-icon::before, div.callout-feedback.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f4ad' !important;
+    content: '\f007' !important;
     background-image: none;
   }
   div.callout-break.callout {
@@ -455,30 +403,17 @@
     content: '\f7b6' !important;
     background-image: none;
   }
-  div.callout-testing.callout {
-    border-left-color: #A63D2F;
+  div.callout-checkpoint.callout {
+    border-left-color: #1E3A5F;
   }
-  div.callout-testing.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
+  div.callout-checkpoint.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
   }
-  div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
+  div.callout-checkpoint .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-checkpoint.callout-style-default .callout-icon::before, div.callout-checkpoint.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\e4f3' !important;
-    background-image: none;
-  }
-  div.callout-group.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-group.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-group .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-group.callout-style-default .callout-icon::before, div.callout-group.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f0c0' !important;
+    content: '\f11e' !important;
     background-image: none;
   }
   div.callout-work-in-progress.callout {
@@ -492,6 +427,58 @@
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
     content: '\f0c3' !important;
+    background-image: none;
+  }
+  div.callout-screens-down.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-screens-down.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f070' !important;
+    background-image: none;
+  }
+  div.callout-try.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-try.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f021' !important;
+    background-image: none;
+  }
+  div.callout-caution.callout {
+    border-left-color: #B8821A;
+  }
+  div.callout-caution.callout-style-default > .callout-header {
+    background-color: rgba(184, 130, 26, 0.13);
+  }
+  div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f071' !important;
+    background-image: none;
+  }
+  div.callout-pair.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-pair.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f500' !important;
     background-image: none;
   }
   div.callout-tutor-example.callout {
@@ -520,22 +507,35 @@
     content: '\f2f2' !important;
     background-image: none;
   }
-  div.callout-screens-down.callout {
+  div.callout-testing.callout {
     border-left-color: #A63D2F;
   }
-  div.callout-screens-down.callout-style-default > .callout-header {
+  div.callout-testing.callout-style-default > .callout-header {
     background-color: rgba(166, 61, 47, 0.13);
   }
-  div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
+  div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\f070' !important;
+    content: '\e4f3' !important;
+    background-image: none;
+  }
+  div.callout-setup.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-setup.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f7d9' !important;
     background-image: none;
   }
   </style>
-<meta property="og:title" content="Spec Sheets bauen, mit LLMs als Hypothesengenerator und Lernende-Simulator – KI in der Lehre: Advanced">
-<meta property="og:description" content="KI in der Lehre: Advanced — Workshop-Slides">
+<meta property="og:title" content="Spec Sheets bauen – KI in der Lehre: Advanced">
+<meta property="og:description" content="LLMs als Hypothesengenerator und Lernende-Simulator">
 <meta property="og:site_name" content="KI in der Lehre: Advanced">
 </head>
 <body class="quarto-light">
@@ -543,8 +543,8 @@
     <div class="slides">
 
 <section id="title-slide" data-background-opacity="1" class="quarto-title-block center">
-  <h1 class="title">Spec Sheets bauen, mit LLMs als Hypothesengenerator und Lernende-Simulator</h1>
-  <p class="subtitle">KI in der Lehre: Advanced — Workshop-Slides</p>
+  <h1 class="title">Spec Sheets bauen</h1>
+  <p class="subtitle">LLMs als Hypothesengenerator und Lernende-Simulator</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -595,12 +595,12 @@ Andrew Ellis
 </div><div class="column" style="width:33%;">
 <h3 id="block-3-closing-50-min">Block 3 + Closing (50 min)</h3>
 <p><em>Spec → Werkzeug → Verpflichtung</em></p>
-<p>Spec im laufenden Werkzeug testen und schärfen, Leitsatz verallgemeinern, persönliche Verpflichtung.</p>
+<p>Spec im laufenden Werkzeug testen und schärfen. <!-- Leitsatz verallgemeinern, persönliche Verpflichtung. --></p>
 </div></div>
 <p><br></p>
-<div style="text-align: center; font-size: 1.0em; color: #6E6560;">
-<p>Programmiererfahrung brauchst du nicht. Eine Aufgabe aus deiner Lehre solltest du parathaben.</p>
-</div>
+<!-- ::: {style="text-align: center; font-size: 1.0em; color: #6E6560;"}
+Programmiererfahrung brauchst du nicht. Eine Aufgabe aus deiner Lehre solltest du parathaben.
+::: -->
 </section>
 <section>
 <section id="block-1-theorie-und-beispiel" class="title-slide slide level1 center section-divider section-navy">
@@ -654,9 +654,9 @@ Andrew Ellis
 <h2>Das LLM als Hypothesengenerator</h2>
 <p><br></p>
 <div style="font-size: 1.05em; max-width: 85%; margin: 0 auto; line-height: 1.6;">
-<p>Ein LLM, das als <em>“Person, die gerade die Vorgängerveranstaltung abgeschlossen hat, aber diese hier noch nicht kennt”</em> geprompted wird, kann Teilschritte aufzählen, die ein Experte überspringt.</p>
-<p>Die Annahme dahinter: in dieser Rolle teilt das LLM die automatisierten Routinen der Expertin nicht, und seine Enumeration kann als <strong>Spiegel</strong> dienen, der mögliche Voraussetzungen der eigenen Performance sichtbar macht.</p>
-<p><span style="font-size: 0.78em; color: #6E6560; display: block; margin-top: 0.8em;">Die Liste ist <em>plausibel</em>, nicht <em>gemessen</em>: das LLM kennt deine Vorgängerveranstaltung nicht. Was im Output spezifisch passt, übernimmst du; was generisch ist, streichst du.</span></p>
+<p>Ein LLM, das als <code>"Person, die gerade die Vorgängerveranstaltung abgeschlossen hat, aber diese hier noch nicht kennt"</code> geprompted wird, kann Teilschritte aufzählen, die ein Experte überspringt.</p>
+<p>Die Annahme dahinter: in dieser Rolle teilt das LLM die automatisierten Routinen der Expertin nicht.</p>
+<p><span style="font-size: 0.78em; color: #6E6560; display: block; margin-top: 0.8em;">Die Liste ist <em>plausibel</em>, nicht <em>validiert</em>: das LLM kennt deine Vorgängerveranstaltung nicht. Was im Output spezifisch passt, übernimmst du; was generisch ist, streichst du.</span></p>
 </div>
 <aside class="notes">
 <p>~1 Min. Diese Eigenschaft ist nicht trivial; die meisten LLM-Einsätze in der Lehre nutzen sie nicht aus. Im worked example unmittelbar danach wird sie operationalisiert.</p>
@@ -713,9 +713,42 @@ Andrew Ellis
           display:block!important;
       }</style></aside>
 </section>
+<section id="worked-example-marker" class="slide level2 center smaller">
+<h2>Jetzt: Worked Example</h2>
+<p><br></p>
+<div style="text-align: center; font-size: 1.5em; color: #1E3A5F; font-weight: bold;">
+<p>→ <a href="../../workshop/block-1-theorie-und-beispiel/worked-example-statistics.html" target="_blank">Worked Example</a> öffnen (25 Min)</p>
+</div>
+<p><br></p>
+<div style="text-align: center; font-size: 1.0em; color: #6E6560; max-width: 80%; margin: 0 auto; line-height: 1.5;">
+<p>Gemeinsamer Durchgang durch das Spec Sheet an einer Statistik-Aufgabe.</p>
+</div>
+<p><br></p>
+<!-- ::: {style="text-align: center; font-size: 0.95em;"}
+[Worked Example: Multiple Regression](../../workshop/block-1-theorie-und-beispiel/worked-example-statistics.qmd){target="_blank"}
+::: -->
+<p><br></p>
+<div style="text-align: center; font-size: 0.85em; color: #6E6560; max-width: 75%; margin: 0 auto;">
+<p>Mitbeobachten: typische akzeptable Antwort, Hypothesengenerator-Prompt, Enumeration, Blind-Spot-Moment.</p>
+</div>
+<aside class="notes">
+<p><strong>Übergang in den Worked Example (25 Min).</strong> Jetzt in den Browser-Tab mit der Worked-Example-Seite wechseln, oder auf den Link auf der Folie klicken (öffnet im neuen Tab). Live walk-through, R-Code sichtbar.</p>
+<p>Nach dem Worked Example zurück in den Foliensatz auf die Folie <em>Spec ist dauerhaft, Werkzeug ist Übersetzung</em> (Spec-Vorschau, 5 Min). Dazwischen liegen vier CLT-Referenz-Folien, die übersprungen werden.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="cognitive-load-theory-der-engpass" class="slide level2 smaller">
 <h2>Cognitive Load Theory: der Engpass</h2>
-<p>Das Arbeitsgedächtnis verarbeitet etwa <strong>4 Elemente</strong> gleichzeitig, für <strong>15-30 Sekunden</strong>.</p>
+<p>Das Arbeitsgedächtnis verarbeitet <strong>wenige Elemente</strong> gleichzeitig, für <strong>15-30 Sekunden</strong>.</p>
 <div class="fig-diagram" aria-label="CLT-Engpass: ein Datenfluss von links nach rechts. Sensorischer Input fliesst breit ein, verengt sich auf das schmale Arbeitsgedächtnis (vier Elemente, fünfzehn bis dreissig Sekunden) und öffnet sich wieder zum breiten Langzeitgedächtnis.">
 <svg viewbox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="bottleneck-title bottleneck-desc">
   <title id="bottleneck-title">CLT-Engpass: das Arbeitsgedächtnis als Nadelöhr</title>
@@ -784,11 +817,37 @@ Andrew Ellis
   </text>
 </svg>
 </div>
-<div style="text-align: center; font-size: 0.95em; color: #1E3A5F; max-width: 80%; margin: 0.4em auto 0;">
-<p>Diese Engstelle ist der Grund, warum Lernen Mühe macht. Keine Technologie umgeht sie.</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:33%;">
+<div style="background: rgba(213, 94, 0, 0.06); padding: 0.8em; border-radius: 8px; border-top: 3px solid #D55E00;">
+<p><span style="color: #D55E00;"><strong>Extrinsische Belastung</strong></span></p>
+<p>Unnötige Last durch schlechtes Design.</p>
+<p><span style="font-weight: bold;">→ Reduzieren</span></p>
+</div>
+</div><div class="column" style="width:33%;">
+<div style="background: rgba(0, 114, 178, 0.06); padding: 0.8em; border-radius: 8px; border-top: 3px solid #0072B2;">
+<p><span style="color: #0072B2;"><strong>Intrinsische Belastung</strong></span></p>
+<p>Bestimmt durch Material und Vorwissen.</p>
+<p><span style="font-weight: bold;">→ Steuern</span></p>
+</div>
+</div><div class="column" style="width:33%;">
+<div style="background: rgba(30, 58, 95, 0.06); padding: 0.8em; border-radius: 8px; border-top: 3px solid #1E3A5F;">
+<p><span style="color: #1E3A5F;"><strong>Lernrelevante Verarbeitung</strong></span></p>
+<p>Produktive Denkarbeit, die Schemata aufbaut.</p>
+<p><span style="font-weight: bold;">→ Maximieren</span></p>
+</div>
+</div></div>
 </div>
 <aside class="notes">
-<p><strong>Nicht Teil des 35-min Block 1.</strong> Im redesignten Workshop entfällt das CLT-Recap; die CLT-Auffrischung in Volllänge ist die Refresher-Präsentation der Virtuellen Akademie (siehe Block 1 Nachlesen). Diese Folie bleibt als visuelle Referenz im Foliensatz, falls die Lehrperson das Konzept beiläufig erwähnen will.</p>
+<p><strong>Nicht Teil des 35-min Block 1.</strong> Im redesignten Workshop entfällt das CLT-Recap; die CLT-Auffrischung in Volllänge ist die Refresher-Präsentation der Virtuellen Akademie (siehe Block 1 Nachlesen). Diese Folie bleibt als visuelle Referenz im Foliensatz.</p>
+<p>Falls die Lehrperson das CLT-Modell beiläufig anspricht: drei Komponenten, mit unterschiedlichen pädagogischen Konsequenzen:</p>
+<ul>
+<li><strong>Extrinsisch</strong> (schlechtes Design, kognitive Reibung, die nicht zum Lernen beiträgt): reduzieren.</li>
+<li><strong>Intrinsisch</strong> (Material plus Vorwissen): nicht pauschal senken, sondern ans Vorwissen anpassen (Scaffolding).</li>
+<li><strong>Lernrelevante Verarbeitung</strong> (die produktive Denkarbeit, die Schemata aufbaut): maximieren.</li>
+</ul>
+<p>Wichtig: Lernrelevante Verarbeitung ist in Swellers aktualisierter Formulierung keine eigene “Last” mehr, sondern die produktive Arbeit, die das Arbeitsgedächtnis leisten kann, wenn die anderen beiden Komponenten gesteuert sind. Diese Unterscheidung verbindet den Workshop zentral: KI-Substitution senkt zwar oft die wahrgenommene Last, ersetzt aber die lernrelevante Verarbeitung.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1026,8 +1085,15 @@ Andrew Ellis
 <p><br></p>
 <div class="columns">
 <div class="column" style="width:50%;">
+<div style="background: rgba(166, 61, 47, 0.06); padding: 1.2em; border-radius: 8px; border-left: 4px solid #A63D2F;">
+<p><strong>Hypothesengenerator</strong></p>
+<p>Das LLM schlägt Wissensbausteine vor.</p>
+<p>Du <strong>prüfst</strong> und markierst V (vermutet) oder B (beobachtet) oder verwirfst.</p>
+<p>→ Vor der Validierung.</p>
+</div>
+</div><div class="column" style="width:50%;">
 <div style="background: rgba(30, 58, 95, 0.06); padding: 1.2em; border-radius: 8px; border-left: 4px solid #1E3A5F;">
-<p><strong>Lernende-Simulator</strong> <em>(Hauptaffordanz)</em></p>
+<p><strong>Lernende-Simulator</strong></p>
 <p>Das LLM spielt eine Lernende ohne Baustein X.</p>
 <p>Zwei Probemodi:</p>
 <ul>
@@ -1036,18 +1102,11 @@ Andrew Ellis
 </ul>
 <p>→ Der externe Test deines Modells der Lernenden.</p>
 </div>
-</div><div class="column" style="width:50%;">
-<div style="background: rgba(166, 61, 47, 0.06); padding: 1.2em; border-radius: 8px; border-left: 4px solid #A63D2F;">
-<p><strong>Hypothesengenerator</strong> <em>(unterstützend)</em></p>
-<p>Das LLM schlägt Wissensbausteine vor.</p>
-<p>Du <strong>prüfst</strong> und markierst V (vermutet) oder B (beobachtet) oder verwirfst.</p>
-<p>→ Vor der Validierung.</p>
-</div>
 </div></div>
 <p><br></p>
-<div style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold;">
-<p>Beim Arbeiten in Block 2 immer fragen: <em>In welcher Rolle ist das LLM gerade?</em></p>
-</div>
+<!-- ::: {style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold;"}
+Beim Arbeiten in Block 2 immer fragen: *In welcher Rolle ist das LLM gerade?*
+::: -->
 <aside class="notes">
 <p>~1 Min. Lernende-Simulator zuerst, weil er die zentrale Affordanz dieses Workshops ist: ohne ihn ist die cognitive task analysis ein blinder Versuch. Der Hypothesengenerator beschleunigt nur das Auflisten in Sektion 2. Mehr als diese Trennung brauchen wir heute nicht.</p>
 <style type="text/css">
@@ -1062,9 +1121,9 @@ Andrew Ellis
           display:block!important;
       }</style></aside>
 </section>
-<section id="drei-affordance-typen-kurz" class="slide level2 smaller">
-<h2>Drei Affordance-Typen (kurz)</h2>
-<p>Werkzeuge wechseln, <strong>Affordance-Typen</strong> bleiben:</p>
+<section id="drei-werkzeug-architekturen-kurz" class="slide level2 smaller">
+<h2>Drei Werkzeug-Architekturen (kurz)</h2>
+<p>Konkrete Werkzeuge wechseln, die <strong>Architekturen</strong> dahinter bleiben:</p>
 <p><br></p>
 <div class="columns">
 <div class="column" style="width:33%;">
@@ -1072,7 +1131,7 @@ Andrew Ellis
 <p><strong>Chat-Werkzeug</strong></p>
 <p>Copilot, ChatGPT, HuggingChat.</p>
 <p>System-Prompt + Eingabe + Antwort.</p>
-<p>→ Block 3 nutzt Typ 1.</p>
+<p>→ Block 3 nutzt diese Architektur.</p>
 </div>
 </div><div class="column" style="width:33%;">
 <div style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #6E6560; min-height: 160px;">
@@ -1083,18 +1142,18 @@ Andrew Ellis
 </div>
 </div><div class="column" style="width:33%;">
 <div style="background: #f5f0eb; padding: 1.0em; border-radius: 8px; border-top: 3px solid #B8821A; min-height: 160px;">
-<p><strong>Agentisch</strong></p>
+<p><strong>Agent Harness</strong></p>
 <p>Claude Code, pi.dev.</p>
-<p>LLM mit Werkzeugzugriff.</p>
-<p>→ Volllänge im Nachlesen.</p>
+<p>LLM mit Tool-Zugriff.</p>
+<!-- → Volllänge im Nachlesen. -->
 </div>
 </div></div>
 <p><br></p>
 <div style="text-align: center; font-size: 0.95em; color: #6E6560;">
-<p>Dein Spec Sheet ist für alle drei Typen verwendbar. Nur die Übersetzung ändert sich.</p>
+<p>Dein Spec Sheet ist für alle drei Architekturen verwendbar. Nur die Übersetzung ändert sich.</p>
 </div>
 <aside class="notes">
-<p><strong>Nicht Teil des 35-min Block 1.</strong> Im redesignten Workshop entfällt die Affordance-Typen-Tour. Block 1 zeigt nur das Chat-LLM (Hypothesengenerator und Lernende-Simulator); Block 3 zeigt den strukturierten API-Pfad an einem gehosteten Werkzeug, ohne den Begriff “Affordance-Typ” zu verwenden. Diese Folie bleibt als Referenz im Deck, falls eine Lehrperson die drei Affordance-Typen in einer längeren Variante des Workshops verwenden möchte.</p>
+<p><strong>Nicht Teil des 35-min Block 1.</strong> Im redesignten Workshop entfällt die Tour durch die Werkzeug-Architekturen. Block 1 zeigt nur das Chat-LLM (Hypothesengenerator und Lernende-Simulator); Block 3 zeigt den strukturierten API-Pfad an einem gehosteten Werkzeug, ohne die Architektur explizit zu benennen. Diese Folie bleibt als Referenz im Deck, falls eine Lehrperson die drei Architekturen in einer längeren Variante des Workshops nutzen möchte.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1147,7 +1206,7 @@ Andrew Ellis
 </table>
 <p><br></p>
 <div style="text-align: center; font-size: 1.0em; color: #1E3A5F; font-weight: bold;">
-<p>Ziel: erste vollständige Version. Nicht perfekt. Nicht alle Felder.</p>
+<p>Ziel: erste vollständige Version. Muss nicht perfekt sein.</p>
 </div>
 <aside class="notes">
 <p>~30 Sek Folie. Kurz orientieren, dann gehen die Teilnehmenden in die Eigenarbeit. Blockfolie, kein Lehrinhalt.</p>
@@ -1191,8 +1250,12 @@ Andrew Ellis
 <div style="text-align: center; font-size: 1.0em; color: #D55E00; font-weight: bold;">
 <p>Wo dein Spec vage ist, fällt der Prompt schwer. Genau das ist die Lehre aus Block 3.</p>
 </div>
+<p><br></p>
+<div style="text-align: center; font-size: 0.9em; color: #6E6560;">
+<p>Konkretes Vorher/Nachher: <a href="../../workshop/spec-sheet-template/example-multiple-regression-system-prompt.html" target="_blank">Vom Spec zum System-Prompt (Multiple Regression)</a></p>
+</div>
 <aside class="notes">
-<p>~2 Min. Mechanik vorführen am Statistik-Beispiel aus Block 1. Die Stelle hervorheben, an der eine Klammer im Template noch nicht im Spec Sheet abgedeckt ist. Beim “erfinde nichts” einmal explizit sagen: das ist eine Bitte an das Modell, kein erzwungener Constraint. In einem strukturierten API-Pfad wäre dasselbe ein Schema-Enum, der vom Validator erzwungen wird. Trade-off zwischen Chat-Niederschwelligkeit und Output-Härte. Die Architektur-Erklärung dazu liegt im Take-Home (<code>workshop/take-home/api-werkzeug-erklaert.qmd</code>).</p>
+<p>~2 Min. Mechanik vorführen am Statistik-Beispiel aus Block 1. Den Link am Folienfuss aufrufen: dort liegt das ausgearbeitete Vorher/Nachher mit dem Multiple-Regression-Spec oben und dem gerenderten diagnostischen Prompt unten, copy-paste-fähig. Die Stelle hervorheben, an der eine Klammer im Template noch nicht im Spec Sheet abgedeckt ist (etwa die “Was schiefgeht”-Sätze, die im Spec implizit, im Prompt explizit sind). Beim “erfinde nichts” einmal explizit sagen: das ist eine Bitte an das Modell, kein erzwungener Constraint. In einem strukturierten API-Pfad wäre dasselbe ein Schema-Enum, der vom Validator erzwungen wird. Trade-off zwischen Chat-Niederschwelligkeit und Output-Härte. Die Architektur-Erklärung dazu liegt im Take-Home (<code>workshop/take-home/api-werkzeug-erklaert.qmd</code>).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1311,7 +1374,7 @@ Figure&nbsp;1
 <li><strong>Worked-Example-Generator:</strong> Spec rein, ausgearbeitete Lösungsbeispiele raus, mit Warnhinweisen an den Misconception-Stellen.</li>
 <li><strong>Misconception-Probe:</strong> Spec rein, Diagnosefragen raus, die genau die antizipierten Misconceptions aktivieren.</li>
 <li><strong>Formative Assessment Generator:</strong> Spec rein, Quiz raus, das alle Wissensbausteine abdeckt und Misconceptions sondiert.</li>
-<li><strong>Knowledge-Tracing-Instrumentierung:</strong> Spec als Q-Matrix für Mastery-Tracking-Systeme.</li>
+<li><strong>Knowledge-Tracing-Instrumentierung:</strong> Spec als Basis für Mastery-Tracking-Systeme.</li>
 </ol>
 </div>
 <p><br></p>

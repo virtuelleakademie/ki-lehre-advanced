@@ -38,3 +38,9 @@ Die Lernenden rechnen in R eine multiple Regression mit zwei Prädiktoren (Lernz
 ## Hinweis zum Umfang
 
 Dieses Spec ist absichtlich knapp gehalten, damit die Form deutlich wird. Für eine echte Lehrplanung würden weitere Skills (Einheit der Koeffizienten, $t$-Test pro Koeffizient, Partial-/Semipartialkorrelation) und weitere Misconceptions (bivariate Signifikanz garantiert multiple Signifikanz, Additivität der Effekte) ergänzt.
+
+## Wie wird das zu einem System-Prompt?
+
+Der nächste Schritt: dieses Spec wird zu einem System-Prompt für ein Chat-LLM. Die Übersetzung ist mechanisch: jede Sektion landet an einer festen Stelle in der [Vorlage](system-prompt-template.md).
+
+Wer es konkret sehen will: das ausgearbeitete Beispiel mit Spec und gerendertem Prompt nebeneinander steht in [Vom Spec zum System-Prompt: das Multiple-Regression-Beispiel](example-multiple-regression-system-prompt.md).
