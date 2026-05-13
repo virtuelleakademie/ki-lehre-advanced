@@ -39,7 +39,7 @@ Eine Slide mit vier nummerierten Einträgen, je eine Zeile:
 3. **Formative Assessment Generator:** Spec rein, Quiz raus, das alle Skills abdeckt und Misconceptions sondiert.
 4. **Knowledge-Tracing-Instrumentierung:** Spec als Q-Matrix für Mastery-Tracking-Systeme.
 
-Pro Eintrag eine kurze Beschreibung. **Nicht vorführen.** Die Skizzen mit Prompt-Vorlagen liegen im [Take-Home: Weitere Werkzeuge](../workshop/take-home/weitere-werkzeuge.qmd). Wer interessiert ist, schaut nach.
+Pro Eintrag eine kurze Beschreibung. **Nicht vorführen.**
 
 ## Persönliche Verpflichtung (5 min)
 

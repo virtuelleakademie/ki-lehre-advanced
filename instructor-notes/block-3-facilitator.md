@@ -61,7 +61,7 @@ Botschaft: dein Spec geht oben rein, eine kalibrierte Antwort kommt unten raus. 
 
 ### Cross-discipline Role-Play
 
-**Das Paar weiss nicht, wie man Lernende spielt.** Eine Karte vor sich legen lassen ([role-play-cards.qmd](../workshop/block-3-multi-tool/role-play-cards.qmd)), eine Misconception aussuchen, in Ich-Form formulieren, dann mit der Spec-Antwort reagieren.
+**Das Paar weiss nicht, wie man Lernende spielt.** Eine Misconception aus B's Spec oder aus den Block-2-Notizen aussuchen, in Ich-Form formulieren, dann mit der Spec-Antwort reagieren.
 
 **B's "Lernende" bricht sofort aus der Rolle.** Häufig wenn die Misconception zu fremd ist. Eine andere Karte oder eine spezifischere Misconception wählen. Im Notfall: A liest ihre eigene Misconception laut vor und B übernimmt sie wörtlich.
 

@@ -81,6 +81,6 @@ Dann: Cross-discipline Role-Play OHNE das Werkzeug. A liest das eigene Spec laut
 
 ## Take-away Satz für Block 3
 
-> Du hast erlebt, dass die Qualität des Werkzeug-Outputs eine Funktion der Qualität deines Specs ist. Wo dein Spec scharf war, war der Output spezifisch. Im Closing ziehen wir die Verallgemeinerung: dasselbe Spec kann verschiedene Werkzeuge treiben, das Spec ist der durable Teil.
+> Du hast erlebt, dass die Qualität des Werkzeug-Outputs eine Funktion der Qualität deines Specs ist. Wo dein Spec scharf war, war der Output spezifisch. Im Closing ziehen wir die Verallgemeinerung: dasselbe Spec kann verschiedene Werkzeuge treiben, das Spec ist der dauerhafte Teil.
 
 Direkt ins Closing überleiten.

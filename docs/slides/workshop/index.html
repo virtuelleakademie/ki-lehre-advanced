@@ -211,30 +211,56 @@
   <script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
   <link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <style>
-  div.callout-pro-tip.callout {
-    border-left-color: #1E3A5F;
+  div.callout-pair.callout {
+    border-left-color: #A63D2F;
   }
-  div.callout-pro-tip.callout-style-default > .callout-header {
-    background-color: rgba(30, 58, 95, 0.13);
+  div.callout-pair.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
   }
-  div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
+  div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\e2ca' !important;
+    content: '\f500' !important;
     background-image: none;
   }
-  div.callout-nachlesen.callout {
+  div.callout-reflect.callout {
     border-left-color: #1E3A5F;
   }
-  div.callout-nachlesen.callout-style-default > .callout-header {
+  div.callout-reflect.callout-style-default > .callout-header {
     background-color: rgba(30, 58, 95, 0.13);
   }
-  div.callout-nachlesen .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-nachlesen.callout-style-default .callout-icon::before, div.callout-nachlesen.callout-titled .callout-icon::before {
+  div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\f518' !important;
+    content: '\f0eb' !important;
+    background-image: none;
+  }
+  div.callout-screens-down.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-screens-down.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f070' !important;
+    background-image: none;
+  }
+  div.callout-setup.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-setup.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f7d9' !important;
     background-image: none;
   }
   div.callout-feedback.callout {
@@ -250,68 +276,6 @@
     content: '\f4ad' !important;
     background-image: none;
   }
-  div.callout-facilitator.callout {
-    border-left-color: #6E6560;
-  }
-  div.callout-facilitator.callout-style-default > .callout-header {
-    background-color: rgba(110, 101, 96, 0.13);
-  }
-  div.callout-facilitator .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-facilitator.callout-style-default .callout-icon::before, div.callout-facilitator.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f46d' !important;
-    background-image: none;
-  }
-  div.callout-schedule.callout {
-    border-left-color: #6E6560;
-  }
-  div.callout-schedule.callout-style-default > .callout-header {
-    background-color: rgba(110, 101, 96, 0.13);
-  }
-  div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f017' !important;
-    background-image: none;
-  }
-  div.callout-fallstudie.callout {
-    border-left-color: #6E6560;
-  }
-  div.callout-fallstudie.callout-style-default > .callout-header {
-    background-color: rgba(110, 101, 96, 0.13);
-  }
-  div.callout-fallstudie .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-fallstudie.callout-style-default .callout-icon::before, div.callout-fallstudie.callout-titled .callout-icon::before {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236E6560" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-  }
-  div.callout-reflect.callout {
-    border-left-color: #1E3A5F;
-  }
-  div.callout-reflect.callout-style-default > .callout-header {
-    background-color: rgba(30, 58, 95, 0.13);
-  }
-  div.callout-reflect .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-reflect.callout-style-default .callout-icon::before, div.callout-reflect.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f0eb' !important;
-    background-image: none;
-  }
-  div.callout-prompt-example.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-prompt-example.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f120' !important;
-    background-image: none;
-  }
   div.callout-group.callout {
     border-left-color: #A63D2F;
   }
@@ -323,58 +287,6 @@
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
     content: '\f0c0' !important;
-    background-image: none;
-  }
-  div.callout-active-processing.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-active-processing.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-active-processing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-active-processing.callout-style-default .callout-icon::before, div.callout-active-processing.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f044' !important;
-    background-image: none;
-  }
-  div.callout-screens-up.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-screens-up.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f06e' !important;
-    background-image: none;
-  }
-  div.callout-prompt-template.callout {
-    border-left-color: #1E3A5F;
-  }
-  div.callout-prompt-template.callout-style-default > .callout-header {
-    background-color: rgba(30, 58, 95, 0.13);
-  }
-  div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f328' !important;
-    background-image: none;
-  }
-  div.callout-export.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-export.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f56e' !important;
     background-image: none;
   }
   div.callout-individual.callout {
@@ -390,17 +302,196 @@
     content: '\f007' !important;
     background-image: none;
   }
-  div.callout-break.callout {
+  div.callout-timing.callout {
     border-left-color: #6E6560;
   }
-  div.callout-break.callout-style-default > .callout-header {
+  div.callout-timing.callout-style-default > .callout-header {
     background-color: rgba(110, 101, 96, 0.13);
   }
-  div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
+  div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\f7b6' !important;
+    content: '\f2f2' !important;
+    background-image: none;
+  }
+  div.callout-prompt-example.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-prompt-example.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-prompt-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-prompt-example.callout-style-default .callout-icon::before, div.callout-prompt-example.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f120' !important;
+    background-image: none;
+  }
+  div.callout-export.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-export.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-export .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-export.callout-style-default .callout-icon::before, div.callout-export.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f56e' !important;
+    background-image: none;
+  }
+  div.callout-facilitator.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-facilitator.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-facilitator .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-facilitator.callout-style-default .callout-icon::before, div.callout-facilitator.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f46d' !important;
+    background-image: none;
+  }
+  div.callout-testing.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-testing.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\e4f3' !important;
+    background-image: none;
+  }
+  div.callout-pro-tip.callout {
+    border-left-color: #1E3A5F;
+  }
+  div.callout-pro-tip.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
+  }
+  div.callout-pro-tip .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-pro-tip.callout-style-default .callout-icon::before, div.callout-pro-tip.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\e2ca' !important;
+    background-image: none;
+  }
+  div.callout-prompt-template.callout {
+    border-left-color: #1E3A5F;
+  }
+  div.callout-prompt-template.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
+  }
+  div.callout-prompt-template .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-prompt-template.callout-style-default .callout-icon::before, div.callout-prompt-template.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f328' !important;
+    background-image: none;
+  }
+  div.callout-fallstudie.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-fallstudie.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-fallstudie .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-fallstudie.callout-style-default .callout-icon::before, div.callout-fallstudie.callout-titled .callout-icon::before {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236E6560" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+  }
+  div.callout-screens-up.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-screens-up.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-screens-up .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-screens-up.callout-style-default .callout-icon::before, div.callout-screens-up.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f06e' !important;
+    background-image: none;
+  }
+  div.callout-schedule.callout {
+    border-left-color: #6E6560;
+  }
+  div.callout-schedule.callout-style-default > .callout-header {
+    background-color: rgba(110, 101, 96, 0.13);
+  }
+  div.callout-schedule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-schedule.callout-style-default .callout-icon::before, div.callout-schedule.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f017' !important;
+    background-image: none;
+  }
+  div.callout-active-processing.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-active-processing.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-active-processing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-active-processing.callout-style-default .callout-icon::before, div.callout-active-processing.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f044' !important;
+    background-image: none;
+  }
+  div.callout-tutor-example.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-tutor-example.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f086' !important;
+    background-image: none;
+  }
+  div.callout-nachlesen.callout {
+    border-left-color: #1E3A5F;
+  }
+  div.callout-nachlesen.callout-style-default > .callout-header {
+    background-color: rgba(30, 58, 95, 0.13);
+  }
+  div.callout-nachlesen .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-nachlesen.callout-style-default .callout-icon::before, div.callout-nachlesen.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f518' !important;
+    background-image: none;
+  }
+  div.callout-caution.callout {
+    border-left-color: #B8821A;
+  }
+  div.callout-caution.callout-style-default > .callout-header {
+    background-color: rgba(184, 130, 26, 0.13);
+  }
+  div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f071' !important;
+    background-image: none;
+  }
+  div.callout-try.callout {
+    border-left-color: #A63D2F;
+  }
+  div.callout-try.callout-style-default > .callout-header {
+    background-color: rgba(166, 61, 47, 0.13);
+  }
+  div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
+    font-family: 'Font Awesome 6 Free', FontAwesome;
+    font-style: normal;
+    content: '\f021' !important;
     background-image: none;
   }
   div.callout-checkpoint.callout {
@@ -429,108 +520,17 @@
     content: '\f0c3' !important;
     background-image: none;
   }
-  div.callout-screens-down.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-screens-down.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-screens-down .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-screens-down.callout-style-default .callout-icon::before, div.callout-screens-down.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f070' !important;
-    background-image: none;
-  }
-  div.callout-try.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-try.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-try .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-try.callout-style-default .callout-icon::before, div.callout-try.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f021' !important;
-    background-image: none;
-  }
-  div.callout-caution.callout {
-    border-left-color: #B8821A;
-  }
-  div.callout-caution.callout-style-default > .callout-header {
-    background-color: rgba(184, 130, 26, 0.13);
-  }
-  div.callout-caution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-caution.callout-style-default .callout-icon::before, div.callout-caution.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f071' !important;
-    background-image: none;
-  }
-  div.callout-pair.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-pair.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-pair .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-pair.callout-style-default .callout-icon::before, div.callout-pair.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f500' !important;
-    background-image: none;
-  }
-  div.callout-tutor-example.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-tutor-example.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-tutor-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-tutor-example.callout-style-default .callout-icon::before, div.callout-tutor-example.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f086' !important;
-    background-image: none;
-  }
-  div.callout-timing.callout {
+  div.callout-break.callout {
     border-left-color: #6E6560;
   }
-  div.callout-timing.callout-style-default > .callout-header {
+  div.callout-break.callout-style-default > .callout-header {
     background-color: rgba(110, 101, 96, 0.13);
   }
-  div.callout-timing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-timing.callout-style-default .callout-icon::before, div.callout-timing.callout-titled .callout-icon::before {
+  div.callout-break .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+  div.callout-break.callout-style-default .callout-icon::before, div.callout-break.callout-titled .callout-icon::before {
     font-family: 'Font Awesome 6 Free', FontAwesome;
     font-style: normal;
-    content: '\f2f2' !important;
-    background-image: none;
-  }
-  div.callout-testing.callout {
-    border-left-color: #A63D2F;
-  }
-  div.callout-testing.callout-style-default > .callout-header {
-    background-color: rgba(166, 61, 47, 0.13);
-  }
-  div.callout-testing .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-testing.callout-style-default .callout-icon::before, div.callout-testing.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\e4f3' !important;
-    background-image: none;
-  }
-  div.callout-setup.callout {
-    border-left-color: #6E6560;
-  }
-  div.callout-setup.callout-style-default > .callout-header {
-    background-color: rgba(110, 101, 96, 0.13);
-  }
-  div.callout-setup .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-  div.callout-setup.callout-style-default .callout-icon::before, div.callout-setup.callout-titled .callout-icon::before {
-    font-family: 'Font Awesome 6 Free', FontAwesome;
-    font-style: normal;
-    content: '\f7d9' !important;
+    content: '\f7b6' !important;
     background-image: none;
   }
   </style>
@@ -1222,73 +1222,71 @@ Beim Arbeiten in Block 2 immer fragen: *In welcher Rolle ist das LLM gerade?*
           display:block!important;
       }</style></aside>
 </section></section>
-<section>
 <section id="block-3" class="title-slide slide level1 center section-divider section-navy">
 <h1>Block 3: Spec → Prompt → Test</h1>
+<!-- ## Spec → Prompt ist mechanisch {.smaller}
 
-</section>
-<section id="spec-prompt-ist-mechanisch" class="slide level2 smaller">
-<h2>Spec → Prompt ist mechanisch</h2>
-<p><br></p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Aus deinem Spec Sheet</strong></p>
-<ul>
-<li>Sektion 2 (Wissensbausteine, gruppiert nach Typ)</li>
-<li>Sektion 3 (Fehlkonzepte, in Ich-Form)</li>
-<li>“Was schiefgeht”-Sätze pro Baustein</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><strong>Wird zum System-Prompt</strong></p>
-<ul>
-<li>“Wissensbausteine, die diese Teilaufgabe verlangt: […]”</li>
-<li>“Wahrscheinliche Fehlkonzepte: […]”</li>
-<li>Verhaltensregeln (“erfinde nichts ausserhalb dieser Listen”: <em>soft constraint</em>)</li>
-</ul>
-</div></div>
-<p><br></p>
-<div style="text-align: center; font-size: 1.0em; color: #D55E00; font-weight: bold;">
-<p>Wo dein Spec vage ist, fällt der Prompt schwer. Genau das ist die Lehre aus Block 3.</p>
-</div>
-<p><br></p>
-<div style="text-align: center; font-size: 0.9em; color: #6E6560;">
-<p>Konkretes Vorher/Nachher: <a href="../../workshop/spec-sheet-template/example-multiple-regression-system-prompt.html" target="_blank">Vom Spec zum System-Prompt (Multiple Regression)</a></p>
-</div>
-<aside class="notes">
-<p>~2 Min. Mechanik vorführen am Statistik-Beispiel aus Block 1. Den Link am Folienfuss aufrufen: dort liegt das ausgearbeitete Vorher/Nachher mit dem Multiple-Regression-Spec oben und dem gerenderten diagnostischen Prompt unten, copy-paste-fähig. Die Stelle hervorheben, an der eine Klammer im Template noch nicht im Spec Sheet abgedeckt ist (etwa die “Was schiefgeht”-Sätze, die im Spec implizit, im Prompt explizit sind). Beim “erfinde nichts” einmal explizit sagen: das ist eine Bitte an das Modell, kein erzwungener Constraint. In einem strukturierten API-Pfad wäre dasselbe ein Schema-Enum, der vom Validator erzwungen wird. Trade-off zwischen Chat-Niederschwelligkeit und Output-Härte. Die Architektur-Erklärung dazu liegt im Take-Home (<code>workshop/take-home/api-werkzeug-erklaert.qmd</code>).</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="test-protokoll-drei-mögliche-ausgänge" class="slide level2 smaller">
-<h2>Test-Protokoll: drei mögliche Ausgänge</h2>
-<p>Wähle einen Baustein aus deiner Spec, den du als <strong>B (beobachtet)</strong> markiert hast. Gib die zugehörige Lernenden-Antwort ans Werkzeug.</p>
-<div class="fig-diagram" aria-label="Test-Protokoll: drei mögliche Ausgänge eines Tests, mit Rückkopplungen zum Spec Sheet beziehungsweise Prompt">
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div id="fig-test-protokoll" class="quarto-float quarto-figure quarto-figure-center">
-<figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-test-protokoll-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div>
-<pre class="mermaid mermaid-js" data-label="fig-test-protokoll">%%{init: {'theme':'base', 'themeVariables': {'fontFamily':'Space Grotesk, -apple-system, sans-serif', 'fontSize':'14px'}}}%%
+<br>
+
+::::{.columns}
+:::{.column width="50%"}
+**Aus deinem Spec Sheet**
+
+- Sektion 2 (Wissensbausteine, gruppiert nach Typ)
+- Sektion 3 (Fehlkonzepte, in Ich-Form)
+- "Was schiefgeht"-Sätze pro Baustein
+:::
+
+:::{.column width="50%"}
+**Wird zum System-Prompt**
+
+- "Wissensbausteine, die diese Teilaufgabe verlangt: [...]"
+- "Wahrscheinliche Fehlkonzepte: [...]"
+- Verhaltensregeln ("erfinde nichts ausserhalb dieser Listen": *soft constraint*)
+:::
+::::
+
+<br>
+
+::: {style="text-align: center; font-size: 1.0em; color: #D55E00; font-weight: bold;"}
+Wo dein Spec vage ist, fällt der Prompt schwer. Genau das ist die Lehre aus Block 3.
+:::
+
+<br>
+
+::: {style="text-align: center; font-size: 0.9em; color: #6E6560;"}
+Konkretes Vorher/Nachher: [Vom Spec zum System-Prompt (Multiple Regression)](../../workshop/spec-sheet-template/example-multiple-regression-system-prompt.md){target="_blank"}
+:::
+
+::: {.notes}
+~2 Min. Mechanik vorführen am Statistik-Beispiel aus Block 1. Den Link am Folienfuss aufrufen: dort liegt das ausgearbeitete Vorher/Nachher mit dem Multiple-Regression-Spec oben und dem gerenderten diagnostischen Prompt unten, copy-paste-fähig. Die Stelle hervorheben, an der eine Klammer im Template noch nicht im Spec Sheet abgedeckt ist (etwa die "Was schiefgeht"-Sätze, die im Spec implizit, im Prompt explizit sind). Beim "erfinde nichts" einmal explizit sagen: das ist eine Bitte an das Modell, kein erzwungener Constraint. In einem strukturierten API-Pfad wäre dasselbe ein Schema-Enum, der vom Validator erzwungen wird. Trade-off zwischen Chat-Niederschwelligkeit und Output-Härte. Die Architektur-Erklärung dazu liegt im Take-Home (`workshop/take-home/api-werkzeug-erklaert.qmd`).
+::: -->
+<!-- ## Test-Protokoll: drei mögliche Ausgänge {.smaller}
+
+Wähle einen Baustein aus deiner Spec, den du als **B (beobachtet)** markiert hast. Gib die zugehörige Lernenden-Antwort ans Werkzeug.
+
+::: {.fig-diagram aria-label="Test-Protokoll: drei mögliche Ausgänge eines Tests, mit Rückkopplungen zum Spec Sheet beziehungsweise Prompt"}
+
+
+::::::{.cell reveal=true layout-align="default"}
+
+:::::{.cell-output-display}
+
+::::{#fig-test-protokoll}
+
+:::{}
+
+<pre class="mermaid mermaid-js" data-label="fig-test-protokoll">%%{init: {&#39;theme&#39;:&#39;base&#39;, &#39;themeVariables&#39;: {&#39;fontFamily&#39;:&#39;Space Grotesk, -apple-system, sans-serif&#39;, &#39;fontSize&#39;:&#39;14px&#39;}}}%%
 flowchart TD
-  Test["Test mit bekannter&lt;br&gt;Studierenden-Antwort"]
+  Test[&quot;Test mit bekannter&lt;br&gt;Studierenden-Antwort&quot;]
 
-  Test --&gt; Pass["&lt;b&gt;Pass&lt;/b&gt;&lt;br&gt;Erwarteter Baustein,&lt;br&gt;plausible Stelle zitiert"]
-  Test --&gt; Soft["&lt;b&gt;Fail soft&lt;/b&gt;&lt;br&gt;Anderer Baustein&lt;br&gt;oder generisch"]
-  Test --&gt; Hard["&lt;b&gt;Fail hard&lt;/b&gt;&lt;br&gt;Erfundener Baustein,&lt;br&gt;nicht in Spec"]
+  Test --&gt; Pass[&quot;&lt;b&gt;Pass&lt;/b&gt;&lt;br&gt;Erwarteter Baustein,&lt;br&gt;plausible Stelle zitiert&quot;]
+  Test --&gt; Soft[&quot;&lt;b&gt;Fail soft&lt;/b&gt;&lt;br&gt;Anderer Baustein&lt;br&gt;oder generisch&quot;]
+  Test --&gt; Hard[&quot;&lt;b&gt;Fail hard&lt;/b&gt;&lt;br&gt;Erfundener Baustein,&lt;br&gt;nicht in Spec&quot;]
 
-  Pass --&gt; PassEnd["Spec hat funktioniert"]
-  Soft -.-&gt;|"zurück zum Spec"| SoftAct["'Was schiefgeht' schärfen"]
-  Hard -.-&gt;|"zurück zum Prompt"| HardAct["Anderes Modell&lt;br&gt;oder Klausel verstärken"]
+  Pass --&gt; PassEnd[&quot;Spec hat funktioniert&quot;]
+  Soft -.-&gt;|&quot;zurück zum Spec&quot;| SoftAct[&quot;&#39;Was schiefgeht&#39; schärfen&quot;]
+  Hard -.-&gt;|&quot;zurück zum Prompt&quot;| HardAct[&quot;Anderes Modell&lt;br&gt;oder Klausel verstärken&quot;]
 
   classDef test fill:#F5F0E8,stroke:#6E6560,stroke-width:1.5px,color:#1A1714,rx:6,ry:6
   classDef pass fill:#1E3A5F,stroke:#1E3A5F,color:#ffffff,rx:6,ry:6
@@ -1307,33 +1305,23 @@ flowchart TD
   linkStyle 4 stroke:#B8821A,stroke-width:1.5px,stroke-dasharray:4 3
   linkStyle 5 stroke:#A63D2F,stroke-width:1.5px,stroke-dasharray:4 3
 </pre>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-test-protokoll-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div style="text-align: center; font-size: 0.9em; color: #6E6560; max-width: 85%; margin: 0.4em auto 0;">
-<p>Pass / Fail soft / Fail hard. Fail soft zeigt zurück zum Spec Sheet, Fail hard zeigt zurück zum Prompt: bleibt aber im Chat-Pfad nicht voll eliminierbar (siehe Nachlesen).</p>
-</div>
-<aside class="notes">
-<p><strong>Nicht Teil des Block-3-Live-Tests.</strong> Im redesignten Workshop ist der Test auf eine pragmatische Frage reduziert: <em>Stimmt der Output mit dem überein, was deine echten Lernenden tun?</em> Die Drei-Ausgänge-Heuristik (Pass / Fail soft / Fail hard) bleibt im Block 3 Nachlesen-Tab als historische Referenz dokumentiert. Diese Folie bleibt im Deck als visuelle Erläuterung, falls eine Lehrperson die Heuristik in einer längeren Variante des Workshops erklären möchte.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
+:::
+::::
+:::::
+::::::
+
+:::
+
+
+::: {style="text-align: center; font-size: 0.9em; color: #6E6560; max-width: 85%; margin: 0.4em auto 0;"}
+Pass / Fail soft / Fail hard. Fail soft zeigt zurück zum Spec Sheet, Fail hard zeigt zurück zum Prompt: bleibt aber im Chat-Pfad nicht voll eliminierbar (siehe Nachlesen).
+:::
+
+::: {.notes}
+**Nicht Teil des Block-3-Live-Tests.** Im redesignten Workshop ist der Test auf eine pragmatische Frage reduziert: *Stimmt der Output mit dem überein, was deine echten Lernenden tun?* Die Drei-Ausgänge-Heuristik (Pass / Fail soft / Fail hard) bleibt im Block 3 Nachlesen-Tab als historische Referenz dokumentiert. Diese Folie bleibt im Deck als visuelle Erläuterung, falls eine Lehrperson die Heuristik in einer längeren Variante des Workshops erklären möchte.
+::: -->
+</section>
+
 <section>
 <section id="closing" class="title-slide slide level1 center section-divider section-muted">
 <h1>Closing</h1>
@@ -1377,12 +1365,8 @@ Figure&nbsp;1
 <li><strong>Knowledge-Tracing-Instrumentierung:</strong> Spec als Basis für Mastery-Tracking-Systeme.</li>
 </ol>
 </div>
-<p><br></p>
-<div style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold;">
-<p>Skizzen mit Prompt-Vorlagen findest du im Take-Home.</p>
-</div>
 <aside class="notes">
-<p>~5 Min. Pro Eintrag etwa eine Minute. <strong>Nicht vorführen</strong>, nur benennen. Die ausgearbeiteten Skizzen mit Prompt-Vorlagen liegen unter <code>workshop/take-home/weitere-werkzeuge.qmd</code>. Botschaft: das Spec, das du heute geschrieben hast, ist nicht an das Block-3-Werkzeug gebunden. Es ist die dauerhafte Substanz, mit der du in den nächsten Wochen weiterarbeiten kannst, in welchem Werkzeug auch immer.</p>
+<p>~5 Min. Pro Eintrag etwa eine Minute. <strong>Nicht vorführen</strong>, nur benennen. Botschaft: das Spec, das du heute geschrieben hast, ist nicht an das Block-3-Werkzeug gebunden. Es ist die dauerhafte Substanz, mit der du in den nächsten Wochen weiterarbeiten kannst, in welchem Werkzeug auch immer.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1394,142 +1378,33 @@ Figure&nbsp;1
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-<section id="falsifikationsnotiz-was-würde-dich-widerlegen" class="slide level2 smaller">
-<h2>Falsifikationsnotiz: was würde dich widerlegen?</h2>
-<p><br></p>
-<div style="font-size: 1.1em; max-width: 85%; margin: 0 auto; line-height: 1.5;">
-<p>Wähle einen Wissensbaustein aus Sektion 2, den du als zentral einschätzt.</p>
-<p>Schreibe <strong>einen Satz</strong>: welches Verhalten von Lernenden würde dir zeigen, dass deine Decomposition für diesen Baustein falsch ist?</p>
-<p>→ Sektion 4 (Take-Home) deines Spec Sheets.</p>
-</div>
-<p><br></p>
-<div style="background: rgba(30, 58, 95, 0.06); padding: 1.0em; border-radius: 8px; max-width: 80%; margin: 0 auto; font-style: italic; font-size: 0.95em;">
-<p>Beispiel: “Wenn Lernende, die ich klar als kompetente Korrelationsinterpretiererinnen einschätze, an dieser Teilaufgabe systematisch scheitern, dann ist Baustein 3 nicht das, was diese Aufgabe wirklich testet.”</p>
-</div>
-<p><br></p>
-<div style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold;">
-<p>Ohne diese Notiz bleibt das Spec Sheet eine plausible Hypothese ohne Bedingungen, unter denen du sie aufgeben würdest.</p>
-</div>
-<aside class="notes">
-<p><strong>Nicht mehr Teil des 15-min Closings.</strong> Im redesignten Workshop ist die Falsifikationsnotiz Take-Home-Hausaufgabe (siehe <code>workshop/take-home/index.qmd</code>). Diese Folie bleibt als visuelle Referenz im Foliensatz für Lehrpersonen, die das Konzept on the fly einführen oder im Closing optional ansprechen wollen (1-2 Min, kein Eigenarbeitsanteil mehr).</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="selbst-tun-vs.-zuschauen" class="slide level2 smaller">
-<h2>Selbst-Tun vs.&nbsp;Zuschauen</h2>
-<p>Markiere jeden Baustein in deiner Sektion 2 mit einem Tag:</p>
-<div class="fig-diagram" aria-label="Zwei Panels nebeneinander. Links Selbst-Tun: ein Pfeil mit Aktions-Label führt zu einer veränderten Lernerin-Form. Rechts Zuschauen: ein gestrichelter Pfeil mit Beobachtungs-Label führt zu einer unveränderten Lernerin-Form.">
-<svg viewbox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="selbst-tun-title selbst-tun-desc">
-  <title id="selbst-tun-title">Selbst-Tun vs. Zuschauen</title>
-  <desc id="selbst-tun-desc">Links: das Selbst-Tun-Panel mit einem soliden Pfeil von der Ausgangs-Lernerin zur veränderten Lernerin (Wissen ändert sich). Rechts: das Zuschauen-Panel mit einem gestrichelten Beobachtungs-Pfeil zwischen zwei identischen Lernerin-Formen (Wissen weitgehend unverändert).</desc>
+<!-- ## Falsifikationsnotiz: was würde dich widerlegen? {.smaller}
 
-  <!-- =================== LEFT PANEL: Selbst-Tun =================== -->
-  <g class="panel-left">
-    <text x="170" y="44" font-size="16" font-weight="600" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-spec)">
-      Selbst-Tun
-    </text>
+<br>
 
-    <!-- Lernerin vorher: outline circle -->
-    <circle cx="80" cy="170" r="34" fill="none" stroke="var(--diagram-neutral)" stroke-width="1.5"></circle>
-    <text x="80" y="174" font-size="11" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
-      Lernerin
-    </text>
-    <text x="80" y="222" font-size="10" text-anchor="middle" font-style="italic" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
-      vorher
-    </text>
+::: {style="font-size: 1.1em; max-width: 85%; margin: 0 auto; line-height: 1.5;"}
+Wähle einen Wissensbaustein aus Sektion 2, den du als zentral einschätzt.
 
-    <!-- Solid arrow with "Aktion" label -->
-    <line x1="124" y1="170" x2="220" y2="170" stroke="var(--diagram-spec)" stroke-width="2" stroke-linecap="round"></line>
-    <polygon points="218,164 233,170 218,176" fill="var(--diagram-spec)"></polygon>
-    <text x="174" y="156" font-size="12" font-weight="600" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-spec)">
-      Aktion
-    </text>
+Schreibe **einen Satz**: welches Verhalten von Lernenden würde dir zeigen, dass deine Decomposition für diesen Baustein falsch ist?
 
-    <!-- Lernerin nachher: filled circle (changed) -->
-    <circle cx="270" cy="170" r="38" fill="var(--diagram-spec)" stroke="var(--diagram-spec)" stroke-width="1.5"></circle>
-    <text x="270" y="167" font-size="11" text-anchor="middle" font-family="var(--diagram-font-family)" fill="#ffffff">
-      Lernerin
-    </text>
-    <text x="270" y="180" font-size="11" text-anchor="middle" font-family="var(--diagram-font-family)" fill="#ffffff">
-      ′
-    </text>
-    <text x="270" y="222" font-size="10" text-anchor="middle" font-style="italic" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
-      verändert
-    </text>
+→ Sektion 4 (Take-Home) deines Spec Sheets.
+:::
 
-    <!-- Bottom takeaway -->
-    <text x="170" y="280" font-size="13" font-weight="500" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-spec)">
-      Wissen ändert sich
-    </text>
-  </g>
+<br>
 
-  <!-- Vertical separator -->
-  <line x1="360" y1="60" x2="360" y2="290" stroke="var(--diagram-neutral)" stroke-width="0.8" stroke-dasharray="2 4" opacity="0.4"></line>
+::: {style="background: rgba(30, 58, 95, 0.06); padding: 1.0em; border-radius: 8px; max-width: 80%; margin: 0 auto; font-style: italic; font-size: 0.95em;"}
+Beispiel: "Wenn Lernende, die ich klar als kompetente Korrelationsinterpretiererinnen einschätze, an dieser Teilaufgabe systematisch scheitern, dann ist Baustein 3 nicht das, was diese Aufgabe wirklich testet."
+:::
 
-  <!-- =================== RIGHT PANEL: Zuschauen =================== -->
-  <g class="panel-right">
-    <text x="540" y="44" font-size="16" font-weight="600" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
-      Zuschauen
-    </text>
+<br>
 
-    <!-- Lernerin vorher: outline circle -->
-    <circle cx="450" cy="170" r="34" fill="none" stroke="var(--diagram-neutral)" stroke-width="1.5"></circle>
-    <text x="450" y="174" font-size="11" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
-      Lernerin
-    </text>
-    <text x="450" y="222" font-size="10" text-anchor="middle" font-style="italic" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
-      vorher
-    </text>
+::: {style="text-align: center; font-size: 0.95em; color: #1E3A5F; font-weight: bold;"}
+Ohne diese Notiz bleibt das Spec Sheet eine plausible Hypothese ohne Bedingungen, unter denen du sie aufgeben würdest.
+:::
 
-    <!-- Dashed arrow with "Beobachtung" label -->
-    <line x1="494" y1="170" x2="590" y2="170" stroke="var(--diagram-neutral)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4"></line>
-    <polygon points="588,164 603,170 588,176" fill="var(--diagram-neutral)"></polygon>
-    <text x="544" y="156" font-size="12" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
-      Beobachtung
-    </text>
-
-    <!-- Lernerin nachher: SAME outline circle (unchanged) -->
-    <circle cx="640" cy="170" r="34" fill="none" stroke="var(--diagram-neutral)" stroke-width="1.5"></circle>
-    <text x="640" y="174" font-size="11" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
-      Lernerin
-    </text>
-    <text x="640" y="222" font-size="10" text-anchor="middle" font-style="italic" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
-      kaum verändert
-    </text>
-
-    <!-- Bottom takeaway -->
-    <text x="540" y="280" font-size="13" font-weight="500" text-anchor="middle" font-family="var(--diagram-font-family)" fill="var(--diagram-neutral)">
-      Wissen weitgehend gleich
-    </text>
-  </g>
-</svg>
-</div>
-<div style="font-size: 0.85em; max-width: 92%; margin: 0.3em auto 0;">
-<p><strong>Entscheidungsregel aus Block 1:</strong> Typ : Mechanismus : Operation : was die KI ersetzen darf. Faktenwissen, Klassifikationswissen, Erklärungswissen sind <em>meist</em> Selbst-Tun, weil die KI die jeweilige Operation nicht für die Lernende leisten kann. Hilfsschritte sind oft Zuschauen-erlaubt. Staging zählt: was bei einer Anfängerin Selbst-Tun ist, kann bei einer Fortgeschrittenen Zuschauen-reicht sein.</p>
-</div>
-<aside class="notes">
-<p><strong>Nicht mehr Teil des 15-min Closings.</strong> Im redesignten Workshop ist das Selbst-Tun-vs-Zuschauen-Tagging Take-Home-Hausaufgabe (siehe <code>workshop/take-home/index.qmd</code>). Diese Folie bleibt als visuelle Referenz im Foliensatz; falls sie im Closing optional gezeigt wird, dann höchstens als 1-Min-Hinweis (“ihr werdet dies zuhause anwenden”), keine Eigenarbeit mehr.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+::: {.notes}
+**Nicht mehr Teil des 15-min Closings.** Im redesignten Workshop ist die Falsifikationsnotiz Take-Home-Hausaufgabe (siehe `workshop/take-home/index.qmd`). Diese Folie bleibt als visuelle Referenz im Foliensatz für Lehrpersonen, die das Konzept on the fly einführen oder im Closing optional ansprechen wollen (1-2 Min, kein Eigenarbeitsanteil mehr).
+::: -->
 </section>
 <section id="spec-ist-bereits-eine-datenstruktur" class="slide level2 smaller">
 <h2>Spec ist bereits eine Datenstruktur</h2>

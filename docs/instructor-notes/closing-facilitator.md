@@ -16,7 +16,7 @@ Internes Dokument für die Workshop-Leitung. Ergänzt die in-page Moderationshin
 
 ## Eröffnung Closing
 
-> Drei Stunden haben wir an einer Teilaufgabe deiner Lehre gearbeitet. Was ihr in der Hand habt, ist nicht ein Workshop-Notiz, sondern ein durabler Artefakt. Wir schliessen mit drei Bewegungen: eine Verallgemeinerung, eine Aussicht auf weitere Einsätze, eine Verpflichtung.
+> Drei Stunden haben wir an einer Teilaufgabe deiner Lehre gearbeitet. Was ihr in der Hand habt, ist nicht ein Workshop-Notiz, sondern ein dauerhaftes Artefakt. Wir schliessen mit drei Bewegungen: eine Verallgemeinerung, eine Aussicht auf weitere Einsätze, eine Verpflichtung.
 
 Direkt zur Leitsatz-Slide.
 
@@ -24,7 +24,7 @@ Direkt zur Leitsatz-Slide.
 
 Wortlaut verbatim, mit Pausen:
 
-> *Das Spec ist durabel, das Werkzeug ist Rendering. Dieselbe Spezifikation kann ein Scaffolding-Tool, eine Lernende-Simulation oder einen Diagnosetest treiben. Wenn nächstes Jahr ein neues Modell oder Tool kommt, bleibt das Spec gleich.*
+> *Das Spec ist dauerhaft, das Werkzeug ist Rendering. Dieselbe Spezifikation kann ein Scaffolding-Tool, eine Lernende-Simulation oder einen Diagnosetest treiben. Wenn nächstes Jahr ein neues Modell oder Tool kommt, bleibt das Spec gleich.*
 
 Eine 5-Sekunden-Pause halten. Dann:
 
